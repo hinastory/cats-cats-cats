@@ -8,7 +8,7 @@ subtitle: 射は圏よりも強し
 description:
 keywords:
 author: hinastory
-language:
+language: ja
 timezone:
 
 # URL
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: icarus-hinastory
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,3 +81,17 @@ deploy:
 #  type: git
 #  repo: https://github.com/hinastory/cats-cats-cats.git
 #  branch: master
+
+toc:
+  maxdepth: 3
+  class: toc
+  slugify: uslug
+  indent: true
+  firstHeaderTagSkip: true
+  anchor:
+    contents:
+      style: contents-header
+    heading:
+      style: header-anchor
+      notIncludeHeading: true
+

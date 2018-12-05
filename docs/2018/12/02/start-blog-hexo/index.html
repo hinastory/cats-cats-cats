@@ -1,227 +1,777 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+    <meta charset="utf-8">
+<title>Hexoでブログに再入門 - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <title>Hexoでブログに再入門 | cats cats cats</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Advent Calendar用に久々にブログを立てて見ました。以前にパブリックに書いたのは多分10年以上前のような気がします。レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・ まぁ、過去のことは置いておいてせっかく立てたので何か役立ちそうなことをメモしていきます。とりあえず今回このブログは、Hexoを使って立ててみました。Hexoはブログ">
-<meta name="keywords" content="Hexo,IT">
+
+
+    <meta name="description" content="Advent Calendar用に久々にブログを立てて見ました。以前にパブリックに書いたのは多分10年以上前のような気がします。レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・ まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。">
+<meta name="keywords" content="Hexo,Web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexoでブログに再入門">
 <meta property="og:url" content="http://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/index.html">
 <meta property="og:site_name" content="cats cats cats">
-<meta property="og:description" content="Advent Calendar用に久々にブログを立てて見ました。以前にパブリックに書いたのは多分10年以上前のような気がします。レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・ まぁ、過去のことは置いておいてせっかく立てたので何か役立ちそうなことをメモしていきます。とりあえず今回このブログは、Hexoを使って立ててみました。Hexoはブログ">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-02T16:27:37.384Z">
+<meta property="og:description" content="Advent Calendar用に久々にブログを立てて見ました。以前にパブリックに書いたのは多分10年以上前のような気がします。レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・ まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="http://hinastory.github.io/images/undefined">
+<meta property="og:updated_time" content="2018-12-09T02:12:05.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexoでブログに再入門">
-<meta name="twitter:description" content="Advent Calendar用に久々にブログを立てて見ました。以前にパブリックに書いたのは多分10年以上前のような気がします。レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・ まぁ、過去のことは置いておいてせっかく立てたので何か役立ちそうなことをメモしていきます。とりあえず今回このブログは、Hexoを使って立ててみました。Hexoはブログ">
-  
-    <link rel="alternate" href="/cats-cats-cats/atom.xml" title="cats cats cats" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+<meta name="twitter:description" content="Advent Calendar用に久々にブログを立てて見ました。以前にパブリックに書いたのは多分10年以上前のような気がします。レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・ まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。">
+<meta name="twitter:image" content="http://hinastory.github.io/images/undefined">
+
+
+
+
+
+<link rel="icon" href="/cats-cats-cats/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/cats-cats-cats/" id="logo">cats cats cats</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/cats-cats-cats/" id="subtitle">射は圏よりも強し</a>
-        </h2>
-      
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/cats-cats-cats-logo.png" alt="Hexoでブログに再入門">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/cats-cats-cats/">Home</a>
-        
-          <a class="main-nav-link" href="/cats-cats-cats/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/cats-cats-cats/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hinastory.github.io/cats-cats-cats"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-start-blog-hexo" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" class="article-date">
-  <time datetime="2018-12-02T14:02:58.000Z" itemprop="datePublished">2018-12-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/cats-cats-cats/categories/IT/">IT</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hexoでブログに再入門
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Advent Calendar用に久々にブログを立てて見ました。<br>以前にパブリックに書いたのは多分10年以上前のような気がします。<br>レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・</p>
-<p>まぁ、過去のことは置いておいてせっかく立てたので何か役立ちそうなことをメモしていきます。<br>とりあえず今回このブログは、<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>を使って立ててみました。<br>Hexoはブログを書くためのフレームワークですが、WordPressのような従来型のブログサービスとの一番の違いは、静的にブログを生成するか、動的に生成するかです。</p>
-<p>Hexoは静的サイトジェネレータというツールに分類されていて、あらかじめ用意したブログのテキストや画像等から、ブログの表示に必要なHTML,CSS,JavaScriptを生成してくれます。Hexoがやってくれるのはここまでで、あとはHexoが生成したファイルをお好みのWebサーバに公開すればブログが表示されると言う仕組みです。<br>WordPressはこれとは違い、Webにアクセスが来るごとにWebページをサーバサイドで動的に生成してブラウザに返しています。</p>
-<p>どちらにも一長一短があって、静的サイトジェネレータの良いところはローカルで確認してから、チェックが完了してからWeb公開できる点です。このローカルで確認できると言うのはすごい強みで、画像のアップロードも不要だし、テキストやCSSの修正も手元で直してすぐ確認できると言うのが非常に心地いいです。<br>これが動的サイトだと一度サーバにアップロードして確認と言う手間が一つ入るため、色々と面倒臭くなります。</p>
-<p>また、静的サイトジェネレータの場合、サイトの生成に必要なファイルは必然的に手元で管理することになるので、Gitなどのバージョン管理システムと相性が良いです。これは非常に安心感があって、こまめにコミットしておけば様々な理由による『ブログの消失』を未然に防ぐことができます。動的サイトの場合も手元にファイル等の形で残しておけば、バージョン管理することができますが、ちょこっとした修正をサーバにアップロードして、バージョン管理用ファイルに反映し忘れるという事故が起き易いです。</p>
-<p>このようにHexoのような静的サイトジェネレータ型のブログツールには利点がたくさんあるのですが、もちろん欠点もあります。<br>簡単に言えば、非エンジニアにはハードルが高いということです。<br>例えば、Hexoのトップページには以下のコマンドが載っています。</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-<p>これを見て「簡単そうだな、やってみようかな」と思える人は世の中に1%もいないと思います。<br>もちろん現役のWebフロントエンドエンジニアなら、これを見てお湯を注いだカップラーメンができるより早くブログサイトを構築できるでしょう。<br>つまり、現在のところ静的サイトジェネレータはGitが分かるフロントエンドエンジニアにとって、非常に使い易いツールだけど、<br>それ以外の人は、まぁ覚悟して取り組んでくださいとしか言いようがないですね。。。</p>
-<p>あと当然ですが、静的サイトジェネレータにはサーバサイドという概念がないのでRDBと連携して、大量データの検索とかテーブルの結合とかそういった処理もできません。このような場合は素直に動的サイトにしたりSPAを検討した方が良いでしょう。逆に考えると静的サイトジェネレータの一番の使い道はこのような処理が基本的に不要だと考えられるプライベートなブログで、まさにHexoはうってつけなのでしょう。</p>
-<h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>まとめです。３行を目指しましたが、なかなか難しいですね。</p>
-<ul>
-<li>Hexoは静的サイトジェネレータ。生成されたファイルをWebサーバにアップロードする必要あり。</li>
-<li>Hexoはローカルで編集・確認ができるので、心地よい。</li>
-<li>Hexoはバージョン管理と相性がいいので、安心。</li>
-<li>Hexoは非エンジニアに向かない。</li>
-<li>HexoでRDBは使えない。</li>
-</ul>
-<h3 id="おまけ"><a href="#おまけ" class="headerlink" title="おまけ"></a>おまけ</h3><p>もちろん世の中にはHexo以外にも山のように静的サイトジェネレータがあって、<br>その中でHexoを最初に選んだのはその中でも簡単そうに見えたからです。<br>だけどそう見えたのは私の経験という色眼鏡があったからなので、申し訳ないですがこのブログを読んでくれた方に当てはまるかどうかは分かりません。<br>したがって余力のある人にはぜひ、自分にあった運命の静的サイトジェネレータを探し出して欲しいです。。。</p>
-<p><a href="https://www.staticgen.com/" target="_blank" rel="noopener">StaticGen | Top Open Source Static Site Generators</a></p>
-<h3 id="おまけのおまけ"><a href="#おまけのおまけ" class="headerlink" title="おまけのおまけ"></a>おまけのおまけ</h3><p>Hexoは「ヘキソ」と発音しています。正しいかどうかは分かりません。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/" data-id="cjp737l58000gxxczgzfdh1v1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/cats-cats-cats/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/cats-cats-cats/tags/IT/">IT</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cats-cats-cats/categories/IT/">IT</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/cats-cats-cats/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/cats-cats-cats/tags/IT/">IT</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/cats-cats-cats/tags/IT/" style="font-size: 10px;">IT</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/cats-cats-cats/archives/2018/12/">December 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/cats-cats-cats/2018/12/02/start-blog-hexo/">Hexoでブログに再入門</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 hinastory<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/cats-cats-cats/" class="mobile-nav-link">Home</a>
-  
-    <a href="/cats-cats-cats/archives" class="mobile-nav-link">Archives</a>
-  
 </nav>
     
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            Hexoでブログに再入門
+        
+    </h1>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <div class="article-meta-data">
+        
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" class="media-left">
+                <time datetime="2018-12-02T14:02:58.000Z">2018-12-02</time>
+            </a>
+        </div>
+        
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Hexo/">Hexo</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Web/">Web</a>
+            
+        </div>
+    </div>
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="Hexoでブログに再入門">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+               
+            </div>
+        </div>
+        
+
+        <div class="content">
+            <p>Advent Calendar用に久々にブログを立てて見ました。<br>以前にパブリックに書いたのは多分10年以上前のような気がします。<br>レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・</p>
+<p>まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。</p>
+<a id="more"></a>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#hexoとは" class="contents-header">1. Hexoとは</a></li><li><a href="#静的サイトジェネレータ" class="contents-header">2. 静的サイトジェネレータ</a></li><li><a href="#静的サイトジェネレータの長所" class="contents-header">3. 静的サイトジェネレータの長所</a></li><li><a href="#静的サイトジェネレータの短所" class="contents-header">4. 静的サイトジェネレータの短所</a></li><li><a href="#なぜhexoを選んだのか" class="contents-header">5. なぜHexoを選んだのか？</a></li><li><a href="#まとめ" class="contents-header">6. まとめ</a></li><li><a href="#補足" class="contents-header">7. 補足</a></li></ul></div>
+
+<h2 id="hexoとは"><a href="#hexoとは" class="header-anchor"></a>1. <a href="#Hexoとは" class="headerlink" title="Hexoとは"></a>Hexoとは</h2><p>とりあえず今回このブログは、<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo<i class="fas fa-external-link-alt fa-fw"></i></a>使って立ててみました<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。<br>Hexoはブログを書くためのフレームワークですが、WordPressのような従来型のブログサービスとの一番の違いは、静的にブログを生成するか、動的に生成するかです。</p>
+<h2 id="静的サイトジェネレータ"><a href="#静的サイトジェネレータ" class="header-anchor"></a>2. <a href="#静的サイトジェネレータ" class="headerlink" title="静的サイトジェネレータ"></a>静的サイトジェネレータ</h2><p>Hexoは静的サイトジェネレータというツールに分類されていて、あらかじめ用意したブログのテキストや画像等から、ブログの表示に必要なHTML,CSS,JavaScriptなどの静的ファイルを生成してくれます。Hexoがやってくれるのはここまでで、あとはHexoが生成したファイルをお好みのWebサーバに公開すればブログが表示されると言う仕組みです。<br>WordPressはこれとは違い、Webにアクセスが来るごとにWebページをサーバサイドのプログラムが動的に生成してブラウザに返しています。</p>
+<h2 id="静的サイトジェネレータの長所"><a href="#静的サイトジェネレータの長所" class="header-anchor"></a>3. <a href="#静的サイトジェネレータの長所" class="headerlink" title="静的サイトジェネレータの長所"></a>静的サイトジェネレータの長所</h2><p>どちらにも一長一短があって、静的サイトジェネレータの良いところはローカルで確認してから、チェックが完了してからWeb公開できる点です。このローカルで確認できると言うのはすごい強みで、画像のアップロードも不要だし、テキストやCSSの修正も手元で直してすぐ確認できると言うのが非常に心地いいです。<br>これが動的サイトだと一度サーバにアップロードして確認と言う手間が一つ入るため、色々と面倒臭くなります。</p>
+<p>また、静的サイトジェネレータの場合、サイトの生成に必要なファイルは必然的に手元で管理することになるので、Gitなどのバージョン管理システムと相性が良いです。これは非常に安心感があって、こまめにコミットしておけば様々な理由による『ブログの消失』を未然に防ぐことができます。動的サイトの場合も手元にファイル等の形で残しておけば、バージョン管理することができますが、ちょこっとした修正をサーバにアップロードして、バージョン管理用ファイルに反映し忘れるという事故が起き易いです。</p>
+<p>セキュリティ的に安心というのも魅力の一つですね。サーバサイドの処理がないので攻撃パターンが限られますし、特にWebサーバにホスティングサービスを使っている場合、自分ではほぼ何もセキュリティについて考えることはないです。少ない懸念点の一つとしてあげるならばJavaScriptを使ってる場合です。まぁ最近は大抵知らずのうちに使われてると思いますが、特に怪しいライブラリを使っている場合に勝手にマイニングされたり、踏み台にされる場合もあるので、気をつけた方が良いかもしれません<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
+<h2 id="静的サイトジェネレータの短所"><a href="#静的サイトジェネレータの短所" class="header-anchor"></a>4. <a href="#静的サイトジェネレータの短所" class="headerlink" title="静的サイトジェネレータの短所"></a>静的サイトジェネレータの短所</h2><p>このようにHexoのような静的サイトジェネレータ型のブログツールには利点がたくさんあるのですが、もちろん欠点もあります。<br>一番目立つのは、非エンジニアにとって利用するのにハードルが高いということです。<br>例えば、Hexoのトップページには「Simple」と謳いながら、以下の導入時のコマンドが載っています。<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="hljs-built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+<p>これを見て「簡単そうだな、やってみようかな」と思える人は世の中に1%もいないと思います。<br>もちろん現役のWebフロントエンドエンジニアなら、これを見てお湯を注いだカップラーメンができるより早くブログサイトを構築できるでしょう<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。<br>つまり、現在のところ静的サイトジェネレータはGitが分かるフロントエンドエンジニアにとって、非常に使い易いツールだけど、それ以外の人は、まぁ覚悟して取り組んでくださいとしか言いようがないですね。。。<br>もちろん将来的にはシンプル詐欺などではなく本当に非エンジニアでも無理なく使えるツールが出てくるかもしれないので、この点は静的サイトジェネレータ固有の短所というよりもまだ成熟途中の技術の特徴ということになります。</p>
+<p>あと当然ですが、静的サイトジェネレータ単体ではサーバサイドという概念がないのでRDBと連携して、大量データの検索とかテーブルの結合とかそういった処理も基本できません。カウンタやトラックバックやコメント機能などのブログにおなじみの機能もデフォルトではありません。このような場合はWebサービスと連携するのが常套手段ですが<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>、複雑になりそうなら最初から動的サイトやSPAやSSR等の構成<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>を検討した方が良いでしょう。逆に考えると静的サイトジェネレータの一番の使い道はこのような処理が基本的に不要な場合のプライベートなブログで、まさにHexoはこのサイトにうってつけなのでしょう。</p>
+<h2 id="なぜhexoを選んだのか"><a href="#なぜhexoを選んだのか" class="header-anchor"></a>5. <a href="#なぜHexoを選んだのか？" class="headerlink" title="なぜHexoを選んだのか？"></a>なぜHexoを選んだのか？</h2><p>まさしく、前掲のコマンドを見て簡単そうに思えたからです(笑)。つまりそれをコピペして実行するだけで試せる環境と知識をすでに有していたからということになります。<br>あとはHexoと言うより静的ジェネレータの利点の方が大きいですね。最初はVPSやパブリッククラウド上に、以前のように動的サイトを構築しようと考えていましたが、構築コストやセキュリティのことを考えるとだんだん気が重くなってきました。ブログサービスも検討しましたが、ソースは全てGit管理したかったのと手元で表示確認がすぐにできないので却下しました。<br>つまりGit管理と親和性があって手元ですぐにサイトの表示が確認できて、セキュリティーの心配をあまり心配しなくてもいい記事投稿が簡単にできるブログツールを探していたということになります。<br>その中で一番最初に目に付いたのがHexoだったというだけです。記事がMarkdownでかけるのもいいですね。<br>なのでもっといいツールが見つかれば移行するかもしれませんが、しばらくはHexoと仲良くやって行こうと思っています。<br>目下の悩みは<a href="https://hexo.io/themes/index.html" target="_blank" rel="noopener">テーマ<i class="fas fa-external-link-alt fa-fw"></i></a>をどうするかです。デフォルトのlandscapeも拡張しやすくて悪くはなかったのですが、せっかくこれだけのテーマが公開されているので色々と試したいと思っています。<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
+<h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>6. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>まとめです。Hexoの箇所は静的サイトジェネレータに置き換えても大体合ってます。<br>３行を目指しましたが、なかなか難しいですね。</p>
+<ul>
+<li>Hexoは静的サイトジェネレータ。生成されたファイルをWebサーバにアップロードする必要あり</li>
+<li>Hexoはローカルで編集・確認ができるので、心地よい</li>
+<li>Hexoはバージョン管理と相性が良く、こまめにコミットで安心できる</li>
+<li>Hexoはセキュリティ的に動的サイトに比べて安心</li>
+<li>Hexoは非エンジニアに基本向かない</li>
+<li>HexoでRDBはコメント機能とかトラックバックとかサーバサイドの処理が必要なものは基本使えない</li>
+</ul>
+<h2 id="補足"><a href="#補足" class="header-anchor"></a>7. <a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>前述の通りでHexoを最初に選んだのは私にとって簡単そうに見えたからです。<br>だけどそう見えたのは私の好みや経験という色眼鏡があったからなので、申し訳ないですがこのブログを読んでくれた方に当てはまるかどうかは分かりません。<br>もちろん世の中にはHexo以外にも山のように静的サイトジェネレータがあるので、余力のある人にはぜひ以下のサイトを参考に自分にあった運命の静的サイトジェネレータを探し出して欲しいです。。。<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup></p>
+<a href="https://www.staticgen.com" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="/images/undefined"></div><div class="descriptions"><div class="og-title">StaticGen</div><div class="og-description">StaticGen is a leaderboard of the top open source static site generators. Promoting a static approach to building websites.</div></div></div></a>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Hexoは「ヘキソ」と発音しています。正しいかどうかは分かりません。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">JavaScriptの場合は自分も含めて、サイトを訪れた人が被害者もしくは加害者(踏み台にされた場合)になります。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">テーマを弄りはじめるとエンジニアでも頭を抱えそうですが・・・</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">例えばコメント機能は<a href="https://disqus.com" target="_blank" rel="noopener">Disqus<i class="fas fa-external-link-alt fa-fw"></i></a>と連携すれば実現できます。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">SPA = Single Page Application, SSR = Server Side Rendering</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">現在このブログで利用しているテーマはフッターを参照してください。テーマは今後変わる予定があるのであえて本文には記しません。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">願わくばこの記事を読んだ人が静的サイトジェネレータの旅に出て、ブログを書いてくれてそれが、私の目に止まりますように・・・</span><a href="#fnref:7" rev="footnote"> ↩</a></li></ol></div></div>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+        
+    </div>
+</div>
 
 
-  <link rel="stylesheet" href="/cats-cats-cats/fancybox/jquery.fancybox.css">
-  <script src="/cats-cats-cats/fancybox/jquery.fancybox.pack.js"></script>
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/cats-cats-cats/2018/12/06/container-days1/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JapanContainerDays v18.12 に初参加</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
 
 
-<script src="/cats-cats-cats/js/script.js"></script>
+</div>
+                
 
 
 
-  </div>
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/images/avatar.jpg" alt="hinastory">
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+        </nav>
+
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/Container/" style="font-size: 10px;">Container</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 10px;">Web</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 10px;">k8s</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2018/12/06/container-days1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/container-days-logo.png" alt="JapanContainerDays v18.12 に初参加">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-06T14:22:18.000Z">2018-12-06</time></div>
+
+                    <a href="/cats-cats-cats/2018/12/06/container-days1/" class="has-link-black-ter is-size-6">JapanContainerDays v18.12 に初参加</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Container/">Container</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="Hexoでブログに再入門">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-02T14:02:58.000Z">2018-12-02</time></div>
+
+                    <a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" class="has-link-black-ter is-size-6">Hexoでブログに再入門</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2018/12/06/container-days1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/container-days-logo.png" alt="JapanContainerDays v18.12 に初参加">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-06T14:22:18.000Z">2018-12-06</time></div>
+
+                    <a href="/cats-cats-cats/2018/12/06/container-days1/" class="has-link-black-ter is-size-6">JapanContainerDays v18.12 に初参加</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Container/">Container</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="Hexoでブログに再入門">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-02T14:02:58.000Z">2018-12-02</time></div>
+
+                    <a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" class="has-link-black-ter is-size-6">Hexoでブログに再入門</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/cats-cats-cats-logo.png" alt="Hexoでブログに再入門" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2018 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/cats-cats-cats/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
 </body>
 </html>
