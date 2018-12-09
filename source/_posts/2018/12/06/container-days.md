@@ -9,10 +9,11 @@ tags:
     - k8s
 ---
 
-12/4(火)にJapanContainerDays v18.12に初参加しました。このイベントは春に一回目を開催して今回で2回目の開催だそうですが、会場には800人以上の人が詰め掛けたようで非常に盛況でした。
-
+12/4(火)にJapanContainerDays v18.12に初参加しました。このイベントは春に1回目を開催して今回で2回目の開催だそうですが[^1]、会場には800人以上の人が詰め掛けたようで非常に盛況でした。
 
 {% linkPreview https://containerdays.jp/ _blank nofollow %}
+
+[^1]: JapanContainerDaysは2回目にして、今回で最終回だそうです。次回からはCloudNative Daysに変わるそうですが{% elink  Cloud Native Days Tokyo http://cloudnativedays.net/outline/ %}との関係性はよくわかりません・・・
 
 <!-- more -->
 
@@ -21,10 +22,10 @@ tags:
 
 ## 会場の様子
 
-会場は御茶ノ水の{%elink ソラシティカンファレンスセンター https://solacity.jp/cc/access/  %}でした。ここには以前に{%elink デブサミ夏 https://event.shoeisha.jp/devsumi/20180727 %}や{%elink 大江戸Ruby会議06 http://regional.rubykaigi.org/oedo06/ %}に参加した時に来たことがあったので特に迷うことなく到着しました[^1]。
+会場は御茶ノ水の{%elink ソラシティカンファレンスセンター https://solacity.jp/cc/access/  %}でした。ここには以前に{%elink デブサミ夏 https://event.shoeisha.jp/devsumi/20180727 %}や{%elink 大江戸Ruby会議06 http://regional.rubykaigi.org/oedo06/ %}に参加した時に来たことがあったので特に迷うことなく到着しました[^2]。
 10時開始だったのですが念の為30分早く会場入りしたのでキーノートの会場はまだ半分近く空いていました。
 
-[^1]: 駅から徒歩1分なので、そもそも迷うほうが難しい気もします・・・
+[^2]: 駅から徒歩1分なので、そもそも迷うほうが難しい気もします・・・
 
 {% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
 {% img /gallery/quotes/jcd/sola-city.jpg %}
@@ -65,11 +66,12 @@ CNCFの歩みや今後の展望が語られていました。気になったの�
 
 Trail MapはともかくLandscapeは圧巻ですね・・・
 
-まぁその中でもCNNFが直接ホスティングしているのはごく僅かです。{% elink これ https://github.com/cncf/toc#projects %}を見ると全部で30程ありますが、現時点では成熟度のが最高のGraduatedになっているのはKubernetes、Prometheus、Envoyのわずか３つです[^2]。これからクラウドネイティブが浸透していく中でこれらのプロジェクトがどの様になっていくのか注視していきたいと思います。
+まぁその中でもCNNFが直接ホスティングしているのはごく僅かです。{% elink これ https://github.com/cncf/toc#projects %}を見ると全部で30程ありますが、現時点では成熟度のが最高のGraduatedになっているのはKubernetes、Prometheus、Envoyのわずか３つです[^3]。これからクラウドネイティブが浸透していく中でこれらのプロジェクトがどの様になっていくのか注視していきたいと思います。
 
-[^2]: というかPrometheusはCNNFだったとは初めて知りました・・・
+[^3]: というかPrometheusはCNNFだったとは初めて知りました・・・
 
-
+キーノートには他にも面白い発表がいくつもあったのですが、印象に残ったのはメルカリの発表でした。なぜコンテナオーケストレーションにKubernetesなのかという問いに対して拡張性とエコシステムを挙げていましたが、これと同じ答えはこの後に続くセッションでも繰り返し聞くことになりました。そしてこの答えがOSSで勝ち抜くための到達点なんだという気がしました。
+シンプルで直交的で整合性のとれた拡張性で素早くエコシステムを構築すること。言葉にすると短いですがこの状況をわずか数年で作り上げて決着までほぼつけてしまうとは、改めてKubernetesの成し遂げたことの凄さを実感しました。
 
 {% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
 {% img /gallery/quotes/jcd/mercari.jpg %}
@@ -166,14 +168,17 @@ After Partyではビールやワインや焼酎をの呑みながらワイガヤ
 
 {% img /gallery/events/jcd/memento.jpg %}
 
-## まとめと感想
+## 感想とまとめ
 
 参加したことでCloudNativeがどこまできているか肌で実感できた気がしました。自宅ではminikubeからGPUを触れる環境を構築していますが、いまいち有効利用できていない気がしていたので、このイベントを機会に手を動かしながらいろいろとCloudNativeに近づけて見たいと思います。
 
 - Kubernetesの一人勝ち
-- Istio、Helmもデファクトになりそう
+- 今後はKubernetesのエコシステムの何処を占めるかの戦い
+  - サービスメッシュ(Istio)がかなり熱い
+  - Helmもデファクトになりそう
   - knative, virtual-kubeは注視したい
+  - 機械学習のインフラとしても面白そう
 - Kubernetesは本番運用に課題あり
   - knative, OpenShift, Rancher等さまざまなアプローチで解決しようとしている
-  - 最終的にはNoOpsやサーバーレスやFaaSな未来に行き着くのだろう・・・
-- 来年はCloudNative Days
+  - 最終的にはNoOpsやサーバーレスやFaaSな未来に行き着くのだろう・・・（時期未定）
+- 来年は{% elink CloudNative Days https://cloudnativedays.jp/ %}
