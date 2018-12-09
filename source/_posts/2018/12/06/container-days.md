@@ -27,11 +27,11 @@ tags:
 
 [^2]: 駅から徒歩1分なので、そもそも迷うほうが難しい気もします・・・
 
-{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
+{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/sola-city.jpg %}
 {% endblockquote %}
 
-{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
+{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/atend.jpg %}
 {% endblockquote %}
 
@@ -39,7 +39,7 @@ tags:
 
 さすがにキーノート開始直前には満席近くになっていました。キーノートは会社やコミュニティの代表が順番に登壇する形式で2時間行われました。その中でなんといっても目玉は{% elink CNCF https://www.cncf.io/%}のCOOであるChris Aniszczykさんの発表だと思います。
 
-{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
+{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/keynote.jpg %}
 {% endblockquote %}
 
@@ -50,7 +50,7 @@ CNCFの歩みや今後の展望が語られていました。気になったの�
 
 あと、クラウドネイティブの定義も紹介されていました。今までクラウドネィティブとは何ぞやと思っていたので少しはもやもやが晴れたような気がします。
 
-{% blockquote クラウドネイティブの定義(Google翻訳を利用) https://github.com/cncf/toc/blob/master/DEFINITION.md %}
+{% blockquote クラウドネイティブの定義(Google翻訳を利用) https://github.com/cncf/toc/blob/master/DEFINITION.md 引用元 %}
 クラウドネイティブテクノロジは、パブリック、プライベート、およびハイブリッドクラウドなどの最新のダイナミックな環境でスケーラブルなアプリケーションを構築および実行するための組織の能力を強化します。コンテナ、サービスメッシュ、マイクロサービス、不変インフラストラクチャ、および宣言型APIは、このアプローチの例です。
 
 これらの技術は、復元力があり、管理しやすく、観測可能な疎結合システムを可能にします。堅牢な自動化と組み合わせることで、エンジニアは頻繁に、そして予想通りに影響の少ない変更を最小限の労力で行うことができます。
@@ -73,7 +73,7 @@ Trail MapはともかくLandscapeは圧巻ですね・・・
 キーノートには他にも面白い発表がいくつもあったのですが、印象に残ったのはメルカリの発表でした。なぜコンテナオーケストレーションにKubernetesなのかという問いに対して拡張性とエコシステムを挙げていましたが、これと同じ答えはこの後に続くセッションでも繰り返し聞くことになりました。そしてこの答えがOSSで勝ち抜くための到達点なんだという気がしました。
 シンプルで直交的で整合性のとれた拡張性で素早くエコシステムを構築すること。言葉にすると短いですがこの状況をわずか数年で作り上げて決着までほぼつけてしまうとは、改めてKubernetesの成し遂げたことの凄さを実感しました。
 
-{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
+{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/mercari.jpg %}
 {% endblockquote %}
 
@@ -146,19 +146,19 @@ Trail MapはともかくLandscapeは圧巻ですね・・・
 
 昼食はランチセッション中に配布されたサンドイッチやまい泉ヒレかつサンドを食しました。
 
-{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
+{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/sand.jpg %}{% img /gallery/quotes/jcd/maisen.jpg %}
 {% endblockquote %}
 
 お菓子やドリンクも無料で楽しむ事ができました。ContinerDaysのロゴが入ったマカロンが可愛かったです。
 
-{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
+{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/coffee.jpg %}{% img /gallery/quotes/jcd/macaron.jpg %}
 {% endblockquote %}
 
 After Partyではビールやワインや焼酎をの呑みながらワイガヤしてました。急遽決まったLT大会では個性あふれる様々な会社がHireingトークをしていました。
 
-{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 %}
+{% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/party1.jpg %}{% img /gallery/quotes/jcd/party2.jpg %}
 {% endblockquote %}
 
