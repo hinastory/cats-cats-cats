@@ -1,6 +1,6 @@
 ---
 title: about
-thumbnail: /gallery/cats-cats-cats-logo.png
+thumbnail: /gallery/profile/cats-cats-cats-logo.png
 no_share: true
 no_date: true
 ---
@@ -13,4 +13,4 @@ cats cats catsのロゴ画像は本ブログのシンボルですので、本ブ
 
 本ブログに関するお問い合わせは以下へのメールでお願いします。
 
-{% img /gallery/gaddr.png %}
+{% img /gallery/profile/gaddr.png %}

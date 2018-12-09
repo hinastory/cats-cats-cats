@@ -266,6 +266,7 @@ img.thumbnail {
 }
 .article-meta-data {
   padding-left: 1.5rem;
+  padding-bottom: 5px;
   color: #565a5f;
 }
 .article-meta-data .article-date {
