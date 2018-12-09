@@ -66,7 +66,7 @@ CNCFの歩みや今後の展望が語られていました。気になったの�
 
 Trail MapはともかくLandscapeは圧巻ですね・・・
 
-まぁその中でもCNNFが直接ホスティングしているのはごく僅かです。{% elink これ https://github.com/cncf/toc#projects %}を見ると全部で30程ありますが、現時点では成熟度のが最高のGraduatedになっているのはKubernetes、Prometheus、Envoyのわずか３つです[^3]。これからクラウドネイティブが浸透していく中でこれらのプロジェクトがどの様になっていくのか注視していきたいと思います。
+まぁその中でもCNNFが直接ホスティングしているのはごく僅かです。{% elink これ https://github.com/cncf/toc#projects %}を見ると全部で30程ありますが、現時点では成熟度が最高のGraduatedになっているのはKubernetes、Prometheus、Envoyのわずか３つです[^3]。これからクラウドネイティブが浸透していく中でこれらのプロジェクトがどの様になっていくのか注視していきたいと思います。
 
 [^3]: というかPrometheusはCNNFだったとは初めて知りました・・・
 
@@ -150,17 +150,19 @@ Trail MapはともかくLandscapeは圧巻ですね・・・
 {% img /gallery/quotes/jcd/sand.jpg %}{% img /gallery/quotes/jcd/maisen.jpg %}
 {% endblockquote %}
 
-お菓子やドリンクも無料で楽しむ事ができました。ContinerDaysのロゴが入ったマカロンが可愛かったです。
+お菓子やドリンクも無料で楽しむ事ができました[^4]。ContinerDaysのロゴが入ったマカロンが可愛かったです。
 
 {% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/coffee.jpg %}{% img /gallery/quotes/jcd/macaron.jpg %}
 {% endblockquote %}
 
-After Partyではビールやワインや焼酎をの呑みながらワイガヤしてました。急遽決まったLT大会では個性あふれる様々な会社がHireingトークをしていました。
+After Partyではビールやワインや焼酎をの呑みながらワイガヤしてました。急遽決まったLT大会では個性あふれる様々な会社がHiringトークをしていました。
 
 {% blockquote 撮影：JapanContainerDays実行委員会 https://photos.app.goo.gl/1X6PJEyijBNLTZrm6 引用元 %}
 {% img /gallery/quotes/jcd/party1.jpg %}{% img /gallery/quotes/jcd/party2.jpg %}
 {% endblockquote %}
+
+[^4]: 当日は本当に無料だと喜んだのですが、冷静に考えると参加費を払っているので無料でもなんでもなかったです・・・ しかし、チケットは最後までEarly Bird価格で投げ売りされていたけど主催者の想定した人数が集まらなかったから値下げしたのか、それとも早めに予定金額を調達できたから値下げしたのか真相がわからない・・・どちらにせよ焦ってEirly Birdに釣られた身としてはもやもやします・・・
 
 ## 戦利品
 
