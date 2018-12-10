@@ -95,14 +95,3 @@ toc:
       style: header-anchor
       notIncludeHeading: true
 
-asset_pipeline:
-  revisioning:
-    enable: true
-  clean_css:
-    enable: true
-  uglify_js:
-    enable: true
-  imagemin:
-    enable: false
-  html_minifier:
-    enable: true
