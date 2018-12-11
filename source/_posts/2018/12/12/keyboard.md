@@ -79,7 +79,7 @@ ProgresTouch RETRO TINYは打ち心地がよく気に入っていたのです、
 だいたいここまでが自作キーボードを作り始めて1ヶ月くらいですが、一気にモノを増やしすぎたため置き場所に困るようになってきました。もちろんただ積み重ねるだけならできるのですが、キーキャップやスイッチ等は探しやすく見比べやすいようにしたい欲求が高まってきたのでキーボード棚を作ることにしました。
 
 [^2]: 結局ISPフラッシャーはさらに2ヶ月も経って、諦めかけた頃に送られてきましが、firmwareの書き込みは無事成功しました。
-[^3]: {% elink Quick and dirty guide to flashing your Planck Light bootloader https://www.reddit.com/r/olkb/comments/8tk9jj/quick_and_dirty_guide_to_flashing_your_planck/ %}
+[^3]: [Quick and dirty guide to flashing your Planck Light bootloader : olkb](https://www.reddit.com/r/olkb/comments/8tk9jj/quick_and_dirty_guide_to_flashing_your_planck/)
 [^4]: 現在は後継の{% elink Ergo42 Towel https://tanoshii-life.booth.pm/items/952695 %}が販売されています。
 
 ## キーボード棚の作り方
