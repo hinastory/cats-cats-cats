@@ -38,7 +38,7 @@ Gitを使っているとなんでもGit管理したくなってきました。�
 
 GitBucketにあったリポジトリを全てGitHubのプライベートリポジトリに移行しました[^2]。
 
-移行については簡単でGitHubでまず画面右上の`+`ボタンから`New Repository`を選択するとリポジトリの作成画面にが表示されます。そしてその画面でラジオボタンで`Private`を選択します。このとき`Initialize this repository with a README`を選択しないでください。これを選択すると既存のレポジトリのpushができなくなります。
+移行については簡単で、GitHubの画面右上の`+`ボタンから`New Repository`を選択するとリポジトリの作成画面が表示されます。そしてその画面で`Private`を選択します。このとき`Initialize this repository with a README`を選択しないでください。これを選択すると既存のレポジトリのpushができなくなります。
 
 {% img /gallery/daily/tools/github-create-new-repo.png %}
 
@@ -56,4 +56,4 @@ GitBucketにあったリポジトリを全てGitHubのプライベートリポ�
 
 GitHubにリポジトリを統一できて幸せになれました。GitHubがMicrosoftに買収されたときはどうなることやらと思いましたが、この決断はGood Jobと言わざるを得ません。恐らくGitLabへの対抗処置だとは思いますが、今後も競い合ってより良いサービスになってくれることを願って止みません[^5]。
 
-[^5]: いいサービスなら月500円までなら払いますが、$7はちょっと・・・
+[^5]: いいサービスなら月500円までなら払いますが、$7はちょっと・・
