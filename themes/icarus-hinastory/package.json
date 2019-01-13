@@ -1,0 +1,8 @@
+{
+  "name": "hexo-theme-icarus",
+  "version": "2.0.0",
+  "private": true,
+  "dependencies": {
+    "hexo-related-popular-posts": "^3.0.3"
+  }
+}
