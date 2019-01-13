@@ -38,6 +38,8 @@ Gitを使っているとなんでもGit管理したくなってきました。�
 
 GitBucketにあったリポジトリを全てGitHubのプライベートリポジトリに移行しました[^2]。
 
+### 移行方法
+
 移行については簡単で、GitHubの画面右上の`+`ボタンから`New Repository`を選択するとリポジトリの作成画面が表示されます。そしてその画面で`Private`を選択します。このとき`Initialize this repository with a README`を選択しないでください。これを選択すると既存のレポジトリのpushができなくなります。
 
 {% img /gallery/daily/tools/github-create-new-repo.png %}
@@ -46,7 +48,9 @@ GitBucketにあったリポジトリを全てGitHubのプライベートリポ�
 
 {% img /gallery/daily/tools/github-existing-repo.png %}
 
-一応注意点を上げるとすれば、プライベートなデータを上げる場合、最低限2段階認証は有効にしておくべきです[^3]。2段階認証用のアプリには自分は{% elink 'Google Authenticator'  https://itunes.apple.com/jp/app/google-authenticator/id388497605?mt=8 %}を利用しています。あとFreeプランでは「Protected branches」、「Code ownedrs」、「Pages and wikis」、「Repository insights」の機能はプライベートリポジトリでは使えません。プライベートリポジトリのコラボレータも３名までとなっています[^4]。これらが使いたくなったら素直にProプランに移行すべきですね。
+### 注意点
+
+一応注意点を上げるとすれば、プライベートなデータを上げる場合、最低限2段階認証は有効にしておくべきです[^3]。2段階認証用のアプリには自分は{% elink 'Google Authenticator'  https://itunes.apple.com/jp/app/google-authenticator/id388497605?mt=8 %}を利用しています。あとFreeプランでは「Protected branches」、「Code ownedrs」、「Pages and wikis」、「Repository insights」の機能がプライベートリポジトリで使えません。プライベートリポジトリのコラボレータも３名までとなっています[^4]。これらが使いたくなったら素直にProプランに移行すべきですね。
 
 [^2]: ついでにローカルのリポジトリも整理して、GitHubからクローンしたものをお行儀悪く直接修正したりしていたリポジトリを、ちゃんとフォークとリベースをしてGitHubにpushしました。こちらの作業の方が実は大変でした・・・
 [^3]: プライベートなデータを上げなくてもセキュリティのために2段階認証はオススメです。
@@ -54,6 +58,6 @@ GitBucketにあったリポジトリを全てGitHubのプライベートリポ�
 
 ## まとめ
 
-GitHubにリポジトリを統一できて幸せになれました。GitHubがMicrosoftに買収されたときはどうなることやらと思いましたが、この決断はGood Jobと言わざるを得ません。恐らくGitLabへの対抗処置だとは思いますが、今後も競い合ってより良いサービスになってくれることを願って止みません[^5]。
+Freeプランでプライベートリポジトリが使えるようになり、GitHubにリポジトリを統一できて幸せになれました。Gitbucketからの移行も元がGitなので非常に楽です。GitHubがMicrosoftに買収されたときはどうなることやらと思いましたが、この決断はGood Jobと言わざるを得ません。恐らくGitLabへの対抗処置だとは思いますが、今後も競い合ってより良いサービスになってくれることを願って止みません[^5]。
 
 [^5]: いいサービスなら月500円までなら払いますが、$7はちょっと・・
