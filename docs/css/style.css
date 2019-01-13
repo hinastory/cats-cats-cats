@@ -570,3 +570,35 @@ a[target='_blank']:after
   height: 1.3em;
   line-height: 1.2;
 }
+.popular-posts-box {
+  padding-left: 1.5rem;
+  margin-top: 1.8rem;
+}
+.popular-posts {
+  display: flex;
+  flex-flow: row wrap;
+}
+.popular-posts .popular-posts-item {
+  display: flex;
+  flex-basis: 50%;
+  align-items: flex-start;
+  text-align: left;
+  margin-top: 0.75rem;
+}
+.popular-posts .popular-posts-item .popular-posts-img {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+.popular-posts .popular-posts-item .popular-posts-img img {
+  object-fit: cover;
+  width: 64px;
+  height: 64px;
+}
+.popular-posts .popular-posts-item .popular-posts-title {
+  flex-basis: 110px;
+  flex-grow: 1;
+  flex-align: left;
+  padding-right: 1rem;
+}

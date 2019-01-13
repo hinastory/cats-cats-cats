@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html  lang="ja">
+<head>
     <meta charset="utf-8">
 <title>サイレントでホットスワップなErgoDash miniを制作(前編) - cats cats cats</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,23 +11,16 @@
 <meta name="keywords" content="Keyboard,ErgoDash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="サイレントでホットスワップなErgoDash miniを制作(前編)">
-<meta property="og:url" content="http://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/index.html">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。 omkbd/ErgoDashkeyboard. Contribute to omkbd/ErgoDash development by creating an account on Git">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https://avatars3.githubusercontent.com/u/25457209?s=400&v=4">
-<meta property="og:image" content="https://github.com/omkbd/picture/blob/master/Ergodashmini.jpg?raw=true">
-<meta property="og:image" content="http://hinastory.github.io/cats-cats-cats/gallery/daily/keyboards/lube.jpg">
-<meta property="og:image" content="http://hinastory.github.io/cats-cats-cats/gallery/daily/keyboards/pro-micro.jpg">
-<meta property="og:image" content="http://hinastory.github.io/cats-cats-cats/gallery/daily/keyboards/diode1.jpg">
-<meta property="og:image" content="http://hinastory.github.io/cats-cats-cats/gallery/daily/keyboards/diode2.jpg">
-<meta property="og:image" content="http://hinastory.github.io/cats-cats-cats/gallery/daily/keyboards/soldering.jpg">
-<meta property="og:image" content="http://hinastory.github.io/cats-cats-cats/gallery/daily/keyboards/WS2812B.jpg">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/ergo-dash-mini.jpg">
 <meta property="og:updated_time" content="2019-01-10T22:52:26.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="サイレントでホットスワップなErgoDash miniを制作(前編)">
 <meta name="twitter:description" content="2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。 omkbd/ErgoDashkeyboard. Contribute to omkbd/ErgoDash development by creating an account on Git">
-<meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/25457209?s=400&v=4">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/ergo-dash-mini.jpg">
 
 
 
@@ -171,7 +164,7 @@
         
 
         <div class="content">
-            <p>2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。</p>
+            <html><head><meta name="generator" content="Hexo 3.8.0"></head><body><p>2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。</p>
 <a href="https://github.com/omkbd/ErgoDash/tree/master/mini" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars3.githubusercontent.com/u/25457209?s=400&v=4"></div><div class="descriptions"><div class="og-title">omkbd/ErgoDash</div><div class="og-description">keyboard. Contribute to omkbd/ErgoDash development by creating an account on GitHub.</div></div></div></a>
 <a id="more"></a>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#ergodash-miniとは" class="contents-header">2. ErgoDash miniとは</a></li><li><a href="#制作工程" class="contents-header">3. 制作工程</a><ul><li><a href="#潤滑剤の塗布" class="contents-header">3.1. 潤滑剤の塗布</a></li><li><a href="#mogemicro対策" class="contents-header">3.2. MogeMicro対策</a></li><li><a href="#ダイオードの取り付け" class="contents-header">3.3. ダイオードの取り付け</a></li><li><a href="#trrsジャックとリセットスイッチの取り付け" class="contents-header">3.4. TRRSジャックとリセットスイッチの取り付け</a></li><li><a href="#undergrow-ledの取り付け" class="contents-header">3.5. Undergrow LEDの取り付け</a></li><li><a href="#後編へと続く" class="contents-header">3.6. 後編へと続く・・・</a></li></ul></li></ul></div>
@@ -245,8 +238,8 @@
 </ul>
 <p>LEDには方向があります。公式のビルドガイドを見て方向を間違わないようにしましょう。LEDは直列につながっていて、ErgoDash miniではマスターの内側から外側に向けてぐるっと回って、反対側の基盤の外側から内側に向けて繋がっている感じです。<br>LEDの方向がわかったらマスキングテープでチップの片側を固定します。このときチップが浮かないように確認してください。チップが浮いてしまうと接続不良になる恐れがあります。マスキングテープは片側のはんだが終われば剥がして、もう片側をはんだします。<br>また、LEDは非常に熱に弱いみたいです。有鉛はんだではんだ付けする場合340℃から360℃に温度を調整するのが一般的ですが、今回は260℃でなるべく短時間ではんだ付けするように意識しました。はんだの方法はまず軽くランドを温めてはんだを盛った後、素早くチップの電極に触れてはんだを接着させました。電極にふれる時間はほんの一瞬です。</p>
 <h3 id="後編へと続く"><a href="#後編へと続く" class="header-anchor"></a>3.6. <a href="#後編へと続く・・・" class="headerlink" title="後編へと続く・・・"></a>後編へと続く・・・</h3><p>後編ではいよいよPro Microとキースイッチのホットスワップ化に挑みます。</p>
-<p><a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" title="サイレントでホットスワップなErgoDash miniを制作(後編)">サイレントでホットスワップなErgoDash miniを制作(後編)</a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">1台目はシンプルなものでも、いろいろ反省点や改善点が目に付きます。また、シンプルなものを知らないと何が良くなったのがわからないので、お楽しみは２台目以降にとっておきましょう。自分はこれで4台目ですが腕はまだまだです・・・</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">アニメを見ながらだったので実際はもっと短く済むはずです・・・</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">実際私は再確認で合計3箇所の間違いを発見しました・・・過信は禁物です。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">カプトンテープは絶縁にも使えるので持っておいて損はないです。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">基盤は右手側と左手側で裏表が逆になるので注意が必要です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">公式のビルドガイドにありませんが、チップLEDにする方法もあるのでBacklight LEDに関しては後で検討します。。。</span><a href="#fnref:6" rev="footnote"> ↩</a></li></ol></div></div></p>
-
+<p><a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" title="サイレントでホットスワップなErgoDash miniを制作(後編)">サイレントでホットスワップなErgoDash miniを制作(後編)</a></p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">1台目はシンプルなものでも、いろいろ反省点や改善点が目に付きます。また、シンプルなものを知らないと何が良くなったのがわからないので、お楽しみは２台目以降にとっておきましょう。自分はこれで4台目ですが腕はまだまだです・・・</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">アニメを見ながらだったので実際はもっと短く済むはずです・・・</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">実際私は再確認で合計3箇所の間違いを発見しました・・・過信は禁物です。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">カプトンテープは絶縁にも使えるので持っておいて損はないです。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">基盤は右手側と左手側で裏表が逆になるので注意が必要です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">公式のビルドガイドにありませんが、チップLEDにする方法もあるのでBacklight LEDに関しては後で検討します。。。</span><a href="#fnref:6" rev="footnote"> ↩</a></li></ol></div></div><p></p>
+</body></html>
         </div>
         
         
@@ -286,6 +279,10 @@
 </div>
 
 
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" title="サイレントでホットスワップなErgoDash miniを制作(後編)" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/keyboards/ergodash-mini.jpg"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-01-10</div><a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" title="サイレントでホットスワップなErgoDash miniを制作(後編)" rel="bookmark">サイレントでホットスワップなErgoDash miniを制作(後編)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/01/12/keymap/" title="ようこそキーマップ沼へ" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/keyboards/QWERTY.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-01-12</div><a href="/cats-cats-cats/2019/01/12/keymap/" title="ようこそキーマップ沼へ" rel="bookmark">ようこそキーマップ沼へ</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2018/12/12/keyboard/" title="気が付いたら本棚がキーボード棚に変わっていた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/keyboard_shelf.jpg"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2018-12-12</div><a href="/cats-cats-cats/2018/12/12/keyboard/" title="気が付いたら本棚がキーボード棚に変わっていた話" rel="bookmark">気が付いたら本棚がキーボード棚に変わっていた話</a></h3></div></li></ul></div>
 </div>
                 
 
