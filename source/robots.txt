@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://hinastory.github.io/cats-cats-cats/sitemap.xml
