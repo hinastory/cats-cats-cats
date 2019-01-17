@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cats cats cats</title>
+  
+  <subtitle>射は圏よりも強し</subtitle>
+  <link href="/cats-cats-cats/atom.xml" rel="self"/>
+  
+  <link href="https://hinastory.github.io/cats-cats-cats/"/>
+  <updated>2019-01-13T13:06:39.080Z</updated>
+  <id>https://hinastory.github.io/cats-cats-cats/</id>
+  
+  <author>
+    <name>hinastory</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHubのプライベートリポジトリに移行した話</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/01/13/github/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/01/13/github/</id>
+    <published>2019-01-13T00:29:23.000Z</published>
+    <updated>2019-01-13T13:06:39.080Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;新年そうそうビッグニュースが流れてきました。&lt;br&gt;GitHubがプライベートリポジトリをタダで使わせてくれるってよ!&lt;/p&gt;
+&lt;a href=&quot;http://www.itmedia.co.jp/news/articles/1901/08/news051.html&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;http://image.itmedia.co.jp/news/articles/1901/08/cover_news051.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;GitHub、無料ユーザーもプライベートリポジトリを使い放題に&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;GitHubが、無料ユーザーもプライベートリポジトリを無制限に使えるようにした（共有は3人まで）。料金体系は変わらないが、有料プランの名称も少し変わった。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
+    
+    
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ようこそキーマップ沼へ</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/01/12/keymap/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/01/12/keymap/</id>
+    <published>2019-01-11T22:37:02.000Z</published>
+    <updated>2019-01-11T22:00:15.689Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;以下のErgodash miniの記事では書ききれなかったキーマップについて紹介します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/01/06/ergodash-mini-1/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(前編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(前編)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/01/10/ergodash-mini-2/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(後編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(後編)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
+    
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
+    
+      <category term="Keymap" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keymap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>サイレントでホットスワップなErgoDash miniを制作(後編)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/01/10/ergodash-mini-2/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/01/10/ergodash-mini-2/</id>
+    <published>2019-01-10T14:37:02.000Z</published>
+    <updated>2019-01-14T08:41:28.118Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。&lt;/p&gt;
+&lt;a href=&quot;/cats-cats-cats/2019/01/06/ergodash-mini-1/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(前編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(前編)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
+    
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
+    
+      <category term="ErgoDash" scheme="https://hinastory.github.io/cats-cats-cats/tags/ErgoDash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>サイレントでホットスワップなErgoDash miniを制作(前編)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/</id>
+    <published>2019-01-05T22:37:02.000Z</published>
+    <updated>2019-01-10T22:52:26.310Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。&lt;/p&gt;
+&lt;a href=&quot;https://github.com/omkbd/ErgoDash/tree/master/mini&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/25457209?s=400&amp;v=4&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;omkbd/ErgoDash&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;keyboard. Contribute to omkbd/ErgoDash development by creating an account on GitHub.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
+    
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
+    
+      <category term="ErgoDash" scheme="https://hinastory.github.io/cats-cats-cats/tags/ErgoDash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>気が付いたら本棚がキーボード棚に変わっていた話</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2018/12/12/keyboard/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2018/12/12/keyboard/</id>
+    <published>2018-12-11T22:32:37.000Z</published>
+    <updated>2019-01-05T22:57:58.673Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は自作キーボード #2 Advent Calendar 2018 12日目の記事です。自分はゆるふわでキーボードを楽しみたい勢なので、カジュアルにキーボードを楽しむ方法について書いてみたいと思います。&lt;br&gt;ガチなモノ作りの記事はすでに多くの人が書かれていると思うので、その途中で箸休め的に読んでいただけると幸いです。&lt;/p&gt;
+&lt;a href=&quot;https://adventar.org/calendars/2964&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://adventar.org/assets/icon200-7c9a9308860c3a9cc64fa22b75f92d1401579db156cb9eb3ac39173c31e10282.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;自作キーボード #2 Advent Calendar 2018 - Adventar&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;書きたいのに枠がないという方のための2枚目です。
+
+[その1](https://adventar.org/calendars/2954)
+[その3](https://adventar.org/calendars/3208)
+
+「皆さん、EndGameしていますか？」
+
+日本の自作…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
+    
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JapanContainerDays v18.12 に初参加</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2018/12/06/container-days/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2018/12/06/container-days/</id>
+    <published>2018-12-06T14:22:18.000Z</published>
+    <updated>2018-12-12T21:23:00.905Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;12/4(火)にJapanContainerDays v18.12に初参加しました。このイベントは春に1回目を開催して今回で2回目の開催だそうですが&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、会場には800人以上の人が詰め掛けたようで非常に盛況でした。&lt;/p&gt;
+&lt;a href=&quot;https://containerdays.jp/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://containerdays.jp/assets/img/screenshot.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;JapanContainerDays v18.12&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;[12/3-5開催]コンテナ活用/クラウドネイティブの現状をひとまとめにした開発者のためのイベント - JapanContainerDays&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
+    
+    
+      <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexoでブログに再入門</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/</id>
+    <published>2018-12-02T14:02:58.000Z</published>
+    <updated>2019-01-13T22:35:19.124Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Advent Calendar用に久々にブログを立てて見ました。&lt;br&gt;以前にパブリックに書いたのは多分10年以上前のような気がします。&lt;br&gt;レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・&lt;/p&gt;
+&lt;p&gt;まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
+    
+    
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
+    
+  </entry>
+  
+</feed>

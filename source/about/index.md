@@ -3,6 +3,7 @@ title: about
 thumbnail: /gallery/profile/cats-cats-cats-logo.png
 no_share: true
 no_date: true
+sitemap: false
 ---
 
 hinastoryのブログです。興味のある技術を中心に記録していきます。

@@ -95,3 +95,17 @@ toc:
       style: header-anchor
       notIncludeHeading: true
 
+sitemap:
+    path: sitemap.xml
+    tag: false
+    category: false
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit:
+  order_by: -date
+#  icon: gallery/profile/cats-cats-cats-logo.png

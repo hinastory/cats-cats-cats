@@ -3,7 +3,7 @@ version: 2.0.0
 # Path or URL to the website's icon
 favicon: /gallery/profile/favicon.ico
 # Path or URL to RSS atom.xml
-rss: 
+rss: /cats-cats-cats/atom.xml
 # Path or URL to the website's logo to be shown on the left of the navigation bar or footer
 logo: /gallery/profile/cats-cats-cats-logo.png
 title: cats cats cats
@@ -94,6 +94,9 @@ widgets:
             Twitter:
                 icon: 'fab fa-twitter'
                 url: https://twitter.com/hinastory999
+            RSS:
+                icon: 'fas fa-rss'
+                url: /atom.xml
     -
         type: toc
         position: left
