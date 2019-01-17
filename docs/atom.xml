@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cats cats cats</title>
-  <icon>https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png</icon>
+  <icon>https://hinastory.github.io/cats-cats-cats/favicon.ico</icon>
   <subtitle>射は圏よりも強し</subtitle>
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   
