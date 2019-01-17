@@ -108,4 +108,4 @@ feed:
   content:
   content_limit:
   order_by: -date
-  icon: gallery/profile/cats-cats-cats-logo.png
+  icon: favicon.ico
