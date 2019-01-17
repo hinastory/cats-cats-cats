@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cats cats cats</title>
-  
+  <icon>https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png</icon>
   <subtitle>射は圏よりも強し</subtitle>
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   
@@ -30,6 +30,7 @@
     
     </summary>
     
+    
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
       <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
@@ -57,6 +58,7 @@
     
     </summary>
     
+    
       <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
     
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
@@ -82,6 +84,7 @@
     
     </summary>
     
+    
       <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
     
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
@@ -106,6 +109,7 @@
 &lt;a href=&quot;https://github.com/omkbd/ErgoDash/tree/master/mini&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/25457209?s=400&amp;v=4&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;omkbd/ErgoDash&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;keyboard. Contribute to omkbd/ErgoDash development by creating an account on GitHub.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
+    
     
       <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
     
@@ -139,6 +143,7 @@
     
     </summary>
     
+    
       <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
     
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
@@ -164,6 +169,7 @@
     
     </summary>
     
+    
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
@@ -188,6 +194,7 @@
 &lt;p&gt;まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
+    
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
