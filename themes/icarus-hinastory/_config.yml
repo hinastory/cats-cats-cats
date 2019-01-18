@@ -2,6 +2,9 @@
 version: 2.0.0
 # Path or URL to the website's icon
 favicon: https://hinastory.github.io/cats-cats-cats/favicon.ico
+favicon_32: https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png
+favicon_96: https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats.logo-96.png
+
 # Path or URL to RSS atom.xml
 rss: /cats-cats-cats/atom.xml
 # Path or URL to the website's logo to be shown on the left of the navigation bar or footer
