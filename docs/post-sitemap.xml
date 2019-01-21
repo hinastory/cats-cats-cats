@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/</loc>
+        <lastmod>2019-01-21T20:38:43.910Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/01/10/ergodash-mini-2/</loc>
-        <lastmod>2019-01-21T20:24:27.497Z</lastmod>
+        <lastmod>2019-01-21T20:29:24.072Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -34,14 +42,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/01/12/keymap/</loc>
         <lastmod>2019-01-11T22:00:15.689Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/</loc>
-        <lastmod>2019-01-10T22:52:26.310Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
