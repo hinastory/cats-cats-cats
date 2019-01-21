@@ -16,7 +16,7 @@
 <meta property="og:description" content="2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。 サイレントでホットスワップなErgoDash miniを制作(前編)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/ergodash-mini2.jpg">
-<meta property="og:updated_time" content="2019-01-14T08:41:28.118Z">
+<meta property="og:updated_time" content="2019-01-21T20:24:27.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="サイレントでホットスワップなErgoDash miniを制作(後編)">
 <meta name="twitter:description" content="2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。 サイレントでホットスワップなErgoDash miniを制作(前編)">
@@ -195,7 +195,7 @@
 <p>さて、この田植え作業が終わったと思って一息つけるかと思えば、そうは問屋が卸しません・・・組立工程の屈指の難関、ベリリウムのはんだ付けです。このはんだ付けの何が難しいかと言えば、基盤から顔を覗かせているベリリウムの高さがあまりないので、ベリリウムの穴にはんだが入らないように周囲にだけはんだを盛るのが大変なのです。単にスイッチの足をはんだ付けすればいいのであれば、一つの足に付き数秒で済みますが、ベリリウムの周囲をはんだが入らないように固めるとすれば、はんだを数回に分けて慎重に盛らねばなりません。自分の場合、普通にスイッチにはんだ付けするより5倍程の時間がかかりました・・・<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></p>
 <h3 id="スタビライザー-キースイッチ-pro-microの取り付け"><a href="#スタビライザー-キースイッチ-pro-microの取り付け" class="header-anchor"></a>1.3. <a href="#スタビライザー、キースイッチ、Pro-Microの取り付け" class="headerlink" title="スタビライザー、キースイッチ、Pro Microの取り付け"></a>スタビライザー、キースイッチ、Pro Microの取り付け</h3><p>ホットスワップにしたのでここからは基盤に挿すだけのお仕事です。ただスタビライザーを取り付ける場合には静音化のためにグリスをしっかり塗りましょう。自分は手元にあったシリコングリスを塗りました。オイル系だとあまり音を抑えられなかったのでここはグリスがいい感じでした。キースイッチは足が曲がらないように慎重にベリリウムを狙って挿すようにしましょう。Pro Microは基盤に挿すだけなのですが、Pro Microに着いているLEDは光量があって透明のアクリルケースだと拡散して結構目立ちます。気になる人は不透明な絶縁テープで目張りをすることをオススメします。下の写真では左が目張りをしていて、右が目張りをしていません。</p>
 <img src="/cats-cats-cats/gallery/daily/keyboards/pro-micro-light.jpg" width="300">
-<p>USBの口と反対側にライトがあるのでここにテープを貼ります。</p>
+<p>USBの口と反対側にライトがあるのでここにテープを貼ります。この写真では赤色のLEDしか目張りしていませんが、緑色のLEDも気になる場合は全体に貼りましょう。</p>
 <img src="/cats-cats-cats/gallery/daily/keyboards/pro-micro-tape.jpg" width="300">
 <h3 id="pro-microにqmk-firmwareの書き込み"><a href="#pro-microにqmk-firmwareの書き込み" class="header-anchor"></a>1.4. <a href="#Pro-MicroにQMK-Firmwareの書き込み" class="headerlink" title="Pro MicroにQMK Firmwareの書き込み"></a>Pro MicroにQMK Firmwareの書き込み</h3><p>この作業は公式のビルドガイドどおりで大丈夫です・・・といっても公式もリンクで実際はQMK Firmwareのページにもろもろ書いてあります。とりあえずGMK Firmwareの環境構築は終わっているものとして、骨子だけ説明します。ターミナルを開いて以下の手順で実施すれば大丈夫です。</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">cd</span> <qmk firmwareのトップディレクトリ=""></qmk></span><br><span class="line">cp -r keyboards/ergodash/mini/keymaps/default keyboards/ergodash/mini/keymaps/hinastory <span class="hljs-comment"># デフォルトのキーマップをコピーして自分専用のものを作る</span></span><br><span class="line">emacs -nw keyboards/ergodash/mini/keymaps/hinastory/rules.mk <span class="hljs-comment"># 「RGBLIGHT_ENABLE = yes」を追加</span></span><br><span class="line">emacs -nw keyboards/ergodash/mini/keymaps/hinastory/keymap.c <span class="hljs-comment"># お好きなキーマップに変更</span></span><br><span class="line">sudo make ergodash/mini:hinastory <span class="hljs-comment"># ファームウェアのビルドと転送。</span></span><br></pre></td></tr></tbody></table></figure>

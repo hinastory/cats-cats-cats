@@ -59,7 +59,7 @@ ErgoDash miniではこの段階で親指付近のキーの物理配置を決定�
 
 {% img /gallery/daily/keyboards/pro-micro-light.jpg 300 %}
 
-USBの口と反対側にライトがあるのでここにテープを貼ります。
+USBの口と反対側にライトがあるのでここにテープを貼ります。この写真では赤色のLEDしか目張りしていませんが、緑色のLEDも気になる場合は全体に貼りましょう。
 
 {% img /gallery/daily/keyboards/pro-micro-tape.jpg 300 %}
 
