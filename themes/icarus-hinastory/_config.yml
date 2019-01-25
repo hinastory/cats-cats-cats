@@ -1,8 +1,8 @@
 # Version of the Icarus theme that is currently used
 version: 2.0.0
 # Path or URL to the website's icon
-favicon: /cats-cats-cats/favicon.ico
-favicon_32: /cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png
+favicon: /favicon.ico
+favicon_32: /gallery/profile/cats-cats-cats.logo-32.png
 
 # Path or URL to RSS atom.xml
 rss: /cats-cats-cats/atom.xml
