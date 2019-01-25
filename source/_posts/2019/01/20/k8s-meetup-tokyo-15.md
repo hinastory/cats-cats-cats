@@ -8,7 +8,7 @@ tags:
   - Container
 date: 2019-01-20 05:09:37
 ---
-Kubernetes Meetup Tokyo #15 - KubeCon 2018 Recapに初参加して来ました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。
+Kubernetes Meetup Tokyoに初参加して来ました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。
 
 {% linkPreview https://k8sjp.connpass.com/event/112661/?utm_campaign=&utm_source=notifications&utm_medium=email&utm_content=title_link %}
 
@@ -19,7 +19,7 @@ Kubernetes Meetup Tokyo #15 - KubeCon 2018 Recapに初参加して来ました�
 
 ## Kubernetes Meetup Tokyo #15 - KubeCon 2018 Recapとは？
 
-Kubernetes[^1] Meetup Tokyoは、東京都内で不定期に開催されるKubernetesに関する情報交換や交流を行うための勉強会です。Kubernetesに熱い情熱を捧げる有志の方々が運営されています。参加登録は{% elink connpass https://k8sjp.connpass.com/ %}から気軽に行えますが、ここ最近は人気が高く定員オーバーの状態が続いています。一般枠は激戦で参加できるかどうかは抽選なので運次第ですが、遠方枠や女性/LGBT枠は競争率が低いので条件を満たす人はオススメです。
+Kubernetes[^1] Meetup Tokyoは、東京都内で不定期に開催されるKubernetesに関する情報交換や交流を行うための勉強会で今回で15回目の開催です。Kubernetesに熱い情熱を捧げる有志の方々が運営されています。参加登録は{% elink connpass https://k8sjp.connpass.com/ %}から気軽に行えますが、ここ最近は人気が高く定員オーバーの状態が続いています。一般枠は激戦で参加できるかどうかは抽選なので運次第ですが、遠方枠や女性/LGBT枠は競争率が低いので条件を満たす人はオススメです。
 
 今回のMeetupは「KubeCon 2018 Recap」という副題が示すとおり、昨年12月10〜13日にかけてシアトルで行われた{% elink "KubeCon + CloudNativeCon" https://events.linuxfoundation.jp/events/kubecon-cloudnativecon-north-america-2018/ %}のおさらいです。KubeConは世界最大規模のKubernetesのカンファレンスで、前回は8000人を超える参加者と100を超えるスポンサーが集結しました。
 
