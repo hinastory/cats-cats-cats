@@ -8,7 +8,7 @@ tags:
   - Container
 date: 2019-01-20 05:09:37
 ---
-Kubernetes Meetup Tokyoに初参加して来ました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。
+Kubernetes Meetup Tokyoに初参加しました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。
 
 {% linkPreview https://k8sjp.connpass.com/event/112661/?utm_campaign=&utm_source=notifications&utm_medium=email&utm_content=title_link %}
 
