@@ -7,6 +7,7 @@ screen-desktop = 1088px
 screen-widescreen = 1280px
 screen-fullhd = 1472px
 screen-superwide = 1600px
+screen-superwide2 = 1700px
 screen-ultrawide = 1800px
 
 /* ---------------------------------
@@ -45,13 +46,24 @@ body, button, input, select, textarea
         max-width: screen-widescreen - 2 * gap
         width: screen-widescreen - 2 * gap
 
+@media screen and (min-width: screen-superwide2)
+    .is-3-column .container
+        max-width: 1600px
+        width: 1600px
+    .is-2-column .container
+        max-width: screen-superwide - 2 * gap
+        width: screen-superwide - 2 * gap
+    .is-1-column .container
+        max-width: screen-fullhd - 2 * gap
+        width: screen-fullhd - 2 * gap
+
 @media screen and (min-width: screen-ultrawide)
     .is-3-column .container
         max-width: 1700px
         width: 1700px
     .is-2-column .container
-        max-width: screen-superwide - 2 * gap
-        width: screen-superwide - 2 * gap
+        max-width: screen-superwide2 - 2 * gap
+        width: screen-superwide2 - 2 * gap
     .is-1-column .container
         max-width: screen-fullhd - 2 * gap
         width: screen-fullhd - 2 * gap

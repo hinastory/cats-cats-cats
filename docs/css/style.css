@@ -46,14 +46,28 @@ textarea {
     width: 1152px;
   }
 }
+@media screen and (min-width: 1700px) {
+  .is-3-column .container {
+    max-width: 1600px;
+    width: 1600px;
+  }
+  .is-2-column .container {
+    max-width: 1472px;
+    width: 1472px;
+  }
+  .is-1-column .container {
+    max-width: 1344px;
+    width: 1344px;
+  }
+}
 @media screen and (min-width: 1800px) {
   .is-3-column .container {
     max-width: 1700px;
     width: 1700px;
   }
   .is-2-column .container {
-    max-width: 1472px;
-    width: 1472px;
+    max-width: 1572px;
+    width: 1572px;
   }
   .is-1-column .container {
     max-width: 1344px;
