@@ -94,7 +94,7 @@ Kubernetesのセキュリティーポリシーをどうやって定義、管理�
 
 ## 感想とまとめ
 
-運用のツラさで感じることはみんな大体同じで、様々な取り組みやツールがエコシステムとして整備されつつあると感じました。まさしく「Kubernetesは退屈」だからこそ安心して取り組める、そう感じたMeetupでした。非常に有意義なMeetupだったのでまた機会があれば参加してみたいと思います。
+運用のツラさで感じることはみんな大体同じで、様々な取り組みやツールがエコシステムとして整備されつつあると感じました。まさしく「`Kubernetesは退屈`」だからこそ安心して取り組める、そう感じたMeetupでした。非常に有意義なMeetupだったのでまた機会があれば参加してみたいと思います。
 
 - Kubernetesは退屈
   - 成熟してメインストリームで使われ始めた
@@ -104,8 +104,10 @@ Kubernetesのセキュリティーポリシーをどうやって定義、管理�
   - VM管理をk8sで行う
     - {% elink KubeVirt https://kubevirt.io/ %}
   - YAMLの壁、kubectlの壁に立ち向かう
-    - {% elink helm https://helm.sh/ %}、{% elink kustomize https://github.com/kubernetes-sigs/kustomize %}、{% elink kapitan https://github.com/deepmind/kapitan %}
+    - {% elink helm https://helm.sh/ %}, {% elink kustomize https://github.com/kubernetes-sigs/kustomize %}, {% elink kapitan https://github.com/deepmind/kapitan %}, ktool
   - イメージ管理とイメージ配信
-    - {% elink Harbor https://goharbor.io/ %},{% elink Dragonfly https://d7y.io/en-us/ %}
+    - {% elink Harbor https://goharbor.io/ %}, {% elink Dragonfly https://d7y.io/en-us/ %}
   - セキュリティ
-    - {% elink "Open Porlicy Agent(OPA)" %},{% elink kubernetes-policy-controller https://github.com/open-policy-agent/kubernetes-policy-controller %}
+    - {% elink "Open Porlicy Agent(OPA)" %}, {% elink kubernetes-policy-controller https://github.com/open-policy-agent/kubernetes-policy-controller %}
+
+{% img /gallery/events/k8s-meetup-tokyo/google-guest.jpg 400 %}
