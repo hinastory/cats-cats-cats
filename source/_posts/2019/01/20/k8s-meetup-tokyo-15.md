@@ -23,7 +23,7 @@ Kubernetes[^1] Meetup Tokyoは、東京都内で不定期に開催されるKuber
 
 今回のMeetupは「KubeCon 2018 Recap」という副題が示すとおり、昨年12月10〜13日にかけてシアトルで行われた{% elink "KubeCon + CloudNativeCon" https://events.linuxfoundation.jp/events/kubecon-cloudnativecon-north-america-2018/ %}のおさらいです。KubeConは世界最大規模のKubernetesのカンファレンスで、前回は8000人を超える参加者と100を超えるスポンサーが集結しました。
 
-[^1]: Kubernetesはご存知かもしれませんが一応説明しておくと、もともとはGoogleが開発して2014年に公開して、現在は{% elink Cloud Native Computing Foundation https://www.cncf.io/ %}の管轄下にあるコンテナオーケストレーションシステムです。よくk8sと略されます。去年の段階で同様のツールやシステムを押さえてほぼ一強状態で、昨今の盛り上がりはすごく、これから到来すると予想されるクラウドネイティブ時代の中心的な役割を担っています。
+[^1]: Kubernetesはご存知かもしれませんが一応説明しておくと、もともとはGoogleが開発して2014年に公開して、現在は{% elink Cloud Native Computing Foundation https://www.cncf.io/ %}の管轄下にあるコンテナオーケストレーションシステムです。よくk8sと略されます。去年の段階で同様のツールやシステムを押さえてほぼ一強状態で、昨今の盛り上がりはすごく、これから到来すると予想される{% elink クラウドネイティブ https://github.com/cncf/toc/blob/master/DEFINITION.md %}時代の中心的な役割を担っています。
 
 ## 会場の様子
 
@@ -83,12 +83,12 @@ Kubernetesのセキュリティーポリシーをどうやって定義、管理�
 
 <div style="display:flex;justify-content: center;"><div style="width: 80%;"><script async class="speakerdeck-embed" data-id="23d2db5823ea46408510f7c0c695041b" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script></div></div>
 
-[^2]: Regoはいろいろとクセが強そうな印象を受けました。`=`が比較だったり代入だったりするなど・・・
+[^2]: 話を聞いた限り、{% elink Rego https://www.openpolicyagent.org/docs/language-reference.html %}はいろいろとクセが強そうな印象を受けました。`=`が比較だったり代入だったりするなど・・・
 
 ## 食事
 
 鉄板のピザとビール。ノンアルもあるよ!
-美味しかったです。
+{% elink ナポリの窯 https://www.napolipizza.jp/ %}は初めて食べましたが、評判通り美味しかったです。
 
 {% img /gallery/events/k8s-meetup-tokyo/pizza.jpg 400 %}
 
