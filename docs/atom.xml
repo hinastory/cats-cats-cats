@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-01-26T21:45:25.996Z</updated>
+  <updated>2019-02-12T22:38:34.994Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,6 +17,102 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HexoのoEmbedプラグインをnpmに公開した話(後編)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/</id>
+    <published>2019-02-10T23:36:19.000Z</published>
+    <updated>2019-02-12T22:38:34.994Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。&lt;/p&gt;
+&lt;a href=&quot;/cats-cats-cats/2019/02/09/hexo-oembed-1/&quot; title=&quot;HexoのoEmbedプラグインをnpmに公開した話(前編)&quot;&gt;HexoのoEmbedプラグインをnpmに公開した話(前編)&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
+    
+    
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
+    
+      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
+    
+      <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
+    
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HexoのoEmbedプラグインをnpmに公開した話(前編)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/09/hexo-oembed-1/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/02/09/hexo-oembed-1/</id>
+    <published>2019-02-08T23:36:19.000Z</published>
+    <updated>2019-02-12T22:27:32.275Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。&lt;br&gt;本当はYouTubeが埋込たかったわけではなくて、&lt;a href=&quot;https://speakerdeck.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Speaker Deck&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;のスライドが埋込みたかっただけなんですが、&lt;a href=&quot;https://oembed.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;oEmbed&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;に公開しました。この記事はそのプラグイン制作記事の前編です。&lt;/p&gt;
+&lt;a href=&quot;https://www.npmjs.com/package/hexo-oembed&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;hexo-oembed&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;embed oEmbed item on your Hexo article.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
+    
+    
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
+    
+      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo-oembedを公開しました</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/07/hexo-oembed/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/02/07/hexo-oembed/</id>
+    <published>2019-02-06T23:36:19.000Z</published>
+    <updated>2019-02-12T19:59:36.295Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はそのプラグインの紹介記事です。&lt;/p&gt;
+&lt;a href=&quot;https://www.npmjs.com/package/hexo-oembed&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;hexo-oembed&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;embed oEmbed item on your Hexo article.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;p&gt;プラグイン制作記事は以下に書きました。興味があればそちらも読んで頂けると嬉しいです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/02/09/hexo-oembed-1/&quot; title=&quot;HexoのoEmbedプラグインをnpmに公開した話(前編)&quot;&gt;HexoのoEmbedプラグインをnpmに公開した話(前編)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/02/11/hexo-oembed-2/&quot; title=&quot;HexoのoEmbedプラグインをnpmに公開した話(後編)&quot;&gt;HexoのoEmbedプラグインをnpmに公開した話(後編)&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
+    
+    
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
+    
+      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
+    
+      <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/</id>
@@ -25,8 +121,8 @@
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Kubernetes Meetup Tokyoに初参加しました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。&lt;/p&gt;
-&lt;a href=&quot;https://k8sjp.connpass.com/event/112661/?utm_campaign=&amp;utm_source=notifications&amp;utm_medium=email&amp;utm_content=title_link&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://connpass-tokyo.s3.amazonaws.com/thumbs/39/a4/39a4cc27421e79ffab18f1c3a5f1c243.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;Kubernetes Meetup Tokyo #15 - KubeCon 2018 Recap (2019/01/10 19:00〜)&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Kubernetes Meetup Tokyo #15を開催します！ コンテナをデプロイできる強力なシステム Kubernetes のことを詳しく聞く会です！  # 行動規範 (Code of Conduct) について  Kubernetes Meetup Tokyoは、Kub…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;Kubernetes Meetup Tokyoに初参加しました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。&lt;/p&gt;
+&lt;a href=&quot;https://k8sjp.connpass.com/event/112661/?utm_campaign=&amp;utm_source=notifications&amp;utm_medium=email&amp;utm_content=title_link&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://connpass-tokyo.s3.amazonaws.com/thumbs/39/a4/39a4cc27421e79ffab18f1c3a5f1c243.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;Kubernetes Meetup Tokyo #15 - KubeCon 2018 Recap (2019/01/10 19:00〜)&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Kubernetes Meetup Tokyo #15を開催します！ コンテナをデプロイできる強力なシステム Kubernetes のことを詳しく聞く会です！  # 行動規範 (Code of Conduct) について  Kubernetes Meetup Tokyoは、Kub…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -47,12 +143,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/01/13/github/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/01/13/github/</id>
     <published>2019-01-13T00:29:23.000Z</published>
-    <updated>2019-01-13T13:06:39.080Z</updated>
+    <updated>2019-02-12T17:46:30.453Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;新年そうそうビッグニュースが流れてきました。&lt;br&gt;GitHubがプライベートリポジトリをタダで使わせてくれるってよ!&lt;/p&gt;
-&lt;a href=&quot;http://www.itmedia.co.jp/news/articles/1901/08/news051.html&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;http://image.itmedia.co.jp/news/articles/1901/08/cover_news051.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;GitHub、無料ユーザーもプライベートリポジトリを使い放題に&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;GitHubが、無料ユーザーもプライベートリポジトリを無制限に使えるようにした（共有は3人まで）。料金体系は変わらないが、有料プランの名称も少し変わった。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;新年そうそうビッグニュースが流れてきました。&lt;br&gt;GitHubがプライベートリポジトリをタダで使わせてくれるってよ!&lt;/p&gt;
+&lt;a href=&quot;http://www.itmedia.co.jp/news/articles/1901/08/news051.html&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://image.itmedia.co.jp/news/articles/1901/08/cover_news051.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;GitHub、無料ユーザーもプライベートリポジトリを使い放題に&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;GitHubが、無料ユーザーもプライベートリポジトリを無制限に使えるようにした（共有は3人まで）。料金体系は変わらないが、有料プランの名称も少し変わった。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -75,12 +171,12 @@
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;以下のErgodash miniの記事では書ききれなかったキーマップについて紹介します。&lt;/p&gt;
+      &lt;p&gt;以下のErgodash miniの記事では書ききれなかったキーマップについて紹介します。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/01/06/ergodash-mini-1/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(前編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(前編)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/01/10/ergodash-mini-2/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(後編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(後編)&lt;/a&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -105,8 +201,8 @@
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。&lt;/p&gt;
-&lt;a href=&quot;/cats-cats-cats/2019/01/06/ergodash-mini-1/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(前編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(前編)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。&lt;/p&gt;
+&lt;a href=&quot;/cats-cats-cats/2019/01/06/ergodash-mini-1/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(前編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(前編)&lt;/a&gt;
     
     </summary>
     
@@ -131,8 +227,8 @@
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。&lt;/p&gt;
-&lt;a href=&quot;https://github.com/omkbd/ErgoDash/tree/master/mini&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/25457209?s=400&amp;v=4&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;omkbd/ErgoDash&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;keyboard. Contribute to omkbd/ErgoDash development by creating an account on GitHub.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。&lt;/p&gt;
+&lt;a href=&quot;https://github.com/omkbd/ErgoDash/tree/master/mini&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/25457209?s=400&amp;v=4&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;omkbd/ErgoDash&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;keyboard. Contribute to omkbd/ErgoDash development by creating an account on GitHub.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -157,7 +253,7 @@
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は自作キーボード #2 Advent Calendar 2018 12日目の記事です。自分はゆるふわでキーボードを楽しみたい勢なので、カジュアルにキーボードを楽しむ方法について書いてみたいと思います。&lt;br&gt;ガチなモノ作りの記事はすでに多くの人が書かれていると思うので、その途中で箸休め的に読んでいただけると幸いです。&lt;/p&gt;
+      &lt;p&gt;この記事は自作キーボード #2 Advent Calendar 2018 12日目の記事です。自分はゆるふわでキーボードを楽しみたい勢なので、カジュアルにキーボードを楽しむ方法について書いてみたいと思います。&lt;br&gt;ガチなモノ作りの記事はすでに多くの人が書かれていると思うので、その途中で箸休め的に読んでいただけると幸いです。&lt;/p&gt;
 &lt;a href=&quot;https://adventar.org/calendars/2964&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://adventar.org/assets/icon200-7c9a9308860c3a9cc64fa22b75f92d1401579db156cb9eb3ac39173c31e10282.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;自作キーボード #2 Advent Calendar 2018 - Adventar&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;書きたいのに枠がないという方のための2枚目です。
 
 [その1](https://adventar.org/calendars/2954)
@@ -165,7 +261,7 @@
 
 「皆さん、EndGameしていますか？」
 
-日本の自作…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+日本の自作…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -190,8 +286,8 @@
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;12/4(火)にJapanContainerDays v18.12に初参加しました。このイベントは春に1回目を開催して今回で2回目の開催だそうですが&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、会場には800人以上の人が詰め掛けたようで非常に盛況でした。&lt;/p&gt;
-&lt;a href=&quot;https://containerdays.jp/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://containerdays.jp/assets/img/screenshot.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;JapanContainerDays v18.12&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;[12/3-5開催]コンテナ活用/クラウドネイティブの現状をひとまとめにした開発者のためのイベント - JapanContainerDays&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;12/4(火)にJapanContainerDays v18.12に初参加しました。このイベントは春に1回目を開催して今回で2回目の開催だそうですが&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、会場には800人以上の人が詰め掛けたようで非常に盛況でした。&lt;/p&gt;
+&lt;a href=&quot;https://containerdays.jp/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://containerdays.jp/assets/img/screenshot.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;JapanContainerDays v18.12&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;[12/3-5開催]コンテナ活用/クラウドネイティブの現状をひとまとめにした開発者のためのイベント - JapanContainerDays&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -216,8 +312,8 @@
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Advent Calendar用に久々にブログを立てて見ました。&lt;br&gt;以前にパブリックに書いたのは多分10年以上前のような気がします。&lt;br&gt;レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・&lt;/p&gt;
-&lt;p&gt;まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;Advent Calendar用に久々にブログを立てて見ました。&lt;br&gt;以前にパブリックに書いたのは多分10年以上前のような気がします。&lt;br&gt;レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・&lt;/p&gt;
+&lt;p&gt;まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。&lt;/p&gt;
     
     </summary>
     

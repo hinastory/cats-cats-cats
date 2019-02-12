@@ -7,15 +7,16 @@
         <% } %>
     </h1>
 
+    <% if (!no_meta(post)) { %>
     <div class="article-meta-data">
-        <% if (!no_date(post)) { %>
+
         <div class="article-date">
             <i class="fas fa-calendar-alt"></i>
             <a href="<%- url_for((post.link?post.link:post.path)) %>" class="media-left">
                 <time datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
             </a>
         </div>
-        <% } %>
+
         <div class="article-categories">
             <% if (post.categories && post.categories.length) { %>
                 <i class="fas fa-cat"></i>
@@ -39,6 +40,7 @@
             <% } %>
         </div>
     </div>
+    <% } %>
     <% if (has_thumbnail(post)) { %>
     <div class="card-image">
         <%- index ? '<a href="' + url_for(post.link ? post.link : post.path) + '"' : '<span ' %> class="image is-7by1">

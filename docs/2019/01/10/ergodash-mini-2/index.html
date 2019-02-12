@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html  lang="ja">
-<head>
+<html lang="ja">
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
 <title>サイレントでホットスワップなErgoDash miniを制作(後編) - cats cats cats</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -137,15 +137,16 @@
         
     </h1>
 
+    
     <div class="article-meta-data">
-        
+
         <div class="article-date">
             <i class="fas fa-calendar-alt"></i>
             <a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" class="media-left">
                 <time datetime="2019-01-10T14:37:02.000Z">2019-01-10</time>
             </a>
         </div>
-        
+
         <div class="article-categories">
             
                 <i class="fas fa-cat"></i>
@@ -160,6 +161,7 @@
             
         </div>
     </div>
+    
     
     <div class="card-image">
         <span class="image is-7by1">
@@ -177,7 +179,7 @@
         
 
         <div class="content">
-            <html><head><meta name="generator" content="Hexo 3.8.0"></head><body><p>2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。</p>
+            <p>2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。</p>
 <a href="/cats-cats-cats/2019/01/06/ergodash-mini-1/" title="サイレントでホットスワップなErgoDash miniを制作(前編)">サイレントでホットスワップなErgoDash miniを制作(前編)</a>
 <a id="more"></a>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#制作工程" class="contents-header">1. 制作工程</a><ul><li><a href="#pro-micro用のコンスルーの取り付け" class="contents-header">1.1. Pro Micro用のコンスルーの取り付け</a></li><li><a href="#ホットスワップ用ベリリウムの取り付け" class="contents-header">1.2. ホットスワップ用ベリリウムの取り付け</a></li><li><a href="#スタビライザー-キースイッチ-pro-microの取り付け" class="contents-header">1.3. スタビライザー、キースイッチ、Pro Microの取り付け</a></li><li><a href="#pro-microにqmk-firmwareの書き込み" class="contents-header">1.4. Pro MicroにQMK Firmwareの書き込み</a></li><li><a href="#動作確認" class="contents-header">1.5. 動作確認</a></li><li><a href="#ケースの組み立て" class="contents-header">1.6. ケースの組み立て</a></li><li><a href="#キーキャップの取り付け-o-ringによる静音化" class="contents-header">1.7. キーキャップの取り付け 〜O-ringによる静音化〜</a></li><li><a href="#完成" class="contents-header">1.8. 完成!</a></li></ul></li><li><a href="#トラブルシューティング" class="contents-header">2. トラブルシューティング</a></li><li><a href="#ホットスワップ化の長所と短所" class="contents-header">3. ホットスワップ化の長所と短所</a></li><li><a href="#まとめ" class="contents-header">4. まとめ</a></li></ul></div>
@@ -198,9 +200,9 @@
 <p>USBの口と反対側にライトがあるのでここにテープを貼ります。この写真では赤色のLEDしか目張りしていませんが、緑色のLEDも気になる場合は全体に貼りましょう。</p>
 <img src="/cats-cats-cats/gallery/daily/keyboards/pro-micro-tape.jpg" width="300">
 <h3 id="pro-microにqmk-firmwareの書き込み"><a href="#pro-microにqmk-firmwareの書き込み" class="header-anchor"></a>1.4. <a href="#Pro-MicroにQMK-Firmwareの書き込み" class="headerlink" title="Pro MicroにQMK Firmwareの書き込み"></a>Pro MicroにQMK Firmwareの書き込み</h3><p>この作業は公式のビルドガイドどおりで大丈夫です・・・といっても公式もリンクで実際はQMK Firmwareのページにもろもろ書いてあります。とりあえずGMK Firmwareの環境構築は終わっているものとして、骨子だけ説明します。ターミナルを開いて以下の手順で実施すれば大丈夫です。</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">cd</span> ＜QMK Firmwareのトップディレクトリ＞</span><br><span class="line">cp -r keyboards/ergodash/mini/keymaps/default keyboards/ergodash/mini/keymaps/hinastory <span class="hljs-comment"># デフォルトのキーマップをコピーして自分専用のものを作る</span></span><br><span class="line">emacs -nw keyboards/ergodash/mini/keymaps/hinastory/rules.mk <span class="hljs-comment"># 「RGBLIGHT_ENABLE = yes」を追加</span></span><br><span class="line">emacs -nw keyboards/ergodash/mini/keymaps/hinastory/keymap.c <span class="hljs-comment"># お好きなキーマップに変更</span></span><br><span class="line">sudo make ergodash/mini:hinastory <span class="hljs-comment"># ファームウェアのビルドと転送。</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ＜QMK Firmwareのトップディレクトリ＞<br>cp -r keyboards/ergodash/mini/keymaps/default keyboards/ergodash/mini/keymaps/hinastory <span class="hljs-comment"># デフォルトのキーマップをコピーして自分専用のものを作る</span><br>emacs -nw keyboards/ergodash/mini/keymaps/hinastory/rules.mk <span class="hljs-comment"># 「RGBLIGHT_ENABLE = yes」を追加</span><br>emacs -nw keyboards/ergodash/mini/keymaps/hinastory/keymap.c <span class="hljs-comment"># お好きなキーマップに変更</span><br>sudo make ergodash/mini:hinastory <span class="hljs-comment"># ファームウェアのビルドと転送。</span><br></code></pre></td></tr></table></figure>
 <p>上記で「hinastory」の部分は適当に好きな名前にしてください。自分のオリジナルのキーマップになるはずなのでユーザ名にしておくとわかりやすいです。emacsの部分はお好きなエディタに読み替えてください。Backlight LEDを有効にするためにはrule.mkに「RGBLIGHT_ENABLE = yes」を追加する必要があります。ファームウェアのビルドの転送に関してはコマンド実行後に以下のメッセージが表示されたら、PCと片側のキーボードをUSBケーブルでつないで、キーボードのリセットスイッチを押してください。この作業時にはTRRSケーブルは抜いておいてください。もう片側も同様にファームウェアの転送が必要です。</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Detecting USB port, reset your controller now...</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Detecting USB port, reset your controller now...<br></code></pre></td></tr></table></figure>
 <h3 id="動作確認"><a href="#動作確認" class="header-anchor"></a>1.5. <a href="#動作確認" class="headerlink" title="動作確認"></a>動作確認</h3><p>おめでとうございます！<br>ここまでの作業でマスターにUSBケーブルをつなぎ、左右のキーボードをTRRSケーブル<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>で繋げはキーボードは光り、全てのキーが入力できるはずです。動作に問題があった方はご愁傷様です・・・ケースを組む前にトラブルシューティングにお進みください・・・<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup></p>
 <h3 id="ケースの組み立て"><a href="#ケースの組み立て" class="header-anchor"></a>1.6. <a href="#ケースの組み立て" class="headerlink" title="ケースの組み立て"></a>ケースの組み立て</h3><p>ケース組み立てはビルドガイドの通りにアクリルプレートをネジ止めすれば大丈夫です。問題はキーボードに傾斜をつけたい場合です。もともとErgodash miniにはPro Microのスペースを確保するために手前から奥にかけて軽めの傾斜が付いていますが、もう少し奥側を高くしたい場合はゴム足で調整するのが簡単です。</p>
 <img src="/cats-cats-cats/gallery/daily/keyboards/tilt.jpg" width="500">
@@ -213,7 +215,7 @@
 <h3 id="完成"><a href="#完成" class="header-anchor"></a>1.8. <a href="#完成" class="headerlink" title="完成!"></a>完成!</h3><p>お疲れ様でした。完成です！</p>
 <img src="/cats-cats-cats/gallery/daily/keyboards/ergodash-mini.jpg" width="500">
 <h2 id="トラブルシューティング"><a href="#トラブルシューティング" class="header-anchor"></a>2. <a href="#トラブルシューティング" class="headerlink" title="トラブルシューティング"></a>トラブルシューティング</h2><p>今回自分が体験したトラブルはダイオードの挿し忘れ、LEDのはんだ不良、ベリリウムの穴にはんだ流し込み、ベリリウムのはんだ忘れ、スイッチの足にベリリムを嵌めようとしてスイッチの足を壊す、スタビライザーつけ忘れ、TRSケーブルとTRRSケーブルの間違い・・・<br>書いてて自分はアホの子ではないかとおもうくらいやらかしています・・・orz<br>ただこれはみんな通る道だと信じています・・・<br>以下のリンク先にこれらのトラブルの原因と対処方法がまとまっているのでご確認ください。ここに自分が体験したほぼ全てのトラブルが記載してありました。本当にいい情報なのでまとめてくれた人に感謝です。自分が自作キーボードを始めた頃にこのページはなかったのが悔やまれます・・・</p>
-<a href="https://scrapbox.io/self-made-kbds-ja/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%99%A5%E3%82%8B%E3%83%9F%E3%82%B9%E3%81%A8%E5%AF%BE%E7%AD%96" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://scrapbox.io/assets/img/content-logo.png"></div><div class="descriptions"><div class="og-title">キーボードを組み立てるときに陥るミスと対策 - Self-Made Keyboards in  Japan</div><div class="og-description">よくあるシチュエーション 組み立てた後、一部キーの動作がおかしい場合 原因のほとんどははんだづけにあります。 はんだづけを忘れている箇所、ダイオードの向き、LEDテープなどとショートしていないか確認しましょう。 キットを購入する場合 キットのビルドガイドや組み立て説明書などを読ん…</div></div></div></a>
+<a href="https://scrapbox.io/self-made-kbds-ja/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%99%A5%E3%82%8B%E3%83%9F%E3%82%B9%E3%81%A8%E5%AF%BE%E7%AD%96" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://gyazo.com/9fe735ea9881ea3ff60b23bb6f8e0d4c/thumb/1000"></div><div class="descriptions"><div class="og-title">キーボードを組み立てるときに陥るミスと対策 - Self-Made Keyboards in  Japan</div><div class="og-description">はじめてキットを組む人に是非一読して欲しいもの、としてまとめていきたい htomine シチュエーションごとになっていたほうがわかりやすい気はするので、項目別の内容をそちらに転化していけるといいかも。 これだけは確認して欲しいリスト とても多い間違い・ミスをピックアップしました。…</div></div></div></a>
 <p>上記のページで解決しない場合は<a href="https://discordapp.com/invite/NM7XtDW" target="_blank" rel="noopener">Discode<i class="fas fa-external-link-alt fa-fw"></i></a>で質問しましょう。「#ergodash」という専用チャンネルもありますし、自作キーボードの入門的な質問なら「#beginner-help」でもいいでしょう。親切な人が多いのできっと誰かが手を差し伸べてくれるはずです<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。</p>
 <p>ここからはトラブルの傾向に対する自分の感想ですが、やはりいちばんの関門はキットやパーツの入手性の悪さですね。人気のキットはすぐに売り切れますし、グループバイ(共同購入)の情報も様々な情報を注視していないと拾えないです。最近は大分改善されましたが、一昨年まではまともに組もうとすると海外通販を避けて通れない状態でした。しかし、去年はコミケやTokyo Maker Fairや技術書店にいけばキットを購入でき、Boothでも手に入りやすい状態でした。今年はもうすぐ遊舎工房さんの実店舗が秋葉原にオープンするらしいので、入手性に関してはさらに改善される見込みです。次の鬼門ははんだ付けですね。特にPro Microのはんだ不良は結構耳にします。またダイオードやPro Microを逆付けしてはんだを剥がそうとして基盤を壊す人もそこそこいます。またLEDチップの実装は阿鼻叫喚の様相を呈しています。</p>
 <p>あとはQMK Firmwareですね。苦労のタイプは大きく２つあって、QMK Firmwareそのものに苦戦する場合とQMK FIrmwareにたどり着く前の前提知識で苦戦する場合です。前者はQMK Firmwareのどこをいじればキーマップを思い通りにできるか悩む場合でドキュメントを読んである程度試行錯誤しないといけないでしょう。後者はそもそもビルド環境の構築やGit操作やC言語やmakeの仕組みの理解が足りなくて苦労しています。自分は前者の苦労だけで済んだので比較的楽でしたが、後者で苦労している人も多そうですね。残念ながらこの辺の苦労話を書くのはここの余白は狭すぎます・・・<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup></p>
@@ -253,8 +255,8 @@
 <p>キースイッチのホットスワップ化後の注意点には、キーキャップを引き抜くときにキースイッチも抜ける場合があります。これはケースやキーキャップの装着部分のきつさにもよるのですが、自分の場合何もしないと3つに一つはキースイッチも一緒に抜けます。対策としてはキーキャップ引き抜き器(針金タイプのもの)の一つを治具代わりにして、キースイッチの上部を押さえて、２本めのキーキャップ引き抜き器でキーキャップを抜いています。</p>
 <img src="/cats-cats-cats/gallery/daily/keyboards/pull-keycap.jpg" width="250">
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>4. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>まず、静音化ですがこれは体感でかなり変わりました。もちろん人によって評価は変わると思いますが、静かな会議室で利用しても問題ないくらいにはなったと感じています。また打ち心地に関してもlubeのおかげで大分なめらかになって、疲れにくくなったと感じました。ホットスワップ化に関しては、特にスイッチの作業自体は苦労しましたが一度壁を超えてしまえば恐れることはないし、その後に得られるものも大きいので次回のキーボード制作でも採用したいと思います。</p>
-<p>最初は本当に静音化とホットスワップ化のことだけについて書く予定でしたが、書いている途中で色々盛り込みたくなって結局、前半、後半に分けても長い記事になってしまいました。本当にここまで読んで頂いてありがとうございました。この記事が読んでくれた方の自作キーボードの一助となれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ここで言うホットスワップ化とは、はんだ付けせずにパーツを交換できる仕組みを指しています。電源を入れたまま抜き差しできるという意味ではないです。詳しくは<a href="https://scrapbox.io/self-made-kbds-ja/%E3%83%9B%E3%83%83%E3%83%88%E3%82%B9%E3%83%AF%E3%83%83%E3%83%97" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://nillpo.hatenablog.com/entry/2018/02/25/022158" target="_blank" rel="noopener">出典<i class="fas fa-external-link-alt fa-fw"></i></a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">この作業でスイッチを2個ダメにしました・・・</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">一回失敗してベリリウムの穴にはんだを入れてしまいました。5倍の時間というのは失敗したベリリウムを基盤から剥がす時間込みです。やっちまった瞬間は地獄に落とされたような感覚でした・・・</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">TRSケーブルだとマスターの反対側のLEDが光りません。片側しかLEDがつかなかったらケーブルを疑ってみてください。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">当然自分もトラブルシューティングに進みました・・・なのでトラブルシューティングの節は体験談です・・・orz</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">キーキャップを入れている容器はダイソーで買ったアルミキャップPET容器です。Seriaでも買えるようです。安いし軽いしサイズも色々あってキーキャップ入れにちょうどよかったです。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">自分も1台目のときにお世話になりました。このときははんだ不良で貼り付けた写真にいろいろな人にアドバイスを頂きました。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;"><a href="/cats-cats-cats/2019/01/12/keymap/" title="ようこそキーマップ沼へ">ようこそキーマップ沼へ</a> を書きました。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div><p></p>
-</body></html>
+<p>最初は本当に静音化とホットスワップ化のことだけについて書く予定でしたが、書いている途中で色々盛り込みたくなって結局、前半、後半に分けても長い記事になってしまいました。本当にここまで読んで頂いてありがとうございました。この記事が読んでくれた方の自作キーボードの一助となれば幸いです。<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ここで言うホットスワップ化とは、はんだ付けせずにパーツを交換できる仕組みを指しています。電源を入れたまま抜き差しできるという意味ではないです。詳しくは<a href="https://scrapbox.io/self-made-kbds-ja/%E3%83%9B%E3%83%83%E3%83%88%E3%82%B9%E3%83%AF%E3%83%83%E3%83%97" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://nillpo.hatenablog.com/entry/2018/02/25/022158" target="_blank" rel="noopener">出典<i class="fas fa-external-link-alt fa-fw"></i></a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">この作業でスイッチを2個ダメにしました・・・</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">一回失敗してベリリウムの穴にはんだを入れてしまいました。5倍の時間というのは失敗したベリリウムを基盤から剥がす時間込みです。やっちまった瞬間は地獄に落とされたような感覚でした・・・</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">TRSケーブルだとマスターの反対側のLEDが光りません。片側しかLEDがつかなかったらケーブルを疑ってみてください。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">当然自分もトラブルシューティングに進みました・・・なのでトラブルシューティングの節は体験談です・・・orz</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">キーキャップを入れている容器はダイソーで買ったアルミキャップPET容器です。Seriaでも買えるようです。安いし軽いしサイズも色々あってキーキャップ入れにちょうどよかったです。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">自分も1台目のときにお世話になりました。このときははんだ不良で貼り付けた写真にいろいろな人にアドバイスを頂きました。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;"><a href="/cats-cats-cats/2019/01/12/keymap/" title="ようこそキーマップ沼へ">ようこそキーマップ沼へ</a> を書きました。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div></p>
+
         </div>
         
         
@@ -339,7 +341,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        11
                     </p>
                 </div>
             </div>
@@ -359,7 +361,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        11
                     </p>
                 </div>
             </div>
@@ -428,7 +430,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">7</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -452,7 +454,7 @@
                 <span class="level-item">Web</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -466,7 +468,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 15px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 10px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 20px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 10px;">Web</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 13.33px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 20px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16.67px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 13.33px;">oEmbed</a>
     </div>
 </div>
 
@@ -480,6 +482,66 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/npm-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(後編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T23:36:19.000Z">2019-02-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(後編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T23:36:19.000Z">2019-02-09</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(前編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="hexo-oembedを公開しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-06T23:36:19.000Z">2019-02-07</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="has-link-black-ter is-size-6">hexo-oembedを公開しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -505,7 +567,7 @@
             
             <a href="/cats-cats-cats/2019/01/13/github/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://assets-cdn.github.com/images/modules/open_graph/github-mark.png" alt="GitHubのプライベートリポジトリに移行した話">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/GitHub-Mark-120px-plus.png" alt="GitHubのプライベートリポジトリに移行した話">
                 </p>
             </a>
             
@@ -516,66 +578,6 @@
                     <a href="/cats-cats-cats/2019/01/13/github/" class="has-link-black-ter is-size-6">GitHubのプライベートリポジトリに移行した話</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/01/12/keymap/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/keyboards/QWERTY.png" alt="ようこそキーマップ沼へ">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-11T22:37:02.000Z">2019-01-12</time></div>
-
-                    <a href="/cats-cats-cats/2019/01/12/keymap/" class="has-link-black-ter is-size-6">ようこそキーマップ沼へ</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ergodash-mini2.jpg" alt="サイレントでホットスワップなErgoDash miniを制作(後編)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-10T14:37:02.000Z">2019-01-10</time></div>
-
-                    <a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" class="has-link-black-ter is-size-6">サイレントでホットスワップなErgoDash miniを制作(後編)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/01/06/ergodash-mini-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ergo-dash-mini.jpg" alt="サイレントでホットスワップなErgoDash miniを制作(前編)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-05T22:37:02.000Z">2019-01-06</time></div>
-
-                    <a href="/cats-cats-cats/2019/01/06/ergodash-mini-1/" class="has-link-black-ter is-size-6">サイレントでホットスワップなErgoDash miniを制作(前編)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
                     </p>
                 </div>
             </div>
@@ -592,6 +594,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
@@ -667,7 +680,7 @@
                             <span class="level-item">Git</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -678,7 +691,7 @@
                             <span class="level-item">Hexo</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">4</span>
                         </span>
                     </a>
                 </li>
@@ -711,7 +724,7 @@
                             <span class="level-item">Web</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">4</span>
                         </span>
                     </a>
                 </li>
@@ -720,6 +733,28 @@
                     <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
                         <span class="level-start">
                             <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
@@ -752,6 +787,66 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/npm-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(後編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T23:36:19.000Z">2019-02-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(後編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T23:36:19.000Z">2019-02-09</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(前編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="hexo-oembedを公開しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-06T23:36:19.000Z">2019-02-07</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="has-link-black-ter is-size-6">hexo-oembedを公開しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/k8s-tokyo-logo.png" alt="Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加">
@@ -774,7 +869,7 @@
             
             <a href="/cats-cats-cats/2019/01/13/github/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://assets-cdn.github.com/images/modules/open_graph/github-mark.png" alt="GitHubのプライベートリポジトリに移行した話">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/GitHub-Mark-120px-plus.png" alt="GitHubのプライベートリポジトリに移行した話">
                 </p>
             </a>
             
@@ -785,66 +880,6 @@
                     <a href="/cats-cats-cats/2019/01/13/github/" class="has-link-black-ter is-size-6">GitHubのプライベートリポジトリに移行した話</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/01/12/keymap/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/keyboards/QWERTY.png" alt="ようこそキーマップ沼へ">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-11T22:37:02.000Z">2019-01-12</time></div>
-
-                    <a href="/cats-cats-cats/2019/01/12/keymap/" class="has-link-black-ter is-size-6">ようこそキーマップ沼へ</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ergodash-mini2.jpg" alt="サイレントでホットスワップなErgoDash miniを制作(後編)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-10T14:37:02.000Z">2019-01-10</time></div>
-
-                    <a href="/cats-cats-cats/2019/01/10/ergodash-mini-2/" class="has-link-black-ter is-size-6">サイレントでホットスワップなErgoDash miniを制作(後編)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/01/06/ergodash-mini-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ergo-dash-mini.jpg" alt="サイレントでホットスワップなErgoDash miniを制作(前編)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-05T22:37:02.000Z">2019-01-06</time></div>
-
-                    <a href="/cats-cats-cats/2019/01/06/ergodash-mini-1/" class="has-link-black-ter is-size-6">サイレントでホットスワップなErgoDash miniを制作(前編)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
                     </p>
                 </div>
             </div>
@@ -861,6 +896,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
@@ -936,7 +982,7 @@
                             <span class="level-item">Git</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -947,7 +993,7 @@
                             <span class="level-item">Hexo</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">4</span>
                         </span>
                     </a>
                 </li>
@@ -980,7 +1026,7 @@
                             <span class="level-item">Web</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">4</span>
                         </span>
                     </a>
                 </li>
@@ -989,6 +1035,28 @@
                     <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
                         <span class="level-start">
                             <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>

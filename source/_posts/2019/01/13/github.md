@@ -1,6 +1,6 @@
 ---
 title: GitHubのプライベートリポジトリに移行した話
-thumbnail: https://assets-cdn.github.com/images/modules/open_graph/github-mark.png
+thumbnail: /gallery/thumbnails/GitHub-Mark-120px-plus.png
 categories:
   - ['Tech', 'Tool']
 tags:

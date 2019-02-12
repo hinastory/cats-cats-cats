@@ -43,7 +43,8 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+  hljs: true
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -109,3 +110,16 @@ feed:
   content_limit:
   order_by: -date
   icon: favicon.ico
+
+oembed:
+  className: oembed
+  endpoints:
+    instagram:
+      match: instagram
+      url: http://api.instagram.com/oembed/
+    gyazo:
+      match: gyazo
+      url: https://api.gyazo.com/api/oembed/
+    flickr:
+      match: flickr
+      url: http://www.flickr.com/services/oembed/

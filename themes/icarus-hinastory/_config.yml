@@ -44,7 +44,8 @@ footer:
 article:
     # Code highlight theme
     # https://github.com/highlightjs/highlight.js/tree/master/src/styles
-    highlight: atom-one-light
+    #highlight: atom-one-light
+    #highlight: ""
     # Whether to show article thumbnail images
     thumbnail: true
     # Whether to show estimate article reading time

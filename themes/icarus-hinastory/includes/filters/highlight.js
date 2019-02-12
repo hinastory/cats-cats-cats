@@ -18,8 +18,8 @@ module.exports = function (hexo) {
      * Add .hljs class name to the code blocks and code elements
      */
     hexo.extend.filter.register('after_post_render', function (data) {
-        data.content = data.content ? patchCodeHighlight(data.content) : data.content;
-        data.excerpt = data.excerpt ? patchCodeHighlight(data.excerpt) : data.excerpt;
+        //data.content = data.content ? patchCodeHighlight(data.content) : data.content;
+        //data.excerpt = data.excerpt ? patchCodeHighlight(data.excerpt) : data.excerpt;
         return data;
     });
 }

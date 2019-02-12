@@ -93,8 +93,8 @@ module.exports = function (hexo) {
         return post.hasOwnProperty('no_share') && post.no_share;
     });
 
-    hexo.extend.helper.register('no_date', function (post) {
-        return post.hasOwnProperty('no_date') && post.no_date;
+    hexo.extend.helper.register('no_meta', function (post) {
+        return post.hasOwnProperty('no_meta') && post.no_meta;
     });
 
     hexo.extend.helper.register('get_thumbnail', function (post) {

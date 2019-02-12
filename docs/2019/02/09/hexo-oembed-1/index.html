@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>HexoのoEmbedプラグインをnpmに公開した話(前編) - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。本当はYouTubeが埋込たかったわけではなくて、Speaker Deckのスライドが埋込みたかっただけなんですが、oEmbedを利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm1に公開しました。この記事はそのプラグイン制作記事の前編です。 hexo-oembedembe">
+<meta name="keywords" content="Hexo,Web,npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/02/09/hexo-oembed-1/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。本当はYouTubeが埋込たかったわけではなくて、Speaker Deckのスライドが埋込みたかっただけなんですが、oEmbedを利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm1に公開しました。この記事はそのプラグイン制作記事の前編です。 hexo-oembedembe">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png">
+<meta property="og:updated_time" content="2019-02-12T22:27:32.275Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+<meta name="twitter:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。本当はYouTubeが埋込たかったわけではなくて、Speaker Deckのスライドが埋込みたかっただけなんですが、oEmbedを利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm1に公開しました。この記事はそのプラグイン制作記事の前編です。 hexo-oembedembe">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="HexoのoEmbedプラグインをnpmに公開した話(前編)" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            HexoのoEmbedプラグインをnpmに公開した話(前編)
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="media-left">
+                <time datetime="2019-02-08T23:36:19.000Z">2019-02-09</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Hexo/">Hexo</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Web/">Web</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/npm/">npm</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+               
+            </div>
+        </div>
+        
+
+        <div class="content">
+            <p>HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。<br>本当はYouTubeが埋込たかったわけではなくて、<a href="https://speakerdeck.com/" target="_blank" rel="noopener">Speaker Deck<i class="fas fa-external-link-alt fa-fw"></i></a>のスライドが埋込みたかっただけなんですが、<a href="https://oembed.com/" target="_blank" rel="noopener">oEmbed<i class="fas fa-external-link-alt fa-fw"></i></a>を利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>に公開しました。この記事はそのプラグイン制作記事の前編です。</p>
+<a href="https://www.npmjs.com/package/hexo-oembed" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png"></div><div class="descriptions"><div class="og-title">hexo-oembed</div><div class="og-description">embed oEmbed item on your Hexo article.</div></div></div></a>
+<a id="more"></a>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#前提" class="contents-header">1. 前提</a></li><li><a href="#なぜhexoのタグを新しく作ろうと思ったか" class="contents-header">2. なぜHexoのタグを新しく作ろうと思ったか</a></li><li><a href="#hexoのタグの作り方" class="contents-header">3. Hexoのタグの作り方</a></li><li><a href="#speaker-deckのタグを作ろうとして惨敗" class="contents-header">4. Speaker Deckのタグを作ろうとして惨敗</a></li><li><a href="#oembedとは" class="contents-header">5. oEmbedとは</a><ul><li><a href="#hexo-tag-oembed現る" class="contents-header">5.1. hexo-tag-oembed現る</a></li><li><a href="#真打ちoembed-discovery" class="contents-header">5.2. 真打ちoEmbed Discovery</a></li><li><a href="#図解oembed" class="contents-header">5.3. 図解oEmbed</a></li><li><a href="#後編へと続く" class="contents-header">5.4. 後編へと続く・・・</a></li></ul></li></ul></div>
+
+<h2 id="前提"><a href="#前提" class="header-anchor"></a>1. <a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>この記事はHexoのhexo-oembedプラグインの制作記事です。Hexoプラグインを作って見たい方、oEmbedの仕様に興味のある方、OSSへの貢献方法を一連の流れで知りたい方向けの記事となっています。<br>hexo-oembedの使い方そのものが知りたい方は以下のページを御覧ください。</p>
+<ul>
+<li><a href="/cats-cats-cats/2019/02/07/hexo-oembed/" title="hexo-oembedを公開しました">hexo-oembedを公開しました</a>
+</li>
+</ul>
+<p>早速製作記事に入りたいと思いますが、このブログで使われている静的サイトジェネレータのHexoのことを知らない方も多いと思います。この記事はHexoのプラグインの話なので知らない方は過去に書いた以下の記事を一読されることをオススメします。</p>
+<a href="https://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></div><div class="descriptions"><div class="og-title">Hexoでブログに再入門</div><div class="og-description">Advent Calendar用に久々にブログを立てて見ました。以前にパブリックに書いたのは多分10年以上前のような気がします。レンタルーサーバ借りてドメイン取ってRubyで動く何かを使って立てた気がするけど、よく思い出せません・・・ まぁ、過去のことは置いておいてせっかく立てた…</div></div></div></a>
+<p>Hexoは記事をMarkdownで記述することができるのですが、マークダウンで記述できないリッチなコンテンツ(例えばYouTubeの動画)を表示させたい場合は、以下のような形式で独自のタグを作成して表示させることができます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% tagName param1 param2 %&#125;<br></code></pre></td></tr></table></figure><br>作成したタグは自分で利用できるのはもちろんですが、Hexoはプラグイン機能を持っているので、プラグイン化してタグを再利用しやすくすることもできます。</p>
+<h2 id="なぜhexoのタグを新しく作ろうと思ったか"><a href="#なぜhexoのタグを新しく作ろうと思ったか" class="header-anchor"></a>2. <a href="#なぜHexoのタグを新しく作ろうと思ったか" class="headerlink" title="なぜHexoのタグを新しく作ろうと思ったか"></a>なぜHexoのタグを新しく作ろうと思ったか</h2><p>冒頭でも書きましたが、<a href="https://speakerdeck.com/" target="_blank" rel="noopener">Speaker Deck<i class="fas fa-external-link-alt fa-fw"></i></a>のスライドを貼りたくなったからです。<br>具体的には以下の前回の記事で貼りたくなりました。</p>
+<a href="https://hinastory.github.io/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/k8s-tokyo-logo.png"></div><div class="descriptions"><div class="og-title">Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加</div><div class="og-description">Kubernetes Meetup Tokyoに初参加しました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。 Kubernetes Meetup Tokyo #15 - KubeCon 2018 Recap (2019/…</div></div></div></a>
+<p>Speaker Deckのような埋込みを意識してあるサイトでは概ね埋め込み用のHTMLを取得できるようになっていて、MarkdownにそのままそのHTMLを貼れば表示させることもできるのですが、やはり記事の書きやすさを考えるとスライドのパーマリンクから自動的に埋め込み用HTMLを展開してくれた方が望ましいわけです。</p>
+<p>しかし、希望のタグは公式の<a href="https://hexo.io/docs/tag-plugins" target="_blank" rel="noopener">タグプラグイン<i class="fas fa-external-link-alt fa-fw"></i></a>には存在せず、<a href="https://hexo.io/plugins/index.html" target="_blank" rel="noopener">Hexoのプラグイン<i class="fas fa-external-link-alt fa-fw"></i></a>の中にも該当するものが見当たらなかったので、自作することにしました。</p>
+<h2 id="hexoのタグの作り方"><a href="#hexoのタグの作り方" class="header-anchor"></a>3. <a href="#Hexoのタグの作り方" class="headerlink" title="Hexoのタグの作り方"></a>Hexoのタグの作り方</h2><a href="https://hexo.io/api/tag" target="_blank" rel="noopener">公式のリンク<i class="fas fa-external-link-alt fa-fw"></i></a>にある通りタグ名を決めて展開したいHTMLタグを文字列で返すだけです。引数もargsに配列で渡ってくるのでオプション付きのタグを作るのも簡単です。ちなみに空白付きの引数を渡したいときはダブルクォートで囲ってあげれば大丈夫です。<br><br><figure class="highlight js"><figcaption><span>公式より</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.tag.register(<span class="hljs-string">'youtube'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">args</span>)</span>&#123;<br>  <span class="hljs-keyword">var</span> id = args[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;div class="video-container"&gt;&lt;iframe width="560" height="315" src="http://www.youtube.com/embed/'</span> + id + <span class="hljs-string">'" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;'</span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
+<p>ディスクからファイルを読み出したり、インターネットから取ってきた情報をもとにタグを作りたい場合には、非同期処理を利用することがよくあります。その場合は以下のようにオプションで<code>async: true</code>を渡してあげてプロミス<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>を返すようにしてあげれば問題ありません。実は最初は一番目の文字列を返す方式で実装するつもりだったのですが、いろいろと問題があって結局このプロミス方式で実装することになります。</p>
+<figure class="highlight js"><figcaption><span>公式より</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hexo-fs'</span>);<br><span class="hljs-keyword">var</span> pathFn = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);<br><br>hexo.extend.tag.register(<span class="hljs-string">'include_code'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">args</span>)</span>&#123;<br>  <span class="hljs-keyword">var</span> filename = args[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">var</span> path = pathFn.join(hexo.source_dir, filename);<br><br>  <span class="hljs-keyword">return</span> fs.readFile(path).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">content</span>)</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">'&amp;lt;pre&amp;lt;code&amp;gt;'</span> + content + <span class="hljs-string">'&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;'</span>;<br>  &#125;);<br>&#125;, &#123;<span class="hljs-attr">async</span>: <span class="hljs-literal">true</span>&#125;);<br></code></pre></td></tr></table></figure>
+<h2 id="speaker-deckのタグを作ろうとして惨敗"><a href="#speaker-deckのタグを作ろうとして惨敗" class="header-anchor"></a>4. <a href="#Speaker-Deckのタグを作ろうとして惨敗" class="headerlink" title="Speaker Deckのタグを作ろうとして惨敗"></a>Speaker Deckのタグを作ろうとして惨敗</h2><p>さて、Hexoのタグの作り方が分かったところで本命のSpeaker Deckのタグを作ってみることにしました。目標はスライドのパーマリンクから埋め込み用のHTMLを生成することです。そして適当なスライドのパーマリンクと埋め込み用のHTMLを比較してみて愕然としました・・・</p>
+<figure class="highlight js"><figcaption><span>パーマリンク</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">https:<span class="hljs-comment">//speakerdeck.com/lynnandtonic/art-the-web-and-tiny-ux</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>埋め込み用HTML</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"speakerdeck-embed"</span> <span class="hljs-attr">data-id</span>=<span class="hljs-string">"a6f09ce505e740f98bc816afa763e872"</span> <span class="hljs-attr">data-ratio</span>=<span class="hljs-string">"1.77777777777778"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//speakerdeck.com/assets/embed.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>お分かり頂けたでしょうか？<br>最初の想定ではパーマリンクが分かれば文字列処理で埋め込み用HTMLを生成できるはずでした。しかし、蓋を開けてみると<code>data-id</code>なるどこぞの馬の骨ともわからないものがなければ生成できないではありませんか！</p>
+<p><strong>F●●K———-</strong></p>
+<p>おっと、失礼。ついつい心の叫びがキーボードに伝わってしまいました。僕は悪くないよ。こうして、当初の目論見が破れて涙に暮れること3000年、突如救世主が現れました・・・</p>
+<h2 id="oembedとは"><a href="#oembedとは" class="header-anchor"></a>5. <a href="#oEmbedとは" class="headerlink" title="oEmbedとは"></a>oEmbedとは</h2><p>閑話休題。<br>真面目な話、正直どうしようかと色々調べていたらSpeaker Deckが<a href="https://oembed.com/" target="_blank" rel="noopener">oEmbed<i class="fas fa-external-link-alt fa-fw"></i></a>に対応していることを知りました。oEmbedは簡単に言えば、パーマリンクを埋め込み用HTMLに変換するためのWeb API仕様です。仕様はオープンになっておりYouTubeやTwitterやFacebookなども採用していて、コンテンツを埋め込むための業界標準となっています。そしてパーマリンクから埋め込み用HTMLを生成するサービスの提供側をoEmbedの<code>プロバイダ</code>というのですが、Speaker DeckはoEmbedのプロバイダであり、サービス提供の受付口である<code>エンドポイント</code>と受付可能なパーマリンクのフォーマットを定義する<code>スキーマ</code>を公開していました。ここからは公式のサンプルを引用しながら具体的に説明します。</p>
+<ul>
+<li>サービス提供者<ul>
+<li>flicker<ul>
+<li>パーマリンク<ul>
+<li><code>http://www.flickr.com/photos/bees/2341623661/</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>oEmbedプロバイダ<ul>
+<li>flickr<ul>
+<li>URLスキーマ<ul>
+<li><code>http://www.flickr.com/photos/*</code></li>
+</ul>
+</li>
+<li>APIエンドポイント<ul>
+<li><code>http://www.flickr.com/services/oembed</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>消費者<ul>
+<li>oEmbedリクエスト(HTTP GETリクエスト)<ul>
+<li><code>http://www.flickr.com/services/oembed/?format=json&amp;url=http%3A//www.flickr.com/photos/bees/2341623661/</code></li>
+</ul>
+</li>
+<li>oEmbedレスポンス(JSON形式)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,<br>　 <span class="hljs-attr">"type"</span>: <span class="hljs-string">"photo"</span>,<br>　 <span class="hljs-attr">"width"</span>: <span class="hljs-number">240</span>,<br>　 <span class="hljs-attr">"height"</span>: <span class="hljs-number">160</span>,<br>　 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"ZB8T0193"</span>,<br>　 <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://farm4.static.flickr.com/3123/2341623661_7c99f48bbf_m.jpg"</span>,<br>　 <span class="hljs-attr">"author_name"</span>: <span class="hljs-string">"Bees"</span>,<br>　 <span class="hljs-attr">"author_url"</span>: <span class="hljs-string">"http://www.flickr.com/photos/bees/"</span>,<br>　 <span class="hljs-attr">"provider_name"</span>: <span class="hljs-string">"Flickr"</span>,<br>　 <span class="hljs-attr">"provider_url"</span>: <span class="hljs-string">"http://www.flickr.com/"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>まずはサービス提供者とoEmbedプロバイダと消費者という、３つの登場人物がいることに注目しましょう。サービス提供者は文字通り埋め込み用コンテンツを提供する側です。この例では写真共有サービスのflickrになっており、埋め込みコンテンツを指定するためのパーマリンクを公開しているものとします<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
+<p>oEmbedプロバイダは前に説明したとおり、パーマリンクを埋め込み用HTMLに変換するための情報を提供します。ここでURLスキーマと見てみると、photosの後にアスタリスク(<code>*</code>)が指定されていることがわかります。これは任意の文字列を表していて、<code>photos/</code>以降の文字列がどんな場合でもパーマリンクはマッチすることになります。</p>
+<p>最後に消費者にです。消費者は埋め込み用HTMLが欲しい人です。そのためにはパーマリンクおよび、パーマリンクを受け付けるoEmbedプロバイダの両方を知っている必要があります。消費者はoEmbedプロバイダに埋め込み用コンテンツを要求しますが、リクエストの構造は単純でHTTPのGETリクエストでエンドポイントを指定し、クエリとして最低限パーマリンクを指定するための<code>url</code>とレスポンス形式を指定するための<code>format</code>を指定するだけです。ここではformatは<code>json</code>を指定していますが、<code>xml</code>を指定することもできます。oEmbedプロバイダはどちらか片方のフォーマットだけサポートしてもよいし、両方サポートしても良いことになっています。</p>
+<p>レスポンスは見たままなのであまり説明することはありませんが、<code>type</code>だけ付け加えると<code>photo</code>の他に<code>link</code>と<code>video</code>と<code>rich</code>があります。<code>photo</code>は写真の埋め込みに使います。画像のURLを<code>url</code>パラメータで返してくれるのでそのURLを<code>img</code>タグで表示してあげればよいだけです。<code>title</code>パラメータがあれば<code>alt</code>属性に設定しましょう。 <code>video</code>と<code>rich</code>の２つのタイプはについて説明するとこれらは<code>html</code>パラメータを持っていていてこの中身を直接埋め込めばいいので一番ラクです。<code>html</code>の中身は経験上<code>iframe</code>タグになっていることが多いです。<code>link</code>は面白くないしあまり使われているところをみたことがないので割愛します。</p>
+<h3 id="hexo-tag-oembed現る"><a href="#hexo-tag-oembed現る" class="header-anchor"></a>5.1. <a href="#hexo-tag-oembed現る" class="headerlink" title="hexo-tag-oembed現る"></a>hexo-tag-oembed現る</h3><p>さて、ここまで調べて実はoEmbedに対応したタグならあるんじゃないかと思ってGoogle先生に相談したら、案の定みつかりました。</p>
+<a href="https://github.com/monsier-oui/hexo-tag-oembed" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars2.githubusercontent.com/u/5833166?s=400&v=4"></div><div class="descriptions"><div class="og-title">monsier-oui/hexo-tag-oembed</div><div class="og-description">Embed tag plugin for Hexo. Contribute to monsier-oui/hexo-tag-oembed development by creating an account on GitHub.</div></div></div></a>
+<p>しかし残念ながら、このタグはお目当てのSpeaker Deckには対応していませんでした。しかもエンドポイントをソースコードに埋め込んでいたのでSpeaker Deckに対応してもらうためにはプルリクエストを送らないといけません。最初は素直にプルリクエストを送ろうかと考えていたのですが、oEmbedに対応しているサイトは大量にあるのでそのたびにプルリクエストを送るのもなんだかなぁーというお気持ちになりました。そもそもいちいちプロバイダー探してエンドポイントの定義なんて面倒くさいし何とかならないのかと、もう一度公式のドキュメントを眺めてみると、うん、ちゃんとおあつらえ向きな仕様があるではありませんか！　<code>Discovery</code>です。</p>
+<h3 id="真打ちoembed-discovery"><a href="#真打ちoembed-discovery" class="header-anchor"></a>5.2. <a href="#真打ちoEmbed-Discovery" class="headerlink" title="真打ちoEmbed Discovery"></a>真打ちoEmbed Discovery</h3><p>Discoveryは、簡単に言うと前述のoEmbedリクエストをHTMLのヘッダに埋め込める仕様です。これも公式のサンプルを見てもらった方が早いでしょう。</p>
+<figure class="highlight html"><figcaption><span>公式より</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json+oembed"</span><br>  <span class="hljs-attr">href</span>=<span class="hljs-string">"http://flickr.com/services/oembed?url=http%3A%2F%2Fflickr.com%2Fphotos%2Fbees%2F2362225867%2F&amp;format=json"</span><br>  <span class="hljs-attr">title</span>=<span class="hljs-string">"Bacon Lollys oEmbed Profile"</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+<p>素晴らしい。先程の悩みは一瞬で解決しました。パーマリンク先がDiscoveryに対応していれば、まずHEADリクエストでヘッダだけ引っ張ってきて、linkタグのtypeが<code>application/json+oembed</code>または<code>application/json+xml</code>なものを探して、<code>href</code>属性が示すURLにリクエストするだけでお目当てのoEmbedレスポンスが手に入ります。リクエストは一回増えますが致し方ないですね。しかし、ここまでするならいっその事ヘッダにoEmbedレスポンスを埋め込んでくれよ・・・とか思ってしまいますが、ここはグッと我慢します。頭でっかちな奴(HTML)は嫌われますからね。</p>
+<h3 id="図解oembed"><a href="#図解oembed" class="header-anchor"></a>5.3. <a href="#図解oEmbed" class="headerlink" title="図解oEmbed"></a>図解oEmbed</h3><p>ここまでのまとめとしてoEmbedのシーケンス図を描いてみます<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。ポイントはサービス提供者とoEmbedプロバイダは分かれてても良いということです。一般的には同じ場合が多いですが、複数のエンドポイントをまとめてくれるoEmbedプロバイダも存在します。<a href="https://embed.ly/" target="_blank" rel="noopener">embed.ly/<i class="fas fa-external-link-alt fa-fw"></i></a>とかが有名です。あとDiscoveryはoEmbedの仕様としてはオプションです。しかも対応しなければいけないのはサービス提供者側の各ページなので、oEmbedに対応しているページでもDiscoveryには未対応な場合は結構あります<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
+<p><img src="https://www.plantuml.com/plantuml/svg/VPBDIiGm58NtUOhG_Ro0Y8oeUy4dg6t0W6rAcYcucoQE55GiAhWGOHOY8lumpemWYZxCjQMFOQmqhRQwAQ5yzznpJj8FXSt5mDj6ouvW75lvKr8ylXJ3aONj4AymFnnuXAD0KzIXWUqBR86SWte5TGBoEJzAFzxEAtw3y8WwltcsvcqI5zGPg3jGASXBKCEIN-SiegxcaUq86jc2r2jP8F0g3HqM4Ru3yG744kH-DfvbQOAmuN1loQp52tYBs2x4zxaQPUC9oEFYAiudKlDcWV7Oq5Zi_QlnVfeTpZJlahOAyLtKz595qZfLxXkG3o2lTLkWaZgf2T-qqJ5-MmvUW9hg0sfuQ0lyx0Baz6j8xPNVtRgDTee_ckXG-EwYgud6FtE9VLsFVbsV"></p>
+<h3 id="後編へと続く"><a href="#後編へと続く" class="header-anchor"></a>5.4. <a href="#後編へと続く・・・" class="headerlink" title="後編へと続く・・・"></a>後編へと続く・・・</h3><p>ここにきてようやくHexoのタグを作成する準備が整いました。長かった・・・<br>後編ではいよいよコーディングの話と公開に至るまでを消化します。</p>
+<p><a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)">HexoのoEmbedプラグインをnpmに公開した話(後編)</a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm<i class="fas fa-external-link-alt fa-fw"></i></a>はNode.jsのパッケージ管理システムです。Node Package Managerが由来ですがnpmのページの左上を見るとクリックするごとに色々は<code>NPM</code>に出会えます(笑)。現在ではJavaScriptのパッケージ管理システムのデファクトスタンダートとなっています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">一般的に「プロミス」といえば非同期処理を扱うための手法または概念の一つですが、ここで言うプロミスとはJavaScriptの標準仕様である<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener">ECMAScript 6th Edition(ECMAScript 2015)<i class="fas fa-external-link-alt fa-fw"></i></a>で定義されているプロミスを指しています。JavaScriptの仕様に比較的最近入った仕様ですが最近のモダンブラウザでは問題なく利用することができます。またHexoが基盤として利用している<a>Node.js<i class="fas fa-external-link-alt fa-fw"></i></a>でも標準仕様のプロミスがサポートされています。標準のプロミスについては<a href="http://azu.github.io/promises-book/" target="_blank" rel="noopener">JavaScript Promiseの本<i class="fas fa-external-link-alt fa-fw"></i></a>によくまとめられているので参考にしてみてください。ちなみにJavaScriptのライブラリとして実装されている「プロミス」は標準仕様に準拠したもの以外にも星の数程あるのでそれらと混同しないようにしてください。有名なものでは<a href="https://github.com/petkaantonov/bluebird" target="_blank" rel="noopener">Bluebird<i class="fas fa-external-link-alt fa-fw"></i></a>があり、これはHexo内部でも利用されています。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">一般的にはパーマリンクが用いられることが多いですが、oEmbedの仕様上は特にパーマリンクでなければならないという制約はありません。ちなみに例のパーマリンクのURLは公式のサンプルに乗っていたものであり、実際の写真の中身には自分は関知しておりません。あのパーマリンクを開くことによるいかなる被害および損害の責任はとれませんのでご了承ください・・・誰？</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">このシーケンス図の作成には<a href="http://plantuml.com/ja/" target="_blank" rel="noopener">PlantUML<i class="fas fa-external-link-alt fa-fw"></i></a>を用いています。Hexoのタグとしては<a href="https://github.com/wafer-li/hexo-filter-plantuml#hexo-filter-plantuml" target="_blank" rel="noopener">hexo-filter-plantuml<i class="fas fa-external-link-alt fa-fw"></i></a>を利用しました。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">2019年2月現在、flickr、Gyazo、InstagramはoEmbedには対応しているけどDiscoveryには対応していなさそうでした。ちなみにoEmbedそのものに対応していないサイトとしては自分が試した限りニコニコ動画やAmazonやメルカリがありました。ショッピング系は物量も多いし入れ替わりも早いので仕方がないとしても、ニコ動には頑張ってほしかった・・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div></p>
+
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/cats-cats-cats/2019/02/11/hexo-oembed-2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">HexoのoEmbedプラグインをnpmに公開した話(後編)</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/02/07/hexo-oembed/">
+                <span class="level-item">hexo-oembedを公開しました</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/07/hexo-oembed/" title="hexo-oembedを公開しました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-07</div><a href="/cats-cats-cats/2019/02/07/hexo-oembed/" title="hexo-oembedを公開しました" rel="bookmark">hexo-oembedを公開しました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/npm-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-11</div><a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)" rel="bookmark">HexoのoEmbedプラグインをnpmに公開した話(後編)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" title="Hexoでブログに再入門" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2018-12-02</div><a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" title="Hexoでブログに再入門" rel="bookmark">Hexoでブログに再入門</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+        </nav>
+
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Tool/">
+            <span class="level-start">
+                <span class="level-item">Tool</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 13.33px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 20px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16.67px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 13.33px;">oEmbed</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/npm-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(後編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T23:36:19.000Z">2019-02-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(後編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T23:36:19.000Z">2019-02-09</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(前編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="hexo-oembedを公開しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-06T23:36:19.000Z">2019-02-07</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="has-link-black-ter is-size-6">hexo-oembedを公開しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/k8s-tokyo-logo.png" alt="Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-19T20:09:37.000Z">2019-01-20</time></div>
+
+                    <a href="/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" class="has-link-black-ter is-size-6">Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Container/">Container</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/01/13/github/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/GitHub-Mark-120px-plus.png" alt="GitHubのプライベートリポジトリに移行した話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-13T00:29:23.000Z">2019-01-13</time></div>
+
+                    <a href="/cats-cats-cats/2019/01/13/github/" class="has-link-black-ter is-size-6">GitHubのプライベートリポジトリに移行した話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/npm-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(後編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T23:36:19.000Z">2019-02-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(後編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T23:36:19.000Z">2019-02-09</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(前編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="hexo-oembedを公開しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-06T23:36:19.000Z">2019-02-07</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/07/hexo-oembed/" class="has-link-black-ter is-size-6">hexo-oembedを公開しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/k8s-tokyo-logo.png" alt="Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-19T20:09:37.000Z">2019-01-20</time></div>
+
+                    <a href="/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" class="has-link-black-ter is-size-6">Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Container/">Container</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/01/13/github/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/GitHub-Mark-120px-plus.png" alt="GitHubのプライベートリポジトリに移行した話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-13T00:29:23.000Z">2019-01-13</time></div>
+
+                    <a href="/cats-cats-cats/2019/01/13/github/" class="has-link-black-ter is-size-6">GitHubのプライベートリポジトリに移行した話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2019 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/cats-cats-cats/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>

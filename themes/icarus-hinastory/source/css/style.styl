@@ -388,7 +388,6 @@ img.thumbnail
     h5
         font-size: 1em
     code, pre
-        font-size: 0.85em
         font-family: family-mono
     code
         color: hsl(348, 100%, 61%)
@@ -402,10 +401,11 @@ img.thumbnail
 /* ---------------------------------
  *        Fix code highlight
  * --------------------------------- */
+ 
 figure.highlight
     padding: 0
-    width: 100%
     margin: 1em 0 1em !important
+    overflow: auto;
 
     pre,
     table tr:hover
@@ -413,14 +413,19 @@ figure.highlight
         background: transparent
 
     table
-        width: auto
+        width: 100% !important
+
+        tbody
+            overflow-x: auto;
+            white-space: nowrap;
+            width: auto;
 
     pre
         padding: 0
-        overflow: visible
+        font-size: 1em;
 
         .line
-            line-height: 1.5rem
+            line-height: 1rem
 
     figcaption,
     .gutter

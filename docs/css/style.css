@@ -459,7 +459,6 @@ img.thumbnail {
 }
 .content code,
 .content pre {
-  font-size: 0.85em;
   font-family: "Source Code Pro", monospace, "Microsoft YaHei";
 }
 .content code {
@@ -475,8 +474,8 @@ img.thumbnail {
  * --------------------------------- */
 figure.highlight {
   padding: 0;
-  width: 100%;
   margin: 1em 0 1em !important;
+  overflow: auto;
 }
 figure.highlight pre,
 figure.highlight table tr:hover {
@@ -484,14 +483,19 @@ figure.highlight table tr:hover {
   background: transparent;
 }
 figure.highlight table {
+  width: 100% !important;
+}
+figure.highlight table tbody {
+  overflow-x: auto;
+  white-space: nowrap;
   width: auto;
 }
 figure.highlight pre {
   padding: 0;
-  overflow: visible;
+  font-size: 1em;
 }
 figure.highlight pre .line {
-  line-height: 1.5rem;
+  line-height: 1rem;
 }
 figure.highlight figcaption,
 figure.highlight .gutter {
