@@ -84,7 +84,7 @@ hexo.extend.tag.register('hoge', function(){
 レンダリングした投稿に「hoge」と表示されていて、HTMLが以下のようになっていれば、成功です。HTMLはChromeのデベロッパーツール等で確認してください。
 
 {% code Hexo タグ%}
-{% raw %}{% oembed hoge %}{% endraw %}
+{% raw %}{% hoge %}{% endraw %}
 {% endcode %}
 
 {% code lang:html 実際に展開されるHTML %}
