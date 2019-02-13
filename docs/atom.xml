@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-02-13T03:03:50.119Z</updated>
+  <updated>2019-02-13T03:08:15.532Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/</id>
     <published>2019-02-10T23:36:19.000Z</published>
-    <updated>2019-02-13T03:03:50.119Z</updated>
+    <updated>2019-02-13T03:08:15.532Z</updated>
     
     <summary type="html">
     
@@ -36,6 +36,8 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
+    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
@@ -43,8 +45,6 @@
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
-    
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
   </entry>
   
@@ -132,9 +132,9 @@
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
     
     
-      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
   </entry>
   
@@ -297,9 +297,9 @@
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
     
     
-      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
   </entry>
   

@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
-<meta name="keywords" content="Hexo,Web,npm,oEmbed,Git">
+<meta name="keywords" content="Git,Hexo,Web,npm,oEmbed">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HexoのoEmbedプラグインをnpmに公開した話(後編)">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/npm-logo.png">
-<meta property="og:updated_time" content="2019-02-13T03:03:50.119Z">
+<meta property="og:updated_time" content="2019-02-13T03:08:15.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HexoのoEmbedプラグインをnpmに公開した話(後編)">
 <meta name="twitter:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
@@ -220,7 +220,7 @@
 <p>配置ができたらHexoサーバを再起動して、ブログの記事で<code>hoge</code>タグを使ってみましょう。<br>レンダリングした投稿に「hoge」と表示されていて、HTMLが以下のようになっていれば、成功です。HTMLはChromeのデベロッパーツール等で確認してください。</p>
 <figure class="highlight plain"><figcaption><span>Hexo タグ</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% hoge %&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight html"><figcaption><span>実際に展開されるHTML</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>hoge<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<h3 id="プラグイン化してみる"><a href="#プラグイン化してみる" class="header-anchor"></a>1.4. <a href="#プラグイン化してみる" class="headerlink" title="プラグイン化してみる"></a>プラグイン化してみる</h3><p>Hexoはプラグイン機能を持っています。プラグイン化するとソースコードを外出しできて、npmでインストールすることができるようになります。npmで公開するための必須の手順ですが、単に外出しできるだけでもGitによるソース管理が行いやすくなるので、早めにやったほうがいいと思われます。プラグイン化の方法は <a href="https://hexo.io/docs/plugins" target="_blank" rel="noopener">公式<i class="fas fa-external-link-alt fa-fw"></i></a>に描いてあるとおり、驚くほど簡単です。適当なディレクトリ(hexo-tag-hoge)を作って、メインのソースファイルである<code>index.js</code>とnpmのメタファイルである<code>package.json</code>を配置するだけです。</p>
+<h3 id="プラグイン化してみる"><a href="#プラグイン化してみる" class="header-anchor"></a>1.4. <a href="#プラグイン化してみる" class="headerlink" title="プラグイン化してみる"></a>プラグイン化してみる</h3><p>Hexoはプラグイン機能を持っています。プラグイン化するとソースコードを外出しできて、npmでインストールすることができるようになります。npmで公開するための必須の手順ですが、単に外出しできるだけでもGitによるソース管理が行いやすくなるので、早めにやったほうがいいと思われます。プラグイン化の方法は <a href="https://hexo.io/docs/plugins" target="_blank" rel="noopener">公式<i class="fas fa-external-link-alt fa-fw"></i></a>に書いてあるとおり、驚くほど簡単です。適当なディレクトリ(hexo-hoge-plugin)を作って、メインのソースファイルである<code>index.js</code>とnpmのメタファイルである<code>package.json</code>を配置するだけです。</p>
 <figure class="highlight js"><figcaption><span>index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.tag.register(<span class="hljs-string">'hoge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;span&gt;hoge&lt;/span&gt;'</span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
 <figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"hexo-hoge-plugin"</span>,<br>  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.0.1"</span>,<br>  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index"</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>さっそく作成したパッケージをnpmでインストールしてみましょう。</p>

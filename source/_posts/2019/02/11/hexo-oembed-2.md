@@ -93,7 +93,7 @@ hexo.extend.tag.register('hoge', function(){
 
 ### プラグイン化してみる
 
-Hexoはプラグイン機能を持っています。プラグイン化するとソースコードを外出しできて、npmでインストールすることができるようになります。npmで公開するための必須の手順ですが、単に外出しできるだけでもGitによるソース管理が行いやすくなるので、早めにやったほうがいいと思われます。プラグイン化の方法は {% elink 公式 https://hexo.io/docs/plugins  %}に描いてあるとおり、驚くほど簡単です。適当なディレクトリ(hexo-tag-hoge)を作って、メインのソースファイルである`index.js`とnpmのメタファイルである`package.json`を配置するだけです。
+Hexoはプラグイン機能を持っています。プラグイン化するとソースコードを外出しできて、npmでインストールすることができるようになります。npmで公開するための必須の手順ですが、単に外出しできるだけでもGitによるソース管理が行いやすくなるので、早めにやったほうがいいと思われます。プラグイン化の方法は {% elink 公式 https://hexo.io/docs/plugins  %}に書いてあるとおり、驚くほど簡単です。適当なディレクトリ(hexo-hoge-plugin)を作って、メインのソースファイルである`index.js`とnpmのメタファイルである`package.json`を配置するだけです。
 
 {% code lang:js index.js %}
 hexo.extend.tag.register('hoge', function(){
