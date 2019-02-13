@@ -26,7 +26,7 @@ HexoにYouTubeなどのサイトを記事に埋め込むためのプラグイン
 
 ## hexo-oembedについて
 
-hexo-oembedはブログ構築ツールの{% elink https://hexo.io/ %}プラグインで、投稿にYouTubeやSlideShareやSpeaker Deckやインスタグラム等さまざまなメディアをパーマリンクを指定するだけで埋め込むためのタグを提供します。埋め込みのための業界標準として{% elink oEmbed https://oembed.com/ %}というものがありますが、この仕様を利用しているため`hexo-oembed`という名前になっています。特徴は以下です。
+hexo-oembedはブログ構築ツールの{% elink Hexo https://hexo.io/ %}プラグインで、投稿にYouTubeやSlideShareやSpeaker Deckやインスタグラム等さまざまなメディアをパーマリンクを指定するだけで埋め込むためのタグを提供します。埋め込みのための業界標準として{% elink oEmbed https://oembed.com/ %}というものがありますが、この仕様を利用しているため`hexo-oembed`という名前になっています。特徴は以下です。
 
 - oEmbed Discoveryのサポート
   - YouTube, Vimeo, Twitter, SlideShare, Speaker Deck, CodePen, TED, pixiv等、oEmbed Discoveryに対応している様々なメディアを埋め込むことができます
