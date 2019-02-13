@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
-<meta name="keywords" content="Git,Hexo,Web,npm,oEmbed">
+<meta name="keywords" content="Hexo,Web,npm,oEmbed,Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HexoのoEmbedプラグインをnpmに公開した話(後編)">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/npm-logo.png">
-<meta property="og:updated_time" content="2019-02-13T17:23:33.597Z">
+<meta property="og:updated_time" content="2019-02-13T17:29:48.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HexoのoEmbedプラグインをnpmに公開した話(後編)">
 <meta name="twitter:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
@@ -279,7 +279,7 @@
 <p>注意点としては、プルリクエストには各リポジトリにマナーがあるのでコントリビューションガイドにはよく目をとおすことと、過去のクローズ済みのプルリクエストを確認して自分のプルリクエストに問題ないか確認することを忘れないようにしましょう。マナー違反のプルリクは優しく注意してくれる場合もありますが、問題が多ければ放置や強制クローズもありえます。ちなみに今回のプルリクは半日程度でマージしてもらえました<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。</p>
 <p>マージしてもらったら<a href="https://hexo.io/plugins/index.html" target="_blank" rel="noopener">公式のプラグイン一覧<i class="fas fa-external-link-alt fa-fw"></i></a>で<code>oembed</code>で検索して、問題なく掲載されているか確認します。自分の1件しか引っかからなかったので、どうやら<code>hexo-tag-oembed</code>の方は公式への登録を行っていなかったみたいです。もったいない・・・</p>
 <h3 id="ブログやツイッター等で告知する"><a href="#ブログやツイッター等で告知する" class="header-anchor"></a>2.8. <a href="#ブログやツイッター等で告知する" class="headerlink" title="ブログやツイッター等で告知する"></a>ブログやツイッター等で告知する</h3><p>まさしくこの記事です・・・</p>
-<h2 id="hexo-oembedの今後"><a href="#hexo-oembedの今後" class="header-anchor"></a>3. <a href="#hexo-oembedの今後" class="headerlink" title="hexo-oembedの今後"></a>hexo-oembedの今後</h2><p>結構ニッチなプラグインかなと思っていますが、公開から一週間も立たないうちにダウンロード数が150を超えたので意外とニーズはあったみたいです。ということでしっかり開発およびメンテナンスはしていきたいと思います。</p>
+<h2 id="hexo-oembedの今後"><a href="#hexo-oembedの今後" class="header-anchor"></a>3. <a href="#hexo-oembedの今後" class="headerlink" title="hexo-oembedの今後"></a>hexo-oembedの今後</h2><p>npmパッケージとしては結構ニッチかなと思っていましたが、公開から一週間も経たないうちにダウンロード数が200を超えたので意外とニーズはあったみたいです。ということでしっかり開発およびメンテナンスはしていきたいと思います。</p>
 <p>まず開発の基本方針として、サイト固有の対応を入れるつもりはないです。それやりだすとキリがないので・・・実は<a href="https://github.com/support-project/jquery-oembed-all" target="_blank" rel="noopener">jquery-oembed-all<i class="fas fa-external-link-alt fa-fw"></i></a>というライブラリも見つけていたのですが、更新が止まっていたし自分がこのようなものを作ろうと思ってもメンテナンスが辛そうなので正直やりたくありません。しかもこのライブラリのフォールバック先のYQL (Yahoo! Query Language)は2019/1/3で終了したみたいです。</p>
 <p>ただちょっと面白いなと思ったのはフォールバック先に<a href="http://ogp.me/" target="_blank" rel="noopener">Open Graph protocol<i class="fas fa-external-link-alt fa-fw"></i></a>があることです。OGP対応は割とメジャーなSEO対策でリンク先のサムネイルや説明の表示でお馴染みだとおもいます。もちろんこのページもOGPには対応しています。hexo-oembedのフォールバック先として一応Embed.lyには対応していますが<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>、OGPへのフォールバックは今後検討しようかと思います。</p>
 <p>もちろんプルリクは大歓迎です。またバグ報告、ご意見・ご要望はGitHubのIssuesにお願いします<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
