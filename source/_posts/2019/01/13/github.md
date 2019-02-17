@@ -1,6 +1,6 @@
 ---
 title: GitHubのプライベートリポジトリに移行した話
-thumbnail: /gallery/thumbnails/GitHub-Mark-120px-plus.png
+thumbnail: /gallery/thumbnails/github-logo.png
 categories:
   - ['Tech', 'Tool']
 tags:

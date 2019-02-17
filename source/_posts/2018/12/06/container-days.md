@@ -7,6 +7,7 @@ categories:
 tags:
     - Container
     - k8s
+    - Event
 ---
 
 12/4(火)にJapanContainerDays v18.12に初参加しました。このイベントは春に1回目を開催して今回で2回目の開催だそうですが[^1]、会場には800人以上の人が詰め掛けたようで非常に盛況でした。

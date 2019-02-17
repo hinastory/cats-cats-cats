@@ -6,6 +6,8 @@ categories:
 tags:
   - k8s
   - Container
+  - Event
+  - GCP
 date: 2019-01-20 05:09:37
 ---
 Kubernetes Meetup Tokyoに初参加しました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。
