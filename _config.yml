@@ -105,7 +105,7 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
-  hub:  http://pubsubhubbub.appspot.com
+  hub:  https://pubsubhubbub.appspot.com
   content:
   content_limit:
   order_by: -date

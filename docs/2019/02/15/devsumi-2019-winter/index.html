@@ -16,7 +16,7 @@
 <meta property="og:description" content="Developers Summit 2019(#devsumi)に参加してきました。会場は目黒のホテル雅叙園東京です。去年は仕事の都合上参加できなかったのですが、今年はなんとか両日とも午後を空けて参加してきました。 Developers Summit 2019ITエンジニアの祭典「Developers Summit 2019」（デブサミ2019）は、2019年2月14・15日に開催！">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/devsumi-logo.png">
-<meta property="og:updated_time" content="2019-02-17T22:54:11.281Z">
+<meta property="og:updated_time" content="2019-02-18T14:16:30.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Developers Summit 2019に参加した感想など">
 <meta name="twitter:description" content="Developers Summit 2019(#devsumi)に参加してきました。会場は目黒のホテル雅叙園東京です。去年は仕事の都合上参加できなかったのですが、今年はなんとか両日とも午後を空けて参加してきました。 Developers Summit 2019ITエンジニアの祭典「Developers Summit 2019」（デブサミ2019）は、2019年2月14・15日に開催！">
@@ -196,7 +196,7 @@
 <h3 id="いまなぜgoogle-cloud-platformを学ぶのかgcpを支えるgoogleテクノロジーと愛を語る"><a href="#いまなぜgoogle-cloud-platformを学ぶのかgcpを支えるgoogleテクノロジーと愛を語る" class="header-anchor"></a>1.2. <a href="#いまなぜGoogle-Cloud-Platformを学ぶのか！？〜GCPを支えるGoogleテクノロジーと愛を語る〜" class="headerlink" title="いまなぜGoogle Cloud Platformを学ぶのか！？〜GCPを支えるGoogleテクノロジーと愛を語る〜"></a>いまなぜGoogle Cloud Platformを学ぶのか！？〜GCPを支えるGoogleテクノロジーと愛を語る〜</h3><p>　<a href="https://event.shoeisha.jp/devsumi/20190214/session/2014/" target="_blank" rel="noopener">【14-G-1】<i class="fas fa-external-link-alt fa-fw"></i></a> <em>14:10～15:40 中井 悦司[グーグル・クラウド・ジャパン]、他</em></p>
 <p>さて、本日一番楽しみにしていたGCP特別セッションです。さすがGoogleだけあってテーブルはコンセント付きで、Wi-Wiカードもあって、コーヒーとお菓子付きで、バレンタインデーだからかもしれませんがGCPを象ったチョコとクッキーも貰いました。至れり尽くせりですね。</p>
 <img src="/cats-cats-cats/gallery/events/devsumi2019/devsumi-003.jpg" width="400">
-<p>本題のGoogleの開発環境ですが、いろいろと予想外のこともあったので、手元のメモからなるべく詳細に書き起こしてみました。</p>
+<p>本題のGoogleの開発環境に関するプレゼンですが、いろいろと予想外のこともあったので、手元のメモからなるべく詳細に書き起こしてみました。</p>
 <ul>
 <li>共通ミドルウェアサービス<ul>
 <li>分散ファイルシステム、分散NoSQL、分散ロックマネージャ、分散XXX・・・</li>
@@ -270,6 +270,14 @@
 </ul>
 <p>個人的な感想としては単一リポジトリとブランチを持たない開発ツリーは結構衝撃でした。勇気をもってメインラインに突っ込む！は大胆だなぁと思いましたが、後続の話を聞いて納得しました。要はローカルの修正結果を自動テストしてレビューしてもらうシステムがありきなんですね。一般的にはレビューしてもらうにはブランチを切ってコードレビューシステムと連動している共有リポジトリにプッシュしますが、Googleはコードをリポジトリに突っ込むことなくローカルのコードをレビューしてもらえるシステムがあるので、常にレビュー済みのソースのみがメインラインに突っ込まれるようです。まぁ、それでもメインライン一本の運用はすごいと思いますが・・・</p>
 <p>あと、コードレビューの目的もシンプルでイイねをしたくなりました。コードレビューの目的を他人が理解できるコードを書いているかのみにすれば、それを徹底すればバグは明白になるし、開発者の入れ替わりでも問題が起きにくくなるので非常に効率的だと感じました。コードレビューのチェックリストをたくさん覚えるよりもこっちのほうが効果がありそうです。</p>
+<p>上記のプレゼンは下記の公開資料にもとづくそうなので、いつか読んでみたいと思います。</p>
+<ul>
+<li><a href="https://ai.google/research/pubs/pub45424" target="_blank" rel="noopener">Why Google Stores Billions of Lines of Code in a Single Repository<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://ai.google/research/pubs/pub47025" target="_blank" rel="noopener">Modern Code Review: A Case Study at Google<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://ai.google/research/pubs/pub45861" target="_blank" rel="noopener">Taming Google-Scale Continuous Testing<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://ai.google/research/pubs/pub46576" target="_blank" rel="noopener">Lessons from Building Static Analysis Tools at Google<i class="fas fa-external-link-alt fa-fw"></i></a>
+</li>
+</ul>
 <p>セッションの二本目はパネルディスカッションで、Googleエンジニアの経歴紹介やGCPとの関わり等を聞けて非常に興味深かったです。気になった話題で言えば、<code>Javaの&quot;Write once, run anywhere&quot;は嘘</code><sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>というパワーワードが出ました。なぜこの話題が出てきたかというとGCPがアプローチを変えて<code>Write once, run anywhere</code>を達成したという矜持からだと思います。Googleのサービスは今や世界中で欠かせないインフラです。そしてGCPでコードを書けばGoogleのインフラに乗せて世界中に動くサービスを提供することができます。これは恐らくSunの達成したかった本質であり、GCPが誇っていい真実だと思います<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。</p>
 <p>あと情報収集の仕方も話題になりました。Googleエンジニアでもブログ<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>、SNS、RSS、SlideShar、Qiitaは一般的な情報源のようです。面白かったのはスマホのChromeでおすすめ記事の表示がトップ画面にでてきますが、これが意外と自分の興味にあった記事を勧めてくれるそうです。</p>
 <h3 id="祝k8sデビュー-エンタープライズ巨大アプリをマイクロサービスコンテナ化-段階的移行中の全記録を追う"><a href="#祝k8sデビュー-エンタープライズ巨大アプリをマイクロサービスコンテナ化-段階的移行中の全記録を追う" class="header-anchor"></a>1.3. <a href="#【祝】k8sデビュー！-エンタープライズ巨大アプリをマイクロサービス・コンテナ化。段階的移行-中-の全記録を追う。" class="headerlink" title="【祝】k8sデビュー！ エンタープライズ巨大アプリをマイクロサービス・コンテナ化。段階的移行(中)の全記録を追う。"></a>【祝】k8sデビュー！ エンタープライズ巨大アプリをマイクロサービス・コンテナ化。段階的移行(中)の全記録を追う。</h3><p>　<a href="https://event.shoeisha.jp/devsumi/20190214/session/1958/" target="_blank" rel="noopener">【14-D-7】<i class="fas fa-external-link-alt fa-fw"></i></a> <em>16:20～17:05 石田 健亮[ドリーム・アーツ]</em></p>
@@ -362,11 +370,14 @@
 <li>通知する必要のないものは通知しない</li>
 </ul>
 </li>
-<li>賢い検知を使う<ul>
-<li>複合条件通知</li>
+<li>モニタリング<ul>
+<li>閾値</li>
 <li>外れ値検知</li>
 <li>異常値検知</li>
-<li>キャパシティ予測</li>
+<li>予測</li>
+<li>ログ</li>
+<li>APM</li>
+<li>複合条件</li>
 </ul>
 </li>
 <li>もう少しで対応予定<ul>
@@ -390,7 +401,7 @@
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>4. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>やはり参加して良かったです。特にGoogleの開発環境なんて今まで聞いたことがなかったので非常に面白かったです。また、このブログでは全然書ききれていませんが現場の空気感とかセッションの盛り上がりとか実際に参加してみないと分からないことだらけなので、もし機会があれば来年も参加したいと思います。</p>
 <p>本記事はデブサミに参加したくても諸般の事情で参加できなかった人や、興味があるけどいろいろと悩んでいる人のためになるべく面白さが伝わるように心がけて書きました。その結果長文になってしまいましたが、本ブログを読んでデブサミに興味を持っていただけば幸いです。</p>
 <p>ちなみにデブサミ関連の資料は以下のリンクにまとまっていますのでご参考まで<sup id="fnref:12"><a href="#fn:12" rel="footnote">12</a></sup>。</p>
-<a href="https://codezine.jp/article/detail/11383#audience" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://codezine.jp/static/common/images/logo2.png"></div><div class="descriptions"><div class="og-title">デブサミ2019、講演関連資料まとめ</div><div class="og-description">　翔泳社主催のソフトウェア開発者向けカンファレンス「Developers Summit 2019」（以下、デブサミ2019）の関連資料一覧です。以下、敬称略。随時更新します（2019/02/16 0:57 更新）。</div></div></div></a>
+<a href="https://codezine.jp/article/detail/11383#audience" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://codezine.jp/static/common/images/logo2.png"></div><div class="descriptions"><div class="og-title">デブサミ2019、講演関連資料まとめ</div><div class="og-description">　翔泳社主催のソフトウェア開発者向けカンファレンス「Developers Summit 2019」（以下、デブサミ2019）の関連資料一覧です。以下、敬称略。随時更新します（2019/02/18 21:42 更新）。</div></div></div></a>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Change Listの略。一回のコミットに含まれる変更ファイル</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.gerritcodereview.com/" target="_blank" rel="noopener">Gerrit<i class="fas fa-external-link-alt fa-fw"></i></a>はGoogleが開発したOSSのコードレビューシステム。GerritはCritiqueを元にOSS化されたものらしい。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">Javaでクロスプラットホーム開発したことあるエンジニアになら大抵知っていることですが、まともな製品を開発をする場合は大抵JVMの下側がWindowsなのかLinuxなのか、はたまたAndroidなのかは当然意識します。要は<code>Write once, run anywhere</code>は言い過ぎってことです。特にインストーラ周りは壊滅的だし、UIは残念なことになります。というのも結局はJVMでは最大公約数的なアプローチしかできないから、それで事足りる分はいいのですが大抵はそれだけではうまくいかないからです。もちろんこれは当時のSun Microsystemsが掲げた理念に過ぎないのかもしれませんが、Java生誕から20年以上経った今でも達成されていないことを考えると完全に誇大広告だったということだと思います。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">GCPの場合スケールさせることができるので<code>Write once, run everywhere</code>の方が近いかもしれませんが、これもさすがに言い過ぎ感があるので忘れてください・・・</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">日本語ブログはありがたいのでブログ書いて！と訴えていました。このブログが届くとは思いませんが、まぁ書き続けたいと思います・・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">自分が投票した2冊とも大賞に選ばれました。技術書部門大賞の方は2日目の翔泳社の販売ブースで購入しました。読んだ感想とかいつかブログでまとめたいと思います。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">過去2回は両方参加しています。もともとElixirはRuby On Railsのコミッターが作った言語で文法もRubyに似ていることからRubyユーザが多い印象です。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">ここで言うプロセスはOSのプロセスではなく、Elixirのプロセスです。一般的にはアクターと呼ばれる非同期処理の単位です。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;">EVM=Erlang VM。ElixirはErlang言語の仮想機械(VM)であるEVM上で動作します。Java言語のVMであるJVM上で動作するKotlinやScalaのようなものです。</span><a href="#fnref:9" rev="footnote"> ↩</a></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">10.</span><span style="display: inline-block; vertical-align: top;">最大の難関はいいチームが組めるかどうかですね・・・</span><a href="#fnref:10" rev="footnote"> ↩</a></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">11.</span><span style="display: inline-block; vertical-align: top;">自分はEmacs派ですが、このブログはVS Codeで書いています・・・あと　　好きな言語はRubyとScalaです。ただ機械学習の関係でPythonを使う機会も増えてます・・・</span><a href="#fnref:11" rev="footnote"> ↩</a></li><li id="fn:12"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">12.</span><span style="display: inline-block; vertical-align: top;">自分もこの記事を書く際に参考にさせて頂きました。ありがとうございました。</span><a href="#fnref:12" rev="footnote"> ↩</a></li></ol></div></div>
         </div>
         

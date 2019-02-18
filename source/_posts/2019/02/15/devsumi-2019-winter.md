@@ -46,7 +46,7 @@ Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})
 
 {% img /gallery/events/devsumi2019/devsumi-003.jpg 400 %}
 
-本題のGoogleの開発環境ですが、いろいろと予想外のこともあったので、手元のメモからなるべく詳細に書き起こしてみました。
+本題のGoogleの開発環境に関するプレゼンですが、いろいろと予想外のこともあったので、手元のメモからなるべく詳細に書き起こしてみました。
 
 - 共通ミドルウェアサービス
   - 分散ファイルシステム、分散NoSQL、分散ロックマネージャ、分散XXX・・・
@@ -95,6 +95,13 @@ Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})
 個人的な感想としては単一リポジトリとブランチを持たない開発ツリーは結構衝撃でした。勇気をもってメインラインに突っ込む！は大胆だなぁと思いましたが、後続の話を聞いて納得しました。要はローカルの修正結果を自動テストしてレビューしてもらうシステムがありきなんですね。一般的にはレビューしてもらうにはブランチを切ってコードレビューシステムと連動している共有リポジトリにプッシュしますが、Googleはコードをリポジトリに突っ込むことなくローカルのコードをレビューしてもらえるシステムがあるので、常にレビュー済みのソースのみがメインラインに突っ込まれるようです。まぁ、それでもメインライン一本の運用はすごいと思いますが・・・
 
 あと、コードレビューの目的もシンプルでイイねをしたくなりました。コードレビューの目的を他人が理解できるコードを書いているかのみにすれば、それを徹底すればバグは明白になるし、開発者の入れ替わりでも問題が起きにくくなるので非常に効率的だと感じました。コードレビューのチェックリストをたくさん覚えるよりもこっちのほうが効果がありそうです。
+
+上記のプレゼンは下記の公開資料にもとづくそうなので、いつか読んでみたいと思います。
+
+- {% elink  Why Google Stores Billions of Lines of Code in a Single Repository https://ai.google/research/pubs/pub45424 %}
+- {% elink Modern Code Review: A Case Study at Google https://ai.google/research/pubs/pub47025 %}
+- {% elink Taming Google-Scale Continuous Testing https://ai.google/research/pubs/pub45861  %}
+- {% elink  Lessons from Building Static Analysis Tools at Google https://ai.google/research/pubs/pub46576 %}
 
 セッションの二本目はパネルディスカッションで、Googleエンジニアの経歴紹介やGCPとの関わり等を聞けて非常に興味深かったです。気になった話題で言えば、`Javaの"Write once, run anywhere"は嘘`[^3]というパワーワードが出ました。なぜこの話題が出てきたかというとGCPがアプローチを変えて`Write once, run anywhere`を達成したという矜持からだと思います。Googleのサービスは今や世界中で欠かせないインフラです。そしてGCPでコードを書けばGoogleのインフラに乗せて世界中に動くサービスを提供することができます。これは恐らくSunの達成したかった本質であり、GCPが誇っていい真実だと思います[^4]。
 
@@ -210,11 +217,14 @@ Datadogを使った監視のお話です。Datadogはデフォルトの監視設
 - なぜ無意味なアラートが発生するのか
   - 監視する必要のないものは監視しない
   - 通知する必要のないものは通知しない
-- 賢い検知を使う
-  - 複合条件通知
+- モニタリング
+  - 閾値
   - 外れ値検知
   - 異常値検知
-  - キャパシティ予測
+  - 予測
+  - ログ
+  - APM
+  - 複合条件
 - もう少しで対応予定
   - 外形監視
     - サービスが本当にReadyなのか確認できる
