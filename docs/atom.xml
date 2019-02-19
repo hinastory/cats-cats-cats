@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-02-18T14:16:30.983Z</updated>
+  <updated>2019-02-19T19:33:39.128Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/</id>
     <published>2019-02-15T00:30:25.000Z</published>
-    <updated>2019-02-18T14:16:30.983Z</updated>
+    <updated>2019-02-19T19:33:39.128Z</updated>
     
     <summary type="html">
     
@@ -37,6 +37,8 @@
     
     
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
@@ -162,9 +164,9 @@
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
     
     
-      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
@@ -331,9 +333,9 @@
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
     
     
-      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
