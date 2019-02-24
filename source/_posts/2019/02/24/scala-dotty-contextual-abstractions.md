@@ -105,7 +105,7 @@ object ImpliedInferableExample {
     def compare(x: T, y: T) = asc.compare(y, x)
   }
 
-  // `given`に直接インスタンスを与えることも可能
+  // 推論可能パラメータに直接インスタンスを与えることも可能
   def minimum[T](xs: List[T]) given Ord[T] = maximum(xs) given descending
 }
 
