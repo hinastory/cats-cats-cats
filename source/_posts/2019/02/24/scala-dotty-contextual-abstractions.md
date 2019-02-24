@@ -178,6 +178,6 @@ Contextual Abstractionsの機能で味見できなかった機能を簡単に紹
 
 Implicitsが大分飼いならされたような印象でした。特に従来はimplicitをパラメータリストで受け取っていたのを`given`という専用構文で受け取るようになったのが非常に分かりやすかったです。ただ、従来の`implicitly`の名称はまだかなり揺れているみたいです[^10]。
 
-もともとは{% elink この記事 https://medium.com/@jducoeur/a-snippet-of-dotty-27eadcee72e3 %}を読んで、あまりにも自分が知っているScalaと違っていたので調べ始めたのがこの記事を書こうと思ったきっかけです。この記事がScala3がどういう方向を目指しているのか知りたい人の参考になれば幸いです。
+もともとは{% elink 「A Snippet of Dotty」 https://medium.com/@jducoeur/a-snippet-of-dotty-27eadcee72e3 %}を読んで、あまりにも自分が知っているScalaと違っていたので調べ始めたのがこの記事を書こうと思ったきっかけです。この記事がScala3がどういう方向を目指しているのか知りたい人の参考になれば幸いです。
 
 [^10]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、現在のmasterブランチでは`the`に変更されています。ちょうどこの記事を書いている途中で変更が {% elink masterにマージされた https://github.com/lampepfl/dotty/pull/5893 %}ので、混乱しないように慌てて味見の結果から`infer`を抜きました。
