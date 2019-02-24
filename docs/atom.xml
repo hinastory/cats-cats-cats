@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-02-19T20:45:09.476Z</updated>
+  <updated>2019-02-24T04:04:16.173Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scala3に入るかもしれないContextual Abstractionsを味見してみた</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/20/scala-dotty-contextual-abstractions/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/02/20/scala-dotty-contextual-abstractions/</id>
+    <published>2019-02-19T20:49:20.000Z</published>
+    <updated>2019-02-24T04:04:16.173Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+  </entry>
   
   <entry>
     <title>Developers Summit 2019に参加した感想など</title>
