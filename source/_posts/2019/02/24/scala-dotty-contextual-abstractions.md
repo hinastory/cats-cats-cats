@@ -31,7 +31,7 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 2020年初頭に出ることが予定されているScalaの次世代版です。コンパイラの高速化と大幅な機能強化が行われる予定です。基本的には現行のScala(Scala2)とのソースコードレベルの後方互換性を意識して機能強化が行われていますが[^1]、非互換が生まれるところや推奨の書き方が変わる所はScalfix[^2]で対応することが予定されています。
 
 [^1]: Pythonの教訓を活かして、なるべく言語の世代間の断絶を起こさないように配慮して開発が進められているようです。もちろん配慮が足りていない可能性もありますが・・・
-[^2]: {% elink Scalafix https://scalacenter.github.io/scalafix/docs/users/installation.html %}はScalaにおける汎用的はリファクタリング、リンティングツールです。Scala3専用ではありません。
+[^2]: {% elink Scalafix https://scalacenter.github.io/scalafix/ %}はScalaにおける汎用的はリファクタリング、リンティングツールです。Scala3専用ではありません。
 
 ## Dottyとは
 
