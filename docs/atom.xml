@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-02-24T04:04:16.173Z</updated>
+  <updated>2019-02-24T04:08:58.182Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Scala3に入るかもしれないContextual Abstractionsを味見してみた</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/20/scala-dotty-contextual-abstractions/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/02/20/scala-dotty-contextual-abstractions/</id>
-    <published>2019-02-19T20:49:20.000Z</published>
-    <updated>2019-02-24T04:04:16.173Z</updated>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</id>
+    <published>2019-02-24T03:49:20.000Z</published>
+    <updated>2019-02-24T04:08:58.182Z</updated>
     
     <summary type="html">
     
