@@ -130,6 +130,8 @@ Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})
     - 非同期、並列にする
 - {% elink Netflix OSS https://netflix.github.io/  %}をチェキラ
 
+{% oembed https://www.slideshare.net/knske/2019-k8s-131899507/knske/2019-k8s-131899507  %}
+
 ### 「ITエンジニアに読んでほしい！技術書・ビジネス書大賞 2019」プレゼン大会
 
 　{% elink 【14-A-8】 https://event.shoeisha.jp/devsumi/20190214/session/1935/ %} *17:25～18:45*
@@ -182,6 +184,8 @@ CTO大変ッスね・・・という感想がまず一言。生き急ぎたい�
   - 文句があるなら意思決定に絡む努力をすること
     - 「正しいことをしたければ、偉くなれ」を思い出した・・・
 
+{% oembed  https://speakerdeck.com/ymatsuwitter/engineers-career-management-and-cto-role %}
+
 ### これをまだ知らない Web エンジニアへ贈る - 私が愛する Elixir/Erlang の楽しさと辛さ -
 
 　{% elink 【15-D-5】 https://event.shoeisha.jp/devsumi/20190214/session/1996/ %} *14:10～14:55 幾田 雅仁 [gumi]*
@@ -218,17 +222,22 @@ Datadogを使った監視のお話です。Datadogはデフォルトの監視設
 - なぜ無意味なアラートが発生するのか
   - 監視する必要のないものは監視しない
   - 通知する必要のないものは通知しない
-- モニタリング
-  - 閾値
-  - 外れ値検知
-  - 異常値検知
-  - 予測
-  - ログ
+- モニタリングのポイント
+  - ワークメトリクス
+    - スループット, 成功, 失敗, パフォーマンス
+  - リソースメトリクス
+    - 使用率, 飽和度, 失敗, 可用性
+  - イベント
+    - 変更, アラートスケーリング
   - APM
-  - 複合条件
+  - ログ
+- モニタリングの種類
+  - 閾値, 外れ値(Outlier), 異常値検知(Anomaly), 予測(forecast), ログ, APM, 複合条件
 - もう少しで対応予定
   - 外形監視
     - サービスが本当にReadyなのか確認できる
+
+{% oembed https://www.slideshare.net/devsumi/15b7-datadog %}
 
 ### Webアプリのチューニングバトル「（社内）ISUCON」の魅力と楽しさ
 
@@ -260,6 +269,6 @@ Datadogを使った監視のお話です。Datadogはデフォルトの監視設
 
 ちなみにデブサミ関連の資料は以下のリンクにまとまっていますのでご参考まで[^12]。
 
-{% linkPreview https://codezine.jp/article/detail/11383#audience %}
+{% linkPreview https://codezine.jp/article/detail/11383 %}
 
 [^12]: 自分もこの記事を書く際に参考にさせて頂きました。ありがとうございました。
