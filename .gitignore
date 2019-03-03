@@ -9,3 +9,4 @@ public/
 old/
 *.old
 *.bak
+tmp/
