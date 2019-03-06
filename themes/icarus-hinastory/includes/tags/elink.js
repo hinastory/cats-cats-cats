@@ -9,10 +9,10 @@ const rUrl = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:ww
 * Link tag ext
 *
 * Syntax:
-*   {% link text url [external] [title] %}
+*   {% elink text url [external] [title] %}
 */
 
-function linkTag(args, content) {
+function elinkTag(args, content) {
   let url = '';
   const text = [];
   let external = false;
@@ -54,10 +54,10 @@ function linkTag(args, content) {
     title,
     target: external ? '_blank' : ''
   };
-  var icon = htmlTag('i', {class: 'fas fa-external-link-alt fa-fw'}, '');
+  var icon = htmlTag('i', {class: 'fas fa-external-link-alt fa-fw'}, ''); // add icon
   return htmlTag('a', attrs, text.join(' ') + icon);
 }
 
 module.exports = function (hexo) {
-  hexo.extend.tag.register('elink', linkTag);
+  hexo.extend.tag.register('elink', elinkTag);
 }

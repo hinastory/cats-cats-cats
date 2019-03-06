@@ -14,41 +14,76 @@ hinastoryのブログです。興味のある技術を中心に記録してい�
 
 ## hinastoryについて
 
-- 好きな言語ベスト５
-  1. Scala(バランスがいい)
-  2. Ruby(書いていてきもちいー)
-  3. JavaScript(ES2015以降はわりとまともになったので好き)
-  4. C(システムプログラミングの雄)
-  5. Haskell(いろいろな発想を学べる)
-- 嫌いな言語ベスト5
-  1. 機械語/アセンブリ言語(特に命令長が変わるCISCはツライ)
-  2. C(ポインタやメモリ管理が面倒)
-  3. C++(ごちゃ混ぜ感がある。テンプレートが吐くエラーで更に嫌いになった)
-  4. BASIC(GOSUB,GOTOでスパゲッティ)(VBやVBAも好きではない・・・)
-  5. Python(バージョン非互換がなければ・・・、あと特殊属性や特殊メソッドのアンダースコアも違和感)
-- 好きなエディタ・開発環境ベスト5
-  1. Emacs(キーバインドが忘れられない)
-  2. IntelliJ IDEA(Scalaを書くにはこれ一択。が重い・・・)
-  3. VisualStudio Code(そこそこ軽くて万能)
-  4. VisualStudio(重いが機能は優秀)
-  5. BoostNote(Markdownでメモを取るときのお供)
-- 好きなOSベスト5
-  1. MacOS(毎日お世話になっております)
-  2. iOS(あなたがいないと生活できません)
-  3. Linux(Linux Mintが好き。もともとはVine Linux派だった・・・)
-  4. Windows(一応実用的。プログラマーからすれば地獄。セキュリティ周りとか、UACとかどうしてこうなった・・・)
-  5. 自作OS(昔某書籍の影響でチャレンジした覚えがある。いい思い出になった)
-- お世話になっている言語 or お世話になった言語
-  - 5KL以上のソフトウェアを書いたことがある言語
-    - C, Ruby, Scala, JavaScript, C++, C#, BASIC(N88 BASIC, Visual Basic, VBA), (HTML/CSS[^1])
-  - 1KL以上のソフトウェアを書いたことのある言語
-    - Go, Python, lua, Lisp, Scheme, Java, シェルスクリプト, Haskell, アセンブリ(GAS)
-  - 0.3KL以上のソフトウェアを書いたことがある言語
-    - Perl, Tcl, Swift, R, AWK, OCaml, D, Delphi, Elixir, Erlang, TypeScript, Rust, Idris, Julia, PowerShell
-- 最近の興味、力を入れている分野
-  - クラウドネイティブ, 機械学習, Scala, 圏論, 自作キーボード
+10の質問風に答えてみます。
+
+{% details 好きな言語ベスト5 %}
+1. Scala(バランスがいい)
+2. Ruby(書いていてきもちいー)
+3. JavaScript(ES2015以降はわりとまともになったので好き)
+4. C(システムプログラミングの雄)
+5. Haskell(いろいろな発想を学べる)
+{% enddetails %}
+
+{% details 嫌いな言語ベスト5 %}
+1. 機械語/アセンブリ言語(特に命令長が変わるCISCはツライ)
+2. C(ポインタやメモリ管理が面倒)
+3. C++(ごちゃ混ぜ感がある。テンプレートが吐くエラーで更に嫌いになった)
+4. BASIC(GOSUB,GOTOでスパゲッティ)(VBやVBAも好きではない・・・)
+5. Python(バージョン非互換がなければ・・・、あと特殊属性や特殊メソッドのアンダースコアも違和感)
+{% enddetails %}
+
+{% details 5KL以上のソフトウェアを書いたことがある言語 %}
+- C, Ruby, Scala, JavaScript, C++, C#, BASIC(N88 BASIC, Visual Basic, VBA), (HTML/CSS[^1])
+{% enddetails %}
+
+{% details 1KL以上のソフトウェアを書いたことのある言語 %}
+- Go, Python, lua, Lisp(Common Lisp/Emacs Lisp), Scheme, Java, シェルスクリプト, Haskell, アセンブリ(GAS)
+{% enddetails %}
+
+{% details 写経したことがある言語 %}
+- Perl, Tcl, Swift, R, AWK, OCaml, D, Delphi, Elixir, Erlang, TypeScript, Rust, Idris, Julia, Elm, Clojure, PowerShell
+{% enddetails %}
+
+{% details  好きなエディタ・開発環境ベスト5 %}
+1. Emacs(キーバインドが忘れられない)
+2. IntelliJ IDEA(Scalaを書くにはこれ一択。が重い・・・)
+3. VisualStudio Code(そこそこ軽くて万能)
+4. VisualStudio(重いが機能は優秀)
+5. BoostNote(Markdownでメモを取るときのお供)
+{% enddetails %}
+
+{% details 好きなOSベスト5 %}
+1. MacOS(毎日お世話になっております)
+2. iOS(あなたがいないと生活できません)
+3. Linux(Linux Mintが好き。もともとはVine Linux派だった・・・)
+4. Windows(一応実用的。プログラマーからすれば地獄。セキュリティ周りとか、UACとかどうしてこうなった・・・)
+5. 自作OS(昔某書籍の影響でチャレンジした覚えがある。いい思い出になった)
+{% enddetails %}
+
+{% details 持っているキーボード %}
+- メイン
+  - ErgoDash mini
+  - Iris
+- サブ
+  - Ergo42
+  - Planck Light
+- 布教用/観賞用
+  - Mint60
+- お世話になったもの
+  - FKB8579
+  - ProgresTouch RETRO TINY
+{% enddetails %}
+
+{% details 行ったことがある勉強会/カンファレンス/イベント %}
+- RubyKaigi, 大江戸Ruby会議, ScalaMatsuri, Erlang & Elixir Fest, JapanContainerDays, Kubernetes Meetup Tokyo, プログラマのための圏論勉強会, 天下一キーボードわいわい会, 技術書典, Maker Faire Tokyo, コミケ...[^2]
+{% enddetails %}
+
+{% details 最近の興味、力を入れている分野 %}
+- クラウドネイティブ, 機械学習, 圏論, 自作キーボード
+{% enddetails %}
 
 [^1]: 一応入れましたがプログラミング言語かと言われれば微妙です。
+[^2]: ここ2、3年で行ったものです。小さいものは他にもあります。
 
 ## リンクについて
 
