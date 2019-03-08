@@ -13,7 +13,6 @@ require('../includes/helpers/override')(hexo);
 require('../includes/helpers/page')(hexo);
 require('../includes/helpers/site')(hexo);
 require('../includes/tags/elink')(hexo);
-require('../includes/tags/details')(hexo);
 
 // Debug helper
 hexo.extend.helper.register('console', function () {
