@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-03-01T20:56:00.044Z</updated>
+  <updated>2019-03-09T01:26:07.576Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo-tag-detailsを公開しました。</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/03/09/hexo-tag-details/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/03/09/hexo-tag-details/</id>
+    <published>2019-03-08T23:12:19.000Z</published>
+    <updated>2019-03-09T01:26:07.576Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HexoにHTML5の &lt;a href=&quot;https://developer.mozilla.org/ja/docs/Web/HTML/Element/details&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;detailsタグ&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;を記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はそのプラグインの紹介記事です。&lt;/p&gt;
+&lt;a href=&quot;https://www.npmjs.com/package/hexo-tag-details&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;hexo-tag-details&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;HTML5 details tag on your Hexo article&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
+    
+    
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
+    
+      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
+    
+      <category term="html5" scheme="https://hinastory.github.io/cats-cats-cats/tags/html5/"/>
+    
+  </entry>
   
   <entry>
     <title>Scala3に入るかもしれないContextual Abstractionsを味見してみた</title>
@@ -91,8 +121,6 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
-    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
@@ -100,6 +128,8 @@
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
+    
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
   </entry>
   

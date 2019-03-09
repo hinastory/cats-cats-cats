@@ -497,15 +497,18 @@ figure.highlight pre {
 figure.highlight pre .line {
   line-height: 1rem;
 }
-figure.highlight figcaption,
 figure.highlight .gutter {
   background: rgba(200,200,200,0.15);
+  padding: 0.5em;
+  width: 1px;
+  white-space: nowrap;
 }
 figure.highlight figcaption {
   padding: 0.3em 0.75em;
   text-align: left;
   font-style: normal;
   font-size: 0.8em;
+  background: rgba(200,200,200,0.15);
 }
 figure.highlight figcaption span {
   font-weight: 500;

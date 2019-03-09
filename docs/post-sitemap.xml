@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/03/09/hexo-tag-details/</loc>
+        <lastmod>2019-03-09T01:26:07.576Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
         <lastmod>2019-03-01T20:56:00.044Z</lastmod>
         <changefreq>weekly</changefreq>
