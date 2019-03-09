@@ -1,5 +1,5 @@
 ---
-title: hexo-tag-detailsを公開しました。
+title: hexo-tag-detailsを公開しました
 thumbnail: /gallery/thumbnails/hexo-logo.png
 categories:
   - [Tech, Web]
