@@ -47,16 +47,16 @@
   </entry>
   
   <entry>
-    <title>Scala3に入るかもしれないContextual Abstractionsを味見してみた</title>
+    <title>Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</id>
     <published>2019-02-24T03:49:20.000Z</published>
-    <updated>2019-03-10T00:14:50.793Z</updated>
+    <updated>2019-03-10T00:37:39.756Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;Scala3のリサーチコンパイラである&lt;a href=&quot;http://dotty.epfl.ch/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Dotty&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;にImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。&lt;/p&gt;
-&lt;p&gt;(2019年3月10日更新: 更新内容は&lt;a href=&quot;/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
+&lt;p&gt;(2019年3月10日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
     
     </summary>
     

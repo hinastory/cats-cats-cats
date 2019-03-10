@@ -1,5 +1,5 @@
 ---
-title: Scala3に入るかもしれないContextual Abstractionsを味見してみた
+title: Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)
 thumbnail: /gallery/thumbnails/dotty-logo.png
 categories:
   - [Tech,Language]
@@ -10,7 +10,7 @@ date: 2019-02-24 12:49:20
 
 Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch/ %}にImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。
 
-(2019年3月10日更新: 更新内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
+(2019年3月10日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
 
 <!-- more -->
 

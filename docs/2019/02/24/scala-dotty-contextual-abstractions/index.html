@@ -2,29 +2,29 @@
 <html lang="ja">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Scala3に入るかもしれないContextual Abstractionsを味見してみた - cats cats cats</title>
+<title>Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり) - cats cats cats</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日更新: 更新内容はここを見てください)">
+    <meta name="description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日追記・更新: 追記内容はここを見てください)">
 <meta name="keywords" content="Scala">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Scala3に入るかもしれないContextual Abstractionsを味見してみた">
+<meta property="og:title" content="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/index.html">
 <meta property="og:site_name" content="cats cats cats">
-<meta property="og:description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日更新: 更新内容はここを見てください)">
+<meta property="og:description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日追記・更新: 追記内容はここを見てください)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
-<meta property="og:updated_time" content="2019-03-10T00:14:50.793Z">
+<meta property="og:updated_time" content="2019-03-10T00:37:39.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scala3に入るかもしれないContextual Abstractionsを味見してみた">
-<meta name="twitter:description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日更新: 更新内容はここを見てください)">
+<meta name="twitter:title" content="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
+<meta name="twitter:description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日追記・更新: 追記内容はここを見てください)">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
 
 
 
-<link rel="alternative" href="/cats-cats-cats/atom.xml" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた" type="application/atom+xml">
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" type="application/atom+xml">
 
 
 
@@ -95,7 +95,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
             
-                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた">
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
             
             </a>
         </div>
@@ -133,7 +133,7 @@
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
         
-            Scala3に入るかもしれないContextual Abstractionsを味見してみた
+            Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)
         
     </h1>
 
@@ -165,7 +165,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
         </span>
     </div>
     
@@ -180,7 +180,7 @@
 
         <div class="content">
             <p>Scala3のリサーチコンパイラである<a href="http://dotty.epfl.ch/" target="_blank" rel="noopener">Dotty<i class="fas fa-external-link-alt fa-fw"></i></a>にImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。</p>
-<p>(2019年3月10日更新: 更新内容は<a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9">ここ</a>を見てください)</p>
+<p>(2019年3月10日追記・更新: 追記内容は<a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9">ここ</a>を見てください)</p>
 <a id="more"></a>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#scala3とは" class="contents-header">2. Scala3とは</a></li><li><a href="#dottyとは" class="contents-header">3. Dottyとは</a></li><li><a href="#contextual-abstractionsとは" class="contents-header">4. Contextual Abstractionsとは</a></li><li><a href="#味見の方法" class="contents-header">5. 味見の方法</a></li><li><a href="#味見の結果" class="contents-header">6. 味見の結果</a><ul><li><a href="#基本的な例" class="contents-header">6.1. 基本的な例</a></li><li><a href="#高度な例" class="contents-header">6.2. 高度な例</a></li></ul></li><li><a href="#contextual-abstractionsのその他の機能" class="contents-header">7. Contextual Abstractionsのその他の機能</a></li><li><a href="#味見してみた感想" class="contents-header">8. 味見してみた感想</a></li><li><a href="#2019年3月10日の更新内容" class="contents-header">9. 2019年3月10日の更新内容</a></li></ul></div>
 
@@ -531,7 +531,7 @@
             
             <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
                 </p>
             </a>
             
@@ -539,7 +539,7 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T03:49:20.000Z">2019-02-24</time></div>
 
-                    <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="has-link-black-ter is-size-6">Scala3に入るかもしれないContextual Abstractionsを味見してみた</a>
+                    <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="has-link-black-ter is-size-6">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -899,7 +899,7 @@
             
             <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
                 </p>
             </a>
             
@@ -907,7 +907,7 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T03:49:20.000Z">2019-02-24</time></div>
 
-                    <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="has-link-black-ter is-size-6">Scala3に入るかもしれないContextual Abstractionsを味見してみた</a>
+                    <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="has-link-black-ter is-size-6">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1237,7 +1237,7 @@
             <span class="copyright">
                 <a class="footer-logo" href="/cats-cats-cats/">
                 
-                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた" height="28">
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" height="28">
                 
                 </a>
                 <span class="copyright-text">&copy;2019 hinastory</span>
