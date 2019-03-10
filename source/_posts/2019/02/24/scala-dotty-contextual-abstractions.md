@@ -258,4 +258,4 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 意訳すると従来の`implicit`には`implicit conversions`と`conditional implicit values`の２つの用途があったけど、意味が違うし初学者は混同しやすいので構文的に別にするという話です。というか`conditional implicit values`という言い方は自分は初めて目にしました。単純な`implicit values`よりもわかりやすいですね。
 
-この本家のブログを受けてというわけではないですが、前回の記事でサンプルの解説が大分雑だったのでいろいろと見直して、サンプルコードも{% elink GitHub公開しました https://github.com/hinastory/dotty_contextual_abstractions_example %}。興味のある方は味見をして頂けると幸いです。
+この本家のブログを受けてというわけではないですが、前回の記事でサンプルの解説が大分雑だったのでいろいろと見直して、サンプルコードも{% elink GitHubに公開しました https://github.com/hinastory/dotty_contextual_abstractions_example %}。興味のある方は味見をして頂けると幸いです。
