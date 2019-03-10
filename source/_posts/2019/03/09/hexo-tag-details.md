@@ -25,7 +25,7 @@ HexoにHTML5の {% elink detailsタグ https://developer.mozilla.org/ja/docs/Web
 
 hexo-tag-detailsはブログ構築ツール{% elink Hexo https://hexo.io/ %}のプラグインで、投稿にHTML5のdetailsタグを埋め込むためのタグを提供します。detailsタグを使うと以下のようなUIを追加できます。
 
-{% details 猫は好きです？ %}
+{% details 猫は好きですか？ %}
 1. 好き
 2. 大好き
 3. 愛している
@@ -109,7 +109,7 @@ detail text
 
 ### open
 
-`open`最初から詳細文を開いておくかどうかを指定します(デフォルト: false)
+`open`は最初から詳細文を開いておくかどうかを指定します(デフォルト: `false`)
 
 {% code lang:yaml _config.yml %}
 tag_details:

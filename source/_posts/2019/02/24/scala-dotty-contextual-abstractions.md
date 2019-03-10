@@ -10,6 +10,8 @@ date: 2019-02-24 12:49:20
 
 Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch/ %}にImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。
 
+(2019年3月10日更新: 更新内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
+
 <!-- more -->
 
 ## 目次
@@ -45,8 +47,15 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
 現行のScalaには俗にImplicitsと呼ばれる機能がありますが、初学者を非常に混乱させる機能として悪名高いものでした[^5]。そこでDottyには、この混乱に決着を着けるべくImplicitsの機能を包含しつつより整理された「Contextual Abstractions」と呼ばれる一連の機能が実装されました[^6]。Implicitsの代替という面でみるとこれらの機能は「implicit」というキーワードをなるべく使わずに別の用語(`implied`/`given`等)で置き換えて、型クラスをより書きやすいようにチューニングしたような内容になっている印象です。本記事では{% elink Dottyドキュメント https://dotty.epfl.ch/docs/index.html %}[^7]を参考にしながら、「Contextual Abstractions」の機能の一部を味見してみました。以下が味見した機能の一覧です[^8]。
 
 - 暗黙のインスタンス(Implied Instances)
+  - 従来の`implicit`で定義されていたインスタンスと同等です
 - 推論可能パラメータ(Inferable Parameters)
+  - 従来の`implicit`で定義されていたパラメータリストと同等です
+- 暗黙のインポート(Implied Imports)
+  - 通常のimportでは`implied`で定義された暗黙のインスタンスはインポートされず、別途`import implied`でインポートする必要があります
+  - 暗黙のインスタンスがどこから来たのかを明確にするために導入されたようです
 - 拡張メソッド(Extension Methods)
+  - Dottyの新機能です
+  - 型が定義された後にメソッドを追加することができます
 - 型クラスの実装(Implementing Typeclasses)
   - 「暗黙のインスタンス」、「推論可能パラメータ」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
 
@@ -65,6 +74,10 @@ $ dotc <ソースファイル名> # ソースコードのコンパイル
 $ dotr <メインクラス名> # コンパイル済みのコードを実行
 ```
 
+もしくはサンプルコードをGitHubで公開したので、`sbt`をすでにインストールされている方はそちらの方が早いと思います。使い方は`README.md`をご覧ください
+
+{% linkPreview  https://github.com/hinastory/dotty_contextual_abstractions_example %}
+
 ## 味見の結果
 
 Dottyドキュメントに記載されている例をベースに味見をしてみました[^9]。
@@ -77,48 +90,68 @@ Dottyドキュメントに記載されている例をベースに味見をして
 拡張メソッド記法だけは、最初は戸惑うかもしれません。自分は最初Go言語に似ているなと思いました・・・
 
 {% code lang:scala %}
-object ImpliedInferableExample {
-  // 順序型(Ord)の定義
+/** 暗黙のインスタンス、推論可能パラメータのサンプル */
+object ImpliedExample {
+  /** 順序型の定義 */
   trait Ord[T] {
     def compare(x: T, y: T): Int
     def (x: T) < (y: T) = compare(x, y) < 0 // 拡張メソッド記法を使って定義してあります
     def (x: T) > (y: T) = compare(x, y) > 0 // 上記と同様
   }
 
-  // 順序型のIntの暗黙のインスタンスの定義
+  /** 順序型のIntの暗黙のインスタンスの定義 */
   implied IntOrd for Ord[Int] {
     def compare(x: Int, y: Int) =
       if (x < y) -1 else if (x > y) +1 else 0
   }
 
-  // 推論可能パラメータ
+  /** 順序型のListの暗黙のインスタンスの定義 */
+  implied ListOrd[T] given (ord: Ord[T]) for Ord[List[T]] {
+    def compare(xs: List[T], ys: List[T]): Int = (xs, ys) match {
+      case (Nil, Nil) => 0
+      case (Nil, _) => -1 // 空リストよりも非空リストの方が大きい
+      case (_, Nil) => +1 // 同上
+      case (x :: xs1, y :: ys1) =>
+        val fst = ord.compare(x, y) // 先頭の大きさがLists全体の大きさ
+        if (fst != 0) fst else compare(xs1, ys1) // 同じだったら次の要素を再帰的に繰り返す
+    }
+  }
+
+  /** 推論可能パラメータ */
   def max[T](x: T, y: T) given (ord: Ord[T]): T =
     if (ord.compare(x, y) < 1) y else x
 
-  // 無名推論可能パラメータ
+  /** 無名推論可能パラメータ */
   def maximum[T](xs: List[T]) given Ord[T]: T = xs.reduceLeft(max)
 
-  // コンテキスト境界使った書き換え(Scala2と同様)
+  /** コンテキスト境界使った書き換え(Scala2と同様) */
   def maximum2[T: Ord](xs: List[T]): T = xs.reduceLeft(max)
 
-  // 推論可能パラメータを使って新しい逆順序のインスタンスを作る関数
+  /** 推論可能パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */
   def descending[T] given (asc: Ord[T]): Ord[T] = new Ord[T] {
     def compare(x: T, y: T) = asc.compare(y, x)
   }
 
-  // 推論可能パラメータに直接インスタンスを与えることも可能
+  /** より複雑な推論 */
   def minimum[T](xs: List[T]) given Ord[T] = maximum(xs) given descending
 }
 
-object Main extends App {
-  import ImpliedInferableExample._
+/** `ImpliedExapmple`の利用方法 */
+object ImpliedExampleUseCase {
+  import ImpliedExample._
+  import implied ImpliedExample._ // Listの`<`演算子を利用するのに必要
 
-  println( max(2,3) ) // 3
+  def use(): Unit = {
+    println( max(2,3) ) // 3
+    println( max(List(1, 2, 3), Nil) ) // List(1, 2, 3)
+    println(List(1, 2, 3) < List(1, 2, 3, 4)) // true
+    println(List(9, 2, 3) < List(1, 2, 3, 4)) // false
 
-  val numList = List(1,10,2)
-  println( maximum(numList) ) // 10
-  println( maximum2(numList) ) // 10
-  println( minimum(numList) ) // 1
+    val numList = List(1,10,2)
+    println( maximum(numList) ) // 10
+    println( maximum2(numList) ) // 10
+    println( minimum(numList) ) // 1
+  }
 }
 {% endcode %}
 
@@ -126,13 +159,18 @@ object Main extends App {
 
 型クラスの高度な実装例です。高度なのでわからない人はスルーしてください。
 モナドとは・・・という禅問答をここでする気はないです・・・
+リーダーモナドのサンプルですが0.13.0-RC-1ではコンパイラが固まって動かなかったのでコメントアウトしています。
+多分コンパイラのバグだと思いますが、残念ですね・・・[^10]
 
 {% code lang:scala %}
+/** 型クラスのサンプル */
 object TypeClassExample {
+  /** 関手の型クラス */
   trait Functor[F[_]] {
     def (x: F[A]) map [A, B] (f: A => B): F[B]
   }
 
+  /** モナドの型クラス */
   trait Monad[F[_]] extends Functor[F] {
     def (x: F[A]) flatMap [A, B] (f: A => F[B]): F[B]
     def (x: F[A]) map [A, B] (f: A => B) = x.flatMap(f `andThen` pure)
@@ -140,6 +178,7 @@ object TypeClassExample {
     def pure[A](x: A): F[A]
   }
 
+  /** リストモナドのインスタンスを定義 */
   implied ListMonad for Monad[List] {
     def (xs: List[A]) flatMap [A, B] (f: A => List[B]): List[B] =
       xs.flatMap(f)
@@ -147,22 +186,49 @@ object TypeClassExample {
       List(x)
   }
 
+  /** リーダモナドのインスタンスを定義 */
   implied ReaderMonad[Ctx] for Monad[[X] => Ctx => X] {
     def (r: Ctx => A) flatMap [A, B] (f: A => Ctx => B): Ctx => B =
       ctx => f(r(ctx))(ctx)
     def pure[A](x: A): Ctx => A =
       ctx => x
   }
+
+  /** 関手の利用 */
+  def transform[F[_], A, B](src: F[A], func: A => B) given Functor[F]: F[B] = src.map(func)
+
+  /** コンテキスト境界を使った書き換え */
+  def transform2[F[_]: Functor, A, B](src: F[A], func: A => B): F[B] = src.map(func)
+}
+
+/** `TypeClassExample`の利用方法 */
+object TypeClassExampleUseCase {
+  import TypeClassExample._
+  import implied TypeClassExample._
+
+  def use(): Unit = {
+    println( transform(List(1, 2, 3), (_:Int) * 2) ) // List(2, 4, 6)
+
+    /*
+    リーダーモナドの例はずだが・・・
+    以下の例は0.13.0-RC1ではコンパイルが終わらない・・・
+    val calc: Int => Int = for {
+      x <- (e:Int) => e + 1
+      y <- (e:Int) => e * 10
+    } yield x + y
+
+    println( calc(3) ) // 34
+    */
+  }
 }
 {% endcode %}
+
+[^10]: この件は自分はイシューやプルリクエストは本家に上げていません。理由は既存のイシューやプルリクエストに目を通す余裕が自分にはないのと、Dottyを常用している訳ではないので特に困っていないからです。まぁ端的に言えば自分にはリソースとモチベーションが足りていなかったので、誰か気になる人は本家に上げてみてください。
 
 ## Contextual Abstractionsのその他の機能
 
 Contextual Abstractionsの機能で味見できなかった機能を簡単に紹介します。
 
-- 暗黙のインポート(Implied Imports)
-  - 通常のimportでは`implied`で定義された暗黙のインスタンスはインポートされず、別途`import implied`でインポートする必要があります
-  - 暗黙のインスタンスがどこから来たのかを明確にするために導入されたようです
 - マルチバーサル等価性(Multiversal Equality)
   - Scala2では文字列と数値が比較可能でしたが、この機能により厳密に型が合っていないとコンパイルエラーにすることもできるようになりました
 - 型クラスの導出(Typeclass Derivation)
@@ -176,8 +242,20 @@ Contextual Abstractionsの機能で味見できなかった機能を簡単に紹
 
 ## 味見してみた感想
 
-Implicitsが大分飼いならされたような印象でした。特に従来はimplicitをパラメータリストで受け取っていたのを`given`という専用構文で受け取るようになったのが非常に分かりやすかったです。ただ、従来の`implicitly`の名称はまだかなり揺れているみたいです[^10]。
+Implicitsが大分飼いならされたような印象でした。特に従来はimplicitをパラメータリストで受け取っていたのを`given`という専用構文で受け取るようになったのが非常に分かりやすかったです。ただ、従来の`implicitly`の名称はまだかなり揺れているみたいです[^11]。
 
 もともとは{% elink 「A Snippet of Dotty」 https://medium.com/@jducoeur/a-snippet-of-dotty-27eadcee72e3 %}を読んで、あまりにも自分が知っているScalaと違っていたので調べ始めたのがこの記事を書こうと思ったきっかけです。この記事がScala3がどういう方向を目指しているのか知りたい人の参考になれば幸いです。
 
-[^10]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、現在のmasterブランチでは`the`に変更されています。ちょうどこの記事を書いている途中で変更が {% elink masterにマージされた https://github.com/lampepfl/dotty/pull/5893 %}ので、混乱しないように慌てて味見の結果から`infer`を抜きました。
+[^11]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、現在のmasterブランチでは`the`に変更されています。ちょうどこの記事を書いている途中で変更が {% elink masterにマージされた https://github.com/lampepfl/dotty/pull/5893 %}ので、混乱しないように慌てて味見の結果から`infer`を抜きました。
+
+## 2019年3月10日の更新内容
+
+{% elink 本家のブログ https://dotty.epfl.ch/blog/2019/03/05/13th-dotty-milestone-release.html %}が公開されたようです。`0.13.0-RC-1`のタグが打たれてから10日以上経ってからの公開なのでかなり遅い方だと思いますが、それだけ今回のリリースが盛りだくさんだったと言うことだと思います。本家のブログには従来の`implicit`がなぜダメだったのか丁寧に説明されていました。
+
+{% blockquote Dotty Blogより %}
+The implicit keyword is used for both implicit conversions and conditional implicit values and we identified that their semantic differences must be communicated more clearly syntactically. Furthermore, the implicit keyword is ascribed too many overloaded meanings in the language (implicit vals, defs, objects, parameters). For instance, a newcomer can easily confuse the two examples above, although they demonstrate completely different things, a typeclass instance is an implicit object or val if unconditional and an implicit def with implicit parameters if conditional; arguably all of them are surprisingly similar (syntactically). Another consideration is that the implicit keyword annotates a whole parameter section instead of a single parameter, and passing an argument to an implicit parameter looks like a regular application. This is problematic because it can create confusion regarding what parameter gets passed in a call. Last but not least, sometimes implicit parameters are merely propagated in nested function calls and not used at all, so giving names to implicit parameters is often redundant and only adds noise to a function signature.
+{% endblockquote %}
+
+意訳すると従来の`implicit`には`implicit conversions`と`conditional implicit values`の２つの用途があったけど、意味が違うし初学者は混同しやすいので構文的に別にするという話です。というか`conditional implicit values`という言い方は自分は初めて目にしました。単純な`implicit values`よりもわかりやすいですね。
+
+この本家のブログを受けてというわけではないですが、前回の記事でサンプルの解説が大分雑だったのでいろいろと見直して、サンプルコードも{% elink GitHub公開しました https://github.com/hinastory/dotty_contextual_abstractions_example %}。興味のある方は味見をして頂けると幸いです。
