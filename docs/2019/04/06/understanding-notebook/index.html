@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>全プログラマに捧ぐ！図解「ノートブック」 - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Jupyter Notebookを使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。">
+<meta name="keywords" content="Jupyter,MachineLearning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全プログラマに捧ぐ！図解「ノートブック」">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="Jupyter Notebookを使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/jupyter-logo.png">
+<meta property="og:updated_time" content="2019-04-07T04:36:15.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="全プログラマに捧ぐ！図解「ノートブック」">
+<meta name="twitter:description" content="Jupyter Notebookを使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/jupyter-logo.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="全プログラマに捧ぐ！図解「ノートブック」" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="全プログラマに捧ぐ！図解「ノートブック」">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            全プログラマに捧ぐ！図解「ノートブック」
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="media-left">
+                <time datetime="2019-04-05T22:34:17.000Z">2019-04-06</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Jupyter/">Jupyter</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/MachineLearning/">MachineLearning</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/jupyter-logo.png" alt="全プログラマに捧ぐ！図解「ノートブック」">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+               
+            </div>
+        </div>
+        
+
+        <div class="content">
+            <a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook<i class="fas fa-external-link-alt fa-fw"></i></a>を使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。<br><br><a id="more"></a>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#ノートブックとは" class="contents-header">2. ノートブックとは</a></li><li><a href="#ノートブックとセル" class="contents-header">3. ノートブックとセル</a></li><li><a href="#ノートブックとマークダウン" class="contents-header">4. ノートブックとマークダウン</a></li><li><a href="#ノートブックとカーネル" class="contents-header">5. ノートブックとカーネル</a></li><li><a href="#ノートブックとファイル" class="contents-header">6. ノートブックとファイル</a></li><li><a href="#ノートブックの変換" class="contents-header">7. ノートブックの変換</a></li><li><a href="#ノートブックの共有" class="contents-header">8. ノートブックの共有</a></li><li><a href="#ノートブックとjupyterlab" class="contents-header">9. ノートブックとJupyterLab</a></li><li><a href="#ノートブックを始めてみる" class="contents-header">10. ノートブックを始めてみる</a></li><li><a href="#ノートブックの用途" class="contents-header">11. ノートブックの用途</a></li><li><a href="#まとめ" class="contents-header">12. まとめ</a></li></ul></div>
+
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事はJupyter Notebookにおける「ノートブック」という機能に着目して解説したものです。「ノートブック」は、REPL<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>の進化形態であり、仮にデータサイエンティストでないとしても全プログラマが知っていて損はないアイデアだと思います。</p>
+<h2 id="ノートブックとは"><a href="#ノートブックとは" class="header-anchor"></a>2. <a href="#ノートブックとは" class="headerlink" title="ノートブックとは"></a>ノートブックとは</h2><p>ノートブックとは、簡単に言うとプログラムとその実行結果をまとめたものです。実行結果とはプログラム自体が画面に出力したものと、プログラムの最後の行の評価結果の戻り値になります。「評価結果の戻り値」という表現が分かりづらいかもしれないので、以下のノートブックの一部を使って説明します。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-1.png">
+<p>上記の灰色の枠内がプログラムです。半径5の円の面積を計算しています。その枠の下の「<code>78.53981633974483</code>」が評価結果の戻り値になります。これはプログラムの最後の行の変数「<code>math.pi * r ** 2</code>」の評価結果の戻り値に対応しています。</p>
+<p>初めての人が陥りやすい罠として、最後の行を「<code>area = math.pi * r ** 2</code>」のような代入文にして、何も表示されず困るというものがあります。これはPythonの代入が戻り値を持たない仕様のためにおこる現象です<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。この場合は代入文の後に「<code>area</code>」を追加して最終行を表示したい変数に変更するか、以下のようにprint関数で明示的に画面出力すればよいです<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-2.png">
+<p>さらにノートブックにはテキスト以外にも様々なものが表示できます。以下は表を表示してみました。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-3.png">
+<p>グラフも表示可能です。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-4.png">
+<p>画像処理結果の表示もお手の物です。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-5.png">
+<p>動画の埋め込み<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>なんかも可能です。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-6.png">
+<p>このようにノートブックではプログラムの最後の行の戻り値が自動的に表示される仕組みなので、対話的にプログラムの動作確認したい作業にとても向いています。また、プログラムと実行結果が一緒に保存されるので、プログラムとその動作結果の対応がわかりやすく、後から確認したり復習したりするのも楽なので、プログラミングの学習にも向いています。</p>
+<h2 id="ノートブックとセル"><a href="#ノートブックとセル" class="header-anchor"></a>3. <a href="#ノートブックとセル" class="headerlink" title="ノートブックとセル"></a>ノートブックとセル</h2><p>セルとは以下の図<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>のように、ノートブック内のプログラムのかたまりであり、セル単位でプログラムの編集、実行、削除が可能です。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-7.png">
+<p>セルには編集モードとコマンドモードがあり、直接マウスで選択すると編集モードになります。編集モードでプログラムを記述して「<code>Shift</code> + <code>Enter</code>」キーを入力することでセルの実行が可能です。編集モードで「<code>Esc</code>」キーを入力することでコマンドモードに移行することができます。コマンドモードではその名のとおりセルに対して様々な命令を実行することができます。例えば「<code>d</code> <code>d</code>」を入力することでセルの削除が可能です。</p>
+<p>ノートブックでは基本的に下にセルを追加して、実行結果を確認したい単位でプログラムを書いて実行することを繰り返します。一度実行したセルもまたセル内のプログラムを編集して再実行することができます。そのためセルの左側には実行の順番を表すための番号が振られており、実行するごとに１増えていきます。</p>
+<p>セルは一番下だけでなく、セルとセルの間にも挿入することができます。これは後で忘れていた処理を追加するのに便利ですが、注意すべき点があります。以下の図は上から２番めのセルの下に新しいセルを挿入して、プログラムを記述して実行した後の状態を示しています。セルの実行順番はセルの左の番号の通りです。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-8.png">
+<p>この図で注意すべきは3点あります。１つ目の注意点は、挿入したセルの実行結果はすでに実行済みのセルの実行結果には影響を与えないということです。この図の場合一番下のセルの最終行は<code>a + b</code>となっていますが、今回のようにその上のセルに挿入して<code>b</code>の値を書き換えても最後のセルの実行結果は変わりません。</p>
+<p>次に注意すべき点は、いったんこのノートブックを終了して再度ノートブックを「<code>先頭から</code>」実行したときに実行結果が変わる点です。問題は最後のセルで変数<code>a</code>と<code>b</code>を上書きしている点です。このため上から3番目のセル(挿入したセル)で、実行結果が変わってしまいます。この場合<code>array([9, 12, 15])</code>だった結果が<code>[1, 2, 3, 4, 5, 6, 4, 5, 6]</code>になります。さらに続けて最終セルを実行しようとすると例外が発生します。</p>
+<p>最後に注意すべき点は一番最後のセルで<code>import</code>文を使っている点です。一回実行された<code>import</code>文はノートブックの範囲内で有効なので、セルの挿入位置にかかわらずインポートされたライブラリの機能が利用できます。しかし、ノートブックを終了して再度先頭から実行しようとすると、当然<code>import</code>文の実行前にそのライブラリの機能を使おうとすると怒られます。今回の例ではさらに紛らわしくて実行結果が変わるという現象にもつながっています。</p>
+<p>従って、ノートブックを先頭から再実行する可能性があり、かつセルを一番下以外に挿入する場合は、セルを一番上から実行しても問題ないかということを意識する必要があります。このトピックはおそらくノートブック利用者が一度は通る道だと思い言及しました。</p>
+<h2 id="ノートブックとマークダウン"><a href="#ノートブックとマークダウン" class="header-anchor"></a>4. <a href="#ノートブックとマークダウン" class="headerlink" title="ノートブックとマークダウン"></a>ノートブックとマークダウン</h2><p>これまでセルにはプログラムを記述できると述べましたが、実はマークダウン形式も選択可能です。ノートブックを使わない場合にソースコードにドキュメントを埋め込む場合はコメントを利用することが一般的ですが、コメントはコードに紛れると視認性が悪いという問題点があります。しかし、ノートブックであればコードセルとマークダウンセルが異なるために紛れる心配もなく、マークダウンでリッチなドキュメントを書くことができます。特にマークダウンで見出しだけでも書いておけば、ノートブックのどの位置に目的のコードを書いたのかを見つけるのが容易になります。正直この見出しだけでもマークダウンを使う価値があると思っています<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
+<h2 id="ノートブックとカーネル"><a href="#ノートブックとカーネル" class="header-anchor"></a>5. <a href="#ノートブックとカーネル" class="headerlink" title="ノートブックとカーネル"></a>ノートブックとカーネル</h2><p>一つのノートブックには必ず一つのプログラミング言語が紐付きます。下の図のようにノートブックを開くと裏では紐付いたプログラミング言語の実行環境が起動して、セルの実行のために待ち受けています。このプログラミング言語の実行環境のことを「<code>カーネル</code>」と呼びます。現在、非常に多くのカーネルが<a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels" target="_blank" rel="noopener">公開されています<i class="fas fa-external-link-alt fa-fw"></i></a>。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-9.png">
+<p>またカーネルは図のようにノートブックを開くたびにひとつ起動されるイメージで、カーネル間でのメモリ等の共有はなく完全に独立しています。また、このカーネルは明示的にシャットダウンしないとずっと動きっぱなしになります。<br>従ってノートブックを開くとカーネルが起動してマシンのリソースを消費するので、不要なカーネルはこまめにシャットダウンすることをおすすめします。</p>
+<h2 id="ノートブックとファイル"><a href="#ノートブックとファイル" class="header-anchor"></a>6. <a href="#ノートブックとファイル" class="headerlink" title="ノートブックとファイル"></a>ノートブックとファイル</h2><p>ノートブックの実体は一つのファイルです。もう少し具体的に述べると拡張子が「.ipynb」でJSONフォーマットで保存されています。単なるファイルなのでフォルダによる整理やGit等のバージョン管理システムによる管理も可能です<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-10.png">
+<h2 id="ノートブックの変換"><a href="#ノートブックの変換" class="header-anchor"></a>7. <a href="#ノートブックの変換" class="headerlink" title="ノートブックの変換"></a>ノートブックの変換</h2><p>ノートブックは以下の図のように様々な形式に変更可能です。単純に実行スクリプトに変換できるのはもちろんですが、HTMLやマークダウンにも変換できるのでQiitaやブログサービスへの埋込も可能です。Reveal.jsのスライドにすればプレゼンテーションにも利用できます。<br><img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-11.png"></p>
+<h2 id="ノートブックの共有"><a href="#ノートブックの共有" class="header-anchor"></a>8. <a href="#ノートブックの共有" class="headerlink" title="ノートブックの共有"></a>ノートブックの共有</h2><p>ノートブックの実体はファイルだということは前述のとおりですが、このファイルは様々な環境で開くことができます。例えばVisual Studio Codeでは拡張機能でノートブックに対応しています。さらに、クラウド上にはノートブックに対応したマネージドサービスが揃っているので、ローカルで作成したノートブックをクラウドで実行するのも簡単です。また編集や実行機能が必要なければ、nbviewerのGitHubのように表示だけが可能なサービスも存在するので、コードや実行結果の共有だけがしたい場合はこちらのほうが手軽です。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-12.png">
+<h2 id="ノートブックとjupyterlab"><a href="#ノートブックとjupyterlab" class="header-anchor"></a>9. <a href="#ノートブックとJupyterLab" class="headerlink" title="ノートブックとJupyterLab"></a>ノートブックとJupyterLab</h2><p>JupyterLabはJupyter Notebookの次世代ユーザインターフェースです。タブインタフェースで非常に使いやすく自分も愛用しています。まだ、バージョン1.0には達していませんが、普段の利用にはほぼ問題ない感じです。安定性や情報の多さをとるならJupyter Notebookに軍配があがりますが、先進的な機能や格好良さを求めるならJupyterLabをおすすめします。以下の画面は自分が実際に利用しているJupyterLabの画面です<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup>。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/jupyterlab.png">
+<h2 id="ノートブックを始めてみる"><a href="#ノートブックを始めてみる" class="header-anchor"></a>10. <a href="#ノートブックを始めてみる" class="headerlink" title="ノートブックを始めてみる"></a>ノートブックを始めてみる</h2><p>ノートブックの始め方はいろいろあるので、ざっくりとしたチャートを自分の主観で書いてみました。最初の一歩を踏み出すための道標としてご利用ください<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-13.png">
+<table>
+<thead>
+<tr>
+<th>エントリー</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Try Jupyter</td>
+<td><a href="https://jupyter.org/try" target="_blank" rel="noopener">https://jupyter.org/try</a></td>
+</tr>
+<tr>
+<td>Colavoratory</td>
+<td><a href="https://colab.research.google.com" target="_blank" rel="noopener">https://colab.research.google.com</a></td>
+</tr>
+<tr>
+<td>Sage Maker</td>
+<td><a href="https://aws.amazon.com/jp/sagemaker" target="_blank" rel="noopener">https://aws.amazon.com/jp/sagemaker</a></td>
+</tr>
+<tr>
+<td>Azure Notebooks</td>
+<td><a href="https://notebooks.azure.com" target="_blank" rel="noopener">https://notebooks.azure.com</a></td>
+</tr>
+<tr>
+<td>Binder</td>
+<td><a href="https://mybinder.org" target="_blank" rel="noopener">https://mybinder.org</a></td>
+</tr>
+<tr>
+<td>zero-to-jupyterhub-k8s</td>
+<td><a href="https://github.com/jupyterhub/zero-to-jupyterhub-k8s" target="_blank" rel="noopener">https://github.com/jupyterhub/zero-to-jupyterhub-k8s</a></td>
+</tr>
+<tr>
+<td>jupyterhub-deploy-docker</td>
+<td><a href="https://github.com/jupyterhub/jupyterhub-deploy-docker" target="_blank" rel="noopener">https://github.com/jupyterhub/jupyterhub-deploy-docker</a></td>
+</tr>
+<tr>
+<td>JupyterHub</td>
+<td><a href="https://jupyterhub.readthedocs.io/en/stable" target="_blank" rel="noopener">https://jupyterhub.readthedocs.io/en/stable</a></td>
+</tr>
+<tr>
+<td>Jupyter Notebook</td>
+<td><a href="https://jupyter.org/install" target="_blank" rel="noopener">https://jupyter.org/install</a></td>
+</tr>
+<tr>
+<td>base-notebook</td>
+<td><a href="https://hub.docker.com/r/jupyter/base-notebook" target="_blank" rel="noopener">https://hub.docker.com/r/jupyter/base-notebook</a></td>
+</tr>
+<tr>
+<td>minimal-notebook</td>
+<td><a href="https://hub.docker.com/r/jupyter/minimal-notebook" target="_blank" rel="noopener">https://hub.docker.com/r/jupyter/minimal-notebook</a></td>
+</tr>
+<tr>
+<td>all-spark-notebook</td>
+<td><a href="https://hub.docker.com/r/jupyter/all-spark-notebook" target="_blank" rel="noopener">https://hub.docker.com/r/jupyter/all-spark-notebook</a></td>
+</tr>
+<tr>
+<td>pyspark-notebook</td>
+<td><a href="https://hub.docker.com/r/jupyter/pyspark-notebook" target="_blank" rel="noopener">https://hub.docker.com/r/jupyter/pyspark-notebook</a></td>
+</tr>
+<tr>
+<td>tensorflow-notebook</td>
+<td><a href="https://hub.docker.com/r/jupyter/tensorflow-notebook" target="_blank" rel="noopener">https://hub.docker.com/r/jupyter/tensorflow-notebook</a></td>
+</tr>
+<tr>
+<td>datascience-notebook</td>
+<td><a href="https://hub.docker.com/r/jupyter/datascience-notebook" target="_blank" rel="noopener">https://hub.docker.com/r/jupyter/datascience-notebook</a></td>
+</tr>
+<tr>
+<td>Go Back To THIS PAGE</td>
+<td>このページの先頭から再度読み直してください</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ノートブックの用途"><a href="#ノートブックの用途" class="header-anchor"></a>11. <a href="#ノートブックの用途" class="headerlink" title="ノートブックの用途"></a>ノートブックの用途</h2><p>ノートブックは非常に用途が広いので、プログラミングにおける様々な場面で活用することができると思います。以下は思いついた用途です。</p>
+<ul>
+<li>データサイエンス</li>
+<li>プログラミングの教育</li>
+<li>プログラミング言語の個人学習</li>
+<li>ユーティリティの作成・管理</li>
+<li>メモ</li>
+<li>ブログ</li>
+<li>手順書、ドキュメント作成</li>
+</ul>
+<h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>12. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>以下、「ノートブック」のまとめです。</p>
+<ul>
+<li>「ノートブック」はコードと実行結果をまとめたものである</li>
+<li>「ノートブック」の実体はファイルである</li>
+<li>「ノートブック」はマークダウン、HTML、PDF、実行スクリプトなど様々な形式に変換できる</li>
+<li>「ノートブック」を利用できる複数のクラウドサービスが存在する</li>
+<li>「ノートブック」にはプログラミング全般に幅広い用途がある</li>
+</ul>
+<p>Jupyter Notebookはデータサイエンスの分野ではほぼ必須とまで言われるツールになりましたが、一般のプログラマへの浸透具合はいまいちと感じたのでデータサイエンスの文脈からなるべく切り離して「ノートブック」の説明をしてみました。</p>
+<p>本記事が「ノートブック」の理解と普及の一助になれば幸いです。<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">REPLは「Read Eval Print Loop」の略で、プログラムを一行ごとに評価して評価結果を表示するプログラムを意味しています。PythonにおけるiPythonやRubyにおけるirbにあたります。インタラクティブシェルと呼ばれることもあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Pythonでは代入以外にも<code>if</code>や<code>whine</code>等の制御構造も戻り値を持ちません。Rubyのように代入や制御構造が戻り値を持つ言語もあります。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">printは戻り値を持たない関数なので、戻り値は表示されません。しかし一般的なPythonの関数は戻り値を持つもの(<code>return</code>で値を返す)が多いので、大抵は関数の結果確認のために「最終行」を有効活用できます。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">埋め込まれている動画は「<a href="https://www.youtube.com/watch?v=XQB3H6I8t_4」になります。" target="_blank" rel="noopener">https://www.youtube.com/watch?v=XQB3H6I8t_4」になります。</a></span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">ノートブックの図はJupyter Notebookの新インターフェースであるJupyter Labを元に作成しています。Jupyter Notebookだと若干見え方は異なりますが、ここで説明される概念は共通です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">更にJupyter Notebookの拡張機能を使えばTOC(目次)機能も使えるようになり、便利さの度合いが跳ね上がります。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">ノートブックには実行結果も含まれますが、実行結果を除いてバージョン管理しようとすると少し工夫が必要になります。手段はいろいろあるので気になる方は検索してみてください。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">ツッコミどころがあるのは理解しております。スルーして頂けると幸いです。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;">画面に写り込んでいるプログラムは <a href="https://www.oreilly.co.jp/books/9784873118727/" target="_blank" rel="noopener">PythonによるAIプログラミング入門<i class="fas fa-external-link-alt fa-fw"></i></a>の例題になります。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div></p>
+
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/03/09/hexo-tag-details/">
+                <span class="level-item">hexo-tag-detailsを公開しました</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-15</div><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark">Developers Summit 2019に参加した感想など</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        15
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        8
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        17
+                    </p>
+                </div>
+            </div>
+        </nav>
+
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Tool/">
+            <span class="level-start">
+                <span class="level-item">Tool</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 15px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/jupyter-logo.png" alt="全プログラマに捧ぐ！図解「ノートブック」">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-05T22:34:17.000Z">2019-04-06</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="has-link-black-ter is-size-6">全プログラマに捧ぐ！図解「ノートブック」</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/03/09/hexo-tag-details/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="hexo-tag-detailsを公開しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-08T23:12:19.000Z">2019-03-09</time></div>
+
+                    <a href="/cats-cats-cats/2019/03/09/hexo-tag-details/" class="has-link-black-ter is-size-6">hexo-tag-detailsを公開しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T03:49:20.000Z">2019-02-24</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="has-link-black-ter is-size-6">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/npm-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(後編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T23:36:19.000Z">2019-02-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(後編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019-03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
+                        <span class="level-start">
+                            <span class="level-item">Event</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
+                        <span class="level-start">
+                            <span class="level-item">GCP</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="level-start">
+                            <span class="level-item">MachineLearning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
+                        <span class="level-start">
+                            <span class="level-item">Scala</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
+                        <span class="level-start">
+                            <span class="level-item">html5</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/jupyter-logo.png" alt="全プログラマに捧ぐ！図解「ノートブック」">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-05T22:34:17.000Z">2019-04-06</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="has-link-black-ter is-size-6">全プログラマに捧ぐ！図解「ノートブック」</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/03/09/hexo-tag-details/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="hexo-tag-detailsを公開しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-08T23:12:19.000Z">2019-03-09</time></div>
+
+                    <a href="/cats-cats-cats/2019/03/09/hexo-tag-details/" class="has-link-black-ter is-size-6">hexo-tag-detailsを公開しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T03:49:20.000Z">2019-02-24</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="has-link-black-ter is-size-6">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/npm-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(後編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T23:36:19.000Z">2019-02-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(後編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019-03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
+                        <span class="level-start">
+                            <span class="level-item">Event</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
+                        <span class="level-start">
+                            <span class="level-item">GCP</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="level-start">
+                            <span class="level-item">MachineLearning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
+                        <span class="level-start">
+                            <span class="level-item">Scala</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
+                        <span class="level-start">
+                            <span class="level-item">html5</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="全プログラマに捧ぐ！図解「ノートブック」" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2019 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/cats-cats-cats/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/npm-logo.png">
-<meta property="og:updated_time" content="2019-02-13T17:57:52.420Z">
+<meta property="og:updated_time" content="2019-04-07T04:50:07.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HexoのoEmbedプラグインをnpmに公開した話(後編)">
 <meta name="twitter:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。 HexoのoEmbedプラグインをnpmに公開した話(前編)">
@@ -233,9 +233,11 @@
 <p>あともう一つ決めなければいけないことは、エンドポイントの設定方法です。幸いにもHexoにはディレクトリのトップに_config.ymlという設定ファイルがあり、これに自由に設定を加えていけます。具体的には以下のような設定があったとします。<code>className</code>は冒頭で述べたCSSのクラス名の設定です。<code>endpoints</code>が具体的のoEmbedプロバイダを設定する箇所で、<code>match</code>パラメータがパーマリンクのURLのホスト名に部分一致していたらそのエンドポイントの<code>url</code>を利用するという仕様にします。正確なスキーマの検査をしなくても多分このレベルで実用になるだろうと判断しました。手を抜いたわけじゃないよ！</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">oembed:</span><br><span class="hljs-attr">  className:</span> <span class="hljs-string">oembed</span><br><span class="hljs-attr">  endpoints:</span><br><span class="hljs-attr">    instagram:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">instagram</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://api.instagram.com/oembed/</span><br><span class="hljs-attr">    gyazo:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">gyazo</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">https://api.gyazo.com/api/oembed/</span><br><span class="hljs-attr">    flickr:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">flickr</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://www.flickr.com/services/oembed/</span><br></code></pre></td></tr></table></figure>
 <p>上記の設定ファイルには<code>hexo.config</code>でアクセスできます。例えばインスタグラムのエンドポイントのURLが欲しい場合は<code>hexo.config.oembed.endpoints.instagram.url</code>です。これで、oEmbedのタグを実装する上での主要な情報と仕様が出揃いました。あとは基本的はWebプログラミングの知識があれば解ける問題です。Let’s Try!</p>
-<h3 id="答え合わせ"><a href="#答え合わせ" class="header-anchor"></a>1.7. <a href="#答え合わせ" class="headerlink" title="答え合わせ"></a>答え合わせ</h3><p>さて、皆様の出来栄えはいかがしょうか？以下のCodePenに自分のソースコードを日本語のコメント付きで載せたので参考にしてみてください。<code>RunPen</code>をクリックしてJSタブを開けばソースコードが見れます。また当然ですがこの埋込には今回作成してタグを用いています。</p>
-<div class="oembed-outer oembed-codepen"><div class="oembed-inner"><iframe id="cp_embed_ZwxjvK" src="https://codepen.io/hinastory/embed/preview/ZwxjvK?height=300&amp;slug-hash=ZwxjvK&amp;default-tabs=js,result&amp;host=https://codepen.io" title="hexo-oembed" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe></div></div>
-<figure class="highlight plain"><figcaption><span>上記の埋め込みに利用したタグ</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123; oembed https://codepen.io/hinastory/pen/ZwxjvK %&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="答え合わせ"><a href="#答え合わせ" class="header-anchor"></a>1.7. <a href="#答え合わせ" class="headerlink" title="答え合わせ"></a>答え合わせ</h3><p>さて、皆様の出来栄えはいかがしょうか？以下のCodePenに自分のソースコードを日本語のコメント付きで載せたので参考にしてみてください。</p>
+<p></p><p class="codepen" data-height="265" data-theme-id="0" data-default-tab="js" data-user="hinastory" data-slug-hash="ZwxjvK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="hexo-oembed"><br>  <span>See the Pen <a href="https://codepen.io/hinastory/pen/ZwxjvK/" target="_blank" rel="noopener"><br>  hexo-oembed</a> by hinastory (<a href="https://codepen.io/hinastory" target="_blank" rel="noopener">@hinastory</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
 <h2 id="hexoタグの公開"><a href="#hexoタグの公開" class="header-anchor"></a>2. <a href="#Hexoタグの公開" class="headerlink" title="Hexoタグの公開"></a>Hexoタグの公開</h2><p>せっかく作ったので公開して多くの人に使ってもらいたいと思います。そのための手順を簡単に説明したいと思います。</p>
 <h3 id="githubでリポジトリを作成する"><a href="#githubでリポジトリを作成する" class="header-anchor"></a>2.1. <a href="#GitHubでリポジトリを作成する" class="headerlink" title="GitHubでリポジトリを作成する"></a>GitHubでリポジトリを作成する</h3><p>まずは、 <a href="https://github.com/" target="_blank" rel="noopener">GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>にリポジトリを作成します。もしまだアカウントを作成していない方はSignUpから始めてください<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。以前に以下の記事でプライベートリポジトリの作り方を説明しましたが、今回は公開用のパブリックリポジトリです。</p>
 <a href="https://hinastory.github.io/cats-cats-cats/2019/01/13/github/" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/github-logo.png"></div><div class="descriptions"><div class="og-title">GitHubのプライベートリポジトリに移行した話</div><div class="og-description">新年そうそうビッグニュースが流れてきました。GitHubがプライベートリポジトリをタダで使わせてくれるってよ! GitHub、無料ユーザーもプライベートリポジトリを使い放題にGitHubが、無料ユーザーもプライベートリポジトリを無制限に使えるようにした（共有は3人まで）。料金体系…</div></div></div></a>
@@ -371,7 +373,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        14
+                        15
                     </p>
                 </div>
             </div>
@@ -391,7 +393,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        17
                     </p>
                 </div>
             </div>
@@ -460,7 +462,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">10</span>
+                <span class="level-item tag">11</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -492,7 +494,7 @@
                 <span class="level-item">Tool</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
@@ -514,7 +516,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 15px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 10px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 15px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
     </div>
 </div>
 
@@ -528,6 +530,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/jupyter-logo.png" alt="全プログラマに捧ぐ！図解「ノートブック」">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-05T22:34:17.000Z">2019-04-06</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="has-link-black-ter is-size-6">全プログラマに捧ぐ！図解「ノートブック」</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -609,26 +631,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T23:36:19.000Z">2019-02-09</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(前編)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -640,6 +642,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
@@ -776,6 +789,17 @@
                 </li>
                 
                 <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
                         <span class="level-start">
                             <span class="level-item">Keyboard</span>
@@ -803,7 +827,7 @@
                             <span class="level-item">MachineLearning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -899,6 +923,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/jupyter-logo.png" alt="全プログラマに捧ぐ！図解「ノートブック」">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-05T22:34:17.000Z">2019-04-06</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/06/understanding-notebook/" class="has-link-black-ter is-size-6">全プログラマに捧ぐ！図解「ノートブック」</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/03/09/hexo-tag-details/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png" alt="hexo-tag-detailsを公開しました">
@@ -977,26 +1021,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T23:36:19.000Z">2019-02-09</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" class="has-link-black-ter is-size-6">HexoのoEmbedプラグインをnpmに公開した話(前編)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1008,6 +1032,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
@@ -1144,6 +1179,17 @@
                 </li>
                 
                 <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
                         <span class="level-start">
                             <span class="level-item">Keyboard</span>
@@ -1171,7 +1217,7 @@
                             <span class="level-item">MachineLearning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>

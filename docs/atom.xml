@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-03-09T10:16:16.428Z</updated>
+  <updated>2019-04-07T04:36:15.119Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全プログラマに捧ぐ！図解「ノートブック」</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/</id>
+    <published>2019-04-05T22:34:17.000Z</published>
+    <updated>2019-04-07T04:36:15.119Z</updated>
+    
+    <summary type="html">
+    
+      &lt;a href=&quot;https://jupyter.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jupyter Notebook&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。&lt;br&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
+    
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo-tag-detailsを公開しました</title>
@@ -107,7 +132,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/</id>
     <published>2019-02-10T23:36:19.000Z</published>
-    <updated>2019-02-13T17:57:52.420Z</updated>
+    <updated>2019-04-07T04:50:07.073Z</updated>
     
     <summary type="html">
     

@@ -28,14 +28,6 @@ https://github.com/hinastory/hexo-oembed
 
 {% oembed https://twitter.com/hinastory999/status/1089514744174632960 %}
 
-### CodePen
-
-{% code Hexo tag %}
-{% raw %}{% oembed https://codepen.io/hinastory/pen/ZwxjvK %}{% endraw %}
-{% endcode %}
-
-{% oembed https://codepen.io/hinastory/pen/ZwxjvK %}
-
 ### Speaker Deck
 
 {% code Hexo tag %}

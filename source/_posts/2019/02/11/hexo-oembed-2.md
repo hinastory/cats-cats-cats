@@ -162,13 +162,15 @@ oembed:
 
 ### 答え合わせ
 
-さて、皆様の出来栄えはいかがしょうか？以下のCodePenに自分のソースコードを日本語のコメント付きで載せたので参考にしてみてください。`RunPen`をクリックしてJSタブを開けばソースコードが見れます。また当然ですがこの埋込には今回作成してタグを用いています。
+さて、皆様の出来栄えはいかがしょうか？以下のCodePenに自分のソースコードを日本語のコメント付きで載せたので参考にしてみてください。
 
-{% oembed https://codepen.io/hinastory/pen/ZwxjvK %}
+<p class="codepen" data-height="265" data-theme-id="0" data-default-tab="js" data-user="hinastory" data-slug-hash="ZwxjvK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="hexo-oembed">
+  <span>See the Pen <a href="https://codepen.io/hinastory/pen/ZwxjvK/">
+  hexo-oembed</a> by hinastory (<a href="https://codepen.io/hinastory">@hinastory</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-{% code 上記の埋め込みに利用したタグ %}
-{% raw %}{ oembed https://codepen.io/hinastory/pen/ZwxjvK %}{% endraw %}
-{% endcode %}
 
 ## Hexoタグの公開
 
