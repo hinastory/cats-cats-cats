@@ -16,7 +16,7 @@
 <meta property="og:description" content="Jupyter Notebookを使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/jupyter-logo.png">
-<meta property="og:updated_time" content="2019-04-08T22:50:23.661Z">
+<meta property="og:updated_time" content="2019-04-09T16:00:25.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全プログラマに捧ぐ！図解「ノートブック」">
 <meta name="twitter:description" content="Jupyter Notebookを使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。">
@@ -191,9 +191,9 @@
 <p>ノートブックが実行されるのは以下の図のようにノートブックサーバになります。コードやノートはそれぞれノートブックの中の「セル」と呼ばれるものに格納されていて、セル単位で対話的に実行が可能です。</p>
 <img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-c.png">
 <p>また、コードの編集や実行はブラウザを通して行うことになりますが、キーボードショートカットやコード補完等が使えるので一般的なWebアプリケーション以上に快適な作業が可能です。</p>
-<h2 id="ノートブックと実行結果"><a href="#ノートブックと実行結果" class="header-anchor"></a>3. <a href="#ノートブックと実行結果" class="headerlink" title="ノートブックと実行結果"></a>ノートブックと実行結果</h2><p>実行結果とはプログラム自体が画面に出力したものと、プログラムの最後の行の評価結果の戻り値になります。「評価結果の戻り値」という表現が分かりづらいかもしれないので、以下のノートブックの一部を使って説明します。</p>
+<h2 id="ノートブックと実行結果"><a href="#ノートブックと実行結果" class="header-anchor"></a>3. <a href="#ノートブックと実行結果" class="headerlink" title="ノートブックと実行結果"></a>ノートブックと実行結果</h2><p>実行結果とはプログラム自体が画面に出力したものと、プログラムの「<code>最後の行の戻り値</code>」になります。以下のノートブックの一部を使って説明します。</p>
 <img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-1.png">
-<p>上記の灰色の枠内がプログラムです。半径5の円の面積を計算しています。その枠の下の「<code>78.53981633974483</code>」が評価結果の戻り値になります。これはプログラムの最後の行の変数「<code>math.pi * r ** 2</code>」の評価結果の戻り値に対応しています。</p>
+<p>上記の灰色の枠内がプログラムです。半径5の円の面積を計算しています。その枠の下の「<code>78.53981633974483</code>」が戻り値になります。これはプログラムの最後「<code>math.pi * r ** 2</code>」を評価した結果が戻り値になっています。</p>
 <p>初めての人が陥りやすい罠として、最後の行を「<code>area = math.pi * r ** 2</code>」のような代入文にして、何も表示されず困るというものがあります。これはPythonの代入が戻り値を持たない仕様のためにおこる現象です<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。この場合は代入文の後に「<code>area</code>」を追加して最終行を表示したい変数に変更するか、以下のようにprint関数で明示的に画面出力すればよいです<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
 <img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-2.png">
 <p>さらにノートブックは、テキスト以外にも他のライブラリと連携してリッチな出力結果を実現できます。以下は表を表示してみました。</p>
