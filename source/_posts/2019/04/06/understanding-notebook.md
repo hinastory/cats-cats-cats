@@ -34,7 +34,7 @@ date: 2019-04-06 07:34:17
 
 {% img /gallery/daily/tools/jupyter/notebook-b.png  %}
 
-ノートブックが実行されるのは以下の図のようにノートブックサーバになります。コードやノートはそれぞれノートブックの中の「セル」と呼ばれるものに格納されていて、セル単位で対話的に実行が可能です。
+ノートブックが実行されるのは以下の図のようにノートブックサーバになります。コードやメモはそれぞれノートブックの中の「セル」と呼ばれるものに格納されていて、セル単位で対話的に実行が可能です。
 
 {% img /gallery/daily/tools/jupyter/notebook-c.png  %}
 
@@ -145,7 +145,7 @@ JupyterLabはJupyter Notebookの次世代ユーザインターフェースです
 | エントリー | URL |
 | --- | --- |
 | Try Jupyter    | https://jupyter.org/try    |
-| Colavoratory   | https://colab.research.google.com|
+| Colaboratory   | https://colab.research.google.com|
 |Sage Maker|https://aws.amazon.com/jp/sagemaker|
 |Azure Notebooks|https://notebooks.azure.com|
 |Binder|https://mybinder.org|
@@ -181,6 +181,6 @@ JupyterLabはJupyter Notebookの次世代ユーザインターフェースです
 - 「ノートブック」を利用できる複数のクラウドサービスが存在する
 - 「ノートブック」にはプログラミング全般に幅広い用途がある
 
-Jupyter Notebookはデータサイエンスの分野ではほぼ必須とまで言われるまでのツールになりましたが、一般のプログラマへの浸透具合はいまいちと感じたのでデータサイエンスの文脈からなるべく切り離して解説をしてみました。
+Jupyter Notebookはデータサイエンスの分野ではほぼ必須とまで言われるようなツールになりましたが、一般のプログラマへの浸透具合はいまいちと感じたので、データサイエンスの文脈からなるべく切り離して解説をしてみました。
 
 本記事が「`ノートブック`」の理解と普及の一助になれば幸いです。

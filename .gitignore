@@ -10,3 +10,6 @@ old/
 *.old
 *.bak
 tmp/
+
+# Hexo
+source/_drafts

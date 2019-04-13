@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-04-10T17:24:00.942Z</updated>
+  <updated>2019-04-13T01:39:23.242Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/</id>
     <published>2019-04-05T22:34:17.000Z</published>
-    <updated>2019-04-10T17:24:00.942Z</updated>
+    <updated>2019-04-13T01:39:23.242Z</updated>
     
     <summary type="html">
     
@@ -35,9 +35,9 @@
       <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
     
     
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
   </entry>
   
@@ -76,7 +76,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</id>
     <published>2019-02-24T03:49:20.000Z</published>
-    <updated>2019-03-10T00:46:00.572Z</updated>
+    <updated>2019-04-13T08:16:31.077Z</updated>
     
     <summary type="html">
     
@@ -92,6 +92,8 @@
     
     
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="Dotty" scheme="https://hinastory.github.io/cats-cats-cats/tags/Dotty/"/>
     
   </entry>
   
