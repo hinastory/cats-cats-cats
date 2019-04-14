@@ -65,11 +65,12 @@ date: 2019-04-14 22:50:47
 
 {% img /gallery/events/tech-book-fair6/tech-book-fair6-3.jpg  %}
 
-もう一つは自戒の意味を込めて購入しました。「Fat Project」というカードゲームです。胃が痛くなりそうなゲームです。過労死はヤバイ・・・
+もう一つは自戒の意味を込めて購入しました。{% elink Fat Project https://suzukigu.me/fatproject/ %}というカードゲームです[^3]。胃が痛くなりそうなゲームです。過労死はヤバイ・・・
 
 {% img /gallery/events/tech-book-fair6/tech-book-fair6-4.jpg %}
 
 [^2]: 書影は自分がカメラで撮影したものです。光の関係で実物と印象が異なるものもあるかもしれませんがご容赦ください。
+[^3]: 写真は拡張パックのカードも含みます。俺たちは魔法使いじゃない！
 
 ## 感想
 
