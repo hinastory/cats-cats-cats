@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-04-14T21:26:35.437Z</updated>
+  <updated>2019-04-14T21:58:41.051Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/</id>
     <published>2019-04-14T13:50:47.000Z</published>
-    <updated>2019-04-14T21:26:35.437Z</updated>
+    <updated>2019-04-14T21:58:41.051Z</updated>
     
     <summary type="html">
     
@@ -175,8 +175,6 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
-    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
@@ -184,6 +182,8 @@
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
+    
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
   </entry>
   
