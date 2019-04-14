@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-04-13T01:39:23.242Z</updated>
+  <updated>2019-04-14T16:58:50.847Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>技術書典6に一般参加した話</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/</id>
+    <published>2019-04-14T13:50:47.000Z</published>
+    <updated>2019-04-14T16:58:50.847Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;技術書典に一般参加してきました。なにげに第1回から皆勤賞です。天候に恵まれない印象が強いですが、今日はなんとか雨に降られずに済みました。そのおかげもあってか1万人以上の参加者が来場した模様です。&lt;/p&gt;
+&lt;a href=&quot;https://techbookfest.org/event/tbf06&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf06/images/ogp.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;技術書典6&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;技術書の祭典が2019年04月14日（日）＠池袋サンシャインシティ2F 展示ホールD（文化会館ビル2F）で開催決定！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+  </entry>
+  
+  <entry>
     <title>全プログラマに捧ぐ！図解「ノートブック」</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/</id>
     <published>2019-04-05T22:34:17.000Z</published>
-    <updated>2019-04-13T01:39:23.242Z</updated>
+    <updated>2019-04-13T19:43:21.208Z</updated>
     
     <summary type="html">
     
@@ -35,9 +61,9 @@
       <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
     
     
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
-    
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
   </entry>
   
@@ -117,11 +143,11 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
     
       <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
@@ -149,8 +175,6 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
-    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
@@ -158,6 +182,8 @@
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
+    
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
   </entry>
   
@@ -245,11 +271,11 @@
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
     
     
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
     
       <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
@@ -414,11 +440,11 @@
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Container/"/>
     
     
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
     
       <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
   </entry>
   

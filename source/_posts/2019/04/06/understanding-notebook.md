@@ -2,8 +2,7 @@
 title: 全プログラマに捧ぐ！図解「ノートブック」
 thumbnail: /gallery/thumbnails/jupyter-logo.png
 categories:
-  - Tech
-  - Tool
+  - [Tech,Tool]
 tags:
   - Jupyter
   - MachineLearning
