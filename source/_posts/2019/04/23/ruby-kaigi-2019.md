@@ -162,7 +162,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
 - Fibers Are the Right Solution @ioquatix
   - Call back hell！
   - Async/Await Hell！
-  - So Fiber is right！
+  - So Fibers are right！
   - Auto Fiberに期待しておこう
 - {% elink All bugfixes are incompatibilities (Keynote) https://www.slideshare.net/nagachika/all-bugfixes-are-incompatibilities %} @nagachika
   - リリースブランチのメンテナの6年間の苦労話
@@ -185,7 +185,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - mrubyはメモリ消費を抑えるのを頑張っている
   - MatzにGCを作って欲しければ、退屈な会議に参加させればよい
   - 捻挫したからセパレートキーボードにした by Matz
-  - 回答者よりも先に質問者が回答を述べるスタイル。斬新。
+  - 回答者よりも先に質問者が回答を述べる。誘導尋問とかそういうレベルではない
 - {% elink Building a game for the Nintendo Switch using Ruby http://slides.com/amirrajan/game-dev-ruby-happiness-part-2#/ %} @amirrajan
   - Nintendo SwitchでRubyを動かしやがった・・・
   - こ、こいつ動くぞ！
@@ -229,9 +229,9 @@ Type Profilerの動作については以下の図が分かりやすかったで�
     - Rubyでも自動微分したい！的な何か
 - Ruby Committers vs the World
   - curryはお手本を見せるために作った。使うべきではない。
-  - 投票は信じない by Matz
-  - 新機能を増やしたい by 観衆
-    - わざわざ福岡に来るのはアグレッシブな人なの。真に受けて責任取らされるのは僕なの！ by Matz
+  - 新機能をガシガシ増やしたい ノシ by 多数の観衆
+    - 投票は信じないよ by Matz
+    - わざわざ福岡に来るのはアグレッシブな人なの。真に受けて実行したあとに責任取らされるのは僕なの！ by Matz
   - 公開開発者会議([議事録](https://hackmd.io/RHss7paPR26rV7HaYK4FNA))
     - HackMDは便利。OSS版は[CodiMD](https://github.com/hackmdio/codimd)で自分はこちらをよく使う。
   - Haskellの`$`やElixirの`|>`相当の演算子がRubyにも欲しい
@@ -240,7 +240,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - こうしてゆるくてほとんど決まらないのが平常運転
   - もう少しでRubyコアの開発をsubversionからcgitに移行するよ →　{% elink したよ! https://k0kubun.hatenablog.com/entry/ruby-core-2019 %}
 - {% elink Cleaning up a huge ruby application https://speakerdeck.com/riseshia/cleaning-up-a-huge-ruby-application %} @riseshia
-  - 立ち見が出るほどの超人気セッション(自分も席とれなくて壁際で聴講)
+  - 立ち見が出るほどの超人気セッション
   - Cookpad社で使われているcookpad_allというリポジトリはコード量が50万行以上あり
   - 未使用コードを削りたい
   - KitchenCleanerを開発
@@ -255,9 +255,9 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - アヒルはスケールするよ
   - {% elink Rubyのシグネチャ定義言語 https://github.com/soutaro/ruby-signature %}
     - 後付の型定義言語なのでかなり柔軟に表現できる。TypeScriptの影が見えた・・・
-  - `open`の型定義がとんでもないことになってる・・・
+  - `open`の型定義がとんでもないことになってる・・・闇が深い・・・
 - {% elink The future of the Bundled Bundler with RubyGems https://www.slideshare.net/hsbt/the-future-of-bundled-bundler %} @hsbt
-  - RubyGemsの多要素認証してください
+  - RubyGemsの多要素認証を設定してください。:pray:
   - Rubyを使うのにbundlerをまず入れなきゃ、みたいなのは体験が良くないのでやめたい
 - Reducing ActiveRecord memory consumption using Apache Arrow @mrkn
   - {% elink Apache Arrow https://arrow.apache.org/ %}を使ってActiveRecordのメモリ削減できるかという話
@@ -271,7 +271,8 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - Ruby3で3倍速いという話をしてますけど、Cumoを使うと75倍速い（ドヤ）
 - {% elink Optimization Techniques Used by the Benchmark Winners (Keynote) http://code.jeremyevans.net/presentations/rubykaigi2019/ %} @jeremyevans0
   - SequalやRodaといったベンチマークで高性能を叩き出すフレームワーク作者の最適化術
-  - 最適化術も凄かったが解説もわかりやすい。コードの解説はああやればいいのか・・・あとでスライドを見直そう。
+  - 執念は見習いたい
+  - Rubyが速くなれば万事解決(ぉぃ
 {% enddetails %}
 
 ## 食事
