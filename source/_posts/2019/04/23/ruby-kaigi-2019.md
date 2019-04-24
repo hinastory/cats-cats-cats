@@ -142,7 +142,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
 その他も素晴らしいセッションはたくさんありましたが、全てを紹介するのは難しいので簡単な感想(メモレベル)を書きました。
 自分の心の声や脳内(誤)変換もそのまま消さずに残しておきました。嘘や間違いが見抜けて優しくスルーできる人だけが読んでください(笑)。
 
-{% details 興味がある方はここをクリックしてご覧ください。 %}
+{% details 覚悟ができた方はここをクリックしてご覧ください。 %}
 - Matz Keynote
   - テスト嫌いなんだよね
     - DRYじゃないでしょ
@@ -164,7 +164,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - Async/Await Hell！
   - So Fiber is right！
   - Auto Fiberに期待しておこう
-- {% elink All bugfixes are incompatibilities (Keynote) @nagachika https://www.slideshare.net/nagachika/all-bugfixes-are-incompatibilities %}
+- {% elink All bugfixes are incompatibilities (Keynote) https://www.slideshare.net/nagachika/all-bugfixes-are-incompatibilities %} @nagachika
   - リリースブランチのメンテナの6年間の苦労話
   - 「人間は1年に1歳年をとる脆弱性がある」というパワーワードが飛び出る
   - 美しいパッチだと取り込みたくなる
@@ -190,6 +190,8 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - Nintendo SwitchでRubyを動かしやがった・・・
   - こ、こいつ動くぞ！
 - {% elink RubyData Workshop https://docs.google.com/presentation/d/1wYBqdlv-rBqCcjqaT4pbqYnpA9cDlTr2iKpGAQ-Mz-I/edit#slide=id.p %} @mrkn, @284km, @kozo2, @ktou, @znz
+  - Red Data Toolsの話
+  - https://speakerdeck.com/shiro615/rubydata-workshop-rubykaigi2019
   - rubydownは面白そう
   - お菓子とフルーツのデプロイが完了した
 - {% elink What is Domain Specific Language? http://www.a-k-r.org/pub/2019-04-19-akr-DSL-rubykaigi2019.pdf %} @tanaka_akr
@@ -203,7 +205,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
     - Javaの話をします。Javaを書こう！
     - Graal VMとGraalは違う
     - 第3二村射影がTruffleになるという話。コンパイラジェネレータのお話。
-  - {% elink How to Make Bad Source https://speakerdeck.com/oda/how-to-make-bad-source %}
+  - {% elink How to Make Bad Source https://speakerdeck.com/oda/how-to-make-bad-source %} @jimlock
     - ブラックジャックを糞コードにした話と仕様を都合よく変える話(ぉぃ
     - ワレ、{% elink TRICK2018 https://github.com/tric/trick2018  %}ノ、フッカツヲ、ノゾム
     - 奴らクレイジーだな
@@ -214,10 +216,10 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - {% elink Invitation to the dark side of Ruby https://www.slideshare.net/tagomoris/invitation-to-the-dark-side-of-ruby %} @tagomoris
     - Rubyには決してマクロは入れない　by Ma●ｚ
     - :point_right: {% elink Maccro https://github.com/tagomoris/maccro %}作りました。てへぺろ。
-  - Applying mruby to World-first Small SAR Satellite
+  - Applying mruby to World-first Small SAR Satellite @ShunsukeOnishi
     - mrubyのコードを衛生に送る
     - ラーメン屋の行列を見てから行きたいじゃないっすか？
-  - {% elink The TracePoint bumb! https://speakerdeck.com/koic/the-tracepoint-bumb %}
+  - {% elink The TracePoint bumb! https://speakerdeck.com/koic/the-tracepoint-bumb %} @koic
     - TracePointを使ったテロの話
     - 頭沸いてるんじゃねーか by ko1
     - 悪とかそういうレベルじゃねえなこれは by usa
@@ -225,8 +227,6 @@ Type Profilerの動作については以下の図が分かりやすかったで�
     - wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww やめろ、こんなん草しか生えんわ！
   - {% elink Make Ruby Differentiable https://www.slideshare.net/nagachika/make-ruby-differentiable %} @nagachika
     - Rubyでも自動微分したい！的な何か
-  - {% elink Write ETL or ELT data processing jobs with bricolage https://speakerdeck.com/inohiro/write-etl-or-elt-data-processing-jobs-with-bricolage %}
-    - バッチジョブ的な何か
 - Ruby Committers vs the World
   - curryはお手本を見せるために作った。使うべきではない。
   - 投票は信じない by Matz
