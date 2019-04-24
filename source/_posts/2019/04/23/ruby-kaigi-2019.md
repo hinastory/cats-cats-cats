@@ -310,7 +310,7 @@ Rubyラーメン食べたかった・・・
 
 {% img /gallery/events/ruby-kaigi-2019/after-break-2.jpg 350 %}{% img /gallery/events/ruby-kaigi-2019/after-break-3.jpg 350 %}
 
-### Official Party at 川端商店街
+### Official Party in 川端商店街
 
 技術カンファレンスとしては前代未聞の商店街のアーケードをまるまる使った{% elink 公式パーティー https://rubykaigi.org/2019/docs/rubykaigi-official-party.pdf %}です。
 常人の発想じゃない(褒め言葉)ですね。震えが止まりません・・・
