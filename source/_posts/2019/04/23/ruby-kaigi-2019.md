@@ -189,9 +189,9 @@ Type Profilerの動作については以下の図が分かりやすかったで�
 - {% elink Building a game for the Nintendo Switch using Ruby http://slides.com/amirrajan/game-dev-ruby-happiness-part-2#/ %} @amirrajan
   - Nintendo SwitchでRubyを動かしやがった・・・
   - こ、こいつ動くぞ！
-- {% elink RubyData Workshop https://docs.google.com/presentation/d/1wYBqdlv-rBqCcjqaT4pbqYnpA9cDlTr2iKpGAQ-Mz-I/edit#slide=id.p %} @mrkn, @284km, @kozo2, @ktou, @znz
+- {% elink RubyData Workshop https://docs.google.com/presentation/d/1wYBqdlv-rBqCcjqaT4pbqYnpA9cDlTr2iKpGAQ-Mz-I/edit#slide=id.p %} {% elink 資料その2 https://speakerdeck.com/shiro615/rubydata-workshop-rubykaigi2019 %} @mrkn, @284km, @kozo2, @ktou, @znz
   - Red Data Toolsの話
-  - https://speakerdeck.com/shiro615/rubydata-workshop-rubykaigi2019
+  - 無理しすぎんなよ
   - rubydownは面白そう
   - お菓子とフルーツのデプロイが完了した
 - {% elink What is Domain Specific Language? http://www.a-k-r.org/pub/2019-04-19-akr-DSL-rubykaigi2019.pdf %} @tanaka_akr
@@ -229,7 +229,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
     - Rubyでも自動微分したい！的な何か
 - Ruby Committers vs the World
   - curryはお手本を見せるために作った。使うべきではない。
-  - 新機能をガシガシ増やしたい ノシ by 多数の観衆
+  - 新機能をガシガシ増やしたい人 ノシ by 多数の観衆
     - 投票は信じないよ by Matz
     - わざわざ福岡に来るのはアグレッシブな人なの。真に受けて実行したあとに責任取らされるのは僕なの！ by Matz
   - 公開開発者会議([議事録](https://hackmd.io/RHss7paPR26rV7HaYK4FNA))
@@ -293,7 +293,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
 
 {% img /gallery/events/ruby-kaigi-2019/lunch-1.jpg 600 %}
 
-タイムラプスにした人もいるようです。
+タイムラプスにした方もいるようです。
 
 {% oembed https://twitter.com/orgil_/status/1119083602589786113 %}
 
