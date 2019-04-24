@@ -250,7 +250,7 @@ Type Profilerの動作については以下の図が分かりやすかったで�
     - 使われていない命令を洗い出す。要コンパイル
   - Ruby 2.6から入った“oneshot coverage”は一回でも実行されたかどうかを計測。これは便利そう。
 - {% elink The challenges behind Ruby type checking  https://speakerdeck.com/soutaro/the-challenges-behind-ruby-type-checking %} @soutaro
-  - Rubyの型チェッカーの {% elink Steep https://github.com/soutaro/steep %}
+  - Rubyの型チェッカーの {% elink Steep https://github.com/soutaro/steep %}の話
   - FontAwesomeでRubyを検索するとアヒルがでてくる。分かっているじゃないか（ニヤリ）
   - アヒルはスケールするよ
   - {% elink Rubyのシグネチャ定義言語 https://github.com/soutaro/ruby-signature %}
@@ -263,13 +263,13 @@ Type Profilerの動作については以下の図が分かりやすかったで�
   - {% elink Apache Arrow https://arrow.apache.org/ %}を使ってActiveRecordのメモリ削減できるかという話
   - 先日の発表は間違っていました
   - 列指向。Pandasと言われて納得した。データフレームね。
-- {% elink Red Chainer and Cumo: Practical Deep Learning in Ruby  https://speakerdeck.com/sonots/red-chainer-and-cumo-practical-deep-learning-in-ruby-at-rubykaigi-2019 %} @sonots
+- {% elink Red Chainer and Cumo: Practical Deep Learning in Ruby  https://speakerdeck.com/sonots/red-chainer-and-cumo-practical-deep-learning-in-ruby-at-rubykaigi-2019 %} @sonots @hatappi
   - 現在のPythonのDNNスタックに対応するものがだいたいRubyにも出揃った
     - Chainer-> RedChainer, TensorFlow -> TensorFlow.rb, MXNet -> MXNet.rb, NumPy ->Numo::NArray, CuPy ->  Cumo
   - ONNXを使った連携。ProtocolBuffer使う。
   - numoをcumoにしたら奇跡的に動いた！
   - Ruby3で3倍速いという話をしてますけど、Cumoを使うと75倍速い（ドヤ）
-- {% elink Optimization Techniques Used by the Benchmark Winners (Keynote) http://code.jeremyevans.net/presentations/rubykaigi2019/ %} @Jeremy Evans
+- {% elink Optimization Techniques Used by the Benchmark Winners (Keynote) http://code.jeremyevans.net/presentations/rubykaigi2019/ %} @jeremyevans0
   - SequalやRodaといったベンチマークで高性能を叩き出すフレームワーク作者の最適化術
   - 最適化術も凄かったが解説もわかりやすい。コードの解説はああやればいいのか・・・あとでスライドを見直そう。
 {% enddetails %}
