@@ -205,17 +205,17 @@
 </li>
 </ul>
 <h2 id="インストール"><a href="#インストール" class="header-anchor"></a>2. <a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>npmコマンドでインストールしてください。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install hexo-oembed --save<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install hexo-oembed --save<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="使い方"><a href="#使い方" class="header-anchor"></a>3. <a href="#使い方" class="headerlink" title="使い方"></a>使い方</h2><p>埋め込みたいページのパーマリンクを指定するだけです。[maxwidth]と[maxheight]は埋め込みのオブジェクトに期待する最大幅と最大高を数値(ピクセル)で指定します。サイトが対応していればこの値を超えない埋め込みコンテンツを返してくれます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% oembed permlink [maxwidth] [maxheight] %&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">{% oembed permlink [maxwidth] [maxheight] %}<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="デモ"><a href="#デモ" class="header-anchor"></a>4. <a href="#デモ" class="headerlink" title="デモ"></a>デモ</h2><p>貼ろうと思えば楽しくていくらでも貼れる感じですが重くなるので3つにしておきます。<br>もっと見たい方は <a href="https://hinastory.github.io/cats-cats-cats/hexo-oembed-demo/">デモページ</a>をご覧ください。</p>
-<h3 id="youtube"><a href="#youtube" class="header-anchor"></a>4.1. <a href="#YouTube" class="headerlink" title="YouTube"></a>YouTube</h3><p>ちょうどこれを書いているときに3億再生いきました。マトリョシカの頃から応援してたけどまさかここまで人気になるとは・・・<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% oembed https://www.youtube.com/watch?v=SX_ViT4Ra7k %&#125;<br></code></pre></td></tr></table></figure></p>
+<h3 id="youtube"><a href="#youtube" class="header-anchor"></a>4.1. <a href="#YouTube" class="headerlink" title="YouTube"></a>YouTube</h3><p>ちょうどこれを書いているときに3億再生いきました。マトリョシカの頃から応援してたけどまさかここまで人気になるとは・・・<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">{% oembed https://www.youtube.com/watch?v=SX_ViT4Ra7k %}<br></code></pre></td></tr></tbody></table></figure><p></p>
 <div class="oembed-outer oembed-youtube"><div class="oembed-inner"><iframe width="480" height="270" src="https://www.youtube.com/embed/SX_ViT4Ra7k?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
-<h3 id="twitter"><a href="#twitter" class="header-anchor"></a>4.2. <a href="#Twitter" class="headerlink" title="Twitter"></a>Twitter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% oembed https://twitter.com/hinastory999/status/1089514744174632960 %&#125;<br></code></pre></td></tr></table></figure>
-<div class="oembed-outer oembed-twitter"><div class="oembed-inner"><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加 - cats cats cats <a href="https://t.co/O3ScDbSriz" target="_blank" rel="noopener">https://t.co/O3ScDbSriz</a></p>&mdash; hinastory (@hinastory999) <a href="https://twitter.com/hinastory999/status/1089514744174632960?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">January 27, 2019</a></blockquote>
+<h3 id="twitter"><a href="#twitter" class="header-anchor"></a>4.2. <a href="#Twitter" class="headerlink" title="Twitter"></a>Twitter</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">{% oembed https://twitter.com/hinastory999/status/1089514744174632960 %}<br></code></pre></td></tr></tbody></table></figure>
+<div class="oembed-outer oembed-twitter"><div class="oembed-inner"><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加 - cats cats cats <a href="https://t.co/O3ScDbSriz" target="_blank" rel="noopener">https://t.co/O3ScDbSriz</a></p>— hinastory (@hinastory999) <a href="https://twitter.com/hinastory999/status/1089514744174632960?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">January 27, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div></div>
-<h3 id="speaker-deck"><a href="#speaker-deck" class="header-anchor"></a>4.3. <a href="#Speaker-Deck" class="headerlink" title="Speaker Deck"></a>Speaker Deck</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% oembed https://speakerdeck.com/ladicle/recap-kubecon-plus-cloud-nativecon-north-america-2018-overview %&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="speaker-deck"><a href="#speaker-deck" class="header-anchor"></a>4.3. <a href="#Speaker-Deck" class="headerlink" title="Speaker Deck"></a>Speaker Deck</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">{% oembed https://speakerdeck.com/ladicle/recap-kubecon-plus-cloud-nativecon-north-america-2018-overview %}<br></code></pre></td></tr></tbody></table></figure>
 <div class="oembed-outer oembed-speaker-deck"><div class="oembed-inner"><iframe id="talk_frame_485070" src="//speakerdeck.com/player/4a061694787a4febac0e96845d58b961" width="710" height="399" style="border:0; padding:0; margin:0; background:transparent;" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </div></div>
 <h2 id="設定"><a href="#設定" class="header-anchor"></a>5. <a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>Hexoの設定ファイル(_config.yml)に以下の設定が可能です。</p>
@@ -228,10 +228,28 @@
 <p>例えばYouTubeはoEmbed Discoveryに対応しているので<code>endpoints</code>にYouTubeの定義は必要ありません。</p>
 <h3 id="embedlykey"><a href="#embedlykey" class="header-anchor"></a>5.3. <a href="#embedlyKey" class="headerlink" title="embedlyKey"></a>embedlyKey</h3><p>もし、<code>embedlyKey</code>を指定すればEmbed.lyにフォールバックします。</p>
 <p>Embed.lyはoEmbedに対応していないサイトのoEmbed情報の提供も行っています。利用したい場合は<a href="https://app.embed.ly/pricing/free" target="_blank" rel="noopener">サインアップ<i class="fas fa-external-link-alt fa-fw"></i></a>して、APIキーの設定してください。</p>
-<h3 id="設定サンプル"><a href="#設定サンプル" class="header-anchor"></a>5.4. <a href="#設定サンプル" class="headerlink" title="設定サンプル"></a>設定サンプル</h3><figure class="highlight yaml"><figcaption><span>_config.yml:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">oembed:</span><br><span class="hljs-attr">  className:</span> <span class="hljs-string">oembed</span><br><span class="hljs-attr">  embedlyKey:</span><br><span class="hljs-attr">  endpoints:</span><br><span class="hljs-attr">    instagram:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">instagram</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://api.instagram.com/oembed/</span><br><span class="hljs-attr">    gyazo:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">gyazo</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">https://api.gyazo.com/api/oembed/</span><br><span class="hljs-attr">    flickr:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">flickr</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://www.flickr.com/services/oembed/</span><br></code></pre></td></tr></table></figure>
+<h3 id="設定サンプル"><a href="#設定サンプル" class="header-anchor"></a>5.4. <a href="#設定サンプル" class="headerlink" title="設定サンプル"></a>設定サンプル</h3><figure class="highlight yaml"><figcaption><span>_config.yml:</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">oembed:</span><br><span class="hljs-attr">  className:</span> <span class="hljs-string">oembed</span><br><span class="hljs-attr">  embedlyKey:</span><br><span class="hljs-attr">  endpoints:</span><br><span class="hljs-attr">    instagram:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">instagram</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://api.instagram.com/oembed/</span><br><span class="hljs-attr">    gyazo:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">gyazo</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">https://api.gyazo.com/api/oembed/</span><br><span class="hljs-attr">    flickr:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">flickr</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://www.flickr.com/services/oembed/</span><br></code></pre></td></tr></tbody></table></figure>
 <h2 id="リポジトリ"><a href="#リポジトリ" class="header-anchor"></a>6. <a href="#リポジトリ" class="headerlink" title="リポジトリ"></a>リポジトリ</h2><p>以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。</p>
 <a href="https://github.com/hinastory/hexo-oembed" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/hexo-oembed</div><div class="og-description">embed oEmbed item on your Hexo article. Contribute to hinastory/hexo-oembed development by creating an account on GitHub.</div></div></div></a>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
         </div>
         
         
@@ -315,7 +333,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        17
                     </p>
                 </div>
             </div>
@@ -335,7 +353,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        20
                     </p>
                 </div>
             </div>
@@ -404,7 +422,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">13</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -420,7 +438,7 @@
                 <span class="level-item">Language</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
@@ -458,7 +476,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 17.5px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
     </div>
 </div>
 
@@ -472,6 +490,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -553,26 +591,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -591,7 +609,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -714,7 +732,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -792,6 +810,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
@@ -887,6 +916,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/04/14/tech-book-fest6/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tech-book-fest6-logo.jpg" alt="技術書典6に一般参加した話">
@@ -965,26 +1014,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1003,7 +1032,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1126,7 +1155,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -1204,6 +1233,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>

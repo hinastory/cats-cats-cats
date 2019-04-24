@@ -623,3 +623,6 @@ a[target='_blank']:after
   flex-align: left;
   padding-right: 1rem;
 }
+summary {
+  cursor: pointer;
+}

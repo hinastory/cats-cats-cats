@@ -185,7 +185,7 @@
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#これまで" class="contents-header">1. これまで</a></li><li><a href="#なんでそんな運用にしていたのか" class="contents-header">2. なんでそんな運用にしていたのか？</a></li><li><a href="#現在" class="contents-header">3. 現在</a><ul><li><a href="#移行方法" class="contents-header">3.1. 移行方法</a></li><li><a href="#注意点" class="contents-header">3.2. 注意点</a></li></ul></li><li><a href="#まとめ" class="contents-header">4. まとめ</a></li></ul></div>
 
 <h2 id="これまで"><a href="#これまで" class="header-anchor"></a>1. <a href="#これまで" class="headerlink" title="これまで"></a>これまで</h2><p>これまではパブリックなリポジトリはGitHubにおいて、プライベートなリポジトリは自宅のKubernetes上にGitBucketを立てて、そこに置いていました。</p>
-<a href="https://github.com/gitbucket/gitbucket" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars0.githubusercontent.com/u/11145783?s=400&v=4"></div><div class="descriptions"><div class="og-title">gitbucket/gitbucket</div><div class="og-description">A Git platform powered by Scala with easy installation, high extensibility &amp; GitHub API compatibility - gitbucket/gitbucket</div></div></div></a>
+<a href="https://github.com/gitbucket/gitbucket" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars0.githubusercontent.com/u/11145783?s=400&v=4"></div><div class="descriptions"><div class="og-title">gitbucket/gitbucket</div><div class="og-description">A Git platform powered by Scala with easy installation, high extensibility & GitHub API compatibility - gitbucket/gitbucket</div></div></div></a>
 <h2 id="なんでそんな運用にしていたのか"><a href="#なんでそんな運用にしていたのか" class="header-anchor"></a>2. <a href="#なんでそんな運用にしていたのか？" class="headerlink" title="なんでそんな運用にしていたのか？"></a>なんでそんな運用にしていたのか？</h2><p>Gitを使っているとなんでもGit管理したくなってきました。しかし、パブリックにおいても良いデータはGitHubで問題ありませんでしたが、どうしてもパグリックにしたくないデータもGit管理しようとすると困りました。GitHubは当時プライベートリポジトリを使うために月$7も必要だったのです。払えないわけではないですが、流石にちょっとしたデータを管理するためには高すぎるなぁと感じて躊躇していました。それではGitLab等のプライベートリポジトリが無料で使える所にしようかとも考えましたが、さすがにパブリックなリポジトリをGitLabに移行すると色々とリンクが切れて面倒なので諦めました。</p>
 <p>それではプライベートなリポジトリだけGitLab管理にすればいいかというと.gitconfigに登録してあるメールアドレスの切り替えが面倒でした。GitHub上に公開しているコミットログに実運用しているメールアドレスを残すのは嫌だったのでGitHubのnoreplyメールアドレス(<code>1696779+hinastory＠users.noreply.github.com</code>)を設定していましたが、それをGitLabではそれを切り替える必要があります<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。最初はローカルのgitconfigで対応しようとしましたがリポジトリ毎に設定しければならず面倒すぎました。</p>
 <p>そして結局、自宅にGitBucketを立てて運用するに至ったわけで、自宅のファイル管理の大体のニーズは満たせました。しかし、それでもやっぱりプライベートでリポジトリを作成して落ち着いてからパブリックにしたいとかはやりたいわけです。そんなこと考えながらここ数年もやもやしていましたが、ここに来てやっと素晴らしいニュースに巡り会いました。</p>
@@ -196,7 +196,25 @@
 <img src="/cats-cats-cats/gallery/daily/tools/github-existing-repo.png">
 <h3 id="注意点"><a href="#注意点" class="header-anchor"></a>3.2. <a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>一応注意点を上げるとすれば、プライベートなデータを上げる場合、最低限2段階認証は有効にしておくべきです<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。2段階認証用のアプリには自分は<a href="https://itunes.apple.com/jp/app/google-authenticator/id388497605?mt=8" target="_blank" rel="noopener">Google Authenticator<i class="fas fa-external-link-alt fa-fw"></i></a>を利用しています。あとFreeプランでは「Protected branches」、「Code ownedrs」、「Pages and wikis」、「Repository insights」の機能がプライベートリポジトリで使えません。プライベートリポジトリのコラボレータも３名までとなっています<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。これらが使いたくなったら素直にProプランに移行すべきですね。</p>
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>4. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>Freeプランでプライベートリポジトリが使えるようになり、GitHubにリポジトリを統一できて幸せになれました。Gitbucketからの移行も元がGitなので非常に楽です。GitHubがMicrosoftに買収されたときはどうなることやらと思いましたが、この決断はGood Jobと言わざるを得ません。恐らくGitLabへの対抗処置だとは思いますが、今後も競い合ってより良いサービスになってくれることを願って止みません<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">プライベートリポジトリだけなら気にしないという手もありますが、やはりGitLabにGitHubのnorelyメールアドレスが入るのは抵抗があるので、切り替える必要がありました・・・</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">ついでにローカルのリポジトリも整理して、GitHubからクローンしたものをお行儀悪く直接修正したりしていたリポジトリを、ちゃんとフォークとリベースをしてGitHubにpushしました。こちらの作業の方が実は大変でした・・・</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">プライベートなデータを上げなくてもセキュリティのために2段階認証はオススメです。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">パブリックリポジトリでは今までどおりの機能が使えてコラボレータも無制限です。詳細は<a href="https://github.com/pricing" target="_blank" rel="noopener">GitHubの料金プラン<i class="fas fa-external-link-alt fa-fw"></i></a>をご確認ください。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">いいサービスなら月500円までなら払いますが、$7はちょっと・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">プライベートリポジトリだけなら気にしないという手もありますが、やはりGitLabにGitHubのnorelyメールアドレスが入るのは抵抗があるので、切り替える必要がありました・・・</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">ついでにローカルのリポジトリも整理して、GitHubからクローンしたものをお行儀悪く直接修正したりしていたリポジトリを、ちゃんとフォークとリベースをしてGitHubにpushしました。こちらの作業の方が実は大変でした・・・</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">プライベートなデータを上げなくてもセキュリティのために2段階認証はオススメです。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">パブリックリポジトリでは今までどおりの機能が使えてコラボレータも無制限です。詳細は<a href="https://github.com/pricing" target="_blank" rel="noopener">GitHubの料金プラン<i class="fas fa-external-link-alt fa-fw"></i></a>をご確認ください。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">いいサービスなら月500円までなら払いますが、$7はちょっと・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
         </div>
         
         
@@ -280,7 +298,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        17
                     </p>
                 </div>
             </div>
@@ -300,7 +318,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        20
                     </p>
                 </div>
             </div>
@@ -369,7 +387,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">13</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -385,7 +403,7 @@
                 <span class="level-item">Language</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
@@ -423,7 +441,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 17.5px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
     </div>
 </div>
 
@@ -437,6 +455,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -518,26 +556,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -556,7 +574,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -679,7 +697,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -757,6 +775,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
@@ -852,6 +881,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/04/14/tech-book-fest6/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tech-book-fest6-logo.jpg" alt="技術書典6に一般参加した話">
@@ -930,26 +979,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -968,7 +997,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1091,7 +1120,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -1169,6 +1198,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>

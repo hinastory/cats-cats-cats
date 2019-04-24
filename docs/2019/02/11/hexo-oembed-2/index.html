@@ -186,11 +186,11 @@
 
 <h2 id="hexoタグの制作"><a href="#hexoタグの制作" class="header-anchor"></a>1. <a href="#Hexoタグの制作" class="headerlink" title="Hexoタグの制作"></a>Hexoタグの制作</h2><p>前回はコンテンツ埋め込みのための業界標準である<a href="https://oembed.com/" target="_blank" rel="noopener">oEmbed<i class="fas fa-external-link-alt fa-fw"></i></a>の説明まで行いました。今回はいよいよoEmbedを利用したHexoタグの制作と公開を行います。ここからはこれから実際にHexoタグを作ってみたい方や、OSS貢献に興味がある方向けに丁寧に書いてみたいと思います。</p>
 <h3 id="完成形をイメージする"><a href="#完成形をイメージする" class="header-anchor"></a>1.1. <a href="#完成形をイメージする" class="headerlink" title="完成形をイメージする"></a>完成形をイメージする</h3><p>制作を始める前に完成形をイメージします。今回Hexoのタグ名は<code>oembed</code>にして、後ろにパーマリンクを渡せるものとします。<br>パーマリンクがスライドの場合、oEmbedのレスポンスとしてはtypeがrichのものが帰ってくるので、パラメータのhtmlの値をそのまま表示すればよいだけです。大抵の場合htmlの中身はiframeタグになっています。あとは外側をdivタグで囲ってクラスを指定しておきます。こうすることで後で簡単にスタイルを適用できるようになります。outerとinnerで二重に囲っているのは要素をセンタリングしたい場合にinnerクラスが指定してあったほうが便利だからです。最初はouterだけだったのですが、htmlパラメータで返ってくるのがiframeかどうか保証はできないので念の為囲うことにしました。</p>
-<figure class="highlight plain"><figcaption><span>Hexo タグ</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% oembed http://slide.com/slides/123456 %&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight html"><figcaption><span>実際に展開されるHTML</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-outer"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-inner"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"560"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"315"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://slide.com/slides/xxxxx/yyyyy"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>Hexo タグ</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">{% oembed http://slide.com/slides/123456 %}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><figcaption><span>実際に展開されるHTML</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-outer"</span>></span><br>  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-inner"</span>></span><br>    <span class="hljs-tag"><<span class="hljs-name">iframe</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"560"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"315"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://slide.com/slides/xxxxx/yyyyy"</span> ></span><span class="hljs-tag">iframe</span>><br>  <span class="hljs-tag">div</span>><br><span class="hljs-tag">div</span>><br></code></pre></td></tr></tbody></table></figure>
 <p>もう一つ例を見てみましょう。今度は写真の場合です。写真の場合はoEmbedのtypeがphotoになるので自分でタグを生成します。といっても、aタグとimgタグを入れ子にするだけの単純なものです。aタグで囲うのは写真をクリックした際にもとのパーマリンク先に飛べるようにするためです。あとはoEmbedにtitleパラメータがあればimgのalt属性に指定するようにしておきます。あと、oEmbedの仕様ではオプションで<code>maxwidth</code>と<code>maxheight</code>を渡せるので、これもHexoタグにオプションとして渡せるようにします。以下の例ではmaxwidthに300、maxheightに400を指定しています。</p>
-<figure class="highlight plain"><figcaption><span>Hexoタグ</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123; oembed http://phote.com/photos/456789 300 400 %&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight html"><figcaption><span>実際に展開されるHTML</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-outer"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-inner"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://phote.com/photos/456789"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://photo.com/abcde.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"きれいな写真"</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>Hexoタグ</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">{ oembed http://phote.com/photos/456789 300 400 %}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><figcaption><span>実際に展開されるHTML</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-outer"</span>></span><br>  <span class="hljs-tag"><<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oembed-inner"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://phote.com/photos/456789"</span>></span><br>    <span class="hljs-tag"><<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://photo.com/abcde.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"きれいな写真"</span>></span><br>  <span class="hljs-tag">a</span>><br><span class="hljs-tag">div</span>><br></code></pre></td></tr></tbody></table></figure>
 <h3 id="モデルを探す"><a href="#モデルを探す" class="header-anchor"></a>1.2. <a href="#モデルを探す" class="headerlink" title="モデルを探す"></a>モデルを探す</h3><p>ある程度仕様がイメージできたら、次は<del>パクリ元</del>リスペクト元を探してきます。ライセンスには十分注意しましょう。公式のサンプルを参考にしたり一般的な構成を真似るくらいであれば特に言及はいらないと思いますが、ソースコードを流用する場合はライセンスに則って処理してください。ソースの流用がなくても独創的な機能を真似る場合は、READMEに謝辞を述べるのが礼儀だと思います。今回は以下を参考にさせて頂きました。</p>
 <ul>
 <li><a href="https://hexo.io/docs/tag-plugins.html" target="_blank" rel="noopener">Hexo公式のタグプラグイン<i class="fas fa-external-link-alt fa-fw"></i></a>
@@ -216,22 +216,22 @@
 </ul>
 </li>
 </ul>
-<h3 id="一番簡単なタグを作ってみる"><a href="#一番簡単なタグを作ってみる" class="header-anchor"></a>1.3. <a href="#一番簡単なタグを作ってみる" class="headerlink" title="一番簡単なタグを作ってみる"></a>一番簡単なタグを作ってみる</h3><a href="https://hexo.io/api/tag" target="_blank" rel="noopener">公式のドキュメント<i class="fas fa-external-link-alt fa-fw"></i></a>を参考に一番簡単なタグを作ってみます。以下は単なる<code>hoge</code>と表示するだけのタグです。<code>hoge.js</code>というファイルに保存して<code>[hexo dir]/themes/scripts</code>配下に配置します。<br><br><figure class="highlight js"><figcaption><span>hoge.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.tag.register(<span class="hljs-string">'hoge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;span&gt;hoge&lt;/span&gt;'</span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
+<h3 id="一番簡単なタグを作ってみる"><a href="#一番簡単なタグを作ってみる" class="header-anchor"></a>1.3. <a href="#一番簡単なタグを作ってみる" class="headerlink" title="一番簡単なタグを作ってみる"></a>一番簡単なタグを作ってみる</h3><a href="https://hexo.io/api/tag" target="_blank" rel="noopener">公式のドキュメント<i class="fas fa-external-link-alt fa-fw"></i></a>を参考に一番簡単なタグを作ってみます。以下は単なる<code>hoge</code>と表示するだけのタグです。<code>hoge.js</code>というファイルに保存して<code>[hexo dir]/themes/scripts</code>配下に配置します。<br><br><figure class="highlight js"><figcaption><span>hoge.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.tag.register(<span class="hljs-string">'hoge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">'<span>hoge</span>'</span>;<br>});<br></code></pre></td></tr></tbody></table></figure>
 <p>配置ができたらHexoサーバを再起動して、ブログの記事で<code>hoge</code>タグを使ってみましょう。<br>レンダリングした投稿に「hoge」と表示されていて、HTMLが以下のようになっていれば、成功です。HTMLはChromeのデベロッパーツール等で確認してください。</p>
-<figure class="highlight plain"><figcaption><span>Hexo タグ</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% hoge %&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight html"><figcaption><span>実際に展開されるHTML</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>hoge<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>Hexo タグ</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">{% hoge %}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><figcaption><span>実際に展開されるHTML</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag"><<span class="hljs-name">span</span>></span>hoge<span class="hljs-tag">span</span>><br></code></pre></td></tr></tbody></table></figure>
 <h3 id="プラグイン化してみる"><a href="#プラグイン化してみる" class="header-anchor"></a>1.4. <a href="#プラグイン化してみる" class="headerlink" title="プラグイン化してみる"></a>プラグイン化してみる</h3><p>Hexoはプラグイン機能を持っています。プラグイン化するとソースコードを外出しできて、npmでインストールすることができるようになります。npmで公開するための必須の手順ですが、単に外出しできるだけでもGitによるソース管理が行いやすくなるので、早めにやったほうがいいと思われます。プラグイン化の方法は <a href="https://hexo.io/docs/plugins" target="_blank" rel="noopener">公式<i class="fas fa-external-link-alt fa-fw"></i></a>に書いてあるとおり、驚くほど簡単です。適当なディレクトリ(hexo-hoge-plugin)を作って、メインのソースファイルである<code>index.js</code>とnpmのメタファイルである<code>package.json</code>を配置するだけです。</p>
-<figure class="highlight js"><figcaption><span>index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.tag.register(<span class="hljs-string">'hoge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;span&gt;hoge&lt;/span&gt;'</span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
-<figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"hexo-hoge-plugin"</span>,<br>  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.0.1"</span>,<br>  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>index.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.tag.register(<span class="hljs-string">'hoge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">'<span>hoge</span>'</span>;<br>});<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">{<br>  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"hexo-hoge-plugin"</span>,<br>  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.0.1"</span>,<br>  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index"</span><br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>さっそく作成したパッケージをnpmでインストールしてみましょう。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install --save &lt;パッケージのディレクトリのパス&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install --save <パッケージのディレクトリのパス><br></パッケージのディレクトリのパス></code></pre></td></tr></tbody></table></figure>
 <p>Hexoサーバを再起動してhogeタグが利用できれば成功です。このとき前節で作成したhoge.jsファイルをscriptsディレクトリから削除しておくことを忘れないでください(笑)。npmは一般的にはネット上のnpmリポジトリからダウンロードしてインストールしますが、このようにローカルのパスを指定してインストールすることも可能です。このときインストール先のnode_modules配下にはパッケージディレクトリへのシンボリックリンクが張られるだけなので、一度インストールをすればパッケージディレクトリのファイルを修正が同期します。したがって更新のたびにインストールするとかは必要ないです<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
 <h3 id="ソースコードをgit管理してみる"><a href="#ソースコードをgit管理してみる" class="header-anchor"></a>1.5. <a href="#ソースコードをGit管理してみる" class="headerlink" title="ソースコードをGit管理してみる"></a>ソースコードをGit管理してみる</h3><p>Gitにおけるファイル管理は非常に心強いです。こまめにコミットしておくことで至福の安心感が得られます。特に新しいモノを作ろうとしているときは試行錯誤の連続なのでバージョン管理があるとないとでは効率で大きな差がつくのでなるべく早い段階でGit管理に以降するようにしましょう。以下はおまじないのようなものです。反射的に打てるようになるまで写経しましょう(笑)。ちなみに公開予定のリポジトリのコミットログは英語だけで書くことをオススメします。拙くても日本語で書かれるよりはより多くの人に理解してもらえます<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> &lt;hexo_hote_pluginディレクトリ&gt; <span class="hljs-comment"># 管理対象のソースコードの一番上のディレクトリに移動</span><br>$ git init                        <span class="hljs-comment"># Gitのレポジトリとして初期化</span><br>$ <span class="hljs-built_in">echo</span> node_modules &gt; .gitignore  <span class="hljs-comment"># .gitignoreにnode_modules配下を無視するように記述</span><br>$ git add .                       <span class="hljs-comment"># カレントディレクトリ配下のファイルをステージング</span><br>$ git status                      <span class="hljs-comment"># 余計なファイルが入っていないか確認</span><br>$ git commit -m <span class="hljs-string">"initial commit"</span>    <span class="hljs-comment"># メッセージ付きでコミット</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> <hexo_hote_pluginディレクトリ> <span class="hljs-comment"># 管理対象のソースコードの一番上のディレクトリに移動</span><br>$ git init                        <span class="hljs-comment"># Gitのレポジトリとして初期化</span><br>$ <span class="hljs-built_in">echo</span> node_modules > .gitignore  <span class="hljs-comment"># .gitignoreにnode_modules配下を無視するように記述</span><br>$ git add .                       <span class="hljs-comment"># カレントディレクトリ配下のファイルをステージング</span><br>$ git status                      <span class="hljs-comment"># 余計なファイルが入っていないか確認</span><br>$ git commit -m <span class="hljs-string">"initial commit"</span>    <span class="hljs-comment"># メッセージ付きでコミット</span><br></hexo_hote_pluginディレクトリ></code></pre></td></tr></tbody></table></figure>
 <h3 id="oembedを利用したタグを作ってみる"><a href="#oembedを利用したタグを作ってみる" class="header-anchor"></a>1.6. <a href="#oEmbedを利用したタグを作ってみる" class="headerlink" title="oEmbedを利用したタグを作ってみる"></a>oEmbedを利用したタグを作ってみる</h3><p>さて、いよいよoEmbedを利用したタグ作りに取り掛かります。まず、oEmbedのプロトコルをどのように実装するかです。HTTPクライアントを使って素直に実装する手もありますが、Discoveryも含めるとちょっと面倒なので公開されているパッケージの中に良いものがないか探してみたところ、<code>node-oembed</code>パッケージがありました。これを使えば比較的ラクにoEmbedを実装できそうです。</p>
 <a href="https://www.npmjs.com/package/oembed" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png"></div><div class="descriptions"><div class="og-title">oembed</div><div class="og-description">oEmbed consumer library and tools</div></div></div></a>
 <p>あともう一つ決めなければいけないことは、エンドポイントの設定方法です。幸いにもHexoにはディレクトリのトップに_config.ymlという設定ファイルがあり、これに自由に設定を加えていけます。具体的には以下のような設定があったとします。<code>className</code>は冒頭で述べたCSSのクラス名の設定です。<code>endpoints</code>が具体的のoEmbedプロバイダを設定する箇所で、<code>match</code>パラメータがパーマリンクのURLのホスト名に部分一致していたらそのエンドポイントの<code>url</code>を利用するという仕様にします。正確なスキーマの検査をしなくても多分このレベルで実用になるだろうと判断しました。手を抜いたわけじゃないよ！</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">oembed:</span><br><span class="hljs-attr">  className:</span> <span class="hljs-string">oembed</span><br><span class="hljs-attr">  endpoints:</span><br><span class="hljs-attr">    instagram:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">instagram</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://api.instagram.com/oembed/</span><br><span class="hljs-attr">    gyazo:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">gyazo</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">https://api.gyazo.com/api/oembed/</span><br><span class="hljs-attr">    flickr:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">flickr</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://www.flickr.com/services/oembed/</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">oembed:</span><br><span class="hljs-attr">  className:</span> <span class="hljs-string">oembed</span><br><span class="hljs-attr">  endpoints:</span><br><span class="hljs-attr">    instagram:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">instagram</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://api.instagram.com/oembed/</span><br><span class="hljs-attr">    gyazo:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">gyazo</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">https://api.gyazo.com/api/oembed/</span><br><span class="hljs-attr">    flickr:</span><br><span class="hljs-attr">      match:</span> <span class="hljs-string">flickr</span><br><span class="hljs-attr">      url:</span> <span class="hljs-attr">http://www.flickr.com/services/oembed/</span><br></code></pre></td></tr></tbody></table></figure>
 <p>上記の設定ファイルには<code>hexo.config</code>でアクセスできます。例えばインスタグラムのエンドポイントのURLが欲しい場合は<code>hexo.config.oembed.endpoints.instagram.url</code>です。これで、oEmbedのタグを実装する上での主要な情報と仕様が出揃いました。あとは基本的はWebプログラミングの知識があれば解ける問題です。Let’s Try!</p>
 <h3 id="答え合わせ"><a href="#答え合わせ" class="header-anchor"></a>1.7. <a href="#答え合わせ" class="headerlink" title="答え合わせ"></a>答え合わせ</h3><p>さて、皆様の出来栄えはいかがしょうか？以下のCodePenに自分のソースコードを日本語のコメント付きで載せたので参考にしてみてください。</p>
 <p></p><p class="codepen" data-height="265" data-theme-id="0" data-default-tab="js" data-user="hinastory" data-slug-hash="ZwxjvK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="hexo-oembed"><br>  <span>See the Pen <a href="https://codepen.io/hinastory/pen/ZwxjvK/" target="_blank" rel="noopener"><br>  hexo-oembed</a> by hinastory (<a href="https://codepen.io/hinastory" target="_blank" rel="noopener">@hinastory</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
@@ -244,17 +244,17 @@
 <p>リポジトリ名はダイレクトに<code>hexo-oembed</code>にしました。ライセンスは特にこだわりがなければHexoと同じMITライセンスにしておけばいいと思います。.gitignoreファイルはもうすでに作成済みなのでここであえて作成する必要はないです。リポジトリの作成自体は十秒もかからず終わります。以下が今回作成したGitHubのリポジトリです。</p>
 <a href="https://github.com/hinastory/hexo-oembed" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/hexo-oembed</div><div class="og-description">embed oEmbed item on your Hexo article. Contribute to hinastory/hexo-oembed development by creating an account on GitHub.</div></div></div></a>
 <p>リポジトリの作成が終わったらローカルのリポジトリとGitHubのリポジトリをリンクさせます。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git remote <span class="hljs-built_in">set</span>-url origin &#123;new url&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="readmemdを書く"><a href="#readmemdを書く" class="header-anchor"></a>2.2. <a href="#README-mdを書く" class="headerlink" title="README.mdを書く"></a>README.mdを書く</h3><p><code>README.md</code>は公開したパッケージの説明や利用法をMarkdownで書くファイルです。リポジトリのトップにこのファイルを置いておけばGitHubのリポジトリのトップページに表示してくれるので、公開時にはほぼ必須のファイルです。書き方も大体以下のように<code>リポジトリ名</code>-&gt;<code>リポジトリの簡単な説明</code> -&gt; <code>特徴</code> -&gt; <code>インストール方法</code> -&gt; <code>利用方法</code> -&gt; <code>設定</code>(あれば)　-&gt; <code>謝辞</code>(利用or参考にしたものがあれば) -&gt; <code>ライセンス</code>の順に書いていけばOKです。</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-section"># hexo-oembed</span><br><br>Embed [<span class="hljs-string">oEmbed</span>](<span class="hljs-link">https://oembed.com/</span>) item on your [<span class="hljs-string">Hexo</span>](<span class="hljs-link">https://hexo.io/</span>) article.<br><br><span class="hljs-section">Features<br>--------</span><br><br><span class="hljs-bullet">- </span>Supports A<br><span class="hljs-bullet">- </span>Supports B<br><br><span class="hljs-section">## Installation</span><br><br><span class="hljs-code">`npm install hexo-oembed --save`</span><br><br><span class="hljs-section">## Usage</span><br><br>・・・<br><br><span class="hljs-section">## Configuration</span><br><br>...<br><br><span class="hljs-section">## Thanks</span><br><br><span class="hljs-section">## License</span><br><br>MIT<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git remote <span class="hljs-built_in">set</span>-url origin {new url}<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="readmemdを書く"><a href="#readmemdを書く" class="header-anchor"></a>2.2. <a href="#README-mdを書く" class="headerlink" title="README.mdを書く"></a>README.mdを書く</h3><p><code>README.md</code>は公開したパッケージの説明や利用法をMarkdownで書くファイルです。リポジトリのトップにこのファイルを置いておけばGitHubのリポジトリのトップページに表示してくれるので、公開時にはほぼ必須のファイルです。書き方も大体以下のように<code>リポジトリ名</code>-><code>リポジトリの簡単な説明</code> -> <code>特徴</code> -> <code>インストール方法</code> -> <code>利用方法</code> -> <code>設定</code>(あれば)　-> <code>謝辞</code>(利用or参考にしたものがあれば) -> <code>ライセンス</code>の順に書いていけばOKです。</p>
+<figure class="highlight md"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-section"># hexo-oembed</span><br><br>Embed [<span class="hljs-string">oEmbed</span>](<span class="hljs-link">https://oembed.com/</span>) item on your [<span class="hljs-string">Hexo</span>](<span class="hljs-link">https://hexo.io/</span>) article.<br><br><span class="hljs-section">Features<br>--------</span><br><br><span class="hljs-bullet">- </span>Supports A<br><span class="hljs-bullet">- </span>Supports B<br><br><span class="hljs-section">## Installation</span><br><br><span class="hljs-code">`npm install hexo-oembed --save`</span><br><br><span class="hljs-section">## Usage</span><br><br>・・・<br><br><span class="hljs-section">## Configuration</span><br><br>...<br><br><span class="hljs-section">## Thanks</span><br><br><span class="hljs-section">## License</span><br><br>MIT<br><br></code></pre></td></tr></tbody></table></figure>
 <p>実はここが今回一番苦労したところです。oEmbedはともかくoEmbed Discoveryとかエンドポイントの設定方法とか説明しなければいけない部分がそこそこあるので、どうしたものかと悩みました。特に英語が苦手なのでGoogle先生のお力も拝借したのですがイマイチ自信がありません・・・</p>
 <h3 id="packagejsonを書く"><a href="#packagejsonを書く" class="header-anchor"></a>2.3. <a href="#package-jsonを書く" class="headerlink" title="package.jsonを書く"></a>package.jsonを書く</h3><p>すでにnpmでインストールするために最低限のpackage.jsonは記述していると思いますが、npmに公開するためにはさらに追加の記述が必要です。以下がほぼ最低限の公開用package.jsonです。特に気をつけなければ行けないのはバージョン番号です。<a href="https://semver.org/lang/ja/" target="_blank" rel="noopener">セマンティック バージョニング<i class="fas fa-external-link-alt fa-fw"></i></a>になるべく厳密に従うようにしてください。あと、ファーストバージョンは1未満のバージョンから初めるのが慣例です。ある程度成熟したと感じたときにバージョン1をリリースしてください。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"hexo-oembed"</span>,<br>  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.1.5"</span>,<br>  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"embed oEmbed item on your Hexo article."</span>,<br>  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index.js"</span>,<br>  <span class="hljs-attr">"repository"</span>: &#123;<br>    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"git"</span>,<br>    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"git@github.com:hinastory/hexo-oembed.git"</span><br>  &#125;,<br>  <span class="hljs-attr">"bugs"</span>: &#123;<br>    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://github.com/hinastory/hexo-oembed/issues"</span><br>  &#125;,<br>  <span class="hljs-attr">"keywords"</span>: [<br>    <span class="hljs-string">"hexo"</span>, <span class="hljs-string">"blog"</span>,<span class="hljs-string">"plugin"</span>,<span class="hljs-string">"helper"</span>,<span class="hljs-string">"tag"</span>,<span class="hljs-string">"oembed"</span>,<span class="hljs-string">"youtube"</span>,<span class="hljs-string">"slideshare"</span>,<span class="hljs-string">"speakerdeck"</span>,<span class="hljs-string">"twitter"</span>,<span class="hljs-string">"vimeo"</span>,<span class="hljs-string">"codepen"</span>,<span class="hljs-string">"pixiv"</span>,<span class="hljs-string">"instagram"</span>,<span class="hljs-string">"flickr"</span>,<span class="hljs-string">"gyazo"</span><br>  ],<br>  <span class="hljs-attr">"author"</span>: <span class="hljs-string">"hinastory"</span>,<br>  <span class="hljs-attr">"license"</span>: <span class="hljs-string">"MIT"</span>,<br>  <span class="hljs-attr">"dependencies"</span>: &#123;<br>    <span class="hljs-attr">"hexo-util"</span>: <span class="hljs-string">"^0.6.3"</span>,<br>    <span class="hljs-attr">"oembed"</span>: <span class="hljs-string">"^0.1.2"</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs json">{<br>  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"hexo-oembed"</span>,<br>  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.1.5"</span>,<br>  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"embed oEmbed item on your Hexo article."</span>,<br>  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index.js"</span>,<br>  <span class="hljs-attr">"repository"</span>: {<br>    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"git"</span>,<br>    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"git@github.com:hinastory/hexo-oembed.git"</span><br>  },<br>  <span class="hljs-attr">"bugs"</span>: {<br>    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://github.com/hinastory/hexo-oembed/issues"</span><br>  },<br>  <span class="hljs-attr">"keywords"</span>: [<br>    <span class="hljs-string">"hexo"</span>, <span class="hljs-string">"blog"</span>,<span class="hljs-string">"plugin"</span>,<span class="hljs-string">"helper"</span>,<span class="hljs-string">"tag"</span>,<span class="hljs-string">"oembed"</span>,<span class="hljs-string">"youtube"</span>,<span class="hljs-string">"slideshare"</span>,<span class="hljs-string">"speakerdeck"</span>,<span class="hljs-string">"twitter"</span>,<span class="hljs-string">"vimeo"</span>,<span class="hljs-string">"codepen"</span>,<span class="hljs-string">"pixiv"</span>,<span class="hljs-string">"instagram"</span>,<span class="hljs-string">"flickr"</span>,<span class="hljs-string">"gyazo"</span><br>  ],<br>  <span class="hljs-attr">"author"</span>: <span class="hljs-string">"hinastory"</span>,<br>  <span class="hljs-attr">"license"</span>: <span class="hljs-string">"MIT"</span>,<br>  <span class="hljs-attr">"dependencies"</span>: {<br>    <span class="hljs-attr">"hexo-util"</span>: <span class="hljs-string">"^0.6.3"</span>,<br>    <span class="hljs-attr">"oembed"</span>: <span class="hljs-string">"^0.1.2"</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>あと、お気づきだと思いますがキーワード盛り盛りですね(笑)。ここのキーワードはnpmの検索時に参照されるので、嘘偽りがなければできるだけ多く記載したほうが良いです。特に今回の<code>hexo-oembed</code>みたいにパッケージ名だけだと具体的に何をするものか分からない場合はkeywordに力を入れましょう。</p>
 <h3 id="githubに公開する"><a href="#githubに公開する" class="header-anchor"></a>2.4. <a href="#GitHubに公開する" class="headerlink" title="GitHubに公開する"></a>GitHubに公開する</h3><p>GitHubに公開するのは簡単です。<code>git push</code>するだけです。簡単なんですが、以下のコマンドを打った瞬間に全世界に公開されしまうので<code>git diff</code>や<code>git show</code>で余計なファイルやコミットがないか再確認してからpushしましょう。一番ありがちなのは必要なファイルを<code>git add</code>し忘れてpushすることです。他にもプライベートアクセスキーとか重要な情報も一緒にコミットしてしまったりとかあります。もし間違ったコミットをしてしまった場合は、早い段階であればforce pushでもみ消せますがマナーとしては最低ですので最後の手段としましょう。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git push origin master<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git push origin master<br></code></pre></td></tr></tbody></table></figure>
 <p>ブランチをプッシュしたら忘れずにタグもプッシュしておきましょう。GitHubの場合タグのプッシュが新バージョンのリリースとみなされるので、リリース直前には必ずタグを打つようにします。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git tag v0.1.5<br>$ git push origin v0.1.5<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git tag v0.1.5<br>$ git push origin v0.1.5<br></code></pre></td></tr></tbody></table></figure>
 <h3 id="npmに公開する"><a href="#npmに公開する" class="header-anchor"></a>2.5. <a href="#npmに公開する" class="headerlink" title="npmに公開する"></a>npmに公開する</h3><p>npmに公開するのはもっと簡単です。公開するパッケージ直下で<code>npm publish</code>を打つだけです。npmのアカウントを持っていなければ作成する必要がありますが、GitHubのアカウントでログインできるので手間はそれほどかかりません。アバターの設定には<a href="https://ja.gravatar.com/" target="_blank" rel="noopener">Gravatar<i class="fas fa-external-link-alt fa-fw"></i></a>が利用できます。これも持っていなければWordPress.comにログインしてすぐに作ることができます。</p>
 <p><code>npm publish</code>に成功したらnpmからページを確認してみます。自分のアバターのメニューの<code>Packages</code>からも確認できますし、パッケージ名やキーワードで検索をかければ出てきます。</p>
 <a href="https://www.npmjs.com/package/hexo-oembed" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png"></div><div class="descriptions"><div class="og-title">hexo-oembed</div><div class="og-description">embed oEmbed item on your Hexo article.</div></div></div></a>
@@ -288,7 +288,25 @@
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>4. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>既存のOSSへの貢献としてメジャーなのはバグ報告したりプルリクを出したりすることだと思いますが、プラグインを作って公開して公式の載せてもらうまでを丁寧に解説した入門記事は意外と少ないと感じました。断片的な記事は多いのですが、それだとどういう流れなのか入門者にわかりづらいかなと思い、本記事ではhexo-oembedをテーマにOSSへの貢献への流れを要点を絞って解説するようにしました。</p>
 <p>実際に既存のOSSへの貢献を始めるには、いきなり本体に手をだすよりもプラグインから手をだした方がうまくいく場合が多いです<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。プラグインを通して本体を見たほうが理解しやすいですし、プラグインを作ってる最中に本体のバグを見つけることも多いので本体へのプルリクを書く動機にもなります(笑)。そのうちプルリクを送り続けていれば本体側にも十分詳しくなってコラボレーターとして招待されるかもしれません。実際にプラグインから始めてそのOSSへのメンテナーになった人は数多くいるので、まずOSSに貢献してみたいと思ったら気に入ったOSSを見つけてプラグイン機能を探して、実際に作ってみることをオススメします。</p>
 <p>最初はHexoタグの作り方を簡単に紹介する記事にする予定でしたが、もしかしたら既存のOSSへの貢献の入門記事としてもニーズがあるのではないかと思ったのが今回の記事を書こうと思った動機です。長くなってしまいましたが本当にここまで読んで頂いてありがとうございました。この記事が読んでくれた方のOSS貢献の一助となれば幸いです。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ちなみに<code>npm link</code>というコマンドもあってこちらはさらに便利で、複数の非公開パッケージを開発するときに真価を発揮します。興味がある方はぜひ調べてみることをオススメします。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">自分も頑張れば読めはしますが、書くのは苦手です・・・　話すのはもっと無理です・・・</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">認証周りの設定とかいろいろ面倒くさいのでそこそこ時間ががかかると思います・・・この記事の余白に書くのは狭すぎるのでGoogle先生のお力をお借りください・・・・</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a href="https://github.com/hexojs/site/pull/884" target="_blank" rel="noopener">このプルリク<i class="fas fa-external-link-alt fa-fw"></i></a>です。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">一応利用しているライブラリ(node-oembed)が対応していたので、対応コードは入れてみたけど実際に動かしてはいないです・・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">コントリビューションガイドはまだ用意していませんが、いずれ突っ込む予定です・・・</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">プラグインで実装できるものを本体側を修正してプルリク送るとメンテナーに嫌がられることが多いです。それはメンテナーは単に機能を見ればよいのではなく、全体との整合性や今後の開発の障害にならないか等、取り込みの判断に非常に多くの労力を割かなければいけないからです。従ってプラグインでできることはプラグインで実装したほうがよいです。そしてどうにもならない部分だけ最小限に絞って、なるべく汎用的で、互換性に影響ないような形で本体側にプルリクを投げるとうまくいく確率が高まります。</span><a href="#fnref:7" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ちなみに<code>npm link</code>というコマンドもあってこちらはさらに便利で、複数の非公開パッケージを開発するときに真価を発揮します。興味がある方はぜひ調べてみることをオススメします。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">自分も頑張れば読めはしますが、書くのは苦手です・・・　話すのはもっと無理です・・・</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">認証周りの設定とかいろいろ面倒くさいのでそこそこ時間ががかかると思います・・・この記事の余白に書くのは狭すぎるのでGoogle先生のお力をお借りください・・・・</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a href="https://github.com/hexojs/site/pull/884" target="_blank" rel="noopener">このプルリク<i class="fas fa-external-link-alt fa-fw"></i></a>です。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">一応利用しているライブラリ(node-oembed)が対応していたので、対応コードは入れてみたけど実際に動かしてはいないです・・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">コントリビューションガイドはまだ用意していませんが、いずれ突っ込む予定です・・・</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">プラグインで実装できるものを本体側を修正してプルリク送るとメンテナーに嫌がられることが多いです。それはメンテナーは単に機能を見ればよいのではなく、全体との整合性や今後の開発の障害にならないか等、取り込みの判断に非常に多くの労力を割かなければいけないからです。従ってプラグインでできることはプラグインで実装したほうがよいです。そしてどうにもならない部分だけ最小限に絞って、なるべく汎用的で、互換性に影響ないような形で本体側にプルリクを投げるとうまくいく確率が高まります。</span><a href="#fnref:7" rev="footnote"> ↩</a></li></ol></div></div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
         </div>
         
         
@@ -372,7 +390,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        17
                     </p>
                 </div>
             </div>
@@ -392,7 +410,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        20
                     </p>
                 </div>
             </div>
@@ -461,7 +479,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">13</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -477,7 +495,7 @@
                 <span class="level-item">Language</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
@@ -515,7 +533,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 17.5px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
     </div>
 </div>
 
@@ -529,6 +547,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -610,26 +648,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -648,7 +666,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -771,7 +789,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -849,6 +867,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
@@ -944,6 +973,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/04/14/tech-book-fest6/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tech-book-fest6-logo.jpg" alt="技術書典6に一般参加した話">
@@ -1022,26 +1071,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1060,7 +1089,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1183,7 +1212,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -1261,6 +1290,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>

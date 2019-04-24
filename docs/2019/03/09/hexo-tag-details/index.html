@@ -192,33 +192,51 @@
 </ol>
 </details>
 <h2 id="インストール"><a href="#インストール" class="header-anchor"></a>2. <a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>npmコマンドでインストールしてください。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install hexo-tag-details --save<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install hexo-tag-details --save<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="使い方"><a href="#使い方" class="header-anchor"></a>3. <a href="#使い方" class="headerlink" title="使い方"></a>使い方</h2><p>要約文と詳細文を書くだけです。ページを表示したしたときに詳細文を開いておく場合には、<code>mode:open</code>を指定します。指定しない場合は詳細文は閉じて表示されます。<code>mode:close</code>は後で説明する設定でデフォルトを詳細文を開くにした場合に利用します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&#123;% details [mode:open/close] summary text %&#125;<br>detail text<br>&#123;% enddetails %&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">{% details [mode:open/close] summary text %}<br>detail text<br>{% enddetails %}<br></code></pre></td></tr></tbody></table></figure>
 <p>例1:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% details あなたの出身はどこですか? %&#125;<br>私は地球出身です。 水の惑星です!<br>&#123;% enddetails %&#125;<br></code></pre></td></tr></table></figure>
-<p>上の例は以下のようなHTMLを生成します。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>あなたの出身はどこですか?<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span><br>  私は地球出身です。 水の惑星です!<br><span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
-<p>表示は以下のようになります。<br><details><summary>あなたの出身はどこですか?</summary><p>私は地球出身です。 水の惑星です!</p>
-</details></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">{% details あなたの出身はどこですか? %}<br>私は地球出身です。 水の惑星です!<br>{% enddetails %}<br></code></pre></td></tr></tbody></table></figure>
+<p>上の例は以下のようなHTMLを生成します。<br></p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag"><<span class="hljs-name">details</span>></span><br>  <span class="hljs-tag"><<span class="hljs-name">summary</span>></span>あなたの出身はどこですか?<span class="hljs-tag">summary</span>><br>  私は地球出身です。 水の惑星です!<br><span class="hljs-tag">details</span>><br></code></pre></td></tr></tbody></table></figure><p></p>
+<p>表示は以下のようになります。<br></p><details><summary>あなたの出身はどこですか?</summary><p>私は地球出身です。 水の惑星です!</p>
+</details><p></p>
 <hr>
 <p>例2(<code>mode:open</code>を指定した場合):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ">&#123;% details mode:open あなたの好きな食べ物は何ですか? %&#125;<br>1. お寿司<br>2. 天ぷら<br>3. すき焼き<br>&#123;% enddetails %&#125;<br></code></pre></td></tr></table></figure>
-<p>上の例は以下のようなHTMLを生成します。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span> <span class="hljs-attr">open</span>=<span class="hljs-string">"open"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>あなたの好きな食べ物は何ですか?<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>お寿司<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>天ぷら<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>すき焼き<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span><br></code></pre></td></tr></table></figure></p>
-<p>表示は以下のようになります。<br><details open="open"><summary>あなたの好きな食べ物は何ですか?</summary><ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ">{% details mode:open あなたの好きな食べ物は何ですか? %}<br>1. お寿司<br>2. 天ぷら<br>3. すき焼き<br>{% enddetails %}<br></code></pre></td></tr></tbody></table></figure>
+<p>上の例は以下のようなHTMLを生成します。<br></p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag"><<span class="hljs-name">details</span> <span class="hljs-attr">open</span>=<span class="hljs-string">"open"</span>></span><br>  <span class="hljs-tag"><<span class="hljs-name">summary</span>></span>あなたの好きな食べ物は何ですか?<span class="hljs-tag">summary</span>><br>  <span class="hljs-tag"><<span class="hljs-name">ol</span>></span><br>    <span class="hljs-tag"><<span class="hljs-name">li</span>></span>お寿司<span class="hljs-tag">li</span>><br>    <span class="hljs-tag"><<span class="hljs-name">li</span>></span>天ぷら<span class="hljs-tag">li</span>><br>    <span class="hljs-tag"><<span class="hljs-name">li</span>></span>すき焼き<span class="hljs-tag">li</span>><br>  <span class="hljs-tag">ol</span>><br><span class="hljs-tag">details</span>><br></code></pre></td></tr></tbody></table></figure><p></p>
+<p>表示は以下のようになります。<br></p><details open="open"><summary>あなたの好きな食べ物は何ですか?</summary><ol>
 <li>お寿司</li>
 <li>天ぷら</li>
 <li>すき焼き</li>
 </ol>
-</details></p>
+</details><p></p>
 <h2 id="設定"><a href="#設定" class="header-anchor"></a>4. <a href="#設定" class="headerlink" title="設定"></a>設定</h2><h3 id="classname"><a href="#classname" class="header-anchor"></a>4.1. <a href="#className" class="headerlink" title="className"></a>className</h3><p><code>className</code> はCSSクラス名を指定します。 (デフォルト: なし)</p>
 <h3 id="open"><a href="#open" class="header-anchor"></a>4.2. <a href="#open" class="headerlink" title="open"></a>open</h3><p><code>open</code>は最初から詳細文を開いておくかどうかを指定します(デフォルト: <code>false</code>)</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">tag_details:</span><br><span class="hljs-attr">  className:</span><br><span class="hljs-attr">  open:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">tag_details:</span><br><span class="hljs-attr">  className:</span><br><span class="hljs-attr">  open:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></tbody></table></figure>
 <h2 id="リポジトリ"><a href="#リポジトリ" class="header-anchor"></a>5. <a href="#リポジトリ" class="headerlink" title="リポジトリ"></a>リポジトリ</h2><p>以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。</p>
 <a href="https://github.com/hinastory/hexo-tag-details" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/hexo-tag-details</div><div class="og-description">HTML5 details tag on your Hexo article. Contribute to hinastory/hexo-tag-details development by creating an account on GitHub.</div></div></div></a>
 <h2 id="最後に"><a href="#最後に" class="header-anchor"></a>6. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>このタグを作ったきっかけは「10の質問」をこのサイトでやってみようと思ったことです。</p>
-<p><a href="https://hinastory.github.io/cats-cats-cats/about/#hinastory%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">10の質問</a>をやろうと思うと質問の解答が質問よりボリュームが多くて全体的に見づらくなることが分かりました。そこで質問の解答部分を折り畳めるようにしようとおもったのですが、HTML5の<code>details</code>タグを直接HexoのMarkdownに埋め込むとうまく動作しないことが分かりました。改行を有効にしていたので途中で<code>&lt;br&gt;</code>が入ってしまったのです。</p>
+<p><a href="https://hinastory.github.io/cats-cats-cats/about/#hinastory%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">10の質問</a>をやろうと思うと質問の解答が質問よりボリュームが多くて全体的に見づらくなることが分かりました。そこで質問の解答部分を折り畳めるようにしようとおもったのですが、HTML5の<code>details</code>タグを直接HexoのMarkdownに埋め込むとうまく動作しないことが分かりました。改行を有効にしていたので途中で<code><br></code>が入ってしまったのです。</p>
 <p>もしかしたら、すでに<code>details</code>のタグプラグインを作っている人がいるかも知れないと思って探して見ましたが、なかったので自分で作ってしまいました。大したことないタグですが、使って頂ければ幸いです。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">流石に今どきHTML5のタグをサポートしていないブラウザなんてないと思っていましたが、IEとEdgeはだめなようです・・・もちろん表示されないわけではなく、タグが無視されて表示されるので見れないわけではないです。誰もIEやEdgeなんて使っていないですよね？少なくともこのブログのアクセス解析の結果、賢明な読者様の中にはそういう方はいらっしゃらなかったようなので遠慮なく<code>details</code>タグを使えました。まぁ、IEはすでに非推奨ですしEdgeもChromeベースになるらしいので将来的には<code>details</code>タグの互換性を気にする必要はなくなるはずです。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">流石に今どきHTML5のタグをサポートしていないブラウザなんてないと思っていましたが、IEとEdgeはだめなようです・・・もちろん表示されないわけではなく、タグが無視されて表示されるので見れないわけではないです。誰もIEやEdgeなんて使っていないですよね？少なくともこのブログのアクセス解析の結果、賢明な読者様の中にはそういう方はいらっしゃらなかったようなので遠慮なく<code>details</code>タグを使えました。まぁ、IEはすでに非推奨ですしEdgeもChromeベースになるらしいので将来的には<code>details</code>タグの互換性を気にする必要はなくなるはずです。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
         </div>
         
         
@@ -260,7 +278,7 @@
 
 
 
-  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/07/hexo-oembed/" title="hexo-oembedを公開しました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-07</div><a href="/cats-cats-cats/2019/02/07/hexo-oembed/" title="hexo-oembedを公開しました" rel="bookmark">hexo-oembedを公開しました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/npm-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-11</div><a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)" rel="bookmark">HexoのoEmbedプラグインをnpmに公開した話(後編)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" title="HexoのoEmbedプラグインをnpmに公開した話(前編)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-09</div><a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" title="HexoのoEmbedプラグインをnpmに公開した話(前編)" rel="bookmark">HexoのoEmbedプラグインをnpmに公開した話(前編)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" title="Hexoでブログに再入門" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2018-12-02</div><a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" title="Hexoでブログに再入門" rel="bookmark">Hexoでブログに再入門</a></h3></div></li></ul></div>
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/07/hexo-oembed/" title="hexo-oembedを公開しました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-07</div><a href="/cats-cats-cats/2019/02/07/hexo-oembed/" title="hexo-oembedを公開しました" rel="bookmark">hexo-oembedを公開しました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" title="HexoのoEmbedプラグインをnpmに公開した話(前編)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-09</div><a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" title="HexoのoEmbedプラグインをnpmに公開した話(前編)" rel="bookmark">HexoのoEmbedプラグインをnpmに公開した話(前編)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/npm-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-11</div><a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)" rel="bookmark">HexoのoEmbedプラグインをnpmに公開した話(後編)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" title="Hexoでブログに再入門" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2018-12-02</div><a href="/cats-cats-cats/2018/12/02/start-blog-hexo/" title="Hexoでブログに再入門" rel="bookmark">Hexoでブログに再入門</a></h3></div></li></ul></div>
 </div>
                 
 
@@ -302,7 +320,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        17
                     </p>
                 </div>
             </div>
@@ -322,7 +340,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        20
                     </p>
                 </div>
             </div>
@@ -391,7 +409,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">13</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -407,7 +425,7 @@
                 <span class="level-item">Language</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
@@ -445,7 +463,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 17.5px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
     </div>
 </div>
 
@@ -459,6 +477,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -540,26 +578,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -578,7 +596,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -701,7 +719,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -779,6 +797,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
@@ -874,6 +903,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/04/14/tech-book-fest6/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tech-book-fest6-logo.jpg" alt="技術書典6に一般参加した話">
@@ -952,26 +1001,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -990,7 +1019,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1113,7 +1142,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -1191,6 +1220,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>

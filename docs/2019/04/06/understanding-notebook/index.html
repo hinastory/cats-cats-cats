@@ -312,8 +312,26 @@
 <li>「ノートブック」にはプログラミング全般に幅広い用途がある</li>
 </ul>
 <p>Jupyter Notebookはデータサイエンスの分野ではほぼ必須とまで言われるようなツールになりましたが、一般のプログラマへの浸透具合はいまいちと感じたので、データサイエンスの文脈からなるべく切り離して解説をしてみました。</p>
-<p>本記事が「<code>ノートブック</code>」の理解と普及の一助になれば幸いです。<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">REPLは「Read-Eval-Print loop」の略で、入力された部分ごとに評価して表示することを繰り返す、対話型実行環境を意味しています。PythonにおけるiPythonやRubyにおけるirbにあたります。インタラクティブシェルと呼ばれることもあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Pythonでは代入以外にも<code>if</code>や<code>while</code>等の制御構造も戻り値を持ちません。一方Rubyのように、代入や<code>if</code>や<code>while</code>が戻り値を持つ言語もあります。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><code>print</code>は戻り値を持たない関数なので、戻り値は表示されません。しかし一般的なPythonの関数は戻り値を持つもの(<code>return</code>で値を返す)が多いので、大抵は関数の結果確認のために「最後の行の戻り値」を有効活用できます。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">埋め込まれている動画は「 <a href="https://www.youtube.com/watch?v=XQB3H6I8t_4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=XQB3H6I8t_4</a> 」になります。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">ノートブックの図はJupyter Notebookの新インターフェースであるJupyterLabを元に作成しています。Jupyter Notebookだと若干見え方は異なりますが、ここで説明される概念は共通です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">この注意点はPythonを例にしているので他の言語では当てはまらない場合があります。ノートブックの特性と言語の特性の組み合わせで思わぬ落とし穴があるかもしれないということだけ覚えておくといいかと思います。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">ノートブックには実行結果も含まれますが、実行結果を除いてバージョン管理しようとすると少し工夫が必要になります。手段はいろいろあるので気になる方は検索してみてください。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">画面に写り込んでいるプログラムは <a href="https://www.oreilly.co.jp/books/9784873118727/" target="_blank" rel="noopener">PythonによるAIプログラミング入門<i class="fas fa-external-link-alt fa-fw"></i></a>の例題になります。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;">ツッコミどころがあるのは理解しております。スルーして頂けると幸いです。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div></p>
-
+<p>本記事が「<code>ノートブック</code>」の理解と普及の一助になれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">REPLは「Read-Eval-Print loop」の略で、入力された部分ごとに評価して表示することを繰り返す、対話型実行環境を意味しています。PythonにおけるiPythonやRubyにおけるirbにあたります。インタラクティブシェルと呼ばれることもあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Pythonでは代入以外にも<code>if</code>や<code>while</code>等の制御構造も戻り値を持ちません。一方Rubyのように、代入や<code>if</code>や<code>while</code>が戻り値を持つ言語もあります。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><code>print</code>は戻り値を持たない関数なので、戻り値は表示されません。しかし一般的なPythonの関数は戻り値を持つもの(<code>return</code>で値を返す)が多いので、大抵は関数の結果確認のために「最後の行の戻り値」を有効活用できます。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">埋め込まれている動画は「 <a href="https://www.youtube.com/watch?v=XQB3H6I8t_4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=XQB3H6I8t_4</a> 」になります。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">ノートブックの図はJupyter Notebookの新インターフェースであるJupyterLabを元に作成しています。Jupyter Notebookだと若干見え方は異なりますが、ここで説明される概念は共通です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">この注意点はPythonを例にしているので他の言語では当てはまらない場合があります。ノートブックの特性と言語の特性の組み合わせで思わぬ落とし穴があるかもしれないということだけ覚えておくといいかと思います。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">ノートブックには実行結果も含まれますが、実行結果を除いてバージョン管理しようとすると少し工夫が必要になります。手段はいろいろあるので気になる方は検索してみてください。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">画面に写り込んでいるプログラムは <a href="https://www.oreilly.co.jp/books/9784873118727/" target="_blank" rel="noopener">PythonによるAIプログラミング入門<i class="fas fa-external-link-alt fa-fw"></i></a>の例題になります。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;">ツッコミどころがあるのは理解しております。スルーして頂けると幸いです。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div><p></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
         </div>
         
         
@@ -397,7 +415,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        17
                     </p>
                 </div>
             </div>
@@ -417,7 +435,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        20
                     </p>
                 </div>
             </div>
@@ -486,7 +504,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">13</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -502,7 +520,7 @@
                 <span class="level-item">Language</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
@@ -540,7 +558,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 17.5px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 10px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 15px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12.5px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12.5px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 17.5px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12.5px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 10px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 20px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 15px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 17.5px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12.5px;">oEmbed</a>
     </div>
 </div>
 
@@ -554,6 +572,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -635,26 +673,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -673,7 +691,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -796,7 +814,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -874,6 +892,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
@@ -969,6 +998,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
+
+                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/04/14/tech-book-fest6/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tech-book-fest6-logo.jpg" alt="技術書典6に一般参加した話">
@@ -1047,26 +1096,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" alt="Developers Summit 2019に参加した感想など">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-15T00:30:25.000Z">2019-02-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" class="has-link-black-ter is-size-6">Developers Summit 2019に参加した感想など</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1085,7 +1114,7 @@
                     <span class="level-item">2019-04</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1208,7 +1237,7 @@
                             <span class="level-item">Event</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -1286,6 +1315,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>

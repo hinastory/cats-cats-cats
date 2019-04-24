@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-04-14T23:58:15.535Z</updated>
+  <updated>2019-04-24T03:03:53.422Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RubyKaigi 2019 in 福岡に参加してきた話</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/</id>
+    <published>2019-04-22T23:17:46.000Z</published>
+    <updated>2019-04-24T03:03:53.422Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前代未聞の公式パーティーが開催されたRubyKaigi 2019に参加してきました。去年は仙台、一昨年は広島でしたが今年は福岡での開催でした。自分は広島から連続で参加していますが、このイベントはホスピタリティが高く今年も楽しみにしていました。ただし今年は参加者の&lt;code&gt;度肝を抜くネタが２つも仕込まれていた&lt;/code&gt;ことから特筆すべき「RubyKaigi」になったといっても過言ではないでしょう。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+  </entry>
   
   <entry>
     <title>技術書典6に一般参加した話</title>
