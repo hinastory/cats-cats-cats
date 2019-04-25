@@ -110,10 +110,10 @@ widgets:
         type: category
         position: left
     -
-        type: tagcloud
-        position: left
-    -
         type: recent_posts
+        position: right
+    -
+        type: tagcloud
         position: right
     -
         type: archive
