@@ -13,3 +13,4 @@ tmp/
 
 # Hexo
 source/_drafts
+source/_posts/**/__*
