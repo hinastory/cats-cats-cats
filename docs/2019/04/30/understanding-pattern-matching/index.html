@@ -16,7 +16,7 @@
 <meta property="og:description" content="パターンマッチを使い始めてかなりの時間が経ちました。最初は関数型言語の一機能として触り始めましたが、徐々に関数型言語のユーザだけの玩具にしておくのは勿体ないと思うようになってきました。プログラミングにおいて、パターンマッチほど有用であるにもかかわらず普及が遅れている言語機能は他にないと思います。本記事ではその状況に一石を投じたく、一般のプログラマにも伝わるようになるべく図解で「パターンマッチ」を解">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-01.png">
-<meta property="og:updated_time" content="2019-04-30T13:19:35.283Z">
+<meta property="og:updated_time" content="2019-04-30T13:23:11.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全プログラマに捧ぐ！図解「パターンマッチ」">
 <meta name="twitter:description" content="パターンマッチを使い始めてかなりの時間が経ちました。最初は関数型言語の一機能として触り始めましたが、徐々に関数型言語のユーザだけの玩具にしておくのは勿体ないと思うようになってきました。プログラミングにおいて、パターンマッチほど有用であるにもかかわらず普及が遅れている言語機能は他にないと思います。本記事ではその状況に一石を投じたく、一般のプログラマにも伝わるようになるべく図解で「パターンマッチ」を解">
@@ -225,7 +225,7 @@
 <img src="/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-10.png">
 <p>　<br>並列合成では上のパターンマッチから順番に検査されるため、パターンに重なりがあると上のパターンマッチが優先されることになります。特に包含関係にあるパターンは上に大きいパターンを持ってくると下のパターンが隠れてしまって全く照合されない事態になるので、注意してください。パターンを網羅的にすることでパターンマッチの失敗がなくなり意図しないバグを防ぐことができます。基本的にはパターンマッチは特に理由がない場合は網羅的にすることが望ましいです。網羅的にするのに適した基本パターンは「<code>変数パターン</code>」と「<code>ワイルドカードパターン</code>」です。</p>
 <h2 id="パターンマッチと広がる世界"><a href="#パターンマッチと広がる世界" class="header-anchor"></a>10. <a href="#パターンマッチと広がる世界" class="headerlink" title="パターンマッチと広がる世界"></a>パターンマッチと広がる世界</h2><p>従来パターンマッチはHaskellに代表されるような関数型言語の十八番でしたが、現在では関数型プログラミングに源流を持たないプログラミング言語でもパターンマッチを実装するようになってきました。C#では7.0以降でパターンマッチが利用可能であり、Rubyでもすでにtrunkではパターンマッチが利用できます<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。また比較的新しく出た言語は最初からパターンマッチが使える場合が多く、パターンマッチの世界は広がり続けています。仮にお気に入りの言語にパターンマッチがなかったとしても諦めるのはまだ早いかもしれません。使い勝手は言語に統合された機能よりは劣るかもしれませんが、パターンマッチのためのライブラリも数多く公開されています。</p>
-<p>言語としての変わり種は <a href="https://www.egison.org/ja/" target="_blank" rel="noopener">Egison<i class="fas fa-external-link-alt fa-fw"></i></a>です。「直感をそのまま表現するパターンマッチング 」という触れ込みで、非常に面白いので気になった方はぜひ触って見てください。</p>
+<p>言語としての変わり種は <a href="https://www.egison.org/ja/" target="_blank" rel="noopener">Egison<i class="fas fa-external-link-alt fa-fw"></i></a>です。「直感をそのまま表現するパターンマッチング 」という謳い文句で、パターンマッチとして非常に面白いので気になった方はぜひ触って見てください。</p>
 <p>このように少しずつですが着実にパターンマッチが使える言語が増え続けているのは、パターンマッチがプログラミング全般で非常に用途が広く、使いこなすことで直接的にプログラマの能力を拡張するからだと思っています。以下の図は思いついたパターンマッチの用途です。</p>
 <img src="/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-11.png">
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>11. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>以下、「パターンマッチ」のまとめです。</p>
