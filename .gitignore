@@ -10,6 +10,7 @@ old/
 *.old
 *.bak
 tmp/
+.vscode
 
 # Hexo
 source/_drafts
