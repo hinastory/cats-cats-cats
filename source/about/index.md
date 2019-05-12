@@ -75,7 +75,7 @@ hinastoryのブログです。興味のある技術を中心に記録してい�
 {% enddetails %}
 
 {% details 行ったことがある勉強会/カンファレンス/イベント %}
-- RubyKaigi, 大江戸Ruby会議, ScalaMatsuri, Erlang & Elixir Fest, JapanContainerDays, Kubernetes Meetup Tokyo, プログラマのための圏論勉強会, 天下一キーボードわいわい会, 技術書典, Maker Faire Tokyo, コミケ...[^2]
+- RubyKaigi, 大江戸Ruby会議, ScalaMatsuri, GTC Japan, AWS Summit Tokyo, Developers Summit, Erlang & Elixir Fest, JapanContainerDays, Kubernetes Meetup Tokyo, プログラマのための圏論勉強会, 天下一キーボードわいわい会, 技術書典, Maker Faire Tokyo, コミケ...[^2]
 {% enddetails %}
 
 {% details 最近の興味、力を入れている分野 %}

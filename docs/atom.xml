@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-04-30T14:01:01.732Z</updated>
+  <updated>2019-05-12T03:41:05.881Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>「エンジニアの心を整える技術」が予想以上に「技術書」だった件</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/05/11/mindfulness/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/05/11/mindfulness/</id>
+    <published>2019-05-11T00:48:16.000Z</published>
+    <updated>2019-05-12T03:41:05.881Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;「エンジニアの心を整える技術」は実は気になって技術書展で一度は手にとったのですが、ちょうど開いたページがプロジェクト炎上中の様子を記述していて、また「プロジェクト炎上の火消しネタか・・・」と勝手に思い込んでしまいそっと本を閉じてしまいました。今まで何回かその手の本を読んだことがあったのですが、結局は体験談止まりで一回読めばお腹いっぱいというものがほとんでした。&lt;/p&gt;
+&lt;p&gt;しかし、「エンジニアの心を整える技術」は一味違いました。著者の方がnoteで2章まで公開されていて、本の目次まで見てようやく勘違いに気づきました。この本は体験談から一歩進んだれっきとした「技術書」だったのです。&lt;/p&gt;
+&lt;a href=&quot;https://note.mu/karamage/n/n39f4cc266ba9&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11415227/rectangle_large_type_2_ce033937fa3f38928f1c8fe4b936000a.jpeg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;「エンジニアの心を整える技術」をnoteで2章まで無料公開します! #感想まとめ #技術書典6｜karamage@「エンジニアの心を整える技術」好評発売中！｜note&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt; このnoteは、2019年4月14日に開催された「技術書典6」で頒布し、これまで600部以上(書籍＋PDF版)販売している「エンジニアの心を整える技術 - 誰でも実践できる心のリファクタリング術 - 」のPDF版のダウンロードページになります。    技術書典6での当日の販売の…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Engineering" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Engineering/"/>
+    
+    
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
+    
+      <category term="Mind" scheme="https://hinastory.github.io/cats-cats-cats/tags/Mind/"/>
+    
+  </entry>
+  
+  <entry>
     <title>全プログラマに捧ぐ！図解「パターンマッチ」</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/04/30/understanding-pattern-matching/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/04/30/understanding-pattern-matching/</id>
     <published>2019-04-29T21:30:14.000Z</published>
-    <updated>2019-04-30T14:01:01.732Z</updated>
+    <updated>2019-04-30T15:28:08.896Z</updated>
     
     <summary type="html">
     
