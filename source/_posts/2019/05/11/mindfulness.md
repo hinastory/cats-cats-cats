@@ -64,7 +64,9 @@ date: 2019-05-11 09:48:16
 
 あと本格的にマインドフルネスを実践したい方には以下の本が本書のなかでオススメされていたので、自分も後で読んで見たいと思います。
 
-{% linkPreview https://calil.jp/book/4862762271 %}
+{% raw %}
+<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"サーチ・インサイド・ユアセルフ――仕事と人生を飛躍させるグーグルのマインドフルネス実践法","b":"","t":"","d":"https:\/\/images-fe.ssl-images-amazon.com","c_p":"\/images\/I","p":["\/41td8q2cgzL.jpg","\/31w8YWEptfL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/%E3%82%B5%E3%83%BC%E3%83%81%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%83%BB%E3%83%A6%E3%82%A2%E3%82%BB%E3%83%AB%E3%83%95%E2%80%95%E2%80%95%E4%BB%95%E4%BA%8B%E3%81%A8%E4%BA%BA%E7%94%9F%E3%82%92%E9%A3%9B%E8%BA%8D%E3%81%95%E3%81%9B%E3%82%8B%E3%82%B0%E3%83%BC%E3%82%B0%E3%83%AB%E3%81%AE%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%83%95%E3%83%AB%E3%83%8D%E3%82%B9%E5%AE%9F%E8%B7%B5%E6%B3%95-%E3%83%81%E3%83%A3%E3%83%87%E3%82%A3%E3%83%BC%E3%83%BB%E3%83%A1%E3%83%B3%E3%83%BB%E3%82%BF%E3%83%B3\/dp\/4862762271","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"}});</script><!-- MoshimoAffiliateEasyLink END -->
+{% endraw %}
 
 ## アドラー心理学
 
