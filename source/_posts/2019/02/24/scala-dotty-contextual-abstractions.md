@@ -54,7 +54,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
   - 従来の`implicit`で定義されていたインスタンスと同等です
 - Given節(Given Clauses)
   - 従来の`implicit`で定義されていたパラメータリストと同等です
-- デリゲートインポート(Implied Imports)
+- デリゲートインポート(delegate Imports)
   - 通常のimportでは`delegate`で定義された暗黙のデリゲートはインポートされず、別途`import delegate`でインポートする必要があります
   - デリゲートがどこから来たのかを明確にするために導入されたようです
 - 拡張メソッド(Extension Methods)
@@ -183,7 +183,7 @@ object TypeClassExample {
   }
 
   /** リストモナドのインスタンスを定義 */
-  implied ListMonad for Monad[List] {
+  delegate ListMonad for Monad[List] {
     def (xs: List[A]) flatMap [A, B] (f: A => List[B]): List[B] =
       xs.flatMap(f)
     def pure[A](x: A): List[A] =
@@ -191,7 +191,7 @@ object TypeClassExample {
   }
 
   /** リーダモナドのインスタンスを定義 */
-  implied ReaderMonad[Ctx] for Monad[[X] ==> Ctx => X] {
+  delegate ReaderMonad[Ctx] for Monad[[X] ==> Ctx => X] {
     def (r: Ctx => A) flatMap [A, B] (f: A => Ctx => B): Ctx => B =
       ctx => f(r(ctx))(ctx)
     def pure[A](x: A): Ctx => A =
