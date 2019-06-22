@@ -328,9 +328,7 @@ Rubyラーメン食べたかった・・・
 {% img /gallery/events/ruby-kaigi-2019/party-1.jpg 350 %}
 {% img /gallery/events/ruby-kaigi-2019/party-2.jpg 350 %}
 
-ニュースにもなったみたいです。
-
-{% linkPreview https://headlines.yahoo.co.jp/hl?a=20190419-10424223-kbcv-l40 %}
+Yahooニュースにもなったみたいです。
 
 このパーティーは本当に驚愕でしたが、控えめに言って最高でした。参加できてよかったです。
 

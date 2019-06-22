@@ -13,6 +13,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 (2019年3月10日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
 
+(2019年6月22日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B46%E6%9C%8822%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
+
 <!-- more -->
 
 ## 目次
@@ -21,7 +23,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 ## TL;DR
 
 - この記事はDottyに実装されたImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能を味見してみたものです
-  - 利用したDottyのバージョンは2019年2月時点で最新の0.13.0-RC-1です。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
+  - ~~利用したDottyのバージョンは2019年2月時点で最新の0.13.0-RC1です。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
+  - 2019年6月時点で最新の0.16.0-RC3で変更があった文法のを更新を反映しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
 - 「Contextual Abstractions」は従来のImplicitsで初学者が躓きそうな機能を整理して使いやすくしています
   - 「Contextual Abstractions」には従来のImplicitsでは実現できなかった機能(暗黙のインポート、型クラス導出、コンテキストクエリ等)も含まれています
 - 「Contextual Abstractions」の機能はまだ提案段階でありScala3の正式な仕様に決定したわけではありません
@@ -45,15 +48,15 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
 
 ## Contextual Abstractionsとは
 
-現行のScalaには俗にImplicitsと呼ばれる機能がありますが、初学者を非常に混乱させる機能として悪名高いものでした[^5]。そこでDottyには、この混乱に決着を着けるべくImplicitsの機能を包含しつつより整理された「Contextual Abstractions」と呼ばれる一連の機能が実装されました[^6]。Implicitsの代替という面でみるとこれらの機能は「implicit」というキーワードをなるべく使わずに別の用語(`implied`/`given`等)で置き換えて、型クラスをより書きやすいようにチューニングしたような内容になっている印象です。本記事では{% elink Dottyドキュメント https://dotty.epfl.ch/docs/index.html %}[^7]を参考にしながら、「Contextual Abstractions」の機能の一部を味見してみました。以下が味見した機能の一覧です[^8]。
+現行のScalaには俗にImplicitsと呼ばれる機能がありますが、初学者を非常に混乱させる機能として悪名高いものでした[^5]。そこでDottyには、この混乱に決着を着けるべくImplicitsの機能を包含しつつより整理された「Contextual Abstractions」と呼ばれる一連の機能が実装されました[^6]。Implicitsの代替という面でみるとこれらの機能は「implicit」というキーワードをなるべく使わずに別の用語(`delegate`/`given`等)で置き換えて、型クラスをより書きやすいようにチューニングしたような内容になっている印象です。本記事では{% elink Dottyドキュメント https://dotty.epfl.ch/docs/index.html %}[^7]を参考にしながら、「Contextual Abstractions」の機能の一部を味見してみました。以下が味見した機能の一覧です[^8]。
 
-- 暗黙のインスタンス(Implied Instances)
+- デリゲート(Delegates)
   - 従来の`implicit`で定義されていたインスタンスと同等です
-- 推論可能パラメータ(Inferable Parameters)
+- Given節(Given Clauses)
   - 従来の`implicit`で定義されていたパラメータリストと同等です
-- 暗黙のインポート(Implied Imports)
-  - 通常のimportでは`implied`で定義された暗黙のインスタンスはインポートされず、別途`import implied`でインポートする必要があります
-  - 暗黙のインスタンスがどこから来たのかを明確にするために導入されたようです
+- デリゲートインポート(Implied Imports)
+  - 通常のimportでは`delegate`で定義された暗黙のデリゲートはインポートされず、別途`import delegate`でインポートする必要があります
+  - デリゲートがどこから来たのかを明確にするために導入されたようです
 - 拡張メソッド(Extension Methods)
   - Dottyの新機能です
   - 型が定義された後にメソッドを追加することができます
@@ -61,13 +64,13 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
   - 「暗黙のインスタンス」、「推論可能パラメータ」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
 
 [^5]: 現行のImplicitsの混乱するポイントについては{% elink こちらの記事 http://kmizu.hatenablog.com/entry/2017/05/19/074149 %}で詳しく取り上げられています。
-[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。
+[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに[#6649](https://github.com/lampepfl/dotty/pull/6649)で`delegate`に変更されました・・・　本当に何回変わるんだろう・・・
 [^7]: このドキュメントは最新版のスナップショットなので、どんどん書き換えられています。今の所過去のバージョンは参照できないみたいです・・・
 [^8]: 機能の日本語訳は自分がしました。間違っていたら教えてください。
 
 ## 味見の方法
 
-{% elink ここ https://github.com/lampepfl/dotty/releases/tag/0.13.0-RC1 %}から`dotty-0.13.0-RC1.zip`をダウンロードして解凍します。解凍後のフォルダの`bin`にパスを通せば利用できるようになります。
+{% elink ここ https://github.com/lampepfl/dotty/releases/tag/0.16.0-RC3 %}から`dotty-0.16.0-RC3.zip`をダウンロードして解凍します。解凍後のフォルダの`bin`にパスを通せば利用できるようになります。
 `dotc`がコンパイラです。`dotr`はクラス名を指定するとコンパイル済みのバイナリを実行します。単独で起動した場合にはREPLになります。
 
 ```bash
@@ -92,7 +95,7 @@ Dottyドキュメントに記載されている例をベースに味見をして
 
 {% code lang:scala %}
 /** 暗黙のインスタンス、推論可能パラメータのサンプル */
-object ImpliedExample {
+object DelegateExample {
   /** 順序型の定義 */
   trait Ord[T] {
     def compare(x: T, y: T): Int
@@ -101,13 +104,13 @@ object ImpliedExample {
   }
 
   /** 順序型のIntの暗黙のインスタンスの定義 */
-  implied IntOrd for Ord[Int] {
+  delegate IntOrd for Ord[Int] {
     def compare(x: Int, y: Int) =
       if (x < y) -1 else if (x > y) +1 else 0
   }
 
   /** 順序型のListの暗黙のインスタンスの定義 */
-  implied ListOrd[T] given (ord: Ord[T]) for Ord[List[T]] {
+  delegate ListOrd[T] for Ord[List[T]] given (ord: Ord[T]) {
     def compare(xs: List[T], ys: List[T]): Int = (xs, ys) match {
       case (Nil, Nil) => 0
       case (Nil, _) => -1 // 空リストよりも非空リストの方が大きい
@@ -137,10 +140,10 @@ object ImpliedExample {
   def minimum[T](xs: List[T]) given Ord[T] = maximum(xs) given descending
 }
 
-/** `ImpliedExapmple`の利用方法 */
-object ImpliedExampleUseCase {
-  import ImpliedExample._
-  import implied ImpliedExample._ // Listの`<`演算子を利用するのに必要
+/** `DelegateExapmple`の利用方法 */
+object DelegateExampleUseCase {
+  import DelegateExample._
+  import delegate DelegateExample._ // Listの`<`演算子を利用するのに必要
 
   def use(): Unit = {
     println( max(2,3) ) // 3
@@ -188,7 +191,7 @@ object TypeClassExample {
   }
 
   /** リーダモナドのインスタンスを定義 */
-  implied ReaderMonad[Ctx] for Monad[[X] => Ctx => X] {
+  implied ReaderMonad[Ctx] for Monad[[X] ==> Ctx => X] {
     def (r: Ctx => A) flatMap [A, B] (f: A => Ctx => B): Ctx => B =
       ctx => f(r(ctx))(ctx)
     def pure[A](x: A): Ctx => A =
@@ -205,7 +208,7 @@ object TypeClassExample {
 /** `TypeClassExample`の利用方法 */
 object TypeClassExampleUseCase {
   import TypeClassExample._
-  import implied TypeClassExample._
+  import delegate TypeClassExample._
 
   def use(): Unit = {
     println( transform(List(1, 2, 3), (_:Int) * 2) ) // List(2, 4, 6)
@@ -213,6 +216,7 @@ object TypeClassExampleUseCase {
     /*
     リーダーモナドの例はずだが・・・
     以下の例は0.13.0-RC1ではコンパイルが終わらない・・・
+    0.16.0-RC3でもコンパイル同様・・・
     val calc: Int => Int = for {
       x <- (e:Int) => e + 1
       y <- (e:Int) => e * 10
@@ -260,3 +264,15 @@ The implicit keyword is used for both implicit conversions and conditional impli
 意訳すると従来の`implicit`には`implicit conversions`と`conditional implicit values`の２つの用途があったけど、意味が違うし初学者は混同しやすいので構文的に別にするという話です。というか`conditional implicit values`という言い方は自分は初めて目にしました。単純な`implicit values`よりもわかりやすいですね。
 
 この本家のブログを受けてというわけではないですが、前回の記事でサンプルの解説が大分雑だったのでいろいろと見直して、サンプルコードも{% elink GitHubに公開しました https://github.com/hinastory/dotty_contextual_abstractions_example %}。興味のある方は味見をして頂けると幸いです。
+
+## 2019年6月22日の更新内容
+
+先日発表された[Dotty 0.16.0-RC3](https://dotty.epfl.ch/blog/2019/06/11/16th-dotty-milestone-release.html)で本記事に関する大きな文法変更が行われました。具体的には以下の通りです。
+
+- `implied`から`delegate`にキーワードを変更 (＃6649)
+- 型ラムダに=>>を使用 (＃6558)
+  - サンプルコードで使用していた
+- `given`節を最後にする (#6513)
+  - 0.15.0-RC1で変更
+
+上記の変更に伴い本文の該当箇所を修正しました。また、{% elink GitHubに公開したサンプルコード https://github.com/hinastory/dotty_contextual_abstractions_example %}も0.16.0-RC3にしてあります。あと何回キーワードが変更されるんだろう・・・

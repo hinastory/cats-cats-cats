@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/</loc>
+        <lastmod>2019-06-22T00:12:30.726Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
+        <lastmod>2019-06-22T00:04:08.499Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/05/11/mindfulness/</loc>
         <lastmod>2019-05-13T17:39:17.134Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,14 +40,6 @@
     </url>
 
     <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/</loc>
-        <lastmod>2019-04-25T21:28:24.487Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/</loc>
         <lastmod>2019-04-14T23:58:15.535Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -42,14 +50,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/</loc>
         <lastmod>2019-04-13T19:43:21.208Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
-        <lastmod>2019-04-13T08:16:31.077Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
