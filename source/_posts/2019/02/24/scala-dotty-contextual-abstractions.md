@@ -24,7 +24,7 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 - この記事はDottyに実装されたImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能を味見してみたものです
   - ~~利用したDottyのバージョンは2019年2月時点で最新の0.13.0-RC1です。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
-  - 2019年6月時点で最新の0.16.0-RC3で変更があった文法のを更新を反映しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
+  - 2019年6月時点で最新の0.16.0-RC3で変更があった文法の更新を反映しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
 - 「Contextual Abstractions」は従来のImplicitsで初学者が躓きそうな機能を整理して使いやすくしています
   - 「Contextual Abstractions」には従来のImplicitsでは実現できなかった機能(暗黙のインポート、型クラス導出、コンテキストクエリ等)も含まれています
 - 「Contextual Abstractions」の機能はまだ提案段階でありScala3の正式な仕様に決定したわけではありません
@@ -54,7 +54,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
   - 従来の`implicit`で定義されていたインスタンスと同等です
 - Given節(Given Clauses)
   - 従来の`implicit`で定義されていたパラメータリストと同等です
-- デリゲートインポート(delegate Imports)
+- デリゲートインポート(Delegate Imports)
   - 通常のimportでは`delegate`で定義された暗黙のデリゲートはインポートされず、別途`import delegate`でインポートする必要があります
   - デリゲートがどこから来たのかを明確にするために導入されたようです
 - 拡張メソッド(Extension Methods)
