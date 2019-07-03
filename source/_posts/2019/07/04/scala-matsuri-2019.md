@@ -169,8 +169,6 @@ scalaで最もよく使われているビルドツールである{% elink sbt ht
 
 継続渡しスタイル(Continuation Passing Style/CPS)とDI(Dependency Injection)を比較する非常に興味深いセッションでした。自分の継続のイメージはSchemeから来ていてどちらかと言うと`goto`と比較されるプリミティブだったのですが[^10]、確かに言われて見ればDIだなと納得しました。あとSchemeでCPSを使うとネストが深くなりますが継続モナドを使うとネストを潰せてDSLっぽくなるのも面白かったです。CPSとDIのどちらを使うべきかという問いに対しては、CPSはアドホックな場面で使いましょうということでした。個人的に気になった点はアドホックなDIとしてみたときにリーダーモナドやMinimal Cake Patternと比較してどうなんだろうということでした。また時間があったら自分で考察してみたいと思います。そういえば大昔にScala本体にも継続が実装されていていつの間にか標準から切り離されていたけど今も息をしているのだろうか・・・
 
-- [同僚の登壇資料作成をScalaで手伝った話 / ScalaMatsuri 2019 LT - Speaker Deck](https://speakerdeck.com/bakenezumi/scalamatsuri-2019-lt)
-
 [^10]: Schemeでは継続が第一級オブジェクトで、機能名から`call-cc`ともよく呼ばれています。`goto`と呼ばれる理由は「{% elink Scheme/継続の種類と利用例 - Wikibooks https://ja.wikibooks.org/wiki/Scheme/%E7%B6%99%E7%B6%9A%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%81%A8%E5%88%A9%E7%94%A8%E4%BE%8B %}」を参照するとよく分かると思います。
 
 ## アンカンファレンスDAY
