@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-05-13T17:39:17.134Z</updated>
+  <updated>2019-07-03T22:48:51.025Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ScalaMatsuri 2019に参加してきました</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/</id>
+    <published>2019-07-03T22:28:45.000Z</published>
+    <updated>2019-07-03T22:48:51.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。&lt;/p&gt;
+&lt;a href=&quot;https://2019.scalamatsuri.org/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;http://scalamatsuri.org/img/common/img_main_txt.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala カンファレンス&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Scala をテーマに日本最大級のカンファレンスが開催されます。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+  </entry>
   
   <entry>
     <title>「エンジニアの心を整える技術」が予想以上に「技術書」だった件</title>
@@ -73,7 +99,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/</id>
     <published>2019-04-22T23:17:46.000Z</published>
-    <updated>2019-06-22T00:12:30.726Z</updated>
+    <updated>2019-07-01T20:40:32.435Z</updated>
     
     <summary type="html">
     
@@ -224,9 +250,9 @@
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
-      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
@@ -254,8 +280,6 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
-    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
@@ -263,6 +287,8 @@
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
+    
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
   </entry>
   
@@ -352,9 +378,9 @@
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
-      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
@@ -521,9 +547,9 @@
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
-      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
-    
       <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
+    
+      <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
     
   </entry>
   
