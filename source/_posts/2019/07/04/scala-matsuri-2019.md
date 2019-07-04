@@ -45,7 +45,11 @@ ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにして
 
 ## カンファレンスDAY
 
-ScalaMatsuriは27日(金)がカンファレンスDAYでした。ScalaMatsuriで凄いと思うのは３本のセッションが並行して走っていてそのうち２つの部屋では同時通訳が行われていました[^4]。以下が自分が聴講したセッション一覧です。
+ScalaMatsuriは27日(金)がカンファレンスDAYでした。ScalaMatsuriで凄いと思うのは３本のセッションが並行して走っていてそのうち２つの部屋では同時通訳が行われていました。翻訳レシーバが会場前で借りられるので英語のセッションでも問題なく楽しめました。[^4]。
+
+{% img /gallery/events/scala-matsuri-2019/scala-matsuri-018.jpg 600 %}
+
+以下が自分が聴講したセッション一覧です。
 
 - Scala 3って、私にはどんな影響があるの? @joang38 (Joan Goyeau)
 - 再帰:スキーム,代数,finally tagless,データ型. 統合されたビジョン @alexknvl (Alexander Konovalov)
@@ -54,12 +58,11 @@ ScalaMatsuriは27日(金)がカンファレンスDAYでした。ScalaMatsuriで�
 - DOT計算をやさしく説明する @kmizu (水島宏太)
 - Making Logic Monad @halcat0x15a (ねこはる)
 - sbt コア・コンセプト @eed3si9n (Eugene Yokota)
-- 継続とDI @ 中村学（がくぞ）
-- 同僚の登壇資料作成をScalaで手伝った話
+- 継続とDI @gakuzzzz (中村学（がくぞ）)
 
 ここからは少し長くなりますがセッションの感想を一つずつ述べていきます。
 
-[^4]: この同時通訳は日本語->英語だけではなく、英語->日本語も行われています。したがって英語話者に対して日本語で質問ができたりその逆も可能です。RubyKaigiでも同時通訳はありましたが日本語->英語だけだったので、その点ScalaMatsuriの方が英語が苦手な人でも楽しめると思います。
+[^4]: この同時通訳は日本語->英語だけではなく、英語->日本語も行われています。したがって英語話者に対して日本語で質問ができたりその逆も可能です。RubyKaigiでも同時通訳はありましたが日本語->英語だけだったので、その点ScalaMatsuriの方が英語が苦手な人でも楽しめると思います。またスライドに日本語訳が付いているのも有難かったです。
 
 ### Scala 3って、私にはどんな影響があるの? @joang38 (Joan Goyeau)
 
@@ -101,13 +104,13 @@ Scala3(Dotty)の影響についての発表でした。以下が言及があっ�
 
 ### 再帰:スキーム,代数,finally tagless,データ型. 統合されたビジョン @alexknvl (Alexander Konovalov)
 
-ScalaMatsuriでは例年話される関数型プログラミングネタです。最初の方はずっと同型（Isomorphism）について話していたので、どこに向かうのかよく分かりませんでしたが終わってみれば総集編みたいな内容でした。結論は以下のような感じです。
+ScalaMatsuriでは例年話される関数型プログラミングネタです。最初の方はずっと同型（Isomorphism）について話していたので、どこに向かうのかよく分かりませんでしたが終わってみれば関数型プログラミングの流行りのテクニックの総集編みたいな内容でした。結論は以下のような感じです。
 
 ```
 folds(畳み込み) ≈ 再帰スキーム ≈ Final Tagless ≈ Free
 ```
 
-「folds(畳み込み) ≈ 再帰スキーム」と「Final Tagless ≈ Free」は予想は付いていましたが全てが同型だとは思っていませんでした。まぁ「代数」というくくりで見ると確かに同じですね。
+「folds(畳み込み) ≈ 再帰スキーム」と「Final Tagless ≈ Free」は予想は付いていましたが全てが同型だとは思っていませんでした。まぁ「代数」というくくりで見ると確かに同じ気がします。
 
 ### プロジェクトで引き回す型をEffにするメリット @wing_007 (ma2k8)
 
@@ -127,7 +130,7 @@ folds(畳み込み) ≈ 再帰スキーム ≈ Final Tagless ≈ Free
 
 ### こんなに違う！<-ScalaとKotlin-> @kaelaela (前川裕一)
 
-ScalaをコンパイルするとシンプルでKotlinをデコンパイルすると複雑だというのが面白かったです。あと似ている型も注意が必要そうです。
+ScalaをコンパイルするとシンプルでKotlinをデコンパイルすると複雑だというのが面白かったです。あと似ている型も注意が必要そうです。デコンパイルしよう。
 
 {% oembed https://speakerdeck.com/kaelaela/konnaniwei-u-scalatokotlin  %}
 
@@ -153,7 +156,10 @@ kmizuさん[^9]によるScala3の理論基盤であるDOT計算のお話です�
 
 ### sbt コア・コンセプト @eed3si9n (Eugene Yokota)
 
-scalaで最もよく使われているビルドツールである{% elink sbt https://www.scala-sbt.org/index.html %}の解説でした。いつもお世話になっているsbtですが、いつもなんとなくというかその場しのぎで調べて動かしていたので、いろいろと勉強になりました。以下はメモです。
+scalaで最もよく使われているビルドツールである{% elink sbt https://www.scala-sbt.org/index.html %}の解説でした。いつもお世話になっているsbtですが、いつもなんとなくというかその場しのぎで調べて動かしていたので、いろいろと勉強になりました。内容はおそらく6/11-23に開催されていた {% elink Scala Days 2019 https://www.scaladays.org/ %}で発表されたものと同じではないかと思います。
+
+<script id="klewel-embed" type="text/javascript" src="https://portal.klewel.com/static/widgets/klewel-embed.js"></script><div data-klewel-widget="player" id="player-jDCXCiCxGXqJYAraQxVw7F" data-klewel-conf-shortuuid="nsWEhX26rHQcywKsB9nMi7" data-klewel-talk-shortuuid="GjyUSS37EReYB9r3is5hqL" data-klewel-talk-seek="0" data-klewel-talk-popup="false" data-klewel-talk-endSeek="0">Player is loading...</div>
+以下はメモです。
 
 - 空でも動く
 - 流れを堰き止めるのがcommand
@@ -167,9 +173,9 @@ scalaで最もよく使われているビルドツールである{% elink sbt ht
 
 - {% elink  スライド https://gakuzzzz.github.io/slides/cps_or_di %}
 
-継続渡しスタイル(Continuation Passing Style/CPS)とDI(Dependency Injection)を比較する非常に興味深いセッションでした。自分の継続のイメージはSchemeから来ていてどちらかと言うと`goto`と比較されるプリミティブだったのですが[^10]、確かに言われて見ればDIだなと納得しました。あとSchemeでCPSを使うとネストが深くなりますが継続モナドを使うとネストを潰せてDSLっぽくなるのも面白かったです。CPSとDIのどちらを使うべきかという問いに対しては、CPSはアドホックな場面で使いましょうということでした。個人的に気になった点はアドホックなDIとしてみたときにリーダーモナドやMinimal Cake Patternと比較してどうなんだろうということでした。また時間があったら自分で考察してみたいと思います。そういえば大昔にScala本体にも継続が実装されていていつの間にか標準から切り離されていたけど今も息をしているのだろうか・・・
+継続渡しスタイル(Continuation Passing Style/CPS)とDI(Dependency Injection)を比較する非常に興味深いセッションでした。自分の継続のイメージはSchemeから来ていてどちらかと言うと`goto`と比較されるプリミティブだったのですが[^10]、確かに言われて見ればDIだなと納得しました。あとSchemeでCPSを使うとネストが深くなりますが継続モナドを使うとネストを潰せてDSLっぽくなるのも面白かったです。CPSとDIのどちらを使うべきかという問いに対しては、使い分けが必要でCPSはアドホックな場面で使いましょうということでした。個人的に気になった点は似たような使い方ができるリーダーモナドやMinimal Cake PatternやEffなどと比較した場合はどうなんだろうということでした。また時間があったら自分で考察してみたいと思います。そういえば大昔にScala本体にも継続が実装されていていつの間にか標準から切り離されていたけど今も息をしているのだろうか・・・
 
-[^10]: Schemeでは継続が第一級オブジェクトで、機能名から`call-cc`ともよく呼ばれています。`goto`と呼ばれる理由は「{% elink Scheme/継続の種類と利用例 - Wikibooks https://ja.wikibooks.org/wiki/Scheme/%E7%B6%99%E7%B6%9A%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%81%A8%E5%88%A9%E7%94%A8%E4%BE%8B %}」を参照するとよく分かると思います。
+[^10]: Schemeでは継続が第一級オブジェクトで、機能名から`call/cc`ともよく呼ばれています。`goto`（または`setjmp`/`longjmp`）と呼ばれる理由は「{% elink Scheme/継続の種類と利用例 - Wikibooks https://ja.wikibooks.org/wiki/Scheme/%E7%B6%99%E7%B6%9A%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%81%A8%E5%88%A9%E7%94%A8%E4%BE%8B %}」を参照するとよく分かると思います。
 
 ## アンカンファレンスDAY
 
@@ -182,10 +188,15 @@ scalaで最もよく使われているビルドツールである{% elink sbt ht
 以下参加したセッションです。どれも非常に面白かったのですが長くなるのでメモベースの記載になります。
 
 - 仕事でScalaを使おう - Arm Treasure DataでのAirframe活用事例 @taroleo (Taro L. Saito )
-- Dotty Cats
+- Bengal: Dotty Cats @ Walter Chang
+  - [Bengal: A less than minimal functional library in the spirit of cats in Scala 3.](https://github.com/weihsiu/bengal/tree/master)
+  - Scala Taiwanから来日された方の発表です
+  - Scalaで型クラスを使う場合に広く使われている{% elink cats https://typelevel.org/cats/ %}ライブラリをScala 3で実装するとどうなるかという発表でした
+  - 個人的に面白かったのは {% elink shapeless https://github.com/milessabin/shapeless %}を使って型クラスを導出する部分でした
 - DOT Calculus I didn't explain yesterday @kmizu (水島宏太)
   - DOTは難しいということが分かりました
   - 特にサブタイプは鬼門だと・・・
+  - DOTは健全らしいです　（参考: {% elink dot soundness http://lampwww.epfl.ch/~amin/dot/soundness_oopsla16.pdf %})
 - Fast & Functional
   - [Fast & Functional (Scala Matsuri, JP) - Speaker Deck](https://speakerdeck.com/miciek/fast-and-functional-scala-matsuri-jp)
 - Wifi and Scala  @ kuro_m88
@@ -195,13 +206,34 @@ scalaで最もよく使われているビルドツールである{% elink sbt ht
   - その裏舞台を聞けて非常によかったです
 - Write stacksafe non-tailrec recursions  @ jooohn1234
   - [Write stack safe non-tailrec recursive functions - Speaker Deck](https://speakerdeck.com/jooohn/write-stack-safe-non-tailrec-recursive-functions)
+  - 再帰 is cool
+  - Stack overflowを避けるためにトランポリンを使おうという話
 - Fujitask meets Extensible Effects  @ y-yu
-  - [fujitask](https://y-yu.github.io/fujitask-eff-slide/fujitask_without_animation.pdf)
+  - [Extensible Effectsでトランザクションモナド“Fujitask”を作る - Qiita](https://qiita.com/yyu/items/fbd6edc00abb6395dabb)
+  - トランザクションを型レベルの計算に落とせるというのは面白い
+  - kits-effを利用している
+    - [進捗大陸05](https://booth.pm/ja/items/1309694)にねこはるさんのkits-effの記事があります。自分も前回の技術書典で購入していました
 - From Go To Scala Easy vs Simple
   - 個人的にはアンカンファレンスのなかで一番熱いプロレスでした
   - KotlinやC++やSwiftも参戦してきて、カオスな雰囲気がいい味を出していました
 - Applicative Functor - Selective Functor - Monad
 
+## 聞きたかったけど聞けなかったセッションたち
+
+あとで見るために資料のリンクだけ載せておきます。
+
+- {% elink Using Akka Cluster for a payment service https://speakerdeck.com/negokaz/using-akka-cluster-for-a-payment-service  %}
+- {% elink Running Scala on AWS Lambda in a Snappy Way https://speakerdeck.com/todokr/running-scala-on-aws-lambda-in-a-snappy-way %}
+- {% elink 同僚の登壇資料作成をScalaで手伝った話 https://speakerdeck.com/bakenezumi/scalamatsuri-2019-lt  %}
+- {% elink How we replaced a 10-year-old Perl product using Scala https://speakerdeck.com/tanishiking/how-we-replaced-a-10-year-old-perl-product-using-scala %}
+- {% elink ScalaのOSSに貢献しよう ~ Phil Bagwell Award記念講演 https://xuwei-k.github.io/slides/Matsuri-2019/#1)
+how-we-replaced-a-10-year-old-perl-product-using-scala  %}
+- {% elink High Performance Scala/high_performance_scala https://speakerdeck.com/hiroki6/high-performance-scala  %}
+- {% elink How to build an Event-Sourcing system using Akka with EKS https://speakerdeck.com/j5ik2o/how-to-build-an-event-sourcing-system-using-akka-with-eks %}
+- {% elink  [Running in 'PRODUCTION' Reactive Systems with cloud services https://speakerdeck.com/mananan/running-in-production-reactive-systems-with-cloud-services %}
+- {% elink ScalaでGANをスクラッチ開発した話@ScalaMatsuri https://www.slideshare.net/mobile/ssuser3a8b3b/scalaganscalamatsuri %}
+- {% elink コードで理解するPlayframeworkの脆弱性 https://speakerdeck.com/kumagoro_alice/kototeli-jie-suruplayframeworkfalsecui-ruo-xing  %}
+- {% elink Functional Concurrency in Scala 101 https://slides.com/avasil/fp-concurrency-scalamatsuri2019#/  %}
 
 ## 食事
 
@@ -211,15 +243,21 @@ ScalaMatsuriの魅力には食事もあります。以下の写真は昼食の�
 
 ScalaMaturiで「祭り」の気分が味わえるのは屋台の存在も大きいです。カンファレンスDAYにはたこ焼き屋が出ていて、アンカンファレンスDAYにはかき氷屋が出ていました。
 
-{% img /gallery/events/scala-matsuri-2019/scala-matsuri-011.jpg 350 %}{% img /gallery/events/scala-matsuri-2019/scala-matsuri-015.jpg 350 %}
+{% img /gallery/events/scala-matsuri-2019/scala-matsuri-011.jpg 600 %}
 
-懇親会も盛り上がりました。
+懇親会も盛り上がりました。途中でLTもありました。
 
-{% img /gallery/events/scala-matsuri-2019/scala-matsuri-012.jpg 350 %}{% img /gallery/events/scala-matsuri-2019/scala-matsuri-013.jpg 350 %}
+{% img /gallery/events/scala-matsuri-2019/scala-matsuri-013.jpg 600 %}
 
-以下はアンカンファレンスDAYの朝食です。
+左下はアンカンファレンスDAYの朝食で、右下はデプロイされていたうまい棒です。コーヒーとお菓子は豊富に配備されており、セッションの合間に飲んだり食べたりしていました。
 
-{% img /gallery/events/scala-matsuri-2019/scala-matsuri-014.jpg 350 %}
+{% img /gallery/events/scala-matsuri-2019/scala-matsuri-014.jpg 350 %}{% img /gallery/events/scala-matsuri-2019/scala-matsuri-013.png 350 %}
+
+## カフェスペース
+
+今年から1階にカフェスペースが設けられていました。カフェスペースの入り口でScalaのシンボルである螺旋階段がお出迎えをしてくれました（笑）。カフェスペースなのでコーヒーやお菓子がデプロイされていましたが、それ以外にもScala関連書籍が置かれており自由に読めるようになっていました。
+
+{% img /gallery/events/scala-matsuri-2019/scala-matsuri-021.jpg 300 %}{% img /gallery/events/scala-matsuri-2019/scala-matsuri-020.jpg 300 %}
 
 ## まとめ
 
@@ -228,4 +266,10 @@ ScalaMatsuriは本格的なカンファレンスでありながらその名の�
 
 参加者、関係者の皆様、お疲れ様でした！
 
-{% img /gallery/events/scala-matsuri-2019/scala-matsuri-016.jpg 500 %}
+{% img /gallery/events/scala-matsuri-2019/scala-matsuri-016.jpg 600 %}
+
+## 戦利品
+
+たくさんの記念品を頂きました。今年も型安全でありますように・・・
+
+{% img /gallery/events/scala-matsuri-2019/scala-matsuri-017.jpg 600 %}
