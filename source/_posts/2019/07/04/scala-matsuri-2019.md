@@ -234,6 +234,13 @@ how-we-replaced-a-10-year-old-perl-product-using-scala  %}
 - {% elink ScalaでGANをスクラッチ開発した話@ScalaMatsuri https://www.slideshare.net/mobile/ssuser3a8b3b/scalaganscalamatsuri %}
 - {% elink コードで理解するPlayframeworkの脆弱性 https://speakerdeck.com/kumagoro_alice/kototeli-jie-suruplayframeworkfalsecui-ruo-xing  %}
 - {% elink Functional Concurrency in Scala 101 https://slides.com/avasil/fp-concurrency-scalamatsuri2019#/  %}
+- {% elink 悩める開発者に贈る〜 サービスの継続的な成長を支える分析設計手法 https://gitpitch.com/s10myk4/scalamaturi2019-slide %}
+- {% elink Clean Architecture in Practice https://speakerdeck.com/yoshiyoshifujii/clean-architecture-in-practice-at-scalamatsuri2019 %}
+- {% elink Intro to typeclass in Scala https://speakerdeck.com/phenan/intro-to-typeclass-in-scala %}
+- {% elink Scala Driven Management https://speakerdeck.com/hiraiva/scala-driven-management %}
+- {% elink Case of Ad Delivery System is Implemented by Scala and DDD https://speakerdeck.com/atty303/case-of-ad-delivery-system-is-implemented-by-scala-and-ddd  %}
+- {% elink ピュアなドメインを支える技術/pure domain model and the technology behind it https://speakerdeck.com/petitviolet/pure-domain-model-and-the-technology-behind-it %}
+- {% elink How to test proper{t,l}y (Scala Matsuri edition) https://speakerdeck.com/larsrh/how-to-test-proper-t-l-y-scala-matsuri-edition %}
 
 ## 食事
 
