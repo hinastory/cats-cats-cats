@@ -72,9 +72,9 @@ Scala3(Dotty)の影響についての発表でした。以下が言及があっ�
   - やっとScalaにまともなEnumurationが来るといった話です。今までは`case object`で書いていたものが`enum`キーワードで大分シンプルに書けるようになります[^6]。
 - {% elink 交差型 https://dotty.epfl.ch/docs/reference/new-types/intersection-types.html %}, {% elink 合併型 https://dotty.epfl.ch/docs/reference/new-types/union-types.html %}
   - ようやくTypeScriptでできた型表現がScalaでもできるようになりました
-  - 交差型に関しては`with`もあったけど交換可能でなかったので、ようやく本物がDottyにも入ったということです。
+  - 交差型に関しては`with`もあったけど交換可能でなかったので、ようやく本物がDottyにも入ったということです
 - NULLは100万ドルの間違い
-  - たぶん[#5747](https://github.com/lampepfl/dotty/pull/5747)の話だったと思います。
+  - たぶん[#5747](https://github.com/lampepfl/dotty/pull/5747)の話だったと思います
   - 現在でもOptionがありヌルポを見る機会はあまりありませんが、将来的には本当に見る機会がなくなるかもしれません
 - {% elink Opaque 型エイリアス https://dotty.epfl.ch/docs/reference/other-new-features/opaques.html %}
   - `AnyVal`は、いけてないよねという話[^7]。`opaque`で本物の型エイリアス（いわゆるゼロコスト抽象化）が手に入ります
@@ -85,9 +85,9 @@ Scala3(Dotty)の影響についての発表でした。以下が言及があっ�
   - 今までの型クラスのためのハックがまともな構文として定義されましたというお話
 - {% elink マルチバーサル等価性 https://dotty.epfl.ch/docs/reference/contextual/multiversal-equality.html %}
 - {% elink トレイトパラメータ https://dotty.epfl.ch/docs/reference/other-new-features/trait-parameters.html %}
-  - givenが使えるのは大きいです。
+  - givenが使えるのは大きいです
 - {% elink Parameter Untupling https://dotty.epfl.ch/docs/reference/other-new-features/parameter-untupling.html  %}
-  - mapでcaseのあのパターンがいらなくなるお話。これは地味に便利。
+  - mapでcaseのあのパターンがいらなくなるお話。これは地味に便利
 - TASTy
   - コンパイル時の成果物の新しいフォーマットです
   - クロスコンパイルが容易になります
@@ -187,9 +187,13 @@ scalaで最もよく使われているビルドツールである{% elink sbt ht
 
 以下参加したセッションです。どれも非常に面白かったのですが長くなるのでメモベースの記載になります。
 
-- 仕事でScalaを使おう - Arm Treasure DataでのAirframe活用事例 @taroleo (Taro L. Saito )
+- {% elink 仕事でScalaを使おう - Arm Treasure DataでのAirframe活用事例 https://www.slideshare.net/taroleo/how-to-use-scala-at-work-airframe-in-action-at-arm-treasure-data %} @taroleo (Taro L. Saito )
+  - 最近よく聞く {% elink Airframe https://wvlet.org/airframe/ %}のお話です
+  - AirframeはDIコンテナだと思いこんでいましたが、どうやらDIだけではなく様々な便利ツールの集合体のようです
+  - MessagePackがTreasure Data発だと初めて知りました。MessagePackを使いたくなったらAirframe
+  - logとlauncherは後で試してみよう
 - Bengal: Dotty Cats @ Walter Chang
-  - [Bengal: A less than minimal functional library in the spirit of cats in Scala 3.](https://github.com/weihsiu/bengal/tree/master)
+  - {% elink Bengal: A less than minimal functional library in the spirit of cats in Scala 3. https://github.com/weihsiu/bengal/tree/master %}
   - Scala Taiwanから来日された方の発表です
   - Scalaで型クラスを使う場合に広く使われている{% elink cats https://typelevel.org/cats/ %}ライブラリをScala 3で実装するとどうなるかという発表でした
   - 個人的に面白かったのは {% elink shapeless https://github.com/milessabin/shapeless %}を使って型クラスを導出する部分でした
@@ -197,15 +201,14 @@ scalaで最もよく使われているビルドツールである{% elink sbt ht
   - DOTは難しいということが分かりました
   - 特にサブタイプは鬼門だと・・・
   - DOTは健全らしいです　（参考: {% elink dot soundness http://lampwww.epfl.ch/~amin/dot/soundness_oopsla16.pdf %})
-- Fast & Functional
-  - [Fast & Functional (Scala Matsuri, JP) - Speaker Deck](https://speakerdeck.com/miciek/fast-and-functional-scala-matsuri-jp)
-- Wifi and Scala  @ kuro_m88
-  - [WiFi x Scala: Implementing Captive Portal in Scala and deploy into #ScalaMatsuri - Speaker Deck](https://speakerdeck.com/kurochan/wifi-x-scala-implementing-captive-portal-in-scala-and-deploy-into-number-scalamatsuri)
+- {% elink Fast & Functional https://speakerdeck.com/miciek/fast-and-functional-scala-matsuri-jp %}
+  - 最初の１時間だけ聴講しました
+  - パワーワード「`制限は開放し、自由は制限する`」
+- {% elink WiFi x Scala: Implementing Captive Portal in Scala and deploy into #ScalaMatsuri https://speakerdeck.com/kurochan/wifi-x-scala-implementing-captive-portal-in-scala-and-deploy-into-number-scalamatsuri  %}  @ kuro_m88
   - Captive Portalという仕組みを初めてしり勉強になりました
   - 今回のWifi事情はおそらく他のカンファレンスと比べても非常に良かったと言えるくらい安定して繋がりやすかったです
   - その裏舞台を聞けて非常によかったです
-- Write stacksafe non-tailrec recursions  @ jooohn1234
-  - [Write stack safe non-tailrec recursive functions - Speaker Deck](https://speakerdeck.com/jooohn/write-stack-safe-non-tailrec-recursive-functions)
+-  {% elink Write stacksafe non-tailrec recursions https://speakerdeck.com/jooohn/write-stack-safe-non-tailrec-recursive-functions %} @jooohn1234
   - 再帰 is cool
   - Stack overflowを避けるためにトランポリンを使おうという話
 - Fujitask meets Extensible Effects  @ y-yu
@@ -217,6 +220,8 @@ scalaで最もよく使われているビルドツールである{% elink sbt ht
   - 個人的にはアンカンファレンスのなかで一番熱いプロレスでした
   - KotlinやC++やSwiftも参戦してきて、カオスな雰囲気がいい味を出していました
 - Applicative Functor - Selective Functor - Monad
+  -  Selective Functorという聞き慣れない言葉に誘われて聴講しました
+  -  なんとなく仕組みはわかりましたが、どういうときに使うものかイマイチわからなかったので後で勉強します・・・
 
 ## 聞きたかったけど聞けなかったセッションたち
 

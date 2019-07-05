@@ -16,7 +16,7 @@
 <meta property="og:description" content="ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。 ScalaMatsuri 2019｜日本最大級の Scala カンファレンスScala をテーマに日本最大級のカンファレンスが開催されます。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png">
-<meta property="og:updated_time" content="2019-07-04T17:06:38.747Z">
+<meta property="og:updated_time" content="2019-07-05T20:41:49.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ScalaMatsuri 2019に参加してきました">
 <meta name="twitter:description" content="ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。 ScalaMatsuri 2019｜日本最大級の Scala カンファレンスScala をテーマに日本最大級のカンファレンスが開催されます。">
@@ -228,11 +228,11 @@
 <li><a href="https://dotty.epfl.ch/docs/reference/new-types/intersection-types.html" target="_blank" rel="noopener">交差型<i class="fas fa-external-link-alt fa-fw"></i></a>, <a href="https://dotty.epfl.ch/docs/reference/new-types/union-types.html" target="_blank" rel="noopener">合併型<i class="fas fa-external-link-alt fa-fw"></i></a>
 <ul>
 <li>ようやくTypeScriptでできた型表現がScalaでもできるようになりました</li>
-<li>交差型に関しては<code>with</code>もあったけど交換可能でなかったので、ようやく本物がDottyにも入ったということです。</li>
+<li>交差型に関しては<code>with</code>もあったけど交換可能でなかったので、ようやく本物がDottyにも入ったということです</li>
 </ul>
 </li>
 <li>NULLは100万ドルの間違い<ul>
-<li>たぶん<a href="https://github.com/lampepfl/dotty/pull/5747" target="_blank" rel="noopener">#5747</a>の話だったと思います。</li>
+<li>たぶん<a href="https://github.com/lampepfl/dotty/pull/5747" target="_blank" rel="noopener">#5747</a>の話だったと思います</li>
 <li>現在でもOptionがありヌルポを見る機会はあまりありませんが、将来的には本当に見る機会がなくなるかもしれません</li>
 </ul>
 </li>
@@ -255,12 +255,12 @@
 <li><a href="https://dotty.epfl.ch/docs/reference/contextual/multiversal-equality.html" target="_blank" rel="noopener">マルチバーサル等価性<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/trait-parameters.html" target="_blank" rel="noopener">トレイトパラメータ<i class="fas fa-external-link-alt fa-fw"></i></a>
 <ul>
-<li>givenが使えるのは大きいです。</li>
+<li>givenが使えるのは大きいです</li>
 </ul>
 </li>
 <li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/parameter-untupling.html" target="_blank" rel="noopener">Parameter Untupling<i class="fas fa-external-link-alt fa-fw"></i></a>
 <ul>
-<li>mapでcaseのあのパターンがいらなくなるお話。これは地味に便利。</li>
+<li>mapでcaseのあのパターンがいらなくなるお話。これは地味に便利</li>
 </ul>
 </li>
 <li>TASTy<ul>
@@ -325,9 +325,15 @@
 <p>アンカンファレンスが具体的にどのように進むかというと、前日から用意されたホワイトボードに付箋で聞きたいネタや喋りたいネタを貼って、セッションに参加したいと思ったら赤いシールを貼ります。そして当日の朝会や昼会で投票が多くて発表者やファシリテータがいるものを優先してセッション枠を埋めていきます。上の写真はホワイトボードの様子と昼会でセッション枠を決めている様子です。</p>
 <p>以下参加したセッションです。どれも非常に面白かったのですが長くなるのでメモベースの記載になります。</p>
 <ul>
-<li>仕事でScalaを使おう - Arm Treasure DataでのAirframe活用事例 @taroleo (Taro L. Saito )</li>
+<li><a href="https://www.slideshare.net/taroleo/how-to-use-scala-at-work-airframe-in-action-at-arm-treasure-data" target="_blank" rel="noopener">仕事でScalaを使おう - Arm Treasure DataでのAirframe活用事例<i class="fas fa-external-link-alt fa-fw"></i></a> @taroleo (Taro L. Saito )<ul>
+<li>最近よく聞く <a href="https://wvlet.org/airframe/" target="_blank" rel="noopener">Airframe<i class="fas fa-external-link-alt fa-fw"></i></a>のお話です</li>
+<li>AirframeはDIコンテナだと思いこんでいましたが、どうやらDIだけではなく様々な便利ツールの集合体のようです</li>
+<li>MessagePackがTreasure Data発だと初めて知りました。MessagePackを使いたくなったらAirframe</li>
+<li>logとlauncherは後で試してみよう</li>
+</ul>
+</li>
 <li>Bengal: Dotty Cats @ Walter Chang<ul>
-<li><a href="https://github.com/weihsiu/bengal/tree/master" target="_blank" rel="noopener">Bengal: A less than minimal functional library in the spirit of cats in Scala 3.</a></li>
+<li><a href="https://github.com/weihsiu/bengal/tree/master" target="_blank" rel="noopener">Bengal: A less than minimal functional library in the spirit of cats in Scala 3.<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li>Scala Taiwanから来日された方の発表です</li>
 <li>Scalaで型クラスを使う場合に広く使われている<a href="https://typelevel.org/cats/" target="_blank" rel="noopener">cats<i class="fas fa-external-link-alt fa-fw"></i></a>ライブラリをScala 3で実装するとどうなるかという発表でした</li>
 <li>個人的に面白かったのは <a href="https://github.com/milessabin/shapeless" target="_blank" rel="noopener">shapeless<i class="fas fa-external-link-alt fa-fw"></i></a>を使って型クラスを導出する部分でした</li>
@@ -339,19 +345,19 @@
 <li>DOTは健全らしいです　（参考: <a href="http://lampwww.epfl.ch/~amin/dot/soundness_oopsla16.pdf" target="_blank" rel="noopener">dot soundness<i class="fas fa-external-link-alt fa-fw"></i></a>)</li>
 </ul>
 </li>
-<li>Fast & Functional<ul>
-<li><a href="https://speakerdeck.com/miciek/fast-and-functional-scala-matsuri-jp" target="_blank" rel="noopener">Fast & Functional (Scala Matsuri, JP) - Speaker Deck</a></li>
+<li><a href="https://speakerdeck.com/miciek/fast-and-functional-scala-matsuri-jp" target="_blank" rel="noopener">Fast & Functional<i class="fas fa-external-link-alt fa-fw"></i></a>
+<ul>
+<li>最初の１時間だけ聴講しました</li>
+<li>パワーワード「<code>制限は開放し、自由は制限する</code>」</li>
 </ul>
 </li>
-<li>Wifi and Scala  @ kuro_m88<ul>
-<li><a href="https://speakerdeck.com/kurochan/wifi-x-scala-implementing-captive-portal-in-scala-and-deploy-into-number-scalamatsuri" target="_blank" rel="noopener">WiFi x Scala: Implementing Captive Portal in Scala and deploy into #ScalaMatsuri - Speaker Deck</a></li>
+<li><a href="https://speakerdeck.com/kurochan/wifi-x-scala-implementing-captive-portal-in-scala-and-deploy-into-number-scalamatsuri" target="_blank" rel="noopener">WiFi x Scala: Implementing Captive Portal in Scala and deploy into #ScalaMatsuri<i class="fas fa-external-link-alt fa-fw"></i></a>  @ kuro_m88<ul>
 <li>Captive Portalという仕組みを初めてしり勉強になりました</li>
 <li>今回のWifi事情はおそらく他のカンファレンスと比べても非常に良かったと言えるくらい安定して繋がりやすかったです</li>
 <li>その裏舞台を聞けて非常によかったです</li>
 </ul>
 </li>
-<li>Write stacksafe non-tailrec recursions  @ jooohn1234<ul>
-<li><a href="https://speakerdeck.com/jooohn/write-stack-safe-non-tailrec-recursive-functions" target="_blank" rel="noopener">Write stack safe non-tailrec recursive functions - Speaker Deck</a></li>
+<li><a href="https://speakerdeck.com/jooohn/write-stack-safe-non-tailrec-recursive-functions" target="_blank" rel="noopener">Write stacksafe non-tailrec recursions<i class="fas fa-external-link-alt fa-fw"></i></a> @jooohn1234<ul>
 <li>再帰 is cool</li>
 <li>Stack overflowを避けるためにトランポリンを使おうという話</li>
 </ul>
@@ -370,7 +376,11 @@
 <li>KotlinやC++やSwiftも参戦してきて、カオスな雰囲気がいい味を出していました</li>
 </ul>
 </li>
-<li>Applicative Functor - Selective Functor - Monad</li>
+<li>Applicative Functor - Selective Functor - Monad<ul>
+<li>Selective Functorという聞き慣れない言葉に誘われて聴講しました</li>
+<li>なんとなく仕組みはわかりましたが、どういうときに使うものかイマイチわからなかったので後で勉強します・・・</li>
+</ul>
+</li>
 </ul>
 <h2 id="聞きたかったけど聞けなかったセッションたち"><a href="#聞きたかったけど聞けなかったセッションたち" class="header-anchor"></a>4. <a href="#聞きたかったけど聞けなかったセッションたち" class="headerlink" title="聞きたかったけど聞けなかったセッションたち"></a>聞きたかったけど聞けなかったセッションたち</h2><p>あとで見るために資料のリンクだけ載せておきます。</p>
 <ul>
