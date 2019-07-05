@@ -99,7 +99,7 @@ Scala3(Dotty)の影響についての発表でした。以下が言及があっ�
 [^5]: 軽くメモしただけなので間違っているかもしれません。Dottyドキュメントのリンクは自分調べて貼りました。
 [^6]: Enumerationクラスは本当に使えない子なので見なかったことにしてあげてください。
 [^7]: `AnyVal`がなぜいけていないかは {% elink SIP-35 https://docs.scala-lang.org/sips/opaque-types.html %}を参照してください。
-[^8]: 拡張メソッドの構文は[#6760](https://github.com/lampepfl/dotty/pull/6760)で変わるかもしれません・・・
+[^8]: ~~拡張メソッドの構文は[#6760](https://github.com/lampepfl/dotty/pull/6760)で変わるかもしれません・・・~~ マージされずにクローズされました。ただまたいつかこの話題が再燃するかもしれません・・・
 
 
 ### 再帰:スキーム,代数,finally tagless,データ型. 統合されたビジョン @alexknvl (Alexander Konovalov)
