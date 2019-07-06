@@ -277,7 +277,8 @@ ScalaMaturiで「祭り」の気分が味わえるのは屋台の存在も大き
 
 ## まとめ
 
-ScalaMatsuriは本格的なカンファレンスでありながらその名の通り「お祭り」気分が味わえる素晴らしいカンファレンスです。
+ScalaMatsuriは本格的なカンファレンスでありながらその名の通り「お祭り」気分が味わえる素晴らしいカンファレンスです。もっとScalaMatsuriを知りたい方は[ScalaMatsuri運営ブログ](https://blog.scalamatsuri.org/)やTwitterの[ハッシュタグ #ScalaMatsuri](https://twitter.com/hashtag/scalamatsuri)もチェックしてみてください。
+
 この記事を読んでくれた方に、少しでもScalaMatsuriの楽しさをお伝えできたなら幸いです。
 
 参加者、関係者の皆様、お疲れ様でした！
