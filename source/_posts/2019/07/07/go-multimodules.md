@@ -228,9 +228,11 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 {% endcode %}
 
 
-さて、ビルドできたら`./go-multi-modules`で実行してみましょう。一瞬Hello Worldが表示されてその後Go Homeが実行されます。
+さて、ビルドできたら`./go-multi-modules`で実行してみましょう。一瞬Hello Worldが表示されてその後Go Home!が実行されます。
 
 {% img /gallery/daily/others/go-home.gif 500 %}
+
+我々はようやく成し遂げたのです（笑）。
 
 ## なぜ、マルチモジュール化したかったのか？
 

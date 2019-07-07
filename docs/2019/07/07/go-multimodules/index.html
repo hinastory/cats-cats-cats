@@ -16,7 +16,7 @@
 <meta property="og:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue.png">
-<meta property="og:updated_time" content="2019-07-07T06:54:27.733Z">
+<meta property="og:updated_time" content="2019-07-07T10:50:29.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go Modulesとマルチモジュール構成でGo Homeする方法">
 <meta name="twitter:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
@@ -188,7 +188,7 @@
 <h2 id="目次"><a href="#目次" class="header-anchor"></a>1. <a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#目次" class="contents-header">1. 目次</a></li><li><a href="#go-modulesとは" class="contents-header">2. Go Modulesとは</a></li><li><a href="#go-modulesで管理を始める" class="contents-header">3. Go Modulesで管理を始める</a><ul><li><a href="#まずは基本のおはようの挨拶から" class="contents-header">3.1. まずは基本のおはようの挨拶から</a></li><li><a href="#おはようの挨拶をパッケージにしてみる" class="contents-header">3.2. おはようの挨拶をパッケージにしてみる</a></li><li><a href="#go-homeしようとして失敗する" class="contents-header">3.3. Go Homeしようとして失敗する</a></li><li><a href="#replaceのおかげでgo-homeに成功する" class="contents-header">3.4. replaceのおかげでGo Homeに成功する</a></li></ul></li><li><a href="#なぜ-マルチモジュール化したかったのか" class="contents-header">4. なぜ、マルチモジュール化したかったのか？</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
 
 <h2 id="go-modulesとは"><a href="#go-modulesとは" class="header-anchor"></a>2. <a href="#Go-Modulesとは" class="headerlink" title="Go Modulesとは"></a>Go Modulesとは</h2><p>とりあえず、<code>Go Modules is 何？</code>という方の為に簡単に説明します。ご存知の方はこの節を飛ばしてください。</p>
-<p>Go ModulesはGo 1.11から試験的に導入され、Go 1.13からデフォルトで有効になる予定の新しいモジュール管理方法です。使ってみた実感としてはすでに充分実用的なので新規にプロジェクトを作成する場合はGo Modulesを使って作成することをオススメします。Go 1.12はGo Modulesを有効にするためにはGOPATH以外のパスで作業をするか以下で環境変数を設定します。</p>
+<p>Go ModulesはGo 1.11から試験的に導入され、Go 1.13からデフォルトで有効になる予定の新しいパッケージ依存関係の管理方法です。使ってみた実感としてはすでに充分実用的なので新規にプロジェクトを作成する場合はGo Modulesを使って作成することをオススメします。Go 1.12はGo Modulesを有効にするためにはGOPATH以外のパスで作業をするか以下で環境変数を設定します。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">export GO111MODULE=on<br></code></pre></td></tr></tbody></table></figure>
 <p>この記事ではGo 1.12の前提で解説します。</p>
 <h2 id="go-modulesで管理を始める"><a href="#go-modulesで管理を始める" class="header-anchor"></a>3. <a href="#Go-Modulesで管理を始める" class="headerlink" title="Go Modulesで管理を始める"></a>Go Modulesで管理を始める</h2><p>基本はディレクトリを作成して<code>go mod init <モジュール名></モジュール名></code>で始められます、</p>
@@ -224,8 +224,9 @@
 <p><code>replace go-multi-modules/pkg/go-home => ./pkg/go-home</code></p>
 <p><code>replace</code>ディレクティブを記述して<code>go build</code>をするとビルドが成功します。<br>以下は<code>go build</code>後の<code>go.mod</code>です。依存関係(<code>require</code>)が追加されています。</p>
 <figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br><br>require (<br>        github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a<br>        go-multi-modules/pkg/go-home v0.0.0-00010101000000-000000000000<br>)<br><br>replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加<br></code></pre></td></tr></tbody></table></figure>
-<p>さて、ビルドできたら<code>./go-multi-modules</code>で実行してみましょう。一瞬Hello Worldが表示されてその後Go Homeが実行されます。</p>
+<p>さて、ビルドできたら<code>./go-multi-modules</code>で実行してみましょう。一瞬Hello Worldが表示されてその後Go Home!が実行されます。</p>
 <img src="/cats-cats-cats/gallery/daily/others/go-home.gif" width="500">
+<p>我々はようやく成し遂げたのです（笑）。</p>
 <h2 id="なぜ-マルチモジュール化したかったのか"><a href="#なぜ-マルチモジュール化したかったのか" class="header-anchor"></a>4. <a href="#なぜ、マルチモジュール化したかったのか？" class="headerlink" title="なぜ、マルチモジュール化したかったのか？"></a>なぜ、マルチモジュール化したかったのか？</h2><p>さて、ここまででマルチモジュール化の方法が分かったわけですが、問題の発端のなぜ自分がマルチプロジェクトにしたかったのかをまだ説明していませんでした。</p>
 <p>理由としてはC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただし一つのリポジトリにマルチモジュールは積極的に採用すべきではないと <a href="https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>にも書いてあるので、一般的には採用には慎重になったほうがいいと思われます。</p>
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>5. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事ではGo modulesを使って依存関係を管理する方法とパッケージに分割して呼び出す方法とマルチモジュール化について流れを書いてみました。この記事を書くために作成したコードは以下に置きました。</p>
