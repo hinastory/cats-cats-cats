@@ -1,6 +1,6 @@
 ---
 title: Go Modulesとマルチモジュール構成でGo Homeする方法
-thumbnail: /gallery/thumbnails/Go-Logo_LightBlue.png
+thumbnail: /gallery/thumbnails/Go-Logo_LightBlue2.png
 categories:
   - Tech
   - Language
