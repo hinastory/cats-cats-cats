@@ -13,8 +13,10 @@ Go Modulesでマルチモジュールにする方法がわからなくて調べ�
 <!-- more -->
 
 ## TL;DR
-- Go Modulesは便利なので使おう
-- Go Modulesでマルチモジュール化する場合はgo.modファイルで`replace`ディレクティブを使おう
+
+- Go Modulesは便利なので使っていこう
+- Go Modulesでマルチモジュール構成にする場合はgo.modファイルで`replace`ディレクティブを使おう
+- マルチモジュール構成の採用には慎重になろう
 
 ## 目次
 <!-- toc -->
@@ -238,7 +240,7 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 
 さて、ここまででマルチモジュール化の方法が分かったわけですが、問題の発端のなぜ自分がマルチプロジェクトにしたかったのかをまだ説明していませんでした。
 
-理由としてはC言語のライブラリをビルドして{% elink cgo https://golang.org/cmd/cgo/ %}で呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただ{% elink 本家のFAQ https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository  %}では一つのリポジトリに一つのモジュールをススメているので、一般的にはマルチモジュールの採用には慎重になったほうがいいと思われます。
+理由としてはC言語のライブラリをビルドして{% elink cgo https://golang.org/cmd/cgo/ %}で呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュール構成になりました。ただ{% elink 本家のFAQ https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository  %}では一つのリポジトリに一つのモジュールをススメているので、一般的にはマルチモジュールの採用には慎重になったほうがいいと思われます。
 
 ## まとめ
 
@@ -246,7 +248,8 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 
 - Go Modulesを使って依存関係を管理する方法
 - パッケージに分割して呼び出す方法
-- マルチモジュール化する方法
+- マルチモジュール構成にする方法
+  - ただし安易にマルチモジュール構成にしないほうがよい
 - Go Home! する方法[^2]
 
 またこの記事を書くために作成したコードは以下に置きました。

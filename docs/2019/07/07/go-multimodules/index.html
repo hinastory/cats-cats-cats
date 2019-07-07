@@ -16,7 +16,7 @@
 <meta property="og:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue.png">
-<meta property="og:updated_time" content="2019-07-07T14:33:05.755Z">
+<meta property="og:updated_time" content="2019-07-07T14:45:34.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go Modulesとマルチモジュール構成でGo Homeする方法">
 <meta name="twitter:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
@@ -182,8 +182,9 @@
             <p>Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単に<code>go.mod</code>がある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。</p>
 <a id="more"></a>
 <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
-<li>Go Modulesは便利なので使おう</li>
-<li>Go Modulesでマルチモジュール化する場合はgo.modファイルで<code>replace</code>ディレクティブを使おう</li>
+<li>Go Modulesは便利なので使っていこう</li>
+<li>Go Modulesでマルチモジュール構成にする場合はgo.modファイルで<code>replace</code>ディレクティブを使おう</li>
+<li>マルチモジュール構成の採用には慎重になろう</li>
 </ul>
 <h2 id="目次"><a href="#目次" class="header-anchor"></a>1. <a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#目次" class="contents-header">1. 目次</a></li><li><a href="#go-modulesとは" class="contents-header">2. Go Modulesとは</a></li><li><a href="#go-modulesで管理を始める" class="contents-header">3. Go Modulesで管理を始める</a><ul><li><a href="#まずは基本のおはようの挨拶から" class="contents-header">3.1. まずは基本のおはようの挨拶から</a></li><li><a href="#おはようの挨拶をパッケージにしてみる" class="contents-header">3.2. おはようの挨拶をパッケージにしてみる</a></li><li><a href="#go-homeしようとして失敗する" class="contents-header">3.3. Go Homeしようとして失敗する</a></li><li><a href="#replaceのおかげでgo-homeに成功する" class="contents-header">3.4. replaceのおかげでGo Homeに成功する</a></li></ul></li><li><a href="#なぜ-マルチモジュール化したかったのか" class="contents-header">4. なぜ、マルチモジュール化したかったのか？</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
 
@@ -228,12 +229,15 @@
 <img src="/cats-cats-cats/gallery/daily/others/go-home.gif" width="500">
 <p>我々はようやく成し遂げたのです（笑）。</p>
 <h2 id="なぜ-マルチモジュール化したかったのか"><a href="#なぜ-マルチモジュール化したかったのか" class="header-anchor"></a>4. <a href="#なぜ、マルチモジュール化したかったのか？" class="headerlink" title="なぜ、マルチモジュール化したかったのか？"></a>なぜ、マルチモジュール化したかったのか？</h2><p>さて、ここまででマルチモジュール化の方法が分かったわけですが、問題の発端のなぜ自分がマルチプロジェクトにしたかったのかをまだ説明していませんでした。</p>
-<p>理由としてはC言語のライブラリをビルドして<a href="https://golang.org/cmd/cgo/" target="_blank" rel="noopener">cgo<i class="fas fa-external-link-alt fa-fw"></i></a>で呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただ<a href="https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository" target="_blank" rel="noopener">本家のFAQ<i class="fas fa-external-link-alt fa-fw"></i></a>では一つのリポジトリに一つのモジュールをススメているので、一般的にはマルチモジュールの採用には慎重になったほうがいいと思われます。</p>
+<p>理由としてはC言語のライブラリをビルドして<a href="https://golang.org/cmd/cgo/" target="_blank" rel="noopener">cgo<i class="fas fa-external-link-alt fa-fw"></i></a>で呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュール構成になりました。ただ<a href="https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository" target="_blank" rel="noopener">本家のFAQ<i class="fas fa-external-link-alt fa-fw"></i></a>では一つのリポジトリに一つのモジュールをススメているので、一般的にはマルチモジュールの採用には慎重になったほうがいいと思われます。</p>
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>5. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事ではGo Modulesにおける「マルチモジュール構成」に焦点を当てて、以下についてストーリ仕立てで解説しました。</p>
 <ul>
 <li>Go Modulesを使って依存関係を管理する方法</li>
 <li>パッケージに分割して呼び出す方法</li>
-<li>マルチモジュール化する方法</li>
+<li>マルチモジュール構成にする方法<ul>
+<li>ただし安易にマルチモジュール構成にしないほうがよい</li>
+</ul>
+</li>
 <li>Go Home! する方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></li>
 </ul>
 <p>またこの記事を書くために作成したコードは以下に置きました。</p>
@@ -1541,7 +1545,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
