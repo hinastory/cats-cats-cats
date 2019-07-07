@@ -16,7 +16,7 @@
 <meta property="og:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue.png">
-<meta property="og:updated_time" content="2019-07-07T06:11:26.942Z">
+<meta property="og:updated_time" content="2019-07-07T06:19:31.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go Modulesとマルチモジュール構成でGo Homeする方法">
 <meta name="twitter:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
@@ -227,15 +227,15 @@
 <p>さて、ビルドできたら<code>./go-multi-modules</code>で実行してみましょう。一瞬Hello Worldが表示されてその後Go Homeが実行されます。</p>
 <img src="/cats-cats-cats/gallery/daily/others/go-home.gif" width="500">
 <h2 id="なぜ-マルチモジュール化したかったのか"><a href="#なぜ-マルチモジュール化したかったのか" class="header-anchor"></a>4. <a href="#なぜ、マルチモジュール化したかったのか？" class="headerlink" title="なぜ、マルチモジュール化したかったのか？"></a>なぜ、マルチモジュール化したかったのか？</h2><p>さて、ここまででマルチモジュール化の方法が分かったわけですが、問題の発端のなぜ自分がマルチプロジェクトにしたかったのかをまだ説明していませんでした。</p>
-<p>理由としてはC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただし一つのリポジトリにマルチモジュールは積極的に採用すべきではないと <a href="https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>にも書いてあるので、採用には慎重になったほうがいいと思われます。</p>
+<p>理由としてはC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただし一つのリポジトリにマルチモジュールは積極的に採用すべきではないと <a href="https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>にも書いてあるので、一般的には採用には慎重になったほうがいいと思われます。</p>
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>5. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事ではGo modulesを使って依存関係を管理する方法とパッケージに分割して呼び出す方法とマルチモジュール化について流れを書いてみました。この記事を書くために作成したコードは以下に置きました。</p>
 <a href="https://github.com/hinastory/go-multi-modules" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/go-multi-modules</div><div class="og-description">Contribute to hinastory/go-multi-modules development by creating an account on GitHub.</div></div></div></a>
-<p>この記事がGo modulesを使ってモジュール管理を始めようという方、マルチモジュールで躓いた方の参考になれば幸いです。</p>
+<p>この記事がGo modulesを使ってモジュール管理を始めようという方、マルチモジュールで躓いた方の参考になれば幸いです<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://blog.golang.org/using-go-modules" target="_blank" rel="noopener">Using Go Modules - The Go Blog<i class="fas fa-external-link-alt fa-fw"></i></a>　(<a href="https://qiita.com/pokeh/items/139d0f1fe56e358ba597" target="_blank" rel="noopener">和訳<i class="fas fa-external-link-alt fa-fw"></i></a>)</li>
 <li><a href="https://github.com/golang/go/wiki/Modules#faqs--multi-module-repositories" target="_blank" rel="noopener">Modules · golang/go Wiki · GitHub<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://budougumi0617.github.io/2019/02/15/go-modules-on-go112/" target="_blank" rel="noopener">Go Modulesの概要とGo1.12に含まれるModulesに関する変更 #golangjp #go112party - My External Storage<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/propella/items/e49bccc88f3cc2407745" target="_blank" rel="noopener">Go Modules<i class="fas fa-external-link-alt fa-fw"></i></a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>pkg</code>ディレクトリはGo Modulesを使う上で必須ではありませんが、ここでは<a href="https://github.com/golang-standards/project-layout" target="_blank" rel="noopener">Goの標準レイアウト</a>を採用しています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div></li>
+<li><a href="https://qiita.com/propella/items/e49bccc88f3cc2407745" target="_blank" rel="noopener">Go Modules<i class="fas fa-external-link-alt fa-fw"></i></a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>pkg</code>ディレクトリはGo Modulesを使う上で必須ではありませんが、ここでは<a href="https://github.com/golang-standards/project-layout" target="_blank" rel="noopener">Goの標準レイアウト</a>を採用しています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Go Homeはネタなので優しくスルーして頂けると幸いです。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div></li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')

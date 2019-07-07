@@ -238,7 +238,7 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 
 さて、ここまででマルチモジュール化の方法が分かったわけですが、問題の発端のなぜ自分がマルチプロジェクトにしたかったのかをまだ説明していませんでした。
 
-理由としてはC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただし一つのリポジトリにマルチモジュールは積極的に採用すべきではないと {% elink ここ https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository  %}にも書いてあるので、採用には慎重になったほうがいいと思われます。
+理由としてはC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただし一つのリポジトリにマルチモジュールは積極的に採用すべきではないと {% elink ここ https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository  %}にも書いてあるので、一般的には採用には慎重になったほうがいいと思われます。
 
 ## まとめ
 
@@ -246,7 +246,9 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 
 {% linkPreview https://github.com/hinastory/go-multi-modules %}
 
-この記事がGo modulesを使ってモジュール管理を始めようという方、マルチモジュールで躓いた方の参考になれば幸いです。
+この記事がGo modulesを使ってモジュール管理を始めようという方、マルチモジュールで躓いた方の参考になれば幸いです[^2]。
+
+[^2]: Go Homeはネタなので優しくスルーして頂けると幸いです。
 
 ## 参考文献
 
