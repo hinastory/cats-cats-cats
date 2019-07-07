@@ -16,7 +16,7 @@
 <meta property="og:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue.png">
-<meta property="og:updated_time" content="2019-07-07T10:50:29.879Z">
+<meta property="og:updated_time" content="2019-07-07T13:48:06.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go Modulesとマルチモジュール構成でGo Homeする方法">
 <meta name="twitter:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
@@ -228,7 +228,7 @@
 <img src="/cats-cats-cats/gallery/daily/others/go-home.gif" width="500">
 <p>我々はようやく成し遂げたのです（笑）。</p>
 <h2 id="なぜ-マルチモジュール化したかったのか"><a href="#なぜ-マルチモジュール化したかったのか" class="header-anchor"></a>4. <a href="#なぜ、マルチモジュール化したかったのか？" class="headerlink" title="なぜ、マルチモジュール化したかったのか？"></a>なぜ、マルチモジュール化したかったのか？</h2><p>さて、ここまででマルチモジュール化の方法が分かったわけですが、問題の発端のなぜ自分がマルチプロジェクトにしたかったのかをまだ説明していませんでした。</p>
-<p>理由としてはC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただし一つのリポジトリにマルチモジュールは積極的に採用すべきではないと <a href="https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>にも書いてあるので、一般的には採用には慎重になったほうがいいと思われます。</p>
+<p>理由としてはC言語のライブラリをビルドして<a href="https://golang.org/cmd/cgo/" target="_blank" rel="noopener">cgo<i class="fas fa-external-link-alt fa-fw"></i></a>で呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただ一つのリポジトリにマルチモジュールは積極的に採用すべきではないと <a href="https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>にも書いてあるので、一般的にはマルチモジュールの採用には慎重になったほうがいいと思われます。</p>
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>5. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事ではGo modulesを使って依存関係を管理する方法とパッケージに分割して呼び出す方法とマルチモジュール化について流れを書いてみました。この記事を書くために作成したコードは以下に置きました。</p>
 <a href="https://github.com/hinastory/go-multi-modules" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/go-multi-modules</div><div class="og-description">Contribute to hinastory/go-multi-modules development by creating an account on GitHub.</div></div></div></a>
 <p>この記事がGo modulesを使ってモジュール管理を始めようという方、マルチモジュールで躓いた方の参考になれば幸いです<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
