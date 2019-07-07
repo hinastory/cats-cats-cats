@@ -87,7 +87,7 @@ go 1.12
 require github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a
 {% endcode %}
 
-また、go.sumというファイルも生成されます。依存関係の管理はgo.modだけでもできますが、これは検査用に必要なようです。詳しくは {% elink ここ https://github.com/golang/go/wiki/Modules#should-i-commit-my-gosum-file-as-well-as-my-gomod-file %}を参照してください。
+また、go.sumというファイルも生成されます。依存関係の管理はgo.modだけでもできますが、`go.sum`は検査用に必要なようです。詳しくは {% elink ここ https://github.com/golang/go/wiki/Modules#should-i-commit-my-gosum-file-as-well-as-my-gomod-file %}を参照してください。
 
 {% code go.sum %}
 github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a h1:kTv7wPomOuRf17BKQKO5Y6GrKsYC52XHrjf26H6FdQU=
@@ -96,7 +96,7 @@ github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a/go.mod 
 
 ### おはようの挨拶をパッケージにしてみる
 
-さて、挨拶は毎日するものです。せっかくなので再利用可能なようにパッケージとして分離してみます。`pkg`ディレクトリを作成し、その下に`hello-world`ディレクトリを作成して、その下に`hello-world.go`ファイルを作成します。ディレクトリ構成は以下の通りです。今回は`helloworld`というパッケージを作成します。
+さて、挨拶は毎日するものです。せっかくなので再利用可能なようにパッケージとして分離してみます。`pkg`ディレクトリを作成し[^1]、その下に`hello-world`ディレクトリを作成して、その下に`hello-world.go`ファイルを作成します。ディレクトリ構成は以下の通りです。今回は`helloworld`というパッケージを作成します。
 
 {% code ディレクトリ構成 %}
 .
@@ -140,6 +140,8 @@ func main() {
 {% endcode %}
 
 `go build`でビルドして`./go-multi-modules`で実行して同じように挨拶ができたら成功です。
+
+[^1]: `pkg`ディレクトリはGo Modulesを使う上で必須ではありませんが、ここでは[Goの標準レイアウト](https://github.com/golang-standards/project-layout)を採用しています。
 
 ### Go Homeしようとして失敗する
 
@@ -234,7 +236,9 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 
 ## なぜ、マルチモジュール化したかったのか？
 
-さて、ここまででマルチモジュール化の方法が分かったわけですが、なぜそうしたかったかと言うとC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。
+さて、ここまででマルチモジュール化の方法が分かったわけですが、問題の発端のなぜ自分がマルチプロジェクトにしたかったのかをまだ説明していませんでした。
+
+理由としてはC言語のライブラリをビルドしてCGOで呼び出すモジュールを書いたのですが、makeでビルドする必要があったのでgitのサブモジュールでローカルに取り込もうとして、必然的にマルチモジュールになりました。ただし一つのリポジトリにマルチモジュールは積極的に採用すべきではないと {% elink ここ https://github.com/golang/go/wiki/Modules#should-i-have-multiple-modules-in-a-single-repository  %}にも書いてあるので、採用には慎重になったほうがいいと思われます。
 
 ## まとめ
 
