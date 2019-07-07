@@ -16,7 +16,7 @@
 <meta property="og:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue2.png">
-<meta property="og:updated_time" content="2019-07-07T21:44:49.846Z">
+<meta property="og:updated_time" content="2019-07-07T22:01:21.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go Modulesとマルチモジュール構成でGo Homeする方法">
 <meta name="twitter:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
@@ -189,11 +189,11 @@
 <h2 id="目次"><a href="#目次" class="header-anchor"></a>1. <a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#目次" class="contents-header">1. 目次</a></li><li><a href="#go-modulesとは" class="contents-header">2. Go Modulesとは</a></li><li><a href="#go-modulesで管理を始める" class="contents-header">3. Go Modulesで管理を始める</a><ul><li><a href="#まずは基本のおはようの挨拶から" class="contents-header">3.1. まずは基本のおはようの挨拶から</a></li><li><a href="#おはようの挨拶をパッケージにしてみる" class="contents-header">3.2. おはようの挨拶をパッケージにしてみる</a></li><li><a href="#go-homeしようとして失敗する" class="contents-header">3.3. Go Homeしようとして失敗する</a></li><li><a href="#replaceのおかげでgo-homeに成功する" class="contents-header">3.4. replaceのおかげでGo Homeに成功する</a></li></ul></li><li><a href="#なぜ-マルチモジュール化したかったのか" class="contents-header">4. なぜ、マルチモジュール化したかったのか？</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
 
 <h2 id="go-modulesとは"><a href="#go-modulesとは" class="header-anchor"></a>2. <a href="#Go-Modulesとは" class="headerlink" title="Go Modulesとは"></a>Go Modulesとは</h2><p>とりあえず、<code>Go Modules is 何？</code>という方の為に簡単に説明します。ご存知の方はこの節を飛ばしてください。</p>
-<p>Go ModulesはGo 1.11から試験的に導入され、Go 1.13からデフォルトで有効になる予定の新しいパッケージ依存関係の管理方法です。使ってみた実感としてはすでに充分実用的なので新規にプロジェクトを作成する場合はGo Modulesを使って作成することをオススメします。Go 1.12はGo Modulesを有効にするためにはGOPATH以外のパスで作業をするか以下で環境変数を設定します。</p>
+<p>Go ModulesはGo 1.11から試験的に導入され、Go 1.13からデフォルトで有効になる予定の新しいパッケージ依存関係の管理方法です。使ってみた実感としてはすでに充分実用的なので新規にプロジェクトを作成する場合はGo Modulesを使って作成することをオススメします。Go 1.12でGo Modulesを有効にするためには、GOPATH以外のパスで作業をするか以下で環境変数を設定します。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">export GO111MODULE=on<br></code></pre></td></tr></tbody></table></figure>
 <p>この記事ではGo 1.12の前提で解説します。</p>
-<h2 id="go-modulesで管理を始める"><a href="#go-modulesで管理を始める" class="header-anchor"></a>3. <a href="#Go-Modulesで管理を始める" class="headerlink" title="Go Modulesで管理を始める"></a>Go Modulesで管理を始める</h2><p>基本はディレクトリを作成して<code>go mod init <モジュール名></モジュール名></code>で始められます、</p>
-<p>$ mkdir go-multi-modules<br>$ cd go-multi-modules<br>$ go mod init go-multi-modules</p>
+<h2 id="go-modulesで管理を始める"><a href="#go-modulesで管理を始める" class="header-anchor"></a>3. <a href="#Go-Modulesで管理を始める" class="headerlink" title="Go Modulesで管理を始める"></a>Go Modulesで管理を始める</h2><p>基本はディレクトリを作成して<code>go mod init <モジュール名></モジュール名></code>で始められます。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ mkdir go-multi-modules<br>$ <span class="hljs-built_in">cd</span> go-multi-modules<br>$ go mod init go-multi-modules<br></code></pre></td></tr></tbody></table></figure>
 <p><code>go.mod</code>というファイルが作成されています。これが依存関係を管理するファイルになります。</p>
 <figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br></code></pre></td></tr></tbody></table></figure>
 <h3 id="まずは基本のおはようの挨拶から"><a href="#まずは基本のおはようの挨拶から" class="header-anchor"></a>3.1. <a href="#まずは基本のおはようの挨拶から" class="headerlink" title="まずは基本のおはようの挨拶から"></a>まずは基本のおはようの挨拶から</h3><p>早速ですが、基本どおり<code>Hello World</code>から初めて見ます。ただし、依存関係を入れるために <a href="https://github.com/common-nighthawk/go-figure" target="_blank" rel="noopener">go-figure<i class="fas fa-external-link-alt fa-fw"></i></a>を利用して挨拶をしてみます。ソースコードは以下の通りです。</p>
