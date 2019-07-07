@@ -64,7 +64,7 @@ func main() {
 }
 {% endcode %}
 
-`go build`をすると依存関係があるパッケージがダウンロードされて、ビルドされます。これだけでもGo Modulesの良さがわかります。`./go-multi-modules`で実行して無事挨拶ができれば成功です。
+`go build`をすると依存関係があるパッケージがダウンロードされて、ビルドされます。事前に`go get`する必要がないので、これだけでもGo Modulesの良さがわかります。`./go-multi-modules`で実行して無事挨拶ができれば成功です。
 
 {% code lang:sh %}
 $ go build
