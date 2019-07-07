@@ -162,14 +162,12 @@ func main() {
         └── hello-world.go // 挨拶パッケージ
 {% endcode %}
 
-`go-home`配下の`go.mod`は以下のようになります。モジュール名以外は親の`go.mod`と同じです。
+`go-home`配下の`go.mod`は以下のようになります。初期化しただけなので`require`はありません。
 
 {% code go.mod %}
 module gohome
 
 go 1.12
-
-require github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a
 {% endcode %}
 
 `home.go`は以下のようになります。
@@ -200,7 +198,7 @@ func main() {
 }
 {% endcode %}
 
-これを`go build`でビルドしようとしたところ以下のようなエラーが出てうまくいきませんでした。どうやらモジュールの読み込みに失敗したようです。
+これをトップディレクトリ(`go-multi-modules`ディレクトリ)で`go build`でビルドしようとしたところ以下のようなエラーが出てうまくいきませんでした。どうやらモジュールの読み込みに失敗したようです。
 
 {% code lang:sh %}
 $ go build
@@ -214,7 +212,7 @@ build go-multi-modules: cannot load go-multi-modules/pkg/go-home: cannot find mo
 `replace go-multi-modules/pkg/go-home => ./pkg/go-home`
 
 `replace`ディレクティブを記述して`go build`をするとビルドが成功します。
-以下は`go build`後の`go.mod`です。依存関係に`go-home`が追加されています
+以下は`go build`後の`go.mod`です。依存関係(`require`)が追加されています。
 
 {% code go.mod %}
 module go-multi-modules
