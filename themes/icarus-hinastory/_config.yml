@@ -100,6 +100,9 @@ widgets:
             RSS:
                 icon: 'fas fa-rss'
                 url: /atom.xml
+            Qiita:
+                icon: 'fas fa-search'
+                url: https://qiita.com/hinastory
     -
         type: toc
         position: left
