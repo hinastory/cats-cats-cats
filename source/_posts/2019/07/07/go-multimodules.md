@@ -265,6 +265,6 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 ## 参考文献
 
 - {% elink Using Go Modules - The Go Blog https://blog.golang.org/using-go-modules %}　({% elink 和訳 https://qiita.com/pokeh/items/139d0f1fe56e358ba597  %})
-- {% elink Modules · golang/go Wiki · GitHub https://github.com/golang/go/wiki/Modules#faqs--multi-module-repositories  %}
+- {% elink Modules · golang/go Wiki · GitHub https://github.com/golang/go/wiki/Module s%oo}
 - {% elink Go Modulesの概要とGo1.12に含まれるModulesに関する変更 #golangjp #go112party - My External Storage https://budougumi0617.github.io/2019/02/15/go-modules-on-go112/  %}
 - {% elink Go Modules https://qiita.com/propella/items/e49bccc88f3cc2407745 %}

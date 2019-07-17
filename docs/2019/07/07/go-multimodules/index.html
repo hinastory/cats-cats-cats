@@ -16,7 +16,7 @@
 <meta property="og:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue2.png">
-<meta property="og:updated_time" content="2019-07-07T22:01:21.248Z">
+<meta property="og:updated_time" content="2019-07-11T18:43:00.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go Modulesとマルチモジュール構成でGo Homeする方法">
 <meta name="twitter:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
@@ -245,8 +245,7 @@
 <p>この記事がGo Modulesを使ってモジュール管理を始めようという方、マルチモジュールで躓いた方の参考になれば幸いです。</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://blog.golang.org/using-go-modules" target="_blank" rel="noopener">Using Go Modules - The Go Blog<i class="fas fa-external-link-alt fa-fw"></i></a>　(<a href="https://qiita.com/pokeh/items/139d0f1fe56e358ba597" target="_blank" rel="noopener">和訳<i class="fas fa-external-link-alt fa-fw"></i></a>)</li>
-<li><a href="https://github.com/golang/go/wiki/Modules#faqs--multi-module-repositories" target="_blank" rel="noopener">Modules · golang/go Wiki · GitHub<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://budougumi0617.github.io/2019/02/15/go-modules-on-go112/" target="_blank" rel="noopener">Go Modulesの概要とGo1.12に含まれるModulesに関する変更 #golangjp #go112party - My External Storage<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/golang/go/wiki/Module" title="s%oo} - {% elink Go Modulesの概要とGo1.12に含まれるModulesに関する変更 #golangjp #go112party - My External Storage https://budougumi0617.github.io/2019/02/15/go-modules-on-go112/" target="_blank" rel="noopener">Modules · golang/go Wiki · GitHub<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://qiita.com/propella/items/e49bccc88f3cc2407745" target="_blank" rel="noopener">Go Modules<i class="fas fa-external-link-alt fa-fw"></i></a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>pkg</code>ディレクトリはGo Modulesを使う上で必須ではありませんが、ここでは<a href="https://github.com/golang-standards/project-layout" target="_blank" rel="noopener">Goの標準レイアウト</a>を採用しています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Go Homeはネタなので優しくスルーして頂けると幸いです。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div></li>
 </ul>
 <script>
@@ -286,6 +285,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/cats-cats-cats/2019/07/17/unscared_qiita/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -344,7 +350,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        21
+                        22
                     </p>
                 </div>
             </div>
@@ -364,7 +370,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        23
+                        24
                     </p>
                 </div>
             </div>
@@ -433,7 +439,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">18</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -465,7 +471,7 @@
                 <span class="level-item">Miscellaneous</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Programming/">
@@ -506,6 +512,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/qiita-text.png" alt="あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-16T22:28:45.000Z">2019-07-17</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="has-link-black-ter is-size-6">あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -587,26 +613,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -617,7 +623,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 10px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 14px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 10px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 14px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
     </div>
 </div>
 
@@ -636,7 +642,7 @@
                     <span class="level-item">2019-07</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -889,6 +895,17 @@
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
                         <span class="level-start">
                             <span class="level-item">Mind</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="level-start">
+                            <span class="level-item">Qiita</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">1</span>
@@ -998,6 +1015,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/qiita-text.png" alt="あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-16T22:28:45.000Z">2019-07-17</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="has-link-black-ter is-size-6">あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/07/07/go-multimodules/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue2.png" alt="Go Modulesとマルチモジュール構成でGo Homeする方法">
@@ -1076,26 +1113,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T23:17:46.000Z">2019-04-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="has-link-black-ter is-size-6">RubyKaigi 2019 in 福岡に参加してきた話</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1106,7 +1123,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 10px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 14px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 10px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 14px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
     </div>
 </div>
 
@@ -1125,7 +1142,7 @@
                     <span class="level-item">2019-07</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1378,6 +1395,17 @@
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
                         <span class="level-start">
                             <span class="level-item">Mind</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="level-start">
+                            <span class="level-item">Qiita</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">1</span>
