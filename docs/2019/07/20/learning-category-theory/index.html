@@ -16,7 +16,7 @@
 <meta property="og:description" content="圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScala">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png">
-<meta property="og:updated_time" content="2019-07-21T12:12:29.195Z">
+<meta property="og:updated_time" content="2019-07-21T22:53:13.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
 <meta name="twitter:description" content="圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScala">
@@ -181,13 +181,13 @@
         <div class="content">
             <p>圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「<code>証明</code>」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「<code>Haskell</code>」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3冊の文献をご紹介したいと思います。</p>
 <a id="more"></a>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#プログラマが圏論を学ぶべき理由" class="contents-header">2. プログラマが圏論を学ぶべき理由</a></li><li><a href="#オンラインで読めるオススメ文献-3選" class="contents-header">3. オンラインで読めるオススメ文献 - 3選</a><ul><li><a href="#category-theory-for-programmers-scala-edition" class="contents-header">3.1. Category Theory for Programmers Scala Edition</a></li><li><a href="#scala-with-cats" class="contents-header">3.2. Scala with Cats</a></li><li><a href="#猫番" class="contents-header">3.3. 猫番</a></li></ul></li><li><a href="#プログラマが圏論で学んでおいたほうがよい概念" class="contents-header">4. プログラマが圏論で学んでおいたほうがよい概念</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#もっと圏論を学びたい人向けのオススメ資料" class="contents-header">6. もっと圏論を学びたい人向けのオススメ資料</a></li></ul></div>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#プログラマが圏論を学ぶべき理由" class="contents-header">2. プログラマが圏論を学ぶべき理由</a></li><li><a href="#オンラインで読めるオススメ文献-3選" class="contents-header">3. オンラインで読めるオススメ文献 - 3選</a><ul><li><a href="#category-theory-for-programmers-scala-edition" class="contents-header">3.1. Category Theory for Programmers Scala Edition</a></li><li><a href="#scala-with-cats" class="contents-header">3.2. Scala with Cats</a></li><li><a href="#猫番" class="contents-header">3.3. 猫番</a></li></ul></li><li><a href="#プログラマが圏論で学んでおいたほうがよい概念" class="contents-header">4. プログラマが圏論で学んでおいたほうがよい概念</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#もっと圏論を学びたい人向けのオンラインで読めるオススメ資料" class="contents-header">6. もっと圏論を学びたい人向けのオンラインで読めるオススメ資料</a></li></ul></div>
 
 <h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は圏論に興味があるScalaプログラマを対象にしています。特にプログラマーにとって実用的な圏論の知識をScalaを通して身につけたい方にオススメします。この記事はあくまでScalaユーザが圏論を身につけるために適した文献の紹介なので、圏論自体の解説は行いませんが文献を読む上でのヒントや道しるべを提供できればと思っています。</p>
 <h2 id="プログラマが圏論を学ぶべき理由"><a href="#プログラマが圏論を学ぶべき理由" class="header-anchor"></a>2. <a href="#プログラマが圏論を学ぶべき理由" class="headerlink" title="プログラマが圏論を学ぶべき理由"></a>プログラマが圏論を学ぶべき理由</h2><p>プログラマが圏論を学ぶべき理由に関しては圏論入門レベルの自分があまり大きなことは言えないので、「Category Theory for Programmers Scala Edition」の序文から３つの文章を引用しようと思います。</p>
-<blockquote><p>category theory is a treasure trove of extremely useful programming ideas.</p>
+<blockquote><p>First, category theory is a treasure trove of extremely useful programming ideas.</p>
 <footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
-<p>(意訳) 圏論はめちゃくちゃ役立つプログラミングのアイデアの宝庫です。</p>
+<p>(意訳) 最初に、圏論はめちゃくちゃ役立つプログラミングのアイデアの宝庫です。</p>
 <blockquote><p>I would go as far as to argue that category theory is the kind of math that is particularly well　suited for the minds of programmers.That’s because category theory — rather than dealing with particulars — deals with structure. It deals with the kind of structure that makes programs composable.</p>
 <footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
 <p>(意訳) 圏論はプログラマーの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを合成可能にする特定の構造を扱います。</p>
@@ -220,6 +220,7 @@
 <p>番号と赤い矢印は自分が書き足したものです。一般の数学書による自然変換の説明だと最後の4番の図のしかも右側の可換図式しか描かれていない場合がほとんどだと思います。しかし本書では一番の図で同じ圏に移す2つの関手<code>F</code>と<code>G</code>が示されて図式が犬と豚に変換されているイメージが描かれています。２番めの図では、自然変換が<code>対象</code>を移すことを示し、3番目の図で対象だけでなく<code>射</code>も移すことを示しています。そして3番目を簡略化したものが4番目の図になることが分かります<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
 <p>このように本書では圏論の概念が豊富な図によって解説されています。またソースコードもHaskellとScalaのコードが一緒に載っていて非常にわかりやすいです。以下の引用は<code>List</code>の長さを示す<code>length</code>関数が自然変換であることの説明に使われているコードです。</p>
 <img src="/cats-cats-cats/gallery/daily/cats/length.png">
+<p><code>length</code>関数は一般的には<code>List[A] => Int</code>の関数で<code>List</code>関手を<code>Int</code>に変換するものですが、<code>Int</code>を定値関手である<code>Const[E, A]</code>に埋め込まれた<code>Const[Int, A]</code>と見做すことでlengthを関手間の変換、つまり自然変換になることを示しています。本書では関手間のパラメトリック多相関数は常に自然変換になることを述べています。</p>
 <p>上記のように本書では一貫してHaskellのコードが青、Scalaのコードが赤で示されており非常にわかりやすくなっています。一般的な圏論のプログラミングへの応用ではHaskellを例に出されることが多いので、このように併記してある文献はHaskellを学びたいScalaプログラマーにとっても嬉しいと思われます。</p>
 <p>最後に本書の内容と構成に関してですが、自分は圏論を学びたいプログラマにとっては非常に秀逸だと思いました。少なくとも数学にはあまり自身がないけどプログラミングに圏論を活かしたいプログラマにとっては必要な概念はほぼ本書で触れられていると思います。</p>
 <p>以下に本書の目次(一部抜粋)を載せておきます<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。また、自分の日本語訳とプログラマとして読んだ方がいい章を5段階評価で★印を付けています。本書を読む参考にしてください。</p>
@@ -724,8 +725,8 @@
 <li><a href="http://eed3si9n.com/herding-cats/ja/index.html" target="_blank" rel="noopener">猫番<i class="fas fa-external-link-alt fa-fw"></i></a>
 </li>
 </ul>
-<p>「猫番」の良いところは前２つの文献と比べて、非常に自由に書かれていて独特な構成になっています。ただ不思議とそれが読みにくいという訳でもなく、著者と一緒に「Cats」や「圏論」を旅をしている気分になれます。もっと気楽に圏論に触れてみたい人や圏論の雰囲気を味わってみたい方はこの文献から読むといいかもしれません。</p>
-<h2 id="プログラマが圏論で学んでおいたほうがよい概念"><a href="#プログラマが圏論で学んでおいたほうがよい概念" class="header-anchor"></a>4. <a href="#プログラマが圏論で学んでおいたほうがよい概念" class="headerlink" title="プログラマが圏論で学んでおいたほうがよい概念"></a>プログラマが圏論で学んでおいたほうがよい概念</h2><p>とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました。これはあくまで数学が苦手な圏論入門者である自分の私見です。</p>
+<p>「猫番」は前二つの文献と比べ非常に自由に書かれていて、独特な構成になっています。ただそれが不思議と読みにくいという訳でもなく、著者と一緒に「Cats」や「圏論」を旅をしている気分になれるところがこの文献の面白いところです。もっと気楽に圏論に触れてみたい人や圏論の雰囲気を味わってみたい方はこの文献から読むといいかもしれません。</p>
+<h2 id="プログラマが圏論で学んでおいたほうがよい概念"><a href="#プログラマが圏論で学んでおいたほうがよい概念" class="header-anchor"></a>4. <a href="#プログラマが圏論で学んでおいたほうがよい概念" class="headerlink" title="プログラマが圏論で学んでおいたほうがよい概念"></a>プログラマが圏論で学んでおいたほうがよい概念</h2><p>とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。これはあくまで数学が苦手な圏論入門者である自分の私見です。</p>
 <ul>
 <li><strong>必ず学んでおきたい</strong><ul>
 <li>圏、関手、自然変換</li>
@@ -774,21 +775,30 @@
 </li>
 </ul>
 <p>本記事がScalaで圏論を学んでみたい方の一助になれば幸いです。</p>
-<h2 id="もっと圏論を学びたい人向けのオススメ資料"><a href="#もっと圏論を学びたい人向けのオススメ資料" class="header-anchor"></a>6. <a href="#もっと圏論を学びたい人向けのオススメ資料" class="headerlink" title="もっと圏論を学びたい人向けのオススメ資料"></a>もっと圏論を学びたい人向けのオススメ資料</h2><p>本記事の趣旨に合わなかったけど、プログラマが圏論を学ぶ上で参考になる資料です。</p>
+<h2 id="もっと圏論を学びたい人向けのオンラインで読めるオススメ資料"><a href="#もっと圏論を学びたい人向けのオンラインで読めるオススメ資料" class="header-anchor"></a>6. <a href="#もっと圏論を学びたい人向けのオンラインで読めるオススメ資料" class="headerlink" title="もっと圏論を学びたい人向けのオンラインで読めるオススメ資料"></a>もっと圏論を学びたい人向けのオンラインで読めるオススメ資料</h2><p>本記事の趣旨に合わなかったけど、プログラマが圏論を学ぶ上で参考になるオススメ資料です。</p>
 <ul>
 <li>プログラマーのための圏論<ul>
-<li>説明がHaskellベースですが非常に分かりやすいです</li>
+<li>説明がHaskellベースですが非常に丁寧で分かりやすいです</li>
 <li><a href="http://bitterharvest.hatenablog.com/entry/2016/11/24/203021" target="_blank" rel="noopener">上<i class="fas fa-external-link-alt fa-fw"></i></a>、<a href="http://bitterharvest.hatenablog.com/entry/2017/03/09/155935" target="_blank" rel="noopener">中<i class="fas fa-external-link-alt fa-fw"></i></a>、<a href="http://bitterharvest.hatenablog.com/entry/2017/10/12/211149" target="_blank" rel="noopener">下<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 </ul>
 </li>
 <li><a href="http://www.phys.cs.is.nagoya-u.ac.jp/~tanimura/lectures/tanimura-category.pdf" target="_blank" rel="noopener">物理学者のための圏論入門<i class="fas fa-external-link-alt fa-fw"></i></a>
 <ul>
 <li>物理学者ではなくても圏論の基本的な概念を理解できる非常にオススメの資料です</li>
+<li>特に<code>普遍射</code>の説明が秀逸で、会社組織の擬えての説明がツボりました</li>
+</ul>
+</li>
+<li><a href="https://www.npca.jp/works/magazine/2013_10/" target="_blank" rel="noopener">圏論によるプログラミングと論理<i class="fas fa-external-link-alt fa-fw"></i></a>
+<ul>
+<li><a href="https://www.npca.jp/works/magazine/" target="_blank" rel="noopener">灘校パソコン研究部の部誌<i class="fas fa-external-link-alt fa-fw"></i></a>(2013年)に掲載されていたものです</li>
+<li>普通に書店に並んでいてもおかしくないボリュームとクオリティです</li>
+<li>圏論だけでなく数学やコンピュータサイエンスの基礎も補完しています</li>
 </ul>
 </li>
 <li><a href="http://alg-d.com/math/kan_extension/" target="_blank" rel="noopener">圏論 | 壱大整域<i class="fas fa-external-link-alt fa-fw"></i></a>
 <ul>
-<li>圏論の概念を本気で理解したくなったらここに駆け込んでください<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">実際には3番と4番の図の間に逆射を持っていた場合の図が挟まっています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">掲載している目次は、「Conclusion」、「Challenges」、「Bibliography」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">この本はもともと「Scalaz」という別のライブラリ向けに書かれていたいものが、Cats向けに書き直されたものです。書き直された当初は「Advanced Scala with Cats」という名前で有償でしたが、無償化されるにあたって「Scala with Cats」という名称に変更され可愛らしい猫の表紙が着きました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">掲載している目次は、「Summary」、「Excecise」、「Solution」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。</span><a href="#fnref:4" rev="footnote"> ↩</a></li></ol></div></div></li>
+<li>圏論の概念を本気で理解したくなったらここに駆け込んでください</li>
+<li>ただしストイックな数学スタイルで書かれているのでプログラマには少し辛いかもしれません<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">実際には3番と4番の図の間に逆射を持っていた場合の図が挟まっています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">掲載している目次は、「Conclusion」、「Challenges」、「Bibliography」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">この本はもともと「Scalaz」という別のライブラリ向けに書かれていたいものが、Cats向けに書き直されたものです。書き直された当初は「Advanced Scala with Cats」という名前で有償でしたが、無償化されるにあたって「Scala with Cats」という名称に変更され可愛らしい猫の表紙が着きました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">掲載している目次は、「Summary」、「Excecise」、「Solution」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">ここで列挙する概念は一般的な圏論に登場する概念から選択しています。プログラミングの文脈で登場する代数的データ型や型クラスは含まれていません。</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div></li>
 </ul>
 </li>
 </ul>

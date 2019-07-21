@@ -26,10 +26,10 @@ date: 2019-07-20 07:28:45
 プログラマが圏論を学ぶべき理由に関しては圏論入門レベルの自分があまり大きなことは言えないので、「Category Theory for Programmers Scala Edition」の序文から３つの文章を引用しようと思います。
 
 {% blockquote Category Theory for Programmers Scala Edition %}
-category theory is a treasure trove of extremely useful programming ideas.
+First, category theory is a treasure trove of extremely useful programming ideas.
 {% endblockquote %}
 
-(意訳) 圏論はめちゃくちゃ役立つプログラミングのアイデアの宝庫です。
+(意訳) 最初に、圏論はめちゃくちゃ役立つプログラミングのアイデアの宝庫です。
 
 {% blockquote Category Theory for Programmers Scala Edition %}
 I would go as far as to argue that category theory is the kind of math that is particularly well　suited for the minds of programmers.That’s because category theory — rather than dealing with particulars — deals with structure. It deals with the kind of structure that makes programs composable.
@@ -71,6 +71,8 @@ Composition is at the very root of category theory — it’s part of the defini
 このように本書では圏論の概念が豊富な図によって解説されています。またソースコードもHaskellとScalaのコードが一緒に載っていて非常にわかりやすいです。以下の引用は`List`の長さを示す`length`関数が自然変換であることの説明に使われているコードです。
 
 {% img /gallery/daily/cats/length.png %}
+
+`length`関数は一般的には`List[A] => Int`の関数で`List`関手を`Int`に変換するものですが、`Int`を定値関手である`Const[E, A]`に埋め込まれた`Const[Int, A]`と見做すことでlengthを関手間の変換、つまり自然変換になることを示しています。本書では関手間のパラメトリック多相関数は常に自然変換になることを述べています。
 
 上記のように本書では一貫してHaskellのコードが青、Scalaのコードが赤で示されており非常にわかりやすくなっています。一般的な圏論のプログラミングへの応用ではHaskellを例に出されることが多いので、このように併記してある文献はHaskellを学びたいScalaプログラマーにとっても嬉しいと思われます。
 
@@ -271,7 +273,6 @@ Composition is at the very root of category theory — it’s part of the defini
 {% enddetails %}
 
 
-
 ### Scala with Cats
 
 次に紹介したいのは「Scala with Cats」です[^3]。{% elink Cats https://typelevel.org/cats/ %}はScalaで関数型プログラミングをサポートするためのライブラリで、主に型クラスを提供しています。この型クラスにはモナド(`Monad`)や関手(`Functor`)も含まれており、圏論をプログラミングに応用する上で重要な役割を果たしています。
@@ -447,11 +448,11 @@ Composition is at the very root of category theory — it’s part of the defini
 
 - {% elink 猫番 http://eed3si9n.com/herding-cats/ja/index.html %}
 
-「猫番」の良いところは前２つの文献と比べて、非常に自由に書かれていて独特な構成になっています。ただ不思議とそれが読みにくいという訳でもなく、著者と一緒に「Cats」や「圏論」を旅をしている気分になれます。もっと気楽に圏論に触れてみたい人や圏論の雰囲気を味わってみたい方はこの文献から読むといいかもしれません。
+「猫番」は前二つの文献と比べ非常に自由に書かれていて、独特な構成になっています。ただそれが不思議と読みにくいという訳でもなく、著者と一緒に「Cats」や「圏論」を旅をしている気分になれるところがこの文献の面白いところです。もっと気楽に圏論に触れてみたい人や圏論の雰囲気を味わってみたい方はこの文献から読むといいかもしれません。
 
 ## プログラマが圏論で学んでおいたほうがよい概念
 
-とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました。これはあくまで数学が苦手な圏論入門者である自分の私見です。
+とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました[^5]。これはあくまで数学が苦手な圏論入門者である自分の私見です。
 
 - **必ず学んでおきたい**
   - 圏、関手、自然変換
@@ -488,6 +489,8 @@ Composition is at the very root of category theory — it’s part of the defini
 
 この言葉の意味は恐らく「必ず学んでおきたい」まで理解できればなんとなく意味が理解できるようになると思われます。さらに圏論にはパワーワード「`全ての概念はKan拡張である`」があって、いつか理解できればいいなと思っています。
 
+[^5]: ここで列挙する概念は一般的な圏論に登場する概念から選択しています。プログラミングの文脈で登場する代数的データ型や型クラスは含まれていません。
+
 ## まとめ
 
 本記事ではプログラマがなぜ圏論を学ぶべきかを説明し、Scalaプログラマが圏論を学ぶ上で有用な以下の３つの文献を紹介しました。
@@ -499,14 +502,20 @@ Composition is at the very root of category theory — it’s part of the defini
 
 本記事がScalaで圏論を学んでみたい方の一助になれば幸いです。
 
-## もっと圏論を学びたい人向けのオススメ資料
+## もっと圏論を学びたい人向けのオンラインで読めるオススメ資料
 
-本記事の趣旨に合わなかったけど、プログラマが圏論を学ぶ上で参考になる資料です。
+本記事の趣旨に合わなかったけど、プログラマが圏論を学ぶ上で参考になるオススメ資料です。
 
 - プログラマーのための圏論
-  - 説明がHaskellベースですが非常に分かりやすいです
+  - 説明がHaskellベースですが非常に丁寧で分かりやすいです
   - {% elink 上 http://bitterharvest.hatenablog.com/entry/2016/11/24/203021　 %}、{% elink 中 http://bitterharvest.hatenablog.com/entry/2017/03/09/155935 %}、{% elink 下 http://bitterharvest.hatenablog.com/entry/2017/10/12/211149 %}
 - {% elink 物理学者のための圏論入門 http://www.phys.cs.is.nagoya-u.ac.jp/~tanimura/lectures/tanimura-category.pdf %}
   - 物理学者ではなくても圏論の基本的な概念を理解できる非常にオススメの資料です
+  - 特に`普遍射`の説明が秀逸で、会社組織の擬えての説明がツボりました
+- {% elink 圏論によるプログラミングと論理 https://www.npca.jp/works/magazine/2013_10/ %}
+  - {% elink 灘校パソコン研究部の部誌 https://www.npca.jp/works/magazine/ %}(2013年)に掲載されていたものです
+  - 普通に書店に並んでいてもおかしくないボリュームとクオリティです
+  - 圏論だけでなく数学やコンピュータサイエンスの基礎も補完しています
 - {% elink 圏論 | 壱大整域 http://alg-d.com/math/kan_extension/ %}
   - 圏論の概念を本気で理解したくなったらここに駆け込んでください
+  - ただしストイックな数学スタイルで書かれているのでプログラマには少し辛いかもしれません
