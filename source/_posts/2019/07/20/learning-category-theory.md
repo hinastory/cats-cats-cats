@@ -451,7 +451,7 @@ Composition is at the very root of category theory — it’s part of the defini
 
 ## プログラマが圏論で学んでおいたほうがよい概念
 
-とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました。これはあくまで圏論入門者である自分の私見です。
+とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました。これはあくまで数学が苦手な圏論入門者である自分の私見です。
 
 - **必ず学んでおきたい**
   - 圏、関手、自然変換
