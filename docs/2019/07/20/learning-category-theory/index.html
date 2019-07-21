@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選 - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="圏論は数学に一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれはプログラマに理解できる言語では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラ">
+<meta name="keywords" content="Scala,CategoryTheory,Cats">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="圏論は数学に一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれはプログラマに理解できる言語では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラ">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png">
+<meta property="og:updated_time" content="2019-07-21T03:45:40.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
+<meta name="twitter:description" content="圏論は数学に一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれはプログラマに理解できる言語では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラ">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2019/07/20/learning-category-theory/" class="media-left">
+                <time datetime="2019-07-19T22:28:45.000Z">2019-07-20</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/CategoryTheory/">CategoryTheory</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Cats/">Cats</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Scala/">Scala</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+               
+            </div>
+        </div>
+        
+
+        <div class="content">
+            <p>圏論は数学に一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれはプログラマに理解できる言語では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3冊の文献をご紹介したいと思います。</p>
+<a id="more"></a>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#プログラマが圏論を学ぶべき理由" class="contents-header">2. プログラマが圏論を学ぶべき理由</a></li><li><a href="#オンラインで読めるオススメ文献-3選" class="contents-header">3. オンラインで読めるオススメ文献 - 3選</a><ul><li><a href="#category-theory-for-programmers-scala-edition" class="contents-header">3.1. Category Theory for Programmers Scala Edition</a></li><li><a href="#scala-with-cats" class="contents-header">3.2. Scala with Cats</a></li><li><a href="#猫番" class="contents-header">3.3. 猫番</a></li></ul></li><li><a href="#プログラマが圏論で学んでおいたほうがよい概念" class="contents-header">4. プログラマが圏論で学んでおいたほうがよい概念</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#もっと圏論を学びたい人向けのオススメ資料" class="contents-header">6. もっと圏論を学びたい人向けのオススメ資料</a></li></ul></div>
+
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は圏論に興味があるScalaプログラマを対象にしています。特にプログラマーにとって実用的な圏論の知識をScalaを通して身につけたい方にオススメします。この記事はあくまでScalaユーザが圏論を身につけるために適した文献の紹介なので、圏論自体の解説は行いませんが文献を読む上でのヒントや道しるべを提供できればと思っています。</p>
+<h2 id="プログラマが圏論を学ぶべき理由"><a href="#プログラマが圏論を学ぶべき理由" class="header-anchor"></a>2. <a href="#プログラマが圏論を学ぶべき理由" class="headerlink" title="プログラマが圏論を学ぶべき理由"></a>プログラマが圏論を学ぶべき理由</h2><p>プログラマが圏論を学ぶべき理由に関しては圏論入門レベルの自分があまり大きなことは言えないので、「Category Theory for Programmers Scala Edition」の序文から３つの文章を引用しようと思います。</p>
+<blockquote><p>category theory is a treasure trove of extremely useful programming ideas.</p>
+<footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
+<p>(意訳) 圏論はめちゃくちゃ役立つプログラミングのアイデアの宝庫です。</p>
+<blockquote><p>I would go as far as to argue that category theory is the kind of math that is particularly well　suited for the minds of programmers.That’s because category theory — rather than dealing with particulars — deals with structure. It deals with the kind of structure that makes programs composable.</p>
+<footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
+<p>(意訳) 圏論はプログラマーの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを構成可能にする特定の構造を扱います。</p>
+<blockquote><p>Composition is at the very root of category theory — it’s part of the definition of the category itself. And I will argue strongly that composition is the essence of programming.</p>
+<footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
+<p>(意訳) 合成は圏論の重要な根幹を成しており、圏自体の定義の一部でもあります。そして合成はプログラミングの本質であると、はっきり述べておこうと思います。</p>
+<h2 id="オンラインで読めるオススメ文献-3選"><a href="#オンラインで読めるオススメ文献-3選" class="header-anchor"></a>3. <a href="#オンラインで読めるオススメ文献-3選" class="headerlink" title="オンラインで読めるオススメ文献 - 3選"></a>オンラインで読めるオススメ文献 - 3選</h2><p>本記事は「Scalaプログラマに適した圏論の文献紹介」という趣旨なので、以下の条件に当てはまる文献を３つに絞って紹介したいと思います。</p>
+<ul>
+<li>圏論の概念(特にモノイド、関手、モナド)に触れている</li>
+<li>Scalaで解説がしてある</li>
+<li>定理の証明が極力載っていない</li>
+<li>オンラインで無料で読める</li>
+</ul>
+<h3 id="category-theory-for-programmers-scala-edition"><a href="#category-theory-for-programmers-scala-edition" class="header-anchor"></a>3.1. <a href="#Category-Theory-for-Programmers-Scala-Edition" class="headerlink" title="Category Theory for Programmers Scala Edition"></a>Category Theory for Programmers Scala Edition</h3><p>まずは前述した「Category Theory for Programmers Scala Edition」を紹介します。</p>
+<ul>
+<li><a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/" target="_blank" rel="noopener">Category Theory for Programmers: The Preface | Bartosz Milewski's Programming Cafe<i class="fas fa-external-link-alt fa-fw"></i></a>
+<ul>
+<li>元のHaskellで書かれたページ</li>
+</ul>
+</li>
+<li><a href="https://github.com/hmemcpy/milewski-ctfp-pdf/releases/tag/v1.2.1" target="_blank" rel="noopener">Category Theory for Programmers Scala Edition<i class="fas fa-external-link-alt fa-fw"></i></a>
+<ul>
+<li>Scalaエディションのダウンロードページ</li>
+<li>上記のページから「category-theory-for-programmers-scala.pdf」をダウンロード</li>
+</ul>
+</li>
+</ul>
+<p>この本はもともとHaskell(と若干のC++)で書かれていた例に、後でScalaの例を付け加えたものになっています。この本の特徴のひとつは豊富な図解とスニペットです。これは具体的に引用して見てもらった方が早と思います。以下は10章の自然変換で使われている4つの図になります。</p>
+<img src="/cats-cats-cats/gallery/daily/cats/natural-transformation.png">
+<p>番号と赤い矢印は自分が書き足したものです。一般の数学書による自然変換の説明だと最後の4番の図のしかも右側の可換図式しか描かれていない場合がほとんどだと思います。しかし本書では一番の図で同じ圏に移す2つの関手<code>F</code>と<code>G</code>が示されて図式が犬と豚に変換されているイメージが描かれています。２番めの図では、自然変換が<code>対象</code>を移すことを示し、3番目の図で対象だけでなく<code>射</code>も移すことを示しています。そして3番目を簡略化したものが4番目の図になることが分かります<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
+<p>このように本書では圏論の概念が豊富な図によって解説されています。またソースコードもHaskellとScalaのコードが一緒に載っていて非常にわかりやすいです。以下の引用は<code>List</code>の長さを示す<code>length</code>関数が自然変換であることの説明に使われているコードです。</p>
+<img src="/cats-cats-cats/gallery/daily/cats/length.png">
+<p>上記のように本書では一貫してHaskellのコードが青、Scalaのコードが赤で示されており非常にわかりやすくなっています。一般的な圏論のプログラミングへの応用ではHaskellを例に出されることが多いので、このように併記してある文献はHaskellを学びたいScalaプログラマーにとっても嬉しいと思われます。</p>
+<p>最後に本書の内容と構成に関してですが、自分は圏論を学びたいプログラマにとっては非常に秀逸だと思いました。少なくとも数学にはあまり自身がないけどプログラミングに圏論を活かしたいプログラマにとっては必要な概念はほぼ本書で触れられていると思います。</p>
+<p>以下に本書の目次(一部抜粋)を載せておきます<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。また、自分の日本語訳とプログラマとして読んだ方がいい章を5段階評価で★印を付けています。本書を読む参考にしてください。</p>
+<details><summary>目次(日本語訳付き)</summary><ul>
+<li>Preface (序文) ★★★★★</li>
+<li>1 Category: The Essence of Composition (圏: 合成の本質) ★★★★★<ul>
+<li>1.1 Arrows as Functions (関数としての矢)</li>
+<li>1.2 Properties of Composition (合成の特性)</li>
+<li>1.3 Composition is the Essence of Programming (合成はプログラミングの本質)</li>
+</ul>
+</li>
+<li>2 Types and Functions (型と関数) ★★★★<ul>
+<li>2.1 Who Needs Types? (なぜ型が必要なのか)</li>
+<li>2.2 Types Are About Composability (型は合成可能性に関係する)</li>
+<li>2.3 What Are Types? (型とは何か？)</li>
+<li>2.4 Why Do We Need a Mathematical Model? (なぜ数学モデルが必要なのか？)</li>
+<li>2.5 Pure and Dirty Functions (純粋と汚い関数)</li>
+<li>2.6 Examples of Types (型の例)</li>
+</ul>
+</li>
+<li>3 Categories Great and Small (圏　大から小まで) ★★<ul>
+<li>3.1 No Objects (対象なし)</li>
+<li>3.2 Simple Graphs (単純なグラフ)</li>
+<li>3.3 Orders (順序)</li>
+<li>3.4 Monoid as Set (集合としてのモノイド)</li>
+<li>3.5 Monoid as Category (圏としてのモノイド)</li>
+</ul>
+</li>
+<li>4 Kleisli Categories (クライスリ圏) ★★★<ul>
+<li>4.1 The Writer Category (ライターの圏)</li>
+<li>4.2 Writer in Haskell (Haskellにおけるライター)</li>
+<li>4.3 Kleisli Categories (クライスリ圏)</li>
+</ul>
+</li>
+<li>5 Products and Coproducts (積と余積) ★★★<ul>
+<li>5.1 Initial Object (始対象)</li>
+<li>5.2 Terminal Object (終対象)</li>
+<li>5.3 Duality (双対)</li>
+<li>5.4 Isomorphisms (同型)</li>
+<li>5.5 Products (積)</li>
+<li>5.6 Coproduct (余積)</li>
+<li>5.7 Asymmetry (非対称)</li>
+</ul>
+</li>
+<li>6 Simple Algebraic Data Types (単純な代数的データ型) ★★★<ul>
+<li>6.1 Product Types (積型)</li>
+<li>6.2 Records (レコード型)</li>
+<li>6.3 Sum Types (和型)</li>
+<li>6.4 Algebra of Types (型の代数)</li>
+</ul>
+</li>
+<li>7 Functors (関手) ★★★★<ul>
+<li>7.1 Functors in Programming (プログラミングにおける関手)<ul>
+<li>7.1.1 The Maybe Functor (Maybe関手)</li>
+<li>7.1.2 Equational Reasoning (等式的推論)</li>
+<li>7.1.3 Optional (オプション)</li>
+<li>7.1.4 Typeclasses (型クラス)</li>
+<li>7.1.5 Functor in C++ (C++における関手)</li>
+<li>7.1.6 The List Functor (List関手)</li>
+<li>7.1.7 The Reader Functor (リーダー関手)</li>
+</ul>
+</li>
+<li>7.2 Functors as Containers (圏としての関手)</li>
+<li>7.3 Functor Composition (関手圏)</li>
+</ul>
+</li>
+<li>8 Functoriality (関手っぽいもの) ★★<ul>
+<li>8.1 Bifunctors (双関手)</li>
+<li>8.2 Product and Coproduct Bifunctors (積と余積双関手)</li>
+<li>8.3 Functorial Algebraic Data Types (関手的代数的データ型)</li>
+<li>8.4 Functors in C++ (C++における関手)</li>
+<li>8.5 The Writer Functor (ライター関手)</li>
+<li>8.6 Covariant and Contravariant Functors (共変と反変関手)</li>
+<li>8.7 Profunctors (プロ関手)</li>
+<li>8.8 The Hom-Functor (ホム関手)</li>
+</ul>
+</li>
+<li>9 Function Types (関数型) ★★★★<ul>
+<li>9.1 Universal Construction (普遍的構成)</li>
+<li>9.2 Currying (カリー化)</li>
+<li>9.3 Exponentials (冪)</li>
+<li>9.4 Cartesian Closed Categories (デカルト閉圏/カルテシアン閉圏)</li>
+<li>9.5 Exponentials and Algebraic Data Types (冪と代数的データ型)<ul>
+<li>9.5.1 Zeroth Power (0乗)</li>
+<li>9.5.2 Powers of One (1の冪乗)<ul>
+<li>9.5.3 First Power (1乗)</li>
+<li>9.5.4 Exponentials of Sums (和の指数)</li>
+<li>9.5.5 Exponentials of Exponentials (冪の指数)</li>
+<li>9.5.6 Exponentials over Products (積の指数)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>9.6 Curry-Howard Isomorphism (カリー・ハワード同型)</li>
+</ul>
+</li>
+<li>10 Natural Transformations (自然変換) ★★★<ul>
+<li>10.1 Polymorphic Functions (多相関数)</li>
+<li>10.2 Beyond Naturality (自然性を超えて)</li>
+<li>10.3 Functor Category (関手圏)</li>
+<li>10.4 2-Categories (2圏)</li>
+</ul>
+</li>
+<li>11 Declarative Programming (宣言的プログラミング) ★★</li>
+<li>12 Limits and Colimits (極限と余極限) ★★<ul>
+<li>12.1 Limit as a Natural Isomorphism (極限と自然変換)</li>
+<li>12.2 Examples of Limits (極限の例)</li>
+<li>12.3 Colimits (余極限)</li>
+<li>12.4 Continuity (連続性)</li>
+</ul>
+</li>
+<li>13 Free Monoids (自由モナド) ★★★<ul>
+<li>13.1 Free Monoid in Haskell (Haskellにおける自由モノイド)</li>
+<li>13.2 Free Monoid Universal Construction (自由モノイドの普遍的構成)</li>
+</ul>
+</li>
+<li>14 Representable Functors (表現可能関手) ★★<ul>
+<li>14.1 The Hom Functor (ホム関手)</li>
+<li>14.2 Representable Functors (表現可能関手)</li>
+</ul>
+</li>
+<li>15 The Yoneda Lemma (米田の補題) ★★<ul>
+<li>15.1 Yoneda in Haskell (Haskellにおける米田)</li>
+<li>15.2 Co-Yoneda (余米田)</li>
+</ul>
+</li>
+<li>16 Yoneda Embedding (米田埋め込み) ★★<ul>
+<li>16.1 The Embedding (埋め込み)</li>
+<li>16.2 Application to Haskell (Haskellへの応用)</li>
+<li>16.3 Preorder Example (前順序の例)</li>
+<li>16.4 Naturality (自然性) ★★</li>
+</ul>
+</li>
+<li>17 It’s All About Morphisms (結局は射が全て) ★★★<ul>
+<li>17.1 Functors (関手)</li>
+<li>17.2 Commuting Diagrams (可換図式)</li>
+<li>17.3 Natural Transformations (自然変換)</li>
+<li>17.4 Natural Isomorphisms (自然同型)</li>
+<li>17.5 Hom-Sets (ホム集合)</li>
+<li>17.6 Hom-Set Isomorphisms　(ホム集合同型)</li>
+<li>17.7 Asymmetry of Hom-Sets (ホム集合の非対称)</li>
+</ul>
+</li>
+<li>18 Adjunctions (随伴) ★★<ul>
+<li>18.1 Adjunction and Unit/Counit Pair (随伴と単位/余単位)</li>
+<li>18.2 Adjunctions and Hom-Sets (随伴とホム集合)</li>
+<li>18.3 Product from Adjunction (随伴から積へ)</li>
+<li>18.4 Exponential from Adjunction (随伴から冪へ)</li>
+</ul>
+</li>
+<li>19 Free/Forgetful Adjunctions (自由/忘却随伴) ★★</li>
+<li>20 Monads: Programmer’s Definition (モナド: プログラマーの定義) ★★★★<ul>
+<li>20.1 The Kleisli Category (クライスリ圏)</li>
+<li>20.2 Fish Anatomy (魚の解剖学)</li>
+<li>20.3 The do Notation (<code>do</code>記法)</li>
+</ul>
+</li>
+<li>21 Monads and Effects (モナドと作用) ★★★<ul>
+<li>21.1 The Problem (問題)</li>
+<li>21.2 The Solution (解決策)<ul>
+<li>21.2.1 Partiality (部分性)</li>
+<li>21.2.2 Nondeterminism (非決定性)</li>
+<li>21.2.3 Read-Only State (読み取りのみの状態)</li>
+<li>21.2.4 Write-Only State (書き取りのみの状態)</li>
+<li>21.2.5 State (状態)</li>
+<li>21.2.6 Exceptions (例外)</li>
+<li>21.2.7 Continuations (継続)</li>
+<li>21.2.8 Interactive Input (対話型の入力)</li>
+<li>21.2.9 Interactive Output (対話型の出力)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>22 Monads Categorically (圏論的なモナド) ★★<ul>
+<li>22.1 Monoidal Categories (モノイダル圏)</li>
+<li>22.2 Monoid in a Monoidal Category (モノイダル圏におけるモノイド)</li>
+<li>22.3 Monads as Monoids (モノイドとしてのモナド)</li>
+<li>22.4 Monads from Adjunctions (随伴としてのモナド)</li>
+</ul>
+</li>
+<li>23 Comonads (余モナド) ★<ul>
+<li>23.1 Programming with Comonads (余モナドでプログラミング)</li>
+<li>23.2 The Product Comonad (積余モナド)</li>
+<li>23.3 Dissecting the Composition (合成の解剖)</li>
+<li>23.4 The Stream Comonad (ストリーム余モナド)</li>
+<li>23.5 Comonad Categorically (圏論的な余モナド)</li>
+<li>23.6 The Store Comonad (ストア余モナド)</li>
+</ul>
+</li>
+<li>24 F-Algebras (F代数) ★★★<ul>
+<li>24.1 Recursion (再帰)</li>
+<li>24.2 Category of F-Algebras (F代数の圏)</li>
+<li>24.3 Natural Numbers (自然数)</li>
+<li>24.4 Catamorphisms (カタモーフィズム)</li>
+<li>24.5 Folds (畳み込み)</li>
+<li>24.6 Coalgebras (余代数)</li>
+</ul>
+</li>
+<li>25 Algebras for Monads (モナドの代数) ★★<ul>
+<li>25.1 T-algebras (T代数)</li>
+<li>25.2 The Kleisli Category (クライスリ圏)</li>
+<li>25.3 Coalgebras for Comonads (余モナドの余代数)</li>
+<li>25.4 Lenses (レンズ)</li>
+</ul>
+</li>
+<li>26 Ends and Coends (エンドと余エンド) ★<ul>
+<li>26.1 Dinatural Transformations (対角化自然変換)</li>
+<li>26.2 Ends (エンド)</li>
+<li>26.3 Ends as Equalizers (等価子としてのエンド)</li>
+<li>26.4 Natural Transformations as Ends (エンドとしての自然変換)</li>
+<li>26.5 Coends (余エンド)</li>
+<li>26.6 Ninja Yoneda Lemma (忍者米田の補題)</li>
+<li>26.7 Profunctor Composition (プロ関手の合成)</li>
+</ul>
+</li>
+<li>27 Kan Extensions (カン拡張) ★<ul>
+<li>27.1 Right Kan Extension (右カン拡張)</li>
+<li>27.2 Kan Extension as Adjunction (随伴としてのカン拡張)</li>
+<li>27.3 Left Kan Extension (左カン拡張)</li>
+<li>27.4 Kan Extensions as Ends (エンドとしてのカン拡張)</li>
+<li>27.5 Kan Extensions in Haskell (Haskellにおけるカン拡張)</li>
+<li>27.6 Free Functor (自由関手)</li>
+</ul>
+</li>
+<li>28 Enriched Categories (豊穣圏) ★<ul>
+<li>28.1 Why Monoidal Category? (なぜ豊穣圏なのか？)</li>
+<li>28.2 Monoidal Category (モノイダル圏)</li>
+<li>28.3 Enriched Category (豊穣圏)</li>
+<li>28.4 Preorders (前順序)</li>
+<li>28.5 Metric Spaces (距離空間)</li>
+<li>28.6 Enriched Functors (豊穣関手)</li>
+<li>28.7 Self Enrichment (自己豊穣化)</li>
+<li>28.8 Relation to 𝟐-Categories (2圏との関係)</li>
+</ul>
+</li>
+<li>29 Topoi (トポス) ★<ul>
+<li>29.1 Subobject Classifier (部分対象分類子)</li>
+<li>29.2 Topos (トポス)</li>
+<li>29.3 Topoi and Logic (トポスと論理)</li>
+</ul>
+</li>
+<li>30 Lawvere Theories (ローヴェア理論) ★<ul>
+<li>30.1 Universal Algebra (普遍代数)</li>
+<li>30.2 Lawvere Theories (ローヴェア理論)</li>
+<li>30.3 Models of Lawvere Theories (ローヴェア理論のモデル)</li>
+<li>30.4 The Theory of Monoids (モノイドの理論)</li>
+<li>30.5 Lawvere Theories and Monads (ローヴェア理論とモナド)</li>
+<li>30.6 Monads as Coends (余エンドとしてのモナド)</li>
+<li>30.7 Lawvere Theory of Side Effects(副作用のローヴェア理論)</li>
+</ul>
+</li>
+<li>31 Monads, Monoids, and Categories (モナドとモノイドと圏) ★★<ul>
+<li>31.1 Bicategories (双圏)</li>
+<li>31.2 Monads (モナド)</li>
+</ul>
+</li>
+</ul>
+</details>
+<h3 id="scala-with-cats"><a href="#scala-with-cats" class="header-anchor"></a>3.2. <a href="#Scala-with-Cats" class="headerlink" title="Scala with Cats"></a>Scala with Cats</h3><p>次に紹介したいのは「Scala with Cats」です<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。<a href="https://typelevel.org/cats/" target="_blank" rel="noopener">Cats<i class="fas fa-external-link-alt fa-fw"></i></a>はScalaで関数型プログラミングをサポートするためのライブラリで、主に型クラスを提供しています。この型クラスにはモナド(<code>Monad</code>)や関手(<code>Functor</code>)も含まれており、圏論をプログラミングに応用する上で重要な役割を果たしています。</p>
+<ul>
+<li><a href="https://underscore.io/books/scala-with-cats/" target="_blank" rel="noopener">Scala with Cats<i class="fas fa-external-link-alt fa-fw"></i></a>
+</li>
+</ul>
+<p>この本の特色は「<code>型チャート</code>」が豊富に載っていることです。Scalaの型は圏論においては<code>対象</code>や<code>関手</code>や<code>モナド</code>だったり様々ですが、それらの変換の様子が図に表されているので非常に分かりやすくなっています。以下に引用は反変関手の型チャートになります。</p>
+<img src="/cats-cats-cats/gallery/daily/cats/contramap.png">
+<p>本書の構成で秀逸なのは、型クラスの説明に留まらず「Case Study(事例)」と「Solution(答え)」が載っていることです。Case Studyには、具体的のどのようなケースで型クラスを使えばいいかが載っています。「Solution」には、各章に豊富に散りばめられた「Excesise」の答えが載っています。従って本書を読むことで圏論の一部を「実務」でも応用できるようになると思います。</p>
+<p>以下に本書の目次(一部抜粋)を載せておきます<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。また、自分の日本語訳付けていますが・・・途中で力尽きました。本書を読む参考にしてください。</p>
+<details><summary>目次(日本語訳付き)</summary><ul>
+<li>1 Introduction (はじめに)<ul>
+<li>1.1 Anatomy of a Type Class (型クラスの解剖学)<ul>
+<li>1.1.1 The Type Class (型クラス)</li>
+<li>1.1.2 Type Class Instances (型クラスインスタンス)</li>
+<li>1.1.3 Type Class Interfaces (型クラスインタフェース)</li>
+</ul>
+</li>
+<li>1.2 Working with Implicits (暗黙と働く)<ul>
+<li>1.2.1 Packaging Implicits (暗黙のパッケージ)</li>
+<li>1.2.2 Implicit Scope (暗黙のスコープ)</li>
+<li>1.2.3 Recursive Implicit Resoluton (再帰的な暗黙の解決)</li>
+</ul>
+</li>
+<li>1.3 Exercise: Printable Library (練習: 印字可能ライブラリ)</li>
+<li>1.4 Meet Cats (Catsとの邂逅)<ul>
+<li>1.4.1 Importing Type Classes (型クラスのインポート)</li>
+<li>1.4.2 Importing Default Instances (デフォルトインスタンスのインポート)</li>
+<li>1.4.3 Importing Interface Syntax (インタフェース構文のインポート)</li>
+<li>1.4.4 Importing All The Things! (全てをインポート!)</li>
+<li>1.4.5 Defining Custom Instances (カスタムインスタンスを定義する)</li>
+</ul>
+</li>
+<li>1.5 Example: Eq (例: <code>Eq</code>)<ul>
+<li>1.5.1 Equality, Liberty, and Fraternity (等値性、自由、友愛)</li>
+<li>1.5.2 Comparing Ints (<code>Int</code>の比較)</li>
+<li>1.5.3 Comparing Options (<code>Option</code>の比較)</li>
+<li>1.5.4 Comparing Custom Types (カスタム型の比較)</li>
+</ul>
+</li>
+<li>1.6 Controlling Instance Selection (インスタンス選択の制御)<ul>
+<li>1.6.1 Variance (変位)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2 Monoids and Semigroups (モノイドと半群)<ul>
+<li>2.1 Definition of a Monoid (モノイドの定義)</li>
+<li>2.2 Definition of a Semigroup (半群の定義)</li>
+<li>2.3 Exercise: The Truth About Monoids (モナドの真実)</li>
+<li>2.4 Exercise: All Set for Monoids (モノイドの全ての集合)</li>
+<li>2.5 Monoids in Cats (Catsにおけるモノイド)<ul>
+<li>2.5.1 The Monoid Type Class (モノイド型クラス)</li>
+<li>2.5.2 Monoid Instances (モノイドインタンス)</li>
+<li>2.5.3 Monoid Syntax (モノイド構文)</li>
+</ul>
+</li>
+<li>2.6 Applications of Monoids (モノイドの応用)<ul>
+<li>2.6.1 Big Data (ビッグデータ)</li>
+<li>2.6.2 Distributed Systems (分散システム)</li>
+<li>2.6.3 Monoids in the Small (小さな世界におけるモノイド)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3 Functors (関手)<ul>
+<li>3.1 Examples of Functors (関手の例)</li>
+<li>3.2 More Examples of Functors (関手のさらなる例)</li>
+<li>3.3 Definition of a Functor (関手の定義)</li>
+<li>3.4 Aside: Higher Kinds and Type Constructors (寄り道: 高カインドと型コンストラクタ)</li>
+<li>3.5 Functors in Cats (Catsにおける関手)<ul>
+<li>3.5.1 The Functor Type Class (関手型クラス)</li>
+<li>3.5.2 Functor Syntax (関手構文)</li>
+<li>3.5.3 Instances for Custom Types (カスタム型のインスタンス)</li>
+</ul>
+</li>
+<li>3.6 Contravariant and Invariant Functors (反変・不変関手)<ul>
+<li>3.6.1 Contravariant Functors and the contramap Method (反変関手と<code>contramap</code>メソッド)</li>
+<li>3.6.2 Invariant functors and the imap method(不変関手と<code>imap</code>)</li>
+</ul>
+</li>
+<li>3.7 Contravariant and Invariant in Cats (Catsにおける<code>Contravariant</code>と<code>Invariant</code>)<ul>
+<li>3.7.1 Contravariant in Cats (Catsにおける<code>Contravariant</code>)</li>
+<li>3.7.2 Invariant in Cats (Catsにおける<code>Invariant</code>)</li>
+</ul>
+</li>
+<li>3.8 Aside: Partial Unification (寄り道: 部分的ユニフィケーション)<ul>
+<li>3.8.1 Unifying Type Constructors (型コンストラクタの結合)</li>
+<li>3.8.2 Left-to-Right Elimination (左から右への削除)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4 Monads (モナド)<ul>
+<li>4.1 What is a Monad? (モナドとは何か)<ul>
+<li>4.1.1 Definition of a Monad (モナドの定義)</li>
+</ul>
+</li>
+<li>4.2 Monads in Cats (Catsにおけるモナド)<ul>
+<li>4.2.1 The Monad Type Class(モナド型クラス)</li>
+<li>4.2.2 Default Instances(デフォルトインスタンス)</li>
+<li>4.2.3 Monad Syntax(モナド構文)</li>
+</ul>
+</li>
+<li>4.3 The Identity Monad(恒等モナド)</li>
+<li>4.4 Either (<code>Either</code>)<ul>
+<li>4.4.1 Left and Right Bias (左右バイアス)</li>
+<li>4.4.2 Creating Instances (インスタンスの作成)</li>
+<li>4.4.3 Transforming Eithers (<code>Either</code>への変換)</li>
+<li>4.4.4 Error Handling (エラーハンドリング)</li>
+</ul>
+</li>
+<li>4.5 Aside: Error Handling and MonadError (寄り道: エラーハンドリングと<code>MonadError</code>)<ul>
+<li>4.5.1 The MonadError Type Class (<code>MonadError</code>型クラス)</li>
+<li>4.5.2 Raising and Handling Errors (エラーの投げ方とハンドリングの仕方)</li>
+<li>4.5.3 Instances of MonadError (<code>MonadError</code>のインスタンス)</li>
+</ul>
+</li>
+<li>4.6 The Eval Monad (<code>Eval</code>モナド)<ul>
+<li>4.6.1 Eager, Lazy, Memoized, Oh My! (熱心、怠惰、メモ化、オッ!)</li>
+<li>4.6.2 Eval’s Models of Evaluation (<code>Eval</code>の評価モデル)</li>
+<li>4.6.3 Eval as a Monad (モナドとしての<code>Eval</code>)</li>
+<li>4.6.4 Trampolining and Eval.defer (トランポリンと<code>Eval.defer</code>)</li>
+</ul>
+</li>
+<li>4.7 The Writer Monad (<code>Writer</code>モナド)<ul>
+<li>4.7.1 Creating and Unpacking Writers (<code>Writer</code>の作成と開封)</li>
+<li>4.7.2 Composing and Transforming Writers ((<code>Writer</code>の合成と変換))</li>
+</ul>
+</li>
+<li>4.8 The Reader Monad (<code>Reader</code>モナド)<ul>
+<li>4.8.1 Creating and Unpacking Readers (<code>Reader</code>の作成と開封)</li>
+<li>4.8.2 Composing Readers (<code>Reader</code>の合成)</li>
+<li>4.8.3 Exercise: Hacking on Readers　(練習: <code>Reader</code>でハッキング)</li>
+<li>4.8.4 When to Use Readers? (いつ<code>Reader</code>を使うか？)</li>
+</ul>
+</li>
+<li>4.9 The State Monad (<code>State</code>モナド)<ul>
+<li>4.9.1 Creating and Unpacking State (<code>State</code>の作成と開封)</li>
+<li>4.9.2 Composing and Transforming State (<code>State</code>の合成と変換)</li>
+</ul>
+</li>
+<li>4.10 Defining Custom Monads (カスタムモナドの定義)</li>
+</ul>
+</li>
+<li>5 Monad Transformers (モナド変換子)<ul>
+<li>5.1 Exercise: Composing Monads (練習: モナドの合成)</li>
+<li>5.2 A Transformative Example (変換的な例)</li>
+<li>5.3 Monad Transformers in Cats (Catsにおけるモナド変換子)<ul>
+<li>5.3.1 The Monad Transformer Classes (モナド変換子クラス)</li>
+<li>5.3.2 Building Monad Stacks (モナドスタックの構築)</li>
+<li>5.3.3 Constructing and Unpacking Instances (インスタンスの構成と開封)</li>
+<li>5.3.4 Default Instances (デフォルトインスタンス)</li>
+<li>5.3.5 Usage Patterns (利用パターン)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>6 Semigroupal and Applicative (半群とアプリカティブ)<ul>
+<li>6.1 Semigroupal (<code>Semigroupal</code>)<ul>
+<li>6.1.1 Joining Two Contexts (2つのコンテキストの結合)</li>
+<li>6.1.2 Joining Three or More Contexts (3つ以上のコンテキストの結合)</li>
+</ul>
+</li>
+<li>6.2 Apply Syntax (<code>Apply</code>構文)</li>
+<li>6.2.1 Fancy Functors and Apply Syntax (面白い<code>Functor</code>と<code>Apply</code>構文)</li>
+<li>6.3 Semigroupal Applied to Different Types (<code>Semigroupal</code>の異なる型への適用)<ul>
+<li>6.3.1 Semigroupal Applied to Monads (<code>Semigroupal</code>のモナドへの適用)</li>
+<li>6.4 Validated (<code>Validated</code>)</li>
+</ul>
+</li>
+<li>6.4.1 Creating Instances of Validated (<code>Validated</code>のインスタンス作成)</li>
+<li>6.4.2 Combining Instances of Validated (<code>Validated</code>のインスタンス結合)</li>
+<li>6.4.3 Methods of Validated (<code>Validated</code>のメソッド)<ul>
+<li>6.5 Apply and Applicative (<code>Apply</code>と<code>Applicative</code>)</li>
+</ul>
+</li>
+<li>6.5.1 The Hierarchy of Sequencing Type Classes (列型クラスの階層)</li>
+</ul>
+</li>
+<li>7 Foldable and Traverse (<code>Foldable</code>と<code>Traverse</code>)<ul>
+<li>7.1 Foldable (<code>Foldable</code>)<ul>
+<li>7.1.1 Folds and Folding</li>
+<li>7.1.2 Exercise: Reflecting on Folds</li>
+<li>7.1.3 Exercise: Scaf-fold-ing Other Methods</li>
+<li>7.1.4 Foldable in Cats</li>
+</ul>
+</li>
+<li>7.2 Traverse<ul>
+<li>7.2.1 Traversing with Futures</li>
+<li>7.2.2 Traversing with Applicatives</li>
+<li>7.2.3 Traverse in Cats</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>8 Case Study: Testing Asynchronous Code (事例: 非同期コードのテスト)<ul>
+<li>8.1 Abstracting over Type Constructors</li>
+<li>8.2 Abstracting over Monads</li>
+</ul>
+</li>
+<li>9 Case Study: Map-Reduce (事例: Map-Reduce)<ul>
+<li>9.1 Parallelizing map and fold</li>
+<li>9.2 Implementing foldMap</li>
+<li>9.3 Parallelising foldMap<ul>
+<li>9.3.1 Futures, Thread Pools, and Execu􀦞onContexts</li>
+<li>9.3.2 Dividing Work</li>
+<li>9.3.3 Implementing parallelFoldMap</li>
+<li>9.3.4 parallelFoldMap with more Cats</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>10 Case Study: Data Validation (事例: データバリデーション)<ul>
+<li>10.1 Sketching the Library Structure</li>
+<li>10.2 The Check Datatype</li>
+<li>10.3 Basic Combinators</li>
+<li>10.4 Transforming Data<ul>
+<li>10.4.1 Predicates</li>
+<li>10.4.2 Checks</li>
+</ul>
+</li>
+<li>10.5 Kleislis</li>
+</ul>
+</li>
+<li>11 Case Study: CRDTs (事例: CRDT)<ul>
+<li>11.1 Eventual Consistency</li>
+<li>11.2 The GCounter</li>
+<li>11.2.1 Simple Counters<ul>
+<li>11.2.2 GCounters</li>
+</ul>
+</li>
+<li>11.3 Generalisation<ul>
+<li>11.3.1 Implementation</li>
+</ul>
+</li>
+<li>11.4 Abstracting GCounter to a Type Class</li>
+<li>11.5 Abstracting a Key Value Store</li>
+</ul>
+</li>
+</ul>
+</details>
+<h3 id="猫番"><a href="#猫番" class="header-anchor"></a>3.3. <a href="#猫番" class="headerlink" title="猫番"></a>猫番</h3><p>最後に紹介したいのが「猫番」です。紹介する中では唯一の日本語で読める文献です。現在は「O日目」から「17日目」まで公開されており、著者が「Cats」を使って理解していく過程が記録されています。後半はより「圏論」の説明に移っています。</p>
+<ul>
+<li><a href="http://eed3si9n.com/herding-cats/ja/index.html" target="_blank" rel="noopener">猫番<i class="fas fa-external-link-alt fa-fw"></i></a>
+</li>
+</ul>
+<p>「猫番」の良いところは前２つの文献と比べて、非常に自由に書かれていて独特な構成になっています。ただ不思議とそれが読みにくいという訳でもなく、著者と一緒に「Cats」や「圏論」を旅をしている気分になれます。もっと気楽に圏論に触れてみたい人や圏論の雰囲気を味わってみたい方はこの文献から読むといいかもしれません。</p>
+<h2 id="プログラマが圏論で学んでおいたほうがよい概念"><a href="#プログラマが圏論で学んでおいたほうがよい概念" class="header-anchor"></a>4. <a href="#プログラマが圏論で学んでおいたほうがよい概念" class="headerlink" title="プログラマが圏論で学んでおいたほうがよい概念"></a>プログラマが圏論で学んでおいたほうがよい概念</h2><p>とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました。これはあくまで圏論入門者である自分の私見です。</p>
+<ul>
+<li><strong>必ず学んでおきたい</strong><ul>
+<li>圏、関手、自然変換</li>
+<li>集合の圏(Sets)、圏の圏(Cat)、関手圏</li>
+<li>半群、モノイド</li>
+<li>モナド、クライスリ圏</li>
+<li>普遍的構成（普遍性）</li>
+</ul>
+</li>
+<li><strong>できれば学んでおきたい</strong><ul>
+<li>積、余積</li>
+<li>同型</li>
+<li>双対</li>
+<li>冪、デカルト閉圏</li>
+<li>モノイダル圏</li>
+<li>自由モノイド、自由モナド</li>
+<li>F代数、T代数</li>
+</ul>
+</li>
+<li><strong>余力があれば学んでおきたい</strong><ul>
+<li>ホム関手、表現可能関手</li>
+<li>米田の補題、米田埋め込み</li>
+<li>極限と余極限</li>
+<li>随伴</li>
+<li>カリー＝ハワード同型対応</li>
+</ul>
+</li>
+<li><strong>興味があれば学んだ方が良い</strong><ul>
+<li>エンド</li>
+<li>カン拡張  ← <code>全ての概念</code></li>
+<li>豊穣圏</li>
+<li>トポス</li>
+<li>ローヴェア理論</li>
+</ul>
+</li>
+</ul>
+<p>圏論は非常に多くの概念が出てくるので無理せず少しずつ消化していくのが良いと思われます。自分が圏論に興味を持ち始めたのは「モナド」に出会ってからでした。以下の言葉の意味を知りたくて圏論を始めたのがきっかけです。</p>
+<blockquote><p>モナドは単なる自己関手の圏におけるモノイド対象だよ。何か問題でも？</p>
+<footer><strong>フィリップ・ワドラー</strong></footer></blockquote>
+<p>この言葉の意味は恐らく「必ず学んでおきたい」まで理解できればなんとなく意味が理解できるようになると思われます。さらに圏論にはパワーワード「<code>全ての概念はKan拡張である</code>」があって、いつか理解できればいいなと思っています。</p>
+<h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>5. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事ではプログラマがなぜ圏論を学ぶべきかを説明し、Scalaプログラマが圏論を学ぶ上で有用な以下の３つの文献を紹介しました。</p>
+<ul>
+<li><a href="https://github.com/hmemcpy/milewski-ctfp-pdf/releases/tag/v1.2.1" target="_blank" rel="noopener">Category Theory for Programmers Scala Edition<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://underscore.io/books/scala-with-cats/" target="_blank" rel="noopener">Scala with Cats<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="http://eed3si9n.com/herding-cats/ja/index.html" target="_blank" rel="noopener">猫番<i class="fas fa-external-link-alt fa-fw"></i></a>
+</li>
+</ul>
+<p>本記事がScalaで圏論を学んでみたい方の一助になれば幸いです。</p>
+<h2 id="もっと圏論を学びたい人向けのオススメ資料"><a href="#もっと圏論を学びたい人向けのオススメ資料" class="header-anchor"></a>6. <a href="#もっと圏論を学びたい人向けのオススメ資料" class="headerlink" title="もっと圏論を学びたい人向けのオススメ資料"></a>もっと圏論を学びたい人向けのオススメ資料</h2><p>本記事の趣旨に合わなかったけど、プログラマが圏論を学ぶ上で参考になる資料です。</p>
+<ul>
+<li>プログラマーのための圏論<ul>
+<li>説明がHaskellベースですが非常に分かりやすいです</li>
+<li><a href="http://bitterharvest.hatenablog.com/entry/2016/11/24/203021" target="_blank" rel="noopener">上<i class="fas fa-external-link-alt fa-fw"></i></a>、<a href="http://bitterharvest.hatenablog.com/entry/2017/03/09/155935" target="_blank" rel="noopener">中<i class="fas fa-external-link-alt fa-fw"></i></a>、<a href="http://bitterharvest.hatenablog.com/entry/2017/10/12/211149" target="_blank" rel="noopener">下<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+</ul>
+</li>
+<li><a href="http://www.phys.cs.is.nagoya-u.ac.jp/~tanimura/lectures/tanimura-category.pdf" target="_blank" rel="noopener">物理学者のための圏論入門<i class="fas fa-external-link-alt fa-fw"></i></a>
+<ul>
+<li>物理学者ではなくても圏論の基本的な概念を理解できる非常にオススメの資料です</li>
+</ul>
+</li>
+<li><a href="http://alg-d.com/math/kan_extension/" target="_blank" rel="noopener">圏論 | 壱大整域<i class="fas fa-external-link-alt fa-fw"></i></a>
+<ul>
+<li>圏論の概念を本気で理解したくなったらここに駆け込んでください<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">実際には3番と4番の図の間に逆射を持っていた場合の図が挟まっています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">掲載している目次は、「Conclusion」、「Challenges」、「Bibliography」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">この本はもともと「Scalaz」という別のライブラリ向けに書かれていたいものが、Cats向けに書き直されたものです。書き直された当初は「Advanced Scala with Cats」という名前で有償でしたが、無償化されるにあたって「Scala with Cats」という名称に変更され可愛らしい猫の表紙が着きました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">掲載している目次は、「Summary」、「Excecise」、「Solution」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。</span><a href="#fnref:4" rev="footnote"> ↩</a></li></ol></div></div></li>
+</ul>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/07/17/unscared_qiita/">
+                <span class="level-item">あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-01.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-30</div><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark">全プログラマに捧ぐ！図解「パターンマッチ」</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-24</div><a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" rel="bookmark">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-04</div><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark">ScalaMatsuri 2019に参加してきました</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        23
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        10
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        26
+                    </p>
+                </div>
+            </div>
+        </nav>
+
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Qiita" href="https://qiita.com/hinastory">
+                
+                <i class="fas fa-search"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">19</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Engineering/">
+            <span class="level-start">
+                <span class="level-item">Engineering</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Tool/">
+            <span class="level-start">
+                <span class="level-item">Tool</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/20/learning-category-theory/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-19T22:28:45.000Z">2019-07-20</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/20/learning-category-theory/" class="has-link-black-ter is-size-6">Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/qiita-text.png" alt="あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-16T22:28:45.000Z">2019-07-17</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="has-link-black-ter is-size-6">あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/07/go-multimodules/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue2.png" alt="Go Modulesとマルチモジュール構成でGo Homeする方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-06T22:28:45.000Z">2019-07-07</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/07/go-multimodules/" class="has-link-black-ter is-size-6">Go Modulesとマルチモジュール構成でGo Homeする方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png" alt="ScalaMatsuri 2019に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-03T22:28:45.000Z">2019-07-04</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="has-link-black-ter is-size-6">ScalaMatsuri 2019に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/05/11/mindfulness/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/mindfulness.png" alt="「エンジニアの心を整える技術」が予想以上に「技術書」だった件">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T00:48:16.000Z">2019-05-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/05/11/mindfulness/" class="has-link-black-ter is-size-6">「エンジニアの心を整える技術」が予想以上に「技術書」だった件</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Engineering/">Engineering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            
+<div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 10px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019-07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019-05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019-03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="level-start">
+                            <span class="level-item">Algorithm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
+                        <span class="level-start">
+                            <span class="level-item">Book</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="level-start">
+                            <span class="level-item">CategoryTheory</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
+                        <span class="level-start">
+                            <span class="level-item">Cats</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="level-start">
+                            <span class="level-item">Dotty</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
+                        <span class="level-start">
+                            <span class="level-item">Event</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">6</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
+                        <span class="level-start">
+                            <span class="level-item">GCP</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
+                        <span class="level-start">
+                            <span class="level-item">Go</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="level-start">
+                            <span class="level-item">MachineLearning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
+                        <span class="level-start">
+                            <span class="level-item">Mind</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="level-start">
+                            <span class="level-item">Qiita</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
+                        <span class="level-start">
+                            <span class="level-item">Scala</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
+                        <span class="level-start">
+                            <span class="level-item">html5</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/20/learning-category-theory/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-19T22:28:45.000Z">2019-07-20</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/20/learning-category-theory/" class="has-link-black-ter is-size-6">Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/qiita-text.png" alt="あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-16T22:28:45.000Z">2019-07-17</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/17/unscared_qiita/" class="has-link-black-ter is-size-6">あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/07/go-multimodules/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue2.png" alt="Go Modulesとマルチモジュール構成でGo Homeする方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-06T22:28:45.000Z">2019-07-07</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/07/go-multimodules/" class="has-link-black-ter is-size-6">Go Modulesとマルチモジュール構成でGo Homeする方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png" alt="ScalaMatsuri 2019に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-03T22:28:45.000Z">2019-07-04</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="has-link-black-ter is-size-6">ScalaMatsuri 2019に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/05/11/mindfulness/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/mindfulness.png" alt="「エンジニアの心を整える技術」が予想以上に「技術書」だった件">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T00:48:16.000Z">2019-05-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/05/11/mindfulness/" class="has-link-black-ter is-size-6">「エンジニアの心を整える技術」が予想以上に「技術書」だった件</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Engineering/">Engineering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 10px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019-07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019-05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019-03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="level-start">
+                            <span class="level-item">Algorithm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
+                        <span class="level-start">
+                            <span class="level-item">Book</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="level-start">
+                            <span class="level-item">CategoryTheory</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
+                        <span class="level-start">
+                            <span class="level-item">Cats</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="level-start">
+                            <span class="level-item">Dotty</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
+                        <span class="level-start">
+                            <span class="level-item">Event</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">6</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
+                        <span class="level-start">
+                            <span class="level-item">GCP</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
+                        <span class="level-start">
+                            <span class="level-item">Go</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="level-start">
+                            <span class="level-item">MachineLearning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
+                        <span class="level-start">
+                            <span class="level-item">Mind</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="level-start">
+                            <span class="level-item">Qiita</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
+                        <span class="level-start">
+                            <span class="level-item">Scala</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
+                        <span class="level-start">
+                            <span class="level-item">html5</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2019 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/cats-cats-cats/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>

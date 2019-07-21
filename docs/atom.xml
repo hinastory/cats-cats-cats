@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-07-17T21:04:51.108Z</updated>
+  <updated>2019-07-21T03:45:40.525Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/</id>
+    <published>2019-07-19T22:28:45.000Z</published>
+    <updated>2019-07-21T03:45:40.525Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;圏論は数学に一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれはプログラマに理解できる言語では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3冊の文献をご紹介したいと思います。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="CategoryTheory" scheme="https://hinastory.github.io/cats-cats-cats/tags/CategoryTheory/"/>
+    
+      <category term="Cats" scheme="https://hinastory.github.io/cats-cats-cats/tags/Cats/"/>
+    
+  </entry>
   
   <entry>
     <title>あの頃の自分に読ませたい「怖くないQiita」をQiitaに書きました</title>
@@ -137,9 +164,9 @@
       <category term="Programming" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Programming/"/>
     
     
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
       <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
     
   </entry>
   
@@ -329,13 +356,13 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
-    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
     
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
+    
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
     
@@ -538,39 +565,6 @@
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
     
       <category term="ErgoDash" scheme="https://hinastory.github.io/cats-cats-cats/tags/ErgoDash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>気が付いたら本棚がキーボード棚に変わっていた話</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2018/12/12/keyboard/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2018/12/12/keyboard/</id>
-    <published>2018-12-11T22:32:37.000Z</published>
-    <updated>2019-01-05T22:57:58.673Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;この記事は自作キーボード #2 Advent Calendar 2018 12日目の記事です。自分はゆるふわでキーボードを楽しみたい勢なので、カジュアルにキーボードを楽しむ方法について書いてみたいと思います。&lt;br&gt;ガチなモノ作りの記事はすでに多くの人が書かれていると思うので、その途中で箸休め的に読んでいただけると幸いです。&lt;/p&gt;
-&lt;a href=&quot;https://adventar.org/calendars/2964&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://adventar.org/assets/icon200-7c9a9308860c3a9cc64fa22b75f92d1401579db156cb9eb3ac39173c31e10282.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;自作キーボード #2 Advent Calendar 2018 - Adventar&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;書きたいのに枠がないという方のための2枚目です。
-
-[その1](https://adventar.org/calendars/2954)
-[その3](https://adventar.org/calendars/3208)
-
-「皆さん、EndGameしていますか？」
-
-日本の自作…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
-    
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
-    
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
   </entry>
   
