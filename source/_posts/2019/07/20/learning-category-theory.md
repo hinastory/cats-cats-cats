@@ -10,7 +10,7 @@ tags:
   - Cats
 date: 2019-07-20 07:28:45
 ---
-圏論は数学に一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれはプログラマに理解できる言語では書かれていません。「証明」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3冊の文献をご紹介したいと思います。
+圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「`証明`」の積み重ねで書かれています。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「`Haskell`」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3冊の文献をご紹介したいと思います。
 
 <!-- more -->
 
@@ -35,7 +35,7 @@ category theory is a treasure trove of extremely useful programming ideas.
 I would go as far as to argue that category theory is the kind of math that is particularly well　suited for the minds of programmers.That’s because category theory — rather than dealing with particulars — deals with structure. It deals with the kind of structure that makes programs composable.
 {% endblockquote %}
 
-(意訳) 圏論はプログラマーの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを構成可能にする特定の構造を扱います。
+(意訳) 圏論はプログラマーの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを合成可能にする特定の構造を扱います。
 
 {% blockquote Category Theory for Programmers Scala Edition %}
 Composition is at the very root of category theory — it’s part of the definition of the category itself. And I will argue strongly that composition is the essence of programming.
