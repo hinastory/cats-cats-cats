@@ -281,7 +281,7 @@ Composition is at the very root of category theory — it’s part of the defini
 
 - {% elink Scala with Cats https://underscore.io/books/scala-with-cats/  %}
 
-この本の特色は「`型チャート`」が豊富に載っていることです。Scalaの型は圏論においては`対象`や`関手`や`モナド`だったり様々ですが、それらの変換の様子が図に表されているので非常に分かりやすくなっています。以下に引用は反変関手の型チャートになります。
+この本の特色は「`型チャート`」が豊富に載っていることです。Scalaの型は圏論においては`対象`や`関手`や`モナド`だったり様々ですが、それらの変換の様子が図に表されているので非常に分かりやすくなっています。以下の引用は反変関手の型チャートになります。
 
 {% img /gallery/daily/cats/contramap.png  %}
 
