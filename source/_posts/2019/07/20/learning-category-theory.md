@@ -21,7 +21,7 @@ date: 2019-07-20 07:28:45
 
 ## はじめに
 
-本記事は圏論に興味があるScalaプログラマを対象にしています。特にプログラマーにとって実用的な圏論の知識をScalaを通して身につけたい方にオススメします。
+本記事は圏論に興味があるScalaプログラマを対象にしています。特にプログラマにとって実用的な圏論の知識をScalaを通して身につけたい方にオススメします。
 
 ## プログラマが圏論を学ぶべき理由
 
@@ -37,7 +37,7 @@ First, category theory is a treasure trove of extremely useful programming ideas
 I would go as far as to argue that category theory is the kind of math that is particularly well　suited for the minds of programmers.That’s because category theory — rather than dealing with particulars — deals with structure. It deals with the kind of structure that makes programs composable.
 {% endblockquote %}
 
-(意訳) 圏論はプログラマーの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを合成可能にする特定の構造を扱います。
+(意訳) 圏論はプログラマの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを合成可能にする特定の構造を扱います。
 
 {% blockquote Category Theory for Programmers Scala Edition %}
 Composition is at the very root of category theory — it’s part of the definition of the category itself. And I will argue strongly that composition is the essence of programming.
@@ -123,9 +123,9 @@ Composition is at the very root of category theory — it’s part of the defini
   - 6.4 Algebra of Types (型の代数)
 - 7 Functors (関手) ★★★★
   - 7.1 Functors in Programming (プログラミングにおける関手)
-    - 7.1.1 The Maybe Functor (Maybe関手)
+    - 7.1.1 The Maybe Functor (`Maybe`関手)
     - 7.1.2 Equational Reasoning (等式的推論)
-    - 7.1.3 Optional (オプション)
+    - 7.1.3 Optional (`Optional`)
     - 7.1.4 Typeclasses (型クラス)
     - 7.1.5 Functor in C++ (C++における関手)
     - 7.1.6 The List Functor (`List`関手)

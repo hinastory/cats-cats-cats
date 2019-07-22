@@ -16,7 +16,7 @@
 <meta property="og:description" content="圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「定義・命題・証明」の積み重ねで書かれています1。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png">
-<meta property="og:updated_time" content="2019-07-22T03:18:04.814Z">
+<meta property="og:updated_time" content="2019-07-22T19:50:23.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
 <meta name="twitter:description" content="圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「定義・命題・証明」の積み重ねで書かれています1。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多">
@@ -179,18 +179,18 @@
         
 
         <div class="content">
-            <p>圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「<code>定義</code>・<code>命題</code>・<code>証明</code>」の積み重ねで書かれています<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「<code>Haskell</code>」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3冊の文献をご紹介したいと思います。</p>
+            <p>圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「<code>定義</code>・<code>命題</code>・<code>証明</code>」の積み重ねで書かれています<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「<code>Haskell</code>」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3つの文献をご紹介したいと思います。</p>
 <a id="more"></a>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#プログラマが圏論を学ぶべき理由" class="contents-header">2. プログラマが圏論を学ぶべき理由</a></li><li><a href="#オンラインで読めるオススメ文献-3選" class="contents-header">3. オンラインで読めるオススメ文献 - 3選</a><ul><li><a href="#category-theory-for-programmers-scala-edition" class="contents-header">3.1. Category Theory for Programmers Scala Edition</a></li><li><a href="#scala-with-cats" class="contents-header">3.2. Scala with Cats</a></li><li><a href="#猫番" class="contents-header">3.3. 猫番</a></li></ul></li><li><a href="#プログラマが圏論で学んでおいたほうがよい概念" class="contents-header">4. プログラマが圏論で学んでおいたほうがよい概念</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#もっと圏論を学びたい人向けのオンラインで読めるオススメ資料" class="contents-header">6. もっと圏論を学びたい人向けのオンラインで読めるオススメ資料</a></li></ul></div>
 
-<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は圏論に興味があるScalaプログラマを対象にしています。特にプログラマーにとって実用的な圏論の知識をScalaを通して身につけたい方にオススメします。この記事はあくまでScalaユーザが圏論を身につけるために適した文献の紹介なので、圏論自体の解説は行いませんが文献を読む上でのヒントや道しるべを提供できればと思っています。</p>
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は圏論に興味があるScalaプログラマを対象にしています。特にプログラマにとって実用的な圏論の知識をScalaを通して身につけたい方にオススメします。</p>
 <h2 id="プログラマが圏論を学ぶべき理由"><a href="#プログラマが圏論を学ぶべき理由" class="header-anchor"></a>2. <a href="#プログラマが圏論を学ぶべき理由" class="headerlink" title="プログラマが圏論を学ぶべき理由"></a>プログラマが圏論を学ぶべき理由</h2><p>プログラマが圏論を学ぶべき理由に関しては圏論入門レベルの自分があまり大きなことは言えないので、「Category Theory for Programmers Scala Edition」の序文から３つの文章を引用しようと思います。</p>
 <blockquote><p>First, category theory is a treasure trove of extremely useful programming ideas.</p>
 <footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
 <p>(意訳) 最初に、圏論はめちゃくちゃ役立つプログラミングのアイデアの宝庫です。</p>
 <blockquote><p>I would go as far as to argue that category theory is the kind of math that is particularly well　suited for the minds of programmers.That’s because category theory — rather than dealing with particulars — deals with structure. It deals with the kind of structure that makes programs composable.</p>
 <footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
-<p>(意訳) 圏論はプログラマーの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを合成可能にする特定の構造を扱います。</p>
+<p>(意訳) 圏論はプログラマの心理に特に適した数学の分野であるといっても過言ではないと思います。それは圏論が個々の詳細よりもむしろ構造を扱うからです。圏論はプログラムを合成可能にする特定の構造を扱います。</p>
 <blockquote><p>Composition is at the very root of category theory — it’s part of the definition of the category itself. And I will argue strongly that composition is the essence of programming.</p>
 <footer><strong>Category Theory for Programmers Scala Edition</strong></footer></blockquote>
 <p>(意訳) 合成は圏論の重要な根幹を成しており、圏自体の定義の一部でもあります。そして合成はプログラミングの本質であると、はっきり述べておこうと思います。</p>
@@ -221,7 +221,7 @@
 <p>このように本書では圏論の概念が豊富な図によって解説されています。またソースコードもHaskellとScalaのコードが一緒に載っていて非常にわかりやすいです。以下の引用は<code>List</code>の長さを示す<code>length</code>関数が自然変換であることの説明に使われているコードです。</p>
 <img src="/cats-cats-cats/gallery/daily/cats/length.png">
 <p><code>length</code>関数は一般的には<code>List[A] => Int</code>の関数で<code>List</code>関手を<code>Int</code>に変換するものですが、<code>Int</code>を定値関手である<code>Const[E, A]</code>に埋め込まれた<code>Const[Int, A]</code>と見做すことで<code>length</code>を関手間の変換、つまり自然変換になることを示しています。本書では関手間のパラメトリックな多相関数は常に自然変換になることを述べています。</p>
-<p>上記のように本書では一貫してHaskellのコードが青、Scalaのコードが赤で示されており非常にわかりやすくなっています。一般的な圏論のプログラミングへの応用ではHaskellを例に出されることが多いので、このように併記してある文献はHaskellを学びたいScalaプログラマーにとっても嬉しいと思われます。</p>
+<p>上記のように本書では一貫してHaskellのコードが青、Scalaのコードが赤で示されており非常にわかりやすくなっています。一般的な圏論のプログラミングへの応用ではHaskellを例に出されることが多いので、このように併記してある文献はHaskellを学びたいScalaプログラマにとっても嬉しいと思われます。</p>
 <p>最後に本書の内容と構成に関してですが、自分は圏論を学びたいプログラマにとっては非常に秀逸だと思いました。少なくとも数学にはあまり自身がないけどプログラミングに圏論を活かしたいプログラマにとっては必要な概念はほぼ本書で触れられていると思います。</p>
 <p>以下に本書の目次(一部抜粋)を載せておきます<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。また、自分の日本語訳とプログラマとして読んだ方がいい章を5段階評価で★印を付けています。本書を読む参考にしてください。</p>
 <details><summary>目次(日本語訳付き)</summary><ul>
@@ -274,17 +274,17 @@
 </li>
 <li>7 Functors (関手) ★★★★<ul>
 <li>7.1 Functors in Programming (プログラミングにおける関手)<ul>
-<li>7.1.1 The Maybe Functor (Maybe関手)</li>
+<li>7.1.1 The Maybe Functor (<code>Maybe</code>関手)</li>
 <li>7.1.2 Equational Reasoning (等式的推論)</li>
-<li>7.1.3 Optional (オプション)</li>
+<li>7.1.3 Optional (<code>Optional</code>)</li>
 <li>7.1.4 Typeclasses (型クラス)</li>
 <li>7.1.5 Functor in C++ (C++における関手)</li>
-<li>7.1.6 The List Functor (List関手)</li>
-<li>7.1.7 The Reader Functor (リーダー関手)</li>
+<li>7.1.6 The List Functor (<code>List</code>関手)</li>
+<li>7.1.7 The Reader Functor (<code>Reader</code>関手)</li>
 </ul>
 </li>
-<li>7.2 Functors as Containers (圏としての関手)</li>
-<li>7.3 Functor Composition (関手圏)</li>
+<li>7.2 Functors as Containers (コンテナとしての関手)</li>
+<li>7.3 Functor Composition (関手の合成)</li>
 </ul>
 </li>
 <li>8 Functoriality (関手っぽいもの) ★★<ul>
@@ -292,7 +292,7 @@
 <li>8.2 Product and Coproduct Bifunctors (積と余積双関手)</li>
 <li>8.3 Functorial Algebraic Data Types (関手的代数的データ型)</li>
 <li>8.4 Functors in C++ (C++における関手)</li>
-<li>8.5 The Writer Functor (ライター関手)</li>
+<li>8.5 The Writer Functor (<code>Writer</code>関手)</li>
 <li>8.6 Covariant and Contravariant Functors (共変と反変関手)</li>
 <li>8.7 Profunctors (プロ関手)</li>
 <li>8.8 The Hom-Functor (ホム関手)</li>
@@ -2170,7 +2170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>

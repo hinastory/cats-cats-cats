@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-07-22T03:18:04.814Z</updated>
+  <updated>2019-07-22T19:50:23.574Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/</id>
     <published>2019-07-19T22:28:45.000Z</published>
-    <updated>2019-07-22T03:18:04.814Z</updated>
+    <updated>2019-07-22T19:50:23.574Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「&lt;code&gt;定義&lt;/code&gt;・&lt;code&gt;命題&lt;/code&gt;・&lt;code&gt;証明&lt;/code&gt;」の積み重ねで書かれています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「&lt;code&gt;Haskell&lt;/code&gt;」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3冊の文献をご紹介したいと思います。&lt;/p&gt;
+      &lt;p&gt;圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「&lt;code&gt;定義&lt;/code&gt;・&lt;code&gt;命題&lt;/code&gt;・&lt;code&gt;証明&lt;/code&gt;」の積み重ねで書かれています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「&lt;code&gt;Haskell&lt;/code&gt;」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3つの文献をご紹介したいと思います。&lt;/p&gt;
     
     </summary>
     
