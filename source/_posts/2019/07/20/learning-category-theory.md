@@ -285,12 +285,12 @@ Composition is at the very root of category theory — it’s part of the defini
 
 {% img /gallery/daily/cats/contramap.png  %}
 
-本書の構成で秀逸なのは、型クラスの説明に留まらず「Case Study(事例)」と「Solution(答え)」が載っていることです。Case Studyには、具体的のどのようなケースで型クラスを使えばいいかが載っています。「Solution」には、各章に豊富に散りばめられた「Excesise」の答えが載っています。従って本書を読むことで圏論の一部を「実務」でも応用できるようになると思います。
+本書の構成で秀逸なのは、型クラスの説明に留まらず「Case Study(事例)」と「Solution(答え)」が載っていることです。Case Studyには、具体的のどのようなケースで型クラスを使えばいいかが載っています。「Solution」には、各章に豊富に散りばめられた「Excercise」の答えが載っています。従って本書を読むことで圏論の一部を「実務」でも応用できるようになると思います。
 
 以下に本書の目次(一部抜粋)を載せておきます[^5]。また、自分の日本語訳付けていますが・・・途中で力尽きました。本書を読む参考にしてください。
 
 [^4]: この本はもともと「Scalaz」という別のライブラリ向けに書かれていたいものが、Cats向けに書き直されたものです。書き直された当初は「Advanced Scala with Cats」という名前で有償でしたが、無償化されるにあたって「Scala with Cats」という名称に変更され可愛らしい猫の表紙が付きました。
-[^5]: 掲載している目次は、「Summary」、「Excecise」、「Solution」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。
+[^5]: 掲載している目次は、「Summary」、「Excercise」、「Solution」等の見出しは削っております。これは本書の概要を知る手がかりにはならないと考えたからです。正しい目次は直接文献をご確認ください。
 
 {% details 目次(日本語訳付き) %}
 - 1 Introduction (はじめに)
@@ -301,7 +301,7 @@ Composition is at the very root of category theory — it’s part of the defini
   - 1.2 Working with Implicits (暗黙と働く)
     - 1.2.1 Packaging Implicits (暗黙のパッケージ)
     - 1.2.2 Implicit Scope (暗黙のスコープ)
-    - 1.2.3 Recursive Implicit Resoluton (再帰的な暗黙の解決)
+    - 1.2.3 Recursive Implicit Resolution (再帰的な暗黙の解決)
   - 1.3 Exercise: Printable Library (練習: 印字可能ライブラリ)
   - 1.4 Meet Cats (Catsとの邂逅)
     - 1.4.1 Importing Type Classes (型クラスのインポート)
@@ -454,7 +454,7 @@ Composition is at the very root of category theory — it’s part of the defini
 
 ## プログラマが圏論で学んでおいたほうがよい概念
 
-とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマでが学んでおいた方が良いと思うものを以下に分類してみました[^6]。これはあくまで数学が苦手な圏論入門者である自分の私見です。
+とりあえず「Category Theory for Programmers Scala Edition」に出てきた概念の中で、プログラマが学んでおいた方が良いと思うものを以下に分類してみました[^6]。これはあくまで数学が苦手な圏論入門者である自分の私見です。
 
 - **必ず学んでおきたい**
   - 圏、関手、自然変換
