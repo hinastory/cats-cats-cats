@@ -161,7 +161,7 @@ Composition is at the very root of category theory — it’s part of the defini
   - 10.4 2-Categories (2圏)
 - 11 Declarative Programming (宣言的プログラミング) ★★
 - 12 Limits and Colimits (極限と余極限) ★★
-  - 12.1 Limit as a Natural Isomorphism (極限と自然変換)
+  - 12.1 Limit as a Natural Isomorphism (極限と自然同型)
   - 12.2 Examples of Limits (極限の例)
   - 12.3 Colimits (余極限)
   - 12.4 Continuity (連続性)
