@@ -16,7 +16,7 @@
 <meta property="og:description" content="圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「定義・命題・証明」の積み重ねで書かれています1。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png">
-<meta property="og:updated_time" content="2019-07-23T13:10:55.723Z">
+<meta property="og:updated_time" content="2019-07-23T15:41:52.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
 <meta name="twitter:description" content="圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「定義・命題・証明」の積み重ねで書かれています1。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「Haskell」向けの記事が大量に引っかかるでしょう。ここで多">
@@ -217,7 +217,7 @@
 </ul>
 <p>この本はもともとHaskell(と若干のC++)で書かれていた例に、後でScalaの例を付け加えたものになっています。この本の特徴のひとつは豊富な図解とスニペットです。これは具体的に引用して見てもらった方が早と思います。以下は10章の自然変換で使われている4つの図になります。</p>
 <img src="/cats-cats-cats/gallery/daily/cats/natural-transformation.png">
-<p>番号と赤い矢印は自分が書き足したものです。一般の数学書による自然変換の説明だと最後の4番の図のしかも右側の可換図式しか描かれていない場合がほとんどだと思います。しかし本書では一番の図で同じ圏に移す2つの関手<code>F</code>と<code>G</code>が示されて図式が犬と豚に変換されているイメージが描かれています。２番めの図では、自然変換が<code>対象</code>を移すことを示し、3番目の図で対象だけでなく<code>射</code>も移すことを示しています。そして3番目を簡略化したものが4番目の図になることが分かります<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
+<p>番号と赤い矢印は自分が書き足したものです。一般の数学書による自然変換の説明だと最後の4番目の図のしかも右側の可換図式しか描かれていない場合がほとんどだと思います。しかし本書では1番目の図で同じ圏に移す2つの関手<code>F</code>と<code>G</code>が示されて図式が犬と豚に変換されているイメージが描かれています。2番目の図では、自然変換が<code>対象</code>を移すことを示し、3番目の図で対象だけでなく<code>射</code>も移すことを示しています。そして3番目を簡略化したものが4番目の図になることが分かります<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
 <p>このように本書では圏論の概念が豊富な図によって解説されています。またソースコードもHaskellとScalaのコードが一緒に載っていて非常にわかりやすいです。以下の引用は<code>List</code>の長さを示す<code>length</code>関数が自然変換であることの説明に使われているコードです。</p>
 <img src="/cats-cats-cats/gallery/daily/cats/length.png">
 <p><code>length</code>関数は一般的には<code>List[A] => Int</code>の関数で<code>List</code>関手を<code>Int</code>に変換するものですが、<code>Int</code>を定値関手である<code>Const[E, A]</code>に埋め込まれた<code>Const[Int, A]</code>と見做すことで<code>length</code>を関手間の変換、つまり自然変換になることを示しています。本書では関手間のパラメトリックな多相関数は常に自然変換になることを述べています。</p>
