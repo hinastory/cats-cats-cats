@@ -12,7 +12,7 @@ date: 2019-07-20 07:28:45
 ---
 圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「`定義`・`命題`・`証明`」の積み重ねで書かれています[^1]。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「`Haskell`」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3つの文献をご紹介したいと思います。
 
-[^1]: ときどき証明つけずに`「簡単(自明)なので証明は読者に委ねる」`というパワーワードが記載されています。もちろんプログラマにとって「簡単」ではありません・・・
+[^1]: ときどき証明をつけずに`「簡単(自明)なので証明は読者に委ねる」`というパワーワードが記載されています。もちろんプログラマにとって「簡単」ではありません・・・
 
 <!-- more -->
 
@@ -105,8 +105,8 @@ Composition is at the very root of category theory — it’s part of the defini
   - 3.4 Monoid as Set (集合としてのモノイド)
   - 3.5 Monoid as Category (圏としてのモノイド)
 - 4 Kleisli Categories (クライスリ圏) ★★★
-  - 4.1 The Writer Category (ライターの圏)
-  - 4.2 Writer in Haskell (Haskellにおけるライター)
+  - 4.1 The Writer Category (`Writer`の圏)
+  - 4.2 Writer in Haskell (Haskellにおける`Writer`)
   - 4.3 Kleisli Categories (クライスリ圏)
 - 5 Products and Coproducts (積と余積) ★★★
   - 5.1 Initial Object (始対象)
@@ -178,7 +178,7 @@ Composition is at the very root of category theory — it’s part of the defini
   - 16.1 The Embedding (埋め込み)
   - 16.2 Application to Haskell (Haskellへの応用)
   - 16.3 Preorder Example (前順序の例)
-  - 16.4 Naturality (自然性) ★★
+  - 16.4 Naturality (自然性)
 - 17 It’s All About Morphisms (結局は射が全て) ★★★
   - 17.1 Functors (関手)
   - 17.2 Commuting Diagrams (可換図式)
