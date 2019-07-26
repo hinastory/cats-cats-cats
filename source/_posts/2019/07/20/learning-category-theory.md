@@ -458,7 +458,7 @@ Composition is at the very root of category theory — it’s part of the defini
 
 - **必ず学んでおきたい**
   - 圏、関手、自然変換
-  - 集合の圏(Sets)、圏の圏(Cat)、関手圏
+  - 集合の圏(Set)、圏の圏(Cat)、関手圏
   - 半群、モノイド
   - モナド、クライスリ圏
   - 普遍的構成（普遍性）
@@ -475,7 +475,7 @@ Composition is at the very root of category theory — it’s part of the defini
   - 米田の補題、米田埋め込み
   - 極限と余極限
   - 随伴
-  - カリー＝ハワード同型対応
+  - カリー＝ハワード同型
 - **興味があれば学んだ方が良い**
   - エンド
   - カン拡張  ← `全ての概念`
