@@ -127,7 +127,7 @@ EXPOSE 8080
 ENTRYPOINT [ "/start.sh" ]
 {% endcode %}
 
-[^7]: 最初は無邪気にベースイメージをstretchにしてシングルステージでビルドしたため、コンテナイメージのサイズが400MBを超えてしまいました・・・現在のサイズは18MBです。特にパブリックなレジストリに登録する際はコンテナイメージのサイズに充分気を配り、リソースを無駄にしないように心掛けましょう(自戒)。
+[^7]: 最初は無邪気にベースイメージを`stretchに`してシングルステージでビルドしたため、コンテナイメージのサイズが400MBを超えてしまいました・・・現在のサイズは18MBです。特にパブリックなレジストリに登録する際はコンテナイメージのサイズに充分気を配り、リソースを無駄にしないように心掛けましょう(自戒)。
 
 ### GitHubでDockerfileを公開する
 
@@ -157,7 +157,7 @@ Docker Hubでその設定をするのは簡単でDockerHubのリポジトリの`
 
 ## まとめ
 
-本記事では、gRPCサーバとブラウザでやり取りできる{% elink gRPC UI https://github.com/fullstorydev/grpcui %}を紹介しました。gRPC UIは非常に便利なので今後gRPCの関連の開発で広く使われていくものと思われます。そして実際にgRPC UIを触って遊べる遊び場およびリポジトリを以下に公開しました。
+本記事では、gRPCサーバとブラウザでやり取りできる{% elink gRPC UI https://github.com/fullstorydev/grpcui %}を紹介しました。gRPC UIは非常に便利なので今後gRPC関連の開発で広く使われていくものと思われます。そして実際にgRPC UIを触れる遊び場を作成して以下に公開しました。
 
 - 遊び場
   - {% elink gRPC UI playground https://cocky-knuth-7862.arukascloud.io %}
@@ -176,6 +176,7 @@ Docker Hubでその設定をするのは簡単でDockerHubのリポジトリの`
 - {% elink gRPC Documentation https://grpc.io/docs/ %}
 - {% elink Developer Guide  |  Protocol Buffers https://developers.google.com/protocol-buffers/docs/overview %}
 - {% elink RFC 7540 - Hypertext Transfer Protocol Version 2 (HTTP/2) https://tools.ietf.org/html/rfc7540 %}({% elink 日本語訳 https://summerwind.jp/docs/rfc7540/ %})
+- {% elink Docker Hub Documentation https://docs.docker.com/docker-hub/ %}
 - {% elink Arukas Help Center https://support.arukas.io/hc/ja %}
 - {% elink 遠隔手続き呼出し - Wikipedia https://ja.wikipedia.org/wiki/%E9%81%A0%E9%9A%94%E6%89%8B%E7%B6%9A%E3%81%8D%E5%91%BC%E5%87%BA%E3%81%97  %}
 - {% elink インタフェース記述言語 - Wikipedia https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E8%A8%98%E8%BF%B0%E8%A8%80%E8%AA%9E %}
