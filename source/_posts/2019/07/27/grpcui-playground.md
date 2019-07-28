@@ -21,7 +21,7 @@ date: 2019-07-27 07:28:45
 ## TL;DR
 
 - gRPC UIで作成した遊び場はこちらです :point_right: {% elink  gRPC UI playground https://cocky-knuth-7862.arukascloud.io %}
-- gRPC UIはgRPCサーバへの要求と応答がWebで簡単にできるので、今後のgRPCを利用した開発に広く使われるのツールとなりそうです
+- gRPC UIはgRPCサーバへの要求と応答がWebで簡単にできるので、今後のgRPCを利用した開発に広く使われるツールとなりそうです
 - gRPC UI playgroundは以下のサービスを利用して、無料で立ち上げました。当面はみんなが遊べるようにしておくつもりです
   - {% elink GitHub https://github.com/ %}
   - {% elink Docker Hub https://hub.docker.com/ %}
@@ -99,7 +99,7 @@ gRPC UIはバックグラウンドで起動している{% elink gRPC UIのテス
 
 ### Dockerfileを書く
 
-Dockerfileを書くときの注意点は二つです。まずはgRPC UIが提供しているテストサーバ(`testsvr`)はgoで書かれているのでgoのビルド環境が必要です。ただしgoのビルド環境は動作には必要ないのでマルチステージビルドを活用して、なるべく小さなイメージにするようにします。また、今回はビルドイメージを小さくするためにAlpineをベースイメージにしました。
+Dockerfileを書くときの注意点は二つです。まずはgRPC UIが提供しているテストサーバ(`testsvr`)はgoで書かれているのでgoのビルド環境が必要です。ただしgoのビルド環境は動作には必要ないのでマルチステージビルドを活用して、なるべく小さなイメージにするようにします。また、今回はビルドイメージを小さくするためにAlpineをベースイメージにしました[^7]。
 
 {% code lang:docker Dockerfile %}
 FROM golang:1.12.7-alpine as build-env
@@ -126,6 +126,8 @@ EXPOSE 8080
 
 ENTRYPOINT [ "/start.sh" ]
 {% endcode %}
+
+[^7]: 最初は無邪気にベースイメージをstretchにしてシングルステージでビルドしたため、コンテナイメージのサイズが400MBを超えてしまいました・・・現在のサイズは18MBです。特にパブリックなレジストリに登録する際はコンテナイメージのサイズに充分気を配り、リソースを無駄にしないように心掛けましょう(自戒)。
 
 ### GitHubでDockerfileを公開する
 
