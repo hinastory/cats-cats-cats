@@ -62,7 +62,7 @@ gRPCは上記のように単純な要求/応答型以外にも様々なやりと
 
 この画面を見て震えたのはやはり要求の入力画面(`Request Form`)の充実っぷりです。gRPCは自分でデータの型を定義して入れ子のようなメッセージを定義できますが、そのような入力も簡単にできます。上記の図のでは`test.TestMessage`というメッセージの中にperson(`test.Person`というメッセージの型)が内包されています。また複数のデータが入力可能なフィールドは「`Add Item`」で簡単に追加できます。その他の注目すべき点は赤字で説明を入れておいたので参考にしてください。基本的にはgRPC(Protocol Buffers)で定義されている入力形式はほぼ網羅されています。
 
-また、驚いたのはgRPC UIには基本的なスカラ値(`string`や`int64`等)以外にも「{% elink Well-Known Types https://developers.google.com/protocol-buffers/docs/reference/google.protobuf %}」と呼ばれる型が定義されていますが、これらにもリッチなインタフェースが定義されていたことです。以下の画面は`timestamp`型に対するインタフェースです。
+また、驚いたのはgRPCには基本的なスカラ値(`string`や`int64`等)以外にも「{% elink Well-Known Types https://developers.google.com/protocol-buffers/docs/reference/google.protobuf %}」と呼ばれる型が定義されていますが、gRPC UIにはこれらにもリッチなインタフェースが提供されていたことです。以下の画面は`timestamp`型に対するインタフェースです。
 
 {% img /gallery/daily/tools/grpcui/grpcui-timestamp.png 400 %}
 
@@ -125,7 +125,6 @@ COPY start.sh /start.sh
 EXPOSE 8080
 
 ENTRYPOINT [ "/start.sh" ]
-
 {% endcode %}
 
 ### GitHubでDockerfileを公開する
