@@ -9,7 +9,7 @@ tags:
   - Go
 date: 2019-07-27 07:28:45
 ---
-`gRPC`は近年非常によく使われるようになったRPCフレームワーク[^1]ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいう{% elink Postman https://www.getpostman.com/ %}的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は今日において払拭されたといっても過言ではありません。{% elink gRPC UI https://github.com/fullstorydev/grpcui %}が登場したからです。
+`gRPC`は近年非常によく使われるようになったRPCフレームワーク[^1]ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいう{% elink Postman https://www.getpostman.com/ %}的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は現在においてはほぼ払拭されたといっても過言ではありません。{% elink gRPC UI https://github.com/fullstorydev/grpcui %}が登場したからです。
 
 [^1]: RPC(Remote Procedure Call)は、簡単に言えばプログラムの中から内部の関数を呼ぶのと似たような感覚で、外部のネットワーク上の関数や手続きを呼べるようにする技術のことです。他のRPCにはSOAPやJSON-RPCなどがあります。
 
