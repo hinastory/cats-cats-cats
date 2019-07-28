@@ -99,7 +99,7 @@ gRPC UIはバックグラウンドで起動している{% elink gRPC UIのテス
 
 ### Dockerfileを書く
 
-Dockerfileを書くときの注意点は二つです。まずはgRPC UIが提供しているテストサーバ(`testsvr`)はgoで書かれているのでgoのビルド環境が必要です。ただしgoのビルド環境は動作には必要ないのでマルチステージビルドを活用して、なるべく小さなイメージにするようにします。また、今回はビルドイメージを小さくするためにAlpineをベースイメージにしました[^7]。
+Dockerfileを書くときの注意点は二つです。まず、ビルドイメージを小さくするためにAlpine Linux[^7]をベースイメージにします。次にgRPC UIが提供しているテストサーバ(`testsvr`)はgoで書かれているのでgoのビルド環境が必要です。ただしgoのビルド環境は動作には必要ないのでマルチステージビルドを活用して、なるべく小さなイメージにするようにしましょう[^8]。
 
 {% code lang:docker Dockerfile %}
 FROM golang:1.12.7-alpine as build-env
@@ -127,7 +127,8 @@ EXPOSE 8080
 ENTRYPOINT [ "/start.sh" ]
 {% endcode %}
 
-[^7]: 最初は無邪気にベースイメージを`stretchに`してシングルステージでビルドしたため、コンテナイメージのサイズが400MBを超えてしまいました・・・現在のサイズは18MBです。特にパブリックなレジストリに登録する際はコンテナイメージのサイズに充分気を配り、リソースを無駄にしないように心掛けましょう(自戒)。
+[^7]: Alpine Linuxは軽量、シンプル、セキュアをコンセプトにしたLinuxディストリビューションです。組み込み系で実績のあるmusl libcとbusyboxをベースにしています。その軽量さからコンテナのベースイメージとしてよく利用されています。
+[^8]: 最初は無邪気にベースイメージを`stretchに`してシングルステージでビルドしたため、イメージのサイズが400MBを超えてしまいました・・・現在のサイズは {% elink 18MB https://hub.docker.com/r/hinastory/grpcui-playground/tags %}です。特にパブリックなレジストリに登録する際はコンテナイメージのサイズに充分気を配り、リソースを無駄にしないように心掛けましょう(自戒)。
 
 ### GitHubでDockerfileを公開する
 
@@ -176,6 +177,7 @@ Docker Hubでその設定をするのは簡単でDockerHubのリポジトリの`
 - {% elink gRPC Documentation https://grpc.io/docs/ %}
 - {% elink Developer Guide  |  Protocol Buffers https://developers.google.com/protocol-buffers/docs/overview %}
 - {% elink RFC 7540 - Hypertext Transfer Protocol Version 2 (HTTP/2) https://tools.ietf.org/html/rfc7540 %}({% elink 日本語訳 https://summerwind.jp/docs/rfc7540/ %})
+- {% elink about Alpine Linux https://alpinelinux.org/about/ %}
 - {% elink Docker Hub Documentation https://docs.docker.com/docker-hub/ %}
 - {% elink Arukas Help Center https://support.arukas.io/hc/ja %}
 - {% elink 遠隔手続き呼出し - Wikipedia https://ja.wikipedia.org/wiki/%E9%81%A0%E9%9A%94%E6%89%8B%E7%B6%9A%E3%81%8D%E5%91%BC%E5%87%BA%E3%81%97  %}
