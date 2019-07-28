@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-07-24T20:49:19.320Z</updated>
+  <updated>2019-07-28T05:18:40.132Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</id>
+    <published>2019-07-26T22:28:45.000Z</published>
+    <updated>2019-07-28T05:18:40.132Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;gRPC&lt;/code&gt;は近年非常によく使われるようになったRPCフレームワーク&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいう&lt;a href=&quot;https://www.getpostman.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Postman&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は今日において払拭されたといっても過言ではありません。&lt;a href=&quot;https://github.com/fullstorydev/grpcui&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gRPC UI&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;が登場したからです。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
+    
+    
+      <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
+    
+      <category term="gRPC" scheme="https://hinastory.github.io/cats-cats-cats/tags/gRPC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/</id>
     <published>2019-07-19T22:28:45.000Z</published>
-    <updated>2019-07-24T20:49:19.320Z</updated>
+    <updated>2019-07-26T18:21:11.982Z</updated>
     
     <summary type="html">
     
@@ -164,9 +189,9 @@
       <category term="Programming" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Programming/"/>
     
     
-      <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
-    
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
     
   </entry>
   
@@ -326,9 +351,9 @@
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
-      <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
-    
       <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
+    
+      <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
     
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
@@ -356,13 +381,13 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
+    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
     
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
-    
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
     
@@ -454,9 +479,9 @@
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
-      <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
-    
       <category term="k8s" scheme="https://hinastory.github.io/cats-cats-cats/tags/k8s/"/>
+    
+      <category term="Container" scheme="https://hinastory.github.io/cats-cats-cats/tags/Container/"/>
     
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
@@ -527,32 +552,6 @@
     
       &lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。&lt;/p&gt;
 &lt;a href=&quot;/cats-cats-cats/2019/01/06/ergodash-mini-1/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(前編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(前編)&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
-    
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
-    
-      <category term="ErgoDash" scheme="https://hinastory.github.io/cats-cats-cats/tags/ErgoDash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>サイレントでホットスワップなErgoDash miniを制作(前編)</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/01/06/ergodash-mini-1/</id>
-    <published>2019-01-05T22:37:02.000Z</published>
-    <updated>2019-01-21T20:38:43.910Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。&lt;/p&gt;
-&lt;a href=&quot;https://github.com/omkbd/ErgoDash/tree/master/mini&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://avatars3.githubusercontent.com/u/25457209?s=400&amp;v=4&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;omkbd/ErgoDash&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;keyboard. Contribute to omkbd/ErgoDash development by creating an account on GitHub.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
