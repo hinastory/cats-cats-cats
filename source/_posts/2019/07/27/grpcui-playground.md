@@ -127,7 +127,7 @@ ENTRYPOINT [ "/start.sh" ]
 {% endcode %}
 
 [^7]: Alpine Linuxは軽量、シンプル、セキュアをコンセプトにしたLinuxディストリビューションです。組み込み系で実績のあるmusl libcとbusyboxをベースにしています。その軽量さからコンテナのベースイメージとしてよく利用されています。
-[^8]: 最初は無邪気にベースイメージを`stretchに`してシングルステージでビルドしたため、イメージのサイズが400MBを超えてしまいました・・・現在のサイズは {% elink 18MB https://hub.docker.com/r/hinastory/grpcui-playground/tags %}です。特にパブリックなレジストリに登録する際はコンテナイメージのサイズに充分気を配り、リソースを無駄にしないように心掛けましょう(自戒)。
+[^8]: 最初は無邪気にベースイメージを`stretch`にしてシングルステージでビルドしたため、イメージのサイズが400MBを超えてしまいました・・・現在のサイズは {% elink 18MB https://hub.docker.com/r/hinastory/grpcui-playground/tags %}です。特にパブリックなレジストリに登録する際はコンテナイメージのサイズに充分気を配り、リソースを無駄にしないように心掛けましょう(自戒)。
 
 ### GitHubでDockerfileを公開する
 
