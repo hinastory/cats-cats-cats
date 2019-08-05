@@ -102,7 +102,7 @@ Maker Faireは日本最大級のモノ作りの祭典です。いわゆる「自
 
 {% img /gallery/events/maker-faire-2019/maker-faire-017.jpg 400 %}
 
-最後の紹介がMaker Faireのコスプレイヤーさんたちです。本当にみているだけで幸せになれる一枚でした。
+最後の紹介がMaker Faireのコスプレイヤーさんたちです。本当に観ているだけで幸せになれる一枚でした。
 
 {% img /gallery/events/maker-faire-2019/maker-faire-020.gif 400 %}
 
@@ -112,7 +112,7 @@ Maker Faireは日本最大級のモノ作りの祭典です。いわゆる「自
 
 ## Make:本の紹介
 
-せっかくなので、電子工作をはじめて見たい方のためにオライリーから出版されている`Make:`本を3冊ご紹介します。まずは電子機器の仕組みを知らないとどうにもならないので「エレクトロニクスをはじめよう」で基礎を学んで、次に本命の「Raspberry Piをはじめよう」で電子工作の大御所とも言えるRaspberry Piに入門します。最後に「ハンダづけをはじめよう」で意外と奥深い「ハンダづけ」と友達になるというシナリオです。電子工作に興味を持った方はぜひチャレンジしてみてください。
+せっかくなので、電子工作を始めてみたい方のためにオライリーから出版されている`Make:`本を3冊ご紹介します。まずは電子機器の仕組みを知らないとどうにもならないので「エレクトロニクスをはじめよう」で基礎を学んで、次に本命の「Raspberry Piをはじめよう」で電子工作の大御所とも言えるRaspberry Piに入門します。最後に「ハンダづけをはじめよう」で意外と奥深い「ハンダづけ」と友達になるというシナリオです。電子工作に興味を持った方はぜひチャレンジしてみてください。
 
 {% raw  %}
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"エレクトロニクスをはじめよう (Make: PROJECTS)","b":"","t":"","d":"https:\/\/images-fe.ssl-images-amazon.com","c_p":"","p":["\/images\/I\/51PkUgk%2B6RL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/%E3%82%A8%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AD%E3%83%8B%E3%82%AF%E3%82%B9%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%82%88%E3%81%86-Make-Forrest-Mims-III\/dp\/4873118271","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"4iT74"});</script><div id="msmaflink-4iT74">リンク</div><!-- MoshimoAffiliateEasyLink END -->
