@@ -108,7 +108,7 @@ Maker Faireは日本最大級のモノ作りの祭典です。いわゆる「自
 
 [^1]: 今は{% elink TETRIS 99 https://www.nintendo.co.jp/switch/arzna/index.html %}で遊んでいるので、子供の時とあまり変わっていない気もしますが・・・
 [^2]: この本はMaker Faireの先行販売で正式発売は8/7です。
-[^2]: 去年は後少しのところで{% elink Mint60 http://eucalyn.hatenadiary.jp/entry/about-mint60-01 %}が売り切れて、コミケでリベンジを果たしたのを思い出しました・・・
+[^3]: 去年は後少しのところで{% elink Mint60 http://eucalyn.hatenadiary.jp/entry/about-mint60-01 %}が売り切れて、コミケでリベンジを果たしたのを思い出しました・・・
 
 ## Make:本の紹介
 
