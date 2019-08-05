@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-08-05T11:27:33.008Z</updated>
+  <updated>2019-08-05T11:36:10.983Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/</id>
     <published>2019-08-03T22:28:45.000Z</published>
-    <updated>2019-08-05T11:27:33.008Z</updated>
+    <updated>2019-08-05T11:36:10.983Z</updated>
     
     <summary type="html">
     
@@ -36,9 +36,11 @@
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Event/"/>
     
     
-      <category term="MakerFaire" scheme="https://hinastory.github.io/cats-cats-cats/tags/MakerFaire/"/>
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
     
-      <category term="keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/keyboard/"/>
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
+    
+      <category term="MakerFaire" scheme="https://hinastory.github.io/cats-cats-cats/tags/MakerFaire/"/>
     
   </entry>
   
