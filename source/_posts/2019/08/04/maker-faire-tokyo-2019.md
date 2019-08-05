@@ -113,7 +113,7 @@ Maker Faireは日本最大級のモノ作りの祭典です。いわゆる「自
 
 ## Make:本の紹介
 
-せっかくなので、電子工作を始めてみたい方のためにオライリーから出版されている`Make:`本を3冊ご紹介します。まずは電子機器の仕組みを知らないとどうにもならないので「エレクトロニクスをはじめよう」で基礎を学んで、次に本命の「Raspberry Piをはじめよう」で電子工作の大御所とも言えるRaspberry Piに入門します。最後に「ハンダづけをはじめよう」で意外と奥深い「ハンダづけ」と友達になるというシナリオです。電子工作に興味を持った方はぜひチャレンジしてみてください。
+せっかくなので、電子工作を始めてみたい方のためにオライリーから出版されている`Make:`本を3冊ご紹介します。まずは電子機器の仕組みを知らないとどうにもならないので「エレクトロニクスをはじめよう」で基礎を学んで、次に本命の「Raspberry Piをはじめよう」で電子工作の大御所とも言えるRaspberry Piに入門します。最後に「ハンダづけをはじめよう」で意外と奥深い「ハンダづけ」と友達になるというシナリオです[^4]。電子工作に興味を持った方はぜひチャレンジしてみてください。
 
 {% raw  %}
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"エレクトロニクスをはじめよう (Make: PROJECTS)","b":"","t":"","d":"https:\/\/images-fe.ssl-images-amazon.com","c_p":"","p":["\/images\/I\/51PkUgk%2B6RL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/%E3%82%A8%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AD%E3%83%8B%E3%82%AF%E3%82%B9%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%82%88%E3%81%86-Make-Forrest-Mims-III\/dp\/4873118271","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"4iT74"});</script><div id="msmaflink-4iT74">リンク</div><!-- MoshimoAffiliateEasyLink END -->
@@ -132,6 +132,8 @@ Maker Faireで個人的に興味を持った本は先行発売された「メイ
 {% raw  %}
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"メイカーとスタートアップのための量産入門 ―200万円、1500個からはじめる少量生産のすべて (Make: Japan Books)","b":"オライリージャパン","t":"","d":"https:\/\/images-fe.ssl-images-amazon.com","c_p":"","p":["\/images\/I\/513cIgLTe%2BL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/%E3%83%A1%E3%82%A4%E3%82%AB%E3%83%BC%E3%81%A8%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E9%87%8F%E7%94%A3%E5%85%A5%E9%96%80-%E2%80%95200%E4%B8%87%E5%86%86%E3%80%811500%E5%80%8B%E3%81%8B%E3%82%89%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E5%B0%91%E9%87%8F%E7%94%9F%E7%94%A3%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6-Make-Japan-Books\/dp\/4873118840","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"dxcc0"});</script><div id="msmaflink-dxcc0">リンク</div><!-- MoshimoAffiliateEasyLink END -->
 {% endraw %}
+
+[^4]: このシナリオは大人向けです。子供向けには年齢に適した電子工作キットがたくさん販売されているのでいろいろ探してみてください。子供と一緒に大人も楽しめるものは「{% elink obniz https://blog.obniz.io/ja/blog/education/ %}」、「{% elink mBot https://www.makeblock.com/jp/steam-kits/mbot %}」、「{% elink micro:bit https://microbit.org/ja/guide/ %}」等があります。
 
 ## まとめ
 
