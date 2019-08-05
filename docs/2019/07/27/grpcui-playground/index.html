@@ -226,7 +226,7 @@
 <img src="/cats-cats-cats/gallery/daily/tools/grpcui/grpcui-playground-arch.jpg">
 <p>上の図をざっくり説明すると、基本的にはDockerを使ってサービス提供しています。一つのコンテナの中にgPPC UIとgRPC Server(<code>testsvr</code>)という二つのプロセスが動いています。一つのコンテナに二つのプロセスはあまりお行儀がよくありませんが、今回は遊び場ということと無料で立ち上げることを重視したのでこのような構成になっています。<br>利用したコンテナホスティングサービスはArukas<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>になります。今回はFreeプランを利用しています。Arukasにコンテナイメージを提供するためにはDocker Hubも利用しました。Docker HubにはGitHubと連携しておくとGitHubの変更を検知してコンテナをビルドする機能があるのでそれも利用しています。</p>
 <h3 id="dockerfileを書く"><a href="#dockerfileを書く" class="header-anchor"></a>6.1. <a href="#Dockerfileを書く" class="headerlink" title="Dockerfileを書く"></a>Dockerfileを書く</h3><p>Dockerfileを書くときの注意点は二つです。まず、ビルドイメージを小さくするためにAlpine Linux<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>をベースイメージにします。次にgRPC UIが提供しているテストサーバ(<code>testsvr</code>)はgoで書かれているのでgoのビルド環境が必要です。ただしgoのビルド環境は動作には必要ないのでマルチステージビルドを活用して、なるべく小さなイメージにするようにしましょう<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。</p>
-<figure class="highlight docker"><figcaption><span>Dockerfile</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs docker"><span class="hljs-keyword">FROM</span> golang:<span class="hljs-number">1.12</span>.<span class="hljs-number">7</span>-alpine as build-<span class="hljs-keyword">env</span><br><span class="hljs-keyword">MAINTAINER</span> hinastory<br><br><span class="hljs-keyword">WORKDIR</span> /testsvr<br><span class="hljs-keyword">COPY</span> testsvr /testsvr<br><br><span class="hljs-keyword">RUN</span> apk update && apk add --no-cache git<br><br><span class="hljs-keyword">RUN</span> go build<br><br><span class="hljs-keyword">RUN</span> go get -x github.com/fullstorydev/grpcui<br><span class="hljs-keyword">RUN</span> go install -x github.com/fullstorydev/grpcui/cmd/grpcui<br><br><span class="hljs-keyword">FROM</span> alpine<br><span class="hljs-keyword">WORKDIR</span> /<br><span class="hljs-keyword">COPY</span> --from=build-env /testsvr/testsvr /bin/testsvr<br><span class="hljs-keyword">COPY</span> --from=build-env /go/bin/grpcui /bin/grpcui<br><span class="hljs-keyword">COPY</span> start.sh /start.sh<br><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span><br><br><span class="hljs-keyword">ENTRYPOINT</span> [ "/start.sh" ]<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight docker"><figcaption><span>Dockerfile</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs docker"><span class="hljs-keyword">FROM</span> golang:<span class="hljs-number">1.12</span>.<span class="hljs-number">7</span>-alpine as build-<span class="hljs-keyword">env</span><br><span class="hljs-keyword">MAINTAINER</span> hinastory<br><br><span class="hljs-keyword">WORKDIR</span><span class="bash"> /testsvr<br></span><span class="hljs-keyword">COPY</span><span class="bash"> testsvr /testsvr<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> apk update && apk add --no-cache git<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> go build<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> go get -x github.com/fullstorydev/grpcui<br></span><span class="hljs-keyword">RUN</span><span class="bash"> go install -x github.com/fullstorydev/grpcui/cmd/grpcui<br></span><br><span class="hljs-keyword">FROM</span> alpine<br><span class="hljs-keyword">WORKDIR</span><span class="bash"> /<br></span><span class="hljs-keyword">COPY</span><span class="bash"> --from=build-env /testsvr/testsvr /bin/testsvr<br></span><span class="hljs-keyword">COPY</span><span class="bash"> --from=build-env /go/bin/grpcui /bin/grpcui<br></span><span class="hljs-keyword">COPY</span><span class="bash"> start.sh /start.sh<br></span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span><br><br><span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [ <span class="hljs-string">"/start.sh"</span> ]</span><br></code></pre></td></tr></tbody></table></figure>
 <h3 id="githubでdockerfileを公開する"><a href="#githubでdockerfileを公開する" class="header-anchor"></a>6.2. <a href="#GitHubでDockerfileを公開する" class="headerlink" title="GitHubでDockerfileを公開する"></a>GitHubでDockerfileを公開する</h3><p>ここは特に説明はしませんが、GitHubに公開レジストリを作成し、Dockerfileと<code>testsvr</code>のソースと起動スクリプトをpushします。pushした自分のリポジトリは以下になります。</p>
 <a href="https://github.com/hinastory/grpcui-playground" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/grpcui-playground</div><div class="og-description">Playground for https://github.com/fullstorydev/grpcui - hinastory/grpcui-playground</div></div></div></a>
 <h3 id="docker-hubでイメージをビルド-公開する"><a href="#docker-hubでイメージをビルド-公開する" class="header-anchor"></a>6.3. <a href="#Docker-Hubでイメージをビルド-amp-公開する" class="headerlink" title="Docker Hubでイメージをビルド & 公開する"></a>Docker Hubでイメージをビルド & 公開する</h3><p>Docker Hubでイメージをビルドするのには、GitHubと連携しておいたほうが楽です。GitHubと連携しておけばGitHubのレポジトリをDocker HubのUIから選択できるようになり、GitHubにpushするだけでDockerfileをビルドしてくれるようになります。</p>
@@ -306,6 +306,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/07/20/learning-category-theory/">
@@ -363,7 +370,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -373,7 +380,7 @@
                         カテゴリ
                     </p>
                     <p class="title has-text-weight-normal">
-                        10
+                        11
                     </p>
                 </div>
             </div>
@@ -383,7 +390,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        27
+                        29
                     </p>
                 </div>
             </div>
@@ -442,9 +449,17 @@
                 <span class="level-item">DIY</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Event/">
+            <span class="level-start">
+                <span class="level-item">Event</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
             <span class="level-start">
                 <span class="level-item">Keyboard</span>
@@ -534,6 +549,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Tokyo-MF_logo.gif" alt="夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-03T22:28:45.000Z">2019-08-04</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="has-link-black-ter is-size-6">夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/grpc-horizontal-color.png" alt="gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました">
@@ -612,26 +647,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png" alt="ScalaMatsuri 2019に参加してきました">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-03T22:28:45.000Z">2019-07-04</time></div>
-
-                    <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="has-link-black-ter is-size-6">ScalaMatsuri 2019に参加してきました</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -642,7 +657,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/keyboard/" style="font-size: 10px;">keyboard</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
     </div>
 </div>
 
@@ -654,6 +669,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019-08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
@@ -933,6 +959,17 @@
                 </li>
                 
                 <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="level-start">
+                            <span class="level-item">MakerFaire</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
                         <span class="level-start">
                             <span class="level-item">Mind</span>
@@ -1016,6 +1053,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
@@ -1067,6 +1115,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Tokyo-MF_logo.gif" alt="夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-03T22:28:45.000Z">2019-08-04</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="has-link-black-ter is-size-6">夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/grpc-horizontal-color.png" alt="gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました">
@@ -1145,26 +1213,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png" alt="ScalaMatsuri 2019に参加してきました">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-03T22:28:45.000Z">2019-07-04</time></div>
-
-                    <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="has-link-black-ter is-size-6">ScalaMatsuri 2019に参加してきました</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1175,7 +1223,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
+        <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 12px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 16px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/keyboard/" style="font-size: 10px;">keyboard</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a>
     </div>
 </div>
 
@@ -1187,6 +1235,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019-08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
@@ -1466,6 +1525,17 @@
                 </li>
                 
                 <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="level-start">
+                            <span class="level-item">MakerFaire</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
                         <span class="level-start">
                             <span class="level-item">Mind</span>
@@ -1549,6 +1619,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
