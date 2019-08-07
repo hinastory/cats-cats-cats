@@ -514,7 +514,7 @@ Composition is at the very root of category theory — it’s part of the defini
   - {% elink 上 http://bitterharvest.hatenablog.com/entry/2016/11/24/203021　 %}、{% elink 中 http://bitterharvest.hatenablog.com/entry/2017/03/09/155935 %}、{% elink 下 http://bitterharvest.hatenablog.com/entry/2017/10/12/211149 %}
 - {% elink 物理学者のための圏論入門 http://www.phys.cs.is.nagoya-u.ac.jp/~tanimura/lectures/tanimura-category.pdf %}
   - 物理学者ではなくても圏論の基本的な概念を理解できる非常にオススメの資料です
-  - 特に`普遍射`の説明が秀逸で、会社組織の擬えての説明がツボりました
+  - 特に`普遍射`の説明が秀逸で、会社組織に擬えての説明がツボりました
 - {% elink 圏論によるプログラミングと論理 https://www.npca.jp/works/magazine/2013_10/ %}
   - {% elink 灘校パソコン研究部の部誌 https://www.npca.jp/works/magazine/ %}(2013年)に掲載されていたものです
   - 普通に書店に並んでいてもおかしくないボリュームとクオリティです
