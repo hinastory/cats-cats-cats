@@ -89,14 +89,14 @@ Composition is at the very root of category theory — it’s part of the defini
 - Preface (序文) ★★★★★
 - 1 Category: The Essence of Composition (圏: 合成の本質) ★★★★★
   - 1.1 Arrows as Functions (関数としての矢)
-  - 1.2 Properties of Composition (合成の特性)
+  - 1.2 Properties of Composition (合成の性質)
   - 1.3 Composition is the Essence of Programming (合成はプログラミングの本質)
 - 2 Types and Functions (型と関数) ★★★★
-  - 2.1 Who Needs Types? (なぜ型が必要なのか)
+  - 2.1 Who Needs Types? (なぜ型が必要なのか?)
   - 2.2 Types Are About Composability (型は合成可能性に関係する)
   - 2.3 What Are Types? (型とは何か？)
   - 2.4 Why Do We Need a Mathematical Model? (なぜ数学モデルが必要なのか？)
-  - 2.5 Pure and Dirty Functions (純粋と汚い関数)
+  - 2.5 Pure and Dirty Functions (純粋な関数と汚れた関数)
   - 2.6 Examples of Types (型の例)
 - 3 Categories Great and Small (圏　大から小まで) ★★
   - 3.1 No Objects (対象なし)
