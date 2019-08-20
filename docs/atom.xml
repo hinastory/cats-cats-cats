@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-08-06T21:11:33.355Z</updated>
+  <updated>2019-08-20T22:07:55.055Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/</id>
+    <published>2019-08-19T22:28:45.000Z</published>
+    <updated>2019-08-20T22:07:55.055Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコンピューティングサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;です。そのAWSの認定試験の中でも屈指の人気を誇る「AWS認定ソリューションアーキテクト - アソシエイト」を5日間の勉強で合格することができました。本当に月曜日に思い立って試験の申込みをして勉強を開始し、その週の土曜日の朝一の試験で合格しました。本記事はその合格に至るまでの体験談になります。&lt;/p&gt;
+&lt;a href=&quot;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;AWS 認定ソリューションアーキテクト – アソシエイト | AWS&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;「AWS 認定ソリューションアーキテクト – アソシエイト」試験は、ソリューションアーキテクトの方を対象としており、AWS 上でセキュアかつ堅牢なアプリケーションを設計および展開する方法についての理解度を評価するものです。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Cloud" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Cloud/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
   
   <entry>
     <title>夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました</title>
@@ -536,36 +560,6 @@
     
     
       <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ようこそキーマップ沼へ</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/01/12/keymap/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/01/12/keymap/</id>
-    <published>2019-01-11T22:37:02.000Z</published>
-    <updated>2019-01-11T22:00:15.689Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;以下のErgodash miniの記事では書ききれなかったキーマップについて紹介します。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/01/06/ergodash-mini-1/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(前編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(前編)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/01/10/ergodash-mini-2/&quot; title=&quot;サイレントでホットスワップなErgoDash miniを制作(後編)&quot;&gt;サイレントでホットスワップなErgoDash miniを制作(後編)&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
-    
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
-    
-      <category term="Keymap" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keymap/"/>
     
   </entry>
   
