@@ -23,16 +23,18 @@ date: 2019-08-26 07:28:45
 
 {% img /gallery/daily/cloud/aws/two-tier-web.png %}
 
+## 実践 Infrastructure as Code
+
 Pulumiではインフラの状態が内部で管理されているので、インフラを簡単に作ったり、壊したりすることができます。また、TypeScriptなので、インフラの「型」を簡単に確認できたり、インフラをライブラリ化したり、インフラをループで大量に生成できます。正しくプログラミング感覚でインフラが構成できて、いらなくなったら簡単に破棄できるので`プログラマのためのIaC`を実践するのにPulumiはうってつけです。
 
 [^1]: 一般的には{% elink AWSのリファレンスアーキテクチャ https://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_web_01.pdf %}にある通り、Webサーバとアプリケーションサーバを分離した構成をとることが多いです。またDNSであるRoute53やCDNのCloudFrontもWebサーバの構成として入れるのが妥当ですが、今回はなるべく応用可能な「基礎」を提示したかったのでこの構成になっています。
 
-## pulumiの導入
+### pulumiの導入
 
 Pulumiの[Get Started](https://www.pulumi.com/docs/get-started/)に従って、Pulumi CLI、AWS CLI、Node.jsをインストールしてください。
 (「Configure AWS」まで進めてください。)
 
-## pulumiログイン
+### pulumiログイン
 
 以下のコマンドでpulumiにログインしてください。
 
@@ -44,7 +46,7 @@ $ pulumi login
 
 [^2]: Pulumiにサインインせずにローカルだけで完結させる方法もあります。
 
-## プロジェクトとスタックの作成
+### プロジェクトとスタックの作成
 
 次にプロジェクトとスタックの作成をします。以下のコマンドで実行します。
 
@@ -58,7 +60,7 @@ $ pulumi new aws-typescript
 
 - `aws:region: The AWS region to deploy into: (us-east-1)`
 
-## index.tsの作成
+### index.tsの作成
 
 メインファイルである`index.ts`ファイルに以下を記述してください。
 
@@ -80,6 +82,8 @@ autoScalingGroup.scaleToTrackAverageCPUUtilization("keepAround50Percent", { targ
 export const endpoint = listener.endpoint.hostname
 {% endraw %}
 {% endcode %}
+
+### utils.tsの作成
 
 同じフォルダに`utils.ts`を作成して、ファイルに以下を記述してください。コーディングは以上です。
 
@@ -168,7 +172,7 @@ export function createAutoScalingGroup(vpcPrefix: string, vpc: awsx.ec2.Vpc, alb
 
 これで見事に冒頭で示した構成が`index.ts`と`utils.ts`を合わせて100行弱のコードで作成できました。
 
-## インフラのデプロイ
+### インフラのデプロイ
 
 以下を実行してください。途中で本当に実行してよいか聞かれるので「`yes`」を選択して`Enter`を押してください。インフラの作成には数分かかります。
 
@@ -177,7 +181,7 @@ $ pulumi up
 {% endcode %}
 
 
-## 実行結果の確認
+### デプロイ結果の確認
 
 `pulumi up`が成功すると最後の出力結果に`endpoint`が表示されるので、そのURLにブラウザからアクセスしてみてください。
 
@@ -185,7 +189,7 @@ $ pulumi up
 
 [^3]: AWSのマネジメントコンソール側でPulumiで作成したリソースの変更をしないでください。Pulumi側が管理している状態とAWSの状態がずれるとこの後説明するリソースの後片付けで失敗する可能性があります。
 
-## リソースの後片付け
+### リソースの後片付け
 
 確認が終わったら以下のコマンドでリソースを破棄してください。リソースの破棄をしないとAWSの料金が発生し続けるので不要になったらすぐに破棄するようにしてください[^4]。
 
@@ -196,7 +200,7 @@ $ pulumi destroy
 [^4]: 特にRDSのマルチAZ構成はお高いので注意してください。
 
 
-## ソースコードの解説
+### コードの解説
 
 短いのであまり解説する必要もないかもしれませんが、`index.ts`だけ一応簡単にコメントします。魔法はライブラリの「`awsx`」にあります。これは「Pulumi Crosswalk for AWS」というライブラリで、AWSのwell-architectedなベストプラクティスを実装しています。以下のコードでは「`new awsx.ec2.Vpc(vpcPrefix)`」が凄い仕事をしていて、二つのパブリックサブネットと二つのプライベートサブネットとインターネットゲートウェイ、NATゲートウェイやそれに付随するセキュリティグループ等さまざまなものを生成しています。それ以外はAWSの知識があれば割合素直に読めるのではないかと思います。
 
