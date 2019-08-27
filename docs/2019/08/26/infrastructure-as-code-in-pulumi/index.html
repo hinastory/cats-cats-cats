@@ -16,7 +16,7 @@
 <meta property="og:description" content="「Infrastructure as Code」という言葉が生まれてから大分立ちました。Infrastructure as Code (IaC)は簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。ただその気持は長くは続きませんでした。Ansible, Chef, Pupp">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/pulumi.png">
-<meta property="og:updated_time" content="2019-08-27T13:13:12.964Z">
+<meta property="og:updated_time" content="2019-08-27T13:26:10.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pulumiでプログラマのための「Infrastructure as Code」を実践する">
 <meta name="twitter:description" content="「Infrastructure as Code」という言葉が生まれてから大分立ちました。Infrastructure as Code (IaC)は簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。ただその気持は長くは続きませんでした。Ansible, Chef, Pupp">
@@ -185,7 +185,7 @@
 
 <h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事では<a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi<i class="fas fa-external-link-alt fa-fw"></i></a>で「Infrastructure as Code」を実践します。具体的にはAWS上に以下の2層構造のWebアプリケーション<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>のインフラを100行未満のTypescriptで記述します。</p>
 <img src="/cats-cats-cats/gallery/daily/cloud/aws/two-tier-web.png">
-<p>Pulumiではインフラの状態が内部で管理されているので、インフラを簡単に作ったり、壊したりすることができます。また、TypeScriptなので、インフラの「型」を簡単に確認できたり、インフラをライブラリ化したり、インフラをループで大量に生成できます。まさに「プログラミング」感覚でインフラが構成でき、いらなくなったら簡単に破棄できます。まさに、「プログラマのための」インフラ管理がPulumiで実践できます。</p>
+<p>Pulumiではインフラの状態が内部で管理されているので、インフラを簡単に作ったり、壊したりすることができます。また、TypeScriptなので、インフラの「型」を簡単に確認できたり、インフラをライブラリ化したり、インフラをループで大量に生成できます。正しくプログラミング感覚でインフラが構成できて、いらなくなったら簡単に破棄できるので<code>プログラマのためのIaC</code>を実践するのにPulumiはうってつけです。</p>
 <h2 id="pulumiの導入"><a href="#pulumiの導入" class="header-anchor"></a>2. <a href="#pulumiの導入" class="headerlink" title="pulumiの導入"></a>pulumiの導入</h2><p>Pulumiの<a href="https://www.pulumi.com/docs/get-started/" target="_blank" rel="noopener">Get Started</a>に従って、Pulumi CLI、AWS CLI、Node.jsをインストールしてください。<br>(「Configure AWS」まで進めてください。)</p>
 <h2 id="pulumiログイン"><a href="#pulumiログイン" class="header-anchor"></a>3. <a href="#pulumiログイン" class="headerlink" title="pulumiログイン"></a>pulumiログイン</h2><p>以下のコマンドでpulumiにログインしてください。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pulumi login<br></code></pre></td></tr></tbody></table></figure>
