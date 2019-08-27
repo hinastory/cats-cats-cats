@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。しかし残念ながらその気持は長くは続きませんでした。Ansible, Chef, Puppet, CloudFo">
+    <meta name="description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormat">
 <meta name="keywords" content="AWS,pulumi,IaC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pulumiでプログラマのための「Infrastructure as Code」を実践する">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/index.html">
 <meta property="og:site_name" content="cats cats cats">
-<meta property="og:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。しかし残念ながらその気持は長くは続きませんでした。Ansible, Chef, Puppet, CloudFo">
+<meta property="og:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormat">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/pulumi.png">
-<meta property="og:updated_time" content="2019-08-27T19:57:20.771Z">
+<meta property="og:updated_time" content="2019-08-27T20:44:48.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pulumiでプログラマのための「Infrastructure as Code」を実践する">
-<meta name="twitter:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。しかし残念ながらその気持は長くは続きませんでした。Ansible, Chef, Puppet, CloudFo">
+<meta name="twitter:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormat">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/pulumi.png">
 
 
@@ -179,7 +179,7 @@
         
 
         <div class="content">
-            <p>「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば<strong>インフラをコード化する</strong>という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。しかし残念ながらその気持は長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは<strong>「コレジャナイ」</strong>と。そして長い、長い旅路の末にようやく巡り会うことができました。<a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi<i class="fas fa-external-link-alt fa-fw"></i></a>という希望の星に。</p>
+            <p>「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば<strong>インフラをコード化する</strong>という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは<strong>「コレジャナイ」</strong>と。そして長い、長い旅路の末にようやく巡り会うことができました。<a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi<i class="fas fa-external-link-alt fa-fw"></i></a>という希望の星に。</p>
 <a id="more"></a>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#実践-infrastructure-as-code" class="contents-header">2. 実践 Infrastructure as Code</a><ul><li><a href="#pulumiの導入" class="contents-header">2.1. Pulumiの導入</a></li><li><a href="#pulumiログイン" class="contents-header">2.2. pulumiログイン</a></li><li><a href="#プロジェクトとスタックの作成" class="contents-header">2.3. プロジェクトとスタックの作成</a></li><li><a href="#indextsの作成" class="contents-header">2.4. index.tsの作成</a></li><li><a href="#utilstsの作成" class="contents-header">2.5. utils.tsの作成</a></li><li><a href="#インフラのデプロイ" class="contents-header">2.6. インフラのデプロイ</a></li><li><a href="#デプロイ結果の確認" class="contents-header">2.7. デプロイ結果の確認</a></li><li><a href="#リソースの後片付け" class="contents-header">2.8. リソースの後片付け</a></li><li><a href="#コードの解説" class="contents-header">2.9. コードの解説</a></li></ul></li><li><a href="#pulumiのいいところ" class="contents-header">3. Pulumiのいいところ</a></li><li><a href="#pulumiの仕組み" class="contents-header">4. Pulumiの仕組み</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
 

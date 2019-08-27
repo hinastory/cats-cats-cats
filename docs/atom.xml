@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-08-27T19:57:20.771Z</updated>
+  <updated>2019-08-27T20:44:48.700Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</id>
     <published>2019-08-25T22:28:45.000Z</published>
-    <updated>2019-08-27T19:57:20.771Z</updated>
+    <updated>2019-08-27T20:44:48.700Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば&lt;strong&gt;インフラをコード化する&lt;/strong&gt;という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。しかし残念ながらその気持は長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは&lt;strong&gt;「コレジャナイ」&lt;/strong&gt;と。そして長い、長い旅路の末にようやく巡り会うことができました。&lt;a href=&quot;https://www.pulumi.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pulumi&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という希望の星に。&lt;/p&gt;
+      &lt;p&gt;「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば&lt;strong&gt;インフラをコード化する&lt;/strong&gt;という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは&lt;strong&gt;「コレジャナイ」&lt;/strong&gt;と。そして長い、長い旅路の末にようやく巡り会うことができました。&lt;a href=&quot;https://www.pulumi.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pulumi&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という希望の星に。&lt;/p&gt;
     
     </summary>
     
