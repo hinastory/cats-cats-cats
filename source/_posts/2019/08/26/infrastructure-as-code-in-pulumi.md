@@ -19,7 +19,7 @@ date: 2019-08-26 07:28:45
 
 ## はじめに
 
-本記事は{% elink Pulumi https://www.pulumi.com/ %}で「Infrastructure as Code」を実践します。具体的にはAWS上に以下の2層構成のWebアプリケーション[^1]のインフラを100行未満のTypescriptで記述します。
+本記事では{% elink Pulumi https://www.pulumi.com/ %}で「Infrastructure as Code」を実践します。具体的にはAWS上に以下の2層構造のWebアプリケーション[^1]のインフラを100行未満のTypescriptで記述します。
 
 {% img /gallery/daily/cloud/aws/two-tier-web.png %}
 
@@ -42,7 +42,7 @@ $ pulumi login
 
 ブラウザでログインする場合は上記のコマンド後に「`Enter`」キーを押します。するとブラウザ側でサインインできます。自分はGitHubでpulumiにサインインしましたが、他にもGitLabやE-mail等でもサインインできます[^2]。
 
-[^2]: pulumiにサインインせずにローカルだけで完結させる方法もあります。
+[^2]: Pulumiにサインインせずにローカルだけで完結させる方法もあります。
 
 ## プロジェクトとスタックの作成
 
@@ -182,11 +182,9 @@ $ pulumi up
 
 `pulumi up`が成功すると最後の出力結果に`endpoint`が表示されているはずなので、そのURLにブラウザからアクセスしてみてください。
 
-「`Hello, World! from ap-northeast-1a`」が表示されたら成功です。ロードバランサを挟んでいるのでリロードでするごとにAZの部分(「from ap-northeast-1a」)が変わります。
+「`Hello, World! from ap-northeast-1a`」が表示されたら成功です。ロードバランサを挟んでいるのでリロードでするごとにAZの部分(`from ap-northeast-1a`)が変わります。また実際にAWSのコンソールにログインしてEC2やRDSやVPCの構成も確認してみてください[^3]。
 
-また実際にAWSのコンソールにログインしてEC2やRDSやVPCの構成も確認してみてください[^3]。
-
-[^3]: このときAWSコンソール側で構成変更をしないでください。pulumi側が管理している状態とAWSの状態がずれるとこの後説明するリソースの後片付けで失敗する可能性があります。
+[^3]: AWSのマネジメントコンソール側でPulumiで作成したリソースの変更をしないでください。Pulumi側が管理している状態とAWSの状態がずれるとこの後説明するリソースの後片付けで失敗する可能性があります。
 
 ## リソースの後片付け
 
@@ -201,7 +199,7 @@ $ pulumi destroy
 
 ## ソースコードの解説
 
-短いのであまり解説する必要もないかもしれませんが、`index.ts`だけ一応簡単にコメントします。魔法はライブラリの「`awsx`」にあります。これは「pulumi crosswalk」というライブラリでAWSのwell-architectedなベストプラクティスを実装しています。以下のコードでは「`new awsx.ec2.Vpc(vpcPrefix)`」が凄い仕事をしていて、二つのパブリックサブネットと二つのプライベートサブネットとインターネットゲートウェイ、NATゲートウェイやそれに付随するセキュリティグループ等さまざまなものを生成しています。それ以外はAWSの知識があれば割合素直に読めるのではないかと思います。
+短いのであまり解説する必要もないかもしれませんが、`index.ts`だけ一応簡単にコメントします。魔法はライブラリの「`awsx`」にあります。これは「Pulumi Crosswalk for AWS」というライブラリで、AWSのwell-architectedなベストプラクティスを実装しています。以下のコードでは「`new awsx.ec2.Vpc(vpcPrefix)`」が凄い仕事をしていて、二つのパブリックサブネットと二つのプライベートサブネットとインターネットゲートウェイ、NATゲートウェイやそれに付随するセキュリティグループ等さまざまなものを生成しています。それ以外はAWSの知識があれば割合素直に読めるのではないかと思います。
 
 {% code lang:ts index.ts %}
 import * as pulumi from "@pulumi/pulumi"
