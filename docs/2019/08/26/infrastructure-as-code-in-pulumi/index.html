@@ -16,7 +16,7 @@
 <meta property="og:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。しかし残念ながらその気持は長くは続きませんでした。Ansible, Chef, Puppet, CloudFo">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/pulumi.png">
-<meta property="og:updated_time" content="2019-08-27T19:03:40.413Z">
+<meta property="og:updated_time" content="2019-08-27T19:23:05.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pulumiでプログラマのための「Infrastructure as Code」を実践する">
 <meta name="twitter:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心躍る気持ちになりました。しかし残念ながらその気持は長くは続きませんでした。Ansible, Chef, Puppet, CloudFo">
@@ -192,7 +192,7 @@
 <p>ブラウザでログインする場合は上記のコマンド後に「<code>Enter</code>」キーを押します。するとブラウザ側でサインインできます。自分はGitHubでPulumiにサインインしましたが、他にもGitLabやE-mail等でもサインインできます<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
 <h3 id="プロジェクトとスタックの作成"><a href="#プロジェクトとスタックの作成" class="header-anchor"></a>2.3. <a href="#プロジェクトとスタックの作成" class="headerlink" title="プロジェクトとスタックの作成"></a>プロジェクトとスタックの作成</h3><p>次にプロジェクトとスタックの作成をします。以下のコマンドで実行します。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdir aws-ts-twe-tier-web && <span class="hljs-built_in">cd</span> aws-ts-twe-tier-web<br>$ pulumi new aws-typescript<br></code></pre></td></tr></tbody></table></figure>
-<p><code>purumi new</code>は基本的にはデフォルトでOKなので<code>Enter</code>で進めますが以下の質問だけ「<code>ap-northeast-1</code>」にして<code>Enter</code>を押してください。</p>
+<p><code>pulumi new</code>は基本的にはデフォルトでOKなので<code>Enter</code>で進めますが以下の質問だけ「<code>ap-northeast-1</code>」にして<code>Enter</code>を押してください。</p>
 <ul>
 <li><code>aws:region: The AWS region to deploy into: (us-east-1)</code></li>
 </ul>
@@ -281,8 +281,8 @@
 </ul>
 </li>
 <li>インフラのリソースの状態を管理している<ul>
-<li><code>purumi up</code>したとき前回実行時からの差分のリソースだけを作成する</li>
-<li><code>purumi destroy</code>で作成済みのリソースを破棄する</li>
+<li><code>pulumi up</code>したとき前回実行時からの差分のリソースだけを作成する</li>
+<li><code>pulumi destroy</code>で作成済みのリソースを破棄する</li>
 </ul>
 </li>
 <li>複数のプロジェクト、スタックを使い分けられる<ul>
@@ -294,7 +294,7 @@
 <p>1つ目はマルチクラウドなところです。AWSやAzureやGCPのようなパブリッククラウドだけではなくOpenStackもサポートしています。またKubernetesのようなコンテナオーケストレーションもPulumiでコード化することができるので、Pulumiを覚えるだけで非常に広範囲のインフラ構築を自動化できることが分かると思います。</p>
 <p>2つ目は複数の汎用言語をサポートしていることです。現在はJavaScriptやTypeScriptやPythonがサポートされており、Go言語も仲間入りする予定です。また拡張可能なように作られていて自分のお気に入りの言語を追加することも可能です<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
 <p>3つ目はインフラのリソースの状態をPulumi側で管理していることです。このことでプログラマは最終的にあるべき状態だけをインフラをプログラミングできます。もしこれが現在のリソース作成状況を意識しながらプログラムを考えなければ行けないとすると非常に大変です。インフラの最終状態だけを思い浮かべて<strong>ロジックに集中できる</strong>ということはプログラマにとってありがたいことです。</p>
-<p>もう一つプログラマに取ってありがたいのはリソースの削除が<code>purumi destroy</code>で簡単にできることです。プログラマは基本的にはトライアル&エラーでプログラムを作成することに慣れています。しかしリソースの破棄が面倒であれば試行錯誤する気にもならないかもしれません。実際のインフラではリソースに複雑な依存関係がついており順番を守らなければリソースの削除に失敗することもよくあります。しかし、Pulumiはリソースの状態を管理して、依存関係を把握することで、大量かつ複雑な依存関係のリソース郡を一括で削除できます。</p>
+<p>もう一つプログラマに取ってありがたいのはリソースの削除が<code>pulumi destroy</code>で簡単にできることです。プログラマは基本的にはトライアル&エラーでプログラムを作成することに慣れています。しかしリソースの破棄が面倒であれば試行錯誤する気にもならないかもしれません。実際のインフラではリソースに複雑な依存関係がついており順番を守らなければリソースの削除に失敗することもよくあります。しかし、Pulumiはリソースの状態を管理して、依存関係を把握することで、大量かつ複雑な依存関係のリソース郡を一括で削除できます。</p>
 <p>4つ目は複数のプロジェクトおよびスタックを使い分けられることです。プロジェクトは再利用の単位にもなっていて「自分が作成したインフラ」を簡単に公開して共有することができます。今回作成したコードも以下にGitHubで公開してあるので、ぜひ試してみてください。</p>
 <a href="https://github.com/hinastory/aws-ts-two-tier-web" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/aws-ts-two-tier-web</div><div class="og-description">2-tier web application hosting example for AWS by Pulumi - hinastory/aws-ts-two-tier-web</div></div></div></a>
 <p>また、プロジェクトの中でスタックを作成でき、コードの中で利用可能な「設定」を定義できます。例えばリージョン情報やユーザ名やパスワード等を「設定」としてコードから外出しすれば再利用性が高まり、スタックの切り替えで「設定」の切り替えもできるので非常に便利です。一番よくある使い方は開発用のスタックと本番用のスタックを分けるやり方です。その他にもパスワードを暗号化して管理する方法も提供されているので安全にインフラを共有することが可能です。</p>
