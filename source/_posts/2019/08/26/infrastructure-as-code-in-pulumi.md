@@ -40,7 +40,7 @@ Pulumiの[Get Started](https://www.pulumi.com/docs/get-started/)に従って、P
 $ pulumi login
 {% endcode %}
 
-ブラウザでログインする場合は上記のコマンド後に「`Enter`」キーを押します。するとブラウザ側でサインインできます。自分はGitHubでpulumiにサインインしましたが、他にもGitLabやE-mail等でもサインインできます[^2]。
+ブラウザでログインする場合は上記のコマンド後に「`Enter`」キーを押します。するとブラウザ側でサインインできます。自分はGitHubでPulumiにサインインしましたが、他にもGitLabやE-mail等でもサインインできます[^2]。
 
 [^2]: Pulumiにサインインせずにローカルだけで完結させる方法もあります。
 
@@ -166,12 +166,11 @@ export function createAutoScalingGroup(vpcPrefix: string, vpc: awsx.ec2.Vpc, alb
 {% endcode %}
 
 
-これで見事に冒頭で作成した構成が`index.ts`と`utils.ts`を合わせて100行弱のコードで作成できました。
+これで見事に冒頭で示した構成が`index.ts`と`utils.ts`を合わせて100行弱のコードで作成できました。
 
 ## インフラのデプロイ
 
-以下を実行してください。途中で本当に実行してよいか聞かれるので「`yes`」を選択して`Enter`を押してください。
-インフラの作成には数分かかります。
+以下を実行してください。途中で本当に実行してよいか聞かれるので「`yes`」を選択して`Enter`を押してください。インフラの作成には数分かかります。
 
 {% code lang:bash %}
 $ pulumi up
@@ -180,7 +179,7 @@ $ pulumi up
 
 ## 実行結果の確認
 
-`pulumi up`が成功すると最後の出力結果に`endpoint`が表示されているはずなので、そのURLにブラウザからアクセスしてみてください。
+`pulumi up`が成功すると最後の出力結果に`endpoint`が表示されるので、そのURLにブラウザからアクセスしてみてください。
 
 「`Hello, World! from ap-northeast-1a`」が表示されたら成功です。ロードバランサを挟んでいるのでリロードでするごとにAZの部分(`from ap-northeast-1a`)が変わります。また実際にAWSのコンソールにログインしてEC2やRDSやVPCの構成も確認してみてください[^3]。
 
