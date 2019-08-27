@@ -19,7 +19,7 @@ date: 2019-08-26 07:28:45
 
 ## はじめに
 
-本記事ではPulumi[^1]で「Infrastructure as Code」を実践します。具体的にはAWS上に以下の2層構造のWebアプリケーション[^2]のインフラを100行未満のTypescriptで記述します。
+本記事ではPulumi[^1]で「Infrastructure as Code」を実践します。具体的にはAWS上に以下の2層構造のWebアプリケーション[^2]のインフラを100行未満のTypeScriptで記述します。
 
 {% img /gallery/daily/cloud/aws/two-tier-web.png %}
 
@@ -29,9 +29,9 @@ date: 2019-08-26 07:28:45
 
 ## 実践 Infrastructure as Code
 
-Pulumiではインフラの状態が内部で管理されているので、インフラを簡単に作ったり、壊したりすることができます。また、TypeScriptなので、インフラの「型」を簡単に確認できたり、インフラをライブラリ化したり、インフラをループで大量に生成できます。正しくプログラミング感覚でインフラが構成できて、いらなくなったら簡単に破棄できるので`プログラマのためのIaC`を実践するのにPulumiはうってつけです。
+Pulumiではインフラの状態が内部で管理されているので、インフラを簡単に作ったり、壊したりすることができます。また、今回は静的型付き言語であるTypeScriptを選択したので、インフラの「型」を簡単に確認でき、IDEのサポートが受けやすいです。そしてTypeScriptは汎用言語でもあるのでインフラを関数やライブラリ化したり、インフラをループで大量に生成するのも簡単です。まさにプログラミング感覚でインフラが構築できて、いらなくなったら簡単に破棄できるので`プログラマのためのIaC`を実践するのにPulumiはうってつけです。
 
-### pulumiの導入
+### Pulumiの導入
 
 Pulumiの[Get Started](https://www.pulumi.com/docs/get-started/)に従って、Pulumi CLI、AWS CLI、Node.jsをインストールしてください。
 (「Configure AWS」まで進めてください。)
@@ -204,7 +204,7 @@ $ pulumi destroy
 
 ### コードの解説
 
-短いのであまり解説する必要もないかもしれませんが、`index.ts`だけ一応簡単にコメントします。魔法はライブラリの「`awsx`」にあります。これは「Pulumi Crosswalk for AWS」というライブラリで、AWSのwell-architectedなベストプラクティスを実装しています。以下のコードでは「`new awsx.ec2.Vpc(vpcPrefix)`」が凄い仕事をしていて、二つのパブリックサブネットと二つのプライベートサブネットとインターネットゲートウェイ、NATゲートウェイやそれに付随するセキュリティグループ等さまざまなものを生成しています。それ以外はAWSの知識があれば割合素直に読めるのではないかと思います。
+短いのであまり解説する必要もないかもしれませんが、`index.ts`だけ一応簡単にコメントします。魔法はライブラリの「`awsx`」にあります。これは「Pulumi Crosswalk for AWS」というライブラリで、AWSのwell-architectedなベストプラクティスを実装しています。以下のコードでは「`new awsx.ec2.Vpc(vpcPrefix)`」が凄い仕事をしていて、二つのパブリックサブネットと二つのプライベートサブネットとインターネットゲートウェイ、NATゲートウェイやそれに付随するセキュリティグループなど様々なものを生成しています。それ以外はAWSの知識があれば割合素直に読めるのではないかと思います。
 
 {% code lang:ts index.ts %}
 import * as pulumi from "@pulumi/pulumi"
@@ -216,7 +216,7 @@ const vpc = new awsx.ec2.Vpc(vpcPrefix) // VPCの作成(二つのパブリック
 const db = utils.createRDSInstance(vpcPrefix, vpc) // RDSインスタンスの作成
 const alb = utils.createApplicationLoadBalancer(vpcPrefix, vpc) // アプリケーションロードバランサーの作成
 const targetGroup = alb.createTargetGroup(`${vpcPrefix}-web-tg`, { port: 80, targetType: "instance" }) // ターゲットグループの作成
-const listener = targetGroup.createListener(`${vpcPrefix}-web-listener`, { port: 80 }) // リスナーを作成
+const listener = targetGroup.createListener(`${vpcPrefix}-web-listener`, { port: 80 }) // リスナーの作成
 const autoScalingGroup = utils.createAutoScalingGroup(vpcPrefix, vpc, alb) // オートスケーリンググループの作成
 autoScalingGroup.scaleToTrackAverageCPUUtilization("keepAround50Percent", { targetValue: 50 }) // スケーリングポリシーの作成
 
