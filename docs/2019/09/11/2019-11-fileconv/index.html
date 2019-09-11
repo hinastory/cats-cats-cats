@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
+<meta name="keywords" content="Ruby">
+<meta property="og:type" content="article">
+<meta property="og:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/09/11/2019-11-fileconv/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
+<meta property="og:updated_time" content="2019-09-11T10:39:48.093Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
+<meta name="twitter:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item" href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2019/09/11/2019-11-fileconv/" class="media-left">
+                <time datetime="2019-09-10T22:28:45.000Z">2019-09-11</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Ruby/">Ruby</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/files.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+               
+            </div>
+        </div>
+        
+
+        <div class="content">
+            <p>時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリ<code>fileconv</code>を作り始めました・・・</p>
+<a id="more"></a>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#インストール" class="contents-header">2. インストール</a></li><li><a href="#使い方" class="contents-header">3. 使い方</a><ul><li><a href="#コンバータのフック" class="contents-header">3.1. コンバータのフック</a></li><li><a href="#コンバータの変数" class="contents-header">3.2. コンバータの変数</a></li><li><a href="#デフォルトのメタコンバータ" class="contents-header">3.3. デフォルトのメタコンバータ</a></li><li><a href="#メタコンバータを作ってみる" class="contents-header">3.4. メタコンバータを作ってみる</a></li></ul></li><li><a href="#リポジトリ" class="contents-header">4. リポジトリ</a></li><li><a href="#fileconvの失敗談" class="contents-header">5. fileconvの失敗談</a></li><li><a href="#最後に" class="contents-header">6. 最後に</a></li></ul></div>
+
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は拡張可能な一括ファイル変換ライブラリ<code>fileconv</code>の紹介記事です。<code>fileconv</code>を使えば、ファイル処理を気にすることなく変換処理を実装することができます。またデフォルトでCSVやJSONフォーマットにも対応しています。</p>
+<ul>
+<li><a href="https://rubygems.org/gems/fileconv" target="_blank" rel="noopener">fileconv - RubyGems<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/hinastory/fileconv/" target="_blank" rel="noopener">fileconv - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>
+</li>
+</ul>
+<h2 id="インストール"><a href="#インストール" class="header-anchor"></a>2. <a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>以下の行をGemfileに加えてください。</p>
+<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">gem <span class="hljs-string">'fileconv'</span><br></code></pre></td></tr></tbody></table></figure>
+<p>それから以下を実行してください。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">$ bundle<br></code></pre></td></tr></tbody></table></figure>
+<p>もしくは以下のようにgemコマンドで直接インストールしてください。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ gem install fileconv<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使い方"><a href="#使い方" class="header-anchor"></a>3. <a href="#使い方" class="headerlink" title="使い方"></a>使い方</h2><p>「コンバータ」を作成するには以下の2つをする必要があります。</p>
+<ul>
+<li><code>MetaConvertor</code>(例: <code>Fileconv::Line</code>)を<code>include</code>する</li>
+<li>必要に応じていくつかのフック(e.g. <code>input_ext</code>)を定義する</li>
+</ul>
+<p>まずは簡単な例から紹介します。以下はテキストファイル(拡張子が<code>txt</code>のもの)を選択して行番号を付加するコンバータです。</p>
+<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'fileconv'</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddLinenoConvertor</span></span><br>  <span class="hljs-keyword">include</span> Fileconv::Line<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">input_ext</span></span><br>    <span class="hljs-string">"txt"</span><br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_acc</span><span class="hljs-params">(acc)</span></span><br>    acc[<span class="hljs-symbol">:lineno</span>] = <span class="hljs-number">0</span><br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convert_line</span><span class="hljs-params">(line, acc)</span></span><br>    acc[<span class="hljs-symbol">:lineno</span>] += <span class="hljs-number">1</span><br>    <span class="hljs-string">"<span class="hljs-subst">#{acc[<span class="hljs-symbol">:lineno</span>]}</span>: <span class="hljs-subst">#{line}</span>"</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
+<p>あとは以下のようにインスタンスを生成して<code>#conv</code>メソッドを実行するだけです。このスクリプトを実行するとカレントディレクトリのテキストファイル(拡張子が<code>txt</code>のもの)を選択して、カレントディレクトリの”output”ディレクトリ配下にファイルの変換結果(行番号を付加したもの)を同じファイル名で出力します。</p>
+<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ruby">convertor = AddLinenoConvertor.new<br>convertor.conv<br></code></pre></td></tr></tbody></table></figure>
+<p>つまり以下の2つのファイルがあるとすると、</p>
+<figure class="highlight plain"><figcaption><span>aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">aaa<br>bbb<br>ccc<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><figcaption><span>bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">111<br>222<br>333<br></code></pre></td></tr></tbody></table></figure>
+<p>コンバータの実行後には以下のような2つのファイルが変換結果として生成されます。</p>
+<figure class="highlight plain"><figcaption><span>output/aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">1: aaa<br>2: bbb<br>3: ccc<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><figcaption><span>output/bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">1: 111<br>2: 222<br>3: 333<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="コンバータのフック"><a href="#コンバータのフック" class="header-anchor"></a>3.1. <a href="#コンバータのフック" class="headerlink" title="コンバータのフック"></a>コンバータのフック</h3><p>前出の例では最低限のフックしかオーバーライドしていませんでしたが、必要に応じて様々なフックをオーバーライドできます。フックを一つもオーバーライドしない場合のデフォルトのアクションでは、カレントディレクトリのすべてのファイルを”output”ディレクトリにコピーします<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
+<table>
+<thead>
+<tr>
+<th>フック</th>
+<th>デフォルト</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>input_dir</td>
+<td>“.”(カレントディレクトリ)</td>
+<td>入力元ディレクトリ</td>
+</tr>
+<tr>
+<td>input_ext</td>
+<td><code>nil</code> (全ファイル)</td>
+<td>入力ファイルの拡張子</td>
+</tr>
+<tr>
+<td>output_dir</td>
+<td>“output”</td>
+<td>出力先ディレクトリ</td>
+</tr>
+<tr>
+<td>input_files(files)</td>
+<td><code>files</code></td>
+<td>入力ファイル</td>
+</tr>
+<tr>
+<td>init_conv</td>
+<td><code>nil</code></td>
+<td>コンバータの初期化用フック</td>
+</tr>
+<tr>
+<td>init_acc(acc)</td>
+<td><code>nil</code></td>
+<td>アキュームレータ(<code>acc</code>)の初期化用フック</td>
+</tr>
+<tr>
+<td>read_file(filename, acc)</td>
+<td><code>nil</code> (デフォルトのリーダ)</td>
+<td>ファイル読み込み用フック</td>
+</tr>
+<tr>
+<td>convert_line(line, acc)</td>
+<td><code>line</code></td>
+<td>行変換用フック</td>
+</tr>
+<tr>
+<td>convert_file(file, acc)</td>
+<td><code>file</code></td>
+<td>ファイル変換用フック</td>
+</tr>
+<tr>
+<td>output_filename(filename, acc)</td>
+<td><code>filename</code></td>
+<td>出力ファイル名変更用フック</td>
+</tr>
+<tr>
+<td>result_filename</td>
+<td>“result.txt”</td>
+<td>結果ファイル変更用フック</td>
+</tr>
+<tr>
+<td>conv_result</td>
+<td><code>nil</code></td>
+<td>変換結果出力用フック</td>
+</tr>
+</tbody>
+</table>
+<p>入力ファイルは<code>input_dir</code>と<code>input_ext</code>によって選択されます。これによって選択されたファイルは<code>input_files</code>フックで上書きでききます。</p>
+<p>よく使われるフックは以下のとおりです。</p>
+<ul>
+<li><code>#input_ext</code></li>
+<li><code>#convert_line</code></li>
+<li><code>#convert_file</code></li>
+<li><code>#conv_result</code></li>
+</ul>
+<h3 id="コンバータの変数"><a href="#コンバータの変数" class="header-anchor"></a>3.2. <a href="#コンバータの変数" class="headerlink" title="コンバータの変数"></a>コンバータの変数</h3><p>コンバータ内で利用できる主な変数は<code>acc</code>,<code>@meta</code>,<code>@opts</code>の３つで、全てHash型です。これらの変数はスコープを持っています。<code>acc</code>はいくつかのフックの引数として渡されますが、スコープとしては一つのファイルを処理する間の共通の変数として使えます。そして一つのファイルの処理が終わると初期化されます。<code>@opts</code>と<code>@meta</code>はコンバータ全体で有効な変数です。 <code>@opts</code>はオプション引数を保持するのに使われます。オプションは<code>#conv</code>メソッドの引数として渡されます。<code>@meta</code>はどんな目的にも使える変数として用意しています。一般的にはファイル処理全体に関わる情報を保持しておいて<code>#conv_result</code>フックの出力用に利用します。</p>
+<table>
+<thead>
+<tr>
+<th>変数</th>
+<th>スコープ</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>acc</td>
+<td>ファイル</td>
+<td>単一ファイル用の変数</td>
+</tr>
+<tr>
+<td>@meta</td>
+<td>コンバータ</td>
+<td>多目的変数</td>
+</tr>
+<tr>
+<td>@opts</td>
+<td>コンバータ</td>
+<td>オプション用変数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="デフォルトのメタコンバータ"><a href="#デフォルトのメタコンバータ" class="header-anchor"></a>3.3. <a href="#デフォルトのメタコンバータ" class="headerlink" title="デフォルトのメタコンバータ"></a>デフォルトのメタコンバータ</h3><p>メタコンバータは主にコンバータに<code>include</code>して利用されることを目的にしたコンバータです。<code>fileconv</code>にデフォルトで用意されているメタコンバータは以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>メタコンバータ</th>
+<th>モード</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Line</td>
+<td>行</td>
+<td>行の生データを取得</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td>行</td>
+<td>CSVの1行を取得(ArrayまたはRow)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>ファイル</td>
+<td>ファイルの生データを取得</td>
+</tr>
+<tr>
+<td>File</td>
+<td>ファイル</td>
+<td><code>File</code>オブジェクトを取得</td>
+</tr>
+<tr>
+<td>Stat</td>
+<td>ファイル</td>
+<td><code>Stat</code>オブジェクトを取得</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>ファイル</td>
+<td>JSONオブジェクトを取得</td>
+</tr>
+</tbody>
+</table>
+<p>コンバータ(メタコンバータも含む)は「モード」を持っており、主に2つに分けられます。</p>
+<ul>
+<li>ラインモード<ul>
+<li><code>#convert_line</code>フックが呼ばれる</li>
+<li>例) <code>Line</code>, <code>CSV</code></li>
+</ul>
+</li>
+<li>ファイルモード<ul>
+<li><code>#convert_line</code>フックが呼ばれない</li>
+<li>例) <code>Data</code>, <code>File</code>, <code>JSON</code></li>
+</ul>
+</li>
+</ul>
+<p><code>Line</code>コンバータはファイルを読み込んで改行コードで区切って<code>#convert_line</code>に渡してくれるコンバータです。改行コードは指定がなければ維持されます<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。<code>@opts[:new_line]</code>を指定することで明示的に改行コードを変換することもできます。</p>
+<p><code>CSV</code>コンバータはその名の通りCSV形式のファイルを扱います。Ruby標準のCSVモジュールを用いておりオプションもそのまま使えます。<code>#convert_line</code>にはCSVモジュールでパースされたCSVの各行が渡ってくるので行単位で処理を行いたい場合はこのフックを利用してください。<code>#convert_file</code>にはパースされたファイル全体が渡されるのでファイル単位で処理したい場合はこちらに処理を書いてください。</p>
+<p><code>Data</code>コンバータはファイルの中身を全て読み込んで処理したい場合に利用します。データの中身は直接<code>#convert_file</code>に渡されるのでここに変換処理を書くことができます。バイナリファイルの処理をしたい場合やファイルを自前でパースしたい場合に用います。</p>
+<p><code>File</code>コンバータはファイルは読み込まれず<code>#convert_file</code>に<code>File</code>オブジェクトが渡ってくるので直接ファイルを読み込めます。大きなファイルを分割して読み込んで処理したい場合などに用います。</p>
+<p><code>Stat</code>コンバータもファイルは読み込まず、代わりに<code>Stat</code>オブジェクトが<code>#convert_file</code>に渡されます。ファイルの更新日時やサイズ等のメタ情報だけが必要な場合に用います。</p>
+<p>一番最初の例はラインモードの例だったので次はファイルモードであるJSONメタコンバータの利用例を紹介します。</p>
+<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'fileconv'</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModifyJSONConvertor</span></span><br>  <span class="hljs-keyword">include</span> Fileconv::JSON<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">input_ext</span></span><br>    <span class="hljs-string">"json"</span><br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convert_file</span><span class="hljs-params">(data, acc)</span></span><br>    data.map <span class="hljs-keyword">do</span> <span class="hljs-params">|e|</span><br>      e[<span class="hljs-string">"country"</span>] = <span class="hljs-string">"USA"</span><br>      e<br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br>ModifyJSONConvertor.new.conv<br></code></pre></td></tr></tbody></table></figure>
+<p>オリジナルファイル (<code>address.json</code>) :<br></p><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Mike"</span>, <span class="hljs-attr">"Age"</span>: <span class="hljs-string">"21"</span>}, {<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Jon"</span>, <span class="hljs-attr">"Age"</span>: <span class="hljs-string">"33"</span>}]<br></code></pre></td></tr></tbody></table></figure><p></p>
+<p>変換後のファイル (<code>output/address.json</code>) :<br></p><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">[{<span class="hljs-attr">"name"</span>:<span class="hljs-string">"Mike"</span>,<span class="hljs-attr">"Age"</span>:<span class="hljs-string">"21"</span>,<span class="hljs-attr">"country"</span>:<span class="hljs-string">"USA"</span>},{<span class="hljs-attr">"name"</span>:<span class="hljs-string">"Jon"</span>,<span class="hljs-attr">"Age"</span>:<span class="hljs-string">"33"</span>,<span class="hljs-attr">"country"</span>:<span class="hljs-string">"USA"</span>}]<br></code></pre></td></tr></tbody></table></figure><p></p>
+<p>さらに多くのサンプルは<a href="https://github.com/hinastory/fileconv/tree/master/example" target="_blank" rel="noopener">ここ</a>で見ることが可能です。</p>
+<h3 id="メタコンバータを作ってみる"><a href="#メタコンバータを作ってみる" class="header-anchor"></a>3.4. <a href="#メタコンバータを作ってみる" class="headerlink" title="メタコンバータを作ってみる"></a>メタコンバータを作ってみる</h3><p>メタコンバータは簡単に作ることができます。<br>以下は<code>fileconv</code>ジェムのJSONメタコンバータの例です。</p>
+<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"json"</span><br><br><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Fileconv</span></span><br>  <span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">JSON</span></span><br>    <span class="hljs-keyword">include</span> Fileconv::Base<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pre_init_conv</span></span><br>      @opts[<span class="hljs-symbol">:read_json_opts</span>] <span class="hljs-params">||</span>= {}<br>      @opts[<span class="hljs-symbol">:write_json_opts</span>] <span class="hljs-params">||</span>= {}<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pre_convert_file</span><span class="hljs-params">(data, acc)</span></span><br>      <span class="hljs-symbol">:</span><span class="hljs-symbol">:JSON</span>.parse(data, @opts[<span class="hljs-symbol">:read_json_opts</span>])<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_convert_file</span><span class="hljs-params">(obj, acc)</span></span><br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> obj<br>      <span class="hljs-keyword">if</span> @opts[<span class="hljs-symbol">:pretty_json</span>]<br>        <span class="hljs-symbol">:</span><span class="hljs-symbol">:JSON</span>.pretty_generate(obj, @opts[<span class="hljs-symbol">:write_json_opts</span>])<br>      <span class="hljs-keyword">else</span><br>        <span class="hljs-symbol">:</span><span class="hljs-symbol">:JSON</span>.generate(obj, @opts[<span class="hljs-symbol">:write_json_opts</span>])<br>      <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
+<p>メタコンバータを作成するには「Fileconv::Base」をincludeしてコンバータで呼び出されるフックの事前(<code>pre_</code>)もしくは事後(<code>post_</code>)に呼び出される以下のフックを必要に応じてオーバーライドするだけです。</p>
+<ul>
+<li>pre_init_conv</li>
+<li>post_init_conv</li>
+<li>pre_input_files</li>
+<li>post_input_files</li>
+<li>pre_init_acc</li>
+<li>post_init_acc</li>
+<li>pre_convert_file</li>
+<li>pre_convert_line</li>
+<li>post_convert_line</li>
+<li>post_convert_file</li>
+<li>pre_conv_result</li>
+<li>post_conv_result</li>
+</ul>
+<h2 id="リポジトリ"><a href="#リポジトリ" class="header-anchor"></a>4. <a href="#リポジトリ" class="headerlink" title="リポジトリ"></a>リポジトリ</h2><p>以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。</p>
+<a href="https://github.com/hinastory/fileconv" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/fileconv</div><div class="og-description">Extensible multi-file convertor. Simple text file, CSV file, JSON file, binary file and so on. - hinastory/fileconv</div></div></div></a>
+<h2 id="fileconvの失敗談"><a href="#fileconvの失敗談" class="header-anchor"></a>5. <a href="#fileconvの失敗談" class="headerlink" title="fileconvの失敗談"></a><code>fileconv</code>の失敗談</h2><p><code>fileconv</code>を長年使い続ける中で色々と失敗を重ね、少しずつ改良していきました。以下は主な失敗した点です。</p>
+<ol>
+<li>継承ベースにする</li>
+<li>メタコンバータを本当に「<code>メタプログラミング</code>」で実装する</li>
+<li>例外を途中でキャッチする</li>
+</ol>
+<p>1.は分かりやすいですが、最初は継承ベースで設計していたため、別の親クラスを持つクラスと一緒に使うことができなかったためMixinベースに変更しました。</p>
+<p>2.に関してはメタコンバータを<code>eval</code>や<code>defile_method</code>や<code>send</code>や<code>method_missing</code>を使いまくって実装していた時期がありました・・・ あの頃は若かった・・・。 当時は<strong>「かっこいい」</strong>と本気で思っていましたが、普段使いのライブラリにとっては<strong>地獄</strong>以外の何物でもなかったです。どこでエラーが起こったのか分かり辛く、処理も追い辛いので実装して半年で全て現在の<code>pre</code>, <code>post</code>のフック形式に書換えました。まぁ、一見するとダサいですがフックのライフサイクルが分かりやすくなったのと、コンバータを簡単にメタコンバータに昇格できるようになりました。つまり、最初はコンバータで書いたものを、ちょっと汎用的に使いたければフックを<code>pre</code>か<code>post</code>に移すだけでメタコンバータに変換できるので非常に使い勝手がよくなりました。</p>
+<p>3.に関してはファイル変換の途中で失敗したら例外をレスキューして続きのファイル変換を継続するような処理を入れたこともありました。しかし、<code>fileconv</code>は「コンバータ」や「メタコンバータ」を作る基盤なので薄いレイヤーに徹して例外処理は上位に委譲するのが正解だと使い続けて気づきました。</p>
+<p>他にも色々失敗した点はありますが、上記の3つは似たような基盤ライブラリを作る上でも参考になると思います。</p>
+<h2 id="最後に"><a href="#最後に" class="header-anchor"></a>6. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p><code>fileconv</code>を作ってからファイルを開いたりファイルを書き戻したりする<strong>「余計な一手間」</strong>を考えずに済むようになり、書きたいと思った変換処理をすぐに書けるようになりました。ここ数年はライブラリのインターフェースも安定しており、<strong>シンプルに実装するのが一番</strong>だと実感しています。メタプログラミングコワイ・・・</p>
+<p>このライブラリの今後についてですが、最近はあまり複雑なコンバータを書くのをやめて単純なコンバータをつなげて処理を書くことが多くなっています。従ってそのうちその知見を生かして<code>fileconv</code>にコンバータの「合成」を実装するかもしれません。</p>
+<p>本記事が<code>fileconv</code>の活用およびファイル一括変換の一助になれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">カレントディレクトリに"output"ディレクトリが無かった場合には作成します。"output"ディレクトリに同名のファイルが存在した場合は上書きします。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">最初に読み込んだファイルの最初の改行コードが採用されます。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div><p></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/">
+                <span class="level-item">Pulumiでプログラマのための「Infrastructure as Code」を実践する</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-23</div><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark">RubyKaigi 2019 in 福岡に参加してきた話</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        28
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        12
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        31
+                    </p>
+                </div>
+            </div>
+        </nav>
+
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Qiita" href="https://qiita.com/hinastory">
+                
+                <i class="fas fa-search"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Event/">
+            <span class="level-start">
+                <span class="level-item">Event</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">23</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Cloud/">
+            <span class="level-start">
+                <span class="level-item">Cloud</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Engineering/">
+            <span class="level-start">
+                <span class="level-item">Engineering</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Tool/">
+            <span class="level-start">
+                <span class="level-item">Tool</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/09/11/2019-11-fileconv/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/files.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-10T22:28:45.000Z">2019-09-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/09/11/2019-11-fileconv/" class="has-link-black-ter is-size-6">長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/pulumi.png" alt="Pulumiでプログラマのための「Infrastructure as Code」を実践する">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T22:28:45.000Z">2019-08-26</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" class="has-link-black-ter is-size-6">Pulumiでプログラマのための「Infrastructure as Code」を実践する</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png" alt="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-19T22:28:45.000Z">2019-08-20</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" class="has-link-black-ter is-size-6">暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Tokyo-MF_logo.gif" alt="夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-03T22:28:45.000Z">2019-08-04</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="has-link-black-ter is-size-6">夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/grpc-horizontal-color.png" alt="gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-26T22:28:45.000Z">2019-07-27</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="has-link-black-ter is-size-6">gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            
+<div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019-09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019-08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019-07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019-05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019-03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
+                        <span class="level-start">
+                            <span class="level-item">AWS</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="level-start">
+                            <span class="level-item">Algorithm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
+                        <span class="level-start">
+                            <span class="level-item">Book</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="level-start">
+                            <span class="level-item">CategoryTheory</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
+                        <span class="level-start">
+                            <span class="level-item">Cats</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="level-start">
+                            <span class="level-item">Dotty</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
+                        <span class="level-start">
+                            <span class="level-item">Event</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">6</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
+                        <span class="level-start">
+                            <span class="level-item">GCP</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
+                        <span class="level-start">
+                            <span class="level-item">Go</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
+                        <span class="level-start">
+                            <span class="level-item">IaC</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="level-start">
+                            <span class="level-item">MachineLearning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="level-start">
+                            <span class="level-item">MakerFaire</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
+                        <span class="level-start">
+                            <span class="level-item">Mind</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="level-start">
+                            <span class="level-item">Qiita</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
+                        <span class="level-start">
+                            <span class="level-item">Scala</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="level-start">
+                            <span class="level-item">gRPC</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
+                        <span class="level-start">
+                            <span class="level-item">html5</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="level-start">
+                            <span class="level-item">pulumi</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/09/11/2019-11-fileconv/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/files.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-10T22:28:45.000Z">2019-09-11</time></div>
+
+                    <a href="/cats-cats-cats/2019/09/11/2019-11-fileconv/" class="has-link-black-ter is-size-6">長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/pulumi.png" alt="Pulumiでプログラマのための「Infrastructure as Code」を実践する">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T22:28:45.000Z">2019-08-26</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" class="has-link-black-ter is-size-6">Pulumiでプログラマのための「Infrastructure as Code」を実践する</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png" alt="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-19T22:28:45.000Z">2019-08-20</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" class="has-link-black-ter is-size-6">暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Tokyo-MF_logo.gif" alt="夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-03T22:28:45.000Z">2019-08-04</time></div>
+
+                    <a href="/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/" class="has-link-black-ter is-size-6">夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/grpc-horizontal-color.png" alt="gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-26T22:28:45.000Z">2019-07-27</time></div>
+
+                    <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="has-link-black-ter is-size-6">gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019-09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019-08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019-07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019-05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019-04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019-03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019-02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019-01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018-12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
+                        <span class="level-start">
+                            <span class="level-item">AWS</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="level-start">
+                            <span class="level-item">AdventCalendar</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="level-start">
+                            <span class="level-item">Algorithm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
+                        <span class="level-start">
+                            <span class="level-item">Book</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="level-start">
+                            <span class="level-item">CategoryTheory</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
+                        <span class="level-start">
+                            <span class="level-item">Cats</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
+                        <span class="level-start">
+                            <span class="level-item">Container</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="level-start">
+                            <span class="level-item">Dotty</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="level-start">
+                            <span class="level-item">ErgoDash</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
+                        <span class="level-start">
+                            <span class="level-item">Event</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">6</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
+                        <span class="level-start">
+                            <span class="level-item">GCP</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
+                        <span class="level-start">
+                            <span class="level-item">Go</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="level-start">
+                            <span class="level-item">Hexo</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
+                        <span class="level-start">
+                            <span class="level-item">IaC</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="level-start">
+                            <span class="level-item">Jupyter</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="level-start">
+                            <span class="level-item">Keyboard</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="level-start">
+                            <span class="level-item">Keymap</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="level-start">
+                            <span class="level-item">MachineLearning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="level-start">
+                            <span class="level-item">MakerFaire</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
+                        <span class="level-start">
+                            <span class="level-item">Mind</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="level-start">
+                            <span class="level-item">Qiita</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="level-start">
+                            <span class="level-item">Ruby</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
+                        <span class="level-start">
+                            <span class="level-item">Scala</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
+                        <span class="level-start">
+                            <span class="level-item">Web</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="level-start">
+                            <span class="level-item">gRPC</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
+                        <span class="level-start">
+                            <span class="level-item">html5</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
+                        <span class="level-start">
+                            <span class="level-item">k8s</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
+                        <span class="level-start">
+                            <span class="level-item">npm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">4</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="level-start">
+                            <span class="level-item">oEmbed</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="level-start">
+                            <span class="level-item">pulumi</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2019 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/cats-cats-cats/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>

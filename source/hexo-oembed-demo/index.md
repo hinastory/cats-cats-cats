@@ -54,14 +54,6 @@ https://github.com/hinastory/hexo-oembed
 
 {% oembed https://vimeo.com/311121738 %}
 
-### pixiv
-
-{% code Hexo tag %}
-{% raw %}{% oembed https://www.pixiv.net/member_illust.php?mode=medium&illust_id=73112765 %}{% endraw %}
-{% endcode %}
-
-{% oembed https://www.pixiv.net/member_illust.php?mode=medium&illust_id=73112765 %}
-
 ### TED
 
 {% code Hexo tag %}
