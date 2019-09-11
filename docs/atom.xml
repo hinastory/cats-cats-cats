@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-09-11T17:29:20.298Z</updated>
+  <updated>2019-09-11T17:33:25.536Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/09/11/2019-11-fileconv/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/09/11/2019-11-fileconv/</id>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/</id>
     <published>2019-09-10T22:28:45.000Z</published>
-    <updated>2019-09-11T17:29:20.298Z</updated>
+    <updated>2019-09-11T17:33:25.536Z</updated>
     
     <summary type="html">
     
@@ -317,9 +317,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
   </entry>
   
@@ -368,9 +368,9 @@
       <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
     
     
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
   </entry>
   
@@ -483,6 +483,8 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
+      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
+    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
@@ -490,8 +492,6 @@
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
-    
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
   </entry>
   
