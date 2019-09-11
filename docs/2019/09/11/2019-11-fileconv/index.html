@@ -16,7 +16,7 @@
 <meta property="og:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
-<meta property="og:updated_time" content="2019-09-11T17:20:04.140Z">
+<meta property="og:updated_time" content="2019-09-11T17:29:20.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
 <meta name="twitter:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
@@ -183,7 +183,7 @@
 <a id="more"></a>
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#インストール" class="contents-header">2. インストール</a></li><li><a href="#使い方" class="contents-header">3. 使い方</a><ul><li><a href="#コンバータのフック" class="contents-header">3.1. コンバータのフック</a></li><li><a href="#コンバータの変数" class="contents-header">3.2. コンバータの変数</a></li><li><a href="#デフォルトのメタコンバータ" class="contents-header">3.3. デフォルトのメタコンバータ</a></li><li><a href="#メタコンバータを作ってみる" class="contents-header">3.4. メタコンバータを作ってみる</a></li></ul></li><li><a href="#リポジトリ" class="contents-header">4. リポジトリ</a></li><li><a href="#fileconvの失敗談" class="contents-header">5. fileconvの失敗談</a></li><li><a href="#最後に" class="contents-header">6. 最後に</a></li></ul></div>
 
-<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は拡張可能な一括ファイル変換ライブラリ<code>fileconv</code>の紹介記事です。<code>fileconv</code>を使えば、ファイル処理を気にすることなく変換処理を実装することができます。またデフォルトでCSVやJSONフォーマットにも対応しています。</p>
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は拡張可能な一括ファイル変換ライブラリ<code>fileconv</code>の紹介記事です。<code>fileconv</code>を使えばファイルのオープンや読み書きに手を煩わせることなく、簡単に複数ファイルの変換処理を実装することができます。またデフォルトでCSVやJSONフォーマットにも対応しており、他のフォーマットに対応するのも簡単です。</p>
 <ul>
 <li><a href="https://rubygems.org/gems/fileconv" target="_blank" rel="noopener">fileconv - RubyGems<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://github.com/hinastory/fileconv/" target="_blank" rel="noopener">fileconv - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>

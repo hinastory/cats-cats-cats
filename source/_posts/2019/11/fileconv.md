@@ -17,7 +17,7 @@ date: 2019-09-11 07:28:45
 
 ## はじめに
 
-本記事は拡張可能な一括ファイル変換ライブラリ`fileconv`の紹介記事です。`fileconv`を使えば、ファイル処理を気にすることなく変換処理を実装することができます。またデフォルトでCSVやJSONフォーマットにも対応しています。
+本記事は拡張可能な一括ファイル変換ライブラリ`fileconv`の紹介記事です。`fileconv`を使えばファイルのオープンや読み書きに手を煩わせることなく、簡単に複数ファイルの変換処理を実装することができます。またデフォルトでCSVやJSONフォーマットにも対応しており、他のフォーマットに対応するのも簡単です。
 
 - {% elink fileconv - RubyGems https://rubygems.org/gems/fileconv %}
 - {% elink fileconv - GitHub https://github.com/hinastory/fileconv/ %}
