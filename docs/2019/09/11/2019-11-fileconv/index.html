@@ -16,7 +16,7 @@
 <meta property="og:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
-<meta property="og:updated_time" content="2019-09-11T10:39:48.093Z">
+<meta property="og:updated_time" content="2019-09-11T16:27:30.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
 <meta name="twitter:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
@@ -413,8 +413,8 @@
 <p>他にも色々失敗した点はありますが、上記の3つは似たような基盤ライブラリを作る上でも参考になると思います。</p>
 <h2 id="最後に"><a href="#最後に" class="header-anchor"></a>6. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p><code>fileconv</code>を作ってからファイルを開いたりファイルを書き戻したりする<strong>「余計な一手間」</strong>を考えずに済むようになり、書きたいと思った変換処理をすぐに書けるようになりました。ここ数年はライブラリのインターフェースも安定しており、<strong>シンプルに実装するのが一番</strong>だと実感しています。メタプログラミングコワイ・・・</p>
 <p>このライブラリの今後についてですが、最近はあまり複雑なコンバータを書くのをやめて単純なコンバータをつなげて処理を書くことが多くなっています。従ってそのうちその知見を生かして<code>fileconv</code>にコンバータの「合成」を実装するかもしれません。</p>
-<p>本記事が<code>fileconv</code>の活用およびファイル一括変換の一助になれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">カレントディレクトリに"output"ディレクトリが無かった場合には作成します。"output"ディレクトリに同名のファイルが存在した場合は上書きします。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">最初に読み込んだファイルの最初の改行コードが採用されます。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div><p></p>
-<script>
+<p>この手の薄いユーティリティ系のライブラリにどれほどニーズがあるかは謎ですが、せっかく育てたので晒してみました。<br>ファイル変換のお供にして頂けると幸いです。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">カレントディレクトリに"output"ディレクトリが無かった場合には作成します。"output"ディレクトリに同名のファイルが存在した場合は上書きします。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">最初に読み込んだファイルの最初の改行コードが採用されます。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
