@@ -16,7 +16,7 @@
 <meta property="og:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
-<meta property="og:updated_time" content="2019-09-11T17:33:25.536Z">
+<meta property="og:updated_time" content="2019-09-12T18:00:34.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
 <meta name="twitter:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
@@ -189,6 +189,7 @@
 <li><a href="https://github.com/hinastory/fileconv/" target="_blank" rel="noopener">fileconv - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>
 </li>
 </ul>
+<p>また、記事の最後の方でこのライブラリを育てる途中の失敗談も紹介したいと思います。</p>
 <h2 id="インストール"><a href="#インストール" class="header-anchor"></a>2. <a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>以下の行をGemfileに加えてください。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">gem <span class="hljs-string">'fileconv'</span><br></code></pre></td></tr></tbody></table></figure>
 <p>それから以下を実行してください。</p>
@@ -414,7 +415,7 @@
 <li>例外を途中でキャッチする</li>
 </ol>
 <p>1.は分かりやすいですが、最初は継承ベースで設計していたため、別の親クラスを持つクラスと一緒に使うことができなかったためMixinベースに変更しました。</p>
-<p>2.に関してはメタコンバータを<code>eval</code>や<code>defile_method</code>や<code>send</code>や<code>method_missing</code>を使いまくって実装していた時期がありました・・・ あの頃は若かった・・・。 当時は<strong>「かっこいい」</strong>と本気で思っていましたが、普段使いのライブラリにとっては<strong>地獄</strong>以外の何物でもなかったです。どこでエラーが起こったのか分かり辛く、処理も追い辛いので実装して半年で全て現在の<code>pre</code>, <code>post</code>のフック形式に書換えました。まぁ、一見するとダサいですがフックのライフサイクルが分かりやすくなったのと、コンバータを簡単にメタコンバータに昇格できるようになりました。つまり、最初はコンバータで書いたものを、ちょっと汎用的に使いたければフックを<code>pre</code>か<code>post</code>に移すだけでメタコンバータに変換できるので非常に使い勝手がよくなりました。</p>
+<p>2.に関してはメタコンバータを<code>eval</code>系や<code>defile_method</code>や<code>send</code>や<code>method_missing</code>を使いまくって実装していた時期がありました・・・ あの頃は若かった・・・。 当時は<strong>「かっこいい」</strong>と本気で思っていましたが、普段使いのライブラリにとっては<strong>地獄</strong>以外の何物でもなかったです。どこでエラーが起こったのか分かり辛く、処理も追い辛いので実装して半年で全て現在の<code>pre</code>, <code>post</code>のフック形式に書換えました。メタコンバータの「メタ」はメタプログラミングで実装していた頃の残滓であり、自分への戒めのために残してあります。まぁ、一見すると「pre-」はダサいですがフックのライフサイクルが分かりやすくなったのと、コンバータを簡単にメタコンバータに昇格できるようになりました。つまり、最初はコンバータで書いたものを、ちょっと汎用的に使いたければフックを<code>pre</code>か<code>post</code>に移すだけでメタコンバータに変換できるので非常に使い勝手がよくなりました。</p>
 <p>3.に関してはファイル変換の途中で失敗したら例外をレスキューして続きのファイル変換を継続するような処理を入れたこともありました。しかし、<code>fileconv</code>は「コンバータ」や「メタコンバータ」を作る基盤なので薄いレイヤーに徹して例外処理は上位に委譲するのが正解だと使い続けて気づきました。</p>
 <p>他にも色々失敗した点はありますが、上記の3つは似たような基盤ライブラリを作る上でも参考になるのではと思っています。</p>
 <h2 id="最後に"><a href="#最後に" class="header-anchor"></a>6. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p><code>fileconv</code>を作ってからファイルを開いたりファイルを書き戻したりする<strong>「余計な一手間」</strong>を考えずに済むようになり、書きたいと思った変換処理をすぐに書けるようになりました。ここ数年はライブラリのインターフェースも安定しており、<strong>シンプルに実装するのが一番</strong>だと実感しています。メタプログラミングコワイ・・・</p>
