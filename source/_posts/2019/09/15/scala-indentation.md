@@ -239,7 +239,7 @@ object Example {
 
 ### 今すぐ試してみたい!
 
-上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。
+上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。インデントベースの構文と従来のブレースベースの構文はどちらも有効なので、実際に触ってみて感触を掴むのが一番だと思われます。
 
 - {% elink hinastory/dotty_examples: Example code of Dotty (Scala 3) https://github.com/hinastory/dotty_examples %}
 
