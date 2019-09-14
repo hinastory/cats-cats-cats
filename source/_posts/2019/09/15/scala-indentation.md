@@ -1,5 +1,5 @@
 ---
-title: Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！
+title: Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！
 thumbnail: /gallery/thumbnails/dotty-logo.png
 categories:
   - Tech
