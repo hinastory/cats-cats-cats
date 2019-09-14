@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-09-12T18:00:34.786Z</updated>
+  <updated>2019-09-14T17:54:58.447Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/</id>
+    <published>2019-09-14T22:28:45.000Z</published>
+    <updated>2019-09-14T17:54:58.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala3でもとうとうその波に乗ろうという動きが見えてきました・・・&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="Dotty" scheme="https://hinastory.github.io/cats-cats-cats/tags/Dotty/"/>
+    
+  </entry>
   
   <entry>
     <title>長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</title>
@@ -368,9 +393,9 @@
       <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
     
     
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
-    
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
   </entry>
   
@@ -520,42 +545,6 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
     
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo-oembedを公開しました</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/07/hexo-oembed/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/02/07/hexo-oembed/</id>
-    <published>2019-02-06T23:36:19.000Z</published>
-    <updated>2019-02-13T23:00:34.968Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はそのプラグインの紹介記事です。&lt;/p&gt;
-&lt;a href=&quot;https://www.npmjs.com/package/hexo-oembed&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;hexo-oembed&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;embed oEmbed item on your Hexo article.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
-&lt;p&gt;プラグイン制作記事は以下に書きました。興味があればそちらも読んで頂けると嬉しいです。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/02/09/hexo-oembed-1/&quot; title=&quot;HexoのoEmbedプラグインをnpmに公開した話(前編)&quot;&gt;HexoのoEmbedプラグインをnpmに公開した話(前編)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/cats-cats-cats/2019/02/11/hexo-oembed-2/&quot; title=&quot;HexoのoEmbedプラグインをnpmに公開した話(後編)&quot;&gt;HexoのoEmbedプラグインをnpmに公開した話(後編)&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
-    
-    
-      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
-    
-      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
-    
-      <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
     
   </entry>
   

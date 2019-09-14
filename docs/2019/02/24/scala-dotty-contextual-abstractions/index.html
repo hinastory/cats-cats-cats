@@ -233,7 +233,7 @@
 </ul>
 <h2 id="味見の方法"><a href="#味見の方法" class="header-anchor"></a>5. <a href="#味見の方法" class="headerlink" title="味見の方法"></a>味見の方法</h2><a href="https://github.com/lampepfl/dotty/releases/tag/0.16.0-RC3" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>から<code>dotty-0.16.0-RC3.zip</code>をダウンロードして解凍します。解凍後のフォルダの<code>bin</code>にパスを通せば利用できるようになります。<br><code>dotc</code>がコンパイラです。<code>dotr</code>はクラス名を指定するとコンパイル済みのバイナリを実行します。単独で起動した場合にはREPLになります。<br><br><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ dotc <ソースファイル名> <span class="hljs-comment"># ソースコードのコンパイル</span><br>$ dotr <メインクラス名> <span class="hljs-comment"># コンパイル済みのコードを実行</span><br></メインクラス名></ソースファイル名></code></pre></td></tr></tbody></table></figure>
 <p>もしくはサンプルコードをGitHubで公開したので、<code>sbt</code>をすでにインストールされている方はそちらの方が早いと思います。使い方は<code>README.md</code>をご覧ください</p>
-<a href="https://github.com/hinastory/dotty_contextual_abstractions_example" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/dotty_contextual_abstractions_example</div><div class="og-description">Sample code of Dotty's Contextual Abstractions. Contribute to hinastory/dotty_contextual_abstractions_example development by creating an acc…</div></div></div></a>
+<a href="https://github.com/hinastory/dotty_contextual_abstractions_example" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/dotty_examples</div><div class="og-description">Sample code of Dotty (Scala 3). Contribute to hinastory/dotty_examples development by creating an account on GitHub.</div></div></div></a>
 <h2 id="味見の結果"><a href="#味見の結果" class="header-anchor"></a>6. <a href="#味見の結果" class="headerlink" title="味見の結果"></a>味見の結果</h2><p>Dottyドキュメントに記載されている例をベースに味見をしてみました<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup>。</p>
 <h3 id="基本的な例"><a href="#基本的な例" class="header-anchor"></a>6.1. <a href="#基本的な例" class="headerlink" title="基本的な例"></a>基本的な例</h3><p>従来のImplicitsが分かっている人から見れば、おおよそ以下のコードの意味が分かると思います。<br>拡張メソッド記法だけは、最初は戸惑うかもしれません。自分は最初Go言語に似ているなと思いました・・・</p>
 <figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-comment">/** 暗黙のインスタンス、推論可能パラメータのサンプル */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">DelegateExample</span> </span>{<br>  <span class="hljs-comment">/** 順序型の定義 */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Ord</span>[<span class="hljs-type">T</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>): <span class="hljs-type">Int</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) < (y: <span class="hljs-type">T</span>) = compare(x, y) < <span class="hljs-number">0</span> <span class="hljs-comment">// 拡張メソッド記法を使って定義してあります</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) > (y: <span class="hljs-type">T</span>) = compare(x, y) > <span class="hljs-number">0</span> <span class="hljs-comment">// 上記と同様</span><br>  }<br><br>  <span class="hljs-comment">/** 順序型のIntの暗黙のインスタンスの定義 */</span><br>  delegate <span class="hljs-type">IntOrd</span> <span class="hljs-keyword">for</span> <span class="hljs-type">Ord</span>[<span class="hljs-type">Int</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span>) =<br>      <span class="hljs-keyword">if</span> (x < y) <span class="hljs-number">-1</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x > y) +<span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>  }<br><br>  <span class="hljs-comment">/** 順序型のListの暗黙のインスタンスの定義 */</span><br>  delegate <span class="hljs-type">ListOrd</span>[<span class="hljs-type">T</span>] <span class="hljs-keyword">for</span> <span class="hljs-type">Ord</span>[<span class="hljs-type">List</span>[<span class="hljs-type">T</span>]] given (ord: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]) {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>], ys: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Int</span> = (xs, ys) <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> (<span class="hljs-type">Nil</span>, <span class="hljs-type">Nil</span>) => <span class="hljs-number">0</span><br>      <span class="hljs-keyword">case</span> (<span class="hljs-type">Nil</span>, _) => <span class="hljs-number">-1</span> <span class="hljs-comment">// 空リストよりも非空リストの方が大きい</span><br>      <span class="hljs-keyword">case</span> (_, <span class="hljs-type">Nil</span>) => +<span class="hljs-number">1</span> <span class="hljs-comment">// 同上</span><br>      <span class="hljs-keyword">case</span> (x :: xs1, y :: ys1) =><br>        <span class="hljs-keyword">val</span> fst = ord.compare(x, y) <span class="hljs-comment">// 先頭の大きさがLists全体の大きさ</span><br>        <span class="hljs-keyword">if</span> (fst != <span class="hljs-number">0</span>) fst <span class="hljs-keyword">else</span> compare(xs1, ys1) <span class="hljs-comment">// 同じだったら次の要素を再帰的に繰り返す</span><br>    }<br>  }<br><br>  <span class="hljs-comment">/** 推論可能パラメータ */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">max</span></span>[<span class="hljs-type">T</span>](x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>) given (ord: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> =<br>    <span class="hljs-keyword">if</span> (ord.compare(x, y) < <span class="hljs-number">1</span>) y <span class="hljs-keyword">else</span> x<br><br>  <span class="hljs-comment">/** 無名推論可能パラメータ */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maximum</span></span>[<span class="hljs-type">T</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]) given <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]: <span class="hljs-type">T</span> = xs.reduceLeft(max)<br><br>  <span class="hljs-comment">/** コンテキスト境界使った書き換え(Scala2と同様) */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maximum2</span></span>[<span class="hljs-type">T</span>: <span class="hljs-type">Ord</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> = xs.reduceLeft(max)<br><br>  <span class="hljs-comment">/** 推論可能パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">descending</span></span>[<span class="hljs-type">T</span>] given (asc: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>) = asc.compare(y, x)<br>  }<br><br>  <span class="hljs-comment">/** より複雑な推論 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">minimum</span></span>[<span class="hljs-type">T</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]) given <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>] = maximum(xs) given descending<br>}<br><br><span class="hljs-comment">/** `DelegateExapmple`の利用方法 */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">DelegateExampleUseCase</span> </span>{<br>  <span class="hljs-keyword">import</span> <span class="hljs-type">DelegateExample</span>._<br>  <span class="hljs-keyword">import</span> delegate <span class="hljs-type">DelegateExample</span>._ <span class="hljs-comment">// Listの`<`演算子を利用するのに必要< span=""><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(): <span class="hljs-type">Unit</span> = {<br>    println( max(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) ) <span class="hljs-comment">// 3</span><br>    println( max(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), <span class="hljs-type">Nil</span>) ) <span class="hljs-comment">// List(1, 2, 3)</span><br>    println(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) < <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)) <span class="hljs-comment">// true</span><br>    println(<span class="hljs-type">List</span>(<span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) < <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)) <span class="hljs-comment">// false</span><br><br>    <span class="hljs-keyword">val</span> numList = <span class="hljs-type">List</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">2</span>)<br>    println( maximum(numList) ) <span class="hljs-comment">// 10</span><br>    println( maximum2(numList) ) <span class="hljs-comment">// 10</span><br>    println( minimum(numList) ) <span class="hljs-comment">// 1</span><br>  }<br>}<br></`演算子を利用するのに必要<></span></code></pre></td></tr></tbody></table></figure>
@@ -339,7 +339,7 @@
 
 
 
-  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-01.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-30</div><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark">全プログラマに捧ぐ！図解「パターンマッチ」</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-04</div><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark">ScalaMatsuri 2019に参加してきました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-20</div><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark">Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</a></h3></div></li></ul></div>
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/09/15/scala-indentation/" title="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-09-15</div><a href="/cats-cats-cats/2019/09/15/scala-indentation/" title="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！" rel="bookmark">Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-01.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-30</div><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark">全プログラマに捧ぐ！図解「パターンマッチ」</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-04</div><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark">ScalaMatsuri 2019に参加してきました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-20</div><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark">Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</a></h3></div></li></ul></div>
 </div>
                 
 
@@ -381,7 +381,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        28
+                        29
                     </p>
                 </div>
             </div>
@@ -484,7 +484,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">23</span>
+                <span class="level-item tag">24</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Cloud/">
@@ -516,7 +516,7 @@
                 <span class="level-item">Language</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
@@ -565,6 +565,26 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
+
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -646,26 +666,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/grpc-horizontal-color.png" alt="gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-26T22:28:45.000Z">2019-07-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="has-link-black-ter is-size-6">gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -676,7 +676,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
 
@@ -695,7 +695,7 @@
                     <span class="level-item">2019-09</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -884,7 +884,7 @@
                             <span class="level-item">Dotty</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -1060,7 +1060,7 @@
                             <span class="level-item">Scala</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>
@@ -1167,6 +1167,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
+
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/09/11/fileconv/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/files.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
@@ -1245,26 +1265,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/grpc-horizontal-color.png" alt="gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-26T22:28:45.000Z">2019-07-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/07/27/grpcui-playground/" class="has-link-black-ter is-size-6">gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1275,7 +1275,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 10px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 12px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
 
@@ -1294,7 +1294,7 @@
                     <span class="level-item">2019-09</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1483,7 +1483,7 @@
                             <span class="level-item">Dotty</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -1659,7 +1659,7 @@
                             <span class="level-item">Scala</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">5</span>
                         </span>
                     </a>
                 </li>

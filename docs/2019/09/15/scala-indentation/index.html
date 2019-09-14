@@ -2,22 +2,29 @@
 <html lang="ja">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>カテゴリ: Language - cats cats cats</title>
+<title>Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！ - cats cats cats</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="cats cats cats">
-<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/index.html">
+    <meta name="description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala3でもとうとうその波に乗ろうという動きが見えてきました・・・">
+<meta name="keywords" content="Scala,Dotty">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/index.html">
 <meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala3でもとうとうその波に乗ろうという動きが見えてきました・・・">
 <meta property="og:locale" content="ja">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
+<meta property="og:updated_time" content="2019-09-14T17:54:58.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cats cats cats">
+<meta name="twitter:title" content="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！">
+<meta name="twitter:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala3でもとうとうその波に乗ろうという動きが見えてきました・・・">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
 
 
 
-<link rel="alternative" href="/cats-cats-cats/atom.xml" title="cats cats cats" type="application/atom+xml">
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！" type="application/atom+xml">
 
 
 
@@ -88,7 +95,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
             
-                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="cats cats cats">
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！">
             
             </a>
         </div>
@@ -124,23 +131,9 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/cats-cats-cats/categories">カテゴリ</a></li>
-            
-            <li><a href="/cats-cats-cats/categories/Tech/">Tech</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">Language</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
         
-            <a class="has-link-black-ter" href="/cats-cats-cats/2019/09/15/scala-indentation/">Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！</a>
+            Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！
         
     </h1>
 
@@ -171,9 +164,9 @@
     
     
     <div class="card-image">
-        <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="image is-7by1">
+        <span class="image is-7by1">
             <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！">
-        </a>
+        </span>
     </div>
     
     <div class="card-content article ">
@@ -187,86 +180,107 @@
 
         <div class="content">
             <p>ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala3でもとうとうその波に乗ろうという動きが見えてきました・・・</p>
+<a id="more"></a>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#まずはコードを御覧ください" class="contents-header">2. まずはコードを御覧ください</a></li><li><a href="#コードの解説" class="contents-header">3. コードの解説</a><ul><li><a href="#if式" class="contents-header">3.1. if式</a></li><li><a href="#for式" class="contents-header">3.2. for式</a></li><li><a href="#match式" class="contents-header">3.3. match式</a></li><li><a href="#インデントマーカーとラムダ式" class="contents-header">3.4. インデントマーカーとラムダ式</a></li><li><a href="#trycatchとエンドマーカー" class="contents-header">3.5. try/catchとエンドマーカー</a></li><li><a href="#main関数" class="contents-header">3.6. @main関数</a></li><li><a href="#今すぐ試してみたい" class="contents-header">3.7. 今すぐ試してみたい!</a></li></ul></li><li><a href="#インデントベース構文の状況" class="contents-header">4. インデントベース構文の状況</a></li><li><a href="#最後に" class="contents-header">5. 最後に</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
+
+<h2 id="tldr"><a href="#tldr" class="header-anchor"></a>1. <a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
+<li>Scala 3のリサーチコンパイラである<a href="https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1" target="_blank" rel="noopener">0.18.1-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>にインデントベースの構文が実装されました</li>
+<li>インデントベースの構文はまだ提案段階でありScala3の正式な仕様に決定したわけではありません<ul>
+<li>今後機能が変化したり、機能が採用されなかったりする可能性も十分あります</li>
+<li>というか反対意見の方が多いです</li>
+</ul>
+</li>
+<li>従来の括弧ベースの構文も混ぜて使えます</li>
+<li>この記事はインデントベース構文の紹介記事です。この構文の良し悪しについては触れていません</li>
+</ul>
+<h2 id="まずはコードを御覧ください"><a href="#まずはコードを御覧ください" class="header-anchor"></a>2. <a href="#まずはコードを御覧ください" class="headerlink" title="まずはコードを御覧ください"></a>まずはコードを御覧ください</h2><p>ウソみたいだろ・・・Scalaなんだぜ、それ</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span>:<br>  enum <span class="hljs-type">Day</span>:<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> => <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ => <span class="hljs-literal">false</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>    <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>    <span class="hljs-keyword">catch</span><br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =><br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>  end fromString<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) =<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> day.isWeekend then<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    <span class="hljs-keyword">else</span><br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span><br>        x <- <span="" class="hljs-type">Option(<span class="hljs-number">3</span>)<br>        y <- <span="" class="hljs-type">Option(<span class="hljs-number">2</span>)<br>      <span class="hljs-keyword">yield</span><br>        x + y<br><br>    optNum <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">"Other"</span>)<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>      x =><br>        y = y - <span class="hljs-number">1</span><br>        y * y<br><br>    z.foreach:<br>      println<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> =<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></-></-></code></pre></td></tr></tbody></table></figure>
+<p>いつもはこんなコードを書いていたはず・・・</p>
+<details><summary>従来のコード</summary><figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BraceBasedExample</span> </span>{<br>  enum <span class="hljs-type">Day</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> => <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ => <span class="hljs-literal">false</span><br>    }<br>  }<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> = {<br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-type">Day</span>.valueOf(str)<br>    } <span class="hljs-keyword">catch</span> {<br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =><br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s”<span class="hljs-subst">$str</span> is not a valid day”</span>)<br>    }<br>  }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) = {<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> (day.isWeekend) {<br>      println(<span class="hljs-string">“Today is a weekend”</span>)<br>      println(<span class="hljs-string">“I will rest”</span>)<br>    } <span class="hljs-keyword">else</span> {<br>      println(<span class="hljs-string">“Today is a workday”</span>)<br>      println(<span class="hljs-string">“I will work”</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span> {<br>        x <- <span="" class="hljs-type">Option(<span class="hljs-number">3</span>)<br>        y <- <span="" class="hljs-type">Option(<span class="hljs-number">2</span>)<br>      } <span class="hljs-keyword">yield</span> {<br>        x + y<br>      }<br><br>    optNum <span class="hljs-keyword">match</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">“bigger than 4”</span>)<br>    <span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">“Other”</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map {<br>      x => {<br>        <span class="hljs-keyword">val</span> y = x - <span class="hljs-number">1</span><br>        y * y<br>      }<br>    }<br>    z.foreach(println)<br>  }<br>}<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = {<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">“Monday”</span>)<br>}<br></-></-></code></pre></td></tr></tbody></table></figure></details>
+<h2 id="コードの解説"><a href="#コードの解説" class="header-anchor"></a>3. <a href="#コードの解説" class="headerlink" title="コードの解説"></a>コードの解説</h2><p>Pythonでインデントを用いてブロックを作る場合は改行の前に「:」が付きますが、Scalaの場合はもっと多くのキーワードがインデント構文の開始の合図になり得ます。</p>
+<p><code>:</code>  <code>=</code>  <code>=></code>  <code><-< code="">  <code>if</code>  <code>then</code>  <code>else</code>  <code>while</code>  <code>do</code>  <code>try</code>  <code>catch</code>  <code>finally</code>  <code>for</code>  <code>yield</code>  <code>match</code></-<></code></p>
+<p>インデントの比較方法は他のインデントベースの言語とだいたい同じです。タブとスペースの両方が使えますが混ぜると比較ができないケースがあるので、混ぜるな危険です。</p>
+<h3 id="if式"><a href="#if式" class="header-anchor"></a>3.1. <a href="#if式" class="headerlink" title="if式"></a><code>if</code>式</h3><p><code>if</code>式の場合は、インデントブロック開始の合図が「<code>then</code>」になります。最初<code>then</code>を書き忘れたらコンパイラに<code>then</code>がないって怒られて、<code>then</code>ってなんぞや？？？となりました。どうやら新しいキーワードみたいです。</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">if</span> day.isWeekend then<br>  println(<span class="hljs-string">"Today is a weekend"</span>)<br>  println(<span class="hljs-string">"I will rest"</span>)<br><span class="hljs-keyword">else</span><br>  println(<span class="hljs-string">"Today is a workday"</span>)<br>  println(<span class="hljs-string">"I will work"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="for式"><a href="#for式" class="header-anchor"></a>3.2. <a href="#for式" class="headerlink" title="for式"></a><code>for</code>式</h3><p>以下のコードには<code>=</code>と<code>for</code>と<code>yield</code>がインデント構文の開始の合図になっています。</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> optNum =<br>  <span class="hljs-keyword">for</span><br>    x <- <span="" class="hljs-type">Option(<span class="hljs-number">3</span>)<br>    y <- <span="" class="hljs-type">Option(<span class="hljs-number">2</span>)<br>  <span class="hljs-keyword">yield</span><br>    x + y<br></-></-></code></pre></td></tr></tbody></table></figure>
+<h3 id="match式"><a href="#match式" class="header-anchor"></a>3.3. <a href="#match式" class="headerlink" title="match式"></a><code>match</code>式</h3><p><code>match</code>式は少し特殊でインデントを付けても付けなくてもいいことになっています。つまり以下の２つの書き方が許容されます。</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br><span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">"bigger than 4"</span>)<br><span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">"bigger than 4"</span>)<br>  <span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<p><code>match</code>以外には<code>catch</code>も同様に次の<code>case</code>のインデントは自由です。</p>
+<h3 id="インデントマーカーとラムダ式"><a href="#インデントマーカーとラムダ式" class="header-anchor"></a>3.4. <a href="#インデントマーカーとラムダ式" class="headerlink" title="インデントマーカーとラムダ式"></a>インデントマーカーとラムダ式</h3><p>次はPythonっぽい、行末コロンの例です。開き中括弧(<code>{</code>)が有効な箇所でインデント構文を開始することができます。また、ラムダ式の記号(<code>=></code>)もインデント構文の開始の合図になっています。</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>  x =><br>    y = y - <span class="hljs-number">1</span><br>    y * y<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="trycatchとエンドマーカー"><a href="#trycatchとエンドマーカー" class="header-anchor"></a>3.5. <a href="#try-catchとエンドマーカー" class="headerlink" title="try/catchとエンドマーカー"></a><code>try/catch</code>とエンドマーカー</h3><p><code>try/catch</code>でもインデント構文を使うことが可能です。また、インデントだとブロックの終わりがわかりにくい場合には、エンドマーカを使ってブロックの終わりを明示することができます。以下のコードでは「<code>end fromString</code>」がエンドマーカーです。エンドマーカーはオプションなのでなくても問題なく動作しますが、ドキュメントではひと目でブロックを識別することが難しい長いブロック(20行以上の)で使うことを推奨しています。</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>  <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>  <span class="hljs-keyword">catch</span><br>    <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =><br>      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>end fromString<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="main関数"><a href="#main関数" class="header-anchor"></a>3.6. <a href="#main関数" class="headerlink" title="@main関数"></a><code>@main</code>関数</h3><p>インデント構文とは欠片も関係ありませんが、0.18.1-RC1で導入された<code>@main</code>関数についても紹介しておきます。従来は以下のように書いていたmain関数ですが<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>、</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Example</span> </span>{<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p><code>@main</code>関数を使うと以下のように書くことができます。Scalaのスクリプティングが捗りそうです<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="今すぐ試してみたい"><a href="#今すぐ試してみたい" class="header-anchor"></a>3.7. <a href="#今すぐ試してみたい" class="headerlink" title="今すぐ試してみたい!"></a>今すぐ試してみたい!</h3><p>上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。</p>
+<ul>
+<li><a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener">hinastory/dotty_examples: Sample code of Dotty (Scala 3)<i class="fas fa-external-link-alt fa-fw"></i></a>
+</li>
+</ul>
+<h2 id="インデントベース構文の状況"><a href="#インデントベース構文の状況" class="header-anchor"></a>4. <a href="#インデントベース構文の状況" class="headerlink" title="インデントベース構文の状況"></a>インデントベース構文の状況</h2><p>インデントベースへの変更は実は2017年にOdersky先生が<a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener">#2491<i class="fas fa-external-link-alt fa-fw"></i></a>で提案されていて、このときは大激論の末に一旦クローズされています<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。そしてようやく今回執念のプルリク(<a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">#7083<i class="fas fa-external-link-alt fa-fw"></i></a>)を投げて、捩じ込みました。</p>
+<p>「捩じ込む」と表現したのは今回も当然のように大激論が起こったからです。見た目が違うから拡張子がを変えた方がいいという意見や、読みにくさや曖昧さを指摘する意見や、初学者の混乱を指摘する意見までさまざまです。</p>
+<p>Odersky先生もこのプルリクはデータを集めるための実験としており、現在のところこのインデント構文はScala 3の新機能の中でも採用される可能性が最も低いものの一つだと考えられます。以下は#7083のリアクションですが、こんなに嫌われているプルリクには滅多にお目にかかれません(笑)。</p>
+<img src="/cats-cats-cats/gallery/daily/others/dotty-indentation-reaction.png" width="500">
+<p>経緯はともかくOdersky先生の壮大な実験は始まりました。Scala3の機能凍結及びScala 3.0のM1リリースは今年の秋で、Scala 3.0 finalのリリースは来年秋と言われているので<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>、何か言いたいことがある方はなるべく早めにに本家にフィードバックをかけた方が良いと思われます。恐らく<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>でトピックを立てて議論をするのが適切でしょう。</p>
+<p>本記事はあくまでインデントベース構文の紹介が目的なので、この構文の良し悪しを論じることはここでは行いません<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
+<h2 id="最後に"><a href="#最後に" class="header-anchor"></a>5. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本記事ではScala 3へ入る可能性のあるインデントベースの構文を紹介しました。本機能は実際にScala 3に入るかどうかはわかりませんが、まだまだ多くの議論を必要とするため、より多くのフィードバックが必要とされています。興味のある方は実際に触ってみて<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>等でフィードバックしてみてください。</p>
+<h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html" target="_blank" rel="noopener">Announcing Dotty 0.18.1-RC1 – switch to the 2.13 standard library, indentation-based syntax and other experiments<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">Allow significant indentation syntax by odersky · Pull Request #7083 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/lampepfl/dotty/pull/7114" target="_blank" rel="noopener">Change indentation rules to allow copy-paste by odersky · Pull Request #7114 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener">Consider syntax with significant indentation · Issue #2491 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html" target="_blank" rel="noopener">Significant Indentation<i class="fas fa-external-link-alt fa-fw"></i></a>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>App</code>を継承して書く方法もあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><code>@main</code>関数は引数をとることもできてコマンドライン引数を受け取れるのですが、話が脱線するのでこの記事ではこれ以上は触れません。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">#2491も今回と似たような提案ですが、大きな違いは<code>with</code>がインデントマーカーとして使われているところです。またエンドマーカーも現在とは異なっていました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.slideshare.net/Odersky/a-tour-of-scala-3" target="_blank" rel="noopener">A Tour of Scala 3<i class="fas fa-external-link-alt fa-fw"></i></a>を参照。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">正直Scalaコミュニティに与える影響を考慮して論じられるほどまだ見識がないというのが本音です。ここからは完全に個人的な初見の感想ですが、ぱっと見た感じは自分が趣味で使うのには良さそうな感じです。仕事で使うのにはコーディング規約をどうするか悩みどころが多いなと感じましたが、結局はエディタ、IDE、フォーマッタ、リンタ等のツール郡のサポートがきちんと得られれば使えるとは思うので、それらの対応次第かなと思っています。</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
         </div>
         
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/cats-cats-cats/2019/09/15/scala-indentation/#more">Read More</a>
-                </div>
-            </div>
-        </div>
         
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
         
     </div>
 </div>
 
 
-
-
-
-
-
-    <div class="card">
-    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-            <a class="has-link-black-ter" href="/cats-cats-cats/2019/07/20/learning-category-theory/">Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</a>
         
-    </h1>
-
-    
-    <div class="article-meta-data">
-
-        <div class="article-date">
-            <i class="fas fa-calendar-alt"></i>
-            <a href="/cats-cats-cats/2019/07/20/learning-category-theory/" class="media-left">
-                <time datetime="2019-07-19T22:28:45.000Z">2019-07-20</time>
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/09/11/fileconv/">
+                <span class="level-item">長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</span>
+                <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
-
-        <div class="article-categories">
-            
-                <i class="fas fa-cat"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-            
-        </div>
-
-        <div class="article-tags">
-            
-                <i class="fas fa-tags"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/tags/CategoryTheory/">CategoryTheory</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Cats/">Cats</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Scala/">Scala</a>
-            
-        </div>
-    </div>
-    
-    
-    <div class="card-image">
-        <a href="/cats-cats-cats/2019/07/20/learning-category-theory/" class="image is-7by1">
-            <img class="thumbnail" src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-               
-            </div>
-        </div>
-        
-
-        <div class="content">
-            <p>圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「<code>定義</code>・<code>命題</code>・<code>証明</code>」の積み重ねで書かれています<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「<code>Haskell</code>」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3つの文献をご紹介したいと思います。</p>
-        </div>
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/cats-cats-cats/2019/07/20/learning-category-theory/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
@@ -275,292 +289,7 @@
 
 
 
-
-
-    <div class="card">
-    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
-        
-            <a class="has-link-black-ter" href="/cats-cats-cats/2019/07/07/go-multimodules/">Go Modulesとマルチモジュール構成でGo Homeする方法</a>
-        
-    </h1>
-
-    
-    <div class="article-meta-data">
-
-        <div class="article-date">
-            <i class="fas fa-calendar-alt"></i>
-            <a href="/cats-cats-cats/2019/07/07/go-multimodules/" class="media-left">
-                <time datetime="2019-07-06T22:28:45.000Z">2019-07-07</time>
-            </a>
-        </div>
-
-        <div class="article-categories">
-            
-                <i class="fas fa-cat"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-            
-        </div>
-
-        <div class="article-tags">
-            
-                <i class="fas fa-tags"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Go/">Go</a>
-            
-        </div>
-    </div>
-    
-    
-    <div class="card-image">
-        <a href="/cats-cats-cats/2019/07/07/go-multimodules/" class="image is-7by1">
-            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/Go-Logo_LightBlue2.png" alt="Go Modulesとマルチモジュール構成でGo Homeする方法">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-               
-            </div>
-        </div>
-        
-
-        <div class="content">
-            <p>Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単に<code>go.mod</code>がある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。</p>
-        </div>
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/cats-cats-cats/2019/07/07/go-multimodules/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-    <div class="card">
-    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
-        
-            <a class="has-link-black-ter" href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/">ScalaMatsuri 2019に参加してきました</a>
-        
-    </h1>
-
-    
-    <div class="article-meta-data">
-
-        <div class="article-date">
-            <i class="fas fa-calendar-alt"></i>
-            <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="media-left">
-                <time datetime="2019-07-03T22:28:45.000Z">2019-07-04</time>
-            </a>
-        </div>
-
-        <div class="article-categories">
-            
-                <i class="fas fa-cat"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-            
-        </div>
-
-        <div class="article-tags">
-            
-                <i class="fas fa-tags"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Event/">Event</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Scala/">Scala</a>
-            
-        </div>
-    </div>
-    
-    
-    <div class="card-image">
-        <a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" class="image is-7by1">
-            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png" alt="ScalaMatsuri 2019に参加してきました">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-               
-            </div>
-        </div>
-        
-
-        <div class="content">
-            <p>ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。</p>
-<a href="https://2019.scalamatsuri.org/" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="http://scalamatsuri.org/img/common/img_main_txt.png"></div><div class="descriptions"><div class="og-title">ScalaMatsuri 2019｜日本最大級の Scala カンファレンス</div><div class="og-description">Scala をテーマに日本最大級のカンファレンスが開催されます。</div></div></div></a>
-        </div>
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-    <div class="card">
-    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
-        
-            <a class="has-link-black-ter" href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/">RubyKaigi 2019 in 福岡に参加してきた話</a>
-        
-    </h1>
-
-    
-    <div class="article-meta-data">
-
-        <div class="article-date">
-            <i class="fas fa-calendar-alt"></i>
-            <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="media-left">
-                <time datetime="2019-04-22T23:17:46.000Z">2019-04-23</time>
-            </a>
-        </div>
-
-        <div class="article-categories">
-            
-                <i class="fas fa-cat"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-            
-        </div>
-
-        <div class="article-tags">
-            
-                <i class="fas fa-tags"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Event/">Event</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Ruby/">Ruby</a>
-            
-        </div>
-    </div>
-    
-    
-    <div class="card-image">
-        <a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" class="image is-7by1">
-            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" alt="RubyKaigi 2019 in 福岡に参加してきた話">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-               
-            </div>
-        </div>
-        
-
-        <div class="content">
-            <p>前代未聞の公式パーティーが開催されたRubyKaigi 2019に参加してきました。去年は仙台、一昨年は広島でしたが今年は福岡での開催でした。自分は広島から連続で参加していますが、このイベントはホスピタリティが高く今年も楽しみにしていました。ただし今年は参加者の<code>度肝を抜くネタが２つも仕込まれていた</code>ことから特筆すべき「RubyKaigi」になったといっても過言ではないでしょう。</p>
-<a href="https://rubykaigi.org/2019" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://rubykaigi.org/2019/images/og_image.png"></div><div class="descriptions"><div class="og-title">RubyKaigi 2019</div><div class="og-description">RubyKaigi 2019, 4/18...4/20, Fukuoka, Japan #rubykaigi</div></div></div></a>
-        </div>
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-    <div class="card">
-    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
-        
-            <a class="has-link-black-ter" href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a>
-        
-    </h1>
-
-    
-    <div class="article-meta-data">
-
-        <div class="article-date">
-            <i class="fas fa-calendar-alt"></i>
-            <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="media-left">
-                <time datetime="2019-02-24T03:49:20.000Z">2019-02-24</time>
-            </a>
-        </div>
-
-        <div class="article-categories">
-            
-                <i class="fas fa-cat"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
-            
-        </div>
-
-        <div class="article-tags">
-            
-                <i class="fas fa-tags"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Dotty/">Dotty</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Scala/">Scala</a>
-            
-        </div>
-    </div>
-    
-    
-    <div class="card-image">
-        <a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" class="image is-7by1">
-            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" alt="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-               
-            </div>
-        </div>
-        
-
-        <div class="content">
-            <p>Scala3のリサーチコンパイラである<a href="http://dotty.epfl.ch/" target="_blank" rel="noopener">Dotty<i class="fas fa-external-link-alt fa-fw"></i></a>にImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。</p>
-<p>(2019年3月10日追記・更新: 追記内容は<a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9">ここ</a>を見てください)</p>
-<p>(2019年6月22日追記・更新: 追記内容は<a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B46%E6%9C%8822%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9">ここ</a>を見てください)</p>
-        </div>
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-24</div><a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" rel="bookmark">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-01.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-30</div><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark">全プログラマに捧ぐ！図解「パターンマッチ」</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-04</div><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark">ScalaMatsuri 2019に参加してきました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-20</div><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark">Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</a></h3></div></li></ul></div>
 </div>
                 
 
@@ -1979,7 +1708,7 @@
             <span class="copyright">
                 <a class="footer-logo" href="/cats-cats-cats/">
                 
-                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="cats cats cats" height="28">
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3がPythonのようにインデントベースの構文で書けるようになるってよ！" height="28">
                 
                 </a>
                 <span class="copyright-text">&copy;2019 hinastory</span>
