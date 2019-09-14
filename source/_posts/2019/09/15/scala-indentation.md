@@ -234,7 +234,7 @@ object Example {
 @main def example: Unit = IndentBaseExample.use("Monday")
 {% endcode %}
 
-[^1]: `App`を継承して書く方法もあります。
+[^1]: `App`トレイトをミックスインして書く方法もあります。
 [^2]: `@main`関数は引数をとることもできてコマンドライン引数を受け取れるのですが、話が脱線するのでこの記事ではこれ以上は触れません。
 
 ### 今すぐ試してみたい!
