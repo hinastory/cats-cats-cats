@@ -18,7 +18,7 @@ date: 2019-09-15 07:28:45
 
 ## TL;DR
 
-- Scala 3のリサーチコンパイラである{% elink 0.18.1-RC1 https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1 %}にインデントベースの構文が実装されました
+- Scala 3のリサーチコンパイラであるDotty {% elink 0.18.1-RC1 https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1 %}にインデントベースの構文が実装されました
 - インデントベースの構文はまだ提案段階でありScala3の正式な仕様に決定したわけではありません
   - 今後機能が変化したり、機能が採用されなかったりする可能性も十分あります
   - というか反対意見の方が多いです
