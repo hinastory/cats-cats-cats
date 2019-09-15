@@ -15,6 +15,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 (2019年6月22日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B46%E6%9C%8822%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
 
+(2019年9月15日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B49%E6%9C%8815%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
+
 <!-- more -->
 
 ## 目次
@@ -255,7 +257,9 @@ Implicitsが大分飼いならされたような印象でした。特に従来�
 
 [^11]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、現在のmasterブランチでは`the`に変更されています。ちょうどこの記事を書いている途中で変更が {% elink masterにマージされた https://github.com/lampepfl/dotty/pull/5893 %}ので、混乱しないように慌てて味見の結果から`infer`を抜きました。
 
-## 2019年3月10日の更新内容
+## 追記・更新内容
+
+### 2019年3月10日の更新内容
 
 {% elink 本家のブログ https://dotty.epfl.ch/blog/2019/03/05/13th-dotty-milestone-release.html %}が公開されたようです。`0.13.0-RC-1`のタグが打たれてから10日以上経ってからの公開なのでかなり遅い方だと思いますが、それだけ今回のリリースが盛りだくさんだったと言うことだと思います。本家のブログには従来の`implicit`がなぜダメだったのか丁寧に説明されていました。
 
@@ -267,7 +271,7 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 この本家のブログを受けてというわけではないですが、前回の記事でサンプルの解説が大分雑だったのでいろいろと見直して、サンプルコードも{% elink GitHubに公開しました https://github.com/hinastory/dotty_contextual_abstractions_example %}。興味のある方は味見をして頂けると幸いです。
 
-## 2019年6月22日の更新内容
+### 2019年6月22日の更新内容
 
 先日発表された{% elink Dotty 0.16.0-RC3 https://dotty.epfl.ch/blog/2019/06/11/16th-dotty-milestone-release.html}で本記事に関する大きな文法変更が行われました。具体的には以下の通りです。
 
@@ -279,8 +283,8 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 上記の変更に伴い本文の該当箇所を修正しました。また、{% elink GitHubに公開したサンプルコード https://github.com/hinastory/dotty_examples %}も0.16.0-RC3にしてあります。あと何回キーワードが変更されるんだろう・・・
 
-## 2019年9月15日の更新内容
+### 2019年9月15日の更新内容
 
-先日発表された{% elink Dotty 0.18.1-RC1 https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html %}でリーダーモナドの例がコンパイルできるようになっていました。また、0.18.1-RC1で追加されたインデント構文についても記事を書いたので興味があればご一読ください。
+先日発表された{% elink Dotty 0.18.1-RC1 https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html %}でリーダーモナドの例がコンパイルできるようになっていました。また、0.18.1-RC1で追加されたインデントベースの構文についても記事を書いたので興味があればご一読ください。
 
-{% linkPreview https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/ %}
+- {% link Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！ https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/ %}
