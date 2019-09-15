@@ -24,7 +24,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 - この記事はDottyに実装されたImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能を味見してみたものです
   - ~~利用したDottyのバージョンは2019年2月時点で最新の0.13.0-RC1です。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
-  - 2019年6月時点で最新の0.16.0-RC3で変更があった文法の更新を反映しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
+  - ~~2019年6月時点で最新の0.16.0-RC3で変更があった文法の更新を反映しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
+  - 2019年9月時点で最新の0.18.1-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
 - 「Contextual Abstractions」は従来のImplicitsで初学者が躓きそうな機能を整理して使いやすくしています
   - 「Contextual Abstractions」には従来のImplicitsでは実現できなかった機能(暗黙のインポート、型クラス導出、コンテキストクエリ等)も含まれています
 - 「Contextual Abstractions」の機能はまだ提案段階でありScala3の正式な仕様に決定したわけではありません
@@ -80,7 +81,7 @@ $ dotr <メインクラス名> # コンパイル済みのコードを実行
 
 もしくはサンプルコードをGitHubで公開したので、`sbt`をすでにインストールされている方はそちらの方が早いと思います。使い方は`README.md`をご覧ください
 
-{% linkPreview  https://github.com/hinastory/dotty_contextual_abstractions_example %}
+{% linkPreview  https://github.com/hinastory/dotty_examples %}
 
 ## 味見の結果
 
@@ -163,8 +164,8 @@ object DelegateExampleUseCase {
 
 型クラスの高度な実装例です。高度なのでわからない人はスルーしてください。
 モナドとは・・・という禅問答をここでする気はないです・・・
-リーダーモナドのサンプルですが0.16.0-RC3ではコンパイラが固まって動かなかったのでコメントアウトしています。
-多分コンパイラのバグだと思いますが、残念ですね・・・[^10]
+~~リーダーモナドのサンプルですが0.16.0-RC3ではコンパイラが固まって動かなかったのでコメントアウトしています。~~
+~~多分コンパイラのバグだと思いますが、残念ですね・・・[^10]~~
 
 {% code lang:scala %}
 /** 型クラスのサンプル */
@@ -216,19 +217,20 @@ object TypeClassExampleUseCase {
     /*
     リーダーモナドの例はずだが・・・
     以下の例は0.13.0-RC1ではコンパイルが終わらない・・・
-    0.16.0-RC3でもコンパイル同様・・・
+    0.16.0-RC3でもコンパイル同様に終わらない・・・
+    0.18.1-RC1で動いた!
+    */
     val calc: Int => Int = for {
       x <- (e:Int) => e + 1
       y <- (e:Int) => e * 10
     } yield x + y
 
     println( calc(3) ) // 34
-    */
-  }
+   }
 }
 {% endcode %}
 
-[^10]: この件は自分はイシューやプルリクエストは本家に上げていません。理由は既存のイシューやプルリクエストに目を通す余裕が自分にはないのと、Dottyを常用している訳ではないので特に困っていないからです。まぁ端的に言えば自分にはリソースとモチベーションが足りていなかったので、誰か気になる人は本家に上げてみてください。
+[^10]: ~~この件は自分はイシューやプルリクエストは本家に上げていません。理由は既存のイシューやプルリクエストに目を通す余裕が自分にはないのと、Dottyを常用している訳ではないので特に困っていないからです。まぁ端的に言えば自分にはリソースとモチベーションが足りていなかったので、誰か気になる人は本家に上げてみてください。~~ 0.18.1-RC1で動作するようになっていました。
 
 ## Contextual Abstractionsのその他の機能
 
@@ -267,7 +269,7 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 ## 2019年6月22日の更新内容
 
-先日発表された[Dotty 0.16.0-RC3](https://dotty.epfl.ch/blog/2019/06/11/16th-dotty-milestone-release.html)で本記事に関する大きな文法変更が行われました。具体的には以下の通りです。
+先日発表された{% elink Dotty 0.16.0-RC3 https://dotty.epfl.ch/blog/2019/06/11/16th-dotty-milestone-release.html}で本記事に関する大きな文法変更が行われました。具体的には以下の通りです。
 
 - `implied`から`delegate`にキーワードを変更 (＃6649)
 - 型ラムダに=>>を使用 (＃6558)
@@ -275,4 +277,10 @@ The implicit keyword is used for both implicit conversions and conditional impli
 - `given`節を最後にする (#6513)
   - 0.15.0-RC1で変更
 
-上記の変更に伴い本文の該当箇所を修正しました。また、{% elink GitHubに公開したサンプルコード https://github.com/hinastory/dotty_contextual_abstractions_example %}も0.16.0-RC3にしてあります。あと何回キーワードが変更されるんだろう・・・
+上記の変更に伴い本文の該当箇所を修正しました。また、{% elink GitHubに公開したサンプルコード https://github.com/hinastory/dotty_examples %}も0.16.0-RC3にしてあります。あと何回キーワードが変更されるんだろう・・・
+
+## 2019年9月15日の更新内容
+
+先日発表された{% elink Dotty 0.18.1-RC1 https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html %}でリーダーモナドの例がコンパイルできるようになっていました。また、0.18.1-RC1で追加されたインデント構文についても記事を書いたので興味があればご一読ください。
+
+{% linkPreview https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/ %}
