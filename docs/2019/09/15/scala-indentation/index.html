@@ -16,7 +16,7 @@
 <meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
-<meta property="og:updated_time" content="2019-09-16T03:35:35.547Z">
+<meta property="og:updated_time" content="2019-09-16T22:36:29.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！">
 <meta name="twitter:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・">
@@ -185,7 +185,7 @@
 
 <h2 id="tldr"><a href="#tldr" class="header-anchor"></a>1. <a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
 <li>Scala 3のリサーチコンパイラである<a href="https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1" target="_blank" rel="noopener">Dotty 0.18.1-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>にインデントベースの構文が実装されました</li>
-<li>インデントベースの構文はまだ提案段階でありScala3の正式な仕様に決定したわけではありません<ul>
+<li>インデントベースの構文はまだ提案段階でありScala 3の正式な仕様に決定したわけではありません<ul>
 <li>今後機能が変化したり、機能が採用されなかったりする可能性も十分あります</li>
 <li>というか反対意見の方が多いです</li>
 </ul>
@@ -217,7 +217,7 @@
 <p><code>@main</code>関数を使うと以下のように書くことができます。Scalaのスクリプティングが捗りそうです<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
 <figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
 <p>また、これもインデント構文と欠片も関係ありませんが<code>enum</code>が気になった方がいるかもしれません。<code>enum</code>はScala 3(Dotty)の機能でScala 2にはありません。気になる方は「<a href="https://dotty.epfl.ch/docs/reference/enums/enums.html" target="_blank" rel="noopener">Enumerations</a>」を参照してください。</p>
-<h3 id="今すぐ試してみたい"><a href="#今すぐ試してみたい" class="header-anchor"></a>3.7. <a href="#今すぐ試してみたい" class="headerlink" title="今すぐ試してみたい!"></a>今すぐ試してみたい!</h3><p>上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。インデントベースの構文と従来のブレースベースの構文はどちらも有効なので、実際に触ってみて感触を掴むのが一番だと思われます。</p>
+<h3 id="今すぐ試してみたい"><a href="#今すぐ試してみたい" class="header-anchor"></a>3.7. <a href="#今すぐ試してみたい" class="headerlink" title="今すぐ試してみたい!"></a>今すぐ試してみたい!</h3><p>上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。インデントベースの構文と従来のブレースベースの構文はどちらも有効なので、実際に触ってみて感触を掴むのが一番だと思われます。念のため書いておきますが、サンプルコード自体に特に意味はありません。インデントベースの構文の雰囲気が分かるように適当に構文を並べただけです。</p>
 <ul>
 <li><a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener">hinastory/dotty_examples: Example code of Dotty (Scala 3)<i class="fas fa-external-link-alt fa-fw"></i></a>
 <ul>

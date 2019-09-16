@@ -19,7 +19,7 @@ date: 2019-09-15 07:28:45
 ## TL;DR
 
 - Scala 3のリサーチコンパイラである{% elink Dotty 0.18.1-RC1 https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1 %}にインデントベースの構文が実装されました
-- インデントベースの構文はまだ提案段階でありScala3の正式な仕様に決定したわけではありません
+- インデントベースの構文はまだ提案段階でありScala 3の正式な仕様に決定したわけではありません
   - 今後機能が変化したり、機能が採用されなかったりする可能性も十分あります
   - というか反対意見の方が多いです
 - 従来の括弧ベースの構文も混ぜて使えます
@@ -241,7 +241,7 @@ object Example {
 
 ### 今すぐ試してみたい!
 
-上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。インデントベースの構文と従来のブレースベースの構文はどちらも有効なので、実際に触ってみて感触を掴むのが一番だと思われます。
+上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。インデントベースの構文と従来のブレースベースの構文はどちらも有効なので、実際に触ってみて感触を掴むのが一番だと思われます。念のため書いておきますが、サンプルコード自体に特に意味はありません。インデントベースの構文の雰囲気が分かるように適当に構文を並べただけです。
 
 - {% elink hinastory/dotty_examples: Example code of Dotty (Scala 3) https://github.com/hinastory/dotty_examples %}
   - {% elink IndentBasedExample.scala https://github.com/hinastory/dotty_examples/blob/master/src/main/scala/indent_based/IndentBasedExample.scala %}
