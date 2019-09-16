@@ -16,7 +16,7 @@
 <meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
-<meta property="og:updated_time" content="2019-09-16T03:00:46.921Z">
+<meta property="og:updated_time" content="2019-09-16T03:35:35.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！">
 <meta name="twitter:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・">
@@ -216,6 +216,7 @@
 <figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Example</span> </span>{<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p><code>@main</code>関数を使うと以下のように書くことができます。Scalaのスクリプティングが捗りそうです<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
 <figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<p>また、これもインデント構文と欠片も関係ありませんが<code>enum</code>が気になった方がいるかもしれません。<code>enum</code>はScala 3(Dotty)の機能でScala 2にはありません。気になる方は「<a href="https://dotty.epfl.ch/docs/reference/enums/enums.html" target="_blank" rel="noopener">Enumerations</a>」を参照してください。</p>
 <h3 id="今すぐ試してみたい"><a href="#今すぐ試してみたい" class="header-anchor"></a>3.7. <a href="#今すぐ試してみたい" class="headerlink" title="今すぐ試してみたい!"></a>今すぐ試してみたい!</h3><p>上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。インデントベースの構文と従来のブレースベースの構文はどちらも有効なので、実際に触ってみて感触を掴むのが一番だと思われます。</p>
 <ul>
 <li><a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener">hinastory/dotty_examples: Example code of Dotty (Scala 3)<i class="fas fa-external-link-alt fa-fw"></i></a>
@@ -226,12 +227,12 @@
 </li>
 </ul>
 <h2 id="インデントベース構文の状況"><a href="#インデントベース構文の状況" class="header-anchor"></a>4. <a href="#インデントベース構文の状況" class="headerlink" title="インデントベース構文の状況"></a>インデントベース構文の状況</h2><p>インデントベースへの変更は実は2017年にOdersky先生が<a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener">#2491<i class="fas fa-external-link-alt fa-fw"></i></a>で提案されていて、このときは大激論の末に一旦クローズされています<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。そしてようやく今回執念のプルリク(<a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">#7083<i class="fas fa-external-link-alt fa-fw"></i></a>)を投げて、捩じ込みました。</p>
-<p>「捩じ込む」と表現したのは今回も当然のように大激論が起こったからです。見た目が違うから拡張子がを変えた方がいいという意見や、読みにくさや曖昧さを指摘する意見や、初学者の混乱を指摘する意見までさまざまです。</p>
+<p>「捩じ込む」と表現したのは今回も当然のように大激論が起こったからです。見た目が違うから拡張子がを変えた方がいいという意見や、読みにくさや曖昧さを指摘する意見や、初学者の混乱を指摘する意見まで様々です。</p>
 <p>Odersky先生もこのプルリクはデータを集めるための実験としており、現在のところこのインデント構文はScala 3の新機能の中でも採用される可能性が最も低いものの一つだと考えられます。以下は#7083のリアクションですが、こんなに嫌われているプルリクには滅多にお目にかかれません(笑)。</p>
 <img src="/cats-cats-cats/gallery/daily/others/dotty-indentation-reaction.png" width="500">
-<p>経緯はともかくOdersky先生の壮大な実験は始まりました。Scalaのようにある程度普及した言語が途中からインデントベースの構文をサポートした例を自分は知りません。今後の成り行きが気になるところですが、Scala3の機能凍結及びScala 3.0のM1リリースは今年の秋で、Scala 3.0 finalのリリースは来年秋と言われているので<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>、何か言いたいことがある方はなるべく早めに本家にフィードバックをかけた方が良いと思われます<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
+<p>経緯はともかくOdersky先生の壮大な実験は始まりました。Scalaのようにある程度普及した言語が途中からインデントベースの構文をサポートした例を自分は知りません。今後の成り行きが気になるところですが、Scala 3.0の機能凍結及びScala 3.0のM1リリースは今年の秋で、Scala 3.0 finalのリリースは来年秋と言われているので<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>、何か言いたいことがある方はなるべく早めに本家にフィードバックをかけた方が良いと思われます<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
 <p>ちなみに本記事はあくまでインデントベース構文の紹介が目的なので、この構文の良し悪しについて突っ込んだ批評は控えておきます。ただ一応参考までに個人的な初見の感想を述べておくと、自分が趣味で使うのには良さそうな感じです。仕事で使うのにはコーディング規約をどうするか悩みどころが多いと感じましたが、結局はエディタ、IDE、フォーマッタ、リンタ等のツール群のサポートがきちんと得られれば使えるとは思うので、それらの対応次第かなと思っています。</p>
-<h2 id="最後に"><a href="#最後に" class="header-anchor"></a>5. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本記事ではScala 3へ入る可能性のあるインデントベースの構文を紹介しました。本機能は実際にScala 3に入るかどうかはわかりませんが、まだまだ多くの議論を必要とするため、より多くのフィードバックが必要とされています。興味のある方は実際に触ってみて<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>等でフィードバックしてみてください。</p>
+<h2 id="最後に"><a href="#最後に" class="header-anchor"></a>5. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本記事ではScala 3へ入る可能性のあるインデントベースの構文を紹介しました。本機能は実際にScala 3に入るかどうかはわかりませんが、まだまだ多くの議論を必要とするため、より多くのフィードバックが必要とされています。興味のある方は実際に触ってみて<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>等でフィードバックしてみてはいかがでしょうか？</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html" target="_blank" rel="noopener">Announcing Dotty 0.18.1-RC1 – switch to the 2.13 standard library, indentation-based syntax and other experiments<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">Allow significant indentation syntax by odersky · Pull Request #7083 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
