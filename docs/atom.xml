@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-09-23T02:45:23.685Z</updated>
+  <updated>2019-09-23T03:53:33.263Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/</id>
     <published>2019-09-22T22:28:45.000Z</published>
-    <updated>2019-09-23T02:45:23.685Z</updated>
+    <updated>2019-09-23T03:53:33.263Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっていると考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。&lt;/p&gt;
+      &lt;p&gt;長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。&lt;/p&gt;
 &lt;p&gt;(本記事は「&lt;a href=&quot;https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;」に触発されて書かれたものです。)&lt;/p&gt;
     
     </summary>
