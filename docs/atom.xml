@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-09-18T19:30:51.639Z</updated>
+  <updated>2019-09-23T02:45:23.685Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ベン図を使って、インタプリタとコンパイラの違いを説明してみる</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/</id>
+    <published>2019-09-22T22:28:45.000Z</published>
+    <updated>2019-09-23T02:45:23.685Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっていると考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。&lt;/p&gt;
+&lt;p&gt;(本記事は「&lt;a href=&quot;https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;」に触発されて書かれたものです。)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Compiler" scheme="https://hinastory.github.io/cats-cats-cats/tags/Compiler/"/>
+    
+      <category term="Interpreter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Interpreter/"/>
+    
+  </entry>
   
   <entry>
     <title>Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</title>
@@ -509,43 +535,15 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
+    
+      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
+    
       <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
-      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
-    
-      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
-    
       <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HexoのoEmbedプラグインをnpmに公開した話(前編)</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/09/hexo-oembed-1/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/02/09/hexo-oembed-1/</id>
-    <published>2019-02-08T23:36:19.000Z</published>
-    <updated>2019-02-13T03:03:29.619Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。&lt;br&gt;本当はYouTubeが埋込たかったわけではなくて、&lt;a href=&quot;https://speakerdeck.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Speaker Deck&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;のスライドが埋込みたかっただけなんですが、&lt;a href=&quot;https://oembed.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;oEmbed&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;に公開しました。この記事はそのプラグイン制作記事の前編です。&lt;/p&gt;
-&lt;a href=&quot;https://www.npmjs.com/package/hexo-oembed&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;hexo-oembed&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;embed oEmbed item on your Hexo article.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
-    
-    
-      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
-    
-      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
   </entry>
   
