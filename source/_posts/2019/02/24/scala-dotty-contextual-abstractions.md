@@ -71,7 +71,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
   - 「`given`インスタンス」、「`given`節」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
 
 [^5]: 現行のImplicitsの混乱するポイントについては{% elink こちらの記事 http://kmizu.hatenablog.com/entry/2017/05/19/074149 %}で詳しく取り上げられています。
-[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに[#6649](https://github.com/lampepfl/dotty/pull/6649)で`delegate`に変更されました。そしてさらに、{% elink #7210 https://github.com/lampepfl/dotty/pull/7210 %}で大幅に文法チェンジ！！`delegate`が排除されて`given`一色になりました・・・　本当に何回変わるんだろう・・・ツライ・・・
+[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに[#6649](https://github.com/lampepfl/dotty/pull/6649)で`delegate`に変更されました。そしてさらに、{% elink #6773 https://github.com/lampepfl/dotty/pull/6773 %}と{% elink #7210 https://github.com/lampepfl/dotty/pull/7210 %}で大幅に文法チェンジ！！`delegate`が排除されて`given`一色になりました・・・　本当に何回変わるんだろう・・・ツライ・・・
 [^7]: このドキュメントは最新版のスナップショットなので、どんどん書き換えられています。今の所過去のバージョンは参照できないみたいです・・・
 [^8]: 機能の日本語訳は自分がしました。間違っていたら教えてください。
 
@@ -294,7 +294,7 @@ Implicitsが大分飼いならされたような印象でした。特に従来�
 
 もともとは{% elink 「A Snippet of Dotty」 https://medium.com/@jducoeur/a-snippet-of-dotty-27eadcee72e3 %}を読んで、あまりにも自分が知っているScalaと違っていたので調べ始めたのがこの記事を書こうと思ったきっかけです。この記事がScala3がどういう方向を目指しているのか知りたい人の参考になれば幸いです。
 
-[^11]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、現在のmasterブランチでは`the`に変更されています。ちょうどこの記事を書いている途中で変更が {% elink masterにマージされた https://github.com/lampepfl/dotty/pull/5893 %}ので、混乱しないように慌てて味見の結果から`infer`を抜きました。またさらに、{% elink #7205 https://github.com/lampepfl/dotty/pull/7205 %}でまさかの`summon`の復活!! 追うのも楽じゃない・・・
+[^11]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、{% elink #5893 https://github.com/lampepfl/dotty/pull/5893 %}では`the`に変更されています。しかし、{% elink #7205 https://github.com/lampepfl/dotty/pull/7205 %}でまさかの`summon`の復活!! 追うのも楽じゃない・・・
 
 ## 追記・更新内容
 
