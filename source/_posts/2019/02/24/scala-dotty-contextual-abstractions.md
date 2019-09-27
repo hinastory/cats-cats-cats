@@ -332,7 +332,7 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 先日発表された{% elink Dotty 0.19.0-RC1 https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html %}で本記事に関する文法が大きく変更されました。関連するプルリクは主に以下の4つです。
 
-- {% elink Trial: `given as` instead of `delegate for` by odersky · Pull Request #6773 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/6773 %}
+- {% elink Trial: given as instead of delegate for by odersky · Pull Request #6773 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/6773 %}
 - {% elink Change to new given syntax by odersky · Pull Request #7210 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7210 %}
 - {% elink Drop old syntax styles for givens by odersky · Pull Request #7245 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7245 %}
 - {% elink Replace the[...] by summon[...] by odersky · Pull Request #7205 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7205 %}
