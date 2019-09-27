@@ -16,7 +16,7 @@
 <meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
-<meta property="og:updated_time" content="2019-09-27T20:06:11.769Z">
+<meta property="og:updated_time" content="2019-09-27T20:13:24.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！">
 <meta name="twitter:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)">
@@ -227,7 +227,7 @@
 <p>ただし、このインデントマーカーはまだ他のインデントスキームよりも議論の余地が大きく、コンパイラオプションに<code>-Yindent-colons</code>を指定した時だけ有効になります。</p>
 <h2 id="設定と書換え"><a href="#設定と書換え" class="header-anchor"></a>5. <a href="#設定と書換え" class="headerlink" title="設定と書換え"></a>設定と書換え</h2><p>インデント構文はデフォルトで有効ですが、コンパイラオプション<code>-noindent</code>, <code>-old-syntax</code>,<code>-language:Scala2</code>のいずれかを指定すれば無効にできます。実際に試してみましたがインデント構文を利用している箇所はエラーになってコンパイルができなくなりました。</p>
 <p>また、コンパイラオプションでインデント構文への書換えもできます。インデント構文への書換えは<code>-rewrite</code> <code>-new-syntax</code>オプションをつけてコンパイル後に、もう一度<code>-rewrite</code> <code>-indent</code>オプションをつけてコンパイルする必要があります。つまり面倒ですが2回コンパイラを起動する必要があります。この書換えは上手くいきました。</p>
-<p>逆方向の書換えを行うには<code>-rewrite</code> <code>-old-syntax</code>オプションをつけてコンパイル語に、もう一度<code>-rewrite</code> <code>-noindent</code>をつけてコンパイルします。この書換えは<code>0.19.0-RC1</code>時点では失敗しました。どうやらエンドマーカーの書換えで失敗しているようです。</p>
+<p>逆方向の書換えを行うには<code>-rewrite</code> <code>-noindent</code>オプションをつけてコンパイル後に、もう一度を<code>-rewrite</code> <code>-old-syntax</code>つけてコンパイルします。この書換えは<code>0.19.0-RC1</code>時点では失敗しました。どうやらエンドマーカーの書換えで失敗しているようです。</p>
 <h3 id="main関数"><a href="#main関数" class="header-anchor"></a>5.1. <a href="#main関数" class="headerlink" title="@main関数"></a><code>@main</code>関数</h3><p>インデント構文とは欠片も関係ありませんが、0.18.1-RC1で導入された<code>@main</code>関数についても紹介しておきます。従来は以下のように書いていたmain関数ですが<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>、</p>
 <figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Example</span> </span>{<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p><code>@main</code>関数を使うと以下のように書くことができます。Scalaのスクリプティングが捗りそうです<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
