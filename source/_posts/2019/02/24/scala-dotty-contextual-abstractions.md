@@ -68,7 +68,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
   - Dottyの新機能です
   - 型が定義された後にメソッドを追加することができます
 - 型クラスの実装(Implementing Typeclasses)
-  - 「`given`インスタンス」、「`given`節」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
+  - 「`given`インスタンス」、「`given`パラメータ」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
 
 [^5]: 現行のImplicitsの混乱するポイントについては{% elink こちらの記事 http://kmizu.hatenablog.com/entry/2017/05/19/074149 %}で詳しく取り上げられています。
 [^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに[#6649](https://github.com/lampepfl/dotty/pull/6649)で`delegate`に変更されました。そしてさらに、{% elink #6773 https://github.com/lampepfl/dotty/pull/6773 %}と{% elink #7210 https://github.com/lampepfl/dotty/pull/7210 %}で大幅に文法チェンジ！！`delegate`が排除されて`given`一色になりました・・・　本当に何回変わるんだろう・・・ツライ・・・
@@ -77,7 +77,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
 
 ## 味見の方法
 
-{% elink ここ https://github.com/lampepfl/dotty/releases/tag/0.16.0-RC3 %}から`dotty-0.16.0-RC3.zip`をダウンロードして解凍します。解凍後のフォルダの`bin`にパスを通せば利用できるようになります。
+{% elink ここ https://github.com/lampepfl/dotty/releases/tag/0.16.0-RC3 %}から`dotty-0.19.0-RC1.zip`をダウンロードして解凍します。解凍後のフォルダの`bin`にパスを通せば利用できるようになります。
 `dotc`がコンパイラです。`dotr`はクラス名を指定するとコンパイル済みのバイナリを実行します。単独で起動した場合にはREPLになります。
 
 ```bash
@@ -101,7 +101,7 @@ Dottyドキュメントに記載されている例をベースに味見をして
 拡張メソッド記法だけは、最初は戸惑うかもしれません。自分は最初Go言語に似ているなと思いました・・・
 
 {% code lang:scala %}
-/** 暗黙のインスタンス、推論可能パラメータのサンプル */
+/** `given`インスタンス、`given`パラメータのサンプル */
 object GivenExampleDefs {
   /** 順序型の定義 */
   trait Ord[T] {
@@ -110,13 +110,13 @@ object GivenExampleDefs {
     def (x: T) > (y: T) = compare(x, y) > 0 // 上記と同様
   }
 
-  /** 順序型のIntの暗黙のインスタンスの定義 */
+  /** 順序型のIntの`given`インスタンスの定義 */
   given intOrd: Ord[Int] {
     def compare(x: Int, y: Int) =
       if x < y then -1 else if x > y then +1 else 0
   }
 
-  /** 順序型のListの暗黙のインスタンスの定義 */
+  /** 順序型のListの`given`インスタンスの定義 */
   given listOrd[T](given ord: Ord[T]): Ord[List[T]] {
     def compare(xs: List[T], ys: List[T]): Int = (xs, ys) match {
       case (Nil, Nil) => 0
@@ -128,17 +128,17 @@ object GivenExampleDefs {
     }
   }
 
-  /** 推論可能パラメータ */
+  /** `given`パラメータ */
   def max[T](x: T, y: T)(given ord: Ord[T]): T =
     if ord.compare(x, y) < 1 then y else x
 
-  /** 無名推論可能パラメータ */
+  /** 無名`given`パラメータ */
   def maximum[T](xs: List[T])(given Ord[T]): T = xs.reduceLeft(max)
 
   /** コンテキスト境界使った書き換え(Scala2と同様) */
   def maximum2[T: Ord](xs: List[T]): T = xs.reduceLeft(max)
 
-  /** 推論可能パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */
+  /** `given`パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */
   def descending[T](given asc: Ord[T]): Ord[T] = new Ord[T] {
     def compare(x: T, y: T) = asc.compare(y, x)
   }
@@ -169,8 +169,6 @@ object GivenExample {
 
 型クラスの高度な実装例です。高度なのでわからない人はスルーしてください。
 モナドとは・・・という禅問答をここでする気はないです・・・
-~~リーダーモナドのサンプルですが0.16.0-RC3ではコンパイラが固まって動かなかったのでコメントアウトしています。~~
-~~多分コンパイラのバグだと思いますが、残念ですね・・・[^10]~~
 
 {% code lang:scala %}
 /** 型クラスのサンプル */
@@ -255,11 +253,6 @@ object TypeClassExample {
 
     println( transform(List(1, 2, 3), (_:Int) * 2) ) // List(2, 4, 6)
 
-    /* リーダーモナドの例はずだが・・・
-    以下の例は0.13.0-RC1ではコンパイルが終わらない・・・
-    0.16.0-RC3でも同様に終わらない
-    O.18.1-RC1で動いた!
-    */
     val calc: Int => Int = for {
       x <- (e:Int) => e + 1
       y <- (e:Int) => e * 10
@@ -270,8 +263,6 @@ object TypeClassExample {
   }
 }
 {% endcode %}
-
-[^10]: ~~この件は自分はイシューやプルリクエストは本家に上げていません。理由は既存のイシューやプルリクエストに目を通す余裕が自分にはないのと、Dottyを常用している訳ではないので特に困っていないからです。まぁ端的に言えば自分にはリソースとモチベーションが足りていなかったので、誰か気になる人は本家に上げてみてください。~~ 0.18.1-RC1で動作するようになっていました。
 
 ## Contextual Abstractionsのその他の機能
 
@@ -290,11 +281,11 @@ Contextual Abstractionsの機能で味見できなかった機能を簡単に紹
 
 ## 味見してみた感想
 
-Implicitsが大分飼いならされたような印象でした。特に従来はimplicitをパラメータリストで受け取っていたのを`given`という専用構文で受け取るようになったのが非常に分かりやすかったです。ただ、従来の`implicitly`の名称はまだかなり揺れているみたいです[^11]。
+Implicitsが大分飼いならされたような印象でした。特に従来はimplicitをパラメータリストで受け取っていたのを`given`という専用構文で受け取るようになったのが非常に分かりやすかったです。ただ、従来の`implicitly`の名称はまだかなり揺れているみたいです[^10]。
 
 もともとは{% elink 「A Snippet of Dotty」 https://medium.com/@jducoeur/a-snippet-of-dotty-27eadcee72e3 %}を読んで、あまりにも自分が知っているScalaと違っていたので調べ始めたのがこの記事を書こうと思ったきっかけです。この記事がScala3がどういう方向を目指しているのか知りたい人の参考になれば幸いです。
 
-[^11]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、{% elink #5893 https://github.com/lampepfl/dotty/pull/5893 %}では`the`に変更されています。しかし、{% elink #7205 https://github.com/lampepfl/dotty/pull/7205 %}でまさかの`summon`の復活!! 追うのも楽じゃない・・・
+[^10]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、{% elink #5893 https://github.com/lampepfl/dotty/pull/5893 %}では`the`に変更されています。しかし、{% elink #7205 https://github.com/lampepfl/dotty/pull/7205 %}でまさかの`summon`の復活!! 追うのも楽じゃない・・・
 
 ## 追記・更新内容
 
