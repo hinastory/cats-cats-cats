@@ -11,6 +11,8 @@ date: 2019-09-15 07:28:45
 ---
 ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・
 
+(2019年9月28日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
+
 <!-- more -->
 
 ## 目次
@@ -30,8 +32,8 @@ date: 2019-09-15 07:28:45
 ウソみたいだろ・・・Scalaなんだぜ、それ
 
 {% code lang:scala %}
-object IndentBasedExample:
-  enum Day:
+object IndentBasedExample
+  enum Day
     case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
     def isWeekend: Boolean = this match
       case Saturday | Sunday => true
@@ -39,9 +41,10 @@ object IndentBasedExample:
 
   def fromString(str: String): Day =
     try Day.valueOf(str)
-    catch
-      case _: IllegalArgumentException =>
-        throw new IllegalArgumentException(s"$str is not a valid day")
+      catch
+        case _: IllegalArgumentException =>
+          throw new IllegalArgumentException(s"$str is not a valid day")
+    end try
   end fromString
 
   def use(dayString: String) =
@@ -53,6 +56,10 @@ object IndentBasedExample:
     else
       println("Today is a workday")
       println("I will work")
+
+    if (day == Day.Wednesday)
+      println("Today is a Wednesday")
+      println("Bad Day")
 
     val optNum =
       for
@@ -109,6 +116,11 @@ object BraceBasedExample {
       println("I will work")
     }
 
+    if (day == Day.Wednesday) {
+      println("Today is a Wednesday")
+      println("Bad Day")
+    }
+
     val optNum =
       for {
         x <- Option(3)
@@ -145,7 +157,24 @@ Pythonでインデントを用いてブロックを作る場合は改行の前�
 
 `:`  `=`  `=>`  `<-`  `if`  `then`  `else`  `while`  `do`  `try`  `catch`  `finally`  `for`  `yield`  `match`
 
+また、`class`, `object`, `given`, や `enum`定義でもインデント構文を利用できます。
+
 インデントはタブとスペースの両方が使えますが混ぜると比較ができないケースがあるので、混ぜるな危険です。
+
+### 定義
+
+以下は`object`の定義と`enum`の定義でインデント構文を開始しています。
+
+{% code lang:scala %}
+object IndentBasedExample
+  enum Day
+    case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+    def isWeekend: Boolean = this match
+      case Saturday | Sunday => true
+      case _ => false
+{% endcode %}
+
+`enum`はScala 3(Dotty)の機能でScala 2にはありません。気になる方は「[Enumerations](https://dotty.epfl.ch/docs/reference/enums/enums.html)」を参照してください。
 
 ### `if`式
 
@@ -160,6 +189,13 @@ else
   println("I will work")
 {% endcode %}
 
+`if`式で括弧を用いる場合は`then`は必要ありません。
+
+{% code lang:scala %}
+if (day == Day.Wednesday)
+  println("Today is a Wednesday")
+  println("Bad Day")
+{% endcode %}
 
 ### `for`式
 
@@ -173,7 +209,6 @@ val optNum =
   yield
     x + y
 {% endcode %}
-
 
 ### `match`式
 
@@ -193,9 +228,39 @@ optNum match
 
 `match`以外には`catch`も同様に次の`case`のインデントは自由です。
 
-### インデントマーカーとラムダ式
+### ラムダ式
 
-次はPythonっぽい、行末コロン(`:`)の例です。開き中括弧(`{`)が有効な箇所で行末をコロンにするとインデント構文を開始することができます。また、ラムダ式の記号(`=>`)もインデント構文の開始の合図になっています。
+ラムダ式の記号(`=>`)もインデント構文の開始の合図になっています。
+
+{% code lang:scala %}
+x =>
+  y = y - 1
+  y * y
+{% endcode %}
+
+## エンドマーカー
+
+インデントだとブロックの終わりがわかりにくい場合には、エンドマーカーを使ってブロックの終わりを明示することができます。以下のコードでは「`end fromString`」が識別子のエンドマーカーです。エンドマーカーはオプションなのでなくても問題なく動作しますが、ドキュメントではひと目でブロックを識別することが難しい長いブロック(20行以上)で使うことを推奨しています。
+
+{% code lang:scala %}
+def fromString(str: String): Day =
+  try Day.valueOf(str)
+    catch
+      case _: IllegalArgumentException =>
+        throw new IllegalArgumentException(s"$str is not a valid day")
+  end try
+end fromString
+{% endcode %}
+
+エンドマーカーは以下の予約語と合わせて用いることもできます。
+
+`if`  `while`  `for`  `match`  `try`  `new`
+
+上記の例では「`end try`」がエンドマーカーになっています。
+
+### インデントマーカー`:`
+
+次はPythonっぽい、行末コロン(`:`)の例です。開き中括弧(`{`)が有効な箇所で行末をコロンにするとインデント構文を開始することができます。以下の例では`map`の後にインデントマーカー`:`が付いています。
 
 {% code lang:scala %}
 val z = List(2, 3, 4) map:
@@ -204,19 +269,15 @@ val z = List(2, 3, 4) map:
     y * y
 {% endcode %}
 
-### `try/catch`とエンドマーカー
+ただし、このインデントマーカーはまだ他のインデントスキームよりも議論の余地が大きく、コンパイラオプションに`-Yindent-colons`を指定した時だけ有効になります。
 
-`try/catch`でもインデント構文を使うことが可能です。また、インデントだとブロックの終わりがわかりにくい場合には、エンドマーカーを使ってブロックの終わりを明示することができます。以下のコードでは「`end fromString`」がエンドマーカーです。エンドマーカーはオプションなのでなくても問題なく動作しますが、ドキュメントではひと目でブロックを識別することが難しい長いブロック(20行以上)で使うことを推奨しています。
+## 設定と書換え
 
-{% code lang:scala %}
-def fromString(str: String): Day =
-  try Day.valueOf(str)
-  catch
-    case _: IllegalArgumentException =>
-      throw new IllegalArgumentException(s"$str is not a valid day")
-end fromString
-{% endcode %}
+インデント構文はデフォルトで有効ですが、コンパイラオプション`-noindent`, `-old-syntax`,`-language:Scala2`のいずれかを指定すれば無効にできます。実際に試してみましたがインデント構文を利用している箇所はエラーになってコンパイルができなくなりました。
 
+また、コンパイラオプションでインデント構文への書換えもできます。インデント構文への書換えは`-rewrite` `-new-syntax`オプションをつけてコンパイル後に、もう一度`-rewrite` `-indent`オプションをつけてコンパイルする必要があります。つまり面倒ですが2回コンパイラを起動する必要があります。この書換えは上手くいきました。
+
+逆方向の書換えを行うには`-rewrite` `-old-syntax`オプションをつけてコンパイル語に、もう一度`-rewrite` `-noindent`をつけてコンパイルします。この書換えは`0.19.0-RC1`時点では失敗しました。どうやらエンドマーカーの書換えで失敗しているようです。
 
 ### `@main`関数
 
@@ -233,8 +294,6 @@ object Example {
 {% code lang:scala %}
 @main def example: Unit = IndentBaseExample.use("Monday")
 {% endcode %}
-
-また、これもインデント構文と欠片も関係ありませんが`enum`が気になった方がいるかもしれません。`enum`はScala 3(Dotty)の機能でScala 2にはありません。気になる方は「[Enumerations](https://dotty.epfl.ch/docs/reference/enums/enums.html)」を参照してください。
 
 [^1]: `App`トレイトをミックスインして書く方法もあります。
 [^2]: `@main`関数は引数をとることもできてコマンドライン引数を受け取れるのですが、話が脱線するのでこの記事ではこれ以上は触れません。
@@ -271,7 +330,22 @@ Odersky先生もこのプルリクはデータを集めるための実験とし�
 ## 参考文献
 
 - {% elink Announcing Dotty 0.18.1-RC1 – switch to the 2.13 standard library, indentation-based syntax and other experiments https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html %}
+- {% elink Announcing Dotty 0.19.0-RC1 – further refinements of the syntax and the migration to 2.13.1 standard library https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html %}
 - {% elink Allow significant indentation syntax by odersky · Pull Request #7083 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7083 %}
 - {% elink Change indentation rules to allow copy-paste by odersky · Pull Request #7114 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7114 %}
 - {% elink Consider syntax with significant indentation · Issue #2491 · lampepfl/dotty https://github.com/lampepfl/dotty/issues/2491 %}
 - {% elink Significant Indentation https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html %}
+
+## 更新内容
+### 2019年9月28日の更新内容
+
+先日発表された{% elink Dotty 0.19.0-RC1 https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html %}でインデント構文が若干変更されました。
+
+- クラスやオブジェクトの定義でインデントをする場合に`:`が必要なくなった
+- インデントマーカー`:`の利用時には`-Yindent-colons`のオプションの指定が必要になった
+
+上記の内容は本文にも反映済みです。またインデント構文への書換えも試してみたので追記を行っています。
+
+下記のサンプルリポジトリに関しても0.19.0-RC1にバージョンアップして対応済みです。
+
+- {% elink hinastory/dotty_examples: Example code of Dotty (Scala 3) https://github.com/hinastory/dotty_examples %}
