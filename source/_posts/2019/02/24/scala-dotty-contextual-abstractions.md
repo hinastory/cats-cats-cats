@@ -17,6 +17,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 (2019年9月15日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B49%E6%9C%8815%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
 
+(2019年9月28日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年9月28日の更新内容)を見てください)
+
 <!-- more -->
 
 ## 目次
@@ -27,7 +29,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 - この記事はDottyに実装されたImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能を味見してみたものです
   - ~~利用したDottyのバージョンは2019年2月時点で最新の0.13.0-RC1です。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
   - ~~2019年6月時点で最新の0.16.0-RC3で変更があった文法の更新を反映しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
-  - 2019年9月時点で最新の0.18.1-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
+  - ~~2019年9月時点で最新の0.18.1-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
+  - 2019年9月時点で最新の0.19.0-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
 - 「Contextual Abstractions」は従来のImplicitsで初学者が躓きそうな機能を整理して使いやすくしています
   - 「Contextual Abstractions」には従来のImplicitsでは実現できなかった機能(暗黙のインポート、型クラス導出、コンテキストクエリ等)も含まれています
 - 「Contextual Abstractions」の機能はまだ提案段階でありScala3の正式な仕様に決定したわけではありません
@@ -51,23 +54,24 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
 
 ## Contextual Abstractionsとは
 
-現行のScalaには俗にImplicitsと呼ばれる機能がありますが、初学者を非常に混乱させる機能として悪名高いものでした[^5]。そこでDottyには、この混乱に決着を着けるべくImplicitsの機能を包含しつつより整理された「Contextual Abstractions」と呼ばれる一連の機能が実装されました[^6]。Implicitsの代替という面でみるとこれらの機能は「implicit」というキーワードをなるべく使わずに別の用語(`delegate`/`given`等)で置き換えて、型クラスをより書きやすいようにチューニングしたような内容になっている印象です。本記事では{% elink Dottyドキュメント https://dotty.epfl.ch/docs/index.html %}[^7]を参考にしながら、「Contextual Abstractions」の機能の一部を味見してみました。以下が味見した機能の一覧です[^8]。
+現行のScalaには俗にImplicitsと呼ばれる機能がありますが、初学者を非常に混乱させる機能として悪名高いものでした[^5]。そこでDottyには、この混乱に決着を着けるべくImplicitsの機能を包含しつつより整理された「Contextual Abstractions」と呼ばれる一連の機能が実装されました[^6]。Implicitsの代替という面でみるとこれらの機能は「implicit」というキーワードをなるべく使わずに別の用語(`given`等)で置き換えて、型クラスをより書きやすいようにチューニングしたような内容になっている印象です。本記事では{% elink Dottyドキュメント https://dotty.epfl.ch/docs/index.html %}[^7]を参考にしながら、「Contextual Abstractions」の機能の一部を味見してみました。以下が味見した機能の一覧です[^8]。
 
-- デリゲート(Delegates)
+- `given`インスタンス(Given Instances)
   - 従来の`implicit`で定義されていたインスタンスと同等です
-- Given節(Given Clauses)
+- `given`パラメータ(Given Parameters)
   - 従来の`implicit`で定義されていたパラメータリストと同等です
-- デリゲートインポート(Delegate Imports)
-  - 通常のimportでは`delegate`で定義された暗黙のデリゲートはインポートされず、別途`import delegate`でインポートする必要があります
+- `given`インポート(Given Imports)
+  - 通常のimportでは`given`で定義された`given`インスタンスはインポートされず、別途`import A.given`でインポートする必要があります
+  - `import A.{given, _}`でパッケージAの`given`インスタンスも含めた全てをインポートできます
   - デリゲートがどこから来たのかを明確にするために導入されたようです
 - 拡張メソッド(Extension Methods)
   - Dottyの新機能です
   - 型が定義された後にメソッドを追加することができます
 - 型クラスの実装(Implementing Typeclasses)
-  - 「デリゲート」、「Given節」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
+  - 「`given`インスタンス」、「`given`節」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
 
 [^5]: 現行のImplicitsの混乱するポイントについては{% elink こちらの記事 http://kmizu.hatenablog.com/entry/2017/05/19/074149 %}で詳しく取り上げられています。
-[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに[#6649](https://github.com/lampepfl/dotty/pull/6649)で`delegate`に変更されました・・・　本当に何回変わるんだろう・・・
+[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに[#6649](https://github.com/lampepfl/dotty/pull/6649)で`delegate`に変更されました。そしてさらに、{% elink #7210 https://github.com/lampepfl/dotty/pull/7210 %}で大幅に文法チェンジ！！`delegate`が排除されて`given`一色になりました・・・　本当に何回変わるんだろう・・・ツライ・・・
 [^7]: このドキュメントは最新版のスナップショットなので、どんどん書き換えられています。今の所過去のバージョンは参照できないみたいです・・・
 [^8]: 機能の日本語訳は自分がしました。間違っていたら教えてください。
 
@@ -98,7 +102,7 @@ Dottyドキュメントに記載されている例をベースに味見をして
 
 {% code lang:scala %}
 /** 暗黙のインスタンス、推論可能パラメータのサンプル */
-object DelegateExample {
+object GivenExampleDefs {
   /** 順序型の定義 */
   trait Ord[T] {
     def compare(x: T, y: T): Int
@@ -107,46 +111,45 @@ object DelegateExample {
   }
 
   /** 順序型のIntの暗黙のインスタンスの定義 */
-  delegate IntOrd for Ord[Int] {
+  given intOrd: Ord[Int] {
     def compare(x: Int, y: Int) =
-      if (x < y) -1 else if (x > y) +1 else 0
+      if x < y then -1 else if x > y then +1 else 0
   }
 
   /** 順序型のListの暗黙のインスタンスの定義 */
-  delegate ListOrd[T] for Ord[List[T]] given (ord: Ord[T]) {
+  given listOrd[T](given ord: Ord[T]): Ord[List[T]] {
     def compare(xs: List[T], ys: List[T]): Int = (xs, ys) match {
       case (Nil, Nil) => 0
       case (Nil, _) => -1 // 空リストよりも非空リストの方が大きい
       case (_, Nil) => +1 // 同上
       case (x :: xs1, y :: ys1) =>
         val fst = ord.compare(x, y) // 先頭の大きさがLists全体の大きさ
-        if (fst != 0) fst else compare(xs1, ys1) // 同じだったら次の要素を再帰的に繰り返す
+        if fst != 0 then fst else compare(xs1, ys1) // 同じだったら次の要素を再帰的に繰り返す
     }
   }
 
   /** 推論可能パラメータ */
-  def max[T](x: T, y: T) given (ord: Ord[T]): T =
-    if (ord.compare(x, y) < 1) y else x
+  def max[T](x: T, y: T)(given ord: Ord[T]): T =
+    if ord.compare(x, y) < 1 then y else x
 
   /** 無名推論可能パラメータ */
-  def maximum[T](xs: List[T]) given Ord[T]: T = xs.reduceLeft(max)
+  def maximum[T](xs: List[T])(given Ord[T]): T = xs.reduceLeft(max)
 
   /** コンテキスト境界使った書き換え(Scala2と同様) */
   def maximum2[T: Ord](xs: List[T]): T = xs.reduceLeft(max)
 
   /** 推論可能パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */
-  def descending[T] given (asc: Ord[T]): Ord[T] = new Ord[T] {
+  def descending[T](given asc: Ord[T]): Ord[T] = new Ord[T] {
     def compare(x: T, y: T) = asc.compare(y, x)
   }
 
   /** より複雑な推論 */
-  def minimum[T](xs: List[T]) given Ord[T] = maximum(xs) given descending
+  def minimum[T](xs: List[T])(given Ord[T]) = maximum(xs)(given descending)
 }
 
-/** `DelegateExapmple`の利用方法 */
-object DelegateExampleUseCase {
-  import DelegateExample._
-  import delegate DelegateExample._ // Listの`<`演算子を利用するのに必要
+/** `GivenExapmple`の利用方法 */
+object GivenExample {
+  import GivenExampleDefs.{_, given} // givenは　`Ord`の`<`演算子を利用するのに必要
 
   def use(): Unit = {
     println( max(2,3) ) // 3
@@ -171,7 +174,41 @@ object DelegateExampleUseCase {
 
 {% code lang:scala %}
 /** 型クラスのサンプル */
-object TypeClassExample {
+object TypeClassExampleDefs {
+  /** 半群の型クラス */
+  trait SemiGroup[T] {
+    def (x: T) combine (y: T): T
+  }
+
+  /**モノイドの型クラス */
+  trait Monoid[T] extends SemiGroup[T] {
+    def unit: T
+  }
+
+  /** applyでモノイドを召喚
+   * `summon`はScala2の`implicitly`相当
+   */
+  object Monoid {
+    def apply[T](given Monoid[T]) = summon[Monoid[T]]
+  }
+
+  /** `String`のモノイド */
+  given Monoid[String] {
+    def (x: String) combine (y: String): String = x.concat(y)
+    def unit: String = ""
+  }
+
+  /** `Int`のモノイド */
+  given Monoid[Int] {
+    def (x: Int) combine (y: Int): Int = x + y
+    def unit: Int = 0
+  }
+
+  /** モノイドの和を求める */
+  def sum[T: Monoid](xs: List[T]): T =
+    xs.foldLeft(Monoid[T].unit)(_.combine(_))
+
+
   /** 関手の型クラス */
   trait Functor[F[_]] {
     def (x: F[A]) map [A, B] (f: A => B): F[B]
@@ -179,14 +216,14 @@ object TypeClassExample {
 
   /** モナドの型クラス */
   trait Monad[F[_]] extends Functor[F] {
-    def (x: F[A]) flatMap [A, B] (f: A => F[B]): F[B]
-    def (x: F[A]) map [A, B] (f: A => B) = x.flatMap(f `andThen` pure)
+    def (x: F[A])flatMap [A, B] (f: A => F[B]): F[B]
+    def (x: F[A])map [A, B] (f: A => B) = x.flatMap(f `andThen` pure)
 
     def pure[A](x: A): F[A]
   }
 
   /** リストモナドのインスタンスを定義 */
-  delegate ListMonad for Monad[List] {
+  given listMonad: Monad[List] {
     def (xs: List[A]) flatMap [A, B] (f: A => List[B]): List[B] =
       xs.flatMap(f)
     def pure[A](x: A): List[A] =
@@ -194,7 +231,7 @@ object TypeClassExample {
   }
 
   /** リーダモナドのインスタンスを定義 */
-  delegate ReaderMonad[Ctx] for Monad[[X] ==> Ctx => X] {
+  given readerMonad[Ctx]: Monad[[X] =>> Ctx => X] {
     def (r: Ctx => A) flatMap [A, B] (f: A => Ctx => B): Ctx => B =
       ctx => f(r(ctx))(ctx)
     def pure[A](x: A): Ctx => A =
@@ -202,33 +239,35 @@ object TypeClassExample {
   }
 
   /** 関手の利用 */
-  def transform[F[_], A, B](src: F[A], func: A => B) given Functor[F]: F[B] = src.map(func)
+  def transform[F[_], A, B](src: F[A], func: A => B)(given Functor[F]): F[B] = src.map(func)
 
   /** コンテキスト境界を使った書き換え */
   def transform2[F[_]: Functor, A, B](src: F[A], func: A => B): F[B] = src.map(func)
 }
 
-/** `TypeClassExample`の利用方法 */
-object TypeClassExampleUseCase {
-  import TypeClassExample._
-  import delegate TypeClassExample._
+/** `TypeClassExampleDefs`の利用方法 */
+object TypeClassExample {
+  import TypeClassExampleDefs.{given, _}
 
   def use(): Unit = {
+    println( sum(List("abc", "def", "gh")) ) // "abcdefgh"
+    println( sum(List(1, 2, 3)) ) // 6
+
     println( transform(List(1, 2, 3), (_:Int) * 2) ) // List(2, 4, 6)
 
-    /*
-    リーダーモナドの例はずだが・・・
+    /* リーダーモナドの例はずだが・・・
     以下の例は0.13.0-RC1ではコンパイルが終わらない・・・
-    0.16.0-RC3でもコンパイルが同様に終わらない・・・
-    0.18.1-RC1で動いた!
+    0.16.0-RC3でも同様に終わらない
+    O.18.1-RC1で動いた!
     */
     val calc: Int => Int = for {
       x <- (e:Int) => e + 1
       y <- (e:Int) => e * 10
-    } yield x + y
+    }
+    yield x + y
 
     println( calc(3) ) // 34
-   }
+  }
 }
 {% endcode %}
 
@@ -255,7 +294,7 @@ Implicitsが大分飼いならされたような印象でした。特に従来�
 
 もともとは{% elink 「A Snippet of Dotty」 https://medium.com/@jducoeur/a-snippet-of-dotty-27eadcee72e3 %}を読んで、あまりにも自分が知っているScalaと違っていたので調べ始めたのがこの記事を書こうと思ったきっかけです。この記事がScala3がどういう方向を目指しているのか知りたい人の参考になれば幸いです。
 
-[^11]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、現在のmasterブランチでは`the`に変更されています。ちょうどこの記事を書いている途中で変更が {% elink masterにマージされた https://github.com/lampepfl/dotty/pull/5893 %}ので、混乱しないように慌てて味見の結果から`infer`を抜きました。
+[^11]: もともと`summon`という名前で提案されていましたが、`0.13.0-RC-1`では`infer`に変わり、現在のmasterブランチでは`the`に変更されています。ちょうどこの記事を書いている途中で変更が {% elink masterにマージされた https://github.com/lampepfl/dotty/pull/5893 %}ので、混乱しないように慌てて味見の結果から`infer`を抜きました。またさらに、{% elink #7205 https://github.com/lampepfl/dotty/pull/7205 %}でまさかの`summon`の復活!! 追うのも楽じゃない・・・
 
 ## 追記・更新内容
 
@@ -269,7 +308,7 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 意訳すると従来の`implicit`には`implicit conversions`と`conditional implicit values`の２つの用途があったけど、意味が違うし初学者は混同しやすいので構文的に別にするという話です。というか`conditional implicit values`という言い方は自分は初めて目にしました。単純な`implicit values`よりもわかりやすいですね。
 
-この本家のブログを受けてというわけではないですが、前回の記事でサンプルの解説が大分雑だったのでいろいろと見直して、サンプルコードも{% elink GitHubに公開しました https://github.com/hinastory/dotty_contextual_abstractions_example %}。興味のある方は味見をして頂けると幸いです。
+この本家のブログを受けてというわけではないですが、前回の記事でサンプルの解説が大分雑だったのでいろいろと見直して、サンプルコードも{% elink GitHubに公開しました https://github.com/hinastory/dotty_examples %}。興味のある方は味見をして頂けると幸いです。
 
 ### 2019年6月22日の更新内容
 
@@ -288,3 +327,14 @@ The implicit keyword is used for both implicit conversions and conditional impli
 先日発表された{% elink Dotty 0.18.1-RC1 https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html %}でリーダーモナドの例がコンパイルできるようになっていました。また、0.18.1-RC1で追加されたインデントベースの構文についても記事を書いたので興味があればご一読ください。
 
 - {% link Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！ https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/ %}
+
+### 2019年9月28日の更新内容
+
+先日発表された{% elink Dotty 0.19.0-RC1 https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html %}で本記事に関する文法が大きく変更されました。関連するプルリクは主に以下の4つです。
+
+- {% elink Trial: `given as` instead of `delegate for` by odersky · Pull Request #6773 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/6773 %}
+- {% elink Change to new given syntax by odersky · Pull Request #7210 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7210 %}
+- {% elink Drop old syntax styles for givens by odersky · Pull Request #7245 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7245 %}
+- {% elink Replace the[...] by summon[...] by odersky · Pull Request #7205 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7205 %}
+
+簡単に言うと`delegate`が`given`に置き換えられて`given`節が`given`パラメータになって`summon`大復活です。0.19.0-RC1より前のものも含まれていますが、今回合わせて修正しました。
