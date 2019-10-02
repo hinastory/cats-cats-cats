@@ -71,7 +71,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
   - 「`given`インスタンス」、「`given`パラメータ」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
 
 [^5]: 現行のImplicitsの混乱するポイントについては{% elink こちらの記事 http://kmizu.hatenablog.com/entry/2017/05/19/074149 %}で詳しく取り上げられています。
-[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに[#6649](https://github.com/lampepfl/dotty/pull/6649)で`delegate`に変更されました。そしてさらに、{% elink #6773 https://github.com/lampepfl/dotty/pull/6773 %}と{% elink #7210 https://github.com/lampepfl/dotty/pull/7210 %}で大幅に文法チェンジ！！`delegate`が排除されて`given`一色になりました・・・　本当に何回変わるんだろう・・・ツライ・・・
+[^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに{% elink #6649 https://github.com/lampepfl/dotty/pull/6649 %}で`delegate`に変更されました。そしてさらに、{% elink #6773 https://github.com/lampepfl/dotty/pull/6773 %}と{% elink #7210 https://github.com/lampepfl/dotty/pull/7210 %}で大幅に文法チェンジ！！`delegate`が排除されて`given`一色になりました・・・　本当に何回変わるんだろう・・・ツライ・・・
 [^7]: このドキュメントは最新版のスナップショットなので、どんどん書き換えられています。今の所過去のバージョンは参照できないみたいです・・・
 [^8]: 機能の日本語訳は自分がしました。間違っていたら教えてください。
 
