@@ -11,6 +11,9 @@ date: 2019-07-27 07:28:45
 ---
 `gRPC`は近年非常によく使われるようになったRPCフレームワーク[^1]ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいう{% elink Postman https://www.getpostman.com/ %}的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は現在においてはほぼ払拭されたといっても過言ではありません。{% elink gRPC UI https://github.com/fullstorydev/grpcui %}が登場したからです。
 
+(2019/10/4 追記)
+- gRPC UI playgroundの運用に利用していたArukasが2020年1月31日でサービス終了するようです。今後gRPC UI playgroundをどうするかは検討中です。
+  - {% elink Arukas サービス提供終了に関するお知らせ | Arukas https://arukas.io/updates/20190930-terminate-of-service/ %}
 [^1]: RPC(Remote Procedure Call)は、簡単に言えばプログラムの中から内部の関数を呼ぶのと似たような感覚で、外部のネットワーク上の関数や手続きを呼べるようにする技術のことです。他のRPCにはSOAPやJSON-RPCなどがあります。
 
 <!-- more -->
@@ -22,10 +25,12 @@ date: 2019-07-27 07:28:45
 
 - gRPC UIで作成した遊び場はこちらです :point_right: {% elink  gRPC UI playground https://cocky-knuth-7862.arukascloud.io %}
 - gRPC UIはgRPCサーバへの要求と応答がWebで簡単にできるので、今後のgRPCを利用した開発に広く使われるツールとなりそうです
-- gRPC UI playgroundは以下のサービスを利用して、無料で立ち上げました。当面はみんなが遊べるようにしておくつもりです
+- gRPC UI playground´は以下のサービスを利用して、無料で立ち上げました。当面はみんなが遊べるようにしておくつもりです
   - {% elink GitHub https://github.com/ %}
   - {% elink Docker Hub https://hub.docker.com/ %}
   - {% elink Arukas https://arukas.io/ %}
+- gRPC UI playgroundの運用に利用していたArukasが2020年1月31日でサービス終了するようです。今後gRPC UI playgroundをどうするかは検討中です。
+  - [Arukas サービス提供終了に関するお知らせ | Arukas](https://arukas.io/updates/20190930-terminate-of-service/)
 
 ## はじめに
 

@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</loc>
+        <lastmod>2019-10-03T20:26:22.850Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
         <lastmod>2019-10-02T18:03:05.053Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -66,14 +74,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/</loc>
         <lastmod>2019-08-06T21:11:33.355Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</loc>
-        <lastmod>2019-08-04T01:28:43.538Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
