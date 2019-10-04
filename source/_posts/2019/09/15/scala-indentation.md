@@ -21,6 +21,7 @@ date: 2019-09-15 07:28:45
 ## TL;DR
 
 - Scala 3のリサーチコンパイラである{% elink Dotty 0.18.1-RC1 https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1 %}にインデントベースの構文が実装されました
+  - [Dotty 0.19.0-RC1](https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html)の変更に合わせて修正しました
 - インデントベースの構文はまだ提案段階でありScala 3の正式な仕様に決定したわけではありません
   - 今後機能が変化したり、機能が採用されなかったりする可能性も十分あります
   - というか反対意見の方が多いです
@@ -334,7 +335,7 @@ Odersky先生もこのプルリクはデータを集めるための実験とし�
 - {% elink Allow significant indentation syntax by odersky · Pull Request #7083 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7083 %}
 - {% elink Change indentation rules to allow copy-paste by odersky · Pull Request #7114 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7114 %}
 - {% elink Consider syntax with significant indentation · Issue #2491 · lampepfl/dotty https://github.com/lampepfl/dotty/issues/2491 %}
-- {% elink Significant Indentation https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html %}
+- {% elink Optional Braces https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html %}
 
 ## 更新内容
 ### 2019年9月28日の更新内容

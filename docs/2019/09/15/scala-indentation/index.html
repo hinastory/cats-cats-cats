@@ -16,7 +16,7 @@
 <meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
-<meta property="og:updated_time" content="2019-09-27T20:30:01.360Z">
+<meta property="og:updated_time" content="2019-10-04T18:10:21.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！">
 <meta name="twitter:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)">
@@ -185,7 +185,10 @@
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#まずはコードを御覧ください" class="contents-header">2. まずはコードを御覧ください</a></li><li><a href="#コードの解説" class="contents-header">3. コードの解説</a><ul><li><a href="#定義" class="contents-header">3.1. 定義</a></li><li><a href="#if式" class="contents-header">3.2. if式</a></li><li><a href="#for式" class="contents-header">3.3. for式</a></li><li><a href="#match式" class="contents-header">3.4. match式</a></li><li><a href="#ラムダ式" class="contents-header">3.5. ラムダ式</a></li></ul></li><li><a href="#エンドマーカー" class="contents-header">4. エンドマーカー</a><ul><li><a href="#インデントマーカー" class="contents-header">4.1. インデントマーカー:</a></li></ul></li><li><a href="#設定と書換え" class="contents-header">5. 設定と書換え</a><ul><li><a href="#main関数" class="contents-header">5.1. @main関数</a></li><li><a href="#今すぐ試してみたい" class="contents-header">5.2. 今すぐ試してみたい!</a></li></ul></li><li><a href="#インデントベース構文の状況" class="contents-header">6. インデントベース構文の状況</a></li><li><a href="#最後に" class="contents-header">7. 最後に</a></li><li><a href="#参考文献" class="contents-header">8. 参考文献</a></li><li><a href="#更新内容" class="contents-header">9. 更新内容</a><ul><li><a href="#2019年9月28日の更新内容" class="contents-header">9.1. 2019年9月28日の更新内容</a></li></ul></li></ul></div>
 
 <h2 id="tldr"><a href="#tldr" class="header-anchor"></a>1. <a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
-<li>Scala 3のリサーチコンパイラである<a href="https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1" target="_blank" rel="noopener">Dotty 0.18.1-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>にインデントベースの構文が実装されました</li>
+<li>Scala 3のリサーチコンパイラである<a href="https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1" target="_blank" rel="noopener">Dotty 0.18.1-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>にインデントベースの構文が実装されました<ul>
+<li><a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener">Dotty 0.19.0-RC1</a>の変更に合わせて修正しました</li>
+</ul>
+</li>
 <li>インデントベースの構文はまだ提案段階でありScala 3の正式な仕様に決定したわけではありません<ul>
 <li>今後機能が変化したり、機能が採用されなかったりする可能性も十分あります</li>
 <li>というか反対意見の方が多いです</li>
@@ -254,7 +257,7 @@
 <li><a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">Allow significant indentation syntax by odersky · Pull Request #7083 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://github.com/lampepfl/dotty/pull/7114" target="_blank" rel="noopener">Change indentation rules to allow copy-paste by odersky · Pull Request #7114 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener">Consider syntax with significant indentation · Issue #2491 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html" target="_blank" rel="noopener">Significant Indentation<i class="fas fa-external-link-alt fa-fw"></i></a>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html" target="_blank" rel="noopener">Optional Braces<i class="fas fa-external-link-alt fa-fw"></i></a>
 </li>
 </ul>
 <h2 id="更新内容"><a href="#更新内容" class="header-anchor"></a>9. <a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><h3 id="2019年9月28日の更新内容"><a href="#2019年9月28日の更新内容" class="header-anchor"></a>9.1. <a href="#2019年9月28日の更新内容" class="headerlink" title="2019年9月28日の更新内容"></a>2019年9月28日の更新内容</h3><p>先日発表された<a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener">Dotty 0.19.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>でインデント構文が若干変更されました。</p>
