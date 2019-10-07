@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/10/07/why_write_technical_blogs/</loc>
+        <lastmod>2019-10-07T22:57:03.384Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
+        <lastmod>2019-10-04T22:51:58.975Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/</loc>
         <lastmod>2019-10-04T18:10:21.432Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +34,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</loc>
         <lastmod>2019-10-03T20:34:07.639Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
-        <lastmod>2019-10-02T18:03:05.053Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

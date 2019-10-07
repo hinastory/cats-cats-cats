@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-09-23T11:34:39.774Z</updated>
+  <updated>2019-10-07T22:57:03.384Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/10/07/why_write_technical_blogs/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/10/07/why_write_technical_blogs/</id>
+    <published>2019-10-06T22:28:45.000Z</published>
+    <updated>2019-10-07T22:57:03.384Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ようやく本ブログの記事数も30本突破しました。お読み頂きありごとうございます。&lt;/p&gt;
+&lt;p&gt;記事30本は目標にしていた数字ですが、2018年12月に書き始めて達成したのが2019年9月なので10ヶ月かかりました。&lt;/p&gt;
+&lt;p&gt;普段は技術以外のことは全く書かない本ブログですが、今回は30本突破記念として特別に「なぜ自分は技術ブログを書き続けるのか」というテーマで書いてみたいと思います。あと、本ブログのPV数や人気記事も紹介したいと思いますので目次を見て気になるところから読み進めてください。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="Blog" scheme="https://hinastory.github.io/cats-cats-cats/tags/Blog/"/>
+    
+  </entry>
   
   <entry>
     <title>ベン図を使って、インタプリタとコンパイラの違いを説明してみる</title>
@@ -462,7 +487,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</id>
     <published>2019-02-24T03:49:20.000Z</published>
-    <updated>2019-10-02T18:03:05.053Z</updated>
+    <updated>2019-10-04T22:51:58.975Z</updated>
     
     <summary type="html">
     
@@ -515,38 +540,6 @@
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HexoのoEmbedプラグインをnpmに公開した話(後編)</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/</id>
-    <published>2019-02-10T23:36:19.000Z</published>
-    <updated>2019-04-07T04:50:07.073Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。&lt;/p&gt;
-&lt;a href=&quot;/cats-cats-cats/2019/02/09/hexo-oembed-1/&quot; title=&quot;HexoのoEmbedプラグインをnpmに公開した話(前編)&quot;&gt;HexoのoEmbedプラグインをnpmに公開した話(前編)&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
-    
-    
-      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/tags/Web/"/>
-    
-      <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
-    
-      <category term="oEmbed" scheme="https://hinastory.github.io/cats-cats-cats/tags/oEmbed/"/>
-    
-      <category term="Git" scheme="https://hinastory.github.io/cats-cats-cats/tags/Git/"/>
     
   </entry>
   
