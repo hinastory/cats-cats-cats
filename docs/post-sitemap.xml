@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</loc>
+        <lastmod>2019-10-15T19:42:22.495Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/10/07/why_write_technical_blogs/</loc>
         <lastmod>2019-10-08T22:17:40.347Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -50,14 +58,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/</loc>
         <lastmod>2019-09-12T18:00:34.786Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</loc>
-        <lastmod>2019-08-27T21:01:13.250Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
