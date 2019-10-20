@@ -10,6 +10,7 @@ tags:
   - TensorFlow
   - Jupyter
   - Keras
+  - MLOps
 date: 2019-10-20 07:28:45
 ---
 LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築について簡単に記録に残しておくことにしました。
@@ -21,7 +22,7 @@ LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古く
 
 ## 対象読者
 
-本記事は、LinuxでGPUを用いた機械学習の環境を構築してみたい方を対象にしています。また、MLOpsに興味があり、機械学習環境の自動化に興味がある方にもおすすめします。本記事では実際に機械学習の環境を構築してディープラーニングで画像分類をおこなうところまでの手順を説明します。その際以下の知識があったほうがより深く理解が出来ますが、本記事を読むのに必須ではありません。
+本記事は、LinuxでGPUを用いた機械学習の環境を構築してみたい方を対象にしています。また、MLOpsに興味があり、機械学習基盤の構築に興味がある方にもおすすめします。本記事では実際に機械学習の環境を構築してディープラーニングで画像分類をおこなうところまでの手順を説明します。その際以下の知識があったほうがより深く理解が出来ますが、本記事を読むのに必須ではありません。
 
 - Kubernetes
 - JupyterLab
@@ -272,7 +273,7 @@ ENTRYPOINT ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "-
 ポイントは以下のとおりです。
 
 - ベースイメージとして`nvidia/cuda:10.0-cudnn7-devel`を指定
-  - TensorFlow 2.0が動作可能なCUDAとCUDNNを指定
+  - TensorFlow 2.0が動作可能なCUDAとcuDNNを指定
 - `pyenv`で{% elink Anaconda https://www.anaconda.com/ %}をインストール
   - Anacondaでデータサイエンスに必要なパッケージの全部入りをざっくり入れる
   - minicondaで細かく指定して入れる方法もある
@@ -399,13 +400,12 @@ http://(minikubeが起動しているマシンのIPアドレス):30001/
 `+`ボタンを押して、Lancherを起動し、Python3のノートブックを作成します。
 
 {% img /gallery/daily/others/jupyterlab.png %}
-
+　
 最初は「Untitled.ipynb」というファイル名で作成されますが、ファイルを右クリックで「Rename」を選択してファイル名を変更できます。今回は「cifar10.ipynb」に変更します。
 
 ## TensorFlow 2.0 with Kerasで画像分類(CIFAR 10)
 
-ようやくお待ちかねの機械学習(DeepLerning)のターンです。
-今回はTensorFlow 2.0に密に統合されたKerasのAPIを利用してCIFAR 10の画像セットを用いて画像分類を行います。
+ようやくお待ちかねのディープラーニングのターンです。今回はようやく最近正式リリースされたTensorFlow 2.0に密に統合されたKerasのAPIを利用してCIFAR 10の画像セットを用いて画像分類を行います。
 
 ソースコードは{% elink keras/cifar10_cnn.py  https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py %}をベースにtensorflow対応や可視化表示のコードを加えたものになります。先程作成したノートブックに貼り付けて実行してください。適当にセルに分割して実行したほうが良いと思います。
 
@@ -449,27 +449,22 @@ print(x_test.shape[0], 'test samples')
 LABELS = ('airplane', 'mobile', 'bird', 'cat', 'deer',
           'dog', 'frog', 'horse','ship', 'truck')
 
-def index_to_label(idx):
+def to_label(v):
+  idx = np.argmax(v)
   if idx < len(LABELS):
     return LABELS[idx]
   else:
     return None
-
-def vector_to_label(v):
-  idx = np.argmax(v)
-  return index_to_label(idx)
 
 plt.clf()
 for i in range(0, 40):
   plt.subplot(5, 8, i+1)
   plt.tight_layout()
   pixels = x_train[i,:,:,:]
-  plt.title(vector_to_label(y_train[i]), fontsize=8)
+  plt.title(to_label(y_train[i]), fontsize=8)
   fig = plt.imshow(pixels)
   fig.axes.get_xaxis().set_visible(False)
   fig.axes.get_yaxis().set_visible(False)
-
-plt.savefig('cifar10_image_train.png')
 
 # One-Hot Vectorに変換
 y_train = keras.utils.to_categorical(y_train, num_classes)
@@ -551,7 +546,7 @@ plt.show()
 
 {% img /gallery/daily/others/cifar10-image-train.png %}
 
-モデルの要約です。畳み込み層、マックスプーリング層、ドロップアウト層、活性化層(relu)を利用した典型的なCNNになっています。最後は平坦化して全結合層を挟んで活性化関数にSoftMaxを利用しています。
+モデルの要約です。畳み込み層、プーリング層、ドロップアウト層、活性化層(relu)を利用した典型的なCNNになっています。最後の出力には全結合層と活性化層(SoftMax)を利用しています。
 
 ```
 Model: "sequential"
@@ -599,7 +594,7 @@ Trainable params: 1,250,858
 Non-trainable params: 0
 ```
 
-訓練経過です。だいたい1エポック9秒程度で終わっています。また検証データの正解率(accuracy)も77%程度になっています。ちなみに下記の結果はGPUを使用したものですが、CPUの場合は1エポックで43秒程かかりました。GPUは偉大です・・・
+訓練経過です。だいたい1エポック9秒程度で終わっています。また検証データの正解率(`val_accuracy`)も77%程度になっています。ちなみに下記の結果はGPUを使用したものですが、CPUの場合は1エポックで43秒程かかりました。GPUは偉大です・・・
 
 ```
 Train on 50000 samples, validate on 10000 samples
@@ -635,7 +630,7 @@ Epoch 15/15
 50000/50000 [==============================] - 8s 159us/sample - loss: 0.6035 - accuracy: 0.7887 - val_loss: 0.6811 - val_accuracy: 0.7682
 ```
 
-損失の経過を表したグラフです。見ての通り9エポック過ぎから過学習を起こしています。
+損失の経過を表したグラフです。見ての通り10エポック以降から過学習をおこしています。
 
 {% img /gallery/daily/others/loss.png %}
 
@@ -649,18 +644,20 @@ Epoch 15/15
 - Keras
 - CNN(Convolutional Neural Network)
 
-今回なぜLinux+Minikube+JupyterLabの構成にしたかというと、まず機械学習の環境は依存関係が複雑な上に開発のスピードが非常に速いという問題があるからです。特にGPUのドライバのバージョンとCUDAとcuDNNとフレームワーク(TensorFlow等)のバージョンの関係は非常にセンシティブなため、コンテナとして管理した方が非常に安心してバージョンアップができます。特にMinikube(Kubernetes)で管理すれば一つ前のデプロイメントに戻すのも簡単なので**環境構築の試行錯誤とノウハウの蓄積**も簡単になります。
+今回なぜLinux+Minikube+JupyterLabの構成にしたかというと、まず機械学習の環境は依存関係が複雑な上に開発のスピードが非常に速いという問題があるからです。特にGPUのドライバのバージョンとCUDAとcuDNNとフレームワーク(TensorFlow等)のバージョンの関係は非常にセンシティブなため、コンテナとして管理した方が非常に安心してバージョンアップができます。特にMinikube(Kubernetes)で管理すれば一つ前のデプロイメントに戻すのも簡単なので**環境構築の試行錯誤とノウハウの蓄積**も簡単になります。そして、本記事ではMinikubeで構築しましたが、複数マシンのKubernetesクラスタで構築すれば複数人でも利用可能な機械学習基盤になり、MLOpsにも繋がっています。
 
 またJupyterLabはいわゆるノートブックの環境で機械学習を環境としては、試行錯誤が容易でコーディングと結果の可視化が両立されており非常に使い勝手が良いのでおすすめです。ノートブックに関しては以前に「{% link 全プログラマに捧ぐ！図解「ノートブック」  https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/ %}」という記事を書いたのでそちらを参照してください。
 
-駆け足での説明になってしまいましたが本記事が、機械学習環境の構築に興味がある方の一助になれば幸いです。
+本記事は自分が一番最初にLinuxで機械学習環境を構築しようとした時に、多くの手順に苛まれてなかなかお目当てのディープラーニングまで辿り着けなくてもどかしい思いをした経験から、環境構築からディープラーニングまで一気通貫で記事を構成してみました。
+
+駆け足での説明になってしまいましたが、機械学習に興味がある方の一助になれば幸いです。
 
 ## 参考文献
 
-- {% elink Minikubeを使ってローカルにkubernetes環境を構築 - Qiita https://qiita.com/Esfahan/items/f5c846088281c39f73a4 %}
-- {% elink tensorflow2.0 + kerasでGPUメモリの使用量を抑える方法 - Qiita https://qiita.com/studio_haneya/items/4dfaf2fb2ac44818e7e0 %}
-- {% elink Keras+CNNでCIFAR-10の画像分類 http://kikei.github.io/ai/2018/03/25/cifer10-cnn1.html %}
-- {% elink CIFAR-10のデータセットを用いてCNNの画像認識を行ってみる - AI人工知能テクノロジー https://newtechnologylifestyle.net/cifar-10%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6cnn%E3%81%AE%E7%94%BB%E5%83%8F%E8%AA%8D%E8%AD%98%E3%82%92%E8%A1%8C%E3%81%A3%E3%81%A6%E3%81%BF/ %}
+1. {% elink Minikubeを使ってローカルにkubernetes環境を構築 - Qiita https://qiita.com/Esfahan/items/f5c846088281c39f73a4 %}
+2. {% elink tensorflow2.0 + kerasでGPUメモリの使用量を抑える方法 - Qiita https://qiita.com/studio_haneya/items/4dfaf2fb2ac44818e7e0 %}
+3. {% elink Keras+CNNでCIFAR-10の画像分類 http://kikei.github.io/ai/2018/03/25/cifer10-cnn1.html %}
+4. {% elink CIFAR-10のデータセットを用いてCNNの画像認識を行ってみる - AI人工知能テクノロジー https://newtechnologylifestyle.net/cifar-10%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6cnn%E3%81%AE%E7%94%BB%E5%83%8F%E8%AA%8D%E8%AD%98%E3%82%92%E8%A1%8C%E3%81%A3%E3%81%A6%E3%81%BF/ %}
 
 ## おまけ
 
