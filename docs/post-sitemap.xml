@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/</loc>
+        <lastmod>2019-10-20T16:29:36.626Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</loc>
         <lastmod>2019-10-15T19:42:22.495Z</lastmod>
         <changefreq>weekly</changefreq>
