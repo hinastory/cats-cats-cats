@@ -1,6 +1,6 @@
 ---
 title: Serverless Days Tokyo 2019 に参加してきました
-thumbnail: /gallery/thubmnails/serverless-days-tokyo-thumbnail-min.png
+thumbnail: /gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png
 categories:
   - Tech
   - Cloud
