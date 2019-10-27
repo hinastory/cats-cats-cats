@@ -161,50 +161,44 @@ Nuwebaさんの発表はサーバーレスのセキュリティについてで�
 
 ## スポンサーセッション & Lightning Talk
 
-ここからはメモベースの軽めの感想です。
+ここからは気になったスポンサーセッションとLightningTarkの内容になります
 
 ### Oracle も Serverless サービスやっています @ Sugiyama Suguru (スポンサーセッション)
 
+OracleさんのスポンサーセッションはOracleのFaaSであるOracle Fanctionsの内容でした。
+
 {% oembed https://www.slideshare.net/SuguruSugiyama/oracle-serverless %}
 
-- メモ & 感想
-  - OracleもFaaSやってます(Oracle functions)
-  - [Fn Project](https://github.com/fnproject)というOSSベース
-- オンプレでもクラウドでも動く
-- Dockerイメージをアプロードして動かす
+Oracle Fanctionsは、OracleがOSSとして公開している[Fn Project](https://github.com/fnproject)というOSSベースがベースでオンプレでもクラウドでも動くそうです。実装はコンテナベースで関数の公開はDockerイメージをアップロードを行います。
 
-###  「サーバーレス」な同人誌の紹介 @ めもおきば(nekoruri) (Lightning Talk)
+### 「サーバーレス」な同人誌の紹介 @ めもおきば(nekoruri) (Lightning Talk)
+
+Lightning Talkで一番気になったのは、めもおきば(nekoruri)さんの、マニアックな同人誌紹介です。個人的には「SERVERLESSを支える技術」を含め以前に何冊か購入させて頂いたので、間違いなく紹介される本は良本だと確信が持てました。
 
 {% oembed https://www.slideshare.net/nekoruri/20191022-serverless-books %}
 
 - [「サーバーレス」な同人誌を #ServerlessDays で紹介しました - めもおきば](https://d.nekoruri.jp/entry/2019/10/22/serverlessdays)
 
-- メモ & 感想
-  - 持っている本
-    - Knativeソースコードリーディング入門
-    - 雰囲気でOAuth2.0を使っているエンジニアがOAuth2.0を整理して、理解できる本
-    - Pragmatic Terraform on AWS
-  - 欲しい本
-    - Goで学ぶGoogleCloud Functionsの使い方
-    - ゼロから始めるNetlify
-    - OAuth、OAuth認証、OpenID Connectの違いを整理して、理解できる本
-    - Microservices architecture よろず本 その三（初版は持っていたが３まで出ていたのか・・・）
-    - NATSによるPub/Subメッセージング入門
+とりあえず、すでに何冊か持っている本もありましたが、気になる本もたくさんあったので後で購入を検討しようと思います。
+
+ - 持っている本
+  - Knativeソースコードリーディング入門
+  - 雰囲気でOAuth2.0を使っているエンジニアがOAuth2.0を整理して、理解できる本
+  - Pragmatic Terraform on AWS
+- 欲しい本
+  - Goで学ぶGoogleCloud Functionsの使い方
+  - ゼロから始めるNetlify
+  - OAuth、OAuth認証、OpenID Connectの違いを整理して、理解できる本
+  - Microservices architecture よろず本 その三（初版は持っていたが３まで出ていたのか・・・）
+  - NATSによるPub/Subメッセージング入門
 
 ### 目つぶり検証作成期 @ Kana Kitagawa (Lightning Talk)
 
-- メモ & 感想
-  - プログラミング初心者がServerless FrameworkとAmazon Recognitionを使って目つぶり検証・・・
-  - 普通にすごい & いい時代になったものだ・・・
-  - 本人は大学4年生で写真専門らしい
-  - 公式ドキュメントが正義！　この学びは素晴らしい
+大学4年生で写真専門の方の発表です。プログラミングの初心者がServerless FrameworkとAmazon Recognitionを使って目つぶり検証を行ったという内容です。普通にすごいというかこういうことにチャレンジできるいい時代になったなと思いました。あと、まとめで「公式ドキュメントが読むこと」という内容があったので、この学びは素晴らしいと思いました。ブログや記事は興味を持つきっかけにはいいですが、手を動かす際に参照するのは圧倒的に公式ドキュメントが正義です。
 
 ### SERVERLELESSなエンジニアのためのSERVERLESSなオンラインサロンをVUE/NUXT/COGNITO/STRIPEで作った話 @藤本竜之介 (Lightning Talk)
 
-- メモ & 感想
-  - STRIPEだけ唯一分からなかったけどオンライン決済サービスか・・・
-    - [インターネットビジネスのためのオンライン決済処理 - Stripe](https://stripe.com/jp)
-
+オンラインサービスをSERVERLELESSで立ち上げた話でした。だいたい知っている技術でしたが、STRIPEだけ唯一知りませんでした。STRIPEは[インターネットビジネスのためのオンライン決済処理](https://stripe.com/jp)だそうです。
 
 ## 懇親会の様子
 
@@ -216,7 +210,7 @@ Nuwebaさんの発表はサーバーレスのセキュリティについてで�
 
 今回ServerlessDays Tokyoは初参加でしたが、Serverlessの息吹を感じられ学びしかない一日でした。またサーバーレスはよりクラウドを使いやすくし、ユーザとクラウド事業者を直接結びつける効果もあり、今後ITベンダーはうかうかしていられないということも感じました。**「全てがサーバーレスになる」**、この言葉を胸にに今後のことを考えて行きたいと思います。次回は12/14に{% elink 福岡 https://fukuoka.serverlessdays.io/ %}でやるそうなので、興味がある方はオススメです！
 
-関係者、参加者の皆様、本当にお疲れさまでした。本記事がサーバーレスに従事している方、興味がある方の一助になれば幸いです。
+関係者、参加者の皆様、本当にお疲れさまでした。本記事がサーバーレスに興味がある方の一助になれば幸いです。
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/ServerlessDays?src=hash&amp;ref_src=twsrc%5Etfw">#ServerlessDays</a> <a href="https://twitter.com/hashtag/serverlesstokyo?src=hash&amp;ref_src=twsrc%5Etfw">#serverlesstokyo</a> おつかれさまでした！ <a href="https://t.co/rxmlKB3sAM">pic.twitter.com/rxmlKB3sAM</a></p>&mdash; 真吾 / Shingo (@yoshidashingo) <a href="https://twitter.com/yoshidashingo/status/1186749432185815040?ref_src=twsrc%5Etfw">October 22, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
