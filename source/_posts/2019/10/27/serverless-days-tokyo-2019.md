@@ -21,7 +21,7 @@ Serverless Days Tokyo 2019に初参加してきました。サーバレスの息
 
 ## ServerlessDays Tokyoとは
 
-ServerlessDays Tokyoは、サーバーレス[^1]に関する技術を扱う技術者のためのカンファレンスです。2016年が第一回で今年で4回目ですが、ServerlessDays Tokyoになったのは今年からで去年まではserverlessconf Tokyoという名称で行われていました[^2]。今年の参加想定人数は400名であり、1会場、1トラックのカンファレンスです。コーヒーとドーナツがデプロイされており、スポンサーブースを全て回って缶バッジを集めるとイベントTシャツが貰えるなど色々と工夫されたカンファレンスだと感じました。
+ServerlessDays Tokyoは、サーバーレス[^1]に関する技術を扱う技術者のためのカンファレンスです。2016年が第一回で今年で4回目ですが、ServerlessDays Tokyoになったのは今年からで去年まではserverlessconf Tokyoという名称で行われていました[^2]。カンファレンスの規模は400名弱であり、1トラック形式です。コーヒーとドーナツがデプロイされており、スポンサーブースを全て回って缶バッジを集めるとイベントTシャツが貰えるなど色々と工夫されたカンファレンスだと感じました。
 
 [^1]: ここで言う「サーバーレス」とは、サーバーレスアーキテクチャを基軸にしたパラダイムを指しています。サーバーレスアーキテクチャはイベントを契機に「関数」を実行するアーキテクチャで、「関数」を実行するためのリソースはインフラストラクチャが自動的に割り当てることを**前提**としています。つまり、「関数」側はインフラ(サーバ)を意識しない設計が可能なので「サーバーレス」という命名となっています。Function as a Service(FaaS)も「サーバーレス」と同じ意味合いで使われています。
 [^2]: 変更理由に関しては{% elink こちらのブログ https://yoshidashingo.hatenablog.com/entry/sdays2019 %}に詳細が書いてあったので興味がある方は参考にしてください。
@@ -37,7 +37,7 @@ ServerlessDays Tokyoは、サーバーレス[^1]に関する技術を扱う技�
 - 場所
   - {% elink TABLOID http://www.tabloid-tcd.com/ %}
 - 参加人数
-  - 370名(6/22)
+  - 370名(10/22)
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.1265650784076!2d139.75658121574108!3d35.64925323933166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bcc42bb35e5%3A0x8ea7e1f945212f14!2z44K_44OW44Ot44Kk44OJ!5e0!3m2!1sja!2sjp!4v1572057613092!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
@@ -140,20 +140,19 @@ Sonyさんの発表は分散トレーシングの話でした。AWSで分散ト�
 
 ### Don’t think Serverless Security, think Application Security @ Ido Neeman (Nuweba)
 
-{% elink Nuweba https://www.nuweba.com/ %}さんの発表はサーバーレスのセキュリティについてです。
+- {% elink PDF https://www.nuweba.com/ebooks/Nuweba-Whitepaper-Dont-think-serverless-security-think-application-secuirty.pdf %}
 
-- [PDF](https://www.nuweba.com/ebooks/Nuweba-Whitepaper-Dont-think-serverless-security-think-application-secuirty.pdf)
 
-サーバーレスというとセキュリティに漠然とした不安を抱える人も多いけど、基本的には関数は短期間しか実行されないし、異常を見つけやすく制限を適用しやすいので安全というものでした。確かにサーバーレスは個人で管理する部分が少なく、サーバーの管理自体をクラウド事業者にオフロードしているので普通のサーバー運用が必要なアプリケーションと比較した場合にセキュリティ的に安全というのも分かります。
+Nuwebaさんの発表はサーバーレスのセキュリティについてです。サーバーレスというとセキュリティに漠然とした不安を抱える人も多いけど、基本的には関数は短期間しか実行されないし、異常を見つけやすく制限を適用しやすいので安全というものでした。
 
-従って、サーバレス固有のセキュリティ問題は特にないから、アプリケーションのセキュリティに集中しようというのが本セッションから学んだことです。
+確かにサーバーレスは個人で管理する部分が少なく、サーバーの管理自体をクラウド事業者にオフロードしているので普通のサーバー運用が必要なアプリケーションと比較した場合にセキュリティ的に安全というのも分かります。なのでサーバレス固有のセキュリティ問題は特にないから、アプリケーションのセキュリティに集中しようというのが本セッションの趣旨でした。
 
 ### Azure でサーバーレス、 Infrastructure as Code どうしてますか？ @ Kazumi Ohira
 
 大平さんの発表はAzureでInfrastructure as Code(IaC)をどのように行うかといった内容でした。IaCはインフラのリソース構成の構成・管理をコードで行うことです。このことによりインフラの自動化やバージョン管理やレビューのしやすさが向上したりなど様々なメリットがあります。
 
 {% oembed https://www.slideshare.net/dzeyelid/iac-on-azure-for-serverless %}
-
+　
 基本的な内容はAzureなのでARM Templateでした。ARM(Azure Resource Manager)は冪等性の管理や、リソースの差分デプロイ、並列デプロイができて非常に使い勝手が良さそうです。また日本語ドキュメントが充実しておりVisual Studio Codeの拡張機能が便利なので実用的です。ただ「すでにお使いなら、断然Terraform」がオススメだそうです。しかし、ここは個人的には[Pulumi](https://qiita.com/hinastory/items/e87a0feba445edd6135c)を押しておきたい・・・
 
 ### The hidden cost and technical debt of running huge Serverless service on production @ James Nguyen / MaaS Global
@@ -235,3 +234,4 @@ Sonyさんの発表は分散トレーシングの話でした。AWSで分散ト�
 - {% elink ServerlessDays Tokyo 2019を開催しました - yoshidashingo https://yoshidashingo.hatenablog.com/entry/2019/10/26/191417 %}
 - [ServerlessDays Tokyo 2019 - Togetter](https://togetter.com/li/1420455)
 - {% elink [発表] Lambda 関数が VPC 環境で改善されます | Amazon Web Services ブログ https://aws.amazon.com/jp/blogs/news/announcing-improved-vpc-networking-for-aws-lambda-functions/ %}
+- {% elink Serverless Days Tokyo 2019 トヨタ自動車・ダイキン工業 事例覚書 - Qiita https://qiita.com/hiroeorz@github/items/c91851b23750d01a60a4 %}
