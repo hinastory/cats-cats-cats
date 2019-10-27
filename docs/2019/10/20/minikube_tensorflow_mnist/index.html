@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築について簡単に記録に残しておくことにしました。">
+    <meta name="description" content="LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。">
 <meta name="keywords" content="MachineLearning,Jupyter,Minikube,TensorFlow,Keras,MLOps">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/index.html">
 <meta property="og:site_name" content="cats cats cats">
-<meta property="og:description" content="LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築について簡単に記録に残しておくことにしました。">
+<meta property="og:description" content="LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/loss.png">
-<meta property="og:updated_time" content="2019-10-20T22:08:02.528Z">
+<meta property="og:updated_time" content="2019-10-20T22:50:27.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10">
-<meta name="twitter:description" content="LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築について簡単に記録に残しておくことにしました。">
+<meta name="twitter:description" content="LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/loss.png">
 
 
@@ -179,9 +179,9 @@
         
 
         <div class="content">
-            <p>LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築について簡単に記録に残しておくことにしました。</p>
+            <p>LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。</p>
 <a id="more"></a>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#対象読者" class="contents-header">1. 対象読者</a></li><li><a href="#マシンの準備" class="contents-header">2. マシンの準備</a></li><li><a href="#osのインストール" class="contents-header">3. OSのインストール</a></li><li><a href="#nvidiaドライバのインストール" class="contents-header">4. NVIDIAドライバのインストール</a></li><li><a href="#docker-engine-for-community-のインストール" class="contents-header">5. Docker Engine for Community のインストール</a></li><li><a href="#nvidia-container-toolkitのインストール" class="contents-header">6. NVIDIA Container Toolkitのインストール</a></li><li><a href="#kubectlのインストール" class="contents-header">7. kubectlのインストール</a></li><li><a href="#minikubeのインストール" class="contents-header">8. Minikubeのインストール</a></li><li><a href="#dockerイメージの作成" class="contents-header">9. Dockerイメージの作成</a></li><li><a href="#デプロイメントの作成" class="contents-header">10. デプロイメントの作成</a></li><li><a href="#サービスの作成" class="contents-header">11. サービスの作成</a></li><li><a href="#jupyterlabでノートブックを作成" class="contents-header">12. JupyterLabでノートブックを作成</a></li><li><a href="#tensorflow-20-with-kerasで画像分類cifar-10" class="contents-header">13. TensorFlow 2.0 with Kerasで画像分類(CIFAR 10)</a></li><li><a href="#実行結果" class="contents-header">14. 実行結果</a></li><li><a href="#まとめ" class="contents-header">15. まとめ</a></li><li><a href="#参考文献" class="contents-header">16. 参考文献</a></li><li><a href="#おまけ" class="contents-header">17. おまけ</a></li></ul></div>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#対象読者" class="contents-header">1. 対象読者</a></li><li><a href="#マシンの準備" class="contents-header">2. マシンの準備</a></li><li><a href="#osのインストール" class="contents-header">3. OSのインストール</a></li><li><a href="#nvidiaドライバのインストール" class="contents-header">4. NVIDIAドライバのインストール</a></li><li><a href="#docker-engine-for-community-のインストール" class="contents-header">5. Docker Engine for Community のインストール</a></li><li><a href="#nvidia-container-toolkitのインストール" class="contents-header">6. NVIDIA Container Toolkitのインストール</a></li><li><a href="#kubectlのインストール" class="contents-header">7. kubectlのインストール</a></li><li><a href="#minikubeのインストール" class="contents-header">8. Minikubeのインストール</a></li><li><a href="#dockerイメージの作成" class="contents-header">9. Dockerイメージの作成</a></li><li><a href="#デプロイメントの作成" class="contents-header">10. デプロイメントの作成</a></li><li><a href="#サービスの作成" class="contents-header">11. サービスの作成</a></li><li><a href="#jupyterlabでノートブックを作成" class="contents-header">12. JupyterLabでノートブックを作成</a></li><li><a href="#tensorflow-20-with-kerasで画像分類cifar-10" class="contents-header">13. TensorFlow 2.0 with Kerasで画像分類(CIFAR-10)</a></li><li><a href="#実行結果" class="contents-header">14. 実行結果</a></li><li><a href="#まとめ" class="contents-header">15. まとめ</a></li><li><a href="#参考文献" class="contents-header">16. 参考文献</a></li><li><a href="#おまけ" class="contents-header">17. おまけ</a></li></ul></div>
 
 <h2 id="対象読者"><a href="#対象読者" class="header-anchor"></a>1. <a href="#対象読者" class="headerlink" title="対象読者"></a>対象読者</h2><p>本記事は、LinuxでGPUを用いた機械学習の環境を構築してみたい方を対象にしています。また、MLOpsに興味があり、機械学習基盤の構築に興味がある方にもおすすめします。本記事では実際に機械学習の環境を構築してディープラーニングで画像分類をおこなうところまでの手順を説明します。その際以下の知識があったほうがより深く理解が出来ますが、本記事を読むのに必須ではありません。</p>
 <ul>
@@ -281,10 +281,10 @@
 <p><code>+</code>ボタンを押して、Lancherを起動し、Python3のノートブックを作成します。</p>
 <img src="/cats-cats-cats/gallery/daily/others/jupyterlab.png">
 <p>　<br>最初は「Untitled.ipynb」というファイル名で作成されますが、ファイルを右クリックで「Rename」を選択してファイル名を変更できます。今回は「cifar10.ipynb」に変更します。</p>
-<h2 id="tensorflow-20-with-kerasで画像分類cifar-10"><a href="#tensorflow-20-with-kerasで画像分類cifar-10" class="header-anchor"></a>13. <a href="#TensorFlow-2-0-with-Kerasで画像分類-CIFAR-10" class="headerlink" title="TensorFlow 2.0 with Kerasで画像分類(CIFAR 10)"></a>TensorFlow 2.0 with Kerasで画像分類(CIFAR 10)</h2><p>ようやくお待ちかねのディープラーニングのターンです。今回はようやく最近正式リリースされたTensorFlow 2.0に密に統合されたKerasのAPIを利用してCIFAR 10の画像セットを用いて画像分類を行います。</p>
+<h2 id="tensorflow-20-with-kerasで画像分類cifar-10"><a href="#tensorflow-20-with-kerasで画像分類cifar-10" class="header-anchor"></a>13. <a href="#TensorFlow-2-0-with-Kerasで画像分類-CIFAR-10" class="headerlink" title="TensorFlow 2.0 with Kerasで画像分類(CIFAR-10)"></a>TensorFlow 2.0 with Kerasで画像分類(CIFAR-10)</h2><p>ようやくお待ちかねのディープラーニングのターンです。今回はようやく最近正式リリースされたTensorFlow 2.0に密に統合されたKerasのAPIを利用してCIFAR-10の画像セットを用いて画像分類を行います。</p>
 <p>ソースコードは<a href="https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py" target="_blank" rel="noopener">keras/cifar10_cnn.py<i class="fas fa-external-link-alt fa-fw"></i></a>をベースにtensorflow対応や可視化表示のコードを加えたものになります。先程作成したノートブックに貼り付けて実行してください。適当にセルに分割して実行したほうが良いと思います。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> os<br><span class="hljs-comment"># GPUをオフにする場合</span><br><span class="hljs-comment"># os.environ["CUDA_VISIBLE_DEVICES"]="-1"</span><br><span class="hljs-keyword">from</span> tensorflow <span class="hljs-keyword">import</span> keras<br><span class="hljs-keyword">from</span> tensorflow.keras.datasets <span class="hljs-keyword">import</span> cifar10<br><span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.image <span class="hljs-keyword">import</span> ImageDataGenerator<br><span class="hljs-keyword">from</span> tensorflow.keras.models <span class="hljs-keyword">import</span> Sequential<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Dense, Dropout, Activation, Flatten<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Conv2D, MaxPooling2D<br><span class="hljs-keyword">import</span> matplotlib<br>matplotlib.use(<span class="hljs-string">"Agg"</span>)<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>%matplotlib inline<br><br><span class="hljs-comment"># GPUのメモリを必要な量だけ使うようにする</span><br>physical_devices = tf.config.experimental.list_physical_devices(<span class="hljs-string">'GPU'</span>)[<span class="hljs-number">0</span>]<br>tf.config.experimental.set_memory_growth(physical_devices, <span class="hljs-keyword">True</span>)<br><br><span class="hljs-comment"># パラメータの宣言</span><br>batch_size = <span class="hljs-number">32</span><br>num_classes = <span class="hljs-number">10</span><br>epochs = <span class="hljs-number">15</span><br>num_predictions = <span class="hljs-number">20</span><br>save_dir = os.path.join(os.getcwd(), <span class="hljs-string">'saved_models'</span>)<br>model_name = <span class="hljs-string">'keras_cifar10_trained_model.h5'</span><br><br><span class="hljs-comment"># CIFAR-10のデータロード</span><br>(x_train, y_train), (x_test, y_test) = cifar10.load_data()<br>print(<span class="hljs-string">'x_train shape:'</span>, x_train.shape)<br>print(x_train.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'train samples'</span>)<br>print(x_test.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'test samples'</span>)<br><br><br><span class="hljs-comment"># 画像の表示</span><br>LABELS = (<span class="hljs-string">'airplane'</span>, <span class="hljs-string">'mobile'</span>, <span class="hljs-string">'bird'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'deer'</span>,<br>          <span class="hljs-string">'dog'</span>, <span class="hljs-string">'frog'</span>, <span class="hljs-string">'horse'</span>,<span class="hljs-string">'ship'</span>, <span class="hljs-string">'truck'</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_label</span><span class="hljs-params">(v)</span>:</span><br>  idx = np.argmax(v)<br>  <span class="hljs-keyword">if</span> idx < len(LABELS):<br>    <span class="hljs-keyword">return</span> LABELS[idx]<br>  <span class="hljs-keyword">else</span>:<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span><br><br>plt.clf()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">40</span>):<br>  plt.subplot(<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, i+<span class="hljs-number">1</span>)<br>  plt.tight_layout()<br>  pixels = x_train[i,:,:,:]<br>  plt.title(to_label(y_train[i]), fontsize=<span class="hljs-number">8</span>)<br>  fig = plt.imshow(pixels)<br>  fig.axes.get_xaxis().set_visible(<span class="hljs-keyword">False</span>)<br>  fig.axes.get_yaxis().set_visible(<span class="hljs-keyword">False</span>)<br><br><span class="hljs-comment"># One-Hot Vectorに変換</span><br>y_train = keras.utils.to_categorical(y_train, num_classes)<br>y_test = keras.utils.to_categorical(y_test, num_classes)<br><br><span class="hljs-comment"># モデルの構築</span><br>model = Sequential()<br>model.add(Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), padding=<span class="hljs-string">'same'</span>,<br>                 input_shape=x_train.shape[<span class="hljs-number">1</span>:]))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(MaxPooling2D(pool_size=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>model.add(Dropout(<span class="hljs-number">0.25</span>))<br><br>model.add(Conv2D(<span class="hljs-number">64</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), padding=<span class="hljs-string">'same'</span>))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Conv2D(<span class="hljs-number">64</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(MaxPooling2D(pool_size=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>model.add(Dropout(<span class="hljs-number">0.25</span>))<br><br>model.add(Flatten())<br>model.add(Dense(<span class="hljs-number">512</span>))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Dropout(<span class="hljs-number">0.5</span>))<br>model.add(Dense(num_classes))<br>model.add(Activation(<span class="hljs-string">'softmax'</span>))<br><br><span class="hljs-comment"># モデルのコンパイル</span><br>model.compile(loss=<span class="hljs-string">'categorical_crossentropy'</span>,<br>              optimizer=<span class="hljs-string">'adam'</span>,<br>              metrics=[<span class="hljs-string">'accuracy'</span>])<br>model.summary()<br><br><span class="hljs-comment"># データの正規化</span><br>x_train = x_train.astype(<span class="hljs-string">'float32'</span>)<br>x_test = x_test.astype(<span class="hljs-string">'float32'</span>)<br>x_train /= <span class="hljs-number">255</span><br>x_test /= <span class="hljs-number">255</span><br><br><span class="hljs-comment"># モデルの訓練</span><br>history = model.fit(x_train, y_train,<br>              batch_size=batch_size,<br>              epochs=epochs,<br>              validation_data=(x_test, y_test),<br>              shuffle=<span class="hljs-keyword">True</span>)<br><br><span class="hljs-comment"># 訓練したモデルの保存</span><br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.isdir(save_dir):<br>    os.makedirs(save_dir)<br>model_path = os.path.join(save_dir, model_name)<br>model.save(model_path)<br>print(<span class="hljs-string">'Saved trained model at %s '</span> % model_path)<br><br><span class="hljs-comment"># モデルの評価</span><br>scores = model.evaluate(x_test, y_test, verbose=<span class="hljs-number">0</span>)<br>print(<span class="hljs-string">'Test loss:'</span>, scores[<span class="hljs-number">0</span>])<br>print(<span class="hljs-string">'Test accuracy:'</span>, scores[<span class="hljs-number">1</span>])<br><br><br><span class="hljs-comment"># モデルの訓練仮定の可視化</span><br>loss     = history.history[<span class="hljs-string">'loss'</span>]<br>val_loss = history.history[<span class="hljs-string">'val_loss'</span>]<br><br>nb_epoch = len(loss)<br>plt.plot(range(nb_epoch), loss,     marker=<span class="hljs-string">'.'</span>, label=<span class="hljs-string">'loss'</span>)<br>plt.plot(range(nb_epoch), val_loss, marker=<span class="hljs-string">'.'</span>, label=<span class="hljs-string">'val_loss'</span>)<br>plt.legend(loc=<span class="hljs-string">'best'</span>, fontsize=<span class="hljs-number">10</span>)<br>plt.grid()<br>plt.xlabel(<span class="hljs-string">'epoch'</span>)<br>plt.ylabel(<span class="hljs-string">'loss'</span>)<br>plt.show()<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="実行結果"><a href="#実行結果" class="header-anchor"></a>14. <a href="#実行結果" class="headerlink" title="実行結果"></a>実行結果</h2><p>分類対象のイメージです。</p>
+<h2 id="実行結果"><a href="#実行結果" class="header-anchor"></a>14. <a href="#実行結果" class="headerlink" title="実行結果"></a>実行結果</h2><p>分類対象の画像です。CIFAR-10では32x32のサイズの画像を10種類に分類します。</p>
 <img src="/cats-cats-cats/gallery/daily/others/cifar10-image-train.png">
 <p>モデルの要約です。畳み込み層、プーリング層、ドロップアウト層、活性化層(relu)を利用した典型的なCNNになっています。最後の出力には全結合層と活性化層(SoftMax)を利用しています。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Model: "sequential"<br>_________________________________________________________________<br>Layer (type)                 Output Shape              Param #   <br>=================================================================<br>conv2d (Conv2D)              (None, 32, 32, 32)        896       <br>_________________________________________________________________<br>activation (Activation)      (None, 32, 32, 32)        0         <br>_________________________________________________________________<br>conv2d_1 (Conv2D)            (None, 30, 30, 32)        9248      <br>_________________________________________________________________<br>activation_1 (Activation)    (None, 30, 30, 32)        0         <br>_________________________________________________________________<br>max_pooling2d (MaxPooling2D) (None, 15, 15, 32)        0         <br>_________________________________________________________________<br>dropout (Dropout)            (None, 15, 15, 32)        0         <br>_________________________________________________________________<br>conv2d_2 (Conv2D)            (None, 15, 15, 64)        18496     <br>_________________________________________________________________<br>activation_2 (Activation)    (None, 15, 15, 64)        0         <br>_________________________________________________________________<br>conv2d_3 (Conv2D)            (None, 13, 13, 64)        36928     <br>_________________________________________________________________<br>activation_3 (Activation)    (None, 13, 13, 64)        0         <br>_________________________________________________________________<br>max_pooling2d_1 (MaxPooling2 (None, 6, 6, 64)          0         <br>_________________________________________________________________<br>dropout_1 (Dropout)          (None, 6, 6, 64)          0         <br>_________________________________________________________________<br>flatten (Flatten)            (None, 2304)              0         <br>_________________________________________________________________<br>dense (Dense)                (None, 512)               1180160   <br>_________________________________________________________________<br>activation_4 (Activation)    (None, 512)               0         <br>_________________________________________________________________<br>dropout_2 (Dropout)          (None, 512)               0         <br>_________________________________________________________________<br>dense_1 (Dense)              (None, 10)                5130      <br>_________________________________________________________________<br>activation_5 (Activation)    (None, 10)                0         <br>=================================================================<br>Total params: 1,250,858<br>Trainable params: 1,250,858<br>Non-trainable params: 0<br></code></pre></td></tr></tbody></table></figure>
@@ -351,6 +351,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Serverless Days Tokyo 2019 に参加してきました</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/">
@@ -408,7 +415,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        32
+                        33
                     </p>
                 </div>
             </div>
@@ -428,7 +435,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        38
+                        40
                     </p>
                 </div>
             </div>
@@ -511,7 +518,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">27</span>
+                <span class="level-item tag">28</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Cloud/">
@@ -519,7 +526,7 @@
                 <span class="level-item">Cloud</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
@@ -603,6 +610,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/loss.png" alt="Serverless Days Tokyo 2019 に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
+
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/loss.png" alt="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10">
@@ -681,26 +708,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/09/11/fileconv/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/files.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-10T22:28:45.000Z">2019-09-11</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/11/fileconv/" class="has-link-black-ter is-size-6">長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -711,7 +718,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
 
@@ -730,7 +737,7 @@
                     <span class="level-item">2019-10</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -853,7 +860,7 @@
                             <span class="level-item">AWS</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">2</span>
+                            <span class="level-item tag">3</span>
                         </span>
                     </a>
                 </li>
@@ -873,6 +880,17 @@
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
                         <span class="level-start">
                             <span class="level-item">Algorithm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
+                        <span class="level-start">
+                            <span class="level-item">Azure</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">1</span>
@@ -1173,6 +1191,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="level-start">
+                            <span class="level-item">Serverless</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>
@@ -1290,6 +1319,26 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/loss.png" alt="Serverless Days Tokyo 2019 に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
+
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/loss.png" alt="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10">
@@ -1368,26 +1417,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/09/11/fileconv/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/files.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-10T22:28:45.000Z">2019-09-11</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/11/fileconv/" class="has-link-black-ter is-size-6">長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Tool/">Tool</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1398,7 +1427,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
 
@@ -1417,7 +1446,7 @@
                     <span class="level-item">2019-10</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -1540,7 +1569,7 @@
                             <span class="level-item">AWS</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">2</span>
+                            <span class="level-item tag">3</span>
                         </span>
                     </a>
                 </li>
@@ -1560,6 +1589,17 @@
                     <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
                         <span class="level-start">
                             <span class="level-item">Algorithm</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
+                        <span class="level-start">
+                            <span class="level-item">Azure</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">1</span>
@@ -1860,6 +1900,17 @@
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">5</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="level-start">
+                            <span class="level-item">Serverless</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
                         </span>
                     </a>
                 </li>

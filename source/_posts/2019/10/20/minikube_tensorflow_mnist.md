@@ -13,7 +13,7 @@ tags:
   - MLOps
 date: 2019-10-20 07:28:45
 ---
-LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築について簡単に記録に残しておくことにしました。
+LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。
 
 <!-- more -->
 
@@ -403,9 +403,9 @@ http://(minikubeが起動しているマシンのIPアドレス):30001/
 　
 最初は「Untitled.ipynb」というファイル名で作成されますが、ファイルを右クリックで「Rename」を選択してファイル名を変更できます。今回は「cifar10.ipynb」に変更します。
 
-## TensorFlow 2.0 with Kerasで画像分類(CIFAR 10)
+## TensorFlow 2.0 with Kerasで画像分類(CIFAR-10)
 
-ようやくお待ちかねのディープラーニングのターンです。今回はようやく最近正式リリースされたTensorFlow 2.0に密に統合されたKerasのAPIを利用してCIFAR 10の画像セットを用いて画像分類を行います。
+ようやくお待ちかねのディープラーニングのターンです。今回はようやく最近正式リリースされたTensorFlow 2.0に密に統合されたKerasのAPIを利用してCIFAR-10の画像セットを用いて画像分類を行います。
 
 ソースコードは{% elink keras/cifar10_cnn.py  https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py %}をベースにtensorflow対応や可視化表示のコードを加えたものになります。先程作成したノートブックに貼り付けて実行してください。適当にセルに分割して実行したほうが良いと思います。
 
@@ -542,7 +542,7 @@ plt.show()
 
 ## 実行結果
 
-分類対象のイメージです。
+分類対象の画像です。CIFAR-10では32x32のサイズの画像を10種類に分類します。
 
 {% img /gallery/daily/others/cifar10-image-train.png %}
 

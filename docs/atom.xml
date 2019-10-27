@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-10-20T22:08:02.528Z</updated>
+  <updated>2019-10-27T02:26:54.732Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,15 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Serverless Days Tokyo 2019 に参加してきました</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/</id>
+    <published>2019-10-26T22:28:45.000Z</published>
+    <updated>2019-10-27T02:26:54.732Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Serverless Days Tokyo 2019に初参加してきました。サーバレスの息吹を感じられる素晴らしいカンファレンスでした。&lt;/p&gt;
+&lt;a href=&quot;https://tokyo.serverlessdays.io/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Cloud" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Cloud/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Serverless" scheme="https://hinastory.github.io/cats-cats-cats/tags/Serverless/"/>
+    
+      <category term="Azure" scheme="https://hinastory.github.io/cats-cats-cats/tags/Azure/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/</id>
     <published>2019-10-19T22:28:45.000Z</published>
-    <updated>2019-10-20T22:08:02.528Z</updated>
+    <updated>2019-10-20T22:50:27.020Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築について簡単に記録に残しておくことにしました。&lt;/p&gt;
+      &lt;p&gt;LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。&lt;/p&gt;
     
     </summary>
     
@@ -512,35 +540,6 @@
       <category term="npm" scheme="https://hinastory.github.io/cats-cats-cats/tags/npm/"/>
     
       <category term="html5" scheme="https://hinastory.github.io/cats-cats-cats/tags/html5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</id>
-    <published>2019-02-24T03:49:20.000Z</published>
-    <updated>2019-10-04T22:51:58.975Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Scala3のリサーチコンパイラである&lt;a href=&quot;http://dotty.epfl.ch/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Dotty&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;にImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。&lt;/p&gt;
-&lt;p&gt;(2019年3月10日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
-&lt;p&gt;(2019年6月22日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B46%E6%9C%8822%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
-&lt;p&gt;(2019年9月15日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B49%E6%9C%8815%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
-&lt;p&gt;(2019年9月28日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年9月28日の更新内容&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
-    
-    
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
-      <category term="Dotty" scheme="https://hinastory.github.io/cats-cats-cats/tags/Dotty/"/>
     
   </entry>
   
