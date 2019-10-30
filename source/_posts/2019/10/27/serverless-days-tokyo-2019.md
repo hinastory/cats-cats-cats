@@ -82,9 +82,10 @@ Lambdaのネットワーキングについては、LambdaはAWSサービスチ�
 
 ### 昼食の様子
 
-昼食の場所は同会場の別室でビュッフェ形式で提供され、イベントに来られていた同じ会社の方とご一緒しました。下の写真のように洒落たカフェのような雰囲気で美味しく頂きました。
+昼食の場所は同会場のカフェでビュッフェ形式で提供され、イベントに来られていた同じ会社の方とご一緒しました。下の写真のように洒落たカフェのような雰囲気で美味しく頂きました。
 
 {% img /gallery/events/serverless-days-tokyo-2019/serverless-days-tokyo-2019-4.jpg 600 %}
+
 
 ## 午後のセッション
 
@@ -136,12 +137,11 @@ NTTコミュニケーションズさんの話は少し特殊な部類でISP(イ�
 
 Sonyさんの発表は分散トレーシングの話でした。AWSで分散トレーシングといえば{% elink AWS X-Ray https://aws.amazon.com/jp/xray/ %}ですが、X-Rayは非同期のトレーシングには向いておらず、ログの長期保存や複数アカウントのログ収集といった課題もあったのでそれをいかに解決したかという話でした。
 
-具体的には{% elink AWS Lake Formation https://aws.amazon.com/jp/lake-formation/ %}を利用したという話です。データレイクの概念走っていましたがAWS Lake Formationは使ったことがなかったので興味深い内容でした。面白かったのは非同期のトラン↑うションが多い中でどうやってトレースIDを伝播させるかという内容でした。具体的にはサービスごとに異なり、例えばAPI GatewayｈではCustom HTTP Headerを用い、SNS/SQSではmessage attributeを使うといった具合です。さすがのSonyで最新のサービスと難しい課題に正面から取り組んだ素晴らしい内容でした。
+具体的には{% elink AWS Lake Formation https://aws.amazon.com/jp/lake-formation/ %}を利用したという話です。データレイクの概念は知っていましたが、AWS Lake Formationは使ったことがなかったので興味深い内容でした。面白かったのは非同期のトランザクションが多い中でどうやってトレースIDを伝播させるかという内容でした。具体的にはサービスごとに異なり、例えばAPI GatewayｈではCustom HTTP Headerを用い、SNS/SQSではmessage attributeを使うといった具合です。さすがのSonyで最新のサービスと難しい課題に正面から取り組んだ素晴らしい内容でした。
 
 ### Don’t think Serverless Security, think Application Security @ Ido Neeman (Nuweba)
 
 - {% elink PDF https://www.nuweba.com/ebooks/Nuweba-Whitepaper-Dont-think-serverless-security-think-application-secuirty.pdf %}
-
 
 Nuwebaさんの発表はサーバーレスのセキュリティについてです。サーバーレスというとセキュリティに漠然とした不安を抱える人も多いけど、基本的には関数は短期間しか実行されないし、異常を見つけやすく制限を適用しやすいので安全というものでした。
 
@@ -153,7 +153,7 @@ Nuwebaさんの発表はサーバーレスのセキュリティについてで�
 
 {% oembed https://www.slideshare.net/dzeyelid/iac-on-azure-for-serverless %}
 　
-基本的な内容はAzureなのでARM Templateでした。ARM(Azure Resource Manager)は冪等性の管理や、リソースの差分デプロイ、並列デプロイができて非常に使い勝手が良さそうです。また日本語ドキュメントが充実しておりVisual Studio Codeの拡張機能が便利なので実用的です。ただ「すでにお使いなら、断然Terraform」がオススメだそうです。しかし、ここは個人的には[Pulumi](https://qiita.com/hinastory/items/e87a0feba445edd6135c)を押しておきたい・・・
+基本的な内容はAzureなのでARM Templateでした。ARM(Azure Resource Manager)は冪等性の管理や、リソースの差分デプロイ、並列デプロイができて非常に使い勝手が良さそうです。また日本語ドキュメントが充実しておりVisual Studio Codeの拡張機能が便利なので実用的です。ただ「すでにお使いなら、断然Terraform」だそうです(笑)。しかし、ここは個人的には[Pulumi](https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/)を押しておきたい・・・
 
 ### The hidden cost and technical debt of running huge Serverless service on production @ James Nguyen / MaaS Global
 
@@ -169,11 +169,11 @@ OracleさんのスポンサーセッションはOracleのFaaSであるOracle Fan
 
 {% oembed https://www.slideshare.net/SuguruSugiyama/oracle-serverless %}
 
-Oracle Fanctionsは、OracleがOSSとして公開している[Fn Project](https://github.com/fnproject)というOSSベースがベースでオンプレでもクラウドでも動くそうです。実装はコンテナベースで関数の公開はDockerイメージをアップロードを行います。
+Oracle Fanctionsは、OracleがOSSとして公開している[Fn Project](https://github.com/fnproject)というOSSベースがベースでオンプレでもクラウドでも動くそうです。実装はコンテナベースで関数の公開はDockerイメージをアップロードして行います。
 
 ### 「サーバーレス」な同人誌の紹介 @ めもおきば(nekoruri) (Lightning Talk)
 
-Lightning Talkで一番気になったのは、めもおきば(nekoruri)さんの、マニアックな同人誌紹介です。個人的には「SERVERLESSを支える技術」を含め以前に何冊か購入させて頂いたので、間違いなく紹介される本は良本だと確信が持てました。
+Lightning Talkで一番気になったのは、めもおきば(nekoruri)さんの、マニアックな同人誌紹介です。個人的には**「SERVERLESSを支える技術」**を含め以前に何冊か購入させて頂いたので、間違いなく紹介される本は良本だと確信が持てました。
 
 {% oembed https://www.slideshare.net/nekoruri/20191022-serverless-books %}
 
@@ -181,7 +181,7 @@ Lightning Talkで一番気になったのは、めもおきば(nekoruri)さん�
 
 とりあえず、すでに何冊か持っている本もありましたが、気になる本もたくさんあったので後で購入を検討しようと思います。
 
- - 持っている本
+- 持っている本
   - Knativeソースコードリーディング入門
   - 雰囲気でOAuth2.0を使っているエンジニアがOAuth2.0を整理して、理解できる本
   - Pragmatic Terraform on AWS
@@ -194,7 +194,7 @@ Lightning Talkで一番気になったのは、めもおきば(nekoruri)さん�
 
 ### 目つぶり検証作成期 @ Kana Kitagawa (Lightning Talk)
 
-大学4年生で写真専門の方の発表です。プログラミングの初心者がServerless FrameworkとAmazon Recognitionを使って目つぶり検証を行ったという内容です。普通にすごいというかこういうことにチャレンジできるいい時代になったなと思いました。あと、まとめで「公式ドキュメントが読むこと」という内容があったので、この学びは素晴らしいと思いました。ブログや記事は興味を持つきっかけにはいいですが、手を動かす際に参照するのは圧倒的に公式ドキュメントが正義です。
+大学4年生で写真専門の方の発表です。プログラミングの初心者がServerless FrameworkとAmazon Recognitionを使って目つぶり検証を行ったという内容です。普通にすごいというかこういうことにチャレンジできるいい時代になったなと思いました。あと、まとめで**「公式ドキュメントが読むこと」**という内容があったので、この学びは素晴らしいと思いました。ブログや記事は興味を持つきっかけにはいいですが、手を動かす際に参照するのは圧倒的に**公式ドキュメントが正義**です。
 
 ### SERVERLELESSなエンジニアのためのSERVERLESSなオンラインサロンをVUE/NUXT/COGNITO/STRIPEで作った話 @藤本竜之介 (Lightning Talk)
 
@@ -226,6 +226,7 @@ Lightning Talkで一番気になったのは、めもおきば(nekoruri)さん�
 - {% elink ServerlessDays Tokyo 2019 https://tokyo.serverlessdays.io/ %}
 - {% elink ServerlessDays Tokyo / Fukuoka 2019 を開催します - yoshidashingo https://yoshidashingo.hatenablog.com/entry/sdays2019 %}
 - {% elink ServerlessDays Tokyo 2019を開催しました - yoshidashingo https://yoshidashingo.hatenablog.com/entry/2019/10/26/191417 %}
+- {% elink ServerlessDays Tokyoを終えて振り返りというか単なる感想です。 | 技術的な何か。 https://level69.net/archives/26677 %}
 - [ServerlessDays Tokyo 2019 - Togetter](https://togetter.com/li/1420455)
 - {% elink [発表] Lambda 関数が VPC 環境で改善されます | Amazon Web Services ブログ https://aws.amazon.com/jp/blogs/news/announcing-improved-vpc-networking-for-aws-lambda-functions/ %}
 - {% elink Serverless Days Tokyo 2019 トヨタ自動車・ダイキン工業 事例覚書 - Qiita https://qiita.com/hiroeorz@github/items/c91851b23750d01a60a4 %}
