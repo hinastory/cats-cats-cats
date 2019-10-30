@@ -10,7 +10,7 @@ tags:
   - Azure
 date: 2019-10-27 07:28:45
 ---
-Serverless Days Tokyo 2019に初参加してきました。サーバレスの息吹を感じられる素晴らしいカンファレンスでした。
+Serverless Days Tokyo 2019に初参加してきました。サーバーレスの息吹を感じられる素晴らしいカンファレンスでした。
 
 {% linkPreview https://tokyo.serverlessdays.io/ %}
 
