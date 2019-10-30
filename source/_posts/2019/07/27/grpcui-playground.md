@@ -12,7 +12,7 @@ date: 2019-07-27 07:28:45
 `gRPC`は近年非常によく使われるようになったRPCフレームワーク[^1]ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいう{% elink Postman https://www.getpostman.com/ %}的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は現在においてはほぼ払拭されたといっても過言ではありません。{% elink gRPC UI https://github.com/fullstorydev/grpcui %}が登場したからです。
 
 (2019/10/4 追記)
-gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で{% elink 終了 | Arukas https://arukas.io/updates/20190930-terminate-of-service/ %}するようです。今後gRPC UI playgroundをどうするかは検討中です。
+gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で{% elink 終了 https://arukas.io/updates/20190930-terminate-of-service/ %}するようです。今後gRPC UI playgroundをどうするかは検討中です。
 
 [^1]: RPC(Remote Procedure Call)は、簡単に言えばプログラムの中から内部の関数を呼ぶのと似たような感覚で、外部のネットワーク上の関数や手続きを呼べるようにする技術のことです。他のRPCにはSOAPやJSON-RPCなどがあります。
 
