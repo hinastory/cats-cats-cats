@@ -26,7 +26,7 @@
     <summary type="html">
     
       &lt;p&gt;Serverless Days Tokyo 2019に初参加してきました。サーバーレスの息吹を感じられる素晴らしいカンファレンスでした。&lt;/p&gt;
-&lt;a href=&quot;https://tokyo.serverlessdays.io/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://tokyo.serverlessdays.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -63,9 +63,9 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
       <category term="Minikube" scheme="https://hinastory.github.io/cats-cats-cats/tags/Minikube/"/>
     
@@ -214,7 +214,7 @@
     <summary type="html">
     
       &lt;p&gt;AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコンピューティングサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;です。そのAWSの認定の中でも屈指の人気を誇る「AWS認定ソリューションアーキテクト - アソシエイト」を5日間の勉強で合格することができました。本当に月曜日に思い立って試験の申込みをして勉強を開始し、その週の土曜日の朝一の試験で合格しました。本記事はその合格に至るまでの体験談になります。&lt;/p&gt;
-&lt;a href=&quot;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;AWS 認定ソリューションアーキテクト – アソシエイト | AWS&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;「AWS 認定ソリューションアーキテクト – アソシエイト」試験は、ソリューションアーキテクトの方を対象としており、AWS 上でセキュアかつ堅牢なアプリケーションを設計および展開する方法についての理解度を評価するものです。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;AWS 認定ソリューションアーキテクト – アソシエイト | AWS&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;「AWS 認定ソリューションアーキテクト – アソシエイト」試験は、ソリューションアーキテクトの方を対象としており、AWS 上でセキュアかつ堅牢なアプリケーションを設計および展開する方法についての理解度を評価するものです。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -238,7 +238,7 @@
     <summary type="html">
     
       &lt;p&gt;今年もMakerさんたちの熱い作品とパフォーマンスから目が離せないお祭りがやって来ました。遊園地や花火大会を否定するつもりはありませんが、やっぱりいちばん楽しくて嬉しいのは自分の手を動かして作ったモノが動いたときではないでしょうか？ そんな夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました。&lt;/p&gt;
-&lt;a href=&quot;https://makezine.jp/event/mft2019/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://makezine.jp/event/wp-content/themes/makerfairetokyo/mft2019/img/make_ogp_pre.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;Maker Faire Tokyo 2019 | Maker Faire Tokyo 2019 | Make: Japan&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Maker Faire Tokyo 2019は8月3日（土）、4日（日）東京ビッグサイトで開催！ユニークな発想と新しいテクノロジーの力で作り出される作品や、Makerたちに会いにいこう&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://makezine.jp/event/mft2019/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://makezine.jp/event/wp-content/themes/makerfairetokyo/mft2019/img/make_ogp_pre.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;Maker Faire Tokyo 2019 | Maker Faire Tokyo 2019 | Make: Japan&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Maker Faire Tokyo 2019は8月3日（土）、4日（日）東京ビッグサイトで開催！ユニークな発想と新しいテクノロジーの力で作り出される作品や、Makerたちに会いにいこう&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -368,7 +368,7 @@
     <summary type="html">
     
       &lt;p&gt;ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。&lt;/p&gt;
-&lt;a href=&quot;https://2019.scalamatsuri.org/&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;http://scalamatsuri.org/img/common/img_main_txt.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala カンファレンス&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Scala をテーマに日本最大級のカンファレンスが開催されます。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://2019.scalamatsuri.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;http://scalamatsuri.org/img/common/img_main_txt.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala カンファレンス&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Scala をテーマに日本最大級のカンファレンスが開催されます。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -395,7 +395,7 @@
     
       &lt;p&gt;「エンジニアの心を整える技術」は実は気になって技術書展で一度は手にとったのですが、ちょうど開いたページがプロジェクト炎上中の様子を記述していて、また「プロジェクト炎上の火消しネタか・・・」と勝手に思い込んでしまいそっと本を閉じてしまいました。今まで何回かその手の本を読んだことがあったのですが、結局は体験談止まりで一回読めばお腹いっぱいというものがほとんどでした。&lt;/p&gt;
 &lt;p&gt;しかし、「エンジニアの心を整える技術」は一味違いました。著者の方がnoteで2章まで公開されていて、本の目次まで見てようやく勘違いに気づきました。この本は体験談から一歩進んだれっきとした「技術書」だったのです。&lt;/p&gt;
-&lt;a href=&quot;https://note.mu/karamage/n/n39f4cc266ba9&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11415227/rectangle_large_type_2_ce033937fa3f38928f1c8fe4b936000a.jpeg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;「エンジニアの心を整える技術」をnoteで2章まで無料公開します! #感想まとめ #技術書典6｜karamage@柿本 匡章｜note&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt; このnoteは、2019年4月14日に開催された「技術書典6」で頒布し、これまで600部以上(書籍＋PDF版)販売している「エンジニアの心を整える技術 - 誰でも実践できる心のリファクタリング術 - 」のPDF版のダウンロードページになります。    技術書典6での当日の販売の…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://note.mu/karamage/n/n39f4cc266ba9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11415227/rectangle_large_type_2_ce033937fa3f38928f1c8fe4b936000a.jpeg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;「エンジニアの心を整える技術」をnoteで2章まで無料公開します! #感想まとめ #技術書典6｜karamage@柿本 匡章｜note&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt; このnoteは、2019年4月14日に開催された「技術書典6」で頒布し、これまで600部以上(書籍＋PDF版)販売している「エンジニアの心を整える技術 - 誰でも実践できる心のリファクタリング術 - 」のPDF版のダウンロードページになります。    技術書典6での当日の販売の…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -446,7 +446,7 @@
     <summary type="html">
     
       &lt;p&gt;前代未聞の公式パーティーが開催されたRubyKaigi 2019に参加してきました。去年は仙台、一昨年は広島でしたが今年は福岡での開催でした。自分は広島から連続で参加していますが、このイベントはホスピタリティが高く今年も楽しみにしていました。ただし今年は参加者の&lt;code&gt;度肝を抜くネタが２つも仕込まれていた&lt;/code&gt;ことから特筆すべき「RubyKaigi」になったといっても過言ではないでしょう。&lt;/p&gt;
-&lt;a href=&quot;https://rubykaigi.org/2019&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2019/images/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;RubyKaigi 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;RubyKaigi 2019, 4/18...4/20, Fukuoka, Japan #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://rubykaigi.org/2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2019/images/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;RubyKaigi 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;RubyKaigi 2019, 4/18...4/20, Fukuoka, Japan #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -472,7 +472,7 @@
     <summary type="html">
     
       &lt;p&gt;技術書典に一般参加してきました。なにげに第1回から皆勤賞です。天候に恵まれない印象が強いですが、今日はなんとか雨に降られずに済みました。そのおかげもあってか1万人以上の参加者が来場した模様です。&lt;/p&gt;
-&lt;a href=&quot;https://techbookfest.org/event/tbf06&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf06/images/ogp.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;技術書典6&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;技術書の祭典が2019年04月14日（日）＠池袋サンシャインシティ2F 展示ホールD（文化会館ビル2F）で開催決定！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://techbookfest.org/event/tbf06&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf06/images/ogp.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;技術書典6&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;技術書の祭典が2019年04月14日（日）＠池袋サンシャインシティ2F 展示ホールD（文化会館ビル2F）で開催決定！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     
@@ -497,7 +497,7 @@
     
     <summary type="html">
     
-      &lt;a href=&quot;https://jupyter.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jupyter Notebook&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。&lt;br&gt;&lt;br&gt;
+      &lt;a href=&quot;https://jupyter.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jupyter Notebook&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。
     
     </summary>
     
@@ -507,9 +507,9 @@
       <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
     
     
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
   </entry>
   
@@ -523,7 +523,7 @@
     <summary type="html">
     
       &lt;p&gt;HexoにHTML5の &lt;a href=&quot;https://developer.mozilla.org/ja/docs/Web/HTML/Element/details&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;detailsタグ&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;を記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はそのプラグインの紹介記事です。&lt;/p&gt;
-&lt;a href=&quot;https://www.npmjs.com/package/hexo-tag-details&quot; class=&quot;link-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;hexo-tag-details&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;HTML5 details tag on your Hexo article&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.npmjs.com/package/hexo-tag-details&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;hexo-tag-details&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;HTML5 details tag on your Hexo article&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
     
     </summary>
     

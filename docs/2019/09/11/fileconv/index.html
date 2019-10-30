@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html  lang="ja">
+<head>
     <meta charset="utf-8">
 <title>長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる - cats cats cats</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
@@ -11,16 +11,14 @@
 <meta name="keywords" content="Ruby">
 <meta property="og:type" content="article">
 <meta property="og:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
-<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;2019&#x2F;09&#x2F;11&#x2F;fileconv&#x2F;index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;files.png">
 <meta property="og:updated_time" content="2019-09-12T18:00:34.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
-<meta name="twitter:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
-<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;files.png">
 
 
 
@@ -103,22 +101,27 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/about"><i class=""></i> About</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/about"><i class=""></i> About</a>
                 
             </div>
             
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -157,14 +160,14 @@
         <div class="article-tags">
             
                 <i class="fas fa-tags"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Ruby/">Ruby</a>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Ruby/" rel="tag">Ruby</a>
             
         </div>
     </div>
     
     
     <div class="card-image">
-        <span class="image is-7by1">
+        <span  class="image is-7by1">
             <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/files.png" alt="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
         </span>
     </div>
@@ -181,21 +184,28 @@
         <div class="content">
             <p>時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリ<code>fileconv</code>を作り始めました・・・</p>
 <a id="more"></a>
+
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#インストール" class="contents-header">2. インストール</a></li><li><a href="#使い方" class="contents-header">3. 使い方</a><ul><li><a href="#コンバータのフック" class="contents-header">3.1. コンバータのフック</a></li><li><a href="#コンバータの変数" class="contents-header">3.2. コンバータの変数</a></li><li><a href="#デフォルトのメタコンバータ" class="contents-header">3.3. デフォルトのメタコンバータ</a></li><li><a href="#メタコンバータを作ってみる" class="contents-header">3.4. メタコンバータを作ってみる</a></li></ul></li><li><a href="#リポジトリ" class="contents-header">4. リポジトリ</a></li><li><a href="#fileconvの失敗談" class="contents-header">5. fileconvの失敗談</a></li><li><a href="#最後に" class="contents-header">6. 最後に</a></li></ul></div>
 
 <h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は拡張可能な一括ファイル変換ライブラリ<code>fileconv</code>の紹介記事です。<code>fileconv</code>を使えばファイルのオープンや読み書きに手を煩わせることなく、簡単に複数ファイルの変換処理を実装することができます。またデフォルトでCSVやJSONフォーマットにも対応しており、他のフォーマットに対応するのも簡単です。</p>
 <ul>
 <li><a href="https://rubygems.org/gems/fileconv" target="_blank" rel="noopener">fileconv - RubyGems<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://github.com/hinastory/fileconv/" target="_blank" rel="noopener">fileconv - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>
+
 </li>
 </ul>
 <p>また、記事の最後の方でこのライブラリを育てる途中の失敗談も紹介したいと思います。</p>
 <h2 id="インストール"><a href="#インストール" class="header-anchor"></a>2. <a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>以下の行をGemfileに加えてください。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">gem <span class="hljs-string">'fileconv'</span><br></code></pre></td></tr></tbody></table></figure>
+
 <p>それから以下を実行してください。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">$ bundle<br></code></pre></td></tr></tbody></table></figure>
+
+
 <p>もしくは以下のようにgemコマンドで直接インストールしてください。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ gem install fileconv<br></code></pre></td></tr></tbody></table></figure>
+
+
 <h2 id="使い方"><a href="#使い方" class="header-anchor"></a>3. <a href="#使い方" class="headerlink" title="使い方"></a>使い方</h2><p>「コンバータ」を作成するには以下の2つをする必要があります。</p>
 <ul>
 <li><code>MetaConvertor</code>(例: <code>Fileconv::Line</code>)を<code>include</code>する</li>
@@ -203,14 +213,20 @@
 </ul>
 <p>まずは簡単な例から紹介します。以下はテキストファイル(拡張子が<code>txt</code>のもの)を選択して行番号を付加するコンバータです。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'fileconv'</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddLinenoConvertor</span></span><br>  <span class="hljs-keyword">include</span> Fileconv::Line<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">input_ext</span></span><br>    <span class="hljs-string">"txt"</span><br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_acc</span><span class="hljs-params">(acc)</span></span><br>    acc[<span class="hljs-symbol">:lineno</span>] = <span class="hljs-number">0</span><br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convert_line</span><span class="hljs-params">(line, acc)</span></span><br>    acc[<span class="hljs-symbol">:lineno</span>] += <span class="hljs-number">1</span><br>    <span class="hljs-string">"<span class="hljs-subst">#{acc[<span class="hljs-symbol">:lineno</span>]}</span>: <span class="hljs-subst">#{line}</span>"</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
+
 <p>あとは以下のようにインスタンスを生成して<code>#conv</code>メソッドを実行するだけです。このスクリプトを実行するとカレントディレクトリのテキストファイル(拡張子が<code>txt</code>のもの)を選択して、カレントディレクトリの”output”ディレクトリ配下にファイルの変換結果(行番号を付加したもの)を同じファイル名で出力します。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ruby">convertor = AddLinenoConvertor.new<br>convertor.conv<br></code></pre></td></tr></tbody></table></figure>
+
 <p>つまり以下の2つのファイルがあるとすると、</p>
 <figure class="highlight plain"><figcaption><span>aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">aaa<br>bbb<br>ccc<br></code></pre></td></tr></tbody></table></figure>
+
 <figure class="highlight plain"><figcaption><span>bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">111<br>222<br>333<br></code></pre></td></tr></tbody></table></figure>
+
 <p>コンバータの実行後には以下のような2つのファイルが変換結果として生成されます。</p>
 <figure class="highlight plain"><figcaption><span>output/aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">1: aaa<br>2: bbb<br>3: ccc<br></code></pre></td></tr></tbody></table></figure>
+
 <figure class="highlight plain"><figcaption><span>output/bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">1: 111<br>2: 222<br>3: 333<br></code></pre></td></tr></tbody></table></figure>
+
 <h3 id="コンバータのフック"><a href="#コンバータのフック" class="header-anchor"></a>3.1. <a href="#コンバータのフック" class="headerlink" title="コンバータのフック"></a>コンバータのフック</h3><p>前出の例では最低限のフックしかオーバーライドしていませんでしたが、必要に応じて様々なフックをオーバーライドできます。フックを一つもオーバーライドしない場合のデフォルトのアクションでは、カレントディレクトリのすべてのファイルを”output”ディレクトリにコピーします<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
 <table>
 <thead>
@@ -220,8 +236,7 @@
 <th>説明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>input_dir</td>
 <td>“.”(カレントディレクトリ)</td>
 <td>入力元ディレクトリ</td>
@@ -281,8 +296,7 @@
 <td><code>nil</code></td>
 <td>変換結果出力用フック</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>よく使われるフックは以下のとおりです。</p>
 <ul>
 <li><code>#input_ext</code></li>
@@ -303,8 +317,7 @@
 <th>説明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>acc</td>
 <td>ファイル</td>
 <td>単一ファイル用の変数</td>
@@ -319,8 +332,7 @@
 <td>コンバータ</td>
 <td>オプション用変数</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="デフォルトのメタコンバータ"><a href="#デフォルトのメタコンバータ" class="header-anchor"></a>3.3. <a href="#デフォルトのメタコンバータ" class="headerlink" title="デフォルトのメタコンバータ"></a>デフォルトのメタコンバータ</h3><p>メタコンバータは主にコンバータに<code>include</code>して利用されることを目的にしたコンバータです。<code>fileconv</code>にデフォルトで用意されているメタコンバータは以下のとおりです。</p>
 <table>
 <thead>
@@ -330,8 +342,7 @@
 <th>説明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Line</td>
 <td>行</td>
 <td>行の生データを取得</td>
@@ -361,8 +372,7 @@
 <td>ファイル</td>
 <td>JSONオブジェクトを取得</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>コンバータ(メタコンバータも含む)は「モード」を持っており、主に2つに分けられます。</p>
 <ul>
 <li>ラインモード<ul>
@@ -385,11 +395,17 @@
 <p><code>Stat</code>コンバータもファイルは読み込まず、代わりに<code>Stat</code>オブジェクトが<code>#convert_file</code>に渡されます。ファイルの更新日時やサイズ等のメタ情報だけが必要な場合に用います。</p>
 <p>一番最初の例はラインモードの例だったので次はファイルモードであるJSONメタコンバータの利用例を紹介します。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'fileconv'</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModifyJSONConvertor</span></span><br>  <span class="hljs-keyword">include</span> Fileconv::JSON<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">input_ext</span></span><br>    <span class="hljs-string">"json"</span><br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convert_file</span><span class="hljs-params">(data, acc)</span></span><br>    data.map <span class="hljs-keyword">do</span> <span class="hljs-params">|e|</span><br>      e[<span class="hljs-string">"country"</span>] = <span class="hljs-string">"USA"</span><br>      e<br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br>ModifyJSONConvertor.new.conv<br></code></pre></td></tr></tbody></table></figure>
-<p>オリジナルファイル (<code>address.json</code>) :<br></p><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Mike"</span>, <span class="hljs-attr">"Age"</span>: <span class="hljs-string">"21"</span>}, {<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Jon"</span>, <span class="hljs-attr">"Age"</span>: <span class="hljs-string">"33"</span>}]<br></code></pre></td></tr></tbody></table></figure><p></p>
-<p>変換後のファイル (<code>output/address.json</code>) :<br></p><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">[{<span class="hljs-attr">"name"</span>:<span class="hljs-string">"Mike"</span>,<span class="hljs-attr">"Age"</span>:<span class="hljs-string">"21"</span>,<span class="hljs-attr">"country"</span>:<span class="hljs-string">"USA"</span>},{<span class="hljs-attr">"name"</span>:<span class="hljs-string">"Jon"</span>,<span class="hljs-attr">"Age"</span>:<span class="hljs-string">"33"</span>,<span class="hljs-attr">"country"</span>:<span class="hljs-string">"USA"</span>}]<br></code></pre></td></tr></tbody></table></figure><p></p>
+
+<p>オリジナルファイル (<code>address.json</code>) :</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Mike"</span>, <span class="hljs-attr">"Age"</span>: <span class="hljs-string">"21"</span>}, {<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Jon"</span>, <span class="hljs-attr">"Age"</span>: <span class="hljs-string">"33"</span>}]<br></code></pre></td></tr></tbody></table></figure>
+
+<p>変換後のファイル (<code>output/address.json</code>) :</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">[{<span class="hljs-attr">"name"</span>:<span class="hljs-string">"Mike"</span>,<span class="hljs-attr">"Age"</span>:<span class="hljs-string">"21"</span>,<span class="hljs-attr">"country"</span>:<span class="hljs-string">"USA"</span>},{<span class="hljs-attr">"name"</span>:<span class="hljs-string">"Jon"</span>,<span class="hljs-attr">"Age"</span>:<span class="hljs-string">"33"</span>,<span class="hljs-attr">"country"</span>:<span class="hljs-string">"USA"</span>}]<br></code></pre></td></tr></tbody></table></figure>
+
 <p>さらに多くのサンプルは<a href="https://github.com/hinastory/fileconv/tree/master/example" target="_blank" rel="noopener">ここ</a>で見ることが可能です。</p>
 <h3 id="メタコンバータを作ってみる"><a href="#メタコンバータを作ってみる" class="header-anchor"></a>3.4. <a href="#メタコンバータを作ってみる" class="headerlink" title="メタコンバータを作ってみる"></a>メタコンバータを作ってみる</h3><p>メタコンバータは簡単に作ることができます。<br>以下は<code>fileconv</code>ジェムのJSONメタコンバータの例です。</p>
 <figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"json"</span><br><br><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Fileconv</span></span><br>  <span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">JSON</span></span><br>    <span class="hljs-keyword">include</span> Fileconv::Base<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pre_init_conv</span></span><br>      @opts[<span class="hljs-symbol">:read_json_opts</span>] <span class="hljs-params">||</span>= {}<br>      @opts[<span class="hljs-symbol">:write_json_opts</span>] <span class="hljs-params">||</span>= {}<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pre_convert_file</span><span class="hljs-params">(data, acc)</span></span><br>      <span class="hljs-symbol">:</span><span class="hljs-symbol">:JSON</span>.parse(data, @opts[<span class="hljs-symbol">:read_json_opts</span>])<br>    <span class="hljs-keyword">end</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_convert_file</span><span class="hljs-params">(obj, acc)</span></span><br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> obj<br>      <span class="hljs-keyword">if</span> @opts[<span class="hljs-symbol">:pretty_json</span>]<br>        <span class="hljs-symbol">:</span><span class="hljs-symbol">:JSON</span>.pretty_generate(obj, @opts[<span class="hljs-symbol">:write_json_opts</span>])<br>      <span class="hljs-keyword">else</span><br>        <span class="hljs-symbol">:</span><span class="hljs-symbol">:JSON</span>.generate(obj, @opts[<span class="hljs-symbol">:write_json_opts</span>])<br>      <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
+
 <p>メタコンバータを作成するには「Fileconv::Base」をincludeしてコンバータで呼び出されるフックの事前(<code>pre_</code>)もしくは事後(<code>post_</code>)に呼び出される以下のフックを必要に応じてオーバーライドするだけです。</p>
 <ul>
 <li>pre_init_conv</li>
@@ -406,7 +422,8 @@
 <li>post_conv_result</li>
 </ul>
 <h2 id="リポジトリ"><a href="#リポジトリ" class="header-anchor"></a>4. <a href="#リポジトリ" class="headerlink" title="リポジトリ"></a>リポジトリ</h2><p>以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。</p>
-<a href="https://github.com/hinastory/fileconv" class="link-preview" target="_blank" rel="noopener"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/fileconv</div><div class="og-description">Extensible multi-file convertor. Simple text file, CSV file, JSON file, binary file and so on. - hinastory/fileconv</div></div></div></a>
+<a href="https://github.com/hinastory/fileconv" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/fileconv</div><div class="og-description">Extensible multi-file convertor. Simple text file, CSV file, JSON file, binary file and so on. - hinastory/fileconv</div></div></div></a>
+
 <p>このライブラリの今後についてですが、最近は複雑なコンバータを書くのをやめて単純なコンバータをつなげて処理を書くことが多くなっています。従ってそのうちその知見を生かして<code>fileconv</code>にコンバータの「合成」を実装するかもしれません。</p>
 <h2 id="fileconvの失敗談"><a href="#fileconvの失敗談" class="header-anchor"></a>5. <a href="#fileconvの失敗談" class="headerlink" title="fileconvの失敗談"></a><code>fileconv</code>の失敗談</h2><p><code>fileconv</code>を長年使い続ける中で色々と失敗を重ね、少しずつ改良していきました。以下は主な失敗した点です。</p>
 <ol>
@@ -445,7 +462,7 @@
         
         <!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
 <a class="a2a_button_facebook"></a>
 <a class="a2a_button_twitter"></a>
 </div>
@@ -481,7 +498,7 @@
 
 
 
-  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png"></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-23</div><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark">RubyKaigi 2019 in 福岡に参加してきた話</a></h3></div></li></ul></div>
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-23</div><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark">RubyKaigi 2019 in 福岡に参加してきた話</a></h3></div></li></ul></div>
 </div>
                 
 
@@ -553,25 +570,29 @@
         
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/hinastory/">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hinastory/">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/hinastory999">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/hinastory999">
                 
                 <i class="fab fa-twitter"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/cats-cats-cats/atom.xml">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/cats-cats-cats/atom.xml">
                 
                 <i class="fas fa-rss"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Qiita" href="https://qiita.com/hinastory">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Qiita" href="https://qiita.com/hinastory">
                 
                 <i class="fas fa-search"></i>
                 
@@ -2134,7 +2155,8 @@
                 <span class="copyright-text">&copy;2019 hinastory</span>
             </span>
             <p class="is-size-7">
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                    href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
             </p>
         </div>
         <div class="level-end">
@@ -2162,7 +2184,7 @@
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -2194,7 +2216,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
@@ -2219,7 +2241,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html  lang="ja">
+<head>
     <meta charset="utf-8">
 <title>ベン図を使って、インタプリタとコンパイラの違いを説明してみる - cats cats cats</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
@@ -11,16 +11,14 @@
 <meta name="keywords" content="Compiler,Interpreter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ベン図を使って、インタプリタとコンパイラの違いを説明してみる">
-<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;2019&#x2F;09&#x2F;23&#x2F;interpreter-compiler&#x2F;index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/venn.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;venn.png">
 <meta property="og:updated_time" content="2019-09-23T11:34:39.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ベン図を使って、インタプリタとコンパイラの違いを説明してみる">
-<meta name="twitter:description" content="長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図">
-<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/venn.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;venn.png">
 
 
 
@@ -103,22 +101,27 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
                 
-                <a class="navbar-item" href="/cats-cats-cats/about"><i class=""></i> About</a>
+                <a class="navbar-item"
+                href="/cats-cats-cats/about"><i class=""></i> About</a>
                 
             </div>
             
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -157,14 +160,14 @@
         <div class="article-tags">
             
                 <i class="fas fa-tags"></i>
-                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Compiler/">Compiler</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Interpreter/">Interpreter</a>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Compiler/" rel="tag">Compiler</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Interpreter/" rel="tag">Interpreter</a>
             
         </div>
     </div>
     
     
     <div class="card-image">
-        <span class="image is-7by1">
+        <span  class="image is-7by1">
             <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/venn.png" alt="ベン図を使って、インタプリタとコンパイラの違いを説明してみる">
         </span>
     </div>
@@ -182,12 +185,14 @@
             <p>長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。</p>
 <p>(本記事は「<a href="https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658" target="_blank" rel="noopener">数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a>」に触発されて書かれたものです。)</p>
 <a id="more"></a>
+
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#前提知識" class="contents-header">1. 前提知識</a></li><li><a href="#ベン図による説明" class="contents-header">2. ベン図による説明</a></li><li><a href="#コンパイラ" class="contents-header">3. コンパイラ</a></li><li><a href="#インタプリタ" class="contents-header">4. インタプリタ</a></li><li><a href="#視点-視座-視野による見え方の違い" class="contents-header">5. 視点、視座、視野による見え方の違い</a></li><li><a href="#まとめ" class="contents-header">6. まとめ</a></li><li><a href="#参考文献" class="contents-header">7. 参考文献</a></li></ul></div>
 
 <h2 id="前提知識"><a href="#前提知識" class="header-anchor"></a>1. <a href="#前提知識" class="headerlink" title="前提知識"></a>前提知識</h2><p>まずは「<code>インタプリタ</code>」と「<code>コンパイラ</code>」をざっくり説明します。これらはプログラミング言語の「<code>処理系</code>」に紐付いた概念であり、簡単に言えばプログラミング言語の実装方式の違いになります。インタプリタは対象となるプログラミング言語を「<code>解釈</code>」して「<code>実行</code>」します。ここで言う解釈とはプログラミング言語の意味論に基づいて実行方法を決めることです。コンパイラはインタプリタとは異なり「<code>実行</code>」を伴わず、対象となる言語を別の言語に変換だけを行います。どのプログラミング言語も基本的には「インタプリタ」としても「コンパイラ」としても実装することができます<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
 <p>これだけ書くと簡単で明確な定義のように思えますが、実際には上記は<strong>「広義」</strong>の定義であり、現実を踏まえた分類にはもう少し工夫が必要になります。</p>
 <h2 id="ベン図による説明"><a href="#ベン図による説明" class="header-anchor"></a>2. <a href="#ベン図による説明" class="headerlink" title="ベン図による説明"></a>ベン図による説明</h2><p>最初に図で説明しようとしたときにどのように表現しようか非常に悩みましたが、最終的には以下のようなベン図になりました。</p>
-<img src="/cats-cats-cats/gallery/daily/others/interpreter-compiler.png">
+<img src="/cats-cats-cats/gallery/daily/others/interpreter-compiler.png" class="">
+
 <p>なるべくわかりやすく書いたつもりですが、意図が読み取りにくい箇所もあると思うので簡単に説明したいと思います。</p>
 <h2 id="コンパイラ"><a href="#コンパイラ" class="header-anchor"></a>3. <a href="#コンパイラ" class="headerlink" title="コンパイラ"></a>コンパイラ</h2><p>まず、広義のコンパイラは単に異なるプログラミング言語の変換を意味しますが、一般的なコンパイラのイメージはCやJavaのコンパイラのように高級言語から低レベル言語(機械語もしくは機械語に近いバイトコード)への変換を行うものです。従ってこのイメージを「<code>狭義のコンパイラ</code>」の定義としています。</p>
 <p>次に「<code>トランスレータ</code>」は同レベルのプログラミング言語に変換する処理系です。「同レベル」というのが曖昧ですが、区分としては機械語、バイトコード、それ以外の高水準言語の3つだけを考えれば大体あっています。アセンブラはアセンブリ言語(ニーモニック)を機械語に変換しますが、これはほぼ一対一の同じレベルの変換なのでトランスレータとみなすことができます<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。パーサはこの図ではプログラミング言語を抽象構文木(AST)に変換する処理のことを指していますが、ASTをある種の形式言語と見なせばパーサもトランスレータに分類することができると考えています<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。AltJS(TypeScript, CoffeeScript, Dart, PureScript, Elm, Scala.js, Opal・・・)の処理系もトランスレータの一種で「<code>トランスパイラ</code>」と呼ばれることも多いです。これらの処理系は変換先の言語がJavaScriptに固定されているためJavaScriptの代替言語(AltJSの由来)となっています。</p>
@@ -246,7 +251,7 @@
         
         <!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
 <a class="a2a_button_facebook"></a>
 <a class="a2a_button_twitter"></a>
 </div>
@@ -354,25 +359,29 @@
         
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/hinastory/">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hinastory/">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/hinastory999">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/hinastory999">
                 
                 <i class="fab fa-twitter"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/cats-cats-cats/atom.xml">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/cats-cats-cats/atom.xml">
                 
                 <i class="fas fa-rss"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Qiita" href="https://qiita.com/hinastory">
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Qiita" href="https://qiita.com/hinastory">
                 
                 <i class="fas fa-search"></i>
                 
@@ -1935,7 +1944,8 @@
                 <span class="copyright-text">&copy;2019 hinastory</span>
             </span>
             <p class="is-size-7">
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                    href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
             </p>
         </div>
         <div class="level-end">
@@ -1963,7 +1973,7 @@
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1995,7 +2005,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
@@ -2020,7 +2030,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
