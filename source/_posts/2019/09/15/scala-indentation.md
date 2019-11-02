@@ -306,6 +306,8 @@ object Example {
 - {% elink hinastory/dotty_examples: Example code of Dotty (Scala 3) https://github.com/hinastory/dotty_examples %}
   - {% elink IndentBasedExample.scala https://github.com/hinastory/dotty_examples/blob/master/src/main/scala/indent_based/IndentBasedExample.scala %}
 
+{% ghCard hinastory/dotty_examples %}
+
 ## インデントベース構文の状況
 
 インデントベースへの変更は実は2017年にOdersky先生が{% elink #2491 https://github.com/lampepfl/dotty/issues/2491 %}で提案されていて、このときは大激論の末に一旦クローズされています[^3]。そしてようやく今回執念のプルリク({% elink #7083 https://github.com/lampepfl/dotty/pull/7083 %})を投げて、捩じ込みました。
@@ -349,4 +351,4 @@ Odersky先生もこのプルリクはデータを集めるための実験とし�
 
 下記のサンプルリポジトリに関しても0.19.0-RC1にバージョンアップして対応済みです。
 
-- {% elink hinastory/dotty_examples: Example code of Dotty (Scala 3) https://github.com/hinastory/dotty_examples %}
+{% ghCard hinastory/dotty_examples %}

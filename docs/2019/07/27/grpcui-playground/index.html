@@ -16,7 +16,7 @@
 <meta property="og:description" content="gRPCは近年非常によく使われるようになったRPCフレームワーク1ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいうPostman的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は現在においてはほぼ払拭されたといっても過言ではありません。gRPC UIが登場したからです。 (2019&#x2F;10&#x2F;4">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;grpc-horizontal-color.png">
-<meta property="og:updated_time" content="2019-10-30T02:50:01.305Z">
+<meta property="og:updated_time" content="2019-11-02T01:33:16.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;grpc-horizontal-color.png">
 
@@ -245,7 +245,7 @@
 
 
 <h3 id="githubでdockerfileを公開する"><a href="#githubでdockerfileを公開する" class="header-anchor"></a>6.2. <a href="#GitHubでDockerfileを公開する" class="headerlink" title="GitHubでDockerfileを公開する"></a>GitHubでDockerfileを公開する</h3><p>ここは特に説明はしませんが、GitHubに公開レジストリを作成し、Dockerfileと<code>testsvr</code>のソースと起動スクリプトをpushします。pushした自分のリポジトリは以下になります。</p>
-<a href="https://github.com/hinastory/grpcui-playground" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/grpcui-playground</div><div class="og-description">Playground for https://github.com/fullstorydev/grpcui - hinastory/grpcui-playground</div></div></div></a>
+<a href="https://github.com/hinastory/grpcui-playground" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/grpcui-playground.svg?fullname"></a>
 
 <h3 id="docker-hubでイメージをビルド-公開する"><a href="#docker-hubでイメージをビルド-公開する" class="header-anchor"></a>6.3. <a href="#Docker-Hubでイメージをビルド-amp-公開する" class="headerlink" title="Docker Hubでイメージをビルド & 公開する"></a>Docker Hubでイメージをビルド & 公開する</h3><p>Docker Hubでイメージをビルドするのには、GitHubと連携しておいたほうが楽です。GitHubと連携しておけばGitHubのレポジトリをDocker HubのUIから選択できるようになり、GitHubにpushするだけでDockerfileをビルドしてくれるようになります。</p>
 <p>注意すべき点はDockerイメージのタグの付け方です。デフォルトだとブランチを監視してlatestタグを付けるようになっていますが、Arukasはイメージをキャッシュする場合があるようなのでバージョンが入った適切なタグをつけることが望ましいです。そしてDockerのイメージタグはGitHubのタグと連動しているとよいと思われます。</p>

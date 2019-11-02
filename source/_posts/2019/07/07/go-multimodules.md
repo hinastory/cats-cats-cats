@@ -256,7 +256,7 @@ replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加
 
 またこの記事を書くために作成したコードは以下に置きました。
 
-{% linkPreview https://github.com/hinastory/go-multi-modules %}
+{% ghCard hinastory/go-multi-modules %}
 
 この記事がGo Modulesを使ってモジュール管理を始めようという方、マルチモジュールで躓いた方の参考になれば幸いです。
 

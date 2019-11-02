@@ -16,7 +16,7 @@
 <meta property="og:description" content="HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。本当はYouTubeが埋込たかったわけではなくて、Speaker Deckのスライドが埋込みたかっただけなんですが、oEmbedを利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm1に公開しました。この記事はそのプラグイン制作記事の前編です。 hexo-oembedembe">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;hexo-logo-2.png">
-<meta property="og:updated_time" content="2019-02-13T03:03:29.619Z">
+<meta property="og:updated_time" content="2019-11-02T01:34:27.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;hexo-logo-2.png">
 
@@ -267,7 +267,7 @@
 <p>最後に消費者にです。消費者は埋め込み用HTMLが欲しい人です。そのためにはパーマリンクおよび、パーマリンクを受け付けるoEmbedプロバイダの両方を知っている必要があります。消費者はoEmbedプロバイダに埋め込み用コンテンツを要求しますが、リクエストの構造は単純でHTTPのGETリクエストでエンドポイントを指定し、クエリとして最低限パーマリンクを指定するための<code>url</code>とレスポンス形式を指定するための<code>format</code>を指定するだけです。ここではformatは<code>json</code>を指定していますが、<code>xml</code>を指定することもできます。oEmbedプロバイダはどちらか片方のフォーマットだけサポートしてもよいし、両方サポートしても良いことになっています。</p>
 <p>レスポンスは見たままなのであまり説明することはありませんが、<code>type</code>だけ付け加えると<code>photo</code>の他に<code>link</code>と<code>video</code>と<code>rich</code>があります。<code>photo</code>は写真の埋め込みに使います。画像のURLを<code>url</code>パラメータで返してくれるのでそのURLを<code>img</code>タグで表示してあげればよいだけです。<code>title</code>パラメータがあれば<code>alt</code>属性に設定しましょう。 <code>video</code>と<code>rich</code>の２つのタイプはについて説明するとこれらは<code>html</code>パラメータを持っていていてこの中身を直接埋め込めばいいので一番ラクです。<code>html</code>の中身は経験上<code>iframe</code>タグになっていることが多いです。<code>link</code>は面白くないしあまり使われているところをみたことがないので割愛します。</p>
 <h3 id="hexo-tag-oembed現る"><a href="#hexo-tag-oembed現る" class="header-anchor"></a>5.1. <a href="#hexo-tag-oembed現る" class="headerlink" title="hexo-tag-oembed現る"></a>hexo-tag-oembed現る</h3><p>さて、ここまで調べて実はoEmbedに対応したタグならあるんじゃないかと思ってGoogle先生に相談したら、案の定みつかりました。</p>
-<a href="https://github.com/monsier-oui/hexo-tag-oembed" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://avatars2.githubusercontent.com/u/5833166?s=400&v=4"></div><div class="descriptions"><div class="og-title">monsier-oui/hexo-tag-oembed</div><div class="og-description">Embed tag plugin for Hexo. Contribute to monsier-oui/hexo-tag-oembed development by creating an account on GitHub.</div></div></div></a>
+<a href="https://github.com/monsier-oui/hexo-tag-oembed" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/monsier-oui/hexo-tag-oembed.svg?fullname"></a>
 
 <p>しかし残念ながら、このタグはお目当てのSpeaker Deckには対応していませんでした。しかもエンドポイントをソースコードに埋め込んでいたのでSpeaker Deckに対応してもらうためにはプルリクエストを送らないといけません。最初は素直にプルリクエストを送ろうかと考えていたのですが、oEmbedに対応しているサイトは大量にあるのでそのたびにプルリクエストを送るのもなんだかなぁーというお気持ちになりました。そもそもいちいちプロバイダー探してエンドポイントの定義なんて面倒くさいし何とかならないのかと、もう一度公式のドキュメントを眺めてみると、うん、ちゃんとおあつらえ向きな仕様があるではありませんか！　<code>Discovery</code>です。</p>
 <h3 id="真打ちoembed-discovery"><a href="#真打ちoembed-discovery" class="header-anchor"></a>5.2. <a href="#真打ちoEmbed-Discovery" class="headerlink" title="真打ちoEmbed Discovery"></a>真打ちoEmbed Discovery</h3><p>Discoveryは、簡単に言うと前述のoEmbedリクエストをHTMLのヘッダに埋め込める仕様です。これも公式のサンプルを見てもらった方が早いでしょう。</p>

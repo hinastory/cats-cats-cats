@@ -16,7 +16,7 @@
 <meta property="og:description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日追記・更新: 追記内容はここを見てください) (2019年6月22日追記・更新: 追記内容はここを見てください) (2019年9月15日追記・更新: 追記内容はここを見てください) (2">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
-<meta property="og:updated_time" content="2019-10-04T22:51:58.975Z">
+<meta property="og:updated_time" content="2019-11-02T01:32:57.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
 
@@ -245,7 +245,7 @@
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ dotc <ソースファイル名> <span class="hljs-comment"># ソースコードのコンパイル</span><br>$ dotr <メインクラス名> <span class="hljs-comment"># コンパイル済みのコードを実行</span><br></メインクラス名></ソースファイル名></code></pre></td></tr></tbody></table></figure>
 
 <p>もしくはサンプルコードをGitHubで公開したので、<code>sbt</code>をすでにインストールされている方はそちらの方が早いと思います。使い方は<code>README.md</code>をご覧ください</p>
-<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/dotty_examples</div><div class="og-description">Example code of Dotty (Scala 3). Contribute to hinastory/dotty_examples development by creating an account on GitHub.</div></div></div></a>
+<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></a>
 
 <h2 id="味見の結果"><a href="#味見の結果" class="header-anchor"></a>6. <a href="#味見の結果" class="headerlink" title="味見の結果"></a>味見の結果</h2><p>Dottyドキュメントに記載されている例をベースに味見をしてみました<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup>。</p>
 <h3 id="基本的な例"><a href="#基本的な例" class="header-anchor"></a>6.1. <a href="#基本的な例" class="headerlink" title="基本的な例"></a>基本的な例</h3><p>従来のImplicitsが分かっている人から見れば、おおよそ以下のコードの意味が分かると思います。<br>拡張メソッド記法だけは、最初は戸惑うかもしれません。自分は最初Go言語に似ているなと思いました・・・</p>

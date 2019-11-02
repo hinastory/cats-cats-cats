@@ -88,7 +88,7 @@ $ dotr <メインクラス名> # コンパイル済みのコードを実行
 
 もしくはサンプルコードをGitHubで公開したので、`sbt`をすでにインストールされている方はそちらの方が早いと思います。使い方は`README.md`をご覧ください
 
-{% linkPreview  https://github.com/hinastory/dotty_examples %}
+{% ghCard hinastory/dotty_examples %}
 
 ## 味見の結果
 

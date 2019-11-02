@@ -138,7 +138,7 @@ ENTRYPOINT [ "/start.sh" ]
 
 ここは特に説明はしませんが、GitHubに公開レジストリを作成し、Dockerfileと`testsvr`のソースと起動スクリプトをpushします。pushした自分のリポジトリは以下になります。
 
-{% linkPreview https://github.com/hinastory/grpcui-playground %}
+{% ghCard hinastory/grpcui-playground %}
 
 ### Docker Hubでイメージをビルド & 公開する
 

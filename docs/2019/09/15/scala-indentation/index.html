@@ -16,7 +16,7 @@
 <meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
-<meta property="og:updated_time" content="2019-10-04T18:10:21.432Z">
+<meta property="og:updated_time" content="2019-11-02T01:33:47.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
 
@@ -265,6 +265,8 @@
 </ul>
 </li>
 </ul>
+<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></a>
+
 <h2 id="インデントベース構文の状況"><a href="#インデントベース構文の状況" class="header-anchor"></a>6. <a href="#インデントベース構文の状況" class="headerlink" title="インデントベース構文の状況"></a>インデントベース構文の状況</h2><p>インデントベースへの変更は実は2017年にOdersky先生が<a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener">#2491<i class="fas fa-external-link-alt fa-fw"></i></a>で提案されていて、このときは大激論の末に一旦クローズされています<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。そしてようやく今回執念のプルリク(<a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">#7083<i class="fas fa-external-link-alt fa-fw"></i></a>)を投げて、捩じ込みました。</p>
 <p>「捩じ込む」と表現したのは今回も当然のように大激論が起こったからです。見た目が違うから拡張子変えた方がいいという意見や、読みにくさや曖昧さを指摘する意見や、初学者の混乱を指摘する意見まで様々です。</p>
 <p>Odersky先生もこのプルリクはデータを集めるための実験としており、現在のところこのインデント構文はScala 3の新機能の中でも採用される可能性が最も低いものの一つだと考えられます。以下は#7083のリアクションですが、こんなに嫌われているプルリクには滅多にお目にかかれません(笑)。</p>
@@ -290,11 +292,7 @@
 </ul>
 <p>上記の内容は本文にも反映済みです。またインデント構文への書換えも試してみたので追記を行っています。</p>
 <p>下記のサンプルリポジトリに関しても0.19.0-RC1にバージョンアップして対応済みです。</p>
-<ul>
-<li><a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener">hinastory/dotty_examples: Example code of Dotty (Scala 3)<i class="fas fa-external-link-alt fa-fw"></i></a>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>App</code>トレイトをミックスインして書く方法もあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><code>@main</code>関数は引数をとることもできてコマンドライン引数を受け取れるのですが、話が脱線するのでこの記事ではこれ以上は触れません。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">#2491も今回と似たような提案ですが、大きな違いは<code>with</code>がインデントマーカーとして使われているところです。またエンドマーカーも現在とは異なっていました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.slideshare.net/Odersky/a-tour-of-scala-3" target="_blank" rel="noopener">A Tour of Scala 3<i class="fas fa-external-link-alt fa-fw"></i></a>を参照。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">フィードバックの方法としては<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>でトピックを立てるのが一番簡単だと思われます。もちろん問題が明確ならイシューを開いたりプルリクを送る方法もあります。</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div></li>
-</ul>
-<script>
+<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>App</code>トレイトをミックスインして書く方法もあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><code>@main</code>関数は引数をとることもできてコマンドライン引数を受け取れるのですが、話が脱線するのでこの記事ではこれ以上は触れません。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">#2491も今回と似たような提案ですが、大きな違いは<code>with</code>がインデントマーカーとして使われているところです。またエンドマーカーも現在とは異なっていました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.slideshare.net/Odersky/a-tour-of-scala-3" target="_blank" rel="noopener">A Tour of Scala 3<i class="fas fa-external-link-alt fa-fw"></i></a>を参照。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">フィードバックの方法としては<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>でトピックを立てるのが一番簡単だと思われます。もちろん問題が明確ならイシューを開いたりプルリクを送る方法もあります。</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

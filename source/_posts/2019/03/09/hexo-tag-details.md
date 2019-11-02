@@ -121,7 +121,7 @@ tag_details:
 
 以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。
 
-{% linkPreview https://github.com/hinastory/hexo-tag-details %}
+{% ghCard hinastory/hexo-tag-details %}
 
 ## 最後に
 

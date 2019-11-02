@@ -290,10 +290,9 @@ Pulumiのいいところは以下のとおりです。
 
 4つ目は複数のプロジェクトおよびスタックを使い分けられることです。プロジェクトは再利用の単位にもなっていて「自分が作成したインフラ」を簡単に公開して共有することができます。今回作成したコードも以下にGitHubで公開してあるので、ぜひ試してみてください。
 
-
 :point_down: [hinastory/aws-ts-two-tier-web: 2-tier web application hosting example for AWS by Pulumi](https://github.com/hinastory/aws-ts-two-tier-web)
 
-[![hinastory/aws-ts-two-tier-web - GitHub](https://gh-card.dev/repos/hinastory/aws-ts-two-tier-web.svg?fullname)](https://github.com/hinastory/aws-ts-two-tier-web)
+{% ghCard hinastory grpcui-playground/aws-ts-two-tier-web %}
 
 また、プロジェクトの中でスタックを作成でき、コードの中で利用可能な「設定」を定義できます。例えばリージョン情報やユーザ名やパスワード等を「設定」としてコードから外出しすれば再利用性が高まり、スタックの切り替えで「設定」の切り替えもできるので非常に便利です。一番よくある使い方は開発用のスタックと本番用のスタックを分けるやり方です。その他にもパスワードを暗号化して管理する方法も提供されているので安全にインフラを共有することが可能です。
 

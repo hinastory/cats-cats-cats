@@ -22,6 +22,8 @@ date: 2019-09-11 07:28:45
 - {% elink fileconv - RubyGems https://rubygems.org/gems/fileconv %}
 - {% elink fileconv - GitHub https://github.com/hinastory/fileconv/ %}
 
+
+
 また、記事の最後の方でこのライブラリを育てる途中の失敗談も紹介したいと思います。
 
 ## インストール
@@ -282,7 +284,7 @@ end
 
 以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。
 
-{% linkPreview https://github.com/hinastory/fileconv %}
+{% ghCard hinastory/fileconv %}
 
 このライブラリの今後についてですが、最近は複雑なコンバータを書くのをやめて単純なコンバータをつなげて処理を書くことが多くなっています。従ってそのうちその知見を生かして`fileconv`にコンバータの「合成」を実装するかもしれません。
 

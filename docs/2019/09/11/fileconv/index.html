@@ -16,7 +16,7 @@
 <meta property="og:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;files.png">
-<meta property="og:updated_time" content="2019-09-12T18:00:34.786Z">
+<meta property="og:updated_time" content="2019-11-02T01:33:32.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;files.png">
 
@@ -191,6 +191,8 @@
 <ul>
 <li><a href="https://rubygems.org/gems/fileconv" target="_blank" rel="noopener">fileconv - RubyGems<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 <li><a href="https://github.com/hinastory/fileconv/" target="_blank" rel="noopener">fileconv - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+
 
 </li>
 </ul>
@@ -422,7 +424,7 @@
 <li>post_conv_result</li>
 </ul>
 <h2 id="リポジトリ"><a href="#リポジトリ" class="header-anchor"></a>4. <a href="#リポジトリ" class="headerlink" title="リポジトリ"></a>リポジトリ</h2><p>以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。</p>
-<a href="https://github.com/hinastory/fileconv" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://avatars1.githubusercontent.com/u/1696779?s=400&v=4"></div><div class="descriptions"><div class="og-title">hinastory/fileconv</div><div class="og-description">Extensible multi-file convertor. Simple text file, CSV file, JSON file, binary file and so on. - hinastory/fileconv</div></div></div></a>
+<a href="https://github.com/hinastory/fileconv" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/fileconv.svg?fullname"></a>
 
 <p>このライブラリの今後についてですが、最近は複雑なコンバータを書くのをやめて単純なコンバータをつなげて処理を書くことが多くなっています。従ってそのうちその知見を生かして<code>fileconv</code>にコンバータの「合成」を実装するかもしれません。</p>
 <h2 id="fileconvの失敗談"><a href="#fileconvの失敗談" class="header-anchor"></a>5. <a href="#fileconvの失敗談" class="headerlink" title="fileconvの失敗談"></a><code>fileconv</code>の失敗談</h2><p><code>fileconv</code>を長年使い続ける中で色々と失敗を重ね、少しずつ改良していきました。以下は主な失敗した点です。</p>

@@ -131,4 +131,4 @@ oembed:
 
 以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。
 
-{% linkPreview https://github.com/hinastory/hexo-oembed %}
+{% ghCard hinastory/hexo-oembed %}

@@ -184,7 +184,7 @@ oembed:
 
 リポジトリ名はダイレクトに`hexo-oembed`にしました。ライセンスは特にこだわりがなければHexoと同じMITライセンスにしておけばいいと思います。.gitignoreファイルはもうすでに作成済みなのでここであえて作成する必要はないです。リポジトリの作成自体は十秒もかからず終わります。以下が今回作成したGitHubのリポジトリです。
 
-{% linkPreview https://github.com/hinastory/hexo-oembed %}
+{% ghCard hinastory/hexo-oembed %}
 
 リポジトリの作成が終わったらローカルのリポジトリとGitHubのリポジトリをリンクさせます。
 
