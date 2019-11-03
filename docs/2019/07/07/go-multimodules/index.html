@@ -197,7 +197,7 @@
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">export GO111MODULE=on<br></code></pre></td></tr></tbody></table></figure>
 
 <p>この記事ではGo 1.12の前提で解説します。</p>
-<h2 id="go-modulesで管理を始める"><a href="#go-modulesで管理を始める" class="header-anchor"></a>3. <a href="#Go-Modulesで管理を始める" class="headerlink" title="Go Modulesで管理を始める"></a>Go Modulesで管理を始める</h2><p>基本はディレクトリを作成して<code>go mod init <モジュール名></モジュール名></code>で始められます。</p>
+<h2 id="go-modulesで管理を始める"><a href="#go-modulesで管理を始める" class="header-anchor"></a>3. <a href="#Go-Modulesで管理を始める" class="headerlink" title="Go Modulesで管理を始める"></a>Go Modulesで管理を始める</h2><p>基本はディレクトリを作成して<code>go mod init &lt;モジュール名&gt;</code>で始められます。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ mkdir go-multi-modules<br>$ <span class="hljs-built_in">cd</span> go-multi-modules<br>$ go mod init go-multi-modules<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>go.mod</code>というファイルが作成されています。これが依存関係を管理するファイルになります。</p>
@@ -227,7 +227,7 @@
 
 <p><code>go build</code>でビルドして<code>./go-multi-modules</code>で実行して同じように挨拶ができたら成功です。</p>
 <h3 id="go-homeしようとして失敗する"><a href="#go-homeしようとして失敗する" class="header-anchor"></a>3.3. <a href="#Go-Homeしようとして失敗する" class="headerlink" title="Go Homeしようとして失敗する"></a>Go Homeしようとして失敗する</h3><p>さて、挨拶も済んだのでもう用はありません。帰宅したくなってきたとします。ただし、帰宅時間まで細かく管理されたくないので別モジュールで管理することを考えます。この場合、<code>pkg</code>ディレクトリ配下に<code>go-home</code>ディレクトリを作成して、<code>go-home</code>ディレクトリに移動してから<code>go mod init gohome</code>を実行します。<br>ディレクトリ構成は以下のようになります。</p>
-<figure class="highlight plain"><figcaption><span>ディレクトリ構成</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ">.<br>├── go-multi-modules // `go build`で生成された実行ファイル<br>├── go.mod // `go mod init` で生成されたモジュール管理ファイル<br>├── go.sum // `go build`で生成されたモジュール管理ファイル（検査用）<br>├── main.go // メインファイル<br>└── pkg<br>    ├── go-home // このディレクトリ配下は別モジュールになる<br>    │   ├── go.mod // `go mod init`で生成される<br>    │   └── home.go // 新規追加<br>    └── hello-world<br>        └── hello-world.go // 挨拶パッケージ<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><figcaption><span>ディレクトリ構成</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ">.<br>├── go-multi-modules // `go build`で生成された実行ファイル<br>├── go.mod // `go mod init` で生成されたモジュール管理ファイル<br>├── go.sum // `go build`で生成されたモジュール管理ファイル（検査用）<br>├── main.go // メインファイル<br>└── pkg<br>    ├── go-home // このディレクトリ配下は別モジュールになる<br>    │&nbsp;&nbsp; ├── go.mod // `go mod init`で生成される<br>    │&nbsp;&nbsp; └── home.go // 新規追加<br>    └── hello-world<br>        └── hello-world.go // 挨拶パッケージ<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>go-home</code>配下の<code>go.mod</code>は以下のようになります。初期化しただけなので<code>require</code>はありません。</p>
 <figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">module gohome<br><br>go 1.12<br></code></pre></td></tr></tbody></table></figure>
@@ -242,9 +242,9 @@
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ go build<br>build go-multi-modules: cannot load go-multi-modules/pkg/go-home: cannot find module providing package go-multi-modules/pkg/go-home<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="replaceのおかげでgo-homeに成功する"><a href="#replaceのおかげでgo-homeに成功する" class="header-anchor"></a>3.4. <a href="#replaceのおかげでGo-Homeに成功する" class="headerlink" title="replaceのおかげでGo Homeに成功する"></a><code>replace</code>のおかげでGo Homeに成功する</h3><p>解決方法は簡単で親の<code>go.mod</code>に以下の<code>replace</code>ディレクティブを記述することでした。</p>
-<p><code>replace go-multi-modules/pkg/go-home => ./pkg/go-home</code></p>
+<p><code>replace go-multi-modules/pkg/go-home =&gt; ./pkg/go-home</code></p>
 <p><code>replace</code>ディレクティブを記述して<code>go build</code>をするとビルドが成功します。<br>以下は<code>go build</code>後の<code>go.mod</code>です。依存関係(<code>require</code>)が追加されています。</p>
-<figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br><br>require (<br>        github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a<br>        go-multi-modules/pkg/go-home v0.0.0-00010101000000-000000000000<br>)<br><br>replace go-multi-modules/pkg/go-home => ./pkg/go-home //追加<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br><br>require (<br>        github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a<br>        go-multi-modules/pkg/go-home v0.0.0-00010101000000-000000000000<br>)<br><br>replace go-multi-modules/pkg/go-home =&gt; ./pkg/go-home //追加<br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>さて、ビルドできたら<code>./go-multi-modules</code>で実行してみましょう。一瞬Hello Worldが表示されてその後Go Home!が実行されます。</p>
@@ -2050,7 +2050,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>

@@ -72,7 +72,7 @@ HexoにYouTubeなどのサイトを記事に埋め込むためのプラグイン
 
 ### 一番簡単なタグを作ってみる
 
-{% elink 公式のドキュメント https://hexo.io/api/tag  %}を参考に一番簡単なタグを作ってみます。以下は単なる`hoge`と表示するだけのタグです。`hoge.js`というファイルに保存して`[hexo dir]/themes/scripts`配下に配置します。
+{% elink 公式のドキュメント https://hexo.io/api/tag  %}を参考に一番簡単なタグを作ってみます。以下は単なる`hoge` と表示するだけのタグです。`hoge.js`というファイルに保存して`[hexo dir]/themes/scripts`配下に配置します。
 
 {% code lang:js hoge.js %}
 hexo.extend.tag.register('hoge', function(){

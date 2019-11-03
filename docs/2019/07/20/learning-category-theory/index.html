@@ -229,7 +229,7 @@
 <p>このように本書では圏論の概念が豊富な図によって解説されています。またソースコードもHaskellとScalaのコードが一緒に載っていて非常にわかりやすいです。以下の引用は<code>List</code>の長さを示す<code>length</code>関数が自然変換であることの説明に使われているコードです。</p>
 <img src="/cats-cats-cats/gallery/daily/cats/length.png" class="">
 
-<p><code>length</code>関数は一般的には<code>List[A] => Int</code>の関数で<code>List</code>関手を<code>Int</code>に変換するものですが、<code>Int</code>を定値関手である<code>Const[E, A]</code>に埋め込まれた<code>Const[Int, A]</code>と見做すことで<code>length</code>を関手間の変換、つまり自然変換になることを示しています。本書では関手間のパラメトリックな多相関数は常に自然変換になることを述べています。</p>
+<p><code>length</code>関数は一般的には<code>List[A] =&gt; Int</code>の関数で<code>List</code>関手を<code>Int</code>に変換するものですが、<code>Int</code>を定値関手である<code>Const[E, A]</code>に埋め込まれた<code>Const[Int, A]</code>と見做すことで<code>length</code>を関手間の変換、つまり自然変換になることを示しています。本書では関手間のパラメトリックな多相関数は常に自然変換になることを述べています。</p>
 <p>上記のように本書では一貫してHaskellのコードが青、Scalaのコードが赤で示されており非常にわかりやすくなっています。一般的な圏論のプログラミングへの応用ではHaskellを例に出されることが多いので、このように併記してある文献はHaskellを学びたいScalaプログラマにとっても嬉しいと思われます。</p>
 <p>最後に本書の内容と構成に関してですが、自分は圏論を学びたいプログラマにとっては非常に秀逸だと思いました。少なくとも数学にはあまり自身がないけどプログラミングに圏論を活かしたいプログラマにとっては必要な概念はほぼ本書で触れられていると思います。</p>
 <p>以下に本書の目次(一部抜粋)を載せておきます<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。また、自分の日本語訳とプログラマとして読んだ方がいい章を5段階評価で★印を付けています。本書を読む参考にしてください。</p>
@@ -2598,7 +2598,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>

@@ -209,7 +209,7 @@
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">{% details あなたの出身はどこですか? %}<br>私は地球出身です。 水の惑星です!<br>{% enddetails %}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>上の例は以下のようなHTMLを生成します。</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag"><<span class="hljs-name">details</span>></span><br>  <span class="hljs-tag"><<span class="hljs-name">summary</span>></span>あなたの出身はどこですか?<span class="hljs-tag">summary</span>><br>  私は地球出身です。 水の惑星です!<br><span class="hljs-tag">details</span>><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>あなたの出身はどこですか?<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span><br>  私は地球出身です。 水の惑星です!<br><span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>表示は以下のようになります。</p>
@@ -221,7 +221,7 @@
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ">{% details mode:open あなたの好きな食べ物は何ですか? %}<br>1. お寿司<br>2. 天ぷら<br>3. すき焼き<br>{% enddetails %}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>上の例は以下のようなHTMLを生成します。</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag"><<span class="hljs-name">details</span> <span class="hljs-attr">open</span>=<span class="hljs-string">"open"</span>></span><br>  <span class="hljs-tag"><<span class="hljs-name">summary</span>></span>あなたの好きな食べ物は何ですか?<span class="hljs-tag">summary</span>><br>  <span class="hljs-tag"><<span class="hljs-name">ol</span>></span><br>    <span class="hljs-tag"><<span class="hljs-name">li</span>></span>お寿司<span class="hljs-tag">li</span>><br>    <span class="hljs-tag"><<span class="hljs-name">li</span>></span>天ぷら<span class="hljs-tag">li</span>><br>    <span class="hljs-tag"><<span class="hljs-name">li</span>></span>すき焼き<span class="hljs-tag">li</span>><br>  <span class="hljs-tag">ol</span>><br><span class="hljs-tag">details</span>><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span> <span class="hljs-attr">open</span>=<span class="hljs-string">"open"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>あなたの好きな食べ物は何ですか?<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>お寿司<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>天ぷら<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>すき焼き<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>表示は以下のようになります。</p>
 <details open="open"><summary>あなたの好きな食べ物は何ですか?</summary><ol>
@@ -2020,7 +2020,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>

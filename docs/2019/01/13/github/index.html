@@ -190,7 +190,7 @@
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#これまで" class="contents-header">1. これまで</a></li><li><a href="#なんでそんな運用にしていたのか" class="contents-header">2. なんでそんな運用にしていたのか？</a></li><li><a href="#現在" class="contents-header">3. 現在</a><ul><li><a href="#移行方法" class="contents-header">3.1. 移行方法</a></li><li><a href="#注意点" class="contents-header">3.2. 注意点</a></li></ul></li><li><a href="#まとめ" class="contents-header">4. まとめ</a></li></ul></div>
 
 <h2 id="これまで"><a href="#これまで" class="header-anchor"></a>1. <a href="#これまで" class="headerlink" title="これまで"></a>これまで</h2><p>これまではパブリックなリポジトリはGitHubにおいて、プライベートなリポジトリは自宅のKubernetes上にGitBucketを立てて、そこに置いていました。</p>
-<a href="https://github.com/gitbucket/gitbucket" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://avatars0.githubusercontent.com/u/11145783?s=400&v=4"></div><div class="descriptions"><div class="og-title">gitbucket/gitbucket</div><div class="og-description">A Git platform powered by Scala with easy installation, high extensibility & GitHub API compatibility - gitbucket/gitbucket</div></div></div></a>
+<a href="https://github.com/gitbucket/gitbucket" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://avatars0.githubusercontent.com/u/11145783?s=400&amp;v=4"></div><div class="descriptions"><div class="og-title">gitbucket/gitbucket</div><div class="og-description">A Git platform powered by Scala with easy installation, high extensibility &amp; GitHub API compatibility - gitbucket/gitbucket</div></div></div></a>
 
 <h2 id="なんでそんな運用にしていたのか"><a href="#なんでそんな運用にしていたのか" class="header-anchor"></a>2. <a href="#なんでそんな運用にしていたのか？" class="headerlink" title="なんでそんな運用にしていたのか？"></a>なんでそんな運用にしていたのか？</h2><p>Gitを使っているとなんでもGit管理したくなってきました。しかし、パブリックにおいても良いデータはGitHubで問題ありませんでしたが、どうしてもパグリックにしたくないデータもGit管理しようとすると困りました。GitHubは当時プライベートリポジトリを使うために月$7も必要だったのです。払えないわけではないですが、流石にちょっとしたデータを管理するためには高すぎるなぁと感じて躊躇していました。それではGitLab等のプライベートリポジトリが無料で使える所にしようかとも考えましたが、さすがにパブリックなリポジトリをGitLabに移行すると色々とリンクが切れて面倒なので諦めました。</p>
 <p>それではプライベートなリポジトリだけGitLab管理にすればいいかというと.gitconfigに登録してあるメールアドレスの切り替えが面倒でした。GitHub上に公開しているコミットログに実運用しているメールアドレスを残すのは嫌だったのでGitHubのnoreplyメールアドレス(<code>1696779+hinastory＠users.noreply.github.com</code>)を設定していましたが、それをGitLabではそれを切り替える必要があります<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。最初はローカルのgitconfigで対応しようとしましたがリポジトリ毎に設定しければならず面倒すぎました。</p>
@@ -1982,7 +1982,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
