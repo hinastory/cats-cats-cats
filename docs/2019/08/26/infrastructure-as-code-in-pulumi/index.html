@@ -15,10 +15,10 @@
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormat">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;pulumi.png">
-<meta property="og:updated_time" content="2019-11-02T01:33:23.281Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;pulumi.png">
+<meta property="og:updated_time" content="2019-11-04T09:24:02.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;pulumi.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;pulumi.png">
 
 
 
@@ -34,35 +34,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
 
 
     
     
-    
-    
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
 
-
     
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -71,17 +62,15 @@
     gtag('config', 'UA-132406459-1');
 </script>
 
-
     
     
     
     
-
     
-    
-<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
+    
+    
     
 
 
@@ -133,7 +122,8 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
     <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
         
             Pulumiでプログラマのための「Infrastructure as Code」を実践する
@@ -197,11 +187,11 @@
 <h2 id="実践-infrastructure-as-code"><a href="#実践-infrastructure-as-code" class="header-anchor"></a>2. <a href="#実践-Infrastructure-as-Code" class="headerlink" title="実践 Infrastructure as Code"></a>実践 Infrastructure as Code</h2><p>Pulumiではインフラの状態が内部で管理されているので、インフラを簡単に作ったり、壊したりすることができます。また、今回は静的型付き言語であるTypeScriptを選択したので、インフラの「型」を簡単に確認でき、IDEのサポートが受けやすいです。そしてTypeScriptは汎用言語でもあるのでインフラを関数やライブラリ化したり、インフラをループで大量に生成するのも簡単です。まさにプログラミング感覚でインフラが構築できて、いらなくなったら簡単に破棄できるので<code>プログラマのためのIaC</code>を実践するのにPulumiはうってつけです。</p>
 <h3 id="pulumiの導入"><a href="#pulumiの導入" class="header-anchor"></a>2.1. <a href="#Pulumiの導入" class="headerlink" title="Pulumiの導入"></a>Pulumiの導入</h3><p>Pulumiの<a href="https://www.pulumi.com/docs/get-started/" target="_blank" rel="noopener">Get Started</a>に従って、Pulumi CLI、AWS CLI、Node.jsをインストールしてください。<br>(「Configure AWS」まで進めてください。)</p>
 <h3 id="pulumiログイン"><a href="#pulumiログイン" class="header-anchor"></a>2.2. <a href="#pulumiログイン" class="headerlink" title="pulumiログイン"></a>pulumiログイン</h3><p>以下のコマンドでpulumiにログインしてください。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pulumi login<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pulumi login<br></code></pre></td></tr></tbody></table></figure>
 
 <p>ブラウザでログインする場合は上記のコマンド後に「<code>Enter</code>」キーを押します。するとブラウザ側でサインインできます。自分はGitHubでPulumiにサインインしましたが、他にもGitLabやE-mail等でもサインインできます<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
 <h3 id="プロジェクトとスタックの作成"><a href="#プロジェクトとスタックの作成" class="header-anchor"></a>2.3. <a href="#プロジェクトとスタックの作成" class="headerlink" title="プロジェクトとスタックの作成"></a>プロジェクトとスタックの作成</h3><p>次にプロジェクトとスタックの作成をします。以下のコマンドで実行します。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdir aws-ts-twe-tier-web &amp;&amp; <span class="hljs-built_in">cd</span> aws-ts-twe-tier-web<br>$ pulumi new aws-typescript<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdir aws-ts-twe-tier-web &amp;&amp; <span class="hljs-built_in">cd</span> aws-ts-twe-tier-web<br>$ pulumi new aws-typescript<br></code></pre></td></tr></tbody></table></figure>
 
 
 <p><code>pulumi new</code>は基本的にはデフォルトでOKなので<code>Enter</code>で進めますが以下の質問だけ「<code>ap-northeast-1</code>」にして<code>Enter</code>を押してください。</p>
@@ -209,27 +199,27 @@
 <li><code>aws:region: The AWS region to deploy into: (us-east-1)</code></li>
 </ul>
 <h3 id="indextsの作成"><a href="#indextsの作成" class="header-anchor"></a>2.4. <a href="#index-tsの作成" class="headerlink" title="index.tsの作成"></a>index.tsの作成</h3><p>メインファイルである<code>index.ts</code>ファイルに以下を記述してください。</p>
-<figure class="highlight ts"><figcaption><span>index.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> pulumi <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/pulumi"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> utils <span class="hljs-keyword">from</span> <span class="hljs-string">"./utils"</span><br><br><span class="hljs-keyword">const</span> vpcPrefix = <span class="hljs-string">"custom"</span><br><span class="hljs-keyword">const</span> vpc = <span class="hljs-keyword">new</span> awsx.ec2.Vpc(vpcPrefix)<br><span class="hljs-keyword">const</span> db = utils.createRDSInstance(vpcPrefix, vpc)<br><span class="hljs-keyword">const</span> alb = utils.createApplicationLoadBalancer(vpcPrefix, vpc)<br><span class="hljs-keyword">const</span> targetGroup = alb.createTargetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-tg`</span>, { port: <span class="hljs-number">80</span>, targetType: <span class="hljs-string">"instance"</span> })<br><span class="hljs-keyword">const</span> listener = targetGroup.createListener(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-listener`</span>, { port: <span class="hljs-number">80</span> })<br><span class="hljs-keyword">const</span> autoScalingGroup = utils.createAutoScalingGroup(vpcPrefix, vpc, alb)<br>autoScalingGroup.scaleToTrackAverageCPUUtilization(<span class="hljs-string">"keepAround50Percent"</span>, { targetValue: <span class="hljs-number">50</span> })<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endpoint = listener.endpoint.hostname<br><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight ts hljs"><figcaption><span>index.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> pulumi <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/pulumi"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> utils <span class="hljs-keyword">from</span> <span class="hljs-string">"./utils"</span><br><br><span class="hljs-keyword">const</span> vpcPrefix = <span class="hljs-string">"custom"</span><br><span class="hljs-keyword">const</span> vpc = <span class="hljs-keyword">new</span> awsx.ec2.Vpc(vpcPrefix)<br><span class="hljs-keyword">const</span> db = utils.createRDSInstance(vpcPrefix, vpc)<br><span class="hljs-keyword">const</span> alb = utils.createApplicationLoadBalancer(vpcPrefix, vpc)<br><span class="hljs-keyword">const</span> targetGroup = alb.createTargetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-tg`</span>, { port: <span class="hljs-number">80</span>, targetType: <span class="hljs-string">"instance"</span> })<br><span class="hljs-keyword">const</span> listener = targetGroup.createListener(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-listener`</span>, { port: <span class="hljs-number">80</span> })<br><span class="hljs-keyword">const</span> autoScalingGroup = utils.createAutoScalingGroup(vpcPrefix, vpc, alb)<br>autoScalingGroup.scaleToTrackAverageCPUUtilization(<span class="hljs-string">"keepAround50Percent"</span>, { targetValue: <span class="hljs-number">50</span> })<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endpoint = listener.endpoint.hostname<br><br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="utilstsの作成"><a href="#utilstsの作成" class="header-anchor"></a>2.5. <a href="#utils-tsの作成" class="headerlink" title="utils.tsの作成"></a>utils.tsの作成</h3><p>同じフォルダに<code>utils.ts</code>を作成して、ファイルに以下を記述してください。コーディングは以上です。</p>
-<figure class="highlight ts"><figcaption><span>utils.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> aws <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/aws"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAmazonLinux</span>(<span class="hljs-params"></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">string</span>&gt; </span>{<br>  <span class="hljs-keyword">return</span> aws.getAmi({<br>    filters: [<br>      { name: <span class="hljs-string">"name"</span>, values: [<span class="hljs-string">"amzn-ami-hvm-*"</span>] },<br>      { name: <span class="hljs-string">"virtualization-type"</span>, values: [<span class="hljs-string">"hvm"</span>] },<br>      { name: <span class="hljs-string">"architecture"</span>, values: [<span class="hljs-string">"x86_64"</span>] },<br>      { name: <span class="hljs-string">"root-device-type"</span>, values: [<span class="hljs-string">"ebs"</span>] },<br>      { name: <span class="hljs-string">"block-device-mapping.volume-type"</span>, values: [<span class="hljs-string">"gp2"</span>] }<br>    ],<br>    mostRecent: <span class="hljs-literal">true</span>,<br>    owners: [<span class="hljs-string">"amazon"</span>]<br>  }).then(<span class="hljs-function"><span class="hljs-params">ami</span> =&gt;</span> ami.id)<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createRDSInstance</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">aws</span>.<span class="hljs-title">rds</span>.<span class="hljs-title">Instance</span> </span>{<br>  <span class="hljs-keyword">const</span> dbSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db-sg`</span>,<br>    {<br>      vpc,<br>      ingress: [{ protocol: <span class="hljs-string">"tcp"</span>, fromPort: <span class="hljs-number">3306</span>, toPort: <span class="hljs-number">3306</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>      egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">const</span> dbSubnets = <span class="hljs-keyword">new</span> aws.rds.SubnetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-dbsubnets`</span>, {<br>    subnetIds: vpc.privateSubnetIds,<br>  })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> aws.rds.Instance(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db`</span>, {<br>    engine: <span class="hljs-string">"mysql"</span>,<br>    instanceClass: <span class="hljs-string">"db.t2.micro"</span>,<br>    allocatedStorage: <span class="hljs-number">10</span>,<br>    dbSubnetGroupName: dbSubnets.id,<br>    vpcSecurityGroupIds: [dbSg.id],<br>    name: <span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>DbInstance`</span>,<br>    username: <span class="hljs-string">"testdb"</span>,<br>    password: <span class="hljs-string">"testdb123"</span>,<br>    multiAz: <span class="hljs-literal">true</span>,<br>    skipFinalSnapshot: <span class="hljs-literal">true</span>,<br>  })<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createApplicationLoadBalancer</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">elasticloadbalancingv2</span>.<span class="hljs-title">ApplicationLoadBalancer</span> </span>{<br>  <span class="hljs-keyword">const</span> albSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-alb-sg`</span>,<br>    {<br>      vpc, egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.lb.ApplicationLoadBalancer(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-traffic`</span>, { vpc, securityGroups: [albSg] });<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRunCmd</span>(<span class="hljs-params">title: <span class="hljs-built_in">string</span>, content: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span> </span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`az=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)<br>echo "&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;<span class="hljs-subst">${title}</span>&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;<span class="hljs-subst">${content}</span> from $az&amp;lt;/h1&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;" &gt; index.html<br>nohup python -m SimpleHTTPServer 80 &amp;`</span><br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createAutoScalingGroup</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc, alb: awsx.elasticloadbalancingv2.ApplicationLoadBalancer</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">autoscaling</span>.<span class="hljs-title">AutoScalingGroup</span> </span>{<br>  <span class="hljs-keyword">const</span> userDataLines = getRunCmd(<span class="hljs-string">"My Web Site"</span>, <span class="hljs-string">"Hello World"</span>).split(<span class="hljs-string">`\n`</span>).map(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> ({ contents: <span class="hljs-string">`    <span class="hljs-subst">${e}</span>`</span>, }) <span class="hljs-keyword">as</span> awsx.autoscaling.UserDataLine)<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.autoscaling.AutoScalingGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-asg`</span>, {<br>    vpc,<br>    subnetIds: vpc.publicSubnets.map(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> e.id),<br>    targetGroups: alb.targetGroups,<br>    templateParameters: {<br>      minSize: <span class="hljs-number">2</span>,<br>      maxSize: <span class="hljs-number">4</span>,<br>    },<br>    launchConfigurationArgs: {<br>      instanceType: <span class="hljs-string">"t2.micro"</span>,<br>      imageId: getAmazonLinux(),<br>      securityGroups: alb.securityGroups,<br>      userData: { extraRuncmdLines: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> userDataLines }<br>    }<br>  })<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight ts hljs"><figcaption><span>utils.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> aws <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/aws"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAmazonLinux</span>(<span class="hljs-params"></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">string</span>&gt; </span>{<br>  <span class="hljs-keyword">return</span> aws.getAmi({<br>    filters: [<br>      { name: <span class="hljs-string">"name"</span>, values: [<span class="hljs-string">"amzn-ami-hvm-*"</span>] },<br>      { name: <span class="hljs-string">"virtualization-type"</span>, values: [<span class="hljs-string">"hvm"</span>] },<br>      { name: <span class="hljs-string">"architecture"</span>, values: [<span class="hljs-string">"x86_64"</span>] },<br>      { name: <span class="hljs-string">"root-device-type"</span>, values: [<span class="hljs-string">"ebs"</span>] },<br>      { name: <span class="hljs-string">"block-device-mapping.volume-type"</span>, values: [<span class="hljs-string">"gp2"</span>] }<br>    ],<br>    mostRecent: <span class="hljs-literal">true</span>,<br>    owners: [<span class="hljs-string">"amazon"</span>]<br>  }).then(<span class="hljs-function"><span class="hljs-params">ami</span> =&gt;</span> ami.id)<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createRDSInstance</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">aws</span>.<span class="hljs-title">rds</span>.<span class="hljs-title">Instance</span> </span>{<br>  <span class="hljs-keyword">const</span> dbSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db-sg`</span>,<br>    {<br>      vpc,<br>      ingress: [{ protocol: <span class="hljs-string">"tcp"</span>, fromPort: <span class="hljs-number">3306</span>, toPort: <span class="hljs-number">3306</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>      egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">const</span> dbSubnets = <span class="hljs-keyword">new</span> aws.rds.SubnetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-dbsubnets`</span>, {<br>    subnetIds: vpc.privateSubnetIds,<br>  })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> aws.rds.Instance(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db`</span>, {<br>    engine: <span class="hljs-string">"mysql"</span>,<br>    instanceClass: <span class="hljs-string">"db.t2.micro"</span>,<br>    allocatedStorage: <span class="hljs-number">10</span>,<br>    dbSubnetGroupName: dbSubnets.id,<br>    vpcSecurityGroupIds: [dbSg.id],<br>    name: <span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>DbInstance`</span>,<br>    username: <span class="hljs-string">"testdb"</span>,<br>    password: <span class="hljs-string">"testdb123"</span>,<br>    multiAz: <span class="hljs-literal">true</span>,<br>    skipFinalSnapshot: <span class="hljs-literal">true</span>,<br>  })<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createApplicationLoadBalancer</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">elasticloadbalancingv2</span>.<span class="hljs-title">ApplicationLoadBalancer</span> </span>{<br>  <span class="hljs-keyword">const</span> albSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-alb-sg`</span>,<br>    {<br>      vpc, egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.lb.ApplicationLoadBalancer(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-traffic`</span>, { vpc, securityGroups: [albSg] });<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRunCmd</span>(<span class="hljs-params">title: <span class="hljs-built_in">string</span>, content: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span> </span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`az=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)<br>echo "&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;<span class="hljs-subst">${title}</span>&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;<span class="hljs-subst">${content}</span> from $az&amp;lt;/h1&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;" &gt; index.html<br>nohup python -m SimpleHTTPServer 80 &amp;`</span><br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createAutoScalingGroup</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc, alb: awsx.elasticloadbalancingv2.ApplicationLoadBalancer</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">autoscaling</span>.<span class="hljs-title">AutoScalingGroup</span> </span>{<br>  <span class="hljs-keyword">const</span> userDataLines = getRunCmd(<span class="hljs-string">"My Web Site"</span>, <span class="hljs-string">"Hello World"</span>).split(<span class="hljs-string">`\n`</span>).map(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> ({ contents: <span class="hljs-string">`    <span class="hljs-subst">${e}</span>`</span>, }) <span class="hljs-keyword">as</span> awsx.autoscaling.UserDataLine)<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.autoscaling.AutoScalingGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-asg`</span>, {<br>    vpc,<br>    subnetIds: vpc.publicSubnets.map(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> e.id),<br>    targetGroups: alb.targetGroups,<br>    templateParameters: {<br>      minSize: <span class="hljs-number">2</span>,<br>      maxSize: <span class="hljs-number">4</span>,<br>    },<br>    launchConfigurationArgs: {<br>      instanceType: <span class="hljs-string">"t2.micro"</span>,<br>      imageId: getAmazonLinux(),<br>      securityGroups: alb.securityGroups,<br>      userData: { extraRuncmdLines: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> userDataLines }<br>    }<br>  })<br>}<br><br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>これで見事に冒頭で示した構成が<code>index.ts</code>と<code>utils.ts</code>を合わせて100行弱のコードで作成できました。</p>
 <h3 id="インフラのデプロイ"><a href="#インフラのデプロイ" class="header-anchor"></a>2.6. <a href="#インフラのデプロイ" class="headerlink" title="インフラのデプロイ"></a>インフラのデプロイ</h3><p>以下を実行してください。途中で本当に実行してよいか聞かれるので「<code>yes</code>」を選択して<code>Enter</code>を押してください。インフラの作成には数分かかります。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pulumi up<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pulumi up<br></code></pre></td></tr></tbody></table></figure>
 
 
 <h3 id="デプロイ結果の確認"><a href="#デプロイ結果の確認" class="header-anchor"></a>2.7. <a href="#デプロイ結果の確認" class="headerlink" title="デプロイ結果の確認"></a>デプロイ結果の確認</h3><p><code>pulumi up</code>が成功すると最後の出力結果に<code>endpoint</code>が表示されるので、そのURLにブラウザからアクセスしてみてください。</p>
 <p>「<code>Hello, World! from ap-northeast-1a</code>」が表示されたら成功です。ロードバランサを挟んでいるのでリロードでするごとにAZの部分(<code>from ap-northeast-1a</code>)が変わります。また実際にAWSのコンソールにログインしてEC2やRDSやVPCの構成も確認してみてください<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。</p>
 <h3 id="リソースの後片付け"><a href="#リソースの後片付け" class="header-anchor"></a>2.8. <a href="#リソースの後片付け" class="headerlink" title="リソースの後片付け"></a>リソースの後片付け</h3><p>確認が終わったら以下のコマンドでリソースを破棄してください。リソースの破棄をしないとAWSの料金が発生し続けるので不要になったらすぐに破棄するようにしてください<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pulumi destroy<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pulumi destroy<br></code></pre></td></tr></tbody></table></figure>
 
 
 
 
 <h3 id="コードの解説"><a href="#コードの解説" class="header-anchor"></a>2.9. <a href="#コードの解説" class="headerlink" title="コードの解説"></a>コードの解説</h3><p>短いのであまり解説する必要もないかもしれませんが、<code>index.ts</code>だけ一応簡単にコメントします。魔法はライブラリの「<code>awsx</code>」にあります。これは「Pulumi Crosswalk for AWS」というライブラリで、AWSのwell-architectedなベストプラクティスを実装しています。以下のコードでは「<code>new awsx.ec2.Vpc(vpcPrefix)</code>」が凄い仕事をしていて、二つのパブリックサブネットと二つのプライベートサブネットとインターネットゲートウェイ、NATゲートウェイやそれに付随するセキュリティグループなど様々なものを生成しています。それ以外はAWSの知識があれば割合素直に読めるのではないかと思います。</p>
-<figure class="highlight ts"><figcaption><span>index.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> pulumi <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/pulumi"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> utils <span class="hljs-keyword">from</span> <span class="hljs-string">"./utils"</span><br><br><span class="hljs-keyword">const</span> vpcPrefix = <span class="hljs-string">"custom"</span> <span class="hljs-comment">// VPCの名前を設定</span><br><span class="hljs-keyword">const</span> vpc = <span class="hljs-keyword">new</span> awsx.ec2.Vpc(vpcPrefix) <span class="hljs-comment">// VPCの作成(二つのパブリックサブネット、二つのプライベートサブネット、インターネットゲートウェイ、NATゲートウェイの作成)</span><br><span class="hljs-keyword">const</span> db = utils.createRDSInstance(vpcPrefix, vpc) <span class="hljs-comment">// RDSインスタンスの作成</span><br><span class="hljs-keyword">const</span> alb = utils.createApplicationLoadBalancer(vpcPrefix, vpc) <span class="hljs-comment">// アプリケーションロードバランサーの作成</span><br><span class="hljs-keyword">const</span> targetGroup = alb.createTargetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-tg`</span>, { port: <span class="hljs-number">80</span>, targetType: <span class="hljs-string">"instance"</span> }) <span class="hljs-comment">// ターゲットグループの作成</span><br><span class="hljs-keyword">const</span> listener = targetGroup.createListener(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-listener`</span>, { port: <span class="hljs-number">80</span> }) <span class="hljs-comment">// リスナーの作成</span><br><span class="hljs-keyword">const</span> autoScalingGroup = utils.createAutoScalingGroup(vpcPrefix, vpc, alb) <span class="hljs-comment">// オートスケーリンググループの作成</span><br>autoScalingGroup.scaleToTrackAverageCPUUtilization(<span class="hljs-string">"keepAround50Percent"</span>, { targetValue: <span class="hljs-number">50</span> }) <span class="hljs-comment">// スケーリングポリシーの作成</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endpoint = listener.endpoint.hostname <span class="hljs-comment">// "endpoint"の出力</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight ts hljs"><figcaption><span>index.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> pulumi <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/pulumi"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> utils <span class="hljs-keyword">from</span> <span class="hljs-string">"./utils"</span><br><br><span class="hljs-keyword">const</span> vpcPrefix = <span class="hljs-string">"custom"</span> <span class="hljs-comment">// VPCの名前を設定</span><br><span class="hljs-keyword">const</span> vpc = <span class="hljs-keyword">new</span> awsx.ec2.Vpc(vpcPrefix) <span class="hljs-comment">// VPCの作成(二つのパブリックサブネット、二つのプライベートサブネット、インターネットゲートウェイ、NATゲートウェイの作成)</span><br><span class="hljs-keyword">const</span> db = utils.createRDSInstance(vpcPrefix, vpc) <span class="hljs-comment">// RDSインスタンスの作成</span><br><span class="hljs-keyword">const</span> alb = utils.createApplicationLoadBalancer(vpcPrefix, vpc) <span class="hljs-comment">// アプリケーションロードバランサーの作成</span><br><span class="hljs-keyword">const</span> targetGroup = alb.createTargetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-tg`</span>, { port: <span class="hljs-number">80</span>, targetType: <span class="hljs-string">"instance"</span> }) <span class="hljs-comment">// ターゲットグループの作成</span><br><span class="hljs-keyword">const</span> listener = targetGroup.createListener(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-listener`</span>, { port: <span class="hljs-number">80</span> }) <span class="hljs-comment">// リスナーの作成</span><br><span class="hljs-keyword">const</span> autoScalingGroup = utils.createAutoScalingGroup(vpcPrefix, vpc, alb) <span class="hljs-comment">// オートスケーリンググループの作成</span><br>autoScalingGroup.scaleToTrackAverageCPUUtilization(<span class="hljs-string">"keepAround50Percent"</span>, { targetValue: <span class="hljs-number">50</span> }) <span class="hljs-comment">// スケーリングポリシーの作成</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endpoint = listener.endpoint.hostname <span class="hljs-comment">// "endpoint"の出力</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>util.ts</code>も含めた全体の処理の流れは以下のとおりです。</p>
 <ol>
@@ -319,7 +309,7 @@
 <p>もう一つプログラマに取ってありがたいのはリソースの削除が<code>pulumi destroy</code>で簡単にできることです。プログラマは基本的にはトライアル&amp;エラーでプログラムを作成することに慣れています。しかしリソースの破棄が面倒であれば試行錯誤する気にもならないかもしれません。実際のインフラではリソースに複雑な依存関係がついており順番を守らなければリソースの削除に失敗することもよくあります。しかし、Pulumiはリソースの状態を管理して、依存関係を把握することで、大量かつ複雑な依存関係のリソース群を一括で削除できます。</p>
 <p>4つ目は複数のプロジェクトおよびスタックを使い分けられることです。プロジェクトは再利用の単位にもなっていて「自分が作成したインフラ」を簡単に公開して共有することができます。今回作成したコードも以下にGitHubで公開してあるので、ぜひ試してみてください。</p>
 <p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8">👇</span> <a href="https://github.com/hinastory/aws-ts-two-tier-web" target="_blank" rel="noopener">hinastory/aws-ts-two-tier-web: 2-tier web application hosting example for AWS by Pulumi</a></p>
-<a href="https://github.com/hinastory" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory.png"></a>
+<a href="https://github.com/hinastory/aws-ts-two-tier-web" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/aws-ts-two-tier-web.svg?fullname"></a>
 
 <p>また、プロジェクトの中でスタックを作成でき、コードの中で利用可能な「設定」を定義できます。例えばリージョン情報やユーザ名やパスワード等を「設定」としてコードから外出しすれば再利用性が高まり、スタックの切り替えで「設定」の切り替えもできるので非常に便利です。一番よくある使い方は開発用のスタックと本番用のスタックを分けるやり方です。その他にもパスワードを暗号化して管理する方法も提供されているので安全にインフラを共有することが可能です。</p>
 <h2 id="pulumiの仕組み"><a href="#pulumiの仕組み" class="header-anchor"></a>4. <a href="#Pulumiの仕組み" class="headerlink" title="Pulumiの仕組み"></a>Pulumiの仕組み</h2><p>Pulumiの仕組みは以下のとおりです。</p>
@@ -403,9 +393,11 @@
 <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
 <a class="a2a_button_facebook"></a>
 <a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
+
         
     </div>
 </div>
@@ -446,12 +438,15 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
-<div class="card widget profile">
+<div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         hinastory
@@ -503,7 +498,7 @@
                 </div>
             </div>
         </nav>
-
+        
         
         
         <div class="level is-mobile">
@@ -542,10 +537,6 @@
 </div>
     
         
-    
-        
-
-
     
         
 <div class="card widget">
@@ -668,8 +659,7 @@
     
         <div class="column-right-shadow is-hidden-widescreen ">
         
-            
-<div class="card widget">
+            <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -686,8 +676,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -706,8 +695,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -726,8 +714,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -746,8 +733,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -766,8 +752,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -777,10 +762,8 @@
         
     </div>
 </div>
-
         
-            
-<div class="card widget tag-cloud">
+            <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -788,7 +771,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
         
             <div class="card widget">
     <div class="card-content">
@@ -801,7 +783,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -812,7 +794,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -823,7 +805,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -834,7 +816,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -845,7 +827,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -856,7 +838,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -867,7 +849,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -878,7 +860,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -889,7 +871,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -900,7 +882,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -919,449 +901,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -1377,8 +1199,7 @@
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -1395,8 +1216,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -1415,8 +1235,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -1435,8 +1254,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -1455,8 +1273,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1475,8 +1292,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1486,10 +1302,8 @@
         
     </div>
 </div>
-
     
-        
-<div class="card widget tag-cloud">
+        <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -1497,7 +1311,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
     
         <div class="card widget">
     <div class="card-content">
@@ -1510,7 +1323,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1521,7 +1334,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1532,7 +1345,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1543,7 +1356,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1554,7 +1367,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1565,7 +1378,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1576,7 +1389,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1587,7 +1400,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1598,7 +1411,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1609,7 +1422,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1628,449 +1441,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -2106,20 +1759,30 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("ja");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
 
     
     
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/cats-cats-cats/js/gallery.js" defer></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
 
     
     
-
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
     <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
@@ -2137,37 +1800,44 @@
     });
 </script>
 
-
     
-    
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
-
     
     
-
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
 
-
-    
-    
-
     
     
     
     
-
+    
+    
+    
+    
     
     
     

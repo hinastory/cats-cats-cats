@@ -15,10 +15,10 @@
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="Scala3のリサーチコンパイラであるDottyにImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。 (2019年3月10日追記・更新: 追記内容はここを見てください) (2019年6月22日追記・更新: 追記内容はここを見てください) (2019年9月15日追記・更新: 追記内容はここを見てください) (2">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
 <meta property="og:updated_time" content="2019-11-02T01:32:57.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
 
 
 
@@ -34,35 +34,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
 
 
     
     
-    
-    
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
 
-
     
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -71,17 +62,15 @@
     gtag('config', 'UA-132406459-1');
 </script>
 
-
     
     
     
     
-
     
-    
-<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
+    
+    
     
 
 
@@ -133,7 +122,8 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
     <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
         
             Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)
@@ -242,17 +232,17 @@
 </ul>
 <h2 id="味見の方法"><a href="#味見の方法" class="header-anchor"></a>5. <a href="#味見の方法" class="headerlink" title="味見の方法"></a>味見の方法</h2><a href="https://github.com/lampepfl/dotty/releases/tag/0.16.0-RC3" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>から`dotty-0.19.0-RC1.zip`をダウンロードして解凍します。解凍後のフォルダの`bin`にパスを通せば利用できるようになります。
 <p><code>dotc</code>がコンパイラです。<code>dotr</code>はクラス名を指定するとコンパイル済みのバイナリを実行します。単独で起動した場合にはREPLになります。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ dotc &lt;ソースファイル名&gt; <span class="hljs-comment"># ソースコードのコンパイル</span><br>$ dotr &lt;メインクラス名&gt; <span class="hljs-comment"># コンパイル済みのコードを実行</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ dotc &lt;ソースファイル名&gt; <span class="hljs-comment"># ソースコードのコンパイル</span><br>$ dotr &lt;メインクラス名&gt; <span class="hljs-comment"># コンパイル済みのコードを実行</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>もしくはサンプルコードをGitHubで公開したので、<code>sbt</code>をすでにインストールされている方はそちらの方が早いと思います。使い方は<code>README.md</code>をご覧ください</p>
 <a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></a>
 
 <h2 id="味見の結果"><a href="#味見の結果" class="header-anchor"></a>6. <a href="#味見の結果" class="headerlink" title="味見の結果"></a>味見の結果</h2><p>Dottyドキュメントに記載されている例をベースに味見をしてみました<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup>。</p>
 <h3 id="基本的な例"><a href="#基本的な例" class="header-anchor"></a>6.1. <a href="#基本的な例" class="headerlink" title="基本的な例"></a>基本的な例</h3><p>従来のImplicitsが分かっている人から見れば、おおよそ以下のコードの意味が分かると思います。<br>拡張メソッド記法だけは、最初は戸惑うかもしれません。自分は最初Go言語に似ているなと思いました・・・</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-comment">/** `given`インスタンス、`given`パラメータのサンプル */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">GivenExampleDefs</span> </span>{<br>  <span class="hljs-comment">/** 順序型の定義 */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Ord</span>[<span class="hljs-type">T</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>): <span class="hljs-type">Int</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) &lt; (y: <span class="hljs-type">T</span>) = compare(x, y) &lt; <span class="hljs-number">0</span> <span class="hljs-comment">// 拡張メソッド記法を使って定義してあります</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) &gt; (y: <span class="hljs-type">T</span>) = compare(x, y) &gt; <span class="hljs-number">0</span> <span class="hljs-comment">// 上記と同様</span><br>  }<br><br>  <span class="hljs-comment">/** 順序型のIntの`given`インスタンスの定義 */</span><br>  given intOrd: <span class="hljs-type">Ord</span>[<span class="hljs-type">Int</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span>) =<br>      <span class="hljs-keyword">if</span> x &lt; y then <span class="hljs-number">-1</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> x &gt; y then +<span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>  }<br><br>  <span class="hljs-comment">/** 順序型のListの`given`インスタンスの定義 */</span><br>  given listOrd[<span class="hljs-type">T</span>](given ord: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Ord</span>[<span class="hljs-type">List</span>[<span class="hljs-type">T</span>]] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>], ys: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Int</span> = (xs, ys) <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> (<span class="hljs-type">Nil</span>, <span class="hljs-type">Nil</span>) =&gt; <span class="hljs-number">0</span><br>      <span class="hljs-keyword">case</span> (<span class="hljs-type">Nil</span>, _) =&gt; <span class="hljs-number">-1</span> <span class="hljs-comment">// 空リストよりも非空リストの方が大きい</span><br>      <span class="hljs-keyword">case</span> (_, <span class="hljs-type">Nil</span>) =&gt; +<span class="hljs-number">1</span> <span class="hljs-comment">// 同上</span><br>      <span class="hljs-keyword">case</span> (x :: xs1, y :: ys1) =&gt;<br>        <span class="hljs-keyword">val</span> fst = ord.compare(x, y) <span class="hljs-comment">// 先頭の大きさがLists全体の大きさ</span><br>        <span class="hljs-keyword">if</span> fst != <span class="hljs-number">0</span> then fst <span class="hljs-keyword">else</span> compare(xs1, ys1) <span class="hljs-comment">// 同じだったら次の要素を再帰的に繰り返す</span><br>    }<br>  }<br><br>  <span class="hljs-comment">/** `given`パラメータ */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">max</span></span>[<span class="hljs-type">T</span>](x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>)(given ord: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> =<br>    <span class="hljs-keyword">if</span> ord.compare(x, y) &lt; <span class="hljs-number">1</span> then y <span class="hljs-keyword">else</span> x<br><br>  <span class="hljs-comment">/** 無名`given`パラメータ */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maximum</span></span>[<span class="hljs-type">T</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>])(given <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> = xs.reduceLeft(max)<br><br>  <span class="hljs-comment">/** コンテキスト境界使った書き換え(Scala2と同様) */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maximum2</span></span>[<span class="hljs-type">T</span>: <span class="hljs-type">Ord</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> = xs.reduceLeft(max)<br><br>  <span class="hljs-comment">/** `given`パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">descending</span></span>[<span class="hljs-type">T</span>](given asc: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>) = asc.compare(y, x)<br>  }<br><br>  <span class="hljs-comment">/** より複雑な推論 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">minimum</span></span>[<span class="hljs-type">T</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>])(given <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]) = maximum(xs)(given descending)<br>}<br><br><span class="hljs-comment">/** `GivenExapmple`の利用方法 */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">GivenExample</span> </span>{<br>  <span class="hljs-keyword">import</span> <span class="hljs-type">GivenExampleDefs</span>.{_, given} <span class="hljs-comment">// givenは　`Ord`の`&lt;`演算子を利用するのに必要</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(): <span class="hljs-type">Unit</span> = {<br>    println( max(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) ) <span class="hljs-comment">// 3</span><br>    println( max(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), <span class="hljs-type">Nil</span>) ) <span class="hljs-comment">// List(1, 2, 3)</span><br>    println(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) &lt; <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)) <span class="hljs-comment">// true</span><br>    println(<span class="hljs-type">List</span>(<span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) &lt; <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)) <span class="hljs-comment">// false</span><br><br>    <span class="hljs-keyword">val</span> numList = <span class="hljs-type">List</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">2</span>)<br>    println( maximum(numList) ) <span class="hljs-comment">// 10</span><br>    println( maximum2(numList) ) <span class="hljs-comment">// 10</span><br>    println( minimum(numList) ) <span class="hljs-comment">// 1</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-comment">/** `given`インスタンス、`given`パラメータのサンプル */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">GivenExampleDefs</span> </span>{<br>  <span class="hljs-comment">/** 順序型の定義 */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Ord</span>[<span class="hljs-type">T</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>): <span class="hljs-type">Int</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) &lt; (y: <span class="hljs-type">T</span>) = compare(x, y) &lt; <span class="hljs-number">0</span> <span class="hljs-comment">// 拡張メソッド記法を使って定義してあります</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) &gt; (y: <span class="hljs-type">T</span>) = compare(x, y) &gt; <span class="hljs-number">0</span> <span class="hljs-comment">// 上記と同様</span><br>  }<br><br>  <span class="hljs-comment">/** 順序型のIntの`given`インスタンスの定義 */</span><br>  given intOrd: <span class="hljs-type">Ord</span>[<span class="hljs-type">Int</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span>) =<br>      <span class="hljs-keyword">if</span> x &lt; y then <span class="hljs-number">-1</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> x &gt; y then +<span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>  }<br><br>  <span class="hljs-comment">/** 順序型のListの`given`インスタンスの定義 */</span><br>  given listOrd[<span class="hljs-type">T</span>](given ord: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Ord</span>[<span class="hljs-type">List</span>[<span class="hljs-type">T</span>]] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>], ys: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Int</span> = (xs, ys) <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> (<span class="hljs-type">Nil</span>, <span class="hljs-type">Nil</span>) =&gt; <span class="hljs-number">0</span><br>      <span class="hljs-keyword">case</span> (<span class="hljs-type">Nil</span>, _) =&gt; <span class="hljs-number">-1</span> <span class="hljs-comment">// 空リストよりも非空リストの方が大きい</span><br>      <span class="hljs-keyword">case</span> (_, <span class="hljs-type">Nil</span>) =&gt; +<span class="hljs-number">1</span> <span class="hljs-comment">// 同上</span><br>      <span class="hljs-keyword">case</span> (x :: xs1, y :: ys1) =&gt;<br>        <span class="hljs-keyword">val</span> fst = ord.compare(x, y) <span class="hljs-comment">// 先頭の大きさがLists全体の大きさ</span><br>        <span class="hljs-keyword">if</span> fst != <span class="hljs-number">0</span> then fst <span class="hljs-keyword">else</span> compare(xs1, ys1) <span class="hljs-comment">// 同じだったら次の要素を再帰的に繰り返す</span><br>    }<br>  }<br><br>  <span class="hljs-comment">/** `given`パラメータ */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">max</span></span>[<span class="hljs-type">T</span>](x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>)(given ord: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> =<br>    <span class="hljs-keyword">if</span> ord.compare(x, y) &lt; <span class="hljs-number">1</span> then y <span class="hljs-keyword">else</span> x<br><br>  <span class="hljs-comment">/** 無名`given`パラメータ */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maximum</span></span>[<span class="hljs-type">T</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>])(given <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> = xs.reduceLeft(max)<br><br>  <span class="hljs-comment">/** コンテキスト境界使った書き換え(Scala2と同様) */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maximum2</span></span>[<span class="hljs-type">T</span>: <span class="hljs-type">Ord</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> = xs.reduceLeft(max)<br><br>  <span class="hljs-comment">/** `given`パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">descending</span></span>[<span class="hljs-type">T</span>](given asc: <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compare</span></span>(x: <span class="hljs-type">T</span>, y: <span class="hljs-type">T</span>) = asc.compare(y, x)<br>  }<br><br>  <span class="hljs-comment">/** より複雑な推論 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">minimum</span></span>[<span class="hljs-type">T</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>])(given <span class="hljs-type">Ord</span>[<span class="hljs-type">T</span>]) = maximum(xs)(given descending)<br>}<br><br><span class="hljs-comment">/** `GivenExapmple`の利用方法 */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">GivenExample</span> </span>{<br>  <span class="hljs-keyword">import</span> <span class="hljs-type">GivenExampleDefs</span>.{_, given} <span class="hljs-comment">// givenは　`Ord`の`&lt;`演算子を利用するのに必要</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(): <span class="hljs-type">Unit</span> = {<br>    println( max(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) ) <span class="hljs-comment">// 3</span><br>    println( max(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), <span class="hljs-type">Nil</span>) ) <span class="hljs-comment">// List(1, 2, 3)</span><br>    println(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) &lt; <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)) <span class="hljs-comment">// true</span><br>    println(<span class="hljs-type">List</span>(<span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) &lt; <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)) <span class="hljs-comment">// false</span><br><br>    <span class="hljs-keyword">val</span> numList = <span class="hljs-type">List</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">2</span>)<br>    println( maximum(numList) ) <span class="hljs-comment">// 10</span><br>    println( maximum2(numList) ) <span class="hljs-comment">// 10</span><br>    println( minimum(numList) ) <span class="hljs-comment">// 1</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="高度な例"><a href="#高度な例" class="header-anchor"></a>6.2. <a href="#高度な例" class="headerlink" title="高度な例"></a>高度な例</h3><p>型クラスの高度な実装例です。高度なのでわからない人はスルーしてください。<br>モナドとは・・・という禅問答をここでする気はないです・・・</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-comment">/** 型クラスのサンプル */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">TypeClassExampleDefs</span> </span>{<br>  <span class="hljs-comment">/** 半群の型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">SemiGroup</span>[<span class="hljs-type">T</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) combine (y: <span class="hljs-type">T</span>): <span class="hljs-type">T</span><br>  }<br><br>  <span class="hljs-comment">/**モノイドの型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[<span class="hljs-type">T</span>] <span class="hljs-keyword">extends</span> <span class="hljs-title">SemiGroup</span>[<span class="hljs-type">T</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unit</span></span>: <span class="hljs-type">T</span><br>  }<br><br>  <span class="hljs-comment">/** applyでモノイドを召喚<br>   * `summon`はScala2の`implicitly`相当<br>   */</span><br>  <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Monoid</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">T</span>](given <span class="hljs-type">Monoid</span>[<span class="hljs-type">T</span>]) = summon[<span class="hljs-type">Monoid</span>[<span class="hljs-type">T</span>]]<br>  }<br><br>  <span class="hljs-comment">/** `String`のモノイド */</span><br>  given <span class="hljs-type">Monoid</span>[<span class="hljs-type">String</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">String</span>) combine (y: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = x.concat(y)<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unit</span></span>: <span class="hljs-type">String</span> = <span class="hljs-string">""</span><br>  }<br><br>  <span class="hljs-comment">/** `Int`のモノイド */</span><br>  given <span class="hljs-type">Monoid</span>[<span class="hljs-type">Int</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">Int</span>) combine (y: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = x + y<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unit</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span><br>  }<br><br>  <span class="hljs-comment">/** モノイドの和を求める */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">T</span>: <span class="hljs-type">Monoid</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> =<br>    xs.foldLeft(<span class="hljs-type">Monoid</span>[<span class="hljs-type">T</span>].unit)(_.combine(_))<br><br><br>  <span class="hljs-comment">/** 関手の型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]) map [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br>  }<br><br>  <span class="hljs-comment">/** モナドの型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">F</span>[_]] <span class="hljs-keyword">extends</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])flatMap [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])map [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>) = x.flatMap(f `andThen` pure)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]<br>  }<br><br>  <span class="hljs-comment">/** リストモナドのインスタンスを定義 */</span><br>  given listMonad: <span class="hljs-type">Monad</span>[<span class="hljs-type">List</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(xs: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>]) flatMap [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">List</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">List</span>[<span class="hljs-type">B</span>] =<br>      xs.flatMap(f)<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>): <span class="hljs-type">List</span>[<span class="hljs-type">A</span>] =<br>      <span class="hljs-type">List</span>(x)<br>  }<br><br>  <span class="hljs-comment">/** リーダモナドのインスタンスを定義 */</span><br>  given readerMonad[<span class="hljs-type">Ctx</span>]: <span class="hljs-type">Monad</span>[[<span class="hljs-type">X</span>] =&gt;&gt; <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">X</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(r: <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">A</span>) flatMap [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">B</span> =<br>      ctx =&gt; f(r(ctx))(ctx)<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>): <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">A</span> =<br>      ctx =&gt; x<br>  }<br><br>  <span class="hljs-comment">/** 関手の利用 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](src: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], func: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>)(given <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = src.map(func)<br><br>  <span class="hljs-comment">/** コンテキスト境界を使った書き換え */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform2</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Functor</span>, <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](src: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], func: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = src.map(func)<br>}<br><br><span class="hljs-comment">/** `TypeClassExampleDefs`の利用方法 */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">TypeClassExample</span> </span>{<br>  <span class="hljs-keyword">import</span> <span class="hljs-type">TypeClassExampleDefs</span>.{given, _}<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(): <span class="hljs-type">Unit</span> = {<br>    println( sum(<span class="hljs-type">List</span>(<span class="hljs-string">"abc"</span>, <span class="hljs-string">"def"</span>, <span class="hljs-string">"gh"</span>)) ) <span class="hljs-comment">// "abcdefgh"</span><br>    println( sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) ) <span class="hljs-comment">// 6</span><br><br>    println( transform(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), (_:<span class="hljs-type">Int</span>) * <span class="hljs-number">2</span>) ) <span class="hljs-comment">// List(2, 4, 6)</span><br><br>    <span class="hljs-keyword">val</span> calc: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = <span class="hljs-keyword">for</span> {<br>      x &lt;- (e:<span class="hljs-type">Int</span>) =&gt; e + <span class="hljs-number">1</span><br>      y &lt;- (e:<span class="hljs-type">Int</span>) =&gt; e * <span class="hljs-number">10</span><br>    }<br>    <span class="hljs-keyword">yield</span> x + y<br><br>    println( calc(<span class="hljs-number">3</span>) ) <span class="hljs-comment">// 34</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-comment">/** 型クラスのサンプル */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">TypeClassExampleDefs</span> </span>{<br>  <span class="hljs-comment">/** 半群の型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">SemiGroup</span>[<span class="hljs-type">T</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">T</span>) combine (y: <span class="hljs-type">T</span>): <span class="hljs-type">T</span><br>  }<br><br>  <span class="hljs-comment">/**モノイドの型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[<span class="hljs-type">T</span>] <span class="hljs-keyword">extends</span> <span class="hljs-title">SemiGroup</span>[<span class="hljs-type">T</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unit</span></span>: <span class="hljs-type">T</span><br>  }<br><br>  <span class="hljs-comment">/** applyでモノイドを召喚<br>   * `summon`はScala2の`implicitly`相当<br>   */</span><br>  <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Monoid</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">T</span>](given <span class="hljs-type">Monoid</span>[<span class="hljs-type">T</span>]) = summon[<span class="hljs-type">Monoid</span>[<span class="hljs-type">T</span>]]<br>  }<br><br>  <span class="hljs-comment">/** `String`のモノイド */</span><br>  given <span class="hljs-type">Monoid</span>[<span class="hljs-type">String</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">String</span>) combine (y: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = x.concat(y)<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unit</span></span>: <span class="hljs-type">String</span> = <span class="hljs-string">""</span><br>  }<br><br>  <span class="hljs-comment">/** `Int`のモノイド */</span><br>  given <span class="hljs-type">Monoid</span>[<span class="hljs-type">Int</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">Int</span>) combine (y: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = x + y<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unit</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span><br>  }<br><br>  <span class="hljs-comment">/** モノイドの和を求める */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">T</span>: <span class="hljs-type">Monoid</span>](xs: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>]): <span class="hljs-type">T</span> =<br>    xs.foldLeft(<span class="hljs-type">Monoid</span>[<span class="hljs-type">T</span>].unit)(_.combine(_))<br><br><br>  <span class="hljs-comment">/** 関手の型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]) map [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br>  }<br><br>  <span class="hljs-comment">/** モナドの型クラス */</span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">F</span>[_]] <span class="hljs-keyword">extends</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>] </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])flatMap [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])map [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>) = x.flatMap(f `andThen` pure)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]<br>  }<br><br>  <span class="hljs-comment">/** リストモナドのインスタンスを定義 */</span><br>  given listMonad: <span class="hljs-type">Monad</span>[<span class="hljs-type">List</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(xs: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>]) flatMap [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">List</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">List</span>[<span class="hljs-type">B</span>] =<br>      xs.flatMap(f)<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>): <span class="hljs-type">List</span>[<span class="hljs-type">A</span>] =<br>      <span class="hljs-type">List</span>(x)<br>  }<br><br>  <span class="hljs-comment">/** リーダモナドのインスタンスを定義 */</span><br>  given readerMonad[<span class="hljs-type">Ctx</span>]: <span class="hljs-type">Monad</span>[[<span class="hljs-type">X</span>] =&gt;&gt; <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">X</span>] {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>(r: <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">A</span>) flatMap [<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] (f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">B</span> =<br>      ctx =&gt; f(r(ctx))(ctx)<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>): <span class="hljs-type">Ctx</span> =&gt; <span class="hljs-type">A</span> =<br>      ctx =&gt; x<br>  }<br><br>  <span class="hljs-comment">/** 関手の利用 */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](src: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], func: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>)(given <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = src.map(func)<br><br>  <span class="hljs-comment">/** コンテキスト境界を使った書き換え */</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transform2</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Functor</span>, <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](src: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], func: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = src.map(func)<br>}<br><br><span class="hljs-comment">/** `TypeClassExampleDefs`の利用方法 */</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">TypeClassExample</span> </span>{<br>  <span class="hljs-keyword">import</span> <span class="hljs-type">TypeClassExampleDefs</span>.{given, _}<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(): <span class="hljs-type">Unit</span> = {<br>    println( sum(<span class="hljs-type">List</span>(<span class="hljs-string">"abc"</span>, <span class="hljs-string">"def"</span>, <span class="hljs-string">"gh"</span>)) ) <span class="hljs-comment">// "abcdefgh"</span><br>    println( sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) ) <span class="hljs-comment">// 6</span><br><br>    println( transform(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), (_:<span class="hljs-type">Int</span>) * <span class="hljs-number">2</span>) ) <span class="hljs-comment">// List(2, 4, 6)</span><br><br>    <span class="hljs-keyword">val</span> calc: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = <span class="hljs-keyword">for</span> {<br>      x &lt;- (e:<span class="hljs-type">Int</span>) =&gt; e + <span class="hljs-number">1</span><br>      y &lt;- (e:<span class="hljs-type">Int</span>) =&gt; e * <span class="hljs-number">10</span><br>    }<br>    <span class="hljs-keyword">yield</span> x + y<br><br>    println( calc(<span class="hljs-number">3</span>) ) <span class="hljs-comment">// 34</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="contextual-abstractionsのその他の機能"><a href="#contextual-abstractionsのその他の機能" class="header-anchor"></a>7. <a href="#Contextual-Abstractionsのその他の機能" class="headerlink" title="Contextual Abstractionsのその他の機能"></a>Contextual Abstractionsのその他の機能</h2><p>Contextual Abstractionsの機能で味見できなかった機能を簡単に紹介します。</p>
 <ul>
@@ -329,9 +319,11 @@
 <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
 <a class="a2a_button_facebook"></a>
 <a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
+
         
     </div>
 </div>
@@ -372,12 +364,15 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
-<div class="card widget profile">
+<div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         hinastory
@@ -429,7 +424,7 @@
                 </div>
             </div>
         </nav>
-
+        
         
         
         <div class="level is-mobile">
@@ -468,10 +463,6 @@
 </div>
     
         
-    
-        
-
-
     
         
 <div class="card widget">
@@ -594,8 +585,7 @@
     
         <div class="column-right-shadow is-hidden-widescreen ">
         
-            
-<div class="card widget">
+            <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -612,8 +602,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -632,8 +621,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -652,8 +640,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -672,8 +659,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -692,8 +678,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -703,10 +688,8 @@
         
     </div>
 </div>
-
         
-            
-<div class="card widget tag-cloud">
+            <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -714,7 +697,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
         
             <div class="card widget">
     <div class="card-content">
@@ -727,7 +709,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -738,7 +720,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -749,7 +731,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -760,7 +742,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -771,7 +753,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -782,7 +764,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -793,7 +775,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -804,7 +786,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -815,7 +797,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -826,7 +808,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -845,449 +827,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -1303,8 +1125,7 @@
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -1321,8 +1142,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -1341,8 +1161,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -1361,8 +1180,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -1381,8 +1199,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1401,8 +1218,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1412,10 +1228,8 @@
         
     </div>
 </div>
-
     
-        
-<div class="card widget tag-cloud">
+        <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -1423,7 +1237,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
     
         <div class="card widget">
     <div class="card-content">
@@ -1436,7 +1249,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1447,7 +1260,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1458,7 +1271,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1469,7 +1282,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1480,7 +1293,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1491,7 +1304,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1502,7 +1315,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1513,7 +1326,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1524,7 +1337,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1535,7 +1348,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1554,449 +1367,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -2032,20 +1685,30 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("ja");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
 
     
     
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/cats-cats-cats/js/gallery.js" defer></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
 
     
     
-
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
     <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
@@ -2063,37 +1726,44 @@
     });
 </script>
 
-
     
-    
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
-
     
     
-
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
 
-
-    
-    
-
     
     
     
     
-
+    
+    
+    
+    
     
     
     

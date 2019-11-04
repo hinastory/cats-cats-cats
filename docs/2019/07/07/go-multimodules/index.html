@@ -15,10 +15,10 @@
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単にgo.modがある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;Go-Logo_LightBlue2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;Go-Logo_LightBlue2.png">
 <meta property="og:updated_time" content="2019-11-02T01:33:10.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;Go-Logo_LightBlue2.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;Go-Logo_LightBlue2.png">
 
 
 
@@ -34,35 +34,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
 
 
     
     
-    
-    
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
 
-
     
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -71,17 +62,15 @@
     gtag('config', 'UA-132406459-1');
 </script>
 
-
     
     
     
     
-
     
-    
-<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
+    
+    
     
 
 
@@ -133,7 +122,8 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
     <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
         
             Go Modulesとマルチモジュール構成でGo Homeする方法
@@ -194,57 +184,57 @@
 
 <h2 id="go-modulesとは"><a href="#go-modulesとは" class="header-anchor"></a>2. <a href="#Go-Modulesとは" class="headerlink" title="Go Modulesとは"></a>Go Modulesとは</h2><p>とりあえず、<code>Go Modules is 何？</code>という方の為に簡単に説明します。ご存知の方はこの節を飛ばしてください。</p>
 <p>Go ModulesはGo 1.11から試験的に導入され、Go 1.13からデフォルトで有効になる予定の新しいパッケージ依存関係の管理方法です。使ってみた実感としてはすでに充分実用的なので新規にプロジェクトを作成する場合はGo Modulesを使って作成することをオススメします。Go 1.12でGo Modulesを有効にするためには、GOPATH以外のパスで作業をするか以下で環境変数を設定します。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">export GO111MODULE=on<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">export GO111MODULE=on<br></code></pre></td></tr></tbody></table></figure>
 
 <p>この記事ではGo 1.12の前提で解説します。</p>
 <h2 id="go-modulesで管理を始める"><a href="#go-modulesで管理を始める" class="header-anchor"></a>3. <a href="#Go-Modulesで管理を始める" class="headerlink" title="Go Modulesで管理を始める"></a>Go Modulesで管理を始める</h2><p>基本はディレクトリを作成して<code>go mod init &lt;モジュール名&gt;</code>で始められます。</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ mkdir go-multi-modules<br>$ <span class="hljs-built_in">cd</span> go-multi-modules<br>$ go mod init go-multi-modules<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ mkdir go-multi-modules<br>$ <span class="hljs-built_in">cd</span> go-multi-modules<br>$ go mod init go-multi-modules<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>go.mod</code>というファイルが作成されています。これが依存関係を管理するファイルになります。</p>
-<figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="まずは基本のおはようの挨拶から"><a href="#まずは基本のおはようの挨拶から" class="header-anchor"></a>3.1. <a href="#まずは基本のおはようの挨拶から" class="headerlink" title="まずは基本のおはようの挨拶から"></a>まずは基本のおはようの挨拶から</h3><p>早速ですが、基本どおり<code>Hello World</code>から初めて見ます。ただし、依存関係を入れるために <a href="https://github.com/common-nighthawk/go-figure" target="_blank" rel="noopener">go-figure<i class="fas fa-external-link-alt fa-fw"></i></a>を利用して挨拶をしてみます。ソースコードは以下の通りです。</p>
-<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span>(<br>  <span class="hljs-string">"github.com/common-nighthawk/go-figure"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>  myFigure := figure.NewFigure(<span class="hljs-string">"Hello World"</span>, <span class="hljs-string">""</span>, <span class="hljs-literal">true</span>)<br>  myFigure.Print()<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight go hljs"><figcaption><span>main.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span>(<br>  <span class="hljs-string">"github.com/common-nighthawk/go-figure"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>  myFigure := figure.NewFigure(<span class="hljs-string">"Hello World"</span>, <span class="hljs-string">""</span>, <span class="hljs-literal">true</span>)<br>  myFigure.Print()<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>go build</code>をすると依存関係があるパッケージがダウンロードされて、ビルドされます。事前に<code>go get</code>する必要がないので、これだけでもGo Modulesの良さがわかります。<code>./go-multi-modules</code>で実行して無事挨拶ができれば成功です。</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ go build<br>go: finding github.com/common-nighthawk/go-figure latest<br>$  ./go-multi-modules<br>  _   _          _   _            __        __                 _       _<br> | | | |   ___  | | | |   ___     \ \      / /   ___    _ __  | |   __| |<br> | |_| |  / _ \ | | | |  / _ \     \ \ /\ / /   / _ \  | <span class="hljs-string">'__| | |  / _` |<br> |  _  | |  __/ | | | | | (_) |     \ V  V /   | (_) | | |    | | | (_| |<br> |_| |_|  \___| |_| |_|  \___/       \_/\_/     \___/  |_|    |_|  \__,_|</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ go build<br>go: finding github.com/common-nighthawk/go-figure latest<br>$  ./go-multi-modules<br>  _   _          _   _            __        __                 _       _<br> | | | |   ___  | | | |   ___     \ \      / /   ___    _ __  | |   __| |<br> | |_| |  / _ \ | | | |  / _ \     \ \ /\ / /   / _ \  | <span class="hljs-string">'__| | |  / _` |<br> |  _  | |  __/ | | | | | (_) |     \ V  V /   | (_) | | |    | | | (_| |<br> |_| |_|  \___| |_| |_|  \___/       \_/\_/     \___/  |_|    |_|  \__,_|</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>go.mod</code>ファイルを見てみると<code>require</code>の行が追加されて依存関係が追跡されているのが分かります。</p>
-<figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br><br>require github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br><br>require github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a<br></code></pre></td></tr></tbody></table></figure>
 
 <p>また、go.sumというファイルも生成されます。依存関係の管理はgo.modだけでもできますが、<code>go.sum</code>は検査用に必要なようです。詳しくは <a href="https://github.com/golang/go/wiki/Modules#should-i-commit-my-gosum-file-as-well-as-my-gomod-file" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</p>
-<figure class="highlight plain"><figcaption><span>go.sum</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ">github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a h1:kTv7wPomOuRf17BKQKO5Y6GrKsYC52XHrjf26H6FdQU=<br>github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a/go.mod h1:mk5IQ+Y0ZeO87b858TlA645sVcEcbiX6YqP98kt+7+w=<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>go.sum</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ">github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a h1:kTv7wPomOuRf17BKQKO5Y6GrKsYC52XHrjf26H6FdQU=<br>github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a/go.mod h1:mk5IQ+Y0ZeO87b858TlA645sVcEcbiX6YqP98kt+7+w=<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="おはようの挨拶をパッケージにしてみる"><a href="#おはようの挨拶をパッケージにしてみる" class="header-anchor"></a>3.2. <a href="#おはようの挨拶をパッケージにしてみる" class="headerlink" title="おはようの挨拶をパッケージにしてみる"></a>おはようの挨拶をパッケージにしてみる</h3><p>さて、挨拶は毎日するものです。せっかくなので再利用可能なようにパッケージとして分離してみます。<code>pkg</code>ディレクトリを作成し<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>、その下に<code>hello-world</code>ディレクトリを作成して、その下に<code>hello-world.go</code>ファイルを作成します。ディレクトリ構成は以下の通りです。今回は<code>helloworld</code>というパッケージを作成します。</p>
-<figure class="highlight plain"><figcaption><span>ディレクトリ構成</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ">.<br>├── go-multi-modules // `go build`で生成された実行ファイル<br>├── go.mod // `go mod init` で生成されたモジュール管理ファイル<br>├── go.sum // `go build`で生成されたモジュール管理ファイル（検査用）<br>├── main.go // メインファイル<br>└── pkg<br>    └── hello-world<br>        └── hello-world.go // 新規追加<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>ディレクトリ構成</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ">.<br>├── go-multi-modules // `go build`で生成された実行ファイル<br>├── go.mod // `go mod init` で生成されたモジュール管理ファイル<br>├── go.sum // `go build`で生成されたモジュール管理ファイル（検査用）<br>├── main.go // メインファイル<br>└── pkg<br>    └── hello-world<br>        └── hello-world.go // 新規追加<br></code></pre></td></tr></tbody></table></figure>
 
 
 <p><code>hello-world.go</code>ファイルの中身は以下の通りです。</p>
-<figure class="highlight go"><figcaption><span>hello-world.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> helloworld<br><br><span class="hljs-keyword">import</span>(<br>	<span class="hljs-string">"github.com/common-nighthawk/go-figure"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">HelloWorld</span><span class="hljs-params">()</span></span> {<br>	myFigure := figure.NewFigure(<span class="hljs-string">"Hello World"</span>, <span class="hljs-string">""</span>, <span class="hljs-literal">true</span>)<br>  myFigure.Print()<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight go hljs"><figcaption><span>hello-world.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> helloworld<br><br><span class="hljs-keyword">import</span>(<br>	<span class="hljs-string">"github.com/common-nighthawk/go-figure"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">HelloWorld</span><span class="hljs-params">()</span></span> {<br>	myFigure := figure.NewFigure(<span class="hljs-string">"Hello World"</span>, <span class="hljs-string">""</span>, <span class="hljs-literal">true</span>)<br>  myFigure.Print()<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>main.go</code>ファイルは以下のように書き換えます。</p>
-<figure class="highlight go"><figcaption><span>hello-world.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">"go-multi-modules/pkg/hello-world"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>	helloworld.HelloWorld()<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight go hljs"><figcaption><span>hello-world.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">"go-multi-modules/pkg/hello-world"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>	helloworld.HelloWorld()<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>go build</code>でビルドして<code>./go-multi-modules</code>で実行して同じように挨拶ができたら成功です。</p>
 <h3 id="go-homeしようとして失敗する"><a href="#go-homeしようとして失敗する" class="header-anchor"></a>3.3. <a href="#Go-Homeしようとして失敗する" class="headerlink" title="Go Homeしようとして失敗する"></a>Go Homeしようとして失敗する</h3><p>さて、挨拶も済んだのでもう用はありません。帰宅したくなってきたとします。ただし、帰宅時間まで細かく管理されたくないので別モジュールで管理することを考えます。この場合、<code>pkg</code>ディレクトリ配下に<code>go-home</code>ディレクトリを作成して、<code>go-home</code>ディレクトリに移動してから<code>go mod init gohome</code>を実行します。<br>ディレクトリ構成は以下のようになります。</p>
-<figure class="highlight plain"><figcaption><span>ディレクトリ構成</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ">.<br>├── go-multi-modules // `go build`で生成された実行ファイル<br>├── go.mod // `go mod init` で生成されたモジュール管理ファイル<br>├── go.sum // `go build`で生成されたモジュール管理ファイル（検査用）<br>├── main.go // メインファイル<br>└── pkg<br>    ├── go-home // このディレクトリ配下は別モジュールになる<br>    │&nbsp;&nbsp; ├── go.mod // `go mod init`で生成される<br>    │&nbsp;&nbsp; └── home.go // 新規追加<br>    └── hello-world<br>        └── hello-world.go // 挨拶パッケージ<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>ディレクトリ構成</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ">.<br>├── go-multi-modules // `go build`で生成された実行ファイル<br>├── go.mod // `go mod init` で生成されたモジュール管理ファイル<br>├── go.sum // `go build`で生成されたモジュール管理ファイル（検査用）<br>├── main.go // メインファイル<br>└── pkg<br>    ├── go-home // このディレクトリ配下は別モジュールになる<br>    │&nbsp;&nbsp; ├── go.mod // `go mod init`で生成される<br>    │&nbsp;&nbsp; └── home.go // 新規追加<br>    └── hello-world<br>        └── hello-world.go // 挨拶パッケージ<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>go-home</code>配下の<code>go.mod</code>は以下のようになります。初期化しただけなので<code>require</code>はありません。</p>
-<figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">module gohome<br><br>go 1.12<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">module gohome<br><br>go 1.12<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>home.go</code>は以下のようになります。</p>
-<figure class="highlight go"><figcaption><span>home.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> gohome<br><br><span class="hljs-keyword">import</span>(<span class="hljs-string">"github.com/common-nighthawk/go-figure"</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">GoHome</span><span class="hljs-params">()</span></span> {<br>	figure.NewFigure(<span class="hljs-string">"Go Home!"</span>, <span class="hljs-string">"basic"</span>, <span class="hljs-literal">true</span>).Scroll(<span class="hljs-number">30000</span>, <span class="hljs-number">400</span>, <span class="hljs-string">"right"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight go hljs"><figcaption><span>home.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> gohome<br><br><span class="hljs-keyword">import</span>(<span class="hljs-string">"github.com/common-nighthawk/go-figure"</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">GoHome</span><span class="hljs-params">()</span></span> {<br>	figure.NewFigure(<span class="hljs-string">"Go Home!"</span>, <span class="hljs-string">"basic"</span>, <span class="hljs-literal">true</span>).Scroll(<span class="hljs-number">30000</span>, <span class="hljs-number">400</span>, <span class="hljs-string">"right"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>main.go</code>は以下のように書き換えます。</p>
-<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">"go-multi-modules/pkg/hello-world"</span><br>	<span class="hljs-string">"go-multi-modules/pkg/go-home"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>	helloworld.HelloWorld()<br>	gohome.GoHome()<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight go hljs"><figcaption><span>main.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">"go-multi-modules/pkg/hello-world"</span><br>	<span class="hljs-string">"go-multi-modules/pkg/go-home"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>	helloworld.HelloWorld()<br>	gohome.GoHome()<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>これをトップディレクトリ(<code>go-multi-modules</code>ディレクトリ)で<code>go build</code>でビルドしようとしたところ以下のようなエラーが出てうまくいきませんでした。どうやらモジュールの読み込みに失敗したようです。</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ go build<br>build go-multi-modules: cannot load go-multi-modules/pkg/go-home: cannot find module providing package go-multi-modules/pkg/go-home<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ go build<br>build go-multi-modules: cannot load go-multi-modules/pkg/go-home: cannot find module providing package go-multi-modules/pkg/go-home<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="replaceのおかげでgo-homeに成功する"><a href="#replaceのおかげでgo-homeに成功する" class="header-anchor"></a>3.4. <a href="#replaceのおかげでGo-Homeに成功する" class="headerlink" title="replaceのおかげでGo Homeに成功する"></a><code>replace</code>のおかげでGo Homeに成功する</h3><p>解決方法は簡単で親の<code>go.mod</code>に以下の<code>replace</code>ディレクティブを記述することでした。</p>
 <p><code>replace go-multi-modules/pkg/go-home =&gt; ./pkg/go-home</code></p>
 <p><code>replace</code>ディレクティブを記述して<code>go build</code>をするとビルドが成功します。<br>以下は<code>go build</code>後の<code>go.mod</code>です。依存関係(<code>require</code>)が追加されています。</p>
-<figure class="highlight plain"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br><br>require (<br>        github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a<br>        go-multi-modules/pkg/go-home v0.0.0-00010101000000-000000000000<br>)<br><br>replace go-multi-modules/pkg/go-home =&gt; ./pkg/go-home //追加<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>go.mod</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ">module go-multi-modules<br><br>go 1.12<br><br>require (<br>        github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a<br>        go-multi-modules/pkg/go-home v0.0.0-00010101000000-000000000000<br>)<br><br>replace go-multi-modules/pkg/go-home =&gt; ./pkg/go-home //追加<br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>さて、ビルドできたら<code>./go-multi-modules</code>で実行してみましょう。一瞬Hello Worldが表示されてその後Go Home!が実行されます。</p>
@@ -299,9 +289,11 @@
 <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
 <a class="a2a_button_facebook"></a>
 <a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
+
         
     </div>
 </div>
@@ -342,12 +334,15 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
-<div class="card widget profile">
+<div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         hinastory
@@ -399,7 +394,7 @@
                 </div>
             </div>
         </nav>
-
+        
         
         
         <div class="level is-mobile">
@@ -438,10 +433,6 @@
 </div>
     
         
-    
-        
-
-
     
         
 <div class="card widget">
@@ -564,8 +555,7 @@
     
         <div class="column-right-shadow is-hidden-widescreen ">
         
-            
-<div class="card widget">
+            <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -582,8 +572,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -602,8 +591,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -622,8 +610,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -642,8 +629,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -662,8 +648,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -673,10 +658,8 @@
         
     </div>
 </div>
-
         
-            
-<div class="card widget tag-cloud">
+            <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -684,7 +667,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
         
             <div class="card widget">
     <div class="card-content">
@@ -697,7 +679,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -708,7 +690,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -719,7 +701,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -730,7 +712,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -741,7 +723,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -752,7 +734,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -763,7 +745,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -774,7 +756,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -785,7 +767,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -796,7 +778,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -815,449 +797,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -1273,8 +1095,7 @@
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -1291,8 +1112,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -1311,8 +1131,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -1331,8 +1150,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -1351,8 +1169,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1371,8 +1188,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1382,10 +1198,8 @@
         
     </div>
 </div>
-
     
-        
-<div class="card widget tag-cloud">
+        <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -1393,7 +1207,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
     
         <div class="card widget">
     <div class="card-content">
@@ -1406,7 +1219,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1417,7 +1230,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1428,7 +1241,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1439,7 +1252,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1450,7 +1263,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1461,7 +1274,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1472,7 +1285,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1483,7 +1296,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1494,7 +1307,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1505,7 +1318,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1524,449 +1337,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -2002,20 +1655,30 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("ja");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
 
     
     
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/cats-cats-cats/js/gallery.js" defer></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
 
     
     
-
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
     <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
@@ -2033,37 +1696,44 @@
     });
 </script>
 
-
     
-    
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
-
     
     
-
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
 
-
-    
-    
-
     
     
     
     
-
+    
+    
+    
+    
     
     
     

@@ -15,10 +15,10 @@
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;daily&#x2F;others&#x2F;loss.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;daily&#x2F;others&#x2F;loss.png">
 <meta property="og:updated_time" content="2019-10-20T22:50:27.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;daily&#x2F;others&#x2F;loss.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;daily&#x2F;others&#x2F;loss.png">
 
 
 
@@ -34,35 +34,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
 
 
     
     
-    
-    
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
 
-
     
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -71,17 +62,15 @@
     gtag('config', 'UA-132406459-1');
 </script>
 
-
     
     
     
     
-
     
-    
-<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
+    
+    
     
 
 
@@ -133,7 +122,8 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
     <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
         
             MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10
@@ -206,7 +196,7 @@
 <img src="/cats-cats-cats/gallery/daily/others/software-update.png" class="">
 
 <p><code>nvidia-smi</code>コマンドが利用できて以下のような感じになればOKです。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> nvidia-smi</span><br>Sun Oct 20 09:55:26 2019<br>+-----------------------------------------------------------------------------+<br>| NVIDIA-SMI 430.26       Driver Version: 430.26       CUDA Version: 10.2     |<br>|-------------------------------+----------------------+----------------------+<br>| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |<br>| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |<br>|===============================+======================+======================|<br>|   0  GeForce GTX 108...  Off  | 00000000:01:00.0  On |                  N/A |<br>| 25%   36C    P8    13W / 250W |    261MiB / 11175MiB |      0%      Default |<br>+-------------------------------+----------------------+----------------------+<br><br>+-----------------------------------------------------------------------------+<br>| Processes:                                                       GPU Memory |<br>|  GPU       PID   Type   Process name                             Usage      |<br>|=============================================================================|<br>|    0      1670      G   /usr/lib/xorg/Xorg                            18MiB |<br>|    0      1704      G   /usr/bin/gnome-shell                          49MiB |<br>|    0      3918      G   /usr/lib/xorg/Xorg                            87MiB |<br>|    0      4031      G   /usr/bin/gnome-shell                         103MiB |<br>+-----------------------------------------------------------------------------+<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> nvidia-smi</span><br>Sun Oct 20 09:55:26 2019<br>+-----------------------------------------------------------------------------+<br>| NVIDIA-SMI 430.26       Driver Version: 430.26       CUDA Version: 10.2     |<br>|-------------------------------+----------------------+----------------------+<br>| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |<br>| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |<br>|===============================+======================+======================|<br>|   0  GeForce GTX 108...  Off  | 00000000:01:00.0  On |                  N/A |<br>| 25%   36C    P8    13W / 250W |    261MiB / 11175MiB |      0%      Default |<br>+-------------------------------+----------------------+----------------------+<br><br>+-----------------------------------------------------------------------------+<br>| Processes:                                                       GPU Memory |<br>|  GPU       PID   Type   Process name                             Usage      |<br>|=============================================================================|<br>|    0      1670      G   /usr/lib/xorg/Xorg                            18MiB |<br>|    0      1704      G   /usr/bin/gnome-shell                          49MiB |<br>|    0      3918      G   /usr/lib/xorg/Xorg                            87MiB |<br>|    0      4031      G   /usr/bin/gnome-shell                         103MiB |<br>+-----------------------------------------------------------------------------+<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="docker-engine-for-community-のインストール"><a href="#docker-engine-for-community-のインストール" class="header-anchor"></a>5. <a href="#Docker-Engine-for-Community-のインストール" class="headerlink" title="Docker Engine for Community のインストール"></a>Docker Engine for Community のインストール</h2><p>以下の手順どおりに実行します。</p>
 <ul>
@@ -215,10 +205,10 @@
 </li>
 </ul>
 <p>以下はコマンドの抜粋です。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt-get remove docker docker-engine docker.io containerd runc<br>$ sudo apt-get update<br>$ sudo apt-get install \<br>    apt-transport-https \<br>    ca-certificates \<br>    curl \<br>    gnupg-agent \<br>    software-properties-common<br>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -<br>$ sudo add-apt-repository \<br>   <span class="hljs-string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \<br>   <span class="hljs-variable">$(lsb_release -cs)</span> \<br>   stable"</span><br>$ sudo apt-get update<br>$ sudo apt-get install docker-ce docker-ce-cli containerd.io<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt-get remove docker docker-engine docker.io containerd runc<br>$ sudo apt-get update<br>$ sudo apt-get install \<br>    apt-transport-https \<br>    ca-certificates \<br>    curl \<br>    gnupg-agent \<br>    software-properties-common<br>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -<br>$ sudo add-apt-repository \<br>   <span class="hljs-string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \<br>   <span class="hljs-variable">$(lsb_release -cs)</span> \<br>   stable"</span><br>$ sudo apt-get update<br>$ sudo apt-get install docker-ce docker-ce-cli containerd.io<br></code></pre></td></tr></tbody></table></figure>
 
 <p>インストール後は「<code>docker version</code>」のコマンドで確認します。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ sudo docker version<br>Client: Docker Engine - Community<br> Version:           19.03.3<br> API version:       1.40<br> Go version:        go1.12.10<br> Git commit:        a872fc2f86<br> Built:             Tue Oct  8 00:59:59 2019<br> OS/Arch:           linux/amd64<br> Experimental:      false<br><br>Server: Docker Engine - Community<br> Engine:<br>  Version:          19.03.3<br>  API version:      1.40 (minimum version 1.12)<br>  Go version:       go1.12.10<br>  Git commit:       a872fc2f86<br>  Built:            Tue Oct  8 00:58:31 2019<br>  OS/Arch:          linux/amd64<br>  Experimental:     false<br> containerd:<br>  Version:          1.2.10<br>  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339<br> nvidia:<br>  Version:          1.0.0-rc8+dev<br>  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657<br> docker-init:<br>  Version:          0.18.0<br>  GitCommit:        fec3683<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ sudo docker version<br>Client: Docker Engine - Community<br> Version:           19.03.3<br> API version:       1.40<br> Go version:        go1.12.10<br> Git commit:        a872fc2f86<br> Built:             Tue Oct  8 00:59:59 2019<br> OS/Arch:           linux/amd64<br> Experimental:      false<br><br>Server: Docker Engine - Community<br> Engine:<br>  Version:          19.03.3<br>  API version:      1.40 (minimum version 1.12)<br>  Go version:       go1.12.10<br>  Git commit:       a872fc2f86<br>  Built:            Tue Oct  8 00:58:31 2019<br>  OS/Arch:          linux/amd64<br>  Experimental:     false<br> containerd:<br>  Version:          1.2.10<br>  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339<br> nvidia:<br>  Version:          1.0.0-rc8+dev<br>  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657<br> docker-init:<br>  Version:          0.18.0<br>  GitCommit:        fec3683<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="nvidia-container-toolkitのインストール"><a href="#nvidia-container-toolkitのインストール" class="header-anchor"></a>6. <a href="#NVIDIA-Container-Toolkitのインストール" class="headerlink" title="NVIDIA Container Toolkitのインストール"></a>NVIDIA Container Toolkitのインストール</h2><p>以下に従って行います。</p>
 <ul>
@@ -226,16 +216,16 @@
 
 </li>
 </ul>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)<br>$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -<br>$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list<br><br>$ sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)<br>$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -<br>$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list<br><br>$ sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit<br></code></pre></td></tr></tbody></table></figure>
 
 <p>デフォルトのコンテナランタイムを変更するため<code>/etc/docker/daemon.json</code>に以下を記載します。</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json">{<br>    <span class="hljs-attr">"default-runtime"</span>: <span class="hljs-string">"nvidia"</span>,<br>    <span class="hljs-attr">"runtimes"</span>: {<br>        <span class="hljs-attr">"nvidia"</span>: {<br>            <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/usr/bin/nvidia-container-runtime"</span>,<br>            <span class="hljs-attr">"runtimeArgs"</span>: []<br>        }<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight json hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json">{<br>    <span class="hljs-attr">"default-runtime"</span>: <span class="hljs-string">"nvidia"</span>,<br>    <span class="hljs-attr">"runtimes"</span>: {<br>        <span class="hljs-attr">"nvidia"</span>: {<br>            <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/usr/bin/nvidia-container-runtime"</span>,<br>            <span class="hljs-attr">"runtimeArgs"</span>: []<br>        }<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>dockerを再起動します。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo systemctl restart docker<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo systemctl restart docker<br></code></pre></td></tr></tbody></table></figure>
 
 <p>以下のコマンドでdockerからGPUが見えているか確認します。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker run nvidia/cuda:10.0-base nvidia-smi<br>+-----------------------------------------------------------------------------+<br>| NVIDIA-SMI 430.26       Driver Version: 430.26       CUDA Version: 10.2     |<br>|-------------------------------+----------------------+----------------------+<br>| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |<br>| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |<br>|===============================+======================+======================|<br>|   0  GeForce GTX 108...  Off  | 00000000:01:00.0  On |                  N/A |<br>| 25%   37C    P8    13W / 250W |    262MiB / 11175MiB |      0%      Default |<br>+-------------------------------+----------------------+----------------------+<br><br>+-----------------------------------------------------------------------------+<br>| Processes:                                                       GPU Memory |<br>|  GPU       PID   Type   Process name                             Usage      |<br>|=============================================================================|<br>+-----------------------------------------------------------------------------+<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker run nvidia/cuda:10.0-base nvidia-smi<br>+-----------------------------------------------------------------------------+<br>| NVIDIA-SMI 430.26       Driver Version: 430.26       CUDA Version: 10.2     |<br>|-------------------------------+----------------------+----------------------+<br>| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |<br>| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |<br>|===============================+======================+======================|<br>|   0  GeForce GTX 108...  Off  | 00000000:01:00.0  On |                  N/A |<br>| 25%   37C    P8    13W / 250W |    262MiB / 11175MiB |      0%      Default |<br>+-------------------------------+----------------------+----------------------+<br><br>+-----------------------------------------------------------------------------+<br>| Processes:                                                       GPU Memory |<br>|  GPU       PID   Type   Process name                             Usage      |<br>|=============================================================================|<br>+-----------------------------------------------------------------------------+<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="kubectlのインストール"><a href="#kubectlのインストール" class="header-anchor"></a>7. <a href="#kubectlのインストール" class="headerlink" title="kubectlのインストール"></a>kubectlのインストール</h2><p>以下の手順でインストールします。</p>
 <ul>
@@ -243,7 +233,7 @@
 
 </li>
 </ul>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl<br>$ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.16.0/bin/linux/amd64/kubectl<br>$ chmod +x ./kubectl<br>$ sudo mv ./kubectl /usr/<span class="hljs-built_in">local</span>/bin/kubectl<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl<br>$ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.16.0/bin/linux/amd64/kubectl<br>$ chmod +x ./kubectl<br>$ sudo mv ./kubectl /usr/<span class="hljs-built_in">local</span>/bin/kubectl<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="minikubeのインストール"><a href="#minikubeのインストール" class="header-anchor"></a>8. <a href="#Minikubeのインストール" class="headerlink" title="Minikubeのインストール"></a>Minikubeのインストール</h2><p>以下に従って行います。</p>
 <ul>
@@ -251,13 +241,13 @@
 
 </li>
 </ul>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 &amp;&amp; chmod +x minikube<br>$ sudo cp minikube /usr/<span class="hljs-built_in">local</span>/bin &amp;&amp; rm minikube<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 &amp;&amp; chmod +x minikube<br>$ sudo cp minikube /usr/<span class="hljs-built_in">local</span>/bin &amp;&amp; rm minikube<br></code></pre></td></tr></tbody></table></figure>
 
 <p>以下のコマンドでMinikubeを実行します。<code>--vm-driver none</code>がポイントでこれをつけるとホスト上のDockerでKubernetesが実行されます。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo -E minikube start --vm-driver none<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">sudo -E minikube start --vm-driver none<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="dockerイメージの作成"><a href="#dockerイメージの作成" class="header-anchor"></a>9. <a href="#Dockerイメージの作成" class="headerlink" title="Dockerイメージの作成"></a>Dockerイメージの作成</h2><p>まずは機械学習用のDockerfileを作成します。Dockerfileは以下のとおりです。</p>
-<figure class="highlight dockerfile"><figcaption><span>Dockerfile</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><br><span class="hljs-keyword">FROM</span> nvidia/cuda:<span class="hljs-number">10.0</span>-cudnn7-devel<br><br><span class="hljs-keyword">WORKDIR</span><span class="bash"> /<br></span><span class="hljs-keyword">ENV</span> PYENV_ROOT /.pyenv<br><span class="hljs-keyword">ENV</span> PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH<br><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y \<br>    curl \<br>    git \<br>    unzip \<br>    imagemagick \<br>    bzip2 \<br>    graphviz \<br>    vim \<br>    tree \<br>   &amp;&amp; apt-get clean \<br>   &amp;&amp; rm -rf /var/lib/apt/lists/*<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> git <span class="hljs-built_in">clone</span> git://github.com/yyuu/pyenv.git .pyenv<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> pyenv install anaconda3-2019.10<br></span><span class="hljs-keyword">RUN</span><span class="bash"> pyenv global anaconda3-2019.10<br></span><span class="hljs-keyword">RUN</span><span class="bash"> pyenv <span class="hljs-built_in">rehash</span><br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> pip install tensorflow-gpu==2.0.0 gym<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c conda-forge jupyterlab<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda pandas-datareader<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda py-xgboost<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda graphviz<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda h5py<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c conda-forge tqdm<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> mkdir /jupyter<br></span><span class="hljs-keyword">WORKDIR</span><span class="bash"> /jupyter<br></span><br><span class="hljs-keyword">ENV</span> HOME  /jupyter<br><span class="hljs-keyword">ENV</span> LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64<br><span class="hljs-keyword">ENV</span> <span class="hljs-keyword">SHELL</span><span class="bash"> /bin/bash<br></span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8888</span><br><br><span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"jupyter"</span>, <span class="hljs-string">"lab"</span>, <span class="hljs-string">"--ip=0.0.0.0"</span>, <span class="hljs-string">"--no-browser"</span>, <span class="hljs-string">"--allow-root"</span>, <span class="hljs-string">"--NotebookApp.token=''"</span>]</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight dockerfile hljs"><figcaption><span>Dockerfile</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><br><span class="hljs-keyword">FROM</span> nvidia/cuda:<span class="hljs-number">10.0</span>-cudnn7-devel<br><br><span class="hljs-keyword">WORKDIR</span><span class="bash"> /<br></span><span class="hljs-keyword">ENV</span> PYENV_ROOT /.pyenv<br><span class="hljs-keyword">ENV</span> PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH<br><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y \<br>    curl \<br>    git \<br>    unzip \<br>    imagemagick \<br>    bzip2 \<br>    graphviz \<br>    vim \<br>    tree \<br>   &amp;&amp; apt-get clean \<br>   &amp;&amp; rm -rf /var/lib/apt/lists/*<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> git <span class="hljs-built_in">clone</span> git://github.com/yyuu/pyenv.git .pyenv<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> pyenv install anaconda3-2019.10<br></span><span class="hljs-keyword">RUN</span><span class="bash"> pyenv global anaconda3-2019.10<br></span><span class="hljs-keyword">RUN</span><span class="bash"> pyenv <span class="hljs-built_in">rehash</span><br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> pip install tensorflow-gpu==2.0.0 gym<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c conda-forge jupyterlab<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda pandas-datareader<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda py-xgboost<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda graphviz<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c anaconda h5py<br></span><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c conda-forge tqdm<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> mkdir /jupyter<br></span><span class="hljs-keyword">WORKDIR</span><span class="bash"> /jupyter<br></span><br><span class="hljs-keyword">ENV</span> HOME  /jupyter<br><span class="hljs-keyword">ENV</span> LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64<br><span class="hljs-keyword">ENV</span> <span class="hljs-keyword">SHELL</span><span class="bash"> /bin/bash<br></span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8888</span><br><br><span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"jupyter"</span>, <span class="hljs-string">"lab"</span>, <span class="hljs-string">"--ip=0.0.0.0"</span>, <span class="hljs-string">"--no-browser"</span>, <span class="hljs-string">"--allow-root"</span>, <span class="hljs-string">"--NotebookApp.token=''"</span>]</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>ポイントは以下のとおりです。</p>
 <ul>
@@ -282,48 +272,48 @@
 <li><code>ENTRYPOINT</code>でJupyterLabが起動するように指定する</li>
 </ul>
 <p>次に以下のコマンドでイメージのビルドを行います。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker build -t ml/all:v0.1 .<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker build -t ml/all:v0.1 .<br></code></pre></td></tr></tbody></table></figure>
 
 <p>以下のコマンドでイメージが作成できているかどうか確認します。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker image ls ml/all</span><br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>ml/all              v0.1               e23280bc3856        18 hours ago        11.3GB<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker image ls ml/all</span><br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>ml/all              v0.1               e23280bc3856        18 hours ago        11.3GB<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="デプロイメントの作成"><a href="#デプロイメントの作成" class="header-anchor"></a>10. <a href="#デプロイメントの作成" class="headerlink" title="デプロイメントの作成"></a>デプロイメントの作成</h2><p>以下のようなyamlファイルを作成し、上記で作成したイメージをMinikubeにデプロイします。</p>
-<figure class="highlight yaml"><figcaption><span>ml-deploy.yaml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span><br><span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span><br><span class="hljs-attr">metadata:</span><br><span class="hljs-attr">  name:</span> <span class="hljs-string">ml-deployment</span><br><span class="hljs-attr">  labels:</span><br><span class="hljs-attr">    app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">spec:</span><br><span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span><br><span class="hljs-attr">  selector:</span><br><span class="hljs-attr">    matchLabels:</span><br><span class="hljs-attr">      app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">  template:</span><br><span class="hljs-attr">    metadata:</span><br><span class="hljs-attr">      annotations:</span><br>        <span class="hljs-string">kubernetes.io/change-cause:</span> <span class="hljs-string">"modified at 2019-10-20 05:50:40 +0900"</span><br><span class="hljs-attr">      labels:</span><br><span class="hljs-attr">        app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">    spec:</span><br><span class="hljs-attr">      containers:</span><br><span class="hljs-attr">        - name:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">          image:</span> <span class="hljs-string">ml/all:v1.0</span><br><span class="hljs-attr">          ports:</span><br><span class="hljs-attr">            - containerPort:</span> <span class="hljs-number">8888</span><br><span class="hljs-attr">          volumeMounts:</span><br><span class="hljs-attr">            - name:</span> <span class="hljs-string">notebook</span><br><span class="hljs-attr">              mountPath:</span> <span class="hljs-string">/jupyter</span><br><span class="hljs-attr">          imagePullPolicy:</span> <span class="hljs-string">IfNotPresent</span><br><span class="hljs-attr">      volumes:</span><br><span class="hljs-attr">        - name:</span> <span class="hljs-string">notebook</span><br><span class="hljs-attr">          hostPath:</span><br><span class="hljs-attr">            path:</span> <span class="hljs-string">/home/jupyter/ml-all</span><br><span class="hljs-attr">            type:</span> <span class="hljs-string">Directory</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight yaml hljs"><figcaption><span>ml-deploy.yaml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span><br><span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span><br><span class="hljs-attr">metadata:</span><br><span class="hljs-attr">  name:</span> <span class="hljs-string">ml-deployment</span><br><span class="hljs-attr">  labels:</span><br><span class="hljs-attr">    app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">spec:</span><br><span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span><br><span class="hljs-attr">  selector:</span><br><span class="hljs-attr">    matchLabels:</span><br><span class="hljs-attr">      app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">  template:</span><br><span class="hljs-attr">    metadata:</span><br><span class="hljs-attr">      annotations:</span><br>        <span class="hljs-string">kubernetes.io/change-cause:</span> <span class="hljs-string">"modified at 2019-10-20 05:50:40 +0900"</span><br><span class="hljs-attr">      labels:</span><br><span class="hljs-attr">        app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">    spec:</span><br><span class="hljs-attr">      containers:</span><br><span class="hljs-attr">        - name:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">          image:</span> <span class="hljs-string">ml/all:v1.0</span><br><span class="hljs-attr">          ports:</span><br><span class="hljs-attr">            - containerPort:</span> <span class="hljs-number">8888</span><br><span class="hljs-attr">          volumeMounts:</span><br><span class="hljs-attr">            - name:</span> <span class="hljs-string">notebook</span><br><span class="hljs-attr">              mountPath:</span> <span class="hljs-string">/jupyter</span><br><span class="hljs-attr">          imagePullPolicy:</span> <span class="hljs-string">IfNotPresent</span><br><span class="hljs-attr">      volumes:</span><br><span class="hljs-attr">        - name:</span> <span class="hljs-string">notebook</span><br><span class="hljs-attr">          hostPath:</span><br><span class="hljs-attr">            path:</span> <span class="hljs-string">/home/jupyter/ml-all</span><br><span class="hljs-attr">            type:</span> <span class="hljs-string">Directory</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>以下のコマンドでデプロイメントの作成を行います。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">kubectl apply -f ml-deploy.yml<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">kubectl apply -f ml-deploy.yml<br></code></pre></td></tr></tbody></table></figure>
 
 <p>以下のコマンドでデプロイメントが作成されていることを確認します。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> kubectl get deployments</span><br>NAME            READY   UP-TO-DATE   AVAILABLE   AGE<br>ml-deployment   1/1     1            1           36h<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> kubectl get deployments</span><br>NAME            READY   UP-TO-DATE   AVAILABLE   AGE<br>ml-deployment   1/1     1            1           36h<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="サービスの作成"><a href="#サービスの作成" class="header-anchor"></a>11. <a href="#サービスの作成" class="headerlink" title="サービスの作成"></a>サービスの作成</h2><p>以下のようなyamlファイルを作成し、上記で作成したイメージをデプロイメントをサービスとして公開します。</p>
-<figure class="highlight yaml"><figcaption><span>ml-svc.yaml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">kind:</span> <span class="hljs-string">Service</span><br><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span><br><span class="hljs-attr">metadata:</span><br><span class="hljs-attr">  name:</span> <span class="hljs-string">ml-svc</span><br><span class="hljs-attr">spec:</span><br><span class="hljs-attr">  selector:</span><br><span class="hljs-attr">    app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">  ports:</span><br><span class="hljs-attr">    - protocol:</span> <span class="hljs-string">TCP</span><br><span class="hljs-attr">      port:</span> <span class="hljs-number">8888</span><br><span class="hljs-attr">      targetPort:</span> <span class="hljs-number">8888</span><br><span class="hljs-attr">      nodePort:</span> <span class="hljs-number">30001</span><br><span class="hljs-attr">  type:</span> <span class="hljs-string">NodePort</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight yaml hljs"><figcaption><span>ml-svc.yaml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">kind:</span> <span class="hljs-string">Service</span><br><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span><br><span class="hljs-attr">metadata:</span><br><span class="hljs-attr">  name:</span> <span class="hljs-string">ml-svc</span><br><span class="hljs-attr">spec:</span><br><span class="hljs-attr">  selector:</span><br><span class="hljs-attr">    app:</span> <span class="hljs-string">ml-deploy</span><br><span class="hljs-attr">  ports:</span><br><span class="hljs-attr">    - protocol:</span> <span class="hljs-string">TCP</span><br><span class="hljs-attr">      port:</span> <span class="hljs-number">8888</span><br><span class="hljs-attr">      targetPort:</span> <span class="hljs-number">8888</span><br><span class="hljs-attr">      nodePort:</span> <span class="hljs-number">30001</span><br><span class="hljs-attr">  type:</span> <span class="hljs-string">NodePort</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>以下のコマンドでサービスの作成を行います。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> kubectl apply -f ml-svc.yml</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> kubectl apply -f ml-svc.yml</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>以下のコマンドでサービスが作成されていることを確認します。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> kubectl get services</span><br>NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE<br>kubernetes   ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP          37h<br>ml-svc       NodePort    10.103.99.171   &lt;none&gt;        8888:30001/TCP   36h<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> kubectl get services</span><br>NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE<br>kubernetes   ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP          37h<br>ml-svc       NodePort    10.103.99.171   &lt;none&gt;        8888:30001/TCP   36h<br></code></pre></td></tr></tbody></table></figure>
 
 <p>サービスの作成はkubectlのexposeコマンドを用いても行うことができます。<br>ここまででようやく機械学習の環境が整いました。</p>
 <h2 id="jupyterlabでノートブックを作成"><a href="#jupyterlabでノートブックを作成" class="header-anchor"></a>12. <a href="#JupyterLabでノートブックを作成" class="headerlink" title="JupyterLabでノートブックを作成"></a>JupyterLabでノートブックを作成</h2><p>ブラウザで以下のアドレスにアクセスします。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">http://(minikubeが起動しているマシンのIPアドレス):30001/<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">http://(minikubeが起動しているマシンのIPアドレス):30001/<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>+</code>ボタンを押して、Lancherを起動し、Python3のノートブックを作成します。</p>
 <img src="/cats-cats-cats/gallery/daily/others/jupyterlab.png" class="">
 <p>　<br>最初は「Untitled.ipynb」というファイル名で作成されますが、ファイルを右クリックで「Rename」を選択してファイル名を変更できます。今回は「cifar10.ipynb」に変更します。</p>
 <h2 id="tensorflow-20-with-kerasで画像分類cifar-10"><a href="#tensorflow-20-with-kerasで画像分類cifar-10" class="header-anchor"></a>13. <a href="#TensorFlow-2-0-with-Kerasで画像分類-CIFAR-10" class="headerlink" title="TensorFlow 2.0 with Kerasで画像分類(CIFAR-10)"></a>TensorFlow 2.0 with Kerasで画像分類(CIFAR-10)</h2><p>ようやくお待ちかねのディープラーニングのターンです。今回はようやく最近正式リリースされたTensorFlow 2.0に密に統合されたKerasのAPIを利用してCIFAR-10の画像セットを用いて画像分類を行います。</p>
 <p>ソースコードは<a href="https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py" target="_blank" rel="noopener">keras/cifar10_cnn.py<i class="fas fa-external-link-alt fa-fw"></i></a>をベースにtensorflow対応や可視化表示のコードを加えたものになります。先程作成したノートブックに貼り付けて実行してください。適当にセルに分割して実行したほうが良いと思います。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> os<br><span class="hljs-comment"># GPUをオフにする場合</span><br><span class="hljs-comment"># os.environ["CUDA_VISIBLE_DEVICES"]="-1"</span><br><span class="hljs-keyword">from</span> tensorflow <span class="hljs-keyword">import</span> keras<br><span class="hljs-keyword">from</span> tensorflow.keras.datasets <span class="hljs-keyword">import</span> cifar10<br><span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.image <span class="hljs-keyword">import</span> ImageDataGenerator<br><span class="hljs-keyword">from</span> tensorflow.keras.models <span class="hljs-keyword">import</span> Sequential<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Dense, Dropout, Activation, Flatten<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Conv2D, MaxPooling2D<br><span class="hljs-keyword">import</span> matplotlib<br>matplotlib.use(<span class="hljs-string">"Agg"</span>)<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>%matplotlib inline<br><br><span class="hljs-comment"># GPUのメモリを必要な量だけ使うようにする</span><br>physical_devices = tf.config.experimental.list_physical_devices(<span class="hljs-string">'GPU'</span>)[<span class="hljs-number">0</span>]<br>tf.config.experimental.set_memory_growth(physical_devices, <span class="hljs-keyword">True</span>)<br><br><span class="hljs-comment"># パラメータの宣言</span><br>batch_size = <span class="hljs-number">32</span><br>num_classes = <span class="hljs-number">10</span><br>epochs = <span class="hljs-number">15</span><br>num_predictions = <span class="hljs-number">20</span><br>save_dir = os.path.join(os.getcwd(), <span class="hljs-string">'saved_models'</span>)<br>model_name = <span class="hljs-string">'keras_cifar10_trained_model.h5'</span><br><br><span class="hljs-comment"># CIFAR-10のデータロード</span><br>(x_train, y_train), (x_test, y_test) = cifar10.load_data()<br>print(<span class="hljs-string">'x_train shape:'</span>, x_train.shape)<br>print(x_train.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'train samples'</span>)<br>print(x_test.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'test samples'</span>)<br><br><br><span class="hljs-comment"># 画像の表示</span><br>LABELS = (<span class="hljs-string">'airplane'</span>, <span class="hljs-string">'mobile'</span>, <span class="hljs-string">'bird'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'deer'</span>,<br>          <span class="hljs-string">'dog'</span>, <span class="hljs-string">'frog'</span>, <span class="hljs-string">'horse'</span>,<span class="hljs-string">'ship'</span>, <span class="hljs-string">'truck'</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_label</span><span class="hljs-params">(v)</span>:</span><br>  idx = np.argmax(v)<br>  <span class="hljs-keyword">if</span> idx &lt; len(LABELS):<br>    <span class="hljs-keyword">return</span> LABELS[idx]<br>  <span class="hljs-keyword">else</span>:<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span><br><br>plt.clf()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">40</span>):<br>  plt.subplot(<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, i+<span class="hljs-number">1</span>)<br>  plt.tight_layout()<br>  pixels = x_train[i,:,:,:]<br>  plt.title(to_label(y_train[i]), fontsize=<span class="hljs-number">8</span>)<br>  fig = plt.imshow(pixels)<br>  fig.axes.get_xaxis().set_visible(<span class="hljs-keyword">False</span>)<br>  fig.axes.get_yaxis().set_visible(<span class="hljs-keyword">False</span>)<br><br><span class="hljs-comment"># One-Hot Vectorに変換</span><br>y_train = keras.utils.to_categorical(y_train, num_classes)<br>y_test = keras.utils.to_categorical(y_test, num_classes)<br><br><span class="hljs-comment"># モデルの構築</span><br>model = Sequential()<br>model.add(Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), padding=<span class="hljs-string">'same'</span>,<br>                 input_shape=x_train.shape[<span class="hljs-number">1</span>:]))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(MaxPooling2D(pool_size=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>model.add(Dropout(<span class="hljs-number">0.25</span>))<br><br>model.add(Conv2D(<span class="hljs-number">64</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), padding=<span class="hljs-string">'same'</span>))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Conv2D(<span class="hljs-number">64</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(MaxPooling2D(pool_size=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>model.add(Dropout(<span class="hljs-number">0.25</span>))<br><br>model.add(Flatten())<br>model.add(Dense(<span class="hljs-number">512</span>))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Dropout(<span class="hljs-number">0.5</span>))<br>model.add(Dense(num_classes))<br>model.add(Activation(<span class="hljs-string">'softmax'</span>))<br><br><span class="hljs-comment"># モデルのコンパイル</span><br>model.compile(loss=<span class="hljs-string">'categorical_crossentropy'</span>,<br>              optimizer=<span class="hljs-string">'adam'</span>,<br>              metrics=[<span class="hljs-string">'accuracy'</span>])<br>model.summary()<br><br><span class="hljs-comment"># データの正規化</span><br>x_train = x_train.astype(<span class="hljs-string">'float32'</span>)<br>x_test = x_test.astype(<span class="hljs-string">'float32'</span>)<br>x_train /= <span class="hljs-number">255</span><br>x_test /= <span class="hljs-number">255</span><br><br><span class="hljs-comment"># モデルの訓練</span><br>history = model.fit(x_train, y_train,<br>              batch_size=batch_size,<br>              epochs=epochs,<br>              validation_data=(x_test, y_test),<br>              shuffle=<span class="hljs-keyword">True</span>)<br><br><span class="hljs-comment"># 訓練したモデルの保存</span><br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.isdir(save_dir):<br>    os.makedirs(save_dir)<br>model_path = os.path.join(save_dir, model_name)<br>model.save(model_path)<br>print(<span class="hljs-string">'Saved trained model at %s '</span> % model_path)<br><br><span class="hljs-comment"># モデルの評価</span><br>scores = model.evaluate(x_test, y_test, verbose=<span class="hljs-number">0</span>)<br>print(<span class="hljs-string">'Test loss:'</span>, scores[<span class="hljs-number">0</span>])<br>print(<span class="hljs-string">'Test accuracy:'</span>, scores[<span class="hljs-number">1</span>])<br><br><br><span class="hljs-comment"># モデルの訓練仮定の可視化</span><br>loss     = history.history[<span class="hljs-string">'loss'</span>]<br>val_loss = history.history[<span class="hljs-string">'val_loss'</span>]<br><br>nb_epoch = len(loss)<br>plt.plot(range(nb_epoch), loss,     marker=<span class="hljs-string">'.'</span>, label=<span class="hljs-string">'loss'</span>)<br>plt.plot(range(nb_epoch), val_loss, marker=<span class="hljs-string">'.'</span>, label=<span class="hljs-string">'val_loss'</span>)<br>plt.legend(loc=<span class="hljs-string">'best'</span>, fontsize=<span class="hljs-number">10</span>)<br>plt.grid()<br>plt.xlabel(<span class="hljs-string">'epoch'</span>)<br>plt.ylabel(<span class="hljs-string">'loss'</span>)<br>plt.show()<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> os<br><span class="hljs-comment"># GPUをオフにする場合</span><br><span class="hljs-comment"># os.environ["CUDA_VISIBLE_DEVICES"]="-1"</span><br><span class="hljs-keyword">from</span> tensorflow <span class="hljs-keyword">import</span> keras<br><span class="hljs-keyword">from</span> tensorflow.keras.datasets <span class="hljs-keyword">import</span> cifar10<br><span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.image <span class="hljs-keyword">import</span> ImageDataGenerator<br><span class="hljs-keyword">from</span> tensorflow.keras.models <span class="hljs-keyword">import</span> Sequential<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Dense, Dropout, Activation, Flatten<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Conv2D, MaxPooling2D<br><span class="hljs-keyword">import</span> matplotlib<br>matplotlib.use(<span class="hljs-string">"Agg"</span>)<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>%matplotlib inline<br><br><span class="hljs-comment"># GPUのメモリを必要な量だけ使うようにする</span><br>physical_devices = tf.config.experimental.list_physical_devices(<span class="hljs-string">'GPU'</span>)[<span class="hljs-number">0</span>]<br>tf.config.experimental.set_memory_growth(physical_devices, <span class="hljs-keyword">True</span>)<br><br><span class="hljs-comment"># パラメータの宣言</span><br>batch_size = <span class="hljs-number">32</span><br>num_classes = <span class="hljs-number">10</span><br>epochs = <span class="hljs-number">15</span><br>num_predictions = <span class="hljs-number">20</span><br>save_dir = os.path.join(os.getcwd(), <span class="hljs-string">'saved_models'</span>)<br>model_name = <span class="hljs-string">'keras_cifar10_trained_model.h5'</span><br><br><span class="hljs-comment"># CIFAR-10のデータロード</span><br>(x_train, y_train), (x_test, y_test) = cifar10.load_data()<br>print(<span class="hljs-string">'x_train shape:'</span>, x_train.shape)<br>print(x_train.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'train samples'</span>)<br>print(x_test.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'test samples'</span>)<br><br><br><span class="hljs-comment"># 画像の表示</span><br>LABELS = (<span class="hljs-string">'airplane'</span>, <span class="hljs-string">'mobile'</span>, <span class="hljs-string">'bird'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'deer'</span>,<br>          <span class="hljs-string">'dog'</span>, <span class="hljs-string">'frog'</span>, <span class="hljs-string">'horse'</span>,<span class="hljs-string">'ship'</span>, <span class="hljs-string">'truck'</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_label</span><span class="hljs-params">(v)</span>:</span><br>  idx = np.argmax(v)<br>  <span class="hljs-keyword">if</span> idx &lt; len(LABELS):<br>    <span class="hljs-keyword">return</span> LABELS[idx]<br>  <span class="hljs-keyword">else</span>:<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span><br><br>plt.clf()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">40</span>):<br>  plt.subplot(<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, i+<span class="hljs-number">1</span>)<br>  plt.tight_layout()<br>  pixels = x_train[i,:,:,:]<br>  plt.title(to_label(y_train[i]), fontsize=<span class="hljs-number">8</span>)<br>  fig = plt.imshow(pixels)<br>  fig.axes.get_xaxis().set_visible(<span class="hljs-keyword">False</span>)<br>  fig.axes.get_yaxis().set_visible(<span class="hljs-keyword">False</span>)<br><br><span class="hljs-comment"># One-Hot Vectorに変換</span><br>y_train = keras.utils.to_categorical(y_train, num_classes)<br>y_test = keras.utils.to_categorical(y_test, num_classes)<br><br><span class="hljs-comment"># モデルの構築</span><br>model = Sequential()<br>model.add(Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), padding=<span class="hljs-string">'same'</span>,<br>                 input_shape=x_train.shape[<span class="hljs-number">1</span>:]))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(MaxPooling2D(pool_size=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>model.add(Dropout(<span class="hljs-number">0.25</span>))<br><br>model.add(Conv2D(<span class="hljs-number">64</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), padding=<span class="hljs-string">'same'</span>))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Conv2D(<span class="hljs-number">64</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(MaxPooling2D(pool_size=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>model.add(Dropout(<span class="hljs-number">0.25</span>))<br><br>model.add(Flatten())<br>model.add(Dense(<span class="hljs-number">512</span>))<br>model.add(Activation(<span class="hljs-string">'relu'</span>))<br>model.add(Dropout(<span class="hljs-number">0.5</span>))<br>model.add(Dense(num_classes))<br>model.add(Activation(<span class="hljs-string">'softmax'</span>))<br><br><span class="hljs-comment"># モデルのコンパイル</span><br>model.compile(loss=<span class="hljs-string">'categorical_crossentropy'</span>,<br>              optimizer=<span class="hljs-string">'adam'</span>,<br>              metrics=[<span class="hljs-string">'accuracy'</span>])<br>model.summary()<br><br><span class="hljs-comment"># データの正規化</span><br>x_train = x_train.astype(<span class="hljs-string">'float32'</span>)<br>x_test = x_test.astype(<span class="hljs-string">'float32'</span>)<br>x_train /= <span class="hljs-number">255</span><br>x_test /= <span class="hljs-number">255</span><br><br><span class="hljs-comment"># モデルの訓練</span><br>history = model.fit(x_train, y_train,<br>              batch_size=batch_size,<br>              epochs=epochs,<br>              validation_data=(x_test, y_test),<br>              shuffle=<span class="hljs-keyword">True</span>)<br><br><span class="hljs-comment"># 訓練したモデルの保存</span><br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.isdir(save_dir):<br>    os.makedirs(save_dir)<br>model_path = os.path.join(save_dir, model_name)<br>model.save(model_path)<br>print(<span class="hljs-string">'Saved trained model at %s '</span> % model_path)<br><br><span class="hljs-comment"># モデルの評価</span><br>scores = model.evaluate(x_test, y_test, verbose=<span class="hljs-number">0</span>)<br>print(<span class="hljs-string">'Test loss:'</span>, scores[<span class="hljs-number">0</span>])<br>print(<span class="hljs-string">'Test accuracy:'</span>, scores[<span class="hljs-number">1</span>])<br><br><br><span class="hljs-comment"># モデルの訓練仮定の可視化</span><br>loss     = history.history[<span class="hljs-string">'loss'</span>]<br>val_loss = history.history[<span class="hljs-string">'val_loss'</span>]<br><br>nb_epoch = len(loss)<br>plt.plot(range(nb_epoch), loss,     marker=<span class="hljs-string">'.'</span>, label=<span class="hljs-string">'loss'</span>)<br>plt.plot(range(nb_epoch), val_loss, marker=<span class="hljs-string">'.'</span>, label=<span class="hljs-string">'val_loss'</span>)<br>plt.legend(loc=<span class="hljs-string">'best'</span>, fontsize=<span class="hljs-number">10</span>)<br>plt.grid()<br>plt.xlabel(<span class="hljs-string">'epoch'</span>)<br>plt.ylabel(<span class="hljs-string">'loss'</span>)<br>plt.show()<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="実行結果"><a href="#実行結果" class="header-anchor"></a>14. <a href="#実行結果" class="headerlink" title="実行結果"></a>実行結果</h2><p>分類対象の画像です。CIFAR-10では32x32のサイズの画像を10種類に分類します。</p>
 <img src="/cats-cats-cats/gallery/daily/others/cifar10-image-train.png" class="">
 
 <p>モデルの要約です。畳み込み層、プーリング層、ドロップアウト層、活性化層(relu)を利用した典型的なCNNになっています。最後の出力には全結合層と活性化層(SoftMax)を利用しています。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Model: "sequential"<br>_________________________________________________________________<br>Layer (type)                 Output Shape              Param #   <br>=================================================================<br>conv2d (Conv2D)              (None, 32, 32, 32)        896       <br>_________________________________________________________________<br>activation (Activation)      (None, 32, 32, 32)        0         <br>_________________________________________________________________<br>conv2d_1 (Conv2D)            (None, 30, 30, 32)        9248      <br>_________________________________________________________________<br>activation_1 (Activation)    (None, 30, 30, 32)        0         <br>_________________________________________________________________<br>max_pooling2d (MaxPooling2D) (None, 15, 15, 32)        0         <br>_________________________________________________________________<br>dropout (Dropout)            (None, 15, 15, 32)        0         <br>_________________________________________________________________<br>conv2d_2 (Conv2D)            (None, 15, 15, 64)        18496     <br>_________________________________________________________________<br>activation_2 (Activation)    (None, 15, 15, 64)        0         <br>_________________________________________________________________<br>conv2d_3 (Conv2D)            (None, 13, 13, 64)        36928     <br>_________________________________________________________________<br>activation_3 (Activation)    (None, 13, 13, 64)        0         <br>_________________________________________________________________<br>max_pooling2d_1 (MaxPooling2 (None, 6, 6, 64)          0         <br>_________________________________________________________________<br>dropout_1 (Dropout)          (None, 6, 6, 64)          0         <br>_________________________________________________________________<br>flatten (Flatten)            (None, 2304)              0         <br>_________________________________________________________________<br>dense (Dense)                (None, 512)               1180160   <br>_________________________________________________________________<br>activation_4 (Activation)    (None, 512)               0         <br>_________________________________________________________________<br>dropout_2 (Dropout)          (None, 512)               0         <br>_________________________________________________________________<br>dense_1 (Dense)              (None, 10)                5130      <br>_________________________________________________________________<br>activation_5 (Activation)    (None, 10)                0         <br>=================================================================<br>Total params: 1,250,858<br>Trainable params: 1,250,858<br>Non-trainable params: 0<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Model: "sequential"<br>_________________________________________________________________<br>Layer (type)                 Output Shape              Param #   <br>=================================================================<br>conv2d (Conv2D)              (None, 32, 32, 32)        896       <br>_________________________________________________________________<br>activation (Activation)      (None, 32, 32, 32)        0         <br>_________________________________________________________________<br>conv2d_1 (Conv2D)            (None, 30, 30, 32)        9248      <br>_________________________________________________________________<br>activation_1 (Activation)    (None, 30, 30, 32)        0         <br>_________________________________________________________________<br>max_pooling2d (MaxPooling2D) (None, 15, 15, 32)        0         <br>_________________________________________________________________<br>dropout (Dropout)            (None, 15, 15, 32)        0         <br>_________________________________________________________________<br>conv2d_2 (Conv2D)            (None, 15, 15, 64)        18496     <br>_________________________________________________________________<br>activation_2 (Activation)    (None, 15, 15, 64)        0         <br>_________________________________________________________________<br>conv2d_3 (Conv2D)            (None, 13, 13, 64)        36928     <br>_________________________________________________________________<br>activation_3 (Activation)    (None, 13, 13, 64)        0         <br>_________________________________________________________________<br>max_pooling2d_1 (MaxPooling2 (None, 6, 6, 64)          0         <br>_________________________________________________________________<br>dropout_1 (Dropout)          (None, 6, 6, 64)          0         <br>_________________________________________________________________<br>flatten (Flatten)            (None, 2304)              0         <br>_________________________________________________________________<br>dense (Dense)                (None, 512)               1180160   <br>_________________________________________________________________<br>activation_4 (Activation)    (None, 512)               0         <br>_________________________________________________________________<br>dropout_2 (Dropout)          (None, 512)               0         <br>_________________________________________________________________<br>dense_1 (Dense)              (None, 10)                5130      <br>_________________________________________________________________<br>activation_5 (Activation)    (None, 10)                0         <br>=================================================================<br>Total params: 1,250,858<br>Trainable params: 1,250,858<br>Non-trainable params: 0<br></code></pre></td></tr></tbody></table></figure>
 
 <p>訓練経過です。だいたい1エポック9秒程度で終わっています。また検証データの正解率(<code>val_accuracy</code>)も77%程度になっています。ちなみに下記の結果はGPUを使用したものですが、CPUの場合は1エポックで43秒程かかりました。GPUは偉大です・・・</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Train on 50000 samples, validate on 10000 samples<br>Epoch 1/15<br>50000/50000 [==============================] - 10s 199us/sample - loss: 1.5545 - accuracy: 0.4320 - val_loss: 1.1938 - val_accuracy: 0.5681<br>Epoch 2/15<br>50000/50000 [==============================] - 9s 177us/sample - loss: 1.1665 - accuracy: 0.5840 - val_loss: 0.9679 - val_accuracy: 0.6565<br>Epoch 3/15<br>50000/50000 [==============================] - 8s 162us/sample - loss: 1.0074 - accuracy: 0.6419 - val_loss: 0.8711 - val_accuracy: 0.6919<br>Epoch 4/15<br>50000/50000 [==============================] - 8s 163us/sample - loss: 0.9178 - accuracy: 0.6771 - val_loss: 0.8321 - val_accuracy: 0.7100<br>Epoch 5/15<br>50000/50000 [==============================] - 9s 187us/sample - loss: 0.8527 - accuracy: 0.6999 - val_loss: 0.7774 - val_accuracy: 0.7309<br>Epoch 6/15<br>50000/50000 [==============================] - 9s 186us/sample - loss: 0.8061 - accuracy: 0.7175 - val_loss: 0.7574 - val_accuracy: 0.7349<br>Epoch 7/15<br>50000/50000 [==============================] - 9s 173us/sample - loss: 0.7724 - accuracy: 0.7287 - val_loss: 0.7334 - val_accuracy: 0.7482<br>Epoch 8/15<br>50000/50000 [==============================] - 8s 168us/sample - loss: 0.7343 - accuracy: 0.7417 - val_loss: 0.7231 - val_accuracy: 0.7535<br>Epoch 9/15<br>50000/50000 [==============================] - 9s 185us/sample - loss: 0.7121 - accuracy: 0.7495 - val_loss: 0.7061 - val_accuracy: 0.7586<br>Epoch 10/15<br>50000/50000 [==============================] - 8s 166us/sample - loss: 0.6878 - accuracy: 0.7577 - val_loss: 0.6602 - val_accuracy: 0.7716<br>Epoch 11/15<br>50000/50000 [==============================] - 8s 162us/sample - loss: 0.6672 - accuracy: 0.7675 - val_loss: 0.6990 - val_accuracy: 0.7614<br>Epoch 12/15<br>50000/50000 [==============================] - 8s 163us/sample - loss: 0.6462 - accuracy: 0.7729 - val_loss: 0.6837 - val_accuracy: 0.7645<br>Epoch 13/15<br>50000/50000 [==============================] - 8s 169us/sample - loss: 0.6322 - accuracy: 0.7777 - val_loss: 0.6593 - val_accuracy: 0.7787<br>Epoch 14/15<br>50000/50000 [==============================] - 9s 172us/sample - loss: 0.6197 - accuracy: 0.7826 - val_loss: 0.6672 - val_accuracy: 0.7761<br>Epoch 15/15<br>50000/50000 [==============================] - 8s 159us/sample - loss: 0.6035 - accuracy: 0.7887 - val_loss: 0.6811 - val_accuracy: 0.7682<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Train on 50000 samples, validate on 10000 samples<br>Epoch 1/15<br>50000/50000 [==============================] - 10s 199us/sample - loss: 1.5545 - accuracy: 0.4320 - val_loss: 1.1938 - val_accuracy: 0.5681<br>Epoch 2/15<br>50000/50000 [==============================] - 9s 177us/sample - loss: 1.1665 - accuracy: 0.5840 - val_loss: 0.9679 - val_accuracy: 0.6565<br>Epoch 3/15<br>50000/50000 [==============================] - 8s 162us/sample - loss: 1.0074 - accuracy: 0.6419 - val_loss: 0.8711 - val_accuracy: 0.6919<br>Epoch 4/15<br>50000/50000 [==============================] - 8s 163us/sample - loss: 0.9178 - accuracy: 0.6771 - val_loss: 0.8321 - val_accuracy: 0.7100<br>Epoch 5/15<br>50000/50000 [==============================] - 9s 187us/sample - loss: 0.8527 - accuracy: 0.6999 - val_loss: 0.7774 - val_accuracy: 0.7309<br>Epoch 6/15<br>50000/50000 [==============================] - 9s 186us/sample - loss: 0.8061 - accuracy: 0.7175 - val_loss: 0.7574 - val_accuracy: 0.7349<br>Epoch 7/15<br>50000/50000 [==============================] - 9s 173us/sample - loss: 0.7724 - accuracy: 0.7287 - val_loss: 0.7334 - val_accuracy: 0.7482<br>Epoch 8/15<br>50000/50000 [==============================] - 8s 168us/sample - loss: 0.7343 - accuracy: 0.7417 - val_loss: 0.7231 - val_accuracy: 0.7535<br>Epoch 9/15<br>50000/50000 [==============================] - 9s 185us/sample - loss: 0.7121 - accuracy: 0.7495 - val_loss: 0.7061 - val_accuracy: 0.7586<br>Epoch 10/15<br>50000/50000 [==============================] - 8s 166us/sample - loss: 0.6878 - accuracy: 0.7577 - val_loss: 0.6602 - val_accuracy: 0.7716<br>Epoch 11/15<br>50000/50000 [==============================] - 8s 162us/sample - loss: 0.6672 - accuracy: 0.7675 - val_loss: 0.6990 - val_accuracy: 0.7614<br>Epoch 12/15<br>50000/50000 [==============================] - 8s 163us/sample - loss: 0.6462 - accuracy: 0.7729 - val_loss: 0.6837 - val_accuracy: 0.7645<br>Epoch 13/15<br>50000/50000 [==============================] - 8s 169us/sample - loss: 0.6322 - accuracy: 0.7777 - val_loss: 0.6593 - val_accuracy: 0.7787<br>Epoch 14/15<br>50000/50000 [==============================] - 9s 172us/sample - loss: 0.6197 - accuracy: 0.7826 - val_loss: 0.6672 - val_accuracy: 0.7761<br>Epoch 15/15<br>50000/50000 [==============================] - 8s 159us/sample - loss: 0.6035 - accuracy: 0.7887 - val_loss: 0.6811 - val_accuracy: 0.7682<br></code></pre></td></tr></tbody></table></figure>
 
 <p>損失の経過を表したグラフです。見ての通り10エポック以降から過学習をおこしています。</p>
 <img src="/cats-cats-cats/gallery/daily/others/loss.png" class="">
@@ -349,7 +339,7 @@
 </li>
 </ol>
 <h2 id="おまけ"><a href="#おまけ" class="header-anchor"></a>17. <a href="#おまけ" class="headerlink" title="おまけ"></a>おまけ</h2><p>DockerfileはGitで管理しておくと便利です。また、Dockerfileのビルドからデプロイおよびコミットまで自動化しておくと間違いがありません。以下はRubyスクリプトですが自分が使っているものです。ポイントはsedで<code>kubernetes.io/change-cause</code>を書換えていることです。こうすることでデプロイメントを更新可能にしています。イメージのバージョンは大きな変更をした場合だけ上げるようにして、ちょっとした変更(機械学習用のライブラリ追加等)はDockerfileをちょっと修正してこのスクリプトを実行するだけで環境のアップデートが終わるので非常に楽です。</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-comment">#!/usr/bin/env ruby</span><br><br>$VERSION = <span class="hljs-string">"v1.13"</span><br>system(<span class="hljs-string">"docker build -t ml/all:<span class="hljs-subst">#{$VERSION}</span> ."</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to docker build'</span>)<br><br>msg = <span class="hljs-string">"\"modified at <span class="hljs-subst">#{Time.now}</span>\""</span><br>cmd = <span class="hljs-string">"sed -i -e 's/\\(kubernetes.io\\/change-cause: \\).*$/\\1<span class="hljs-subst">#{msg}</span>/' ml-deploy.yml"</span><br>system(cmd) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to sed'</span>)<br><br>system(<span class="hljs-string">"kubectl apply -f ml-deploy.yml"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to sed'</span>)<br>system(<span class="hljs-string">"git add ml-deploy.yml"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to add'</span>)<br>system(<span class="hljs-string">"git add Dockerfile"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to add'</span>)<br>system(<span class="hljs-string">"git commit -m 'modify ml/all image'"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to commit'</span>)<br></code></pre></td></tr></tbody></table></figure><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ただし新しすぎるとドライバがなかったり、バグがあったりするのでリサーチは十分行ってください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div><script>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-comment">#!/usr/bin/env ruby</span><br><br>$VERSION = <span class="hljs-string">"v1.13"</span><br>system(<span class="hljs-string">"docker build -t ml/all:<span class="hljs-subst">#{$VERSION}</span> ."</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to docker build'</span>)<br><br>msg = <span class="hljs-string">"\"modified at <span class="hljs-subst">#{Time.now}</span>\""</span><br>cmd = <span class="hljs-string">"sed -i -e 's/\\(kubernetes.io\\/change-cause: \\).*$/\\1<span class="hljs-subst">#{msg}</span>/' ml-deploy.yml"</span><br>system(cmd) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to sed'</span>)<br><br>system(<span class="hljs-string">"kubectl apply -f ml-deploy.yml"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to sed'</span>)<br>system(<span class="hljs-string">"git add ml-deploy.yml"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to add'</span>)<br>system(<span class="hljs-string">"git add Dockerfile"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to add'</span>)<br>system(<span class="hljs-string">"git commit -m 'modify ml/all image'"</span>) <span class="hljs-params">||</span> raise(<span class="hljs-string">'Failed to commit'</span>)<br></code></pre></td></tr></tbody></table></figure><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ただし新しすぎるとドライバがなかったり、バグがあったりするのでリサーチは十分行ってください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -376,9 +366,11 @@
 <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
 <a class="a2a_button_facebook"></a>
 <a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
+
         
     </div>
 </div>
@@ -419,12 +411,15 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
-<div class="card widget profile">
+<div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         hinastory
@@ -476,7 +471,7 @@
                 </div>
             </div>
         </nav>
-
+        
         
         
         <div class="level is-mobile">
@@ -515,10 +510,6 @@
 </div>
     
         
-    
-        
-
-
     
         
 <div class="card widget">
@@ -641,8 +632,7 @@
     
         <div class="column-right-shadow is-hidden-widescreen ">
         
-            
-<div class="card widget">
+            <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -659,8 +649,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -679,8 +668,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -699,8 +687,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -719,8 +706,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -739,8 +725,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -750,10 +735,8 @@
         
     </div>
 </div>
-
         
-            
-<div class="card widget tag-cloud">
+            <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -761,7 +744,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
         
             <div class="card widget">
     <div class="card-content">
@@ -774,7 +756,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -785,7 +767,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -796,7 +778,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -807,7 +789,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -818,7 +800,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -829,7 +811,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -840,7 +822,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -851,7 +833,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -862,7 +844,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -873,7 +855,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -892,449 +874,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -1350,8 +1172,7 @@
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -1368,8 +1189,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -1388,8 +1208,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -1408,8 +1227,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -1428,8 +1246,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1448,8 +1265,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1459,10 +1275,8 @@
         
     </div>
 </div>
-
     
-        
-<div class="card widget tag-cloud">
+        <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -1470,7 +1284,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
     
         <div class="card widget">
     <div class="card-content">
@@ -1483,7 +1296,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1494,7 +1307,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1505,7 +1318,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1516,7 +1329,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1527,7 +1340,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1538,7 +1351,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1549,7 +1362,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1560,7 +1373,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1571,7 +1384,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1582,7 +1395,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1601,449 +1414,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -2079,20 +1732,30 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("ja");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
 
     
     
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/cats-cats-cats/js/gallery.js" defer></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
 
     
     
-
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
     <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
@@ -2110,37 +1773,44 @@
     });
 </script>
 
-
     
-    
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
-
     
     
-
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
 
-
-    
-    
-
     
     
     
     
-
+    
+    
+    
+    
     
     
     

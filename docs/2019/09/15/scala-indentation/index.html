@@ -15,10 +15,10 @@
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
 <meta property="og:updated_time" content="2019-11-02T01:33:47.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hinastory.github.io&#x2F;cats-cats-cats&#x2F;cats-cats-cats&#x2F;gallery&#x2F;thumbnails&#x2F;dotty-logo.png">
 
 
 
@@ -34,35 +34,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
 
 
     
     
-    
-    
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
 
-
     
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -71,17 +62,15 @@
     gtag('config', 'UA-132406459-1');
 </script>
 
-
     
     
     
     
-
     
-    
-<link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
+    
+    
     
 
 
@@ -133,7 +122,8 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
     <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
         
             Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！
@@ -202,10 +192,10 @@
 <li>この記事はインデントベース構文の紹介記事です。この構文の良し悪しについては触れていません</li>
 </ul>
 <h2 id="まずはコードを御覧ください"><a href="#まずはコードを御覧ください" class="header-anchor"></a>2. <a href="#まずはコードを御覧ください" class="headerlink" title="まずはコードを御覧ください"></a>まずはコードを御覧ください</h2><p>ウソみたいだろ・・・Scalaなんだぜ、それ</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>    <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>      <span class="hljs-keyword">catch</span><br>        <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    end <span class="hljs-keyword">try</span><br>  end fromString<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) =<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> day.isWeekend then<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    <span class="hljs-keyword">else</span><br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>)<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span><br>        x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      <span class="hljs-keyword">yield</span><br>        x + y<br><br>    optNum <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>      x =&gt;<br>        y = y - <span class="hljs-number">1</span><br>        y * y<br><br>    z.foreach:<br>      println<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> =<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>    <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>      <span class="hljs-keyword">catch</span><br>        <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    end <span class="hljs-keyword">try</span><br>  end fromString<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) =<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> day.isWeekend then<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    <span class="hljs-keyword">else</span><br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>)<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span><br>        x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      <span class="hljs-keyword">yield</span><br>        x + y<br><br>    optNum <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>      x =&gt;<br>        y = y - <span class="hljs-number">1</span><br>        y * y<br><br>    z.foreach:<br>      println<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> =<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 <p>いつもはこんなコードを書いていたはず・・・</p>
-<details><summary>従来のコード</summary><figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BraceBasedExample</span> </span>{<br>  enum <span class="hljs-type">Day</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br>    }<br>  }<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> = {<br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-type">Day</span>.valueOf(str)<br>    } <span class="hljs-keyword">catch</span> {<br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    }<br>  }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) = {<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> (day.isWeekend) {<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    } <span class="hljs-keyword">else</span> {<br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br>    }<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>) {<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span> {<br>        x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      } <span class="hljs-keyword">yield</span> {<br>        x + y<br>      }<br><br>    optNum <span class="hljs-keyword">match</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map {<br>      x =&gt; {<br>        <span class="hljs-keyword">val</span> y = x - <span class="hljs-number">1</span><br>        y * y<br>      }<br>    }<br>    z.foreach(println)<br>  }<br>}<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = {<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure></details>
+<details><summary>従来のコード</summary><figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BraceBasedExample</span> </span>{<br>  enum <span class="hljs-type">Day</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br>    }<br>  }<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> = {<br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-type">Day</span>.valueOf(str)<br>    } <span class="hljs-keyword">catch</span> {<br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    }<br>  }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) = {<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> (day.isWeekend) {<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    } <span class="hljs-keyword">else</span> {<br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br>    }<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>) {<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span> {<br>        x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      } <span class="hljs-keyword">yield</span> {<br>        x + y<br>      }<br><br>    optNum <span class="hljs-keyword">match</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map {<br>      x =&gt; {<br>        <span class="hljs-keyword">val</span> y = x - <span class="hljs-number">1</span><br>        y * y<br>      }<br>    }<br>    z.foreach(println)<br>  }<br>}<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = {<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure></details>
 
 
 <h2 id="コードの解説"><a href="#コードの解説" class="header-anchor"></a>3. <a href="#コードの解説" class="headerlink" title="コードの解説"></a>コードの解説</h2><p>Pythonでインデントを用いてブロックを作る場合は改行の前に「:」が付きますが、Scalaの場合はもっと多くのキーワードがインデント構文の開始の合図になり得ます。</p>
@@ -213,45 +203,45 @@
 <p>また、<code>class</code>, <code>object</code>, <code>given</code>, や <code>enum</code>定義でもインデント構文を利用できます。</p>
 <p>インデントはタブとスペースの両方が使えますが混ぜると比較ができないケースがあるので、混ぜるな危険です。</p>
 <h3 id="定義"><a href="#定義" class="header-anchor"></a>3.1. <a href="#定義" class="headerlink" title="定義"></a>定義</h3><p>以下は<code>object</code>の定義と<code>enum</code>の定義でインデント構文を開始しています。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>enum</code>はScala 3(Dotty)の機能でScala 2にはありません。気になる方は「<a href="https://dotty.epfl.ch/docs/reference/enums/enums.html" target="_blank" rel="noopener">Enumerations</a>」を参照してください。</p>
 <h3 id="if式"><a href="#if式" class="header-anchor"></a>3.2. <a href="#if式" class="headerlink" title="if式"></a><code>if</code>式</h3><p><code>if</code>式の場合は、インデントブロック開始の合図が「<code>then</code>」になります。最初<code>then</code>を書き忘れたらコンパイラに<code>then</code>がないって怒られて、<code>then</code>ってなんぞや？？？となりました。どうやら新しいキーワードみたいです。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">if</span> day.isWeekend then<br>  println(<span class="hljs-string">"Today is a weekend"</span>)<br>  println(<span class="hljs-string">"I will rest"</span>)<br><span class="hljs-keyword">else</span><br>  println(<span class="hljs-string">"Today is a workday"</span>)<br>  println(<span class="hljs-string">"I will work"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">if</span> day.isWeekend then<br>  println(<span class="hljs-string">"Today is a weekend"</span>)<br>  println(<span class="hljs-string">"I will rest"</span>)<br><span class="hljs-keyword">else</span><br>  println(<span class="hljs-string">"Today is a workday"</span>)<br>  println(<span class="hljs-string">"I will work"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>if</code>式で括弧を用いる場合は<code>then</code>は必要ありません。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>)<br>  println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>  println(<span class="hljs-string">"Bad Day"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>)<br>  println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>  println(<span class="hljs-string">"Bad Day"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="for式"><a href="#for式" class="header-anchor"></a>3.3. <a href="#for式" class="headerlink" title="for式"></a><code>for</code>式</h3><p>以下のコードには<code>=</code>と<code>for</code>と<code>yield</code>がインデント構文の開始の合図になっています。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> optNum =<br>  <span class="hljs-keyword">for</span><br>    x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>    y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>  <span class="hljs-keyword">yield</span><br>    x + y<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> optNum =<br>  <span class="hljs-keyword">for</span><br>    x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>    y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>  <span class="hljs-keyword">yield</span><br>    x + y<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="match式"><a href="#match式" class="header-anchor"></a>3.4. <a href="#match式" class="headerlink" title="match式"></a><code>match</code>式</h3><p><code>match</code>式は少し特殊でインデントを付けても付けなくてもいいことになっています。つまり以下の２つの書き方が許容されます。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br><span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br><span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br><span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br><span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>  <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>  <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>match</code>以外には<code>catch</code>も同様に次の<code>case</code>のインデントは自由です。</p>
 <h3 id="ラムダ式"><a href="#ラムダ式" class="header-anchor"></a>3.5. <a href="#ラムダ式" class="headerlink" title="ラムダ式"></a>ラムダ式</h3><p>ラムダ式の記号(<code>=&gt;</code>)もインデント構文の開始の合図になっています。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">x =&gt;<br>  y = y - <span class="hljs-number">1</span><br>  y * y<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">x =&gt;<br>  y = y - <span class="hljs-number">1</span><br>  y * y<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="エンドマーカー"><a href="#エンドマーカー" class="header-anchor"></a>4. <a href="#エンドマーカー" class="headerlink" title="エンドマーカー"></a>エンドマーカー</h2><p>インデントだとブロックの終わりがわかりにくい場合には、エンドマーカーを使ってブロックの終わりを明示することができます。以下のコードでは「<code>end fromString</code>」が識別子のエンドマーカーです。エンドマーカーはオプションなのでなくても問題なく動作しますが、ドキュメントではひと目でブロックを識別することが難しい長いブロック(20行以上)で使うことを推奨しています。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>  <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>    <span class="hljs-keyword">catch</span><br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>  end <span class="hljs-keyword">try</span><br>end fromString<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>  <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>    <span class="hljs-keyword">catch</span><br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>  end <span class="hljs-keyword">try</span><br>end fromString<br></code></pre></td></tr></tbody></table></figure>
 
 <p>エンドマーカーは以下の予約語と合わせて用いることもできます。</p>
 <p><code>if</code>  <code>while</code>  <code>for</code>  <code>match</code>  <code>try</code>  <code>new</code></p>
 <p>上記の例では「<code>end try</code>」がエンドマーカーになっています。</p>
 <h3 id="インデントマーカー"><a href="#インデントマーカー" class="header-anchor"></a>4.1. <a href="#インデントマーカー" class="headerlink" title="インデントマーカー:"></a>インデントマーカー<code>:</code></h3><p>次はPythonっぽい、行末コロン(<code>:</code>)の例です。開き中括弧(<code>{</code>)が有効な箇所で行末をコロンにするとインデント構文を開始することができます。以下の例では<code>map</code>の後にインデントマーカー<code>:</code>が付いています。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>  x =&gt;<br>    y = y - <span class="hljs-number">1</span><br>    y * y<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>  x =&gt;<br>    y = y - <span class="hljs-number">1</span><br>    y * y<br></code></pre></td></tr></tbody></table></figure>
 
 <p>ただし、このインデントマーカーはまだ他のインデントスキームよりも議論の余地が大きく、コンパイラオプションに<code>-Yindent-colons</code>を指定した時だけ有効になります。</p>
 <h2 id="設定と書換え"><a href="#設定と書換え" class="header-anchor"></a>5. <a href="#設定と書換え" class="headerlink" title="設定と書換え"></a>設定と書換え</h2><p>インデント構文はデフォルトで有効ですが、コンパイラオプション<code>-noindent</code>, <code>-old-syntax</code>,<code>-language:Scala2</code>のいずれかを指定すれば無効にできます。実際に試してみましたがインデント構文を利用している箇所はエラーになってコンパイルができなくなりました。</p>
 <p>また、コンパイラオプションでインデント構文への書換えもできます。インデント構文への書換えは<code>-rewrite</code> <code>-new-syntax</code>オプションをつけてコンパイル後に、もう一度<code>-rewrite</code> <code>-indent</code>オプションをつけてコンパイルする必要があります。つまり面倒ですが2回コンパイラを起動する必要があります。この書換えは上手くいきました。</p>
 <p>逆方向の書換えを行うには<code>-rewrite</code> <code>-noindent</code>オプションをつけてコンパイル後に、もう一度を<code>-rewrite</code> <code>-old-syntax</code>つけてコンパイルします。この書換えは<code>0.19.0-RC1</code>時点では失敗しました。どうやらエンドマーカーの書換えで失敗しているようです。</p>
 <h3 id="main関数"><a href="#main関数" class="header-anchor"></a>5.1. <a href="#main関数" class="headerlink" title="@main関数"></a><code>@main</code>関数</h3><p>インデント構文とは欠片も関係ありませんが、0.18.1-RC1で導入された<code>@main</code>関数についても紹介しておきます。従来は以下のように書いていたmain関数ですが<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>、</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Example</span> </span>{<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Example</span> </span>{<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>@main</code>関数を使うと以下のように書くことができます。Scalaのスクリプティングが捗りそうです<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
-<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 
 
@@ -319,9 +309,11 @@
 <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
 <a class="a2a_button_facebook"></a>
 <a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
+
         
     </div>
 </div>
@@ -362,12 +354,15 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
-<div class="card widget profile">
+<div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/cats-cats-cats/gallery/profile/avatar.jpg" alt="hinastory">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         hinastory
@@ -419,7 +414,7 @@
                 </div>
             </div>
         </nav>
-
+        
         
         
         <div class="level is-mobile">
@@ -458,10 +453,6 @@
 </div>
     
         
-    
-        
-
-
     
         
 <div class="card widget">
@@ -584,8 +575,7 @@
     
         <div class="column-right-shadow is-hidden-widescreen ">
         
-            
-<div class="card widget">
+            <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -602,8 +592,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -622,8 +611,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -642,8 +630,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -662,8 +649,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -682,8 +668,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -693,10 +678,8 @@
         
     </div>
 </div>
-
         
-            
-<div class="card widget tag-cloud">
+            <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -704,7 +687,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
         
             <div class="card widget">
     <div class="card-content">
@@ -717,7 +699,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -728,7 +710,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -739,7 +721,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -750,7 +732,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -761,7 +743,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -772,7 +754,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -783,7 +765,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -794,7 +776,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -805,7 +787,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -816,7 +798,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -835,449 +817,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -1293,8 +1115,7 @@
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最近の記事
@@ -1311,8 +1132,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
                     </p>
@@ -1331,8 +1151,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
                     </p>
@@ -1351,8 +1170,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T22:28:45.000Z">2019-10-07</time></div>
-
-                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
+                    <a href="/cats-cats-cats/2019/10/07/why_write_technical_blogs/" class="has-link-black-ter is-size-6 has-text-weight-normal">★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
                     </p>
@@ -1371,8 +1189,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T22:28:45.000Z">2019-09-23</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
+                    <a href="/cats-cats-cats/2019/09/23/interpreter-compiler/" class="has-link-black-ter is-size-6 has-text-weight-normal">ベン図を使って、インタプリタとコンパイラの違いを説明してみる</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1391,8 +1208,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T22:28:45.000Z">2019-09-15</time></div>
-
-                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
+                    <a href="/cats-cats-cats/2019/09/15/scala-indentation/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
                     </p>
@@ -1402,10 +1218,8 @@
         
     </div>
 </div>
-
     
-        
-<div class="card widget tag-cloud">
+        <div class="card widget tag-cloud">
     <div class="card-content">
         <h3 class="menu-label">
             タグクラウド
@@ -1413,7 +1227,6 @@
         <a href="/cats-cats-cats/tags/AWS/" style="font-size: 14px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 10px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 14px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 14px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 12px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 12px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 12px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 12px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 12px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 12px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 14px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 18px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 14px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 16px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 12px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
-
     
         <div class="card widget">
     <div class="card-content">
@@ -1426,7 +1239,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">2019-10</span>
+                    <span class="level-item">10月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1437,7 +1250,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">2019-09</span>
+                    <span class="level-item">9月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1448,7 +1261,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">2019-08</span>
+                    <span class="level-item">8月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1459,7 +1272,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">2019-07</span>
+                    <span class="level-item">7月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1470,7 +1283,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">2019-05</span>
+                    <span class="level-item">5月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1481,7 +1294,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">2019-04</span>
+                    <span class="level-item">4月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1492,7 +1305,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">2019-03</span>
+                    <span class="level-item">3月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1503,7 +1316,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2019-02</span>
+                    <span class="level-item">2月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1514,7 +1327,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">2019-01</span>
+                    <span class="level-item">1月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1525,7 +1338,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">2018-12</span>
+                    <span class="level-item">12月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1544,449 +1357,289 @@
             <h3 class="menu-label">
                 タグ
             </h3>
-            <ul class="menu-list">
+            <div class="field is-grouped is-grouped-multiline">
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AWS/">
-                        <span class="level-start">
-                            <span class="level-item">AWS</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/AdventCalendar/">
-                        <span class="level-start">
-                            <span class="level-item">AdventCalendar</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Algorithm/">
-                        <span class="level-start">
-                            <span class="level-item">Algorithm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Azure/">
-                        <span class="level-start">
-                            <span class="level-item">Azure</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Blog/">
-                        <span class="level-start">
-                            <span class="level-item">Blog</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Book/">
-                        <span class="level-start">
-                            <span class="level-item">Book</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/CategoryTheory/">
-                        <span class="level-start">
-                            <span class="level-item">CategoryTheory</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Cats/">
-                        <span class="level-start">
-                            <span class="level-item">Cats</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Compiler/">
-                        <span class="level-start">
-                            <span class="level-item">Compiler</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Container/">
-                        <span class="level-start">
-                            <span class="level-item">Container</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Dotty/">
-                        <span class="level-start">
-                            <span class="level-item">Dotty</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/ErgoDash/">
-                        <span class="level-start">
-                            <span class="level-item">ErgoDash</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Event/">
-                        <span class="level-start">
-                            <span class="level-item">Event</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">6</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/GCP/">
-                        <span class="level-start">
-                            <span class="level-item">GCP</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Git/">
-                        <span class="level-start">
-                            <span class="level-item">Git</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Go/">
-                        <span class="level-start">
-                            <span class="level-item">Go</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Hexo/">
-                        <span class="level-start">
-                            <span class="level-item">Hexo</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/IaC/">
-                        <span class="level-start">
-                            <span class="level-item">IaC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Interpreter/">
-                        <span class="level-start">
-                            <span class="level-item">Interpreter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Jupyter/">
-                        <span class="level-start">
-                            <span class="level-item">Jupyter</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keras/">
-                        <span class="level-start">
-                            <span class="level-item">Keras</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keyboard/">
-                        <span class="level-start">
-                            <span class="level-item">Keyboard</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Keymap/">
-                        <span class="level-start">
-                            <span class="level-item">Keymap</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MLOps/">
-                        <span class="level-start">
-                            <span class="level-item">MLOps</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MachineLearning/">
-                        <span class="level-start">
-                            <span class="level-item">MachineLearning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/MakerFaire/">
-                        <span class="level-start">
-                            <span class="level-item">MakerFaire</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Mind/">
-                        <span class="level-start">
-                            <span class="level-item">Mind</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Minikube/">
-                        <span class="level-start">
-                            <span class="level-item">Minikube</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Qiita/">
-                        <span class="level-start">
-                            <span class="level-item">Qiita</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Ruby/">
-                        <span class="level-start">
-                            <span class="level-item">Ruby</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Scala/">
-                        <span class="level-start">
-                            <span class="level-item">Scala</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Serverless/">
-                        <span class="level-start">
-                            <span class="level-item">Serverless</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/TensorFlow/">
-                        <span class="level-start">
-                            <span class="level-item">TensorFlow</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/Web/">
-                        <span class="level-start">
-                            <span class="level-item">Web</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/gRPC/">
-                        <span class="level-start">
-                            <span class="level-item">gRPC</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/html5/">
-                        <span class="level-start">
-                            <span class="level-item">html5</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/k8s/">
-                        <span class="level-start">
-                            <span class="level-item">k8s</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/npm/">
-                        <span class="level-start">
-                            <span class="level-item">npm</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/oEmbed/">
-                        <span class="level-start">
-                            <span class="level-item">oEmbed</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
                     </a>
-                </li>
+                </div>
                 
-                <li>
-                    <a class="level is-marginless" href="/cats-cats-cats/tags/pulumi/">
-                        <span class="level-start">
-                            <span class="level-item">pulumi</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
-                </li>
+                </div>
                 
-            </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -2022,20 +1675,30 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("ja");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
 
     
     
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/cats-cats-cats/js/gallery.js" defer></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
 
     
     
-
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
     <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
@@ -2053,37 +1716,44 @@
     });
 </script>
 
-
     
-    
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
-
     
     
-
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
 
-
-    
-    
-
     
     
     
     
-
+    
+    
+    
+    
     
     
     
