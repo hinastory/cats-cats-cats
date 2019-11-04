@@ -1,13 +1,17 @@
 # Version of the Icarus theme that is currently used
 version: 2.6.0
 # Path or URL to the website's icon
-favicon: /images/favicon.svg
+favicon: /favicon.ico
+favicon_32: /gallery/profile/cats-cats-cats.logo-32.png
+
 # Additional HTML meta tags in an array.
 meta: 
 # Path or URL to RSS atom.xml
-rss: 
+rss: /cats-cats-cats/atom.xml
 # Path or URL to the website's logo to be shown on the left of the navigation bar or footer
-logo: /images/logo.svg
+logo: /gallery/profile/cats-cats-cats-logo.png
+title: cats cats cats
+
 # Open Graph metadata
 # https://hexo.io/docs/helpers.html#open-graph
 open_graph:
@@ -25,36 +29,26 @@ open_graph:
 navbar:
     # Navigation bar menu links
     menu:
-        Home: /
-        Archives: /archives
-        Categories: /categories
-        Tags: /tags
-        About: /about
+        Home: ['/','fa fa-home']
+        Archives: [/archives, "fas fa-archive fa-fw"]
+        Categories: [/categories, "fas fa-cat fa-fw"]
+        Tags: [/tags, "fas fa-tags fa-fw"]
+        About: [/about, ""]
     # Navigation bar links to be shown on the right
     links:
         Download on GitHub:
             icon: fab fa-github
-            url: 'https://github.com/ppoffice/hexo-theme-icarus'
+            url: 'https://github.com/hinastory/'
 # Footer section link settings
 footer:
-    # Links to be shown on the right of the footer section
-    links:
-        Creative Commons:
-            icon: fab fa-creative-commons
-            url: 'https://creativecommons.org/'
-        Attribution 4.0 International:
-            icon: fab fa-creative-commons-by
-            url: 'https://creativecommons.org/licenses/by/4.0/'
-        Download on GitHub:
-            icon: fab fa-github
-            url: 'https://github.com/ppoffice/hexo-theme-icarus'
-# Article display settings
+
+    # Article display settings
 article:
     # Code highlight settings
     highlight:
         # Code highlight themes
         # https://github.com/highlightjs/highlight.js/tree/master/src/styles
-        theme: atom-one-light
+        theme: vs2015
         # Show code copying button
         clipboard: true
         # Default folding status of the code blocks. Can be "", "folded", "unfolded"
@@ -62,7 +56,7 @@ article:
     # Whether to show article thumbnail images
     thumbnail: true
     # Whether to show estimate article reading time
-    readtime: true
+    readtime: false
 # Search plugin settings
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search
 search:
@@ -73,36 +67,11 @@ search:
 comment:
     # Name of the comment plugin
     type: 
-# Donation entries
-# https://ppoffice.github.io/hexo-theme-icarus/categories/Donation/
-donate:
-    -
-        # Donation entry name
-        type: alipay
-        # Qrcode image URL
-        qrcode: ''
-    -
-        # Donation entry name
-        type: wechat
-        # Qrcode image URL
-        qrcode: ''
-    -
-        # Donation entry name
-        type: paypal
-        # Paypal business ID or email address
-        business: ''
-        # Currency code
-        currency_code: USD
-    -
-        # Donation entry name
-        type: patreon
-        # URL to the Patreon page
-        url: ''
 # Share plugin settings
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share
 share:
     # Share plugin name
-    type: 
+    type: addtoany
 # Sidebar settings.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
@@ -110,7 +79,7 @@ sidebar:
     left:
         # Whether the left sidebar is sticky when page scrolls
         # https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/make-a-sidebar-sticky-when-page-scrolls/
-        sticky: false
+        sticky: true
     # right sidebar settings
     right:
         # Whether the right sidebar is sticky when page scrolls
@@ -125,36 +94,33 @@ widgets:
         # Where should the widget be placed, left or right
         position: left
         # Author name to be shown in the profile widget
-        author: Your name
+        author: hinastory
         # Title of the author to be shown in the profile widget
-        author_title: Your title
+        author_title: The more you reason the less you create
         # Author's current location to be shown in the profile widget
-        location: Your location
+        location: Kanagawa, Japan
         # Path or URL to the avatar to be shown in the profile widget
-        avatar: 
+        avatar:
         # Email address for the Gravatar to be shown in the profile widget
-        gravatar: 
+        gravatar: hinastory@gmail.com
         # Whether to show avatar image rounded or square
         avatar_rounded: false
         # Path or URL for the follow button
-        follow_link: 'https://github.com/ppoffice'
+        follow_link:
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:
-                icon: fab fa-github
-                url: 'https://github.com/ppoffice'
-            Facebook:
-                icon: fab fa-facebook
-                url: 'https://facebook.com'
+                icon: 'fab fa-github'
+                url: 'https://github.com/hinastory/'
             Twitter:
-                icon: fab fa-twitter
-                url: 'https://twitter.com'
-            Dribbble:
-                icon: fab fa-dribbble
-                url: 'https://dribbble.com'
+                icon: 'fab fa-twitter'
+                url: https://twitter.com/hinastory999
             RSS:
-                icon: fas fa-rss
-                url: /
+                icon: 'fas fa-rss'
+                url: /atom.xml
+            Qiita:
+                icon: 'fas fa-search'
+                url: https://qiita.com/hinastory
     -
         # Widget name
         type: toc
@@ -162,26 +128,17 @@ widgets:
         position: left
     -
         # Widget name
-        type: links
-        # Where should the widget be placed, left or right
-        position: left
-        # Links to be shown in the links widget
-        links:
-            Hexo: 'https://hexo.io'
-            PPOffice: 'https://github.com/ppoffice'
-    -
-        # Widget name
         type: category
         # Where should the widget be placed, left or right
         position: left
     -
         # Widget name
-        type: tagcloud
+        type: recent_posts
         # Where should the widget be placed, left or right
-        position: left
+        position: right
     -
         # Widget name
-        type: recent_posts
+        type: tagcloud
         # Where should the widget be placed, left or right
         position: right
     -
@@ -197,7 +154,7 @@ widgets:
 # Other plugin settings
 plugins:
     # Enable page animations
-    animejs: true
+    # animejs: false
     # Enable the lightGallery and Justified Gallery plugins
     # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/gallery-plugin/
     gallery: true
@@ -213,7 +170,7 @@ plugins:
     # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Google-Analytics
     google-analytics:
         # Google Analytics tracking id
-        tracking_id: 
+        tracking_id: UA-132406459-1
     # Baidu Analytics plugin settings
     # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Baidu-Analytics
     baidu-analytics:

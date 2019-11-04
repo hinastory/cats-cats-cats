@@ -29,7 +29,7 @@ module.exports = function (hexo) {
             if (typeof(defaultValue) !== 'undefined') {
                 return defaultValue;
             } else {
-                const property = readProperty(specs, configName);
+                const property = readProperty(specs, configName, hexo.config);
                 return property === null ? null : property[descriptors.defaultValue];
             }
         }

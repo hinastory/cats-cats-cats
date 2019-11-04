@@ -3,7 +3,7 @@ module.exports = (ctx, locals) => {
     const menus = get_config('navbar.menu', {});
     const actives = {};
     Object.keys(menus).forEach(i => {
-        actives[i] = typeof page.path !== 'undefined' && is_same_link(menus[i], page.path)
+        actives[i] = typeof page.path !== 'undefined' && is_same_link(menus[i][0], page.path)
     });
     const hasToc = get_config('toc') === true && has_widget('toc') && (page.layout === 'page' || page.layout === 'post');
     return Object.assign(locals, {

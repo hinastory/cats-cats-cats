@@ -84,4 +84,49 @@ module.exports = function (hexo) {
 
         return this.url_for(og_image);
     });
+
+    hexo.extend.helper.register('no_share', function (post) {
+        return post.hasOwnProperty('no_share') && post.no_share;
+    });
+
+    hexo.extend.helper.register('no_meta', function (post) {
+        return post.hasOwnProperty('no_meta') && post.no_meta;
+    });
+
+    hexo.extend.helper.register('htmlGenerator', function(args){
+        if(!args || !args.json || args.json.length == 0)return "";
+
+        var returnHTML = "";
+
+        function generateHTML(list){
+          var ret = "";
+          var data = "";
+          ret += "<li class=\"" + args.class + "-item\">";
+
+          if(list.date && list.date != ""){
+            date = '<div class="'+args.class+'-date">' + list.date + "</div>";
+          }
+
+          if(list.img && list.img != ""){
+              ret += '<div class="'+args.class+'-img">' + '<a href="' + list.path + '" title="'+ list.title +'" rel="bookmark">' + '<img src="'+list.img+'" />' + "</a>"  + "</div>";
+          }
+          ret += '<div class="'+args.class+'-title"><h3>' + date + '<a href="' + list.path + '" title="'+ list.title +'" rel="bookmark">'+ list.title + "</a></h3></div>";
+          if(list.excerpt &&  list.excerpt != ""){
+              ret += '<div class="'+args.class+'-excerpt"><p>' + list.excerpt + "</p></div>";
+          }
+
+          ret +=  "</li>";
+          return ret;
+        }
+
+        for(var i=0; i<args.json.length; i++){
+            returnHTML += generateHTML(args.json[i]);
+        }
+        let title = this.__('article.related_posts', Infinity);
+        if(returnHTML != ""){
+            returnHTML = '<div class="' + args.class + '-box">' +'<div class="' + args.class + '-box-title">' + title + '</div>' + '<ul class="' + args.class + '">' + returnHTML + "</ul></div>";
+        }
+        return returnHTML;
+    });
+
 }

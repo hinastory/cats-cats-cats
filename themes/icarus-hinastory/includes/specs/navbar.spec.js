@@ -7,14 +7,14 @@ module.exports = {
         [type]: 'object',
         [doc]: 'Navigation bar menu links',
         [defaultValue]: {
-            Home: '/',
-            Archives: '/archives',
-            Categories: '/categories',
-            Tags: '/tags',
-            About: '/about'
+            Home: ['/', ''],
+            Archives: ['/archives', ''],
+            Categories: ['/categories', ''],
+            Tags: ['/tags', ''],
+            About: ['/about', '']
         },
         '*': {
-            [type]: 'string',
+            [type]: 'array',
             [doc]: 'Path or URL to the menu item'
         }
     },

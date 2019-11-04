@@ -12,6 +12,9 @@ require('../includes/helpers/layout')(hexo);
 require('../includes/helpers/override')(hexo);
 require('../includes/helpers/page')(hexo);
 require('../includes/helpers/site')(hexo);
+require('../includes/tags/elink')(hexo);
+require('../includes/tags/gh-card')(hexo);
+
 
 // Fix large blog rendering OOM
 const postHtmlFilter = hexo.extend.filter.list()['after_render:html'];
