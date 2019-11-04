@@ -1,46 +1,5 @@
+<% post = post(); %>
 <div class="card">
-    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
-        <% if (index) { %>
-            <a class="has-link-black-ter" href="<%- url_for(post.link ? post.link : post.path) %>"><%= post.title %></a>
-        <% } else { %>
-            <%= post.title %>
-        <% } %>
-    </h1>
-
-    <% if (!no_meta(post)) { %>
-    <div class="article-meta-data">
-
-        <div class="article-date">
-            <i class="fas fa-calendar-alt"></i>
-            <a href="<%- url_for((post.link?post.link:post.path)) %>" class="media-left">
-                <time datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
-            </a>
-        </div>
-
-        <div class="article-categories">
-            <% if (post.categories && post.categories.length) { %>
-                <i class="fas fa-cat"></i>
-                <%- list_categories(post.categories, {
-                    class: 'has-link-grey ',
-                    show_count: false,
-                    style: 'none',
-                    separator: '&nbsp;/&nbsp;'
-                }) %>
-            <% } %>
-        </div>
-
-        <div class="article-tags">
-            <% if (post.tags && post.tags.length) { %>
-                <i class="fas fa-tags"></i>
-                <%- list_tags(post.tags, {
-                    class: 'has-link-grey ',
-                    show_count: false,
-                    style: 'link'
-                }) %>
-            <% } %>
-        </div>
-    </div>
-    <% } %>
     <% if (has_thumbnail(post)) { %>
     <div class="card-image">
         <%- index ? '<a href="' + url_for(post.link ? post.link : post.path) + '"' : '<span ' %> class="image is-7by1">
@@ -52,20 +11,57 @@
         <% if (post.layout != 'page') { %>
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-               <% if (!has_config('article.readtime') || get_config('article.readtime') === true) { %>
+                <time class="level-item has-text-grey" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+                <% if (post.categories && post.categories.length) { %>
+                <div class="level-item">
+                <%- list_categories(post.categories, {
+                    class: 'has-link-grey ',
+                    show_count: false,
+                    style: 'none',
+                    separator: '&nbsp;/&nbsp;'
+                }) %>
+                </div>
+                <% } %>
+                <% if (!has_config('article.readtime') || get_config('article.readtime') === true) { %>
                 <span class="level-item has-text-grey">
                     <% const words = word_count(post._content); %>
                     <% const time = duration((words / 150.0) * 60, 'seconds') %>
                     <%= `${ time.locale(get_config('language', 'en')).humanize() } ${ __('article.read')} (${ __('article.about') } ${ words } ${ __('article.words') })` %>
                 </span>
                 <% } %>
+                <% if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { %>
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <%- _p('plugin.visit', '<span id="busuanzi_value_page_pv">0</span>') %>
+                </span>
+                <% } %>
             </div>
         </div>
         <% } %>
-
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            <% if (index) { %>
+                <a class="has-link-black-ter" href="<%- url_for(post.link ? post.link : post.path) %>"><%= post.title %></a>
+            <% } else { %>
+                <%= post.title %>
+            <% } %>
+        </h1>
         <div class="content">
             <%- index && post.excerpt ? post.excerpt : post.content %>
         </div>
+        <% if (!index && post.tags && post.tags.length) { %>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <%- list_tags(post.tags, {
+                        class: 'has-link-grey ',
+                        show_count: false,
+                        style: 'link'
+                    }) %>
+                </div>
+            </div>
+        </div>
+        <% } %>
         <% if (index && post.excerpt) { %>
         <div class="level is-mobile">
             <div class="level-start">
@@ -75,11 +71,28 @@
             </div>
         </div>
         <% } %>
-        <% if (!index && has_config('share.type') && !no_share(post)) { %>
-        <%- partial('share/' + get_config('share.type')) %>
+        <% if (!index && has_config('share.type')) { %>
+        <%- _partial('share/' + get_config('share.type')) %>
         <% } %>
     </div>
 </div>
+
+<% const services = has_config('donate') ? get_config('donate') : []; %>
+<% if (!index && services.length > 0) { %>
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered"><%= __('donate.title') %></h3>
+        <div class="buttons is-centered">
+            <% for (let service of services) {
+                const type = get_config_from_obj(service, 'type');
+                if (type !== null) { %>
+                <%- _partial('donate/' + type, { type, service }) %>
+                <% }
+            } %>
+        </div>
+    </div>
+</div>
+<% } %>
 
 <% if (!index && (post.prev || post.next)) { %>
 <div class="card card-transparent">
@@ -108,15 +121,7 @@
 <div class="card">
     <div class="card-content">
         <h3 class="title is-5 has-text-weight-normal"><%= __('article.comments') %></h3>
-        <%- partial('comment/' + get_config('comment.type')) %>
+        <%- _partial('comment/' + get_config('comment.type')) %>
     </div>
 </div>
-<% } %>
-
-<% if (!index) { %>
-  <%-
-  htmlGenerator(
-    popular_posts_json({ maxCount: 6 ,  isDate: true , isImage: true} , post )
-  )
-  %>
 <% } %>

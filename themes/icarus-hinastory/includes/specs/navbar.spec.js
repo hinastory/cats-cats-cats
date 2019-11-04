@@ -7,14 +7,14 @@ module.exports = {
         [type]: 'object',
         [doc]: 'Navigation bar menu links',
         [defaultValue]: {
-            Home: ['/', ''],
-            Archives: ['/archives', ''],
-            Categories: ['/categories', ''],
-            Tags: ['/tags', ''],
-            About: ['/about', '']
+            Home: '/',
+            Archives: '/archives',
+            Categories: '/categories',
+            Tags: '/tags',
+            About: '/about'
         },
         '*': {
-            [type]: 'array',
+            [type]: 'string',
             [doc]: 'Path or URL to the menu item'
         }
     },
@@ -24,7 +24,7 @@ module.exports = {
         [defaultValue]: {
             'Download on GitHub': {
                 icon: 'fab fa-github',
-                url: 'http://github.com/ppoffice/hexo-theme-icarus'
+                url: 'https://github.com/ppoffice/hexo-theme-icarus'
             }
         }
     }

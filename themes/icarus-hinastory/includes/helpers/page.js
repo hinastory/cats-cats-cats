@@ -5,24 +5,11 @@
 *     <%- is_categories(page) %>
 *     <%- is_tags(page) %>
 *     <%- page_title(page) %>
-*     <%- meta(post) %>
 *     <%- has_thumbnail(post) %>
 *     <%- get_thumbnail(post) %>
+*     <%- get_og_image(post) %>
 */
 module.exports = function (hexo) {
-    function trim(str) {
-        return str.trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
-    }
-
-    function split(str, sep) {
-        var result = [];
-        var matched = null;
-        while (matched = sep.exec(str)) {
-            result.push(matched[0]);
-        }
-        return result;
-    }
-
     hexo.extend.helper.register('is_categories', function (page = null) {
         return (page === null ? this.page : page).__categories;
     });
@@ -59,27 +46,6 @@ module.exports = function (hexo) {
         return [title, siteTitle].filter(str => typeof (str) !== 'undefined' && str.trim() !== '').join(' - ');
     });
 
-    hexo.extend.helper.register('meta', function (post) {
-        var metas = post.meta || [];
-        var output = '';
-        var metaDOMArray = metas.map(function (meta) {
-            var entities = split(meta, /(?:[^\\;]+|\\.)+/g);
-            var entityArray = entities.map(function (entity) {
-                var keyValue = split(entity, /(?:[^\\=]+|\\.)+/g);
-                if (keyValue.length < 2) {
-                    return null;
-                }
-                var key = trim(keyValue[0]);
-                var value = trim(keyValue[1]);
-                return key + '="' + value + '"';
-            }).filter(function (entity) {
-                return entity;
-            });
-            return '<meta ' + entityArray.join(' ') + ' />';
-        });
-        return metaDOMArray.join('\n');
-    });
-
     hexo.extend.helper.register('has_thumbnail', function (post) {
         const getConfig = hexo.extend.helper.get('get_config').bind(this);
         const allowThumbnail = getConfig('article.thumbnail', true);
@@ -89,53 +55,33 @@ module.exports = function (hexo) {
         return post.hasOwnProperty('thumbnail') && post.thumbnail;
     });
 
-    hexo.extend.helper.register('no_share', function (post) {
-        return post.hasOwnProperty('no_share') && post.no_share;
-    });
-
-    hexo.extend.helper.register('no_meta', function (post) {
-        return post.hasOwnProperty('no_meta') && post.no_meta;
-    });
-
     hexo.extend.helper.register('get_thumbnail', function (post) {
         const hasThumbnail = hexo.extend.helper.get('has_thumbnail').bind(this)(post);
         return this.url_for(hasThumbnail ? post.thumbnail : 'images/thumbnail.svg');
     });
 
-    hexo.extend.helper.register('htmlGenerator', function(args){
-        if(!args || !args.json || args.json.length == 0)return "";
+    hexo.extend.helper.register('has_og_image', function (post) {
+        return post.hasOwnProperty('og_image');
+    });
 
-        var returnHTML = "";
+    hexo.extend.helper.register('get_og_image', function (post) {
+        const getConfig = hexo.extend.helper.get('get_config').bind(this);
+        const hasConfig = hexo.extend.helper.get('has_config').bind(this);
 
-        function generateHTML(list){
-          var ret = "";
-          var data = "";
-          ret += "<li class=\"" + args.class + "-item\">";
+        const hasOGImage = hexo.extend.helper.get('has_og_image').bind(this)(post);
+        const hasThumbnail = hexo.extend.helper.get('has_thumbnail').bind(this)(post);
 
-          if(list.date && list.date != ""){
-            date = '<div class="'+args.class+'-date">' + list.date + "</div>";
-          }
+        const getThumbnail = hexo.extend.helper.get('get_thumbnail').bind(this);
 
-          if(list.img && list.img != ""){
-              ret += '<div class="'+args.class+'-img">' + '<a href="' + list.path + '" title="'+ list.title +'" rel="bookmark">' + '<img src="'+list.img+'" />' + "</a>"  + "</div>";
-          }
-          ret += '<div class="'+args.class+'-title"><h3>' + date + '<a href="' + list.path + '" title="'+ list.title +'" rel="bookmark">'+ list.title + "</a></h3></div>";
-          if(list.excerpt &&  list.excerpt != ""){
-              ret += '<div class="'+args.class+'-excerpt"><p>' + list.excerpt + "</p></div>";
-          }
+        let og_image
 
-          ret +=  "</li>";
-          return ret;
-        }
+        if (hasOGImage)
+            og_image = post.og_image
+        else if (hasThumbnail)
+            og_image = getThumbnail(post);
+        else
+            og_image = getConfig('article.og_image', '/images/og_image.png');
 
-        for(var i=0; i<args.json.length; i++){
-            returnHTML += generateHTML(args.json[i]);
-        }
-        let title = this._p('article.related_posts', Infinity);
-        if(returnHTML != ""){
-            returnHTML = '<div class="' + args.class + '-box">' +'<div class="' + args.class + '-box-title">' + title + '</div>' + '<ul class="' + args.class + '">' + returnHTML + "</ul></div>";
-        }
-        return returnHTML;
-      });
-
+        return this.url_for(og_image);
+    });
 }

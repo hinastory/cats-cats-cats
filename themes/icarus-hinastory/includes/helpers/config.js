@@ -23,7 +23,7 @@ module.exports = function (hexo) {
     }
 
     hexo.extend.helper.register('get_config', function (configName, defaultValue = undefined, excludePage = false) {
-        const value = readProperty(Object.assign({}, this.config, hexo.theme.config, hexo.config,
+        const value = readProperty(Object.assign({}, this.config, hexo.theme.config,
             !excludePage ? this.page : {}), configName);
         if (value === null) {
             if (typeof(defaultValue) !== 'undefined') {
