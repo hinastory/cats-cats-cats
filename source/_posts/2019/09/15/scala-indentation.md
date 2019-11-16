@@ -12,6 +12,7 @@ date: 2019-09-15 07:28:45
 ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・
 
 (2019年9月28日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
+(2019年11月16日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B411%E6%9C%8816%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
 
 <!-- more -->
 
@@ -21,7 +22,8 @@ date: 2019-09-15 07:28:45
 ## TL;DR
 
 - Scala 3のリサーチコンパイラである{% elink Dotty 0.18.1-RC1 https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1 %}にインデントベースの構文が実装されました
-  - [Dotty 0.19.0-RC1](https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html)の変更に合わせて修正しました
+  - {% elink Dotty 0.19.0-RC1 https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html %}の変更に合わせて修正しました
+  - {% elink Dotty 0.20.0-RC1 http://dotty.epfl.ch/blog/2019/11/04/20th-dotty-milestone-release.html %}の変更に合わせて修正しました
 - インデントベースの構文はまだ提案段階でありScala 3の正式な仕様に決定したわけではありません
   - 今後機能が変化したり、機能が採用されなかったりする可能性も十分あります
   - というか反対意見の方が多いです
@@ -48,6 +50,18 @@ object IndentBasedExample
     end try
   end fromString
 
+  trait A with
+    def f: Int
+
+  class B with
+    def g: Int = 27
+
+  class C(x: Int) extends B with A with
+    def f = x
+
+  type T = A with
+    def f: Int
+
   def use(dayString: String) =
     val day = fromString(dayString)
 
@@ -61,6 +75,8 @@ object IndentBasedExample
     if (day == Day.Wednesday)
       println("Today is a Wednesday")
       println("Bad Day")
+
+    println(s"B().g is ${B().g}.")
 
     val optNum =
       for
@@ -106,6 +122,22 @@ object BraceBasedExample {
     }
   }
 
+  trait A {
+    def f: Int
+  }
+
+  class B {
+    def g: Int = 27
+  }
+
+  class C(x: Int) extends B with A {
+    def f = x
+  }
+
+  type T = A {
+    def f: Int
+  }
+
   def use(dayString: String) = {
     val day = fromString(dayString)
 
@@ -121,6 +153,8 @@ object BraceBasedExample {
       println("Today is a Wednesday")
       println("Bad Day")
     }
+
+    println(s"B().g is ${B().g}.")
 
     val optNum =
       for {
@@ -177,9 +211,34 @@ object IndentBasedExample
 
 `enum`はScala 3(Dotty)の機能でScala 2にはありません。気になる方は「[Enumerations](https://dotty.epfl.ch/docs/reference/enums/enums.html)」を参照してください。
 
+また、定義の行末を以下のように`with`で終わることもできます。
+
+{% code lang:scala %}
+trait A with
+  def f: Int
+
+class B with
+  def g: Int = 27
+
+class C(x: Int) extends B with A with
+  def f = x
+
+type T = A with
+  def f: Int
+{% endcode %}
+
+`with`はオプションですが、インデント構文を使う場合は、基本的につけたほうが良さそうです。例えば、以下のようにクラスBの定義で次の行にインデントをつけ忘れた場合、`with`があるとコンパイラが構文エラーにしてくれます。
+もし、`with`をつけていなかった場合はエラーにはならずに、`def`から始まる関数定義はクラスBに所属するのではなくクラスBと同じ名前空間のメソッドとして定義されてしまいます。
+
+{% code lang:scala %}
+class B with
+def g: Int = 27
+{% endcode %}
+
 ### `if`式
 
-`if`式の場合は、インデントブロック開始の合図が「`then`」になります。最初`then`を書き忘れたらコンパイラに`then`がないって怒られて、`then`ってなんぞや？？？となりました。どうやら新しいキーワードみたいです。
+`if`式の場合は、インデントブロック開始の合図が「`then`」になります。~~最初`then`を書き忘れたらコンパイラに`then`がないって怒られて、`then`ってなんぞや？？？となりました。どうやら新しいキーワードみたいです。~~
+行末の`then`は0.20.0-RC-1でオプションになりました。つまり以下の`then`がなくても正しい構文になります。
 
 {% code lang:scala %}
 if day.isWeekend then
@@ -352,3 +411,14 @@ Odersky先生もこのプルリクはデータを集めるための実験とし�
 下記のサンプルリポジトリに関しても0.19.0-RC1にバージョンアップして対応済みです。
 
 {% ghCard hinastory/dotty_examples %}
+
+### 2019年11月16日の更新内容
+
+先日発表された{% elink Dotty 0.20.0-RC1 http://dotty.epfl.ch/blog/2019/11/04/20th-dotty-milestone-release.html %}でインデント構文が若干変更されました。
+インデントに関係ある変更は以下のとおりです。関連する箇所に関して記事の追記を行っています。
+
+- クラス、トレイトの後ろにオプションで`with`を置けるようになった
+  - インデントのし忘れを防ぐため
+  - {% elink Tweaks to indent syntax by odersky · Pull Request #7363 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7363 %}
+- `if`式の行末の`then`がオプションになった
+  - {% elink Make `then` optional at line end by odersky · Pull Request #7276 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7276 %}

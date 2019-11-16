@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/</loc>
+        <lastmod>2019-11-16T01:01:27.574Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</loc>
         <lastmod>2019-11-04T09:24:02.888Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,14 +34,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/</loc>
         <lastmod>2019-11-04T05:52:44.462Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/</loc>
-        <lastmod>2019-11-02T01:33:47.849Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

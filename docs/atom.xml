@@ -133,12 +133,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/</id>
     <published>2019-09-14T22:28:45.000Z</published>
-    <updated>2019-11-02T01:33:47.849Z</updated>
+    <updated>2019-11-16T01:01:27.574Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・&lt;/p&gt;
-&lt;p&gt;(2019年9月28日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
+&lt;p&gt;(2019年9月28日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;br&gt;(2019年11月16日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B411%E6%9C%8816%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
     
     </summary>
     
@@ -430,9 +430,9 @@
       <category term="Programming" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Programming/"/>
     
     
-      <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
-    
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
     
   </entry>
   
