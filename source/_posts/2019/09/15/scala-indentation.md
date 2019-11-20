@@ -231,7 +231,7 @@ type T = A with
 もし、`with`をつけていなかった場合はエラーにはならずに、`def`から始まる関数定義はクラスBに所属するのではなくクラスBと同じ名前空間のメソッドとして定義されてしまいます。
 
 {% code lang:scala %}
-class B with
+class B with // `with`をつけているのでインデントを次行でつけ忘れても構文エラーになる
 def g: Int = 27
 {% endcode %}
 
