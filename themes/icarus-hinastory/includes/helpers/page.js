@@ -82,7 +82,7 @@ module.exports = function (hexo) {
         else
             og_image = getConfig('article.og_image', '/images/og_image.png');
 
-        return this.url_for(og_image);
+        return og_image;
     });
 
     hexo.extend.helper.register('no_share', function (post) {
