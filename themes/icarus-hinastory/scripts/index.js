@@ -12,6 +12,7 @@ require('../includes/helpers/layout')(hexo);
 require('../includes/helpers/override')(hexo);
 require('../includes/helpers/page')(hexo);
 require('../includes/helpers/site')(hexo);
+require('../includes/helpers/open_graph2')(hexo);
 require('../includes/tags/elink')(hexo);
 require('../includes/tags/gh-card')(hexo);
 
