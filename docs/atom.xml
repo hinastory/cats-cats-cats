@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-11-20T22:51:22.558Z</updated>
+  <updated>2019-12-01T20:01:07.050Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/</id>
+    <published>2019-12-01T22:28:45.000Z</published>
+    <updated>2019-12-01T20:01:07.050Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;この記事は &lt;a href=&quot;https://adventar.org/calendars/4332&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;キーボード #2 Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の２日目の記事です。天下一キーボードわいわい会 Vol.3に参加してきたのでその熱が冷めやらぬ内にレポートしようと思います。というかほぼフォトギャラリーです。写真を見て楽しんで頂ければと思います。&lt;/p&gt;
+&lt;a href=&quot;https://adventar.org/calendars/4332&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://adventar.org/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;キーボード #2 Advent Calendar 2019 - Adventar&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;キーボード Advent Calendar 2019 の2枚目です。
+1枚目は[こちら](https://adventar.org/calendars/4117)
+
+こんにちは
+
+2019年、遊舎工房のリアル店舗のオープンに始まり、キーボード・キーキャップ・スイッチのGBが頻繁に…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
+    
+    
+      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+  </entry>
+  
+  <entry>
     <title>AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/11/21/deep-learning-for-general/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/11/21/deep-learning-for-general/</id>
     <published>2019-11-20T22:28:45.000Z</published>
-    <updated>2019-11-20T22:51:22.558Z</updated>
+    <updated>2019-12-01T01:54:51.467Z</updated>
     
     <summary type="html">
     
@@ -456,9 +487,9 @@
       <category term="Programming" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Programming/"/>
     
     
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
       <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
     
   </entry>
   
@@ -511,31 +542,6 @@
       <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>全プログラマに捧ぐ！図解「ノートブック」</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/</id>
-    <published>2019-04-05T22:34:17.000Z</published>
-    <updated>2019-04-13T19:43:21.208Z</updated>
-    
-    <summary type="html">
-    
-      &lt;a href=&quot;https://jupyter.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jupyter Notebook&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
-    
-    
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
   </entry>
   
