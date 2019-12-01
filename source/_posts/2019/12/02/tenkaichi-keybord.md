@@ -164,4 +164,4 @@ date: 2019-12-02 07:28:45
 本記事がキーボードに興味がある方の一助になれば幸いです。
 
 
-この記事はErgo42 with DSA COFFEE HOUSE KEYSET & Cherry MX Redで書きました。
+(この記事はErgo42 with DSA COFFEE HOUSE KEYSET & Cherry MX Redで書きました。)
