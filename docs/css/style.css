@@ -13,7 +13,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Ubuntu", "Roboto", "Open Sans", "Microsoft YaHei", sans-serif;
+  font-family: family-sans;
 }
 @media screen and (min-width: 1280px) {
   .is-1-column .container,

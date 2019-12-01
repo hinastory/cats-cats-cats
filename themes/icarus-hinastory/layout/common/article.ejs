@@ -50,20 +50,6 @@
     </div>
     <% } %>
     <div class="card-content article <%= post.hasOwnProperty('direction') ? post.direction : '' %>">
-        <% if (post.layout != 'page') { %>
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-               <% if (!has_config('article.readtime') || get_config('article.readtime') === true) { %>
-                <span class="level-item has-text-grey">
-                    <% const words = word_count(post._content); %>
-                    <% const time = duration((words / 150.0) * 60, 'seconds') %>
-                    <%= `${ time.locale(get_config('language', 'en')).humanize() } ${ __('article.read')} (${ __('article.about') } ${ words } ${ __('article.words') })` %>
-                </span>
-                <% } %>
-            </div>
-        </div>
-        <% } %>
-
         <div class="content">
             <%- index && post.excerpt ? post.excerpt : post.content %>
         </div>
