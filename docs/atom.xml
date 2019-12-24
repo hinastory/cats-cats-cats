@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-12-24T21:37:21.021Z</updated>
+  <updated>2019-12-24T21:50:00.919Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</id>
     <published>2019-12-24T22:28:45.000Z</published>
-    <updated>2019-12-24T21:37:21.021Z</updated>
+    <updated>2019-12-24T21:50:00.919Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の25日目の記事です。&lt;/p&gt;
-&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/2-7-0-rc2-released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/p&gt;
-&lt;p&gt;そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの21年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;
+&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/ruby-2-7-0-rc2-released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/p&gt;
+&lt;p&gt;そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;
     
     </summary>
     
