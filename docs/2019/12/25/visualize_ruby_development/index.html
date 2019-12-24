@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html  lang="ja">
+<head>
+    <meta charset="utf-8">
+<title>クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta name="description" content="この記事はRuby Advent Calendar 2019の25日目の記事です。 本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。新バージョンのRuby 2.7はRC2までやってきたので、リリースに向けて着実に進んでいるようです。(本記事投稿時点ではまだリリースはされていません。) そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの21年">
+<meta name="keywords" content="AdventCalendar,Ruby,Jupyter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="この記事はRuby Advent Calendar 2019の25日目の記事です。 本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。新バージョンのRuby 2.7はRC2までやってきたので、リリースに向けて着実に進んでいるようです。(本記事投稿時点ではまだリリースはされていません。) そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの21年">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png">
+<meta property="og:updated_time" content="2019-12-24T21:00:00.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
+
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="media-left">
+                <time datetime="2019-12-24T22:28:45.000Z">2019-12-25</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/AdventCalendar/" rel="tag">AdventCalendar</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Jupyter/" rel="tag">Jupyter</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Ruby/" rel="tag">Ruby</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" alt="クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <div class="content">
+            <p>この記事は<a href="https://qiita.com/advent-calendar/2019/ruby" target="_blank" rel="noopener">Ruby Advent Calendar 2019<i class="fas fa-external-link-alt fa-fw"></i></a>の25日目の記事です。</p>
+<p>本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。<br>新バージョンのRuby 2.7は<a href="https://www.ruby-lang.org/ja/news/2019/12/21/2-7-0-rc2-released/" target="_blank" rel="noopener">RC2<i class="fas fa-external-link-alt fa-fw"></i></a>までやってきたので、リリースに向けて着実に進んでいるようです。<br>(本記事投稿時点ではまだリリースはされていません。)</p>
+<p>そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの21年に渡るコミットの歴史を可視化してみたいと思います。</p>
+<a id="more"></a>
+
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#コミットログを収集する" class="contents-header">2. コミットログを収集する</a><ul><li><a href="#rubyのリポジトリを取得する" class="contents-header">2.1. Rubyのリポジトリを取得する</a></li><li><a href="#rubyのリポジトリを覗いてみる" class="contents-header">2.2. Rubyのリポジトリを覗いてみる</a></li><li><a href="#作者別にコミット数をカウントしてみる" class="contents-header">2.3. 作者別にコミット数をカウントしてみる</a></li><li><a href="#年単位でコミット数をカウントしてみる" class="contents-header">2.4. 年単位でコミット数をカウントしてみる</a></li></ul></li><li><a href="#データの前処理のための基盤を整える" class="contents-header">3. データの前処理のための基盤を整える</a><ul><li><a href="#環境構築方法を選択する" class="contents-header">3.1. 環境構築方法を選択する</a></li><li><a href="#dockerfileの準備" class="contents-header">3.2. Dockerfileの準備</a></li><li><a href="#jupyterlabの起動画面" class="contents-header">3.3. JupyterLabの起動画面</a></li></ul></li><li><a href="#jupyterlabとrubyでデータの前処理を行ってみる" class="contents-header">4. JupyterLabとRubyでデータの前処理を行ってみる</a><ul><li><a href="#rubyコミッタの名寄せを行ってみる" class="contents-header">4.1. Rubyコミッタの名寄せを行ってみる</a></li><li><a href="#最終的な集計テーブルを作成する" class="contents-header">4.2. 最終的な集計テーブルを作成する</a></li></ul></li><li><a href="#flourishで可視化してみる" class="contents-header">5. Flourishで可視化してみる</a></li><li><a href="#完成した可視化" class="contents-header">6. 完成した可視化</a></li><li><a href="#まとめ" class="contents-header">7. まとめ</a></li></ul></div>
+
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>一番最初の動機はコミッターのみなさんが日々どれだけのコミットを積み重ねているのかを過去から遡って見てみたいというものでした。しかしRubyの誕生は1993年と言われており、27年の開発の歴史の中で関わっているコミッターの数は200人を超えるので単純な棒グラフや線グラフでは可視化が破綻するのは目に見えていました。</p>
+<p>そこで「<a href="https://flourish.studio/" target="_blank" rel="noopener">Flourish<i class="fas fa-external-link-alt fa-fw"></i></a>」というサービスを使い、時間軸を加えた棒グラフのアニメーションを利用することで、常にトップ20のコミッターの様子を捉えられるようにします。</p>
+<img src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-commit-visualization-first.png" class="">
+
+<p>完成イメージは上記のようになります。上の画像を2019年までアニメーションさせるための作業を行うことが本記事の趣旨になります。また、せっかくなのでなるべくRubyを使ってこの作業を行ってみたいと思います。</p>
+<p>それでは行ってみましょう。</p>
+<h2 id="コミットログを収集する"><a href="#コミットログを収集する" class="header-anchor"></a>2. <a href="#コミットログを収集する" class="headerlink" title="コミットログを収集する"></a>コミットログを収集する</h2><p>何はともあれ、コミットログを収集しないと可視化ができません。そこでRubyのリポジトリを取得することから始めたいと思います。</p>
+<h3 id="rubyのリポジトリを取得する"><a href="#rubyのリポジトリを取得する" class="header-anchor"></a>2.1. <a href="#Rubyのリポジトリを取得する" class="headerlink" title="Rubyのリポジトリを取得する"></a>Rubyのリポジトリを取得する</h3><p>まずはGitHubの<a href="https://github.com/ruby/ruby/" target="_blank" rel="noopener">Rubyリポジトリ<i class="fas fa-external-link-alt fa-fw"></i></a>クローンしてきます。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/ruby/ruby.git<br></code></pre></td></tr></tbody></table></figure>
+
+<p>ただし、上記のリポジトリのページにはタイトルに以下のように<code>[mirror]</code>と付いています。</p>
+<blockquote>
+<p>The Ruby Programming Language [mirror]</p>
+</blockquote>
+<p>これはどういうことかというと、実はRubyは正式なRubyのGitリポジトリはGitHubとは別のGitリポジトリで管理されています。また、それ以前にRubyの開発は2019年4月22日までSVNリポジトリで管理されており、一部のブランチはまだそちらで開発が続いているという事実もあります<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
+<p>その辺の経緯は「<a href="https://k0kubun.hatenablog.com/entry/ruby-core-2019" target="_blank" rel="noopener">令和時代のRubyコア開発<i class="fas fa-external-link-alt fa-fw"></i></a>」に書いてありました。歴史の長いプロダクトはバージョン管理システムを変えるのに大きな労力を伴うという一例だと思います。</p>
+<p>話は逸れますが<a href="https://github.com/ruby/ruby-commit-hook/blob/master/config/email.yml" target="_blank" rel="noopener">このURL<i class="fas fa-external-link-alt fa-fw"></i></a>にメールアドレスが載っていないと2020年1月1日以降<a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-dev/50890" target="_blank" rel="noopener">pushができなくなる<i class="fas fa-external-link-alt fa-fw"></i></a>みたいなのでコミッタの方はお気を付けください。</p>
+<h3 id="rubyのリポジトリを覗いてみる"><a href="#rubyのリポジトリを覗いてみる" class="header-anchor"></a>2.2. <a href="#Rubyのリポジトリを覗いてみる" class="headerlink" title="Rubyのリポジトリを覗いてみる"></a>Rubyのリポジトリを覗いてみる</h3><p>リポジトリのクローン後にやることと言えば、一番最初のコミットと一番最後のコミットを見ることだと思います。まずは最後のコミットを<code>git log</code>コマンドで見てみます。</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ">commit 16fddfe352828d26aaa6cdbce696e62de04511ce (HEAD -&gt; master, origin/trunk, origin/master, origin/HEAD)<br>Author: Marcus Stollsteimer &lt;sto.mar@web.de&gt;<br>Date:   Mon Dec 23 15:02:59 2019 +0100<br><br>    [DOC] Improve readability of requirements for &lt;=&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>最後のコミットは12/23に行われています。次に一番最初のコミットを見てみます。<code>git log</code>コマンドに<code>--reverse</code>オプションをつけることで先頭からコミットを見ることができます。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --reverse<br></code></pre></td></tr></tbody></table></figure>
+
+<p>一番最初のコミットは1998/1/16に行われたようです。ログに<code>by cvs2svn</code>とあるのでバージョン管理システムをCVSからSubversionに移行するために<code>cvs2svn</code>コマンドを用いたようです。</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ">commit 392296c12de9d7f9be03a8205250ba0844cb9d38<br>Author: (no author) &lt;(no author)@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br>Date:   Fri Jan 16 12:13:05 1998 +0000<br><br>    New repository initialized by cvs2svn.<br><br>    git-svn-id: svn+ssh://ci.ruby-lang.org/ruby/trunk@1 b2dd03c8-39d4-4d8f-98ff-823fe69b080e<br><br>commit 3db12e8b236ac8f88db8eb4690d10e4a3b8dbcd4 (tag: v1_0_r2)<br>Author: matz &lt;matz@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br>Date:   Fri Jan 16 12:13:05 1998 +0000<br><br>    Initial revision<br><br><br>    git-svn-id: svn+ssh://ci.ruby-lang.org/ruby/trunk@2 b2dd03c8-39d4-4d8f-98ff-823fe69b080e<br></code></pre></td></tr></tbody></table></figure>
+
+<p>また、コミットログに<code>git-svn-id</code>が残っているので、このリポジトリはSubversion時代に<code>git-svn</code>コマンドを用いてGitHubと同期されていたことも分かります。このへんの経緯をまとめたものがないかなとネットを検索したら<a href="https://magazine.rubyist.net/articles/0052/0052-ForeWord.html" target="_blank" rel="noopener">るびま0052号<i class="fas fa-external-link-alt fa-fw"></i></a>に書かれていました。Gitに移行した現在の状況も加味すると以下のようになります。</p>
+<table>
+<thead>
+<tr>
+<th>年代</th>
+<th>バージョン管理システム</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1993〜1998/1</td>
+<td>RCS/tarボール?</td>
+</tr>
+<tr>
+<td>1998/1〜2006/12</td>
+<td>CVS</td>
+</tr>
+<tr>
+<td>2006/12 〜 2019/4</td>
+<td>Suvbersion</td>
+</tr>
+<tr>
+<td>2019/4 〜 現在</td>
+<td>Git</td>
+</tr>
+</tbody></table>
+<p>コミットログに残っているのはCVSで管理された1998年以降なので、可視化できるのはこの約22年間分のコミットになります。残念ながらRuby誕生から約5年間の歴史は可視化できないことをご了承ください。</p>
+<h3 id="作者別にコミット数をカウントしてみる"><a href="#作者別にコミット数をカウントしてみる" class="header-anchor"></a>2.3. <a href="#作者別にコミット数をカウントしてみる" class="headerlink" title="作者別にコミット数をカウントしてみる"></a>作者別にコミット数をカウントしてみる</h3><p>次に年単位で作者別にコミット数をカウントしてみます。原理上はコミットログさえあればコミットの日付とコミットの作者とコミット数が分かるので、最初はコミットログを自力でパースしてカウントしようと思っていましたが、<code>git shotlog</code>という便利なコマンドがあることに気づきました。<br>以下のコマンドで1998年から2019年までの作者別のコミット数を見ることができます。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git shortlog -sne --no-merges --since=<span class="hljs-string">'1998-01-01'</span> --until=<span class="hljs-string">'2019-12-31'</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>オプションは以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-n</code></td>
+<td>作者ごとのコミット数でソート</td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>コミット数の概要のみ表示</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>Eメールアドレスを表示</td>
+</tr>
+<tr>
+<td><code>--no-merges</code></td>
+<td>マージコミットを除外</td>
+</tr>
+<tr>
+<td><code>−−since</code></td>
+<td>開始日時</td>
+</tr>
+<tr>
+<td><code>--untile</code></td>
+<td>終了日時</td>
+</tr>
+</tbody></table>
+<p>トップ10は以下のとおりです。１位はご覧の通りnobuさんで圧巻の1万6千コミット。2位にトリプルスコア以上の差をつけて圧倒的な戦闘力を誇っています。</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ">16566	nobu &lt;nobu@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 4746	akr &lt;akr@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 4338	svn &lt;svn@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 2728	naruse &lt;naruse@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 2562	matz &lt;matz@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 2357	ko1 &lt;ko1@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 2050	usa &lt;usa@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 1414	eban &lt;eban@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br> 1176	Nobuyoshi Nakada &lt;nobu@ruby-lang.org&gt;<br> 1168	kazu &lt;kazu@b2dd03c8-39d4-4d8f-98ff-823fe69b080e&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>ただ上記のコミット数の表示には大きな問題があります。分かる人には分かると思うのですが、実は1位のnobuさんと9位のNobuyoshi Nakadaさんは同一人物です。これは作者名やEメールアドレスが異なると異なるものとしてカウントされてしまうためです。</p>
+<p>この問題を解決するためには名寄せといって同一人物と思われるコミットを集約しないといけません。実は<code>git shortlog</code>には<code>.mailmap</code>という集約の仕組みがあるのですが、これを利用するためにはそもそも同一人物のEメールアドレスがどれかという情報を持っている必要があります。</p>
+<p>今回はどのEメールアドレスが同一人物かを推測するところから始めるので<code>.mailmap</code>の仕組みは利用せずRubyを用いて集約を頑張ってみたいと思います。</p>
+<h3 id="年単位でコミット数をカウントしてみる"><a href="#年単位でコミット数をカウントしてみる" class="header-anchor"></a>2.4. <a href="#年単位でコミット数をカウントしてみる" class="headerlink" title="年単位でコミット数をカウントしてみる"></a>年単位でコミット数をカウントしてみる</h3><p>前節で1998年から2019年までのコミット数を集計しましたが、年単位で可視化を行いためスクリプトで年ごとのコミット数のログを作成します。作成するログは２種類あって1998年からの累積のコミット数を年単位で集計する<code>total</code>ログと各年のコミット数を集計する<code>trend</code>ログです。<br>以下のRubyスクリプトでは1998年から2019年までループで<code>system</code>関数で<code>git shotlog</code>を呼び出してリダイレクトで各年ごとのコミット数のログファイルを作成しています。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ruby">(<span class="hljs-number">1998</span>..<span class="hljs-number">2019</span>).each <span class="hljs-keyword">do</span> <span class="hljs-params">|e|</span><br>    system(<span class="hljs-string">"git shortlog -sne --no-merges --since='<span class="hljs-subst">#{e}</span>-01-01' --until='<span class="hljs-subst">#{e}</span>-12-31' &gt; trend/<span class="hljs-subst">#{e}</span>.log"</span>)<br>    system(<span class="hljs-string">"git shortlog -sne --no-merges --since='1998-01-01' --until='<span class="hljs-subst">#{e}</span>-12-31' &gt; total/<span class="hljs-subst">#{e}</span>.log"</span>)<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>totalログを見れば総合的に活躍したコミッターの変化を可視化でき、trendログを可視化すればその年に活躍したコミッターを可視化することができます。</p>
+<h2 id="データの前処理のための基盤を整える"><a href="#データの前処理のための基盤を整える" class="header-anchor"></a>3. <a href="#データの前処理のための基盤を整える" class="headerlink" title="データの前処理のための基盤を整える"></a>データの前処理のための基盤を整える</h2><p>さて、年単位のコミット数を取得してログに出力したので次に行うべきは、データの可視化を行う<a href="https://flourish.studio/" target="_blank" rel="noopener">Flourish<i class="fas fa-external-link-alt fa-fw"></i></a>が読み込めるデータ形式にログを変換することです。このような処理は一般的に<strong>「前処理」</strong>と呼ばれます。前述のリポジトリからログを抽出する処理と前処理とデータ登録の作業を合わせて<strong>ETL(Extract/Transrom/Load)処理</strong>と呼ばれることも多いです。</p>
+<p>前処理のツールとして最もよく利用されているのはExcelだと思われます。データサイエンティストの方ならJupyter NotebookとPythonの組み合わせが多いかもしれません。その他にも専用のETLツールは数多く存在します。しかし今回はなるべくRubyを使って作業を行うという趣旨なので、<strong>JupyterLab</strong>(Jupyter Notebookの後継)とRubyを利用して前処理を行ってみたいと思います。</p>
+<h3 id="環境構築方法を選択する"><a href="#環境構築方法を選択する" class="header-anchor"></a>3.1. <a href="#環境構築方法を選択する" class="headerlink" title="環境構築方法を選択する"></a>環境構築方法を選択する</h3><p><code>JupyterLab</code>とRubyの環境を構築するには以下のような様々な方法があります。どれも一長一短ありますが、今回はDockerを使って構築してみます。</p>
+<ol>
+<li>ローカルに環境を構築する<ul>
+<li>Anacondaを使って手っ取り早く構築できる</li>
+<li>ローカル環境が汚れる</li>
+</ul>
+</li>
+<li>VM上に環境を構築する<ul>
+<li>Anacondaを使って手っ取り早く構築できる</li>
+<li>ローカル環境は汚れないがOSインストールからなので手間がかかる</li>
+</ul>
+</li>
+<li>コンテナを使って環境を構築する<ul>
+<li>既存のコンテナイメージをベースに手っ取り早く構築できる</li>
+<li>Docker環境の構築とDockerfileの準備が必要</li>
+</ul>
+</li>
+<li>クラウド上のマネージド・サービスを利用する<ul>
+<li>クラウド上のノートブックを使って気軽に始められる</li>
+<li>環境の自由度が低い</li>
+</ul>
+</li>
+</ol>
+<h3 id="dockerfileの準備"><a href="#dockerfileの準備" class="header-anchor"></a>3.2. <a href="#Dockerfileの準備" class="headerlink" title="Dockerfileの準備"></a>Dockerfileの準備</h3><p>以下が作成したDockerfileです。ベースにしたコンテナイメージは「<a href="https://qiita.com/HeRo/items/61e7f45a5dbb5fd0e4a7" target="_blank" rel="noopener">14言語をぶち込んだJupyter LabのDockerイメージを作ってみた<i class="fas fa-external-link-alt fa-fw"></i></a>」で公開されていたベースイメージを元にRubyだけを残して、JupyterLabの設定や拡張を入れたり、必要なRubyGemsを入れたものになります。</p>
+<p>Dockerfileのポイントは「install Ruby」のコメントで始まる一連の処理になります。ここでRubyを<a href="https://github.com/rbenv/ruby-build" target="_blank" rel="noopener">ruby-build<i class="fas fa-external-link-alt fa-fw"></i></a>でビルドして、JupyterLabからRubyを選択して起動できるようにRubyカーネルをgemでインストールしています。</p>
+<figure class="highlight dockerfile hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> hero/jupyter-langs:python<br><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y curl vim<br></span><br><span class="hljs-keyword">RUN</span><span class="bash"> conda install -c conda-forge nodejs<br></span><br><span class="hljs-comment"># install Ruby</span><br><span class="hljs-keyword">ENV</span> RUBY_VERSION=<span class="hljs-number">2.6</span>.<span class="hljs-number">5</span> \<br>    RUBY_HOME=/opt/ruby<br><span class="hljs-keyword">RUN</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/rbenv/ruby-build.git \<br>    &amp;&amp; PREFIX=/usr/<span class="hljs-built_in">local</span> ./ruby-build/install.sh \<br>    &amp;&amp; mkdir -p <span class="hljs-variable">${RUBY_HOME}</span> \<br>    &amp;&amp; ruby-build <span class="hljs-variable">${RUBY_VERSION}</span> <span class="hljs-variable">${RUBY_HOME}</span>/<span class="hljs-variable">${RUBY_VERSION}</span><br></span><span class="hljs-keyword">ENV</span> PATH=${RUBY_HOME}/${RUBY_VERSION}/bin:$PATH<br><span class="hljs-keyword">RUN</span><span class="bash"> gem install --no-document \<br>                benchmark_driver \<br>                cztop \<br>                iruby \<br>    &amp;&amp; iruby register --force<br></span><br><span class="hljs-comment"># copy JupyterLab Settings</span><br><span class="hljs-keyword">RUN</span><span class="bash"> mkdir -p /root/.jupyter/lab/user-settings<br></span><span class="hljs-keyword">COPY</span><span class="bash"> user-settings/ /root/.jupyter/lab/user-settings/<br></span><br><span class="hljs-comment"># install favorite jupyter lab extensions</span><br><span class="hljs-keyword">RUN</span><span class="bash"> jupyter labextension install @lckr/jupyterlab_variableinspector<br></span><span class="hljs-keyword">RUN</span><span class="bash"> jupyter labextension install @jupyterlab/toc<br></span><span class="hljs-keyword">RUN</span><span class="bash"> jupyter labextension install @jupyterlab/git<br></span><span class="hljs-keyword">RUN</span><span class="bash"> pip install jupyterlab-git<br></span><span class="hljs-keyword">RUN</span><span class="bash"> jupyter serverextension <span class="hljs-built_in">enable</span> --py jupyterlab_git<br></span><span class="hljs-keyword">RUN</span><span class="bash"> jupyter labextension install jupyterlab-drawio<br></span><br><span class="hljs-comment"># for JupyterLab Terminal</span><br><span class="hljs-keyword">ENV</span> <span class="hljs-keyword">SHELL</span><span class="bash"> /bin/bash<br></span><span class="hljs-keyword">RUN</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">"alias ls='ls --color=auto'"</span> &gt;&gt; /root/.bashrc<br></span><span class="hljs-keyword">RUN</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">"export PATH=/root/anaconda3/bin:<span class="hljs-variable">$PATH</span>"</span> &gt;&gt; /root/.bashrc<br></span><span class="hljs-keyword">RUN</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">"export PS1='\u:\W# '"</span> &gt;&gt; /root/.bashrc<br></span><br><span class="hljs-comment"># install favorite gems</span><br><span class="hljs-keyword">RUN</span><span class="bash"> gem install nokogiri<br></span><span class="hljs-keyword">RUN</span><span class="bash"> gem install daru<br></span><span class="hljs-keyword">RUN</span><span class="bash"> gem install daru-view<br></span><span class="hljs-keyword">RUN</span><span class="bash"> gem install --pre pycall<br></span><span class="hljs-keyword">RUN</span><span class="bash"> gem install --pre matplotlib<br></span><span class="hljs-keyword">RUN</span><span class="bash"> gem install numpy<br></span><span class="hljs-keyword">RUN</span><span class="bash"> gem install pandas</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>見ての通りRubyは2.6.5を利用しています。2.7.0-rc2も試してみたのですが、うまく動作しなかったので断念しました。DockerファイルはGitHubにpushしてあるのでご利用ください。</p>
+<p><a href="https://github.com/hinastory/jupyterlab-ruby" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/jupyterlab-ruby.svg?fullname" alt="hinastory/jupyterlab-ruby - GitHub"></a></p>
+<h3 id="jupyterlabの起動画面"><a href="#jupyterlabの起動画面" class="header-anchor"></a>3.3. <a href="#JupyterLabの起動画面" class="headerlink" title="JupyterLabの起動画面"></a>JupyterLabの起動画面</h3><p>以下が実際の起動画面になります。テーマは自分の趣味でダークにしてあります。</p>
+<img src="/cats-cats-cats/gallery/events/advent-calendar-2019/jupyterlab.png" class="">
+
+<h2 id="jupyterlabとrubyでデータの前処理を行ってみる"><a href="#jupyterlabとrubyでデータの前処理を行ってみる" class="header-anchor"></a>4. <a href="#JupyterLabとRubyでデータの前処理を行ってみる" class="headerlink" title="JupyterLabとRubyでデータの前処理を行ってみる"></a>JupyterLabとRubyでデータの前処理を行ってみる</h2><p>基本的には<a href="https://github.com/mrkn/pycall.rb" target="_blank" rel="noopener">PyCall<i class="fas fa-external-link-alt fa-fw"></i></a>とpandasを用いて作業します。PyCallやRubyからPythonを呼び出せるライブラリで、<a href="https://pandas.pydata.org/" target="_blank" rel="noopener">pandas<i class="fas fa-external-link-alt fa-fw"></i></a>はPythonで主にデータフレームを扱うためのライブラリです。</p>
+<p>データフレームを用いるとExcelのように表形式のデータが扱いやすくなります。</p>
+<h3 id="rubyコミッタの名寄せを行ってみる"><a href="#rubyコミッタの名寄せを行ってみる" class="header-anchor"></a>4.1. <a href="#Rubyコミッタの名寄せを行ってみる" class="headerlink" title="Rubyコミッタの名寄せを行ってみる"></a>Rubyコミッタの名寄せを行ってみる</h3><p>ここからの作業はノートブックを用いて作業しますが、ノートブックを直接表示はできないので抜粋して説明します。</p>
+<p>まずは、ライブラリを読み込みます。またPyCallのよく使う変数はショートカットを定義しておくと便利です。以下ではPythonの組み込み関数は<code>PyCall::builtins</code>に定義されているので<code>pyblt</code>に格納しています。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'open-uri'</span><br><span class="hljs-keyword">require</span> <span class="hljs-string">'pycall/import'</span><br><span class="hljs-keyword">include</span> PyCall::Import<br><br>pyimport <span class="hljs-symbol">:pandas</span>, <span class="hljs-symbol">as:</span> <span class="hljs-symbol">:pd</span><br>pyimport <span class="hljs-symbol">:numpy</span>, <span class="hljs-symbol">as:</span> <span class="hljs-symbol">:np</span><br>pyblt = PyCall::builtins<br>Dict = PyCall::Dict<br>List = PyCall::List<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次にコミッターログ(前述の<code>git shortlog</code>で作成した1998年から2019年までの作者別コミット数)を読み込んでデータフレームを作成します。</p>
+<p><code>read_committers_log</code>関数はコミッターログをパースして、コミット数と作者とEメールアドレスに分割してデータフレームを作成しています。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_committers_log</span><span class="hljs-params">(file)</span></span><br>    committers = File.read(file).split(<span class="hljs-string">"\n"</span>).map <span class="hljs-keyword">do</span> <span class="hljs-params">|e|</span><br>        commits, id = e.split(<span class="hljs-string">"\t"</span>)<br>        user, addr = id.split(<span class="hljs-string">" &lt;"</span>)<br>        [commits.to_i, user, addr.chop]<br>    <span class="hljs-keyword">end</span><br>    pd.DataFrame.new(<span class="hljs-symbol">data:</span> committers, <span class="hljs-symbol">columns:</span>[<span class="hljs-symbol">:commits</span>, <span class="hljs-symbol">:author</span>, <span class="hljs-symbol">:addr</span>])<br><span class="hljs-keyword">end</span><br><br>df = read_committers_log(<span class="hljs-string">'ruby_committers.log'</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次に名寄せの戦略として作者(<code>author</code>)が同名のものは同一人物だと仮定してどれだけ名寄せできるか確認します。ここで284から267まで名寄せできることを確認しました。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">df.author.unique().size<br></code></pre></td></tr></tbody></table></figure>
+
+<p>そして実際に<code>author</code>で名寄せを行います。以下は<code>author</code>で<code>groupby</code>したあと、コミット数を合計し、Eメールアドレスはカンマを挟んで結合して、コミット数でソートしたあとインデックスをリセットしています。</p>
+<p>pandasの集約関数の<code>agg</code>には辞書を明示的に渡す必要があります。最初はここにRubyのハッシュをそのまま渡していて動かなくて悩みました。また、PythonでLambda関数を渡す箇所にはProcオブジェクトを渡す必要がありました。RubyのLambdaでは動きませんでした。これがPyCallの仕様かどうかはあまり時間がなかったので調べられていません・・・</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ruby">addr_join = proc {<span class="hljs-params">|s|</span> s.tolist.to_a.join(<span class="hljs-string">','</span>)}<br>df_uniq_author = df.groupby(<span class="hljs-symbol">:author</span>).agg(Dict.new({<span class="hljs-symbol">commits:</span> <span class="hljs-symbol">:sum</span>, <span class="hljs-symbol">addr:</span> addr_join}))<br>    .sort_values(<span class="hljs-symbol">:commits</span>, <span class="hljs-symbol">ascending:</span> <span class="hljs-literal">false</span>).reset_index<br></code></pre></td></tr></tbody></table></figure>
+
+<p>作者名の次の名寄せはメールアドレスの先頭部分(<code>@</code>より前の部分)を用いました。この戦略は間違う確率が高い危険な方法ですが、とりあえず間違った箇所は個別に対処することにして実行しました。</p>
+<p>以下のコードはメールアドレスの先頭部分を抜き出し、データフレームの最後に<code>addr_user</code>として追加するコードです。<br>試行錯誤しながら特殊な場合分けをしています。面白いのは<code>matzbot</code>の存在です。このボットは毎日定期的にに<code>version.h</code>の<code>RUBY_RELEASE_DAY</code>を書き換えるお仕事をしているようです。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs ruby">addr_user = proc <span class="hljs-keyword">do</span> <span class="hljs-params">|df|</span><br>    df.addr.tolist.map <span class="hljs-keyword">do</span> <span class="hljs-params">|addrs|</span><br>        addrs.split(<span class="hljs-string">','</span>).map <span class="hljs-keyword">do</span> <span class="hljs-params">|addr|</span><br>            user, domain = addr.split(<span class="hljs-string">'@'</span>)<br>            <span class="hljs-keyword">if</span> user == <span class="hljs-string">'mail'</span><br>                domain.split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">0</span>]<br>            <span class="hljs-keyword">elsif</span> [<span class="hljs-string">'svn'</span>,  <span class="hljs-string">'svn-admin'</span>].<span class="hljs-keyword">include</span>?(user)<br>                <span class="hljs-string">'matzbot'</span><br>            <span class="hljs-keyword">elsif</span> domain == <span class="hljs-string">'users.noreply.github.com'</span><br>                sp = user.split(<span class="hljs-string">'+'</span>)<br>                <span class="hljs-keyword">if</span> sp.size == <span class="hljs-number">2</span><br>                    sp[<span class="hljs-number">1</span>]<br>                <span class="hljs-keyword">else</span><br>                    sp[<span class="hljs-number">0</span>]<br>                <span class="hljs-keyword">end</span><br>            <span class="hljs-keyword">else</span><br>                user<br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span>.uniq.join(<span class="hljs-string">','</span>)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br>df_addr_user = df_uniq_author.assign(<span class="hljs-symbol">addr_user:</span> addr_user)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次のコードは実際に<code>addr_user</code>で名寄せを行っています。作者名(<code>author</code>)の集約には文字列が長い方を採用しています。一般的に最初は短いユーザ名を用いていたが後から本名を<code>author</code>に設定する方が多くいたからです。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ruby">max_author =  proc {<span class="hljs-params">|s|</span> s.tolist.max_by{<span class="hljs-params">|e|</span> e.size}}<br>df_uniq_addr_user = df_addr_user.groupby(<span class="hljs-symbol">:addr_user</span>).agg(Dict.new({<span class="hljs-symbol">commits:</span> <span class="hljs-symbol">:sum</span>, <span class="hljs-symbol">addr:</span> addr_join, <span class="hljs-symbol">author:</span> max_author}))<br>    .sort_values(<span class="hljs-symbol">:commits</span>, <span class="hljs-symbol">ascending:</span> <span class="hljs-literal">false</span>).reset_index<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次に名寄せしたユーザ名がGitHubに存在するか確認します。これは最終的にGitHubのユーザ名をユニークなキーにして、GitHubのアバターを可視化に用いたいからです。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_github_user</span><span class="hljs-params">(user)</span></span><br>    open(<span class="hljs-string">"https://github.com/<span class="hljs-subst">#{user}</span>/"</span>)<br>    <span class="hljs-literal">true</span><br><span class="hljs-keyword">rescue</span> =&gt; e<br>    <span class="hljs-literal">false</span><br><span class="hljs-keyword">end</span><br><br>is_github_user = df_uniq_addr_user.addr_user.tolist.map <span class="hljs-keyword">do</span> <span class="hljs-params">|e|</span><br>    sleep(<span class="hljs-number">1</span>)　<span class="hljs-comment"># 負荷をかけすぎないようにする</span><br>    check_github_user(e)<br><span class="hljs-keyword">end</span><br><br>df_github_user = df_uniq_addr_user.assign(<span class="hljs-symbol">is_github_user:</span> is_github_user)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>以下のコードはGitHubユーザが見つかった場合はそのまま、<code>addr_user</code>をそのまま出力し、そうでない場合は先頭に<code>XXXX_</code>を付加した文字列を<code>tmp_user</code>として列に追加します。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ruby">add_tmp_user = proc <span class="hljs-keyword">do</span> <span class="hljs-params">|df|</span><br>    df.is_github_user.tolist.zip(df.addr_user.tolist).map <span class="hljs-keyword">do</span> <span class="hljs-params">|is_github_user, addr_user|</span><br>        is_github_user ? addr_user : <span class="hljs-string">"XXXX_"</span> + addr_user<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br>df_tmp_user = df_github_user.assign(<span class="hljs-symbol">tmp_user:</span> add_tmp_user)<br>df_mod_drop = df_tmp_user.drop(<span class="hljs-symbol">columns:</span> [<span class="hljs-symbol">:addr_user</span>])<br><br></code></pre></td></tr></tbody></table></figure>
+
+<p>最後に列の並びを整理してSVに一時ファイルとして保存します。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ruby">df_tmp_out = df_mod_drop.reindex(<span class="hljs-symbol">columns:</span> [<span class="hljs-symbol">:commits</span>, <span class="hljs-symbol">:tmp_user</span>, <span class="hljs-symbol">:author</span>, <span class="hljs-symbol">:is_github_user</span>, <span class="hljs-symbol">:addr</span>])<br>    .sort_values([<span class="hljs-symbol">:commits</span>, <span class="hljs-symbol">:tmp_user</span>], <span class="hljs-symbol">ascending:</span> [<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>]).reset_index(<span class="hljs-symbol">drop:</span> <span class="hljs-literal">true</span>)<br>df_tmp_out.to_csv(<span class="hljs-string">"ruby_committers_tmp.csv"</span>, <span class="hljs-symbol">index:</span> <span class="hljs-literal">false</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>ここまででようやく名寄せの第一段階がおわったところです。ここまでの作業結果は以下のノートブックで確認できます。</p>
+<ul>
+<li><a href="https://github.com/hinastory/ruby-development-activity/blob/master/make_ruby_committers.ipynb" target="_blank" rel="noopener">make_ruby_committers.ipynb<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<p>この後は作者名をキーにしてGoogleで検索をかけてnokogiriでスクレイピングをしてGitHubユーザ名の候補を出力するようなことをして名寄せの精度を高めたりしましたが、結局最後は人力で頑張りました。</p>
+<p>名寄せの結果は以下にコミットしたので間違っていたらイシューかプルリクでお知らせ頂けると幸いです。</p>
+<ul>
+<li><a href="https://github.com/hinastory/ruby-development-activity/blob/master/ruby_committers.csv" target="_blank" rel="noopener">ruby_committers.csv<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<h3 id="最終的な集計テーブルを作成する"><a href="#最終的な集計テーブルを作成する" class="header-anchor"></a>4.2. <a href="#最終的な集計テーブルを作成する" class="headerlink" title="最終的な集計テーブルを作成する"></a>最終的な集計テーブルを作成する</h3><p>ようやく名寄せを行ったコミッターのマスターテーブルが完成したので、これをもとに年単位で集計したログをFlourishが読み込めるデータに変換します。</p>
+<p>以下のコードはコミッターのマスターテーブルにコミット数に応じてコミットランクをつけています。コミットランクは以下の用になっています。<br>完全に自分の主観です。区切りのいいところに置いてみただけです。</p>
+<table>
+<thead>
+<tr>
+<th>ランク</th>
+<th>コミット</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>10未満</td>
+<td>初級者</td>
+</tr>
+<tr>
+<td>B</td>
+<td>10以上100未満</td>
+<td>中級者</td>
+</tr>
+<tr>
+<td>A</td>
+<td>100以上1000未満</td>
+<td>上級者</td>
+</tr>
+<tr>
+<td>S</td>
+<td>1000以上10000未満</td>
+<td>超人</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>10000以上</td>
+<td>神</td>
+</tr>
+</tbody></table>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs ruby">df_committers = pd.read_csv(<span class="hljs-string">'ruby_committers.csv'</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_rank</span><span class="hljs-params">(df_committers)</span></span><br>    df_all = read_committers_log(<span class="hljs-string">"ruby_committers.log"</span>)<br>    commits = df_all[<span class="hljs-symbol">:commits</span>].tolist<br>    addr = df_all[<span class="hljs-symbol">:addr</span>].tolist<br>    committers = Hash.new(<span class="hljs-number">0</span>)<br>    commits.zip(addr).each <span class="hljs-keyword">do</span> <span class="hljs-params">|commits, addr|</span><br>        addr_replaced = addr.gsub(<span class="hljs-string">'+'</span>, <span class="hljs-string">'.'</span>)<br>        user = df_committers[proc {<span class="hljs-params">|df|</span> df.addr.str.contains(addr_replaced)}].user.tolist.first<br>        <span class="hljs-keyword">if</span> user<br>            committers[user] += commits<br>        <span class="hljs-keyword">else</span><br>            p addr <span class="hljs-keyword">unless</span> addr.start_with?(<span class="hljs-string">'(no author)'</span>)<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><br>    users = df_committers.user.tolist.to_a<br>    rank_list = users.map <span class="hljs-keyword">do</span> <span class="hljs-params">|user|</span><br>        committers.fetch(user, <span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">end</span>.map <span class="hljs-keyword">do</span> <span class="hljs-params">|commits|</span><br>        <span class="hljs-keyword">if</span> commits &gt;= <span class="hljs-number">10000</span><br>            <span class="hljs-string">"SS"</span><br>        <span class="hljs-keyword">elsif</span> commits &gt;= <span class="hljs-number">1000</span><br>            <span class="hljs-string">"S"</span><br>        <span class="hljs-keyword">elsif</span> commits &gt;= <span class="hljs-number">100</span><br>            <span class="hljs-string">"A"</span><br>        <span class="hljs-keyword">elsif</span> commits &gt;= <span class="hljs-number">10</span><br>            <span class="hljs-string">"B"</span><br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-string">"C"</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    df_committers[<span class="hljs-symbol">:rank</span>] = rank_list<br>    df_committers<br><span class="hljs-keyword">end</span><br><br>add_rank(df_committers)<br></code></pre></td></tr></tbody></table></figure>
+
+
+<p>次のコードは年単位で集計したデータをマスターデータを使って集約しています。集約はマスターデータの<code>addr</code>欄のメールアドレスに対称のメールアドレスが部分文字列として含まれているかどうかで判断しています。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs ruby">years = (<span class="hljs-number">1998</span>..<span class="hljs-number">2019</span>)<br>activity_type = <span class="hljs-string">'trend'</span><br><br>commits_by_years = years.map <span class="hljs-keyword">do</span> <span class="hljs-params">|year|</span><br>    df_year = read_committers_log(<span class="hljs-string">"<span class="hljs-subst">#{activity_type}</span>/<span class="hljs-subst">#{year}</span>.log"</span>)<br>    commits = df_year[<span class="hljs-symbol">:commits</span>].tolist<br>    addr = df_year[<span class="hljs-symbol">:addr</span>].tolist<br>    commits_by_year = Hash.new(<span class="hljs-number">0</span>)<br>    commits.zip(addr).each <span class="hljs-keyword">do</span> <span class="hljs-params">|commits, addr|</span><br>        addr_replaced = addr.gsub(<span class="hljs-string">'+'</span>, <span class="hljs-string">'.'</span>)<br>        user = df_committers[proc {<span class="hljs-params">|df|</span> df.addr.str.contains(addr_replaced)}].user.tolist.first<br>        <span class="hljs-keyword">if</span> user<br>            commits_by_year[user] += commits<br>        <span class="hljs-keyword">else</span><br>            p addr <span class="hljs-keyword">unless</span> addr.start_with?(<span class="hljs-string">'(no author)'</span>)<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br>    commits_by_year<br><span class="hljs-keyword">end</span><br><span class="hljs-literal">nil</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>以下のコードは新たな列としてGitHubのユーザの場合はアバターのURLを<code>image</code>列として追加し、またユーザ名と作者名を結合した<code>label</code>列を付加しています。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ruby">label_add = proc <span class="hljs-keyword">do</span> <span class="hljs-params">|df|</span><br>    df.user.tolist.zip(df.author.tolist).map <span class="hljs-keyword">do</span> <span class="hljs-params">|user, author|</span><br>        user == author ? user : <span class="hljs-string">"<span class="hljs-subst">#{user}</span> (<span class="hljs-subst">#{author}</span>)"</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br>image_add = proc <span class="hljs-keyword">do</span> <span class="hljs-params">|df|</span><br>    df.user.tolist.zip(df.is_github_user.tolist).map <span class="hljs-keyword">do</span> <span class="hljs-params">|user, is_github_user|</span><br>        is_github_user ? <span class="hljs-string">"https://github.com/<span class="hljs-subst">#{user}</span>.png"</span> : <span class="hljs-string">''</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br>df_committers_added = df_committers.assign(<span class="hljs-symbol">label:</span> label_add, <span class="hljs-symbol">image:</span> image_add)<br></code></pre></td></tr></tbody></table></figure>
+
+
+<p>次のコードで最終的なテーブルを作成しています。具体的には列として1998年から2019年までの22列を追加しています。</p>
+<figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ruby">df_development_activity = df_committers_added<br><br>users = df_development_activity.user.tolist.to_a<br>years.zip(commits_by_years).each <span class="hljs-keyword">do</span> <span class="hljs-params">|year, commits_by_year|</span><br>    commits_list = users.map <span class="hljs-keyword">do</span> <span class="hljs-params">|user|</span><br>        commits_by_year.fetch(user, <span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">end</span><br>    df_development_activity[year] = commits_list<br><span class="hljs-keyword">end</span><br>df_development_activity.to_csv(<span class="hljs-string">"ruby_development_activity_<span class="hljs-subst">#{activity_type}</span>_1998-2019.csv"</span>, <span class="hljs-symbol">index:</span> <span class="hljs-literal">false</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+
+<p>ここまでの作業結果は以下のノートブックで確認できます。</p>
+<ul>
+<li><a href="https://github.com/hinastory/ruby-development-activity/blob/master/make_development_activity.ipynb" target="_blank" rel="noopener">make_development_activity.ipynb<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<p>また出力結果は以下のファイルになります。</p>
+<ul>
+<li><a href="https://github.com/hinastory/ruby-development-activity/blob/master/ruby_development_activity_trend_1998-2019.csv" target="_blank" rel="noopener">ruby-development-activity<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/hinastory/ruby-development-activity/blob/master/ruby_development_activity_total_1998-2019.csv" target="_blank" rel="noopener">ruby_development_activity_total_1998-2019.csv<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<h2 id="flourishで可視化してみる"><a href="#flourishで可視化してみる" class="header-anchor"></a>5. <a href="#Flourishで可視化してみる" class="headerlink" title="Flourishで可視化してみる"></a>Flourishで可視化してみる</h2><p>Flourishは非常に多くの可視化に対応していますが、今回は<a href="https://app.flourish.studio/@flourish/bar-chart-race/10" target="_blank" rel="noopener">Bar chart race<i class="fas fa-external-link-alt fa-fw"></i></a>を用いています。</p>
+<p>データさえ出来ていれば可視化は非常に簡単で、CSVファイルをアップロードして可視化に用いる行を選択するだけです。</p>
+<img src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-trend.png" class="">
+
+<h2 id="完成した可視化"><a href="#完成した可視化" class="header-anchor"></a>6. <a href="#完成した可視化" class="headerlink" title="完成した可視化"></a>完成した可視化</h2><p>以下が完成した可視化です。中央のRubyの画像は<a href="https://www.ruby-lang.org/ja/" target="_blank" rel="noopener">Rubyホームページ<i class="fas fa-external-link-alt fa-fw"></i></a>から引用しており、作者の画像はGitHubから引用しております<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。<br>以下は1998年からの累計コミット数のチャートです。</p>
+<ul>
+<li><a href="https://public.flourish.studio/visualisation/1063474/" target="_blank" rel="noopener">ruby-viz-total | Flourish<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<div class="flourish-embed" data-src="visualisation/1063474"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
+
+<p>以下は年単位のコミット数の可視化です。その年に活躍したコミッターが分かると思います。</p>
+<ul>
+<li><a href="https://public.flourish.studio/visualisation/1132483/" target="_blank" rel="noopener">ruby-viz-trend | Flourish<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<div class="flourish-embed" data-src="visualisation/1132483"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
+
+
+
+<h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>7. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>見てのとおりコミット数1万件超えのnobuさんが圧倒的でただ一人SSランクになっています。そしてRuby作者のmatzさんは最近はRuby本体にはあまりコミットされていないようです。恐らく<a href="https://github.com/mruby/mruby/commits/master" target="_blank" rel="noopener">mruby<i class="fas fa-external-link-alt fa-fw"></i></a>の開発等でご多忙なのだと思います。あと可視化に関して言えば、Ruby開発の最初の5年間はコミットログがないので可視化できていないのと、コミッターによって代理でコミットされた名もない作者が多数いると思われるので、この可視化はそういった不完全な面があることをご理解頂いた上でご覧ください。</p>
+<p>苦労した点は多々ありますが、やはりダントツで名寄せに苦労しました。Rubyは歴史が長くコミッターの数も多いので名寄せがうまく行かないケースが多発しました。</p>
+<p>今回GitHubのアバター画像を出す関係から最終的にはGitHubのユーザー名で名寄せを行いましたが、プロプライエタリなGitHubを嫌う方やRubyの開発から突如消えた方や大分昔にコミットが途絶えた方などでGitHubアカウントが見つけられなかった方が何人かいました。しかし苦労した分そのようなRubyの開発史を垣間見ることができたのでとても面白かったです。</p>
+<p>本記事がRubyを愛する人達へのクリスマスプレゼントになれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">詳細は<a href="https://www.ruby-lang.org/ja/documentation/repository-guide/" target="_blank" rel="noopener">Rubyリポジトリガイド<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">引用自体はフェアユースの範囲内だと個人的には思っていますが何か問題があればご指摘ください。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div><p></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/">
+                <span class="level-item">天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2018/12/12/keyboard/" title="気が付いたら本棚がキーボード棚に変わっていた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/keyboard_shelf.jpg" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2018-12-12</div><a href="/cats-cats-cats/2018/12/12/keyboard/" title="気が付いたら本棚がキーボード棚に変わっていた話" rel="bookmark">気が付いたら本棚がキーボード棚に変わっていた話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/09/11/fileconv/" title="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/files.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-09-11</div><a href="/cats-cats-cats/2019/09/11/fileconv/" title="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる" rel="bookmark">長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-23</div><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark">RubyKaigi 2019 in 福岡に参加してきた話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/06/understanding-notebook/" title="全プログラマに捧ぐ！図解「ノートブック」" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/jupyter-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-06</div><a href="/cats-cats-cats/2019/04/06/understanding-notebook/" title="全プログラマに捧ぐ！図解「ノートブック」" rel="bookmark">全プログラマに捧ぐ！図解「ノートブック」</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" title="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/others/loss.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-10-20</div><a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" title="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10" rel="bookmark">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        36
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        13
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        41
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Qiita" href="https://qiita.com/hinastory">
+                
+                <i class="fas fa-search"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Event/">
+            <span class="level-start">
+                <span class="level-item">Event</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">30</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Cloud/">
+            <span class="level-start">
+                <span class="level-item">Cloud</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Engineering/">
+            <span class="level-start">
+                <span class="level-item">Engineering</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/MachineLearning/">
+            <span class="level-start">
+                <span class="level-item">MachineLearning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Tool/">
+            <span class="level-start">
+                <span class="level-item">Tool</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" alt="クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T22:28:45.000Z">2019-12-25</time></div>
+                    <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="has-link-black-ter is-size-6 has-text-weight-normal">クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tenkaichi-keyboard-3.png" alt="天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-01T22:28:45.000Z">2019-12-02</time></div>
+                    <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="has-link-black-ter is-size-6 has-text-weight-normal">天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" alt="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-20T22:28:45.000Z">2019-11-21</time></div>
+                    <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="has-link-black-ter is-size-6 has-text-weight-normal">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png" alt="Serverless Days Tokyo 2019 に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/loss.png" alt="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 11.67px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 11.67px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 11.67px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 13.33px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">11月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">10月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">9月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">8月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">5月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">4月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">3月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">1月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" alt="クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T22:28:45.000Z">2019-12-25</time></div>
+                    <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="has-link-black-ter is-size-6 has-text-weight-normal">クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tenkaichi-keyboard-3.png" alt="天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-01T22:28:45.000Z">2019-12-02</time></div>
+                    <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="has-link-black-ter is-size-6 has-text-weight-normal">天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" alt="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-20T22:28:45.000Z">2019-11-21</time></div>
+                    <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="has-link-black-ter is-size-6 has-text-weight-normal">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png" alt="Serverless Days Tokyo 2019 に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/loss.png" alt="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-19T22:28:45.000Z">2019-10-20</time></div>
+                    <a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" class="has-link-black-ter is-size-6 has-text-weight-normal">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 11.67px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 11.67px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 11.67px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 13.33px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">11月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">10月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">9月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">8月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">5月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">4月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">3月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">1月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2019 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                    href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="#">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>

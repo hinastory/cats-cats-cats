@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2019-12-01T22:58:44.960Z</updated>
+  <updated>2019-12-24T21:00:00.373Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</id>
+    <published>2019-12-24T22:28:45.000Z</published>
+    <updated>2019-12-24T21:00:00.373Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の25日目の記事です。&lt;/p&gt;
+&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/2-7-0-rc2-released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/p&gt;
+&lt;p&gt;そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの21年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+  </entry>
   
   <entry>
     <title>天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</title>
@@ -487,9 +516,9 @@
       <category term="Programming" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Programming/"/>
     
     
-      <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
-    
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
     
   </entry>
   
@@ -516,32 +545,6 @@
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技術書典6に一般参加した話</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/</id>
-    <published>2019-04-14T13:50:47.000Z</published>
-    <updated>2019-04-14T23:58:15.535Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;技術書典に一般参加してきました。なにげに第1回から皆勤賞です。天候に恵まれない印象が強いですが、今日はなんとか雨に降られずに済みました。そのおかげもあってか1万人以上の参加者が来場した模様です。&lt;/p&gt;
-&lt;a href=&quot;https://techbookfest.org/event/tbf06&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf06/images/ogp.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;技術書典6&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;技術書の祭典が2019年04月14日（日）＠池袋サンシャインシティ2F 展示ホールD（文化会館ビル2F）で開催決定！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
-    
-    
-      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
   </entry>
   
