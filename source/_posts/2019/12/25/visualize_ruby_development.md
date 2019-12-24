@@ -562,3 +562,5 @@ Flourishは非常に多くの可視化に対応していますが、今回は{% 
 今回GitHubのアバター画像を出す関係から最終的にはGitHubのユーザー名で名寄せを行いましたが、プロプライエタリなGitHubを嫌う方やRubyの開発から突如消えた方や大分昔にコミットが途絶えた方などでGitHubアカウントが見つけられなかった方が何人かいました。しかし苦労した分そのようなRubyの開発史を垣間見ることができたのでとても面白かったです。
 
 本記事がRubyを愛する人達へのクリスマスプレゼントになれば幸いです。
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Rubyの22年に渡るコミットの歴史を可視化してみました。Rubyを愛する方たちへのクリスマスプレゼントになれば幸いです。<a href="https://twitter.com/hashtag/Ruby?src=hash&amp;ref_src=twsrc%5Etfw">#Ruby</a> <a href="https://t.co/wrDu6UXcTh">pic.twitter.com/wrDu6UXcTh</a></p>&mdash; hinastory (@hinastory999) <a href="https://twitter.com/hinastory999/status/1209588070665707520?ref_src=twsrc%5Etfw">December 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
