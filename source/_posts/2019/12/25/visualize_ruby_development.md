@@ -1,5 +1,5 @@
 ---
-title: クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた
+title: 🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた
 thumbnail: /gallery/thumbnails/header-ruby-logo@2x.png
 categories:
   - Tech
@@ -14,7 +14,8 @@ date: 2019-12-25 07:28:45
 
 本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。
 新バージョンのRuby 2.7は{% elink RC2 https://www.ruby-lang.org/ja/news/2019/12/21/ruby-2-7-0-rc2-released/ %}までやってきたので、リリースに向けて着実に進んでいるようです。
-(本記事投稿時点ではまだリリースはされていません。)
+🎉🎉 そして無事に本日リリースされました!! おめでとうございます!!! 🎉🎉
+~~(本記事投稿時点ではまだリリースはされていません。)~~
 
 そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。
 
@@ -382,7 +383,7 @@ df_mod_drop = df_tmp_user.drop(columns: [:addr_user])
 
 {% endcode %}
 
-最後に列の並びを整理してSVに一時ファイルとして保存します。
+最後に列の並びを｀reindex`で整理して一時ファイルにCSV形式で保存します。
 
 {% code lang:ruby %}
 df_tmp_out = df_mod_drop.reindex(columns: [:commits, :tmp_user, :author, :is_github_user, :addr])
@@ -408,7 +409,7 @@ df_tmp_out.to_csv("ruby_committers_tmp.csv", index: false)
 以下のコードはコミッターのマスターテーブルにコミット数に応じてコミットランクをつけています。コミットランクは以下の用になっています。
 完全に自分の主観です。区切りのいいところに置いてみただけです。
 
-| ランク | コミット | 説明 |
+| ランク | コミット数 | 説明 |
 | --- | --- | --- |
 |  C | 10未満 | 初級者    |
 |  B | 10以上100未満 | 中級者    |
@@ -459,7 +460,7 @@ add_rank(df_committers)
 {% endcode %}
 
 
-次のコードは年単位で集計したデータをマスターデータを使って集約しています。集約はマスターデータの`addr`欄のメールアドレスに対称のメールアドレスが部分文字列として含まれているかどうかで判断しています。
+次のコードは年単位で集計したデータをマスターデータを使って集約しています。集約はマスターデータの`addr`欄のメールアドレスに対象のメールアドレスが部分文字列として含まれているかどうかで判断しています。
 
 {% code lang:ruby %}
 years = (1998..2019)
@@ -561,6 +562,6 @@ Flourishは非常に多くの可視化に対応していますが、今回は{% 
 
 今回GitHubのアバター画像を出す関係から最終的にはGitHubのユーザー名で名寄せを行いましたが、プロプライエタリなGitHubを嫌う方やRubyの開発から突如消えた方や大分昔にコミットが途絶えた方などでGitHubアカウントが見つけられなかった方が何人かいました。しかし苦労した分そのようなRubyの開発史を垣間見ることができたのでとても面白かったです。
 
-本記事がRubyを愛する人達へのクリスマスプレゼントになれば幸いです。
+本記事がRuby2.7のリリースとともに、Rubyを愛する人達へのささやかなクリスマスプレゼントになれば幸いです。
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Rubyの22年に渡るコミットの歴史を可視化してみました。Rubyを愛する方たちへのクリスマスプレゼントになれば幸いです。<a href="https://twitter.com/hashtag/Ruby?src=hash&amp;ref_src=twsrc%5Etfw">#Ruby</a> <a href="https://t.co/wrDu6UXcTh">pic.twitter.com/wrDu6UXcTh</a></p>&mdash; hinastory (@hinastory999) <a href="https://twitter.com/hinastory999/status/1209588070665707520?ref_src=twsrc%5Etfw">December 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
