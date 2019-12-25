@@ -16,7 +16,7 @@
 <meta property="og:description" content="この記事はRuby Advent Calendar 2019の25日目の記事です。 本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。新バージョンのRuby 2.7はRC2までやってきたので、リリースに向けて着実に進んでいるようです。(本記事投稿時点ではまだリリースはされていません。) そこでコミッターのみなさんのハードワークに感謝をしつつ、Rubyの22年">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png">
-<meta property="og:updated_time" content="2019-12-24T21:50:00.919Z">
+<meta property="og:updated_time" content="2019-12-25T01:52:02.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png">
 
@@ -216,7 +216,7 @@
 </tr>
 <tr>
 <td>2006/12 〜 2019/4</td>
-<td>Suvbersion</td>
+<td>Suvbversion</td>
 </tr>
 <tr>
 <td>2019/4 〜 現在</td>
@@ -224,7 +224,7 @@
 </tr>
 </tbody></table>
 <p>コミットログに残っているのはCVSで管理された1998年以降なので、可視化できるのはこの約22年間分のコミットになります。残念ながらRuby誕生から約5年間の歴史は可視化できないことをご了承ください。</p>
-<h3 id="作者別にコミット数をカウントしてみる"><a href="#作者別にコミット数をカウントしてみる" class="header-anchor"></a>2.3. <a href="#作者別にコミット数をカウントしてみる" class="headerlink" title="作者別にコミット数をカウントしてみる"></a>作者別にコミット数をカウントしてみる</h3><p>次に年単位で作者別にコミット数をカウントしてみます。原理上はコミットログさえあればコミットの日付とコミットの作者とコミット数が分かるので、最初はコミットログを自力でパースしてカウントしようと思っていましたが、<code>git shotlog</code>という便利なコマンドがあることに気づきました。<br>以下のコマンドで1998年から2019年までの作者別のコミット数を見ることができます。</p>
+<h3 id="作者別にコミット数をカウントしてみる"><a href="#作者別にコミット数をカウントしてみる" class="header-anchor"></a>2.3. <a href="#作者別にコミット数をカウントしてみる" class="headerlink" title="作者別にコミット数をカウントしてみる"></a>作者別にコミット数をカウントしてみる</h3><p>次に年単位で作者別にコミット数をカウントしてみます。原理上はコミットログさえあればコミットの日付とコミットの作者とコミット数が分かるので、最初はコミットログを自力でパースしてカウントしようと思っていましたが、<code>git shortlog</code>という便利なコマンドがあることに気づきました。<br>以下のコマンドで1998年から2019年までの作者別のコミット数を見ることができます。</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git shortlog -sne --no-merges --since=<span class="hljs-string">'1998-01-01'</span> --until=<span class="hljs-string">'2019-12-31'</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>オプションは以下のとおりです。</p>
@@ -256,7 +256,7 @@
 <td>開始日時</td>
 </tr>
 <tr>
-<td><code>--untile</code></td>
+<td><code>--until</code></td>
 <td>終了日時</td>
 </tr>
 </tbody></table>
@@ -266,7 +266,7 @@
 <p>ただ上記のコミット数の表示には大きな問題があります。分かる人には分かると思うのですが、実は1位のnobuさんと9位のNobuyoshi Nakadaさんは同一人物です。これは作者名やEメールアドレスが異なると異なるものとしてカウントされてしまうためです。</p>
 <p>この問題を解決するためには名寄せといって同一人物と思われるコミットを集約しないといけません。実は<code>git shortlog</code>には<code>.mailmap</code>という集約の仕組みがあるのですが、これを利用するためにはそもそも同一人物のEメールアドレスがどれかという情報を持っている必要があります。</p>
 <p>今回はどのEメールアドレスが同一人物かを推測するところから始めるので<code>.mailmap</code>の仕組みは利用せずRubyを用いて集約を頑張ってみたいと思います。</p>
-<h3 id="年単位でコミット数をカウントしてみる"><a href="#年単位でコミット数をカウントしてみる" class="header-anchor"></a>2.4. <a href="#年単位でコミット数をカウントしてみる" class="headerlink" title="年単位でコミット数をカウントしてみる"></a>年単位でコミット数をカウントしてみる</h3><p>前節で1998年から2019年までのコミット数を集計しましたが、年単位で可視化を行いためスクリプトで年ごとのコミット数のログを作成します。作成するログは２種類あって1998年からの累積のコミット数を年単位で集計する<code>total</code>ログと各年のコミット数を集計する<code>trend</code>ログです。<br>以下のRubyスクリプトでは1998年から2019年までループで<code>system</code>関数で<code>git shotlog</code>を呼び出してリダイレクトで各年ごとのコミット数のログファイルを作成しています。</p>
+<h3 id="年単位でコミット数をカウントしてみる"><a href="#年単位でコミット数をカウントしてみる" class="header-anchor"></a>2.4. <a href="#年単位でコミット数をカウントしてみる" class="headerlink" title="年単位でコミット数をカウントしてみる"></a>年単位でコミット数をカウントしてみる</h3><p>前節で1998年から2019年までのコミット数を集計しましたが、年単位で可視化を行いためスクリプトで年ごとのコミット数のログを作成します。作成するログは２種類あって1998年からの累積のコミット数を年単位で集計する<code>total</code>ログと各年のコミット数を集計する<code>trend</code>ログです。<br>以下のRubyスクリプトでは1998年から2019年までループで<code>system</code>関数で<code>git shortlog</code>を呼び出してリダイレクトで各年ごとのコミット数のログファイルを作成しています。</p>
 <figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ruby">(<span class="hljs-number">1998</span>..<span class="hljs-number">2019</span>).each <span class="hljs-keyword">do</span> <span class="hljs-params">|e|</span><br>    system(<span class="hljs-string">"git shortlog -sne --no-merges --since='<span class="hljs-subst">#{e}</span>-01-01' --until='<span class="hljs-subst">#{e}</span>-12-31' &gt; trend/<span class="hljs-subst">#{e}</span>.log"</span>)<br>    system(<span class="hljs-string">"git shortlog -sne --no-merges --since='1998-01-01' --until='<span class="hljs-subst">#{e}</span>-12-31' &gt; total/<span class="hljs-subst">#{e}</span>.log"</span>)<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>totalログを見れば総合的に活躍したコミッターの変化を可視化でき、trendログを可視化すればその年に活躍したコミッターを可視化することができます。</p>
