@@ -8,6 +8,7 @@ tags:
   - Ruby
   - Jupyter
   - AdventCalendar
+  - Flourish
 date: 2019-12-25 07:28:45
 ---
 この記事は{% elink Ruby Advent Calendar 2019 https://qiita.com/advent-calendar/2019/ruby %}の25日目の記事です。
