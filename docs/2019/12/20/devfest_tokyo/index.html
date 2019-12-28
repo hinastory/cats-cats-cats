@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html  lang="ja">
+<head>
+    <meta charset="utf-8">
+<title>Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta name="description" content="検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともうGoogleの技術が好きかどうかに関わらずエンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。 ・・・というのは前置きで、自分はGoogleが好き🥰なので、Goo">
+<meta name="keywords" content="Event,GCP,Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともうGoogleの技術が好きかどうかに関わらずエンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。 ・・・というのは前置きで、自分はGoogleが好き🥰なので、Goo">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/devfest2019.png">
+<meta property="og:updated_time" content="2019-12-28T00:32:19.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/devfest2019.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
+
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2019/12/20/devfest_tokyo/" class="media-left">
+                <time datetime="2019-12-19T22:28:45.000Z">2019-12-20</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Event/" rel="tag">Event</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/GCP/" rel="tag">GCP</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Go/" rel="tag">Go</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devfest2019.png" alt="Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <div class="content">
+            <p>検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう<strong>Googleの技術が好きかどうかに関わらず</strong>エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。</p>
+<p>・・・というのは前置きで、自分は<strong>Googleが好き</strong>🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。</p>
+<a href="https://tokyo.gdgjapan.org/devfest2019" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://storage.googleapis.com/gdgtokyo_img/devfest19/misc/topimg.png"></div><div class="descriptions"><div class="og-title">GDG Tokyo | DevFest Tokyo 2019</div><div class="og-description">DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。東京では、Android、Google Cloud Platform（GCP）、Web、Firebase、Machine Learni…</div></div></div></a>
+
+<a id="more"></a>
+
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#日時場所" class="contents-header">1. 日時・場所</a></li><li><a href="#gdg-devfestとは" class="contents-header">2. GDG DevFestとは</a></li><li><a href="#セッションとホール" class="contents-header">3. セッションとホール</a></li><li><a href="#参加セッション午前" class="contents-header">4. 参加セッション(午前)</a></li><li><a href="#ランチ" class="contents-header">5. ランチ</a><ul><li><a href="#gkeを本番運用する時に最低限考えるべきこととその方法ランチセッション-富永裕貴クラウドエース" class="contents-header">5.1. GKEを本番運用する時に最低限考えるべきこととその方法(ランチセッション) @ 富永裕貴(クラウドエース)</a></li></ul></li><li><a href="#参加セッション午後" class="contents-header">6. 参加セッション(午後)</a><ul><li><a href="#tensorflow-の使い方-tf2x-とエコシステム-太田-満久ブレインパッド" class="contents-header">6.1. TensorFlow の使い方 〜 TF2.x とエコシステム 〜 @ 太田 満久(ブレインパッド)</a></li><li><a href="#goの10年の道のりとその変遷-山口-能迪google" class="contents-header">6.2. Goの10年の道のりとその変遷 @ 山口 能迪(Google)</a></li><li><a href="#令和元年google機械学習技術総決算-足立-昌彦カブク" class="contents-header">6.3. 令和元年Google機械学習技術総決算 @ 足立 昌彦(カブク)</a></li><li><a href="#cloudnative-時代における-gkekubernetes-ではじめる開発-青山-真也サイバーエージェント" class="contents-header">6.4. CloudNative 時代における GKE/Kubernetes ではじめる開発 @ 青山 真也(サイバーエージェント)</a></li><li><a href="#bigqueryの今年の多すぎるアップデートを振り返ってみる-なかむら-さとる" class="contents-header">6.5. BigQueryの今年の多すぎるアップデートを振り返ってみる @ なかむら さとる</a></li></ul></li><li><a href="#まとめ" class="contents-header">7. まとめ</a></li><li><a href="#おまけ" class="contents-header">8. おまけ</a></li></ul></div>
+
+<h2 id="日時場所"><a href="#日時場所" class="header-anchor"></a>1. <a href="#日時・場所" class="headerlink" title="日時・場所"></a>日時・場所</h2><p>日時と場所は以下のとおりです。参加したのは12/14日のセッションで、会場の電気通信大学は京王線調布駅から歩いて5分程でした。セッション開始より20分前の10:40頃に着いて受付を済ましました。</p>
+<ul>
+<li>日時<ul>
+<li>2019年12月14日(土) 11:00～18:00<ul>
+<li>セッションと懇親会</li>
+</ul>
+</li>
+<li>2019年12月15日(日) 14:00～17:00<ul>
+<li>抽選で100名が参加可能なハンズオンおよびGoogleオフィス見学</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>場所<ul>
+<li>国立大学法人 電気通信大学</li>
+</ul>
+</li>
+<li>参加費<ul>
+<li>無料（ランチは500円、懇親会は3000円のオプション）</li>
+</ul>
+</li>
+<li>参加人数<ul>
+<li>1700人程</li>
+</ul>
+</li>
+</ul>
+<img src="/cats-cats-cats/gallery/events/devfest2019/devfest-1.jpeg" class="" width="500">
+
+<h2 id="gdg-devfestとは"><a href="#gdg-devfestとは" class="header-anchor"></a>2. <a href="#GDG-DevFestとは" class="headerlink" title="GDG DevFestとは"></a>GDG DevFestとは</h2><p>GDGは<strong>Google Developer Groups</strong>のことで、Googleの技術好きが集まったコミュニティで世界各地にあります。GDG DevFestはその各地のGDGが独自に主催する開発者のためのイベントで世界で<strong>年間400以上</strong>のDevFestが開催されています<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
+<img src="/cats-cats-cats/gallery/events/devfest2019/devfest-location.png" class="" width="500">
+
+<p><strong><em><a href="https://devfest.withgoogle.com/" target="_blank" rel="noopener">DevFest Events</a>より引用</em></strong><br>　<br>今回の「GDG DevFest Tokyo 2019」はGDG Tokyoが主催をしており今年で4回目の開催になります。ちなみにDevDestはあくまでコミュニティが主体のイベントであり、Googleはサポーターとしての位置づけになっています。そのせいかビジネスよりのセッションやガツガツした宣伝多めのセッションは殆どなく、<strong>技術愛に溢れた温かみのある</strong>イベントとなっています。</p>
+<p>GDG DevFest Tokyo 2019のハイライトがすでに公開されていますので興味がある方はご覧ください。。</p>
+<div class="oembed-outer oembed-youtube"><div class="oembed-inner"><iframe width="480" height="270" src="https://www.youtube.com/embed/N8g2DcAm7tk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+
+
+
+<h2 id="セッションとホール"><a href="#セッションとホール" class="header-anchor"></a>3. <a href="#セッションとホール" class="headerlink" title="セッションとホール"></a>セッションとホール</h2><p>ホールは３つに別れており、7つのトラックで並行してセッションが走っていました。面白そうなセッションやハンズオンがたくさんあったので、本当に<strong>分身したい</strong>気持ちでいっぱいでした（笑）。</p>
+<p>B棟1階の出展ブースでは協賛企業が様々な展示をしたりノベリティを配ってアピールしていました<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。面白い試みとしては出展ブースを見学したりセッションに参加するとシールが貰えて、<strong>シールを５枚集めるとノベリティと交換</strong>するというシステムでした。今まで出展ブースを回ってハンコを集めするようななものは見たことあったのですが、セッションも含めてシールを配っていたのは斬新でした。</p>
+<img src="/cats-cats-cats/gallery/events/devfest2019/DevFestTokyo2019.png" class="" width="600">
+
+<p><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
+<h2 id="参加セッション午前"><a href="#参加セッション午前" class="header-anchor"></a>4. <a href="#参加セッション-午前" class="headerlink" title="参加セッション(午前)"></a>参加セッション(午前)</h2><p>午前の参加セッションは以下のキーノート２つです。</p>
+<ul>
+<li>Keynote1: 世界に広がるGDGコミュニティとDevFest 鈴木 拓生(Google)</li>
+<li>Keynote2: 円周率世界記録への道 @ 岩尾 エマ はるか(Google)</li>
+</ul>
+<p>Keynote1はDevFestの由来や歴史とその盛り上がりについて解説されていました。DevFestは数年前から継続しているムーブメントでここ最近は爆発的な勢いで開催されているようです。<strong>さすがGoogle</strong>。</p>
+<p>Keynote2は円周率世界記録(<strong>31.4兆桁</strong>)をクラウド(GCP)を利用して121日間かけて達成したお話でした。円周率の計算には既存のプログラムを利用したそうですが、数ヶ月に及ぶ計算が必要なため信頼性の確保や検算やモニタリングにいろいろと工夫をされていました。結果的に<strong>8ペタバイト</strong>の読み書きが発生して利用料金に換算すると<strong>20万ドル</strong>かかったことになったそうです<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。ちなみに現在は利用料金が低下したので300万円ほど実行できるそうです。<strong>「後から見ると簡単に見える」</strong>という言葉が印象に残っていて、やはり世界一になる大変さと凄さとインパクトが伝わるエピソードでした。</p>
+<p>あと、キャリアの話も興味深くて、Googleの採用に何度も落ちたけど受けるのタダだから毎年受けた話とか、英語の学び方とか色々と参考になりました。</p>
+<h2 id="ランチ"><a href="#ランチ" class="header-anchor"></a>5. <a href="#ランチ" class="headerlink" title="ランチ"></a>ランチ</h2><p>ランチは事前に500円のチケットをネットで購入しておけばゲットできました(限定800食)。B棟前の広場には4台のキッチンカーが並んでおり、自分は一番人気の<strong>熟成ハラミステーキ丼</strong>の列に迷わず並びました。とにかく一番人気だけあってすごい行列で多分一番早く売り切れたんじゃないかと思います<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。</p>
+<p>熟成ハラミステーキ丼は本当に柔らかく美味しくて、500円で大丈夫か？と思ったくらいです。ただ、ちょうど一緒にランチをした同僚のバジルチキンセットも美味しそうだったので、願わくば全て味見をしてみたかったです・・・</p>
+<img src="/cats-cats-cats/gallery/events/devfest2019/devfest-3.jpg" class="" width="350"><img src="/cats-cats-cats/gallery/events/devfest2019/devfest-4.jpeg" class="" width="350">
+
+
+
+<h3 id="gkeを本番運用する時に最低限考えるべきこととその方法ランチセッション-富永裕貴クラウドエース"><a href="#gkeを本番運用する時に最低限考えるべきこととその方法ランチセッション-富永裕貴クラウドエース" class="header-anchor"></a>5.1. <a href="#GKEを本番運用する時に最低限考えるべきこととその方法-ランチセッション-富永裕貴-クラウドエース" class="headerlink" title="GKEを本番運用する時に最低限考えるべきこととその方法(ランチセッション) @ 富永裕貴(クラウドエース)"></a>GKEを本番運用する時に最低限考えるべきこととその方法(ランチセッション) @ 富永裕貴(クラウドエース)</h3><p>ゆっくりランチを楽しみたかったのですがランチセッションも見たかったので、食べ終わったらすぐにセッション会場に向かいました。話された内容はKubernetes(GKE)のノードのアップグレード戦略でした。結論から言えば<code>PodDisruptionBudget</code>リソースはほぼ必須で<code>maxUnavailable</code>を適切に設定することでサービスの継続性を保ったまま安全にノードのアップグレードができるというものです。以外だったのはそのPDBをGKEが無視する場合があるということで、そういったエッジケースの検証の話が聞けてとても興味深かったです。</p>
+<h2 id="参加セッション午後"><a href="#参加セッション午後" class="header-anchor"></a>6. <a href="#参加セッション-午後" class="headerlink" title="参加セッション(午後)"></a>参加セッション(午後)</h2><p>さて、昼食後しばらくしたら必ず眠くなってします体質の自分にとってはここからが修羅場です。フリスク片手に歯を食いしばって参加しました。</p>
+<h3 id="tensorflow-の使い方-tf2x-とエコシステム-太田-満久ブレインパッド"><a href="#tensorflow-の使い方-tf2x-とエコシステム-太田-満久ブレインパッド" class="header-anchor"></a>6.1. <a href="#TensorFlow-の使い方-〜-TF2-x-とエコシステム-〜-太田-満久-ブレインパッド" class="headerlink" title="TensorFlow の使い方 〜 TF2.x とエコシステム 〜 @ 太田 満久(ブレインパッド)"></a>TensorFlow の使い方 〜 TF2.x とエコシステム 〜 @ 太田 満久(ブレインパッド)</h3><p>午後一のセッションは楽しみにしていたTensorFlowです。TensorFlowはGoogle発の機械学習のプラットフォームで、最初はディープラーニング向けのライブラリとして注目されましたが、最近は推論フェーズにも力を入れており機械学習の総合プラットフォームに進化しています。このセッションではTensorFlowの詳細というよりは、TensorFlowの地図を見ながら全体を俯瞰する内容でした。</p>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT1LHPLi1j09lKfVkaCNra-x_1zsf50H1mARpiBvurN7caEB-07f2n6k4fWbqGMVA0P-8izVYTUnWv_/embed?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g7b4e0d0dae_0_10" width="595" height="365"></iframe>
+　
+
+<p>まず印象に残ったのは機械学習には訓練フェーズと推論フェーズがありエンジニアには訓練フェーズに注目が行きがちですが、実際の機械学習の利用シーンでは<strong>推論フェーズが重要</strong>だという話でした。そしてTensorFlowはまさにその領域にも十分力を入れていて、<strong>「TensorFlow Serving」</strong>、<strong>「TensorFlow Lite」</strong>、<strong>「TensorFlow.js」</strong>の3つが担っています。</p>
+<table>
+<thead>
+<tr>
+<th>機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TensorFlow Serving</td>
+<td>サーバサイドで推論。gRPCやREST APIを簡単に作成できる</td>
+</tr>
+<tr>
+<td>TensorFlow Lite</td>
+<td>モバイル上で推論。閉域や遅延に厳しい場面で利用</td>
+</tr>
+<tr>
+<td>TensorFlow.js</td>
+<td>ブラウザ上で推論。見た目の良いモデルが多い</td>
+</tr>
+</tbody></table>
+<p>特に面白そうだと思ったのがTensorFlow.jsで、ブラウザでぬるぬる動くようなモデルもあるので試してみたいと思います。また、実際に機械学習を始める際にアルゴリズムや統計学から入る人も多いと思いますが<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>、<a href="https://tfhub.dev/" target="_blank" rel="noopener">TensorFlow Hub<i class="fas fa-external-link-alt fa-fw"></i></a>で既存のモデルを試してみたり、<a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers With Code<i class="fas fa-external-link-alt fa-fw"></i></a>で最新の研究成果でどこまで実現できるかを確認したりすることがオススメだそうです。また<a href="https://cloud.google.com/automl/?hl=ja" target="_blank" rel="noopener">AutoML<i class="fas fa-external-link-alt fa-fw"></i></a>は特に機械学習の知識がなくても簡単に画像分類等ができるので試してみたいと思います。</p>
+<h3 id="goの10年の道のりとその変遷-山口-能迪google"><a href="#goの10年の道のりとその変遷-山口-能迪google" class="header-anchor"></a>6.2. <a href="#Goの10年の道のりとその変遷-山口-能迪-Google" class="headerlink" title="Goの10年の道のりとその変遷 @ 山口 能迪(Google)"></a>Goの10年の道のりとその変遷 @ 山口 能迪(Google)</h3><p>Go言語の進化の歴史を丁寧にまとめたセッションでした。やはり一番のターニングポイントは目立たないですがセルフホスティングをするようになった1.5だと個人的には思っています。セルフホスティングによって<strong>コンパイラ開発自体が言語の利便性と信頼性のベンチマークになる</strong>のでインフラ周りに使われることが多いGo言語にとっては重要な資質だと考えています。</p>
+<p>またGo言語は最近教育や普及にも力を入れて以下のようなサイトが公開されています。</p>
+<a href="https://go.dev" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img></div><div class="descriptions"><div class="og-title">go.dev</div><div class="og-description">Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.</div></div></div></a>
+
+<h3 id="令和元年google機械学習技術総決算-足立-昌彦カブク"><a href="#令和元年google機械学習技術総決算-足立-昌彦カブク" class="header-anchor"></a>6.3. <a href="#令和元年Google機械学習技術総決算-足立-昌彦-カブク" class="headerlink" title="令和元年Google機械学習技術総決算 @ 足立 昌彦(カブク)"></a>令和元年Google機械学習技術総決算 @ 足立 昌彦(カブク)</h3><p>このセッションはタイトル通り、この一年のGoogle機械学習の振り返りでした。主なトピックとして紹介されていたのは<strong>TF Lite</strong>、<strong>AutoML</strong>、<strong>TF 2.0</strong>、<strong>TensorFlow Hub</strong>です。</p>
+<iframe src="https://docs.google.com/presentation/d/1k4yg261BO4NY3pIRZCQ61nJ8_2HMppcs3ASnpxJ1_1E/embed?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g7b4e0d0dae_0_10" width="595" height="365"></iframe>
+　
+
+<p>このトピックのなかで個人的に一番印象的だった出来事はやはりTF 2.0のリリースでした。Keras APIの統合と既存APIの整理によって初学者にも十分オススメできる環境になったと思います。TF 2.0に関しては自分も「<a href="https://hinastory.github.io/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a>」という記事を書いているので興味がある方はご覧ください。</p>
+<h3 id="cloudnative-時代における-gkekubernetes-ではじめる開発-青山-真也サイバーエージェント"><a href="#cloudnative-時代における-gkekubernetes-ではじめる開発-青山-真也サイバーエージェント" class="header-anchor"></a>6.4. <a href="#CloudNative-時代における-GKE-Kubernetes-ではじめる開発-青山-真也-サイバーエージェント" class="headerlink" title="CloudNative 時代における GKE/Kubernetes ではじめる開発 @ 青山 真也(サイバーエージェント)"></a>CloudNative 時代における GKE/Kubernetes ではじめる開発 @ 青山 真也(サイバーエージェント)</h3><p>Kubernetesで有名な青山さんのセッションです。CKAD(Certified Kubernetes Application Developer)の資格を世界で2番目に取った方です。自己紹介の後いきなり<strong>「インスタ映えする手乗りクラスタ持ってますよね？」</strong>的な煽りで始まって苦笑しました。</p>
+<div class="oembed-outer oembed-speaker-deck"><div class="oembed-inner"><iframe id="talk_frame_583513" src="//speakerdeck.com/player/730f20147bc24975aec751ce995a8040" width="710" height="399" style="border:0; padding:0; margin:0; background:transparent;" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div></div>
+
+<p>話の内容はCloud NativeとKubernetesの総合的な解説でした。<strong>「Kubernetes != Cloud Native 」</strong>の式は重要でKubernetesを使うだけでCloud Nativeになるわけではなく、VMでもCloud Nativeは可能なので以下のCloud Nativeの本質を理解することが大切だそうです。</p>
+<ul>
+<li>OpenかつScalableなシステムの実現<ul>
+<li>疎結合なシステム</li>
+<li>回復性がある</li>
+<li>管理しやすい</li>
+<li>可観測である</li>
+<li>堅牢な自動化により、頻繁かつ期待通りに最小限の労力で大きな変更が可能</li>
+</ul>
+</li>
+</ul>
+<p>Kubernetesについては青山さんの著書である以下がおすすめです。</p>
+<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"Kubernetes完全ガイド (impress top gear)","b":"","t":"","d":"https:\/\/m.media-amazon.com","c_p":"","p":["\/images\/I\/51bfBL9XdyL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/4295004804","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"eirB2","s":"s"});</script><div id="msmaflink-eirB2">リンク</div><!-- MoshimoAffiliateEasyLink END -->
+
+<h3 id="bigqueryの今年の多すぎるアップデートを振り返ってみる-なかむら-さとる"><a href="#bigqueryの今年の多すぎるアップデートを振り返ってみる-なかむら-さとる" class="header-anchor"></a>6.5. <a href="#BigQueryの今年の多すぎるアップデートを振り返ってみる-なかむら-さとる" class="headerlink" title="BigQueryの今年の多すぎるアップデートを振り返ってみる @ なかむら さとる"></a>BigQueryの今年の多すぎるアップデートを振り返ってみる @ なかむら さとる</h3><p>BigQueryは簡単に言えば<strong>Google版のDWH</strong>です。Googleのクラウドサービスの最初期からあるサービスですが、まだまだアップデートはたくさんあり成長過程にある活発なサービスのようです。</p>
+<p>普段はAWSを使っていてもBigQueryだけは使うという事例もよく聞くのでBigQueryには今後も注目していきたいと思います。</p>
+<h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>7. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>GDG DevFestは初参加でしたが、セッションの内容も会場の雰囲気もとても良く素晴らしい一日でした。</p>
+<p>クラウドでいうとAWSが抜き出ており、ビジネスではAzureが追い上げている状況でGoogleはなんとなく存在感が薄かった印象ですが、言語やフレームワークのトータルでみるとまさしくGoogleの技術は<strong>いたるところで社会を支えている</strong>ということをあらためて実感できました。そして、そのGoogleの技術の取り巻きには熱狂的なファンを中心にGDGが形成され、さらにファンを増やしていく好循環が世界中でムーブメントが発生しているということはGoogleの技術はこれからも支持され、社会を支えていくという何よりの証左だと思います。その中で自分はこの巨人の肩に乗っていかに価値を提供していくのかを考え続けなければいけないという思いを胸にしました。</p>
+<p>最後になりましたが関係者、参加者の皆様、本当にお疲れさまでした。本記事がGDGの活動およびDevFestとGoogleの技術に興味がある方の一助になれば幸いです。</p>
+<div class="oembed-outer oembed-twitter"><div class="oembed-inner"><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">【GDG Devfest Tokyo 2019】<br>これにて全てのプログラムが終了しました！ご参加頂きました皆様、本当にありがとうございました🙏また来年お会いできる事を楽しみにしています。<br>今後も <a href="https://twitter.com/hashtag/gdgtokyo?src=hash&amp;ref_src=twsrc%5Etfw" target="_blank" rel="noopener">#gdgtokyo</a> のイベントに是非ご参加下さい😊良いお年を！ <a href="https://twitter.com/hashtag/DevFest19?src=hash&amp;ref_src=twsrc%5Etfw" target="_blank" rel="noopener">#DevFest19</a> <a href="https://twitter.com/hashtag/devfest?src=hash&amp;ref_src=twsrc%5Etfw" target="_blank" rel="noopener">#devfest</a> <a href="https://twitter.com/hashtag/GDG?src=hash&amp;ref_src=twsrc%5Etfw" target="_blank" rel="noopener">#GDG</a> <a href="https://t.co/6fQyMNWkLC" target="_blank" rel="noopener">pic.twitter.com/6fQyMNWkLC</a></p>— GDG Tokyo (@gdgtokyo) <a href="https://twitter.com/gdgtokyo/status/1206137715634270208?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">December 15, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div></div>
+
+<h2 id="おまけ"><a href="#おまけ" class="header-anchor"></a>8. <a href="#おまけ" class="headerlink" title="おまけ"></a>おまけ</h2><p>以下が戦利品です。中央のお米が異彩を放っています(笑)。</p>
+<img src="/cats-cats-cats/gallery/events/devfest2019/devfest-6.jpeg" class="" width="600">
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">DevFestの詳細は<a href="https://devfest.withgoogle.com/" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">もちろんこれはGoogleの社内プロジェクトなのでタダです。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">「熟成ハラミステーキ丼」以外には「南インドカレー」、「ビーフストロガノフ 温泉卵添え」、「バジルチキンセット」のキッチンカーが並んでおりビーガンメニューを用意している所もありました。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">自分も最初アルゴリズムや線形代数、微積分、統計学から初めて挫折しかけました・・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/cats-cats-cats/2019/12/25/visualize_ruby_development/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/">
+                <span class="level-item">天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" title="Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/k8s-tokyo-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-01-20</div><a href="/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/" title="Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加" rel="bookmark">Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-15</div><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark">Developers Summit 2019に参加した感想など</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/14/tech-book-fest6/" title="技術書典6に一般参加した話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/tech-book-fest6-logo.jpg" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-14</div><a href="/cats-cats-cats/2019/04/14/tech-book-fest6/" title="技術書典6に一般参加した話" rel="bookmark">技術書典6に一般参加した話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2018/12/06/container-days/" title="JapanContainerDays v18.12 に初参加" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/container-days-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2018-12-06</div><a href="/cats-cats-cats/2018/12/06/container-days/" title="JapanContainerDays v18.12 に初参加" rel="bookmark">JapanContainerDays v18.12 に初参加</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" title="天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/tenkaichi-keyboard-3.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-12-02</div><a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" title="天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)" rel="bookmark">天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-23</div><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark">RubyKaigi 2019 in 福岡に参加してきた話</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        37
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        13
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        41
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Qiita" href="https://qiita.com/hinastory">
+                
+                <i class="fas fa-search"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Event/">
+            <span class="level-start">
+                <span class="level-item">Event</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">31</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Cloud/">
+            <span class="level-start">
+                <span class="level-item">Cloud</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Engineering/">
+            <span class="level-start">
+                <span class="level-item">Engineering</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/MachineLearning/">
+            <span class="level-start">
+                <span class="level-item">MachineLearning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Tool/">
+            <span class="level-start">
+                <span class="level-item">Tool</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" alt="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T22:28:45.000Z">2019-12-25</time></div>
+                    <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="has-link-black-ter is-size-6 has-text-weight-normal">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/20/devfest_tokyo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devfest2019.png" alt="Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-19T22:28:45.000Z">2019-12-20</time></div>
+                    <a href="/cats-cats-cats/2019/12/20/devfest_tokyo/" class="has-link-black-ter is-size-6 has-text-weight-normal">Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tenkaichi-keyboard-3.png" alt="天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-01T22:28:45.000Z">2019-12-02</time></div>
+                    <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="has-link-black-ter is-size-6 has-text-weight-normal">天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" alt="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-20T22:28:45.000Z">2019-11-21</time></div>
+                    <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="has-link-black-ter is-size-6 has-text-weight-normal">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png" alt="Serverless Days Tokyo 2019 に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 13.33px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 13.33px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">11月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">10月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">9月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">8月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">5月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">4月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">3月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">1月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" alt="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T22:28:45.000Z">2019-12-25</time></div>
+                    <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="has-link-black-ter is-size-6 has-text-weight-normal">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/20/devfest_tokyo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devfest2019.png" alt="Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-19T22:28:45.000Z">2019-12-20</time></div>
+                    <a href="/cats-cats-cats/2019/12/20/devfest_tokyo/" class="has-link-black-ter is-size-6 has-text-weight-normal">Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tenkaichi-keyboard-3.png" alt="天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-01T22:28:45.000Z">2019-12-02</time></div>
+                    <a href="/cats-cats-cats/2019/12/02/tenkaichi-keybord/" class="has-link-black-ter is-size-6 has-text-weight-normal">天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/">DIY</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/DIY/Keyboard/">Keyboard</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" alt="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-20T22:28:45.000Z">2019-11-21</time></div>
+                    <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="has-link-black-ter is-size-6 has-text-weight-normal">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png" alt="Serverless Days Tokyo 2019 に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T22:28:45.000Z">2019-10-27</time></div>
+                    <a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" class="has-link-black-ter is-size-6 has-text-weight-normal">Serverless Days Tokyo 2019 に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Cloud/">Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 13.33px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 13.33px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">11月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">10月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">9月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">8月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">5月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">4月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">3月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">1月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">12月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2019 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                    href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="#">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>

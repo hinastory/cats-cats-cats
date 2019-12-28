@@ -8,8 +8,16 @@
     </url>
 
     <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</loc>
-        <lastmod>2019-12-26T20:20:18.997Z</lastmod>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</loc>
+        <lastmod>2019-12-28T00:32:19.525Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</loc>
+        <lastmod>2019-12-26T22:07:46.500Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +25,15 @@
 
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/</loc>
-        <lastmod>2019-12-01T22:58:44.960Z</lastmod>
+        <lastmod>2019-12-26T20:50:06.226Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</loc>
+        <lastmod>2019-12-26T20:20:18.997Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -66,14 +82,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/</loc>
         <lastmod>2019-11-02T01:33:32.785Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</loc>
-        <lastmod>2019-11-02T01:33:16.793Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

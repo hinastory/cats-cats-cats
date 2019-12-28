@@ -46,11 +46,40 @@
   </entry>
   
   <entry>
+    <title>Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</id>
+    <published>2019-12-19T22:28:45.000Z</published>
+    <updated>2019-12-28T00:32:19.525Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
+&lt;p&gt;・・・というのは前置きで、自分は&lt;strong&gt;Googleが好き&lt;/strong&gt;🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。&lt;/p&gt;
+&lt;a href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://storage.googleapis.com/gdgtokyo_img/devfest19/misc/topimg.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;GDG Tokyo | DevFest Tokyo 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。東京では、Android、Google Cloud Platform（GCP）、Web、Firebase、Machine Learni…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
+    
+      <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
     <title>天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/</id>
     <published>2019-12-01T22:28:45.000Z</published>
-    <updated>2019-12-01T22:58:44.960Z</updated>
+    <updated>2019-12-26T20:50:06.226Z</updated>
     
     <summary type="html">
     
@@ -73,6 +102,8 @@
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
   </entry>
   
@@ -149,9 +180,9 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
       <category term="Minikube" scheme="https://hinastory.github.io/cats-cats-cats/tags/Minikube/"/>
     
@@ -347,7 +378,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</id>
     <published>2019-07-26T22:28:45.000Z</published>
-    <updated>2019-11-02T01:33:16.793Z</updated>
+    <updated>2019-12-26T22:07:46.500Z</updated>
     
     <summary type="html">
     
@@ -519,32 +550,6 @@
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
     
       <category term="Algorithm" scheme="https://hinastory.github.io/cats-cats-cats/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RubyKaigi 2019 in 福岡に参加してきた話</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/04/23/ruby-kaigi-2019/</id>
-    <published>2019-04-22T23:17:46.000Z</published>
-    <updated>2019-07-01T20:40:32.435Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前代未聞の公式パーティーが開催されたRubyKaigi 2019に参加してきました。去年は仙台、一昨年は広島でしたが今年は福岡での開催でした。自分は広島から連続で参加していますが、このイベントはホスピタリティが高く今年も楽しみにしていました。ただし今年は参加者の&lt;code&gt;度肝を抜くネタが２つも仕込まれていた&lt;/code&gt;ことから特筆すべき「RubyKaigi」になったといっても過言ではないでしょう。&lt;/p&gt;
-&lt;a href=&quot;https://rubykaigi.org/2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2019/images/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;RubyKaigi 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;RubyKaigi 2019, 4/18...4/20, Fukuoka, Japan #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
-    
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
   </entry>
   

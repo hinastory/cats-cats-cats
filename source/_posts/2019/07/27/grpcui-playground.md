@@ -43,7 +43,7 @@ gRPCはGoogleが開発してオープンソースとして公開したRPCフレ�
 
 {% img /gallery/daily/tools/grpcui/grpc-overview.png 500 %}
 
-***{% elink What is gRPC https://www.grpc.io/docs/guides/ %}より引用***
+　***[What is gRPC](https://www.grpc.io/docs/guides/)より引用***
 
 gRPCは上記のように単純な要求/応答型以外にも様々なやりとりに対応できます。具体的には以下の４つです。
 
