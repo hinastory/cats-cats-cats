@@ -324,6 +324,8 @@ yarvcore.h
 
 ## ファイル単位のコミット回数のテーブルを作成する
 
+コードを見て察してください（笑）。今回はカテゴリに拡張子を選択しています。
+
 {% code lang:ruby make_files_activity.rb %}
 #!/usr/bin/env ruby
 
