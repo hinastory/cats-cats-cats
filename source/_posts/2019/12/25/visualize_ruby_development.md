@@ -543,13 +543,13 @@ Flourishは非常に多くの可視化に対応していますが、今回は{% 
 以下が完成した可視化です。中央のRubyの画像は{% elink Rubyホームページ https://www.ruby-lang.org/ja/ %}から引用しており、作者の画像はGitHubから引用しております[^2]。
 以下は1998年からの累計コミット数のチャートです。
 
-- {% elink ruby-viz-total | Flourish https://public.flourish.studio/visualisation/1063474/ %}
+- {% elink ruby-viz-author-total | Flourish https://public.flourish.studio/visualisation/1063474/ %}
 
 <div class="flourish-embed" data-src="visualisation/1063474"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
 
 以下は年単位のコミット数の可視化です。その年に活躍したコミッターが分かると思います。
 
-- {% elink ruby-viz-trend | Flourish https://public.flourish.studio/visualisation/1132483/ %}
+- {% elink ruby-viz-author-trend | Flourish https://public.flourish.studio/visualisation/1132483/ %}
 
 <div class="flourish-embed" data-src="visualisation/1132483"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
 

@@ -661,7 +661,7 @@ yarvcore.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 以下が完成した可視化です。1998年からのファイル単位の累計コミット数のチャートです。
 
-- {% elink ruby-viz-file | Flourish https://public.flourish.studio/visualisation/1158165/ %}
+- {% elink ruby-viz-file-total | Flourish https://public.flourish.studio/visualisation/1158165/ %}
 
 <div class="flourish-embed" data-src="visualisation/1158165"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
 
