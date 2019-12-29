@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</loc>
+        <lastmod>2019-12-29T18:17:20.241Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</loc>
         <lastmod>2019-12-29T09:33:00.538Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +26,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/</loc>
         <lastmod>2019-12-29T09:32:35.793Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</loc>
-        <lastmod>2019-12-28T00:32:19.525Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
