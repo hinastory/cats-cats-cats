@@ -59,4 +59,4 @@ Adjustレイヤーは同時押しが嫌だったので専用キーを割り当�
 
 自分は他にもErgo42やIrisやPlanckキーボードも持っていますが、直行配列のキーボードは大体こんな感じのレイアウトで統一しています。以下にキーマップを公開しているので気になる人は参考にしてみてください。
 
-{% linkPreview https://github.com/hinastory/qmk_firmware/blob/ergodash-mini/keyboards/ergodash/mini/keymaps/hinastory/keymap.c %}
+{% blogCard https://github.com/hinastory/qmk_firmware/blob/ergodash-mini/keyboards/ergodash/mini/keymaps/hinastory/keymap.c %}

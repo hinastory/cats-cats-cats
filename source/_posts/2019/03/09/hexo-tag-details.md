@@ -12,7 +12,7 @@ date: 2019-03-09 08:12:19
 ---
 HexoにHTML5の {% elink detailsタグ https://developer.mozilla.org/ja/docs/Web/HTML/Element/details %}[^1]を記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はそのプラグインの紹介記事です。
 
-{% linkPreview https://www.npmjs.com/package/hexo-tag-details %}
+{% blogCard https://www.npmjs.com/package/hexo-tag-details %}
 
 [^1]: 流石に今どきHTML5のタグをサポートしていないブラウザなんてないと思っていましたが、IEとEdgeはだめなようです・・・もちろん表示されないわけではなく、タグが無視されて表示されるので見れないわけではないです。誰もIEやEdgeなんて使っていないですよね？少なくともこのブログのアクセス解析の結果、賢明な読者様の中にはそういう方はいらっしゃらなかったようなので遠慮なく`details`タグを使えました。まぁ、IEはすでに非推奨ですしEdgeもChromeベースになるらしいので将来的には`details`タグの互換性を気にする必要はなくなるはずです。
 

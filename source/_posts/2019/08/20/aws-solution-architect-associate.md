@@ -10,7 +10,7 @@ date: 2019-08-20 07:28:45
 ---
 AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコンピューティングサービス[^1]です。そのAWSの認定の中でも屈指の人気を誇る「AWS認定ソリューションアーキテクト - アソシエイト」を5日間の勉強で合格することができました。本当に月曜日に思い立って試験の申込みをして勉強を開始し、その週の土曜日の朝一の試験で合格しました。本記事はその合格に至るまでの体験談になります。
 
-{% linkPreview https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/ %}
+{% blogCard https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/ %}
 
 [^1]: AWSは主にIaaS(Infrastructure as a Service)を提供しています。
 

@@ -14,7 +14,7 @@ date: 2019-02-15 09:30:25
 
 Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})に参加してきました。会場は目黒の{% elink ホテル雅叙園東京 https://www.hotelgajoen-tokyo.com/access %}です。去年は仕事の都合上参加できなかったのですが、今年はなんとか両日とも午後を空けて参加してきました。
 
-{% linkPreview https://event.shoeisha.jp/devsumi/20190214 %}
+{% blogCard https://event.shoeisha.jp/devsumi/20190214 %}
 
 <!-- more -->
 
@@ -37,8 +37,8 @@ Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})
 
 ちなみにクラウドネイティブ関連ではJapan Container DaysやKubernetes Meetup Tokyo　#15の参加レポートも書いているのでよろしければそちらもどうぞ。
 
-{% linkPreview https://hinastory.github.io/cats-cats-cats/2018/12/06/container-days/ %}
-{% linkPreview https://hinastory.github.io/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/ %}
+{% blogCard https://hinastory.github.io/cats-cats-cats/2018/12/06/container-days/ %}
+{% blogCard https://hinastory.github.io/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/ %}
 
 ### いまなぜGoogle Cloud Platformを学ぶのか！？〜GCPを支えるGoogleテクノロジーと愛を語る〜
 　{% elink 【14-G-1】 https://event.shoeisha.jp/devsumi/20190214/session/2014/ %} *14:10～15:40 中井 悦司[グーグル・クラウド・ジャパン]、他*
@@ -138,7 +138,7 @@ Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})
 
 密かに楽しみにしていたセッションです。やっぱり本を読むのって時間がかかるのでなるべくハズレは引きたくないものです。かといって売れているから自分にあっているとも限らないので悩ましいところですが、ここでは著者または関係者が読みどころをプレゼンしてくれるので、非常に参考になります。今日行われたプレゼンも非常に熱がこもっていて、実際に自分が投票した2冊は絶対に買おうと思いました[^6]。
 
-{% linkPreview https://www.shoeisha.co.jp/campaign/award/2019/ %}
+{% blogCard https://www.shoeisha.co.jp/campaign/award/2019/ %}
 
 そして2019年の大賞は{% elink この2冊 https://www.shoeisha.co.jp/campaign/award/2019/result/ %}に決定しました。おめでとうございます。
 
@@ -269,6 +269,6 @@ Datadogを使った監視のお話です。Datadogはデフォルトの監視設
 
 ちなみにデブサミ関連の資料は以下のリンクにまとまっていますのでご参考まで[^12]。
 
-{% linkPreview https://codezine.jp/article/detail/11383 %}
+{% blogCard https://codezine.jp/article/detail/11383 %}
 
 [^12]: 自分もこの記事を書く際に参考にさせて頂きました。ありがとうございました。

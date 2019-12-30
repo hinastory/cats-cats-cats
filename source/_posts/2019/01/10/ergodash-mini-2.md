@@ -124,7 +124,7 @@ Detecting USB port, reset your controller now...
 ただこれはみんな通る道だと信じています・・・
 以下のリンク先にこれらのトラブルの原因と対処方法がまとまっているのでご確認ください。ここに自分が体験したほぼ全てのトラブルが記載してありました。本当にいい情報なのでまとめてくれた人に感謝です。自分が自作キーボードを始めた頃にこのページはなかったのが悔やまれます・・・
 
-{%  linkPreview https://scrapbox.io/self-made-kbds-ja/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%99%A5%E3%82%8B%E3%83%9F%E3%82%B9%E3%81%A8%E5%AF%BE%E7%AD%96 %}
+{%  blogCard https://scrapbox.io/self-made-kbds-ja/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%99%A5%E3%82%8B%E3%83%9F%E3%82%B9%E3%81%A8%E5%AF%BE%E7%AD%96 %}
 
 上記のページで解決しない場合は{% elink Discode https://discordapp.com/invite/NM7XtDW %}で質問しましょう。「#ergodash」という専用チャンネルもありますし、自作キーボードの入門的な質問なら「#beginner-help」でもいいでしょう。親切な人が多いのできっと誰かが手を差し伸べてくれるはずです[^8]。
 

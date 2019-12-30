@@ -8,15 +8,18 @@
 
 
     <meta name="description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)(2019年11月16日追記・更新: 追記内容はこ">
-<meta name="keywords" content="Scala,Dotty">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・ (2019年9月28日追記・更新: 追記内容はここを見てください)(2019年11月16日追記・更新: 追記内容はこ">
-<meta property="og:locale" content="ja">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
-<meta property="og:updated_time" content="2019-11-16T07:03:40.205Z">
+<meta property="article:published_time" content="2019-09-14T22:28:45.000Z">
+<meta property="article:modified_time" content="2019-11-16T07:03:40.205Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="Scala">
+<meta property="article:tag" content="Dotty">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/dotty-logo.png">
 
@@ -110,7 +113,7 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -164,16 +167,16 @@
     
     <div class="card-content article ">
         <div class="content">
-            <p>ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・</p>
+            <html><head></head><body><p>ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・</p>
 <p>(2019年9月28日追記・更新: 追記内容は<a href="/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9">ここ</a>を見てください)<br>(2019年11月16日追記・更新: 追記内容は<a href="/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B411%E6%9C%8816%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9">ここ</a>を見てください)</p>
 <a id="more"></a>
 
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#まずはコードを御覧ください" class="contents-header">2. まずはコードを御覧ください</a></li><li><a href="#コードの解説" class="contents-header">3. コードの解説</a><ul><li><a href="#定義" class="contents-header">3.1. 定義</a></li><li><a href="#if式" class="contents-header">3.2. if式</a></li><li><a href="#for式" class="contents-header">3.3. for式</a></li><li><a href="#match式" class="contents-header">3.4. match式</a></li><li><a href="#ラムダ式" class="contents-header">3.5. ラムダ式</a></li></ul></li><li><a href="#エンドマーカー" class="contents-header">4. エンドマーカー</a><ul><li><a href="#インデントマーカー" class="contents-header">4.1. インデントマーカー:</a></li></ul></li><li><a href="#設定と書換え" class="contents-header">5. 設定と書換え</a><ul><li><a href="#main関数" class="contents-header">5.1. @main関数</a></li><li><a href="#今すぐ試してみたい" class="contents-header">5.2. 今すぐ試してみたい!</a></li></ul></li><li><a href="#インデントベース構文の状況" class="contents-header">6. インデントベース構文の状況</a></li><li><a href="#最後に" class="contents-header">7. 最後に</a></li><li><a href="#参考文献" class="contents-header">8. 参考文献</a></li><li><a href="#更新内容" class="contents-header">9. 更新内容</a><ul><li><a href="#2019年9月28日の更新内容" class="contents-header">9.1. 2019年9月28日の更新内容</a></li><li><a href="#2019年11月16日の更新内容" class="contents-header">9.2. 2019年11月16日の更新内容</a></li></ul></li></ul></div>
 
 <h2 id="tldr"><a href="#tldr" class="header-anchor"></a>1. <a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
-<li>Scala 3のリサーチコンパイラである<a href="https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1" target="_blank" rel="noopener">Dotty 0.18.1-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>にインデントベースの構文が実装されました<ul>
-<li><a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener">Dotty 0.19.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>の変更に合わせて修正しました</li>
-<li><a href="http://dotty.epfl.ch/blog/2019/11/04/20th-dotty-milestone-release.html" target="_blank" rel="noopener">Dotty 0.20.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>の変更に合わせて修正しました</li>
+<li>Scala 3のリサーチコンパイラである<a href="https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1" target="_blank" rel="noopener" title target>Dotty 0.18.1-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>にインデントベースの構文が実装されました<ul>
+<li><a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener" title target>Dotty 0.19.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>の変更に合わせて修正しました</li>
+<li><a href="http://dotty.epfl.ch/blog/2019/11/04/20th-dotty-milestone-release.html" target="_blank" rel="noopener" title target>Dotty 0.20.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>の変更に合わせて修正しました</li>
 </ul>
 </li>
 <li>インデントベースの構文はまだ提案段階でありScala 3の正式な仕様に決定したわけではありません<ul>
@@ -185,18 +188,18 @@
 <li>この記事はインデントベース構文の紹介記事です。この構文の良し悪しについては触れていません</li>
 </ul>
 <h2 id="まずはコードを御覧ください"><a href="#まずはコードを御覧ください" class="header-anchor"></a>2. <a href="#まずはコードを御覧ください" class="headerlink" title="まずはコードを御覧ください"></a>まずはコードを御覧ください</h2><p>ウソみたいだろ・・・Scalaなんだぜ、それ</p>
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>    <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>      <span class="hljs-keyword">catch</span><br>        <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    end <span class="hljs-keyword">try</span><br>  end fromString<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> <span class="hljs-keyword">with</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> <span class="hljs-keyword">with</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">27</span><br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>(<span class="hljs-params">x: <span class="hljs-type">Int</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> <span class="hljs-keyword">with</span> <span class="hljs-title">A</span> <span class="hljs-keyword">with</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= x<br><br>  <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">T</span> </span>= <span class="hljs-type">A</span> <span class="hljs-keyword">with</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) =<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> day.isWeekend then<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    <span class="hljs-keyword">else</span><br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>)<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br><br>    println(<span class="hljs-string">s"B().g is <span class="hljs-subst">${B().g}</span>."</span>)<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span><br>        x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      <span class="hljs-keyword">yield</span><br>        x + y<br><br>    optNum <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>      x =&gt;<br>        y = y - <span class="hljs-number">1</span><br>        y * y<br><br>    z.foreach:<br>      println<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> =<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> => <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ => <span class="hljs-literal">false</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>    <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>      <span class="hljs-keyword">catch</span><br>        <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =><br>          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    end <span class="hljs-keyword">try</span><br>  end fromString<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> <span class="hljs-keyword">with</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> <span class="hljs-keyword">with</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">27</span><br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>(<span class="hljs-params">x: <span class="hljs-type">Int</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> <span class="hljs-keyword">with</span> <span class="hljs-title">A</span> <span class="hljs-keyword">with</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= x<br><br>  <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">T</span> </span>= <span class="hljs-type">A</span> <span class="hljs-keyword">with</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) =<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> day.isWeekend then<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    <span class="hljs-keyword">else</span><br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>)<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br><br>    println(<span class="hljs-string">s"B().g is <span class="hljs-subst">${B().g}</span>."</span>)<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span><br>        x <- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y <- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      <span class="hljs-keyword">yield</span><br>        x + y<br><br>    optNum <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">"Other"</span>)<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>      x =><br>        y = y - <span class="hljs-number">1</span><br>        y * y<br><br>    z.foreach:<br>      println<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> =<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 <p>いつもはこんなコードを書いていたはず・・・</p>
-<details><summary>従来のコード</summary><figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BraceBasedExample</span> </span>{<br>  enum <span class="hljs-type">Day</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br>    }<br>  }<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> = {<br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-type">Day</span>.valueOf(str)<br>    } <span class="hljs-keyword">catch</span> {<br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    }<br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">27</span><br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>(<span class="hljs-params">x: <span class="hljs-type">Int</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> <span class="hljs-keyword">with</span> <span class="hljs-title">A</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= x<br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">T</span> </span>= <span class="hljs-type">A</span> {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br>  }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) = {<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> (day.isWeekend) {<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    } <span class="hljs-keyword">else</span> {<br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br>    }<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>) {<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br>    }<br><br>    println(<span class="hljs-string">s"B().g is <span class="hljs-subst">${B().g}</span>."</span>)<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span> {<br>        x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      } <span class="hljs-keyword">yield</span> {<br>        x + y<br>      }<br><br>    optNum <span class="hljs-keyword">match</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map {<br>      x =&gt; {<br>        <span class="hljs-keyword">val</span> y = x - <span class="hljs-number">1</span><br>        y * y<br>      }<br>    }<br>    z.foreach(println)<br>  }<br>}<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = {<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure></details>
+<details><summary>従来のコード</summary><figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BraceBasedExample</span> </span>{<br>  enum <span class="hljs-type">Day</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span> {<br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> => <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ => <span class="hljs-literal">false</span><br>    }<br>  }<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> = {<br>    <span class="hljs-keyword">try</span> {<br>      <span class="hljs-type">Day</span>.valueOf(str)<br>    } <span class="hljs-keyword">catch</span> {<br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =><br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>    }<br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">27</span><br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>(<span class="hljs-params">x: <span class="hljs-type">Int</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> <span class="hljs-keyword">with</span> <span class="hljs-title">A</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= x<br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">T</span> </span>= <span class="hljs-type">A</span> {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span><br>  }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">use</span></span>(dayString: <span class="hljs-type">String</span>) = {<br>    <span class="hljs-keyword">val</span> day = fromString(dayString)<br><br>    <span class="hljs-keyword">if</span> (day.isWeekend) {<br>      println(<span class="hljs-string">"Today is a weekend"</span>)<br>      println(<span class="hljs-string">"I will rest"</span>)<br>    } <span class="hljs-keyword">else</span> {<br>      println(<span class="hljs-string">"Today is a workday"</span>)<br>      println(<span class="hljs-string">"I will work"</span>)<br>    }<br><br>    <span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>) {<br>      println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>      println(<span class="hljs-string">"Bad Day"</span>)<br>    }<br><br>    println(<span class="hljs-string">s"B().g is <span class="hljs-subst">${B().g}</span>."</span>)<br><br>    <span class="hljs-keyword">val</span> optNum =<br>      <span class="hljs-keyword">for</span> {<br>        x <- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>        y <- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>      } <span class="hljs-keyword">yield</span> {<br>        x + y<br>      }<br><br>    optNum <span class="hljs-keyword">match</span> {<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">"bigger than 4"</span>)<br>    <span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">"Other"</span>)<br>    }<br><br>    <span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map {<br>      x => {<br>        <span class="hljs-keyword">val</span> y = x - <span class="hljs-number">1</span><br>        y * y<br>      }<br>    }<br>    z.foreach(println)<br>  }<br>}<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> = {<br>  <span class="hljs-type">IndentBaseExample</span>.use(<span class="hljs-string">"Monday"</span>)<br>}<br></code></pre></td></tr></tbody></table></figure></details>
 
 
 <h2 id="コードの解説"><a href="#コードの解説" class="header-anchor"></a>3. <a href="#コードの解説" class="headerlink" title="コードの解説"></a>コードの解説</h2><p>Pythonでインデントを用いてブロックを作る場合は改行の前に「:」が付きますが、Scalaの場合はもっと多くのキーワードがインデント構文の開始の合図になり得ます。</p>
-<p><code>:</code>  <code>=</code>  <code>=&gt;</code>  <code>&lt;-</code>  <code>if</code>  <code>then</code>  <code>else</code>  <code>while</code>  <code>do</code>  <code>try</code>  <code>catch</code>  <code>finally</code>  <code>for</code>  <code>yield</code>  <code>match</code></p>
+<p><code>:</code>  <code>=</code>  <code>=></code>  <code><-</code>  <code>if</code>  <code>then</code>  <code>else</code>  <code>while</code>  <code>do</code>  <code>try</code>  <code>catch</code>  <code>finally</code>  <code>for</code>  <code>yield</code>  <code>match</code></p>
 <p>また、<code>class</code>, <code>object</code>, <code>given</code>, や <code>enum</code>定義でもインデント構文を利用できます。</p>
 <p>インデントはタブとスペースの両方が使えますが混ぜると比較ができないケースがあるので、混ぜるな危険です。</p>
 <h3 id="定義"><a href="#定義" class="header-anchor"></a>3.1. <a href="#定義" class="headerlink" title="定義"></a>定義</h3><p>以下は<code>object</code>の定義と<code>enum</code>の定義でインデント構文を開始しています。</p>
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> =&gt; <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-literal">false</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IndentBasedExample</span></span><br>  enum <span class="hljs-type">Day</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Monday</span>, <span class="hljs-type">Tuesday</span>, <span class="hljs-type">Wednesday</span>, <span class="hljs-type">Thursday</span>, <span class="hljs-type">Friday</span>, <span class="hljs-type">Saturday</span>, <span class="hljs-type">Sunday</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isWeekend</span></span>: <span class="hljs-type">Boolean</span> = <span class="hljs-keyword">this</span> <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Saturday</span> | <span class="hljs-type">Sunday</span> => <span class="hljs-literal">true</span><br>      <span class="hljs-keyword">case</span> _ => <span class="hljs-literal">false</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>enum</code>はScala 3(Dotty)の機能でScala 2にはありません。気になる方は「<a href="https://dotty.epfl.ch/docs/reference/enums/enums.html" target="_blank" rel="noopener">Enumerations</a>」を参照してください。</p>
 <p>また、定義の行末を以下のように<code>with</code>で終わることもできます。</p>
@@ -212,25 +215,25 @@
 <figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">if</span> (day == <span class="hljs-type">Day</span>.<span class="hljs-type">Wednesday</span>)<br>  println(<span class="hljs-string">"Today is a Wednesday"</span>)<br>  println(<span class="hljs-string">"Bad Day"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="for式"><a href="#for式" class="header-anchor"></a>3.3. <a href="#for式" class="headerlink" title="for式"></a><code>for</code>式</h3><p>以下のコードには<code>=</code>と<code>for</code>と<code>yield</code>がインデント構文の開始の合図になっています。</p>
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> optNum =<br>  <span class="hljs-keyword">for</span><br>    x &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>    y &lt;- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>  <span class="hljs-keyword">yield</span><br>    x + y<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> optNum =<br>  <span class="hljs-keyword">for</span><br>    x <- <span class="hljs-type">Option</span>(<span class="hljs-number">3</span>)<br>    y <- <span class="hljs-type">Option</span>(<span class="hljs-number">2</span>)<br>  <span class="hljs-keyword">yield</span><br>    x + y<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="match式"><a href="#match式" class="header-anchor"></a>3.4. <a href="#match式" class="headerlink" title="match式"></a><code>match</code>式</h3><p><code>match</code>式は少し特殊でインデントを付けても付けなくてもいいことになっています。つまり以下の２つの書き方が許容されます。</p>
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br><span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br><span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br><span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">"bigger than 4"</span>)<br><span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> =&gt; println(<span class="hljs-string">"bigger than 4"</span>)<br>  <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">optNum <span class="hljs-keyword">match</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(x) <span class="hljs-keyword">if</span> x > <span class="hljs-number">4</span> => println(<span class="hljs-string">"bigger than 4"</span>)<br>  <span class="hljs-keyword">case</span> _ => println(<span class="hljs-string">"Other"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
 <p><code>match</code>以外には<code>catch</code>も同様に次の<code>case</code>のインデントは自由です。</p>
-<h3 id="ラムダ式"><a href="#ラムダ式" class="header-anchor"></a>3.5. <a href="#ラムダ式" class="headerlink" title="ラムダ式"></a>ラムダ式</h3><p>ラムダ式の記号(<code>=&gt;</code>)もインデント構文の開始の合図になっています。</p>
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">x =&gt;<br>  y = y - <span class="hljs-number">1</span><br>  y * y<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="ラムダ式"><a href="#ラムダ式" class="header-anchor"></a>3.5. <a href="#ラムダ式" class="headerlink" title="ラムダ式"></a>ラムダ式</h3><p>ラムダ式の記号(<code>=></code>)もインデント構文の開始の合図になっています。</p>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala">x =><br>  y = y - <span class="hljs-number">1</span><br>  y * y<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="エンドマーカー"><a href="#エンドマーカー" class="header-anchor"></a>4. <a href="#エンドマーカー" class="headerlink" title="エンドマーカー"></a>エンドマーカー</h2><p>インデントだとブロックの終わりがわかりにくい場合には、エンドマーカーを使ってブロックの終わりを明示することができます。以下のコードでは「<code>end fromString</code>」が識別子のエンドマーカーです。エンドマーカーはオプションなのでなくても問題なく動作しますが、ドキュメントではひと目でブロックを識別することが難しい長いブロック(20行以上)で使うことを推奨しています。</p>
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>  <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>    <span class="hljs-keyword">catch</span><br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =&gt;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>  end <span class="hljs-keyword">try</span><br>end fromString<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fromString</span></span>(str: <span class="hljs-type">String</span>): <span class="hljs-type">Day</span> =<br>  <span class="hljs-keyword">try</span> <span class="hljs-type">Day</span>.valueOf(str)<br>    <span class="hljs-keyword">catch</span><br>      <span class="hljs-keyword">case</span> _: <span class="hljs-type">IllegalArgumentException</span> =><br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">IllegalArgumentException</span>(<span class="hljs-string">s"<span class="hljs-subst">$str</span> is not a valid day"</span>)<br>  end <span class="hljs-keyword">try</span><br>end fromString<br></code></pre></td></tr></tbody></table></figure>
 
 <p>エンドマーカーは以下の予約語と合わせて用いることもできます。</p>
 <p><code>if</code>  <code>while</code>  <code>for</code>  <code>match</code>  <code>try</code>  <code>new</code></p>
 <p>上記の例では「<code>end try</code>」がエンドマーカーになっています。</p>
 <h3 id="インデントマーカー"><a href="#インデントマーカー" class="header-anchor"></a>4.1. <a href="#インデントマーカー" class="headerlink" title="インデントマーカー:"></a>インデントマーカー<code>:</code></h3><p>次はPythonっぽい、行末コロン(<code>:</code>)の例です。開き中括弧(<code>{</code>)が有効な箇所で行末をコロンにするとインデント構文を開始することができます。以下の例では<code>map</code>の後にインデントマーカー<code>:</code>が付いています。</p>
-<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>  x =&gt;<br>    y = y - <span class="hljs-number">1</span><br>    y * y<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) map:<br>  x =><br>    y = y - <span class="hljs-number">1</span><br>    y * y<br></code></pre></td></tr></tbody></table></figure>
 
 <p>ただし、このインデントマーカーはまだ他のインデントスキームよりも議論の余地が大きく、コンパイラオプションに<code>-Yindent-colons</code>を指定した時だけ有効になります。</p>
 <h2 id="設定と書換え"><a href="#設定と書換え" class="header-anchor"></a>5. <a href="#設定と書換え" class="headerlink" title="設定と書換え"></a>設定と書換え</h2><p>インデント構文はデフォルトで有効ですが、コンパイラオプション<code>-noindent</code>, <code>-old-syntax</code>,<code>-language:Scala2</code>のいずれかを指定すれば無効にできます。実際に試してみましたがインデント構文を利用している箇所はエラーになってコンパイルができなくなりました。</p>
@@ -246,53 +249,53 @@
 
 <h3 id="今すぐ試してみたい"><a href="#今すぐ試してみたい" class="header-anchor"></a>5.2. <a href="#今すぐ試してみたい" class="headerlink" title="今すぐ試してみたい!"></a>今すぐ試してみたい!</h3><p>上記のサンプルコードをすぐに試せるようにGitHubに公開したのでご査収ください。インデントベースの構文と従来のブレースベースの構文はどちらも有効なので、実際に触ってみて感触を掴むのが一番だと思われます。念のため書いておきますが、サンプルコード自体に特に意味はありません。インデントベースの構文の雰囲気が分かるように適当に構文を並べただけです。</p>
 <ul>
-<li><a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener">hinastory/dotty_examples: Example code of Dotty (Scala 3)<i class="fas fa-external-link-alt fa-fw"></i></a>
+<li><a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener" title target>hinastory/dotty_examples: Example code of Dotty (Scala 3)<i class="fas fa-external-link-alt fa-fw"></i></a>
 <ul>
-<li><a href="https://github.com/hinastory/dotty_examples/blob/master/src/main/scala/indent_based/IndentBasedExample.scala" target="_blank" rel="noopener">IndentBasedExample.scala<i class="fas fa-external-link-alt fa-fw"></i></a>
+<li><a href="https://github.com/hinastory/dotty_examples/blob/master/src/main/scala/indent_based/IndentBasedExample.scala" target="_blank" rel="noopener" title target>IndentBasedExample.scala<i class="fas fa-external-link-alt fa-fw"></i></a>
 
 </li>
 </ul>
 </li>
 </ul>
-<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></a>
+<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></img></a>
 
-<h2 id="インデントベース構文の状況"><a href="#インデントベース構文の状況" class="header-anchor"></a>6. <a href="#インデントベース構文の状況" class="headerlink" title="インデントベース構文の状況"></a>インデントベース構文の状況</h2><p>インデントベースへの変更は実は2017年にOdersky先生が<a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener">#2491<i class="fas fa-external-link-alt fa-fw"></i></a>で提案されていて、このときは大激論の末に一旦クローズされています<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。そしてようやく今回執念のプルリク(<a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">#7083<i class="fas fa-external-link-alt fa-fw"></i></a>)を投げて、捩じ込みました。</p>
+<h2 id="インデントベース構文の状況"><a href="#インデントベース構文の状況" class="header-anchor"></a>6. <a href="#インデントベース構文の状況" class="headerlink" title="インデントベース構文の状況"></a>インデントベース構文の状況</h2><p>インデントベースへの変更は実は2017年にOdersky先生が<a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener" title target>#2491<i class="fas fa-external-link-alt fa-fw"></i></a>で提案されていて、このときは大激論の末に一旦クローズされています<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。そしてようやく今回執念のプルリク(<a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener" title target>#7083<i class="fas fa-external-link-alt fa-fw"></i></a>)を投げて、捩じ込みました。</p>
 <p>「捩じ込む」と表現したのは今回も当然のように大激論が起こったからです。見た目が違うから拡張子変えた方がいいという意見や、読みにくさや曖昧さを指摘する意見や、初学者の混乱を指摘する意見まで様々です。</p>
 <p>Odersky先生もこのプルリクはデータを集めるための実験としており、現在のところこのインデント構文はScala 3の新機能の中でも採用される可能性が最も低いものの一つだと考えられます。以下は#7083のリアクションですが、こんなに嫌われているプルリクには滅多にお目にかかれません(笑)。</p>
-<img src="/cats-cats-cats/gallery/daily/others/dotty-indentation-reaction.png" class="" width="500">
+<img src="/cats-cats-cats/gallery/daily/others/dotty-indentation-reaction.png" class width="500">
 
 <p>経緯はともかくOdersky先生の壮大な実験は始まりました。Scalaのようにある程度普及した言語が途中からインデントベースの構文をサポートした例を自分は知りません。今後の成り行きが気になるところですが、Scala 3.0の機能凍結及びScala 3.0のM1リリースは今年(2019年)の秋で、Scala 3.0 finalのリリースは来年(2020年)秋と言われているので<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>、何か言いたいことがある方はなるべく早めに本家にフィードバックをかけた方が良いと思われます<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
 <p>ちなみに本記事はあくまでインデントベース構文の紹介が目的なので、この構文の良し悪しについて突っ込んだ批評は控えておきます。ただ一応参考までに個人的な初見の感想を述べておくと、自分が趣味で使うのには良さそうな感じです。仕事で使うのにはコーディング規約をどうするか悩みどころが多いと感じましたが、結局はエディタ、IDE、フォーマッタ、リンタ等のツール群のサポートがきちんと得られれば使えるとは思うので、それらの対応次第かなと思っています。</p>
-<h2 id="最後に"><a href="#最後に" class="header-anchor"></a>7. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本記事ではScala 3へ入る可能性のあるインデントベースの構文を紹介しました。本機能は実際にScala 3に入るかどうかはわかりませんが、まだ多くの議論の余地があり、より多くのフィードバックが必要とされています。興味のある方は実際に触ってみて<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>等でフィードバックしてみてはいかがでしょうか？</p>
+<h2 id="最後に"><a href="#最後に" class="header-anchor"></a>7. <a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本記事ではScala 3へ入る可能性のあるインデントベースの構文を紹介しました。本機能は実際にScala 3に入るかどうかはわかりませんが、まだ多くの議論の余地があり、より多くのフィードバックが必要とされています。興味のある方は実際に触ってみて<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener" title target>Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>等でフィードバックしてみてはいかがでしょうか？</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>8. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html" target="_blank" rel="noopener">Announcing Dotty 0.18.1-RC1 – switch to the 2.13 standard library, indentation-based syntax and other experiments<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener">Announcing Dotty 0.19.0-RC1 – further refinements of the syntax and the migration to 2.13.1 standard library<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener">Allow significant indentation syntax by odersky · Pull Request #7083 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://github.com/lampepfl/dotty/pull/7114" target="_blank" rel="noopener">Change indentation rules to allow copy-paste by odersky · Pull Request #7114 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener">Consider syntax with significant indentation · Issue #2491 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html" target="_blank" rel="noopener">Optional Braces<i class="fas fa-external-link-alt fa-fw"></i></a>
+<li><a href="https://dotty.epfl.ch/blog/2019/08/30/18th-dotty-milestone-release.html" target="_blank" rel="noopener" title target>Announcing Dotty 0.18.1-RC1 – switch to the 2.13 standard library, indentation-based syntax and other experiments<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener" title target>Announcing Dotty 0.19.0-RC1 – further refinements of the syntax and the migration to 2.13.1 standard library<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/lampepfl/dotty/pull/7083" target="_blank" rel="noopener" title target>Allow significant indentation syntax by odersky · Pull Request #7083 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/lampepfl/dotty/pull/7114" target="_blank" rel="noopener" title target>Change indentation rules to allow copy-paste by odersky · Pull Request #7114 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/lampepfl/dotty/issues/2491" target="_blank" rel="noopener" title target>Consider syntax with significant indentation · Issue #2491 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html" target="_blank" rel="noopener" title target>Optional Braces<i class="fas fa-external-link-alt fa-fw"></i></a>
 
 </li>
 </ul>
-<h2 id="更新内容"><a href="#更新内容" class="header-anchor"></a>9. <a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><h3 id="2019年9月28日の更新内容"><a href="#2019年9月28日の更新内容" class="header-anchor"></a>9.1. <a href="#2019年9月28日の更新内容" class="headerlink" title="2019年9月28日の更新内容"></a>2019年9月28日の更新内容</h3><p>先日発表された<a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener">Dotty 0.19.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>でインデント構文が若干変更されました。</p>
+<h2 id="更新内容"><a href="#更新内容" class="header-anchor"></a>9. <a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><h3 id="2019年9月28日の更新内容"><a href="#2019年9月28日の更新内容" class="header-anchor"></a>9.1. <a href="#2019年9月28日の更新内容" class="headerlink" title="2019年9月28日の更新内容"></a>2019年9月28日の更新内容</h3><p>先日発表された<a href="https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html" target="_blank" rel="noopener" title target>Dotty 0.19.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>でインデント構文が若干変更されました。</p>
 <ul>
 <li>クラスやオブジェクトの定義でインデントをする場合に<code>:</code>が必要なくなった</li>
 <li>インデントマーカー<code>:</code>の利用時には<code>-Yindent-colons</code>のオプションの指定が必要になった</li>
 </ul>
 <p>上記の内容は本文にも反映済みです。またインデント構文への書換えも試してみたので追記を行っています。</p>
 <p>下記のサンプルリポジトリに関しても0.19.0-RC1にバージョンアップして対応済みです。</p>
-<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></a>
+<a href="https://github.com/hinastory/dotty_examples" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/dotty_examples.svg?fullname"></img></a>
 
-<h3 id="2019年11月16日の更新内容"><a href="#2019年11月16日の更新内容" class="header-anchor"></a>9.2. <a href="#2019年11月16日の更新内容" class="headerlink" title="2019年11月16日の更新内容"></a>2019年11月16日の更新内容</h3><p>先日発表された<a href="http://dotty.epfl.ch/blog/2019/11/04/20th-dotty-milestone-release.html" target="_blank" rel="noopener">Dotty 0.20.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>でインデント構文が若干変更されました。<br>インデントに関係ある変更は以下のとおりです。関連する箇所に関して記事の追記を行っています。</p>
+<h3 id="2019年11月16日の更新内容"><a href="#2019年11月16日の更新内容" class="header-anchor"></a>9.2. <a href="#2019年11月16日の更新内容" class="headerlink" title="2019年11月16日の更新内容"></a>2019年11月16日の更新内容</h3><p>先日発表された<a href="http://dotty.epfl.ch/blog/2019/11/04/20th-dotty-milestone-release.html" target="_blank" rel="noopener" title target>Dotty 0.20.0-RC1<i class="fas fa-external-link-alt fa-fw"></i></a>でインデント構文が若干変更されました。<br>インデントに関係ある変更は以下のとおりです。関連する箇所に関して記事の追記を行っています。</p>
 <ul>
 <li>クラス、トレイトの後ろにオプションで<code>with</code>を置けるようになった<ul>
 <li>インデントのし忘れを防ぐため</li>
-<li><a href="https://github.com/lampepfl/dotty/pull/7363" target="_blank" rel="noopener">Tweaks to indent syntax by odersky · Pull Request #7363 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/lampepfl/dotty/pull/7363" target="_blank" rel="noopener" title target>Tweaks to indent syntax by odersky · Pull Request #7363 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></li>
 </ul>
 </li>
 <li><code>if</code>式の行末の<code>then</code>がオプションになった<ul>
-<li><a href="https://github.com/lampepfl/dotty/pull/7276" target="_blank" rel="noopener">Make `then` optional at line end by odersky · Pull Request #7276 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>App</code>トレイトをミックスインして書く方法もあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><code>@main</code>関数は引数をとることもできてコマンドライン引数を受け取れるのですが、話が脱線するのでこの記事ではこれ以上は触れません。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">#2491も今回と似たような提案ですが、大きな違いは<code>with</code>がインデントマーカーとして使われているところです。またエンドマーカーも現在とは異なっていました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.slideshare.net/Odersky/a-tour-of-scala-3" target="_blank" rel="noopener">A Tour of Scala 3<i class="fas fa-external-link-alt fa-fw"></i></a>を参照。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">フィードバックの方法としては<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener">Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>でトピックを立てるのが一番簡単だと思われます。もちろん問題が明確ならイシューを開いたりプルリクを送る方法もあります。</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div></li>
+<li><a href="https://github.com/lampepfl/dotty/pull/7276" target="_blank" rel="noopener" title target>Make `then` optional at line end by odersky · Pull Request #7276 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><code>App</code>トレイトをミックスインして書く方法もあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><code>@main</code>関数は引数をとることもできてコマンドライン引数を受け取れるのですが、話が脱線するのでこの記事ではこれ以上は触れません。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">#2491も今回と似たような提案ですが、大きな違いは<code>with</code>がインデントマーカーとして使われているところです。またエンドマーカーも現在とは異なっていました。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.slideshare.net/Odersky/a-tour-of-scala-3" target="_blank" rel="noopener" title target>A Tour of Scala 3<i class="fas fa-external-link-alt fa-fw"></i></a>を参照。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">フィードバックの方法としては<a href="https://contributors.scala-lang.org/" target="_blank" rel="noopener" title target>Scala Contributors<i class="fas fa-external-link-alt fa-fw"></i></a>でトピックを立てるのが一番簡単だと思われます。もちろん問題が明確ならイシューを開いたりプルリクを送る方法もあります。</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div></li>
 </ul>
 </li>
 </ul>
@@ -314,7 +317,7 @@
             });
             document.body.appendChild(img);
           });
-      </script>
+      </script></body></html>
         </div>
         
         
@@ -713,7 +716,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -724,7 +727,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -735,7 +738,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -746,7 +749,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -757,7 +760,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -768,7 +771,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -779,7 +782,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -790,7 +793,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -801,7 +804,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -812,7 +815,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -823,7 +826,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -834,7 +837,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1289,7 +1292,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1300,7 +1303,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1311,7 +1314,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1322,7 +1325,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1333,7 +1336,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1344,7 +1347,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1355,7 +1358,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1366,7 +1369,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1377,7 +1380,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1388,7 +1391,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1399,7 +1402,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1410,7 +1413,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>

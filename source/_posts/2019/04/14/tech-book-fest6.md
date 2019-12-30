@@ -10,7 +10,7 @@ date: 2019-04-14 22:50:47
 ---
 技術書典に一般参加してきました。なにげに第1回から皆勤賞です。天候に恵まれない印象が強いですが、今日はなんとか雨に降られずに済みました。そのおかげもあってか1万人以上の参加者が来場した模様です。
 
-{% linkPreview https://techbookfest.org/event/tbf06 %}
+{% blogCard https://techbookfest.org/event/tbf06 %}
 
 <!-- more -->
 

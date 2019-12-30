@@ -12,7 +12,7 @@ tags:
 この記事は自作キーボード #2 Advent Calendar 2018 12日目の記事です。自分はゆるふわでキーボードを楽しみたい勢なので、カジュアルにキーボードを楽しむ方法について書いてみたいと思います。
 ガチなモノ作りの記事はすでに多くの人が書かれていると思うので、その途中で箸休め的に読んでいただけると幸いです。
 
-{% linkPreview https://adventar.org/calendars/2964 %}
+{% blogCard https://adventar.org/calendars/2964 %}
 
 
 <!-- more -->

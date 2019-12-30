@@ -8,15 +8,19 @@
 
 
     <meta name="description" content="この記事はRuby Advent Calendar 2019の19日目の記事です。(19日目が投稿されなかったので代理投稿します。)">
-<meta name="keywords" content="AdventCalendar,Ruby,Flourish">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="この記事はRuby Advent Calendar 2019の19日目の記事です。(19日目が投稿されなかったので代理投稿します。)">
-<meta property="og:locale" content="ja">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png">
-<meta property="og:updated_time" content="2019-12-29T09:32:35.793Z">
+<meta property="article:published_time" content="2019-12-28T22:28:45.000Z">
+<meta property="article:modified_time" content="2019-12-29T09:32:35.793Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="AdventCalendar">
+<meta property="article:tag" content="Ruby">
+<meta property="article:tag" content="Flourish">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png">
 
@@ -110,7 +114,7 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -164,15 +168,15 @@
     
     <div class="card-content article ">
         <div class="content">
-            <p>この記事は<a href="https://qiita.com/advent-calendar/2019/ruby" target="_blank" rel="noopener">Ruby Advent Calendar 2019<i class="fas fa-external-link-alt fa-fw"></i></a>の19日目の記事です。<br>(19日目が投稿されなかったので代理投稿します。)</p>
+            <html><head></head><body><p>この記事は<a href="https://qiita.com/advent-calendar/2019/ruby" target="_blank" rel="noopener" title target>Ruby Advent Calendar 2019<i class="fas fa-external-link-alt fa-fw"></i></a>の19日目の記事です。<br>(19日目が投稿されなかったので代理投稿します。)</p>
 <a id="more"></a>
 
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#ファイル一覧を作成する" class="contents-header">2. ファイル一覧を作成する</a></li><li><a href="#ファイル単位のコミット回数のテーブルを作成する" class="contents-header">3. ファイル単位のコミット回数のテーブルを作成する</a></li><li><a href="#flourishで可視化してみる" class="contents-header">4. Flourishで可視化してみる</a></li><li><a href="#完成した可視化" class="contents-header">5. 完成した可視化</a></li><li><a href="#まとめ" class="contents-header">6. まとめ</a></li></ul></div>
 
-<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は19日目の代理投稿ですが、25日を過ぎて書かれています。そして<a href="https://qiita.com/hinastory/items/6fb5da7fe424d1948783" target="_blank" rel="noopener">25日目<i class="fas fa-external-link-alt fa-fw"></i></a>の続きです。25日目では作者単位で可視化を行いましたが今回はファイル単位で行ってみたいと思います。</p>
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は19日目の代理投稿ですが、25日を過ぎて書かれています。そして<a href="https://qiita.com/hinastory/items/6fb5da7fe424d1948783" target="_blank" rel="noopener" title target>25日目<i class="fas fa-external-link-alt fa-fw"></i></a>の続きです。25日目では作者単位で可視化を行いましたが今回はファイル単位で行ってみたいと思います。</p>
 <p>Rubyの開発の主なファイルはトップディレクトリ直下に置かれているので、それらのファイルを対象に集計してみたいと思います。</p>
 <h2 id="ファイル一覧を作成する"><a href="#ファイル一覧を作成する" class="header-anchor"></a>2. <a href="#ファイル一覧を作成する" class="headerlink" title="ファイル一覧を作成する"></a>ファイル一覧を作成する</h2><p>まずは22年間の間に存在したファイル一覧を作成したいと思います。これは以下のようなワンライナーでできました。</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --pretty=<span class="hljs-string">"format:"</span> --name-only --since=<span class="hljs-string">"23 years ago"</span>|grep -v <span class="hljs-string">'/'</span>|grep -v -e <span class="hljs-string">'^\.'</span> -e <span class="hljs-string">'^\s*$'</span>|sort|uniq &gt; ruby_topdir_files.txt<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --pretty=<span class="hljs-string">"format:"</span> --name-only --since=<span class="hljs-string">"23 years ago"</span>|grep -v <span class="hljs-string">'/'</span>|grep -v -e <span class="hljs-string">'^\.'</span> -e <span class="hljs-string">'^\s*$'</span>|sort|uniq > ruby_topdir_files.txt<br></code></pre></td></tr></tbody></table></figure>
 
 <p>簡単に説明すると<code>--pretty="format:"</code>の部分でコミットログの表示の余計な部分を消します。<code>--name--only</code>でファイル名だけを表示します。これによって（余計な空行は入りますが）コミットログに現れる全ファイルが取得できました。</p>
 <p>次に余計な行の削除です。まずトップディレクトリのみ対象にしたいのでディレクトリのセパレータの<code>/</code>が現れている行は除外します。<code>grep -v '/'</code>の<code>-v</code>は除外オプションです。さらに<code>grep -v -e '^\.' -e '^\s*$'</code>でドットファイルと空行を取り除きます。<code>-e</code>オプションを用いることで正規表現を用いてファイルを指定できます。</p>
@@ -182,19 +186,19 @@
 </details>
 
 <h2 id="ファイル単位のコミット回数のテーブルを作成する"><a href="#ファイル単位のコミット回数のテーブルを作成する" class="header-anchor"></a>3. <a href="#ファイル単位のコミット回数のテーブルを作成する" class="headerlink" title="ファイル単位のコミット回数のテーブルを作成する"></a>ファイル単位のコミット回数のテーブルを作成する</h2><p>コードを見て察してください（笑）。今回はカテゴリに拡張子を選択しています。</p>
-<figure class="highlight ruby hljs"><figcaption><span>make_files_activity.rb</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-comment">#!/usr/bin/env ruby</span><br><br><span class="hljs-keyword">require</span> <span class="hljs-string">'csv'</span><br><br>span = (<span class="hljs-number">1998</span>..<span class="hljs-number">2019</span>)<br>header = [<span class="hljs-string">"file"</span>, <span class="hljs-string">"ext"</span>, *span] <span class="hljs-comment"># ヘッダーファイルの作成</span><br>table = [header]<br><br><span class="hljs-comment"># ファイル一覧の読み込み</span><br>files = File.open(<span class="hljs-string">'ruby_topdir_files.txt'</span>).readlines.map{<span class="hljs-params">|e|</span> e.chomp}<br><br>activity = files.map <span class="hljs-keyword">do</span> <span class="hljs-params">|file|</span><br>  puts file<br>  commits_history = span.map <span class="hljs-keyword">do</span> <span class="hljs-params">|year|</span><br>    <span class="hljs-comment"># ファイル単位でコミットログを絞って行数を`wc-l`で数える</span><br>    commits = <span class="hljs-string">`git log --since=1998-01-01 --until=<span class="hljs-subst">#{year}</span>-12-31 --oneline --no-merges <span class="hljs-subst">#{file}</span> 2&gt;/dev/null | wc -l`</span>.to_i<br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-comment"># 拡張子の列を作る（トップ30に現れるものだけを表示）</span><br>  ext = File.extname(file)<br>  ext = <span class="hljs-keyword">case</span> ext<br>  <span class="hljs-keyword">when</span> <span class="hljs-string">'.h'</span>,<span class="hljs-string">'.c'</span>,<span class="hljs-string">'.y'</span>, <span class="hljs-string">'.mk'</span>, <span class="hljs-string">'.def'</span>  <span class="hljs-keyword">then</span> ext<br>  <span class="hljs-keyword">when</span> <span class="hljs-string">''</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'no_ext'</span><br>  <span class="hljs-keyword">end</span><br><br>  [file, ext, *commits_history]<br><span class="hljs-keyword">end</span><br><br>table.push *activity<br><br><span class="hljs-comment"># CSVファイルに書き込み</span><br>CSV.open(<span class="hljs-string">'ruby_files_activity.csv'</span>,<span class="hljs-string">'w'</span>) <span class="hljs-keyword">do</span> <span class="hljs-params">|csv|</span><br>  table.each <span class="hljs-keyword">do</span> <span class="hljs-params">|line|</span><br>    csv &lt;&lt; line<br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight ruby hljs"><figcaption><span>make_files_activity.rb</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-comment">#!/usr/bin/env ruby</span><br><br><span class="hljs-keyword">require</span> <span class="hljs-string">'csv'</span><br><br>span = (<span class="hljs-number">1998</span>..<span class="hljs-number">2019</span>)<br>header = [<span class="hljs-string">"file"</span>, <span class="hljs-string">"ext"</span>, *span] <span class="hljs-comment"># ヘッダーファイルの作成</span><br>table = [header]<br><br><span class="hljs-comment"># ファイル一覧の読み込み</span><br>files = File.open(<span class="hljs-string">'ruby_topdir_files.txt'</span>).readlines.map{<span class="hljs-params">|e|</span> e.chomp}<br><br>activity = files.map <span class="hljs-keyword">do</span> <span class="hljs-params">|file|</span><br>  puts file<br>  commits_history = span.map <span class="hljs-keyword">do</span> <span class="hljs-params">|year|</span><br>    <span class="hljs-comment"># ファイル単位でコミットログを絞って行数を`wc-l`で数える</span><br>    commits = <span class="hljs-string">`git log --since=1998-01-01 --until=<span class="hljs-subst">#{year}</span>-12-31 --oneline --no-merges <span class="hljs-subst">#{file}</span> 2>/dev/null | wc -l`</span>.to_i<br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-comment"># 拡張子の列を作る（トップ30に現れるものだけを表示）</span><br>  ext = File.extname(file)<br>  ext = <span class="hljs-keyword">case</span> ext<br>  <span class="hljs-keyword">when</span> <span class="hljs-string">'.h'</span>,<span class="hljs-string">'.c'</span>,<span class="hljs-string">'.y'</span>, <span class="hljs-string">'.mk'</span>, <span class="hljs-string">'.def'</span>  <span class="hljs-keyword">then</span> ext<br>  <span class="hljs-keyword">when</span> <span class="hljs-string">''</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'no_ext'</span><br>  <span class="hljs-keyword">end</span><br><br>  [file, ext, *commits_history]<br><span class="hljs-keyword">end</span><br><br>table.push *activity<br><br><span class="hljs-comment"># CSVファイルに書き込み</span><br>CSV.open(<span class="hljs-string">'ruby_files_activity.csv'</span>,<span class="hljs-string">'w'</span>) <span class="hljs-keyword">do</span> <span class="hljs-params">|csv|</span><br>  table.each <span class="hljs-keyword">do</span> <span class="hljs-params">|line|</span><br>    csv << line<br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>以下ができたCSVファイルになります。</p>
 <details><summary>ファイルの中身はこちら。</summary><p>file,ext,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019<br>BSDL,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,2<br>CONTRIBUTING.md,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2<br>COPYING,no_ext,1,2,2,5,7,7,7,7,8,8,8,8,9,9,9,9,9,9,10,11,11,12<br>COPYING.LIB,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>COPYING.ja,,0,0,0,1,1,1,1,1,2,2,2,2,3,4,4,4,4,4,4,4,4,5<br>COPYING.jp,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>ChangeLog,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>Doxyfile.in,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>GPL,no_ext,0,0,0,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2<br>KNOWNBUGS.rb,,0,0,0,0,0,0,0,0,0,0,11,14,18,18,23,26,26,29,30,35,37,37<br>LEGAL,no_ext,0,0,0,8,11,12,13,17,17,19,24,26,30,34,34,34,37,38,44,56,63,66<br>LGPL,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>MANIFEST,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>Makefile.in,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>NEWS,no_ext,0,0,0,0,0,0,0,0,0,0,3,55,138,200,301,435,536,663,769,929,1076,1281<br>README,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>README.EXT,,1,6,11,13,14,17,21,24,28,30,40,58,62,67,74,90,109,111,111,111,111,111<br>README.EXT.ja,,0,0,0,2,2,4,6,9,10,12,22,36,41,49,56,71,89,91,91,91,91,91<br>README.EXT.jp,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>README.ja,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>README.ja.md,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,8,11,12,19,37<br>README.jp,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>README.md,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,9,16,24,29,53<br>SECURITY.md,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>ToDo,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>acinclude.m4,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>aclocal.m4,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,5,6,12,13<br>addr2line.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,7,15,22,30,57,57,61,65,117,128<br>addr2line.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,3,3,3,3,4,4<br>appveyor.yml,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,15,29,89,127<br>array.c,.c,2,10,40,74,105,140,172,188,214,265,351,402,447,477,525,648,681,711,752,789,851,896<br>ascii.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>ast.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,42<br>ast.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4<br>atomic.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>azure-pipelines.yml,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>bignum.c,.c,2,6,33,51,83,104,111,128,142,182,228,259,279,296,331,653,669,674,734,758,785,794<br>blockinlining.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>builtin.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11<br>builtin.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9<br>call_cfunc.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>change.log1,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>class.c,.c,2,6,16,30,55,82,89,94,98,103,117,140,162,178,214,257,280,327,343,350,358,401<br>common.mk,.mk,0,0,0,0,0,0,9,22,35,143,298,357,421,453,542,612,740,836,935,1044,1190,1329<br>compar.c,.c,1,4,9,11,16,24,25,28,28,31,35,37,38,38,38,43,47,51,53,53,53,60<br>compile.c,.c,0,0,0,0,0,0,0,0,0,110,165,200,236,251,296,341,396,500,541,711,892,1056<br>compile.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>complex.c,.c,0,0,0,0,0,0,0,0,0,0,65,102,116,129,157,168,177,193,218,224,255,280<br>config.dj,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>config.guess,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>config.sub,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>config_h.dj,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>config_s.dj,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>configure,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>configure.ac,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,158,227<br>configure.bat,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>configure.in,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>constant.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,3,5,5,6,10,12,12,12,13,20<br>cont.c,.c,0,0,0,0,0,0,0,0,0,39,51,76,101,129,154,169,191,204,213,271,320,388<br>crypt.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>debug.c,.c,0,0,0,0,0,0,0,0,0,15,24,31,35,35,37,41,46,48,49,62,63,64<br>debug.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>debug_counter.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,5,14<br>debug_counter.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,21,48<br>defines.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>diff,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>dir.c,.c,2,8,26,57,83,94,136,151,162,171,200,229,246,253,272,305,333,384,395,445,467,481<br>distruby.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>dln.c,.c,2,5,17,29,49,62,64,70,73,78,93,115,128,132,137,137,143,152,155,155,161,162<br>dln.h,.h,1,3,5,8,9,10,10,11,11,12,15,16,17,17,17,20,20,20,20,20,20,20<br>dln_find.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,3,5,6,10,11,15,16,16,16,16<br>dmydln.c,.c,0,0,0,0,0,0,0,1,1,1,1,1,2,2,3,3,3,3,4,4,5,5<br>dmyenc.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,3<br>dmyencoding.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>dmyext.c,.c,1,1,1,1,1,1,1,2,2,2,2,2,2,2,4,4,5,5,5,5,5,5<br>dmyloadpath.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>dmytranscode.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>dmyversion.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>encindex.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,5,5,5<br>encoding.c,.c,0,0,0,0,0,0,0,0,0,77,179,221,236,252,269,302,318,333,338,339,348,360<br>enum.c,.c,2,8,13,23,34,43,56,68,77,108,135,171,190,203,228,247,274,305,339,363,386,413<br>enumerator.c,.c,0,0,0,0,0,0,0,9,19,38,64,88,94,100,155,200,210,216,220,222,255,303<br>env.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>error.c,.c,2,10,21,37,57,88,105,121,127,146,166,185,209,231,263,287,306,341,364,401,440,488<br>euc_jp.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval.c,.c,2,25,143,239,371,622,748,863,961,1048,1094,1129,1145,1161,1219,1260,1293,1316,1338,1382,1399,1437<br>eval_error.c,.c,0,0,0,0,0,0,0,0,0,1,6,11,13,16,21,29,35,42,55,75,91,98<br>eval_error.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_error.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_intern.h,.h,0,0,0,0,0,0,0,0,0,29,53,65,70,75,80,88,95,111,116,145,147,152<br>eval_jump.c,.c,0,0,0,0,0,0,0,0,0,1,7,8,8,12,14,17,18,19,20,27,27,30<br>eval_jump.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_jump.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_load.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_method.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_method.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_method.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_proc.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_safe.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_safe.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_safe.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>eval_thread.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>fiber_benchmark.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>file.c,.c,2,11,43,83,125,171,196,235,257,280,334,384,452,465,506,559,608,653,673,722,736,775<br>fnmatch.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>fnmatch.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>gc.c,.c,2,11,53,84,116,169,195,228,257,308,406,449,514,557,663,1013,1185,1308,1363,1432,1518,1723<br>gc.h,.h,0,0,0,0,0,0,0,0,0,7,8,12,15,17,22,26,29,33,33,36,36,47<br>gc.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2<br>gem_prelude.rb,,0,0,0,0,0,0,0,0,0,6,18,31,41,45,45,45,45,46,47,47,47,48<br>glob.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>golf_prelude.rb,,0,0,0,0,0,0,0,0,0,11,17,19,19,22,22,23,23,23,23,24,25,26<br>goruby.c,.c,0,0,0,0,0,0,0,0,0,1,2,3,3,5,6,7,8,8,9,10,10,10<br>hash.c,.c,2,12,41,61,89,129,146,160,175,195,235,266,289,311,351,448,486,524,562,612,659,733<br>hrtime.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6<br>ia64.S,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>ia64.s,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>id.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>id.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>id_table.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,21,24,24,33<br>id_table.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,5,5,5,13<br>imp.log,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>inits.c,.c,2,4,6,7,8,11,11,14,14,30,37,37,37,38,39,41,44,45,45,47,54,64<br>insn_send.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>insnhelper.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>insnhelper.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>insns.def,.def,0,0,0,0,0,0,0,0,0,78,107,135,153,166,216,240,249,278,301,351,420,455<br>install-sh,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>instruby.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>intern.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>internal.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,30,107,251,317,405,509,597,718,831<br>io.c,.c,2,14,73,106,177,253,358,398,423,509,799,912,1020,1167,1277,1344,1410,1471,1505,1576,1629,1683<br>io.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>io.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1<br>iseq.c,.c,0,0,0,0,0,0,0,0,0,43,77,112,135,150,187,214,258,317,340,390,478,536<br>iseq.h,.h,0,0,0,0,0,0,0,0,0,0,3,7,11,15,19,23,29,50,55,69,101,120<br>keywords,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>lex.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>lex.c.blt,,0,0,0,0,0,0,0,0,0,6,8,9,9,9,9,9,9,11,13,15,16,16<br>lex.c.src,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>load.c,.c,0,0,0,0,0,0,0,0,0,5,20,37,54,67,90,114,126,150,161,184,195,221<br>loadpath.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,5,5<br>localeinit.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,6,9,12,17,18,18<br>m17n.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>m17n.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>main.c,.c,1,3,7,8,11,13,14,18,19,31,36,36,37,37,39,39,39,39,39,41,41,42<br>marshal.c,.c,1,8,28,52,77,110,119,124,131,161,190,224,244,252,278,304,328,345,351,357,370,388<br>math.c,.c,2,4,7,11,17,21,23,24,30,35,52,68,78,84,85,94,103,119,136,144,147,150<br>mdoc2man.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>method.h,.h,0,0,0,0,0,0,0,0,0,0,0,9,15,18,38,46,48,93,94,104,119,139<br>mini_builtin.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12<br>miniinit.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,6,6,6,6,7<br>missing.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>mjit.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,195,235<br>mjit.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,47<br>mjit_compile.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,40,69<br>mjit_internal.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>mjit_worker.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,57,110<br>mkconfig.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>node.c,.c,0,0,0,0,0,0,0,0,0,0,0,2,4,9,11,11,15,33,41,90,117,150<br>node.h,.h,2,6,21,29,40,52,63,74,81,88,90,98,104,110,117,121,126,141,141,177,204,228<br>numeric.c,.c,2,6,22,39,68,104,118,135,152,197,245,288,324,368,399,447,484,504,646,685,715,739<br>object.c,.c,2,7,39,66,102,139,165,183,211,237,268,293,315,338,393,452,482,507,528,557,588,618<br>oniggnu.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>oniguruma.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>opt_insn_unif.def,.def,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>opt_operand.def,.def,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>pack.c,.c,2,6,20,32,50,65,77,83,92,102,126,129,164,171,181,212,224,228,238,243,252,259<br>pack.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1<br>parse.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>parse.y,.y,2,13,79,139,239,309,366,429,471,647,762,829,882,928,996,1060,1197,1287,1376,1606,1806,2023<br>prec.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>prelude.rb,,0,0,0,0,0,0,0,0,0,4,6,7,11,12,13,13,14,17,19,29,35,42<br>probes.d,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,11,11,12,12,12,12,12<br>probes_helper.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,7,9,9,10,11,11<br>proc.c,.c,0,0,0,0,0,0,0,0,0,44,79,120,138,162,201,258,295,374,403,447,479,543<br>process.c,.c,2,8,27,45,61,94,130,145,158,190,266,306,331,382,532,616,679,715,732,760,857,887<br>random.c,.c,2,8,17,18,27,33,34,42,44,50,60,94,125,138,153,187,192,223,252,260,280,290<br>range.c,.c,2,8,18,29,50,64,70,84,87,106,125,145,147,153,165,193,199,212,219,224,257,275<br>rational.c,.c,0,0,0,0,0,0,0,0,0,0,69,105,118,125,144,167,176,180,239,258,291,308<br>re.c,.c,2,10,36,55,93,117,137,146,158,247,324,347,371,379,394,411,434,444,480,488,508,525<br>re.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>regcomp.c,.c,0,0,0,0,0,0,8,13,20,24,26,32,42,47,50,53,55,58,66,68,70,70<br>regenc.c,.c,0,0,0,0,0,0,3,6,7,14,29,33,35,35,37,39,41,43,50,51,51,51<br>regenc.h,.h,0,0,0,0,0,0,3,5,6,18,31,32,34,34,35,36,40,41,47,48,49,49<br>regerror.c,.c,0,0,0,0,0,0,3,6,11,17,20,25,25,25,27,27,28,28,30,30,31,32<br>regex.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>regex.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>regexec.c,.c,0,0,0,0,0,0,11,15,24,27,41,45,50,52,55,58,63,67,72,76,77,78<br>reggnu.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>regint.h,.h,0,0,0,0,0,0,9,12,17,27,38,42,47,50,52,56,60,63,68,69,69,69<br>regparse.c,.c,0,0,0,0,0,0,12,22,30,37,48,65,70,74,87,90,93,95,100,103,151,154<br>regparse.h,.h,0,0,0,0,0,0,3,6,10,13,17,19,20,21,22,23,24,25,26,27,28,28<br>regsyntax.c,.c,0,0,0,0,0,0,0,0,0,1,2,3,3,3,4,4,4,4,5,5,5,5<br>ruby-runner.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,11,12<br>ruby.1,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>ruby.c,.c,2,15,38,57,72,85,96,114,122,177,277,327,348,375,410,430,448,481,523,546,580,603<br>ruby.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>ruby_assert.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,4,6<br>ruby_atomic.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,14,16,23,23,23,26,26<br>rubyio.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>rubysig.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>rubystub.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2<br>rubytest.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>runruby.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>safe.c,.c,0,0,0,0,0,0,0,0,0,0,2,3,4,5,5,9,12,18,18,25,25,28<br>sig.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>signal.c,.c,1,5,17,29,41,52,56,72,78,104,133,146,161,181,205,222,273,284,290,313,346,362<br>siphash.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,5,6,6,6,7,7,7<br>siphash.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,4,5,5<br>sizes.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>sjis.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>sparc.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,3,4,5,5,5,5,6,6,6<br>sprintf.c,.c,2,7,14,20,30,37,46,63,71,85,118,130,143,145,156,163,184,193,202,222,226,229<br>st.c,.c,1,4,14,18,25,28,30,39,44,57,63,78,80,85,109,123,141,152,163,177,192,206<br>st.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>strftime.c,.c,0,0,0,0,0,0,0,0,0,0,27,37,46,55,63,64,64,64,73,76,85,85<br>string.c,.c,2,14,54,94,134,188,231,244,298,417,637,726,791,824,883,980,1096,1184,1304,1422,1487,1553<br>struct.c,.c,2,7,21,30,42,54,62,74,81,92,102,117,122,126,141,160,176,195,199,211,225,236<br>symbol.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,39,41,44,48,59<br>symbol.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,11,13,13,15,21<br>t.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>test_knownbug.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>test_symbol.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>thread.c,.c,0,0,0,0,0,0,0,0,0,85,187,244,284,371,489,556,592,639,664,765,880,937<br>thread_native.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>thread_pthread.c,.c,0,0,0,0,0,0,0,0,0,5,39,57,79,148,179,215,236,255,261,271,385,394<br>thread_pthread.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>thread_pthread.h,.h,0,0,0,0,0,0,0,0,0,6,8,8,10,17,17,20,24,25,25,25,33,33<br>thread_sync.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,15,32,68,74<br>thread_tools.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>thread_win32.c,.c,0,0,0,0,0,0,0,0,0,3,29,34,49,67,74,83,88,91,93,103,118,123<br>thread_win32.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>thread_win32.h,.h,0,0,0,0,0,0,0,0,0,6,9,9,10,11,12,15,16,16,16,16,16,16<br>time.c,.c,2,7,33,54,75,94,104,112,128,144,174,230,297,325,344,373,397,408,443,455,510,553<br>timev.h,.h,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,3,6,6,6,6,12,15<br>top.sed,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>trace_point.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2<br>transcode.c,.c,0,0,0,0,0,0,0,0,0,20,274,303,317,336,341,356,362,369,372,373,380,384<br>transcode_data.h,.h,0,0,0,0,0,0,0,0,0,7,54,61,63,63,64,65,65,67,67,67,67,67<br>transcode_data_iso_8859.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>transcode_data_japanese.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>transcode_data_one_byte.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>transient_heap.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,23<br>transient_heap.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,10<br>unicode.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>utf8.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>util.c,.c,2,4,14,23,33,40,48,51,57,66,85,103,126,132,134,140,143,148,153,157,169,170<br>util.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>variable.c,.c,2,9,31,57,76,111,119,132,144,166,188,213,229,260,279,310,332,370,387,402,439,492<br>variable.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1<br>version.c,.c,2,4,6,8,9,10,12,14,15,18,26,28,34,35,37,42,43,49,50,50,56,61<br>version.h,.h,2,14,134,247,446,727,1042,1355,1611,1912,2282,2641,3007,3372,3736,4105,4471,4845,5214,5580,5944,6302<br>vm.c,.c,0,0,0,0,0,0,0,0,0,91,164,199,249,285,377,437,503,592,620,733,809,884<br>vm.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>vm_args.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,30,39,64,89,143<br>vm_backtrace.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,41,51,59,64,84,91,102<br>vm_core.h,.h,0,0,0,0,0,0,0,0,0,17,71,95,124,156,232,270,319,393,421,518,608,671<br>vm_debug.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,3<br>vm_dump.c,.c,0,0,0,0,0,0,0,0,0,20,38,51,70,78,103,117,129,148,155,178,187,195<br>vm_eval.cvm_evalbody.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>vm_evalbo,no_ext,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>dy.ci,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>vm_exec.c,.c,0,0,0,0,0,0,0,0,0,0,3,6,7,9,15,18,21,22,23,29,30,30<br>vm_exec.h,.h,0,0,0,0,0,0,0,0,0,0,2,3,7,8,14,24,24,24,24,33,41,46<br>vm_insnhelper.c,.c,0,0,0,0,0,0,0,0,0,1,45,84,117,157,256,315,347,442,478,583,691,831<br>vm_insnhelper.h,.h,0,0,0,0,0,0,0,0,0,0,5,16,17,23,37,48,49,64,68,81,106,120<br>vm_macro.def,.def,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>vm_method.c,.c,0,0,0,0,0,0,0,0,0,0,12,53,73,93,138,189,211,279,294,317,343,387<br>vm_opts.h,.h,0,0,0,0,0,0,0,0,0,6,10,10,10,10,13,14,14,17,17,18,20,23<br>vm_opts.h.base,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>vm_trace.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,46,80,95,108,115,163,184,193<br>vsnprintf.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,16,20,23,26,29,33,35,37,38,40<br>warning.rb,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2<br>wercker.yml,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>yarv.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>yarv_version.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>yarvcore.c,.c,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0<br>yarvcore.h,.h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</p>
 </details>
 
-<h2 id="flourishで可視化してみる"><a href="#flourishで可視化してみる" class="header-anchor"></a>4. <a href="#Flourishで可視化してみる" class="headerlink" title="Flourishで可視化してみる"></a>Flourishで可視化してみる</h2><p>今回も前回と同じように<a href="https://app.flourish.studio/@flourish/bar-chart-race/10" target="_blank" rel="noopener">Bar chart race<i class="fas fa-external-link-alt fa-fw"></i></a>を用いています。</p>
-<img src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" class="">
+<h2 id="flourishで可視化してみる"><a href="#flourishで可視化してみる" class="header-anchor"></a>4. <a href="#Flourishで可視化してみる" class="headerlink" title="Flourishで可視化してみる"></a>Flourishで可視化してみる</h2><p>今回も前回と同じように<a href="https://app.flourish.studio/@flourish/bar-chart-race/10" target="_blank" rel="noopener" title target>Bar chart race<i class="fas fa-external-link-alt fa-fw"></i></a>を用いています。</p>
+<img src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" class>
 
 <h2 id="完成した可視化"><a href="#完成した可視化" class="header-anchor"></a>5. <a href="#完成した可視化" class="headerlink" title="完成した可視化"></a>完成した可視化</h2><p>以下が完成した可視化です。1998年からのファイル単位の累計コミット数のチャートです。</p>
 <ul>
-<li><a href="https://public.flourish.studio/visualisation/1158165/" target="_blank" rel="noopener">ruby-viz-file-total | Flourish<i class="fas fa-external-link-alt fa-fw"></i></a>
+<li><a href="https://public.flourish.studio/visualisation/1158165/" target="_blank" rel="noopener" title target>ruby-viz-file-total | Flourish<i class="fas fa-external-link-alt fa-fw"></i></a>
 
 </li>
 </ul>
@@ -221,7 +225,7 @@
             });
             document.body.appendChild(img);
           });
-      </script>
+      </script></body></html>
         </div>
         
         
@@ -613,7 +617,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -624,7 +628,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -635,7 +639,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -646,7 +650,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -657,7 +661,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -668,7 +672,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -679,7 +683,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -690,7 +694,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -701,7 +705,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -712,7 +716,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -723,7 +727,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -734,7 +738,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1189,7 +1193,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1200,7 +1204,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1211,7 +1215,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1222,7 +1226,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1233,7 +1237,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1244,7 +1248,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1255,7 +1259,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1266,7 +1270,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1277,7 +1281,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1288,7 +1292,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1299,7 +1303,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1310,7 +1314,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>

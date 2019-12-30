@@ -12,7 +12,7 @@ tags:
 
 12/4(火)にJapanContainerDays v18.12に初参加しました。このイベントは春に1回目を開催して今回で2回目の開催だそうですが[^1]、会場には800人以上の人が詰め掛けたようで非常に盛況でした。
 
-{% linkPreview https://containerdays.jp/ _blank nofollow %}
+{% blogCard https://containerdays.jp/ _blank nofollow %}
 
 [^1]: JapanContainerDaysは2回目にして、今回で最終回だそうです。次回からはCloudNative Daysに変わるそうですが{% elink  Cloud Native Days Tokyo http://cloudnativedays.net/outline/ %}との関係性はよくわかりません・・・
 
@@ -46,8 +46,8 @@ tags:
 
 CNCFの歩みや今後の展望が語られていました。気になったのはIoTやEdgeにもKubernetesが進出するという話題でしょうか。KubeEdgeには注目していきたいと思います。あとはどんどんServerlessやNodelessに進んでいく方向性が強調されていました。virtual-kubeletの紹介もあり今後が非常に楽しみです。
 
-{% linkPreview https://github.com/kubeedge/kubeedge %}
-{% linkPreview https://github.com/virtual-kubelet/virtual-kubelet %}
+{% blogCard https://github.com/kubeedge/kubeedge %}
+{% blogCard https://github.com/virtual-kubelet/virtual-kubelet %}
 
 あと、クラウドネイティブの定義も紹介されていました。今までクラウドネィティブとは何ぞやと思っていたので少しはもやもやが晴れたような気がします。
 
@@ -63,7 +63,7 @@ CNCFの歩みや今後の展望が語られていました。気になったの�
 
 {% img https://raw.githubusercontent.com/cncf/trailmap/master/CNCF_TrailMap_latest.png %}
 
-{% linkPreview https://landscape.cncf.io/format=landscape %}
+{% blogCard https://landscape.cncf.io/format=landscape %}
 
 Trail MapはともかくLandscapeは圧巻ですね・・・
 
@@ -141,7 +141,7 @@ Trail MapはともかくLandscapeは圧巻ですね・・・
 
 自分が参加したセッション以外は以下にまとめがあるのであとで読みたいと思います。
 
-{% linkPreview https://medium.com/@containerdaysjp/jkd1812-ab186974d52d %}
+{% blogCard https://medium.com/@containerdaysjp/jkd1812-ab186974d52d %}
 
 ## 食事
 

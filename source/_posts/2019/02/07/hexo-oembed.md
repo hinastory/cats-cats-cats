@@ -12,7 +12,7 @@ date: 2019-02-07 08:36:19
 ---
 HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はそのプラグインの紹介記事です。
 
-{% linkPreview https://www.npmjs.com/package/hexo-oembed %}
+{% blogCard https://www.npmjs.com/package/hexo-oembed %}
 
 プラグイン制作記事は以下に書きました。興味があればそちらも読んで頂けると嬉しいです。
 

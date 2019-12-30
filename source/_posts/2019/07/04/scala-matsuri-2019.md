@@ -11,7 +11,7 @@ date: 2019-07-04 07:28:45
 ---
 ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。
 
-{% linkPreview https://2019.scalamatsuri.org/ %}
+{% blogCard https://2019.scalamatsuri.org/ %}
 
 <!-- more -->
 
@@ -98,7 +98,7 @@ Scala3(Dotty)の影響についての発表でした。以下が言及があっ�
 
 上記の機能のいくつかはこのブログでも言及しているので参考にしてください。
 
-{% linkPreview https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/ %}
+{% blogCard https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/ %}
 
 [^5]: 軽くメモしただけなので間違っているかもしれません。Dottyドキュメントのリンクは自分調べて貼りました。
 [^6]: Enumerationクラスは本当に使えない子なので見なかったことにしてあげてください。

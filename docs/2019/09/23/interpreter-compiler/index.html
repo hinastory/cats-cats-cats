@@ -8,15 +8,18 @@
 
 
     <meta name="description" content="長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図">
-<meta name="keywords" content="Compiler,Interpreter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ベン図を使って、インタプリタとコンパイラの違いを説明してみる">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図">
-<meta property="og:locale" content="ja">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/venn.png">
-<meta property="og:updated_time" content="2019-09-23T11:34:39.774Z">
+<meta property="article:published_time" content="2019-09-22T22:28:45.000Z">
+<meta property="article:modified_time" content="2019-09-23T11:34:39.774Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="Compiler">
+<meta property="article:tag" content="Interpreter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/venn.png">
 
@@ -110,7 +113,7 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -164,8 +167,8 @@
     
     <div class="card-content article ">
         <div class="content">
-            <p>長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。</p>
-<p>(本記事は「<a href="https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658" target="_blank" rel="noopener">数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a>」に触発されて書かれたものです。)</p>
+            <html><head></head><body><p>長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。</p>
+<p>(本記事は「<a href="https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658" target="_blank" rel="noopener" title target>数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a>」に触発されて書かれたものです。)</p>
 <a id="more"></a>
 
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#前提知識" class="contents-header">1. 前提知識</a></li><li><a href="#ベン図による説明" class="contents-header">2. ベン図による説明</a></li><li><a href="#コンパイラ" class="contents-header">3. コンパイラ</a></li><li><a href="#インタプリタ" class="contents-header">4. インタプリタ</a></li><li><a href="#視点-視座-視野による見え方の違い" class="contents-header">5. 視点、視座、視野による見え方の違い</a></li><li><a href="#まとめ" class="contents-header">6. まとめ</a></li><li><a href="#参考文献" class="contents-header">7. 参考文献</a></li></ul></div>
@@ -173,7 +176,7 @@
 <h2 id="前提知識"><a href="#前提知識" class="header-anchor"></a>1. <a href="#前提知識" class="headerlink" title="前提知識"></a>前提知識</h2><p>まずは「<code>インタプリタ</code>」と「<code>コンパイラ</code>」をざっくり説明します。これらはプログラミング言語の「<code>処理系</code>」に紐付いた概念であり、簡単に言えばプログラミング言語の実装方式の違いになります。インタプリタは対象となるプログラミング言語を「<code>解釈</code>」して「<code>実行</code>」します。ここで言う解釈とはプログラミング言語の意味論に基づいて実行方法を決めることです。コンパイラはインタプリタとは異なり「<code>実行</code>」を伴わず、対象となる言語を別の言語に変換だけを行います。どのプログラミング言語も基本的には「インタプリタ」としても「コンパイラ」としても実装することができます<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
 <p>これだけ書くと簡単で明確な定義のように思えますが、実際には上記は<strong>「広義」</strong>の定義であり、現実を踏まえた分類にはもう少し工夫が必要になります。</p>
 <h2 id="ベン図による説明"><a href="#ベン図による説明" class="header-anchor"></a>2. <a href="#ベン図による説明" class="headerlink" title="ベン図による説明"></a>ベン図による説明</h2><p>最初に図で説明しようとしたときにどのように表現しようか非常に悩みましたが、最終的には以下のようなベン図になりました。</p>
-<img src="/cats-cats-cats/gallery/daily/others/interpreter-compiler.png" class="">
+<img src="/cats-cats-cats/gallery/daily/others/interpreter-compiler.png" class>
 
 <p>なるべくわかりやすく書いたつもりですが、意図が読み取りにくい箇所もあると思うので簡単に説明したいと思います。</p>
 <h2 id="コンパイラ"><a href="#コンパイラ" class="header-anchor"></a>3. <a href="#コンパイラ" class="headerlink" title="コンパイラ"></a>コンパイラ</h2><p>まず、広義のコンパイラは単に異なるプログラミング言語の変換を意味しますが、一般的なコンパイラのイメージはCやJavaのコンパイラのように高級言語から低レベル言語(機械語もしくは機械語に近いバイトコード)への変換を行うものです。従ってこのイメージを「<code>狭義のコンパイラ</code>」の定義としています。</p>
@@ -203,11 +206,11 @@
 <p>またベン図は現代的なインタプリタとコンパイラを合理的かつ直感的に理解しやすいように整理しつつ、歴史的解釈も尊重して書いて見ました。円の重なりにも工夫をしていて上位層は下位層を含む場合があることを表現しています。</p>
 <p>本記事が皆様のインタプリタおよびコンパイラのよりよい理解および、新たな気付きの一助になれば幸いです。</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>7. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658" target="_blank" rel="noopener">数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%97%E3%83%AA%E3%82%BF" target="_blank" rel="noopener">インタプリタ - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9" target="_blank" rel="noopener">コンパイラ - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9" target="_blank" rel="noopener">トランスコンパイラ - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://www.ruby-lang.org/ja/news/2018/12/25/ruby-2-6-0-released/" target="_blank" rel="noopener">Ruby 2.6.0 Released<i class="fas fa-external-link-alt fa-fw"></i></a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">本記事ではノイマン型コンピュータで実行可能なプログラミング言語を想定しています。量子コンピューティングを考え出すとややこしくなるので本記事では触れません。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">概念的にそのように分類できるというだけで、実際にアセンブラを「トランスレータ」や「コンパイラ」と呼称することはありません。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">抽象構文木への変換は元のプログラミング言語の意味論を変更しないので、コンパイラよりもトランスレータに近いと感じましたが一般的な解釈とまでは言えません。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">Ruby 2.6からオプションでJITコンパイラ(Experimental)が利用できるようになっています。</span><a href="#fnref:4" rev="footnote"> ↩</a></li></ol></div></div></li>
+<li><a href="https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658" target="_blank" rel="noopener" title target>数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%97%E3%83%AA%E3%82%BF" target="_blank" rel="noopener" title target>インタプリタ - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9" target="_blank" rel="noopener" title target>コンパイラ - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9" target="_blank" rel="noopener" title target>トランスコンパイラ - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://www.ruby-lang.org/ja/news/2018/12/25/ruby-2-6-0-released/" target="_blank" rel="noopener" title target>Ruby 2.6.0 Released<i class="fas fa-external-link-alt fa-fw"></i></a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">本記事ではノイマン型コンピュータで実行可能なプログラミング言語を想定しています。量子コンピューティングを考え出すとややこしくなるので本記事では触れません。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">概念的にそのように分類できるというだけで、実際にアセンブラを「トランスレータ」や「コンパイラ」と呼称することはありません。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">抽象構文木への変換は元のプログラミング言語の意味論を変更しないので、コンパイラよりもトランスレータに近いと感じましたが一般的な解釈とまでは言えません。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">Ruby 2.6からオプションでJITコンパイラ(Experimental)が利用できるようになっています。</span><a href="#fnref:4" rev="footnote"> ↩</a></li></ol></div></div></li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -227,7 +230,7 @@
             });
             document.body.appendChild(img);
           });
-      </script>
+      </script></body></html>
         </div>
         
         
@@ -626,7 +629,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -637,7 +640,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -648,7 +651,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -659,7 +662,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -670,7 +673,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -681,7 +684,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -692,7 +695,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -703,7 +706,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -714,7 +717,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -725,7 +728,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -736,7 +739,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -747,7 +750,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1202,7 +1205,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1213,7 +1216,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1224,7 +1227,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1235,7 +1238,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1246,7 +1249,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1257,7 +1260,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1268,7 +1271,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1279,7 +1282,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1290,7 +1293,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1301,7 +1304,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1312,7 +1315,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1323,7 +1326,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>

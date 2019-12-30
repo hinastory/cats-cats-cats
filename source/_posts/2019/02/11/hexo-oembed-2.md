@@ -139,7 +139,7 @@ $ git commit -m "initial commit"    # メッセージ付きでコミット
 
 さて、いよいよoEmbedを利用したタグ作りに取り掛かります。まず、oEmbedのプロトコルをどのように実装するかです。HTTPクライアントを使って素直に実装する手もありますが、Discoveryも含めるとちょっと面倒なので公開されているパッケージの中に良いものがないか探してみたところ、`node-oembed`パッケージがありました。これを使えば比較的ラクにoEmbedを実装できそうです。
 
-{% linkPreview https://www.npmjs.com/package/oembed %}
+{% blogCard https://www.npmjs.com/package/oembed %}
 
 あともう一つ決めなければいけないことは、エンドポイントの設定方法です。幸いにもHexoにはディレクトリのトップに_config.ymlという設定ファイルがあり、これに自由に設定を加えていけます。具体的には以下のような設定があったとします。`className`は冒頭で述べたCSSのクラス名の設定です。`endpoints`が具体的のoEmbedプロバイダを設定する箇所で、`match`パラメータがパーマリンクのURLのホスト名に部分一致していたらそのエンドポイントの`url`を利用するという仕様にします。正確なスキーマの検査をしなくても多分このレベルで実用になるだろうと判断しました。手を抜いたわけじゃないよ！
 
@@ -180,7 +180,7 @@ oembed:
 
 まずは、 {% elink GitHub https://github.com/ %}にリポジトリを作成します。もしまだアカウントを作成していない方はSignUpから始めてください[^3]。以前に以下の記事でプライベートリポジトリの作り方を説明しましたが、今回は公開用のパブリックリポジトリです。
 
-{% linkPreview https://hinastory.github.io/cats-cats-cats/2019/01/13/github/ %}
+{% blogCard https://hinastory.github.io/cats-cats-cats/2019/01/13/github/ %}
 
 リポジトリ名はダイレクトに`hexo-oembed`にしました。ライセンスは特にこだわりがなければHexoと同じMITライセンスにしておけばいいと思います。.gitignoreファイルはもうすでに作成済みなのでここであえて作成する必要はないです。リポジトリの作成自体は十秒もかからず終わります。以下が今回作成したGitHubのリポジトリです。
 
@@ -282,7 +282,7 @@ npmに公開するのはもっと簡単です。公開するパッケージ直�
 
 `npm publish`に成功したらnpmからページを確認してみます。自分のアバターのメニューの`Packages`からも確認できますし、パッケージ名やキーワードで検索をかければ出てきます。
 
-{% linkPreview https://www.npmjs.com/package/hexo-oembed %}
+{% blogCard https://www.npmjs.com/package/hexo-oembed %}
 
 ページの確認ができたら`npm install`してパッケージがネットからインストールできるか試してみましょう。このときローカルバージョンをインストールしている場合は一旦`npm uninstall`してから実行してください。
 

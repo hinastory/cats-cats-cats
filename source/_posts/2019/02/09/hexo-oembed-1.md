@@ -13,7 +13,7 @@ date: 2019-02-09 08:36:19
 HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成しました。
 本当はYouTubeが埋込たかったわけではなくて、{% elink Speaker Deck https://speakerdeck.com/ %}のスライドが埋込みたかっただけなんですが、{% elink oEmbed https://oembed.com/ %}を利用して汎用的な作りにしたので結果的にそうなってしまいました。ついでにもったいないからnpm[^1]に公開しました。この記事はそのプラグイン制作記事の前編です。
 
-{% linkPreview https://www.npmjs.com/package/hexo-oembed %}
+{% blogCard https://www.npmjs.com/package/hexo-oembed %}
 
 
 [^1]: {% elink npm https://www.npmjs.com/  %}はNode.jsのパッケージ管理システムです。Node Package Managerが由来ですがnpmのページの左上を見るとクリックするごとに色々は`NPM`に出会えます(笑)。現在ではJavaScriptのパッケージ管理システムのデファクトスタンダートとなっています。
@@ -32,7 +32,7 @@ hexo-oembedの使い方そのものが知りたい方は以下のページを御
 
 早速製作記事に入りたいと思いますが、このブログで使われている静的サイトジェネレータのHexoのことを知らない方も多いと思います。この記事はHexoのプラグインの話なので知らない方は過去に書いた以下の記事を一読されることをオススメします。
 
-{% linkPreview https://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/ %}
+{% blogCard https://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/ %}
 
 Hexoは記事をMarkdownで記述することができるのですが、マークダウンで記述できないリッチなコンテンツ(例えばYouTubeの動画)を表示させたい場合は、以下のような形式で独自のタグを作成して表示させることができます。
 {% code %}
@@ -45,7 +45,7 @@ Hexoは記事をMarkdownで記述することができるのですが、マー�
 冒頭でも書きましたが、{% elink Speaker Deck https://speakerdeck.com/ %}のスライドを貼りたくなったからです。
 具体的には以下の前回の記事で貼りたくなりました。
 
-{% linkPreview https://hinastory.github.io/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/ %}
+{% blogCard https://hinastory.github.io/cats-cats-cats/2019/01/20/k8s-meetup-tokyo-15/ %}
 
 Speaker Deckのような埋込みを意識してあるサイトでは概ね埋め込み用のHTMLを取得できるようになっていて、MarkdownにそのままそのHTMLを貼れば表示させることもできるのですが、やはり記事の書きやすさを考えるとスライドのパーマリンクから自動的に埋め込み用HTMLを展開してくれた方が望ましいわけです。
 

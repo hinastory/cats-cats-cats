@@ -8,15 +8,18 @@
 
 
     <meta name="description" content="Jupyter Notebookを使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。">
-<meta name="keywords" content="MachineLearning,Jupyter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全プログラマに捧ぐ！図解「ノートブック」">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="Jupyter Notebookを使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。">
-<meta property="og:locale" content="ja">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/jupyter-logo.png">
-<meta property="og:updated_time" content="2019-04-13T19:43:21.208Z">
+<meta property="article:published_time" content="2019-04-05T22:34:17.000Z">
+<meta property="article:modified_time" content="2019-04-13T19:43:21.208Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="Jupyter">
+<meta property="article:tag" content="MachineLearning">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/jupyter-logo.png">
 
@@ -110,7 +113,7 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -164,7 +167,7 @@
     
     <div class="card-content article ">
         <div class="content">
-            <a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook<i class="fas fa-external-link-alt fa-fw"></i></a>を使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。
+            <html><head></head><body><a href="https://jupyter.org/" target="_blank" rel="noopener" title target>Jupyter Notebook<i class="fas fa-external-link-alt fa-fw"></i></a>を使い始めて半年経ちました。最初は機械学習のためのツールとして触り始めましたが、徐々にデータサイエンティストだけの玩具にしておくのは勿体無いと思うようになってきました。本記事では一般のプログラマにも伝わるようになるべく図解で「ノートブック」を解説してみたいと思います。
 
 <a id="more"></a>
 
@@ -173,72 +176,72 @@
 <h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事はJupyter Notebookにおける「ノートブック」という機能に着目して解説したものです。「ノートブック」は、REPL<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>の進化形態であり、仮にデータサイエンティストでないとしても全プログラマが知っていて損はないアイデアだと思います。</p>
 <h2 id="ノートブックとは"><a href="#ノートブックとは" class="header-anchor"></a>2. <a href="#ノートブックとは" class="headerlink" title="ノートブックとは"></a>ノートブックとは</h2><p>ノートブックとは以下の図のように「<code>コード</code>」と「<code>実行結果</code>」と「<code>コードのメモ</code>」をまとめたものです。コードのメモは恐らくプログラマの方にはおなじみのMarkdown形式で記述することができます。</p>
 <p>ノートブックの凄いところはこのプログラムの理解に必要な３点セットを上手にまとめている点です。これらがバラバラに管理されていたとなると、プログラムのコードの動作を他人に理解させようとすると非常に苦労することが目に見えますし、もちろん書いた本人にも優しくないです(笑)。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-a.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-a.png" class>
 
 <p>面白いのは以下の図のようにコードだけでなくメモも「<code>実行</code>(Run)」できる点です。実行後のプログラムのコードの下にはコード実行結果が出力されているのはお分かり頂けると思いますが、メモの実行結果はMarkdownがレンダリングされた結果となります。また図を見てお分かりのとおり、コードやメモはきちんと色付けされており視認性もよいです。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-b.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-b.png" class>
 
 <p>ノートブックが実行されるのは以下の図のようにノートブックサーバになります。コードやメモはそれぞれノートブックの中の「セル」と呼ばれるものに格納されていて、セル単位で対話的に実行が可能です。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-c.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-c.png" class>
 
 <p>また、コードの編集や実行はブラウザを通して行うことになりますが、マウス操作以外にもキーボードショートカットやコード補完等が使えるので一般的なWebアプリケーション以上に快適な作業が可能です。</p>
 <h2 id="ノートブックと実行結果"><a href="#ノートブックと実行結果" class="header-anchor"></a>3. <a href="#ノートブックと実行結果" class="headerlink" title="ノートブックと実行結果"></a>ノートブックと実行結果</h2><p>実行結果とはプログラム自体が画面に出力したものと、プログラムの「<code>最後の行の戻り値</code>」になります。以下のノートブックの一部を使って説明します。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-1.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-1.png" class>
 
 <p>上記の灰色の枠内がプログラムです。半径5の円の面積を計算しています。その枠の下の「<code>78.53981633974483</code>」が戻り値になります。これはプログラムの最後の行「<code>math.pi * r ** 2</code>」を評価した結果が戻り値になっています。</p>
 <p>初めての人が陥りやすい罠として、最後の行を「<code>area = math.pi * r ** 2</code>」のような代入文にして、何も表示されず困るというものがあります。これはPythonの代入が戻り値を持たない仕様のためにおこる現象です<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。この場合は代入文の後に「<code>area</code>」を追加して最後の行を表示したい変数に変更するか、以下のようにprint関数で明示的に画面出力すればよいです<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-2.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-2.png" class>
 
 <p>さらにノートブックは、テキスト以外にも他のライブラリと連携してリッチな出力結果を実現できます。以下は表を表示してみました。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-3.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-3.png" class>
 
 <p>グラフも表示可能です。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-4.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-4.png" class>
 
 <p>画像処理結果の表示もお手の物です。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-5.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-5.png" class>
 
 <p>動画の埋め込み<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>なんかも可能です。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-6.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-6.png" class>
 
 
 
 
 <h2 id="ノートブックとセル"><a href="#ノートブックとセル" class="header-anchor"></a>4. <a href="#ノートブックとセル" class="headerlink" title="ノートブックとセル"></a>ノートブックとセル</h2><p>セルとは以下の図<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>のように、ノートブック内のプログラムのかたまりであり、セル単位でプログラムの編集、実行、削除が可能です。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-7.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-7.png" class>
 
 <p>セルには編集モードとコマンドモードがあり、直接マウスで選択すると編集モードになります。編集モードでプログラムを記述して「<code>Shift</code> + <code>Enter</code>」キーを入力することでセルの実行が可能です。編集モードで「<code>Esc</code>」キーを入力することでコマンドモードに移行することができます。コマンドモードではその名のとおりセルに対して様々な命令を実行することができます。例えば「<code>d</code> <code>d</code>」を入力することでセルの削除が可能です。</p>
 <p>ノートブックでは基本的に下にセルを追加して、実行結果を確認したい単位でプログラムを書いて実行することを繰り返します。一度実行したセルもまたセル内のプログラムを編集して再実行することができます。そのためセルの左側には実行の順番を表すための番号が振られており、実行するごとに１増えていきます。</p>
 <p>赤枠で表示されているのは、プログラムを実行して発生した例外のスタックトレースです。このようにスタックトレースも色付きで分かりやすく表示されるのでデバッグには重宝します。プログラムでエラーになった場合を特定するためにセルを分割して、例外が発生した箇所を狭めていく手法もよく使われると思います。</p>
 <p>セルは一番下だけでなく、セルとセルの間にも挿入することができます。これは後で忘れていた処理を追加するのに便利ですが、注意すべき点があります。以下の図は上から２番めのセルの下に新しいセルを挿入して、プログラムを記述して実行した後の状態を示しています。セルの実行順番はセルの左の番号の通りです。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-8.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-8.png" class>
 
 <p>この図で注意すべきは3点あります。１つ目の注意点は、挿入したセルの実行結果はすでに実行済みのセルの実行結果には影響を与えないということです。この図の場合一番下のセルの最終行は<code>a + b</code>となっていますが、今回のようにその上のセルに挿入して<code>b</code>の値を書き換えても最後のセルの実行結果は変わりません。</p>
 <p>次に注意すべき点は、いったんこのノートブックを終了して再度ノートブックを「<code>先頭から</code>」実行したときに実行結果が変わる点です。問題は最後のセルで変数<code>a</code>と<code>b</code>を上書きしている点です。このため上から3番目のセル(挿入したセル)で、実行結果が変わってしまいます。この場合<code>array([9, 12, 15])</code>だった結果が<code>[1, 2, 3, 4, 5, 6, 4, 5, 6]</code>になります。さらに続けて最終セルを実行しようとすると例外が発生します。</p>
 <p>最後に注意すべき点は一番最後のセルで<code>import</code>文を使っている点です。一回実行された<code>import</code>文はノートブックの範囲内で有効なので、セルの挿入位置にかかわらずインポートされたライブラリの機能が利用できます。しかし、ノートブックを終了して再度先頭から実行しようとすると、当然<code>import</code>文の実行前にそのライブラリの機能を使おうとすると怒られます。今回の例ではさらに紛らわしくて実行結果が変わるという現象にもつながっています。</p>
 <p>従って、ノートブックを先頭から再実行する可能性があり、かつセルを一番下以外に挿入する場合は、セルを一番上から実行しても問題ないかということを意識する必要があります。このトピックはおそらくノートブック利用者が一度は通る道だと思い言及しました<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
-<h2 id="ノートブックとカーネル"><a href="#ノートブックとカーネル" class="header-anchor"></a>5. <a href="#ノートブックとカーネル" class="headerlink" title="ノートブックとカーネル"></a>ノートブックとカーネル</h2><p>一つのノートブックには必ず一つのプログラミング言語が紐付きます。下の図のようにノートブックを開くと裏では紐付いたプログラミング言語の実行環境が起動して、セルの実行のために待ち受けています。このプログラミング言語の実行環境のことを「<code>カーネル</code>」と呼びます。現在、非常に多くのカーネルが<a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels" target="_blank" rel="noopener">公開されています<i class="fas fa-external-link-alt fa-fw"></i></a>。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-9.png" class="">
+<h2 id="ノートブックとカーネル"><a href="#ノートブックとカーネル" class="header-anchor"></a>5. <a href="#ノートブックとカーネル" class="headerlink" title="ノートブックとカーネル"></a>ノートブックとカーネル</h2><p>一つのノートブックには必ず一つのプログラミング言語が紐付きます。下の図のようにノートブックを開くと裏では紐付いたプログラミング言語の実行環境が起動して、セルの実行のために待ち受けています。このプログラミング言語の実行環境のことを「<code>カーネル</code>」と呼びます。現在、非常に多くのカーネルが<a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels" target="_blank" rel="noopener" title target>公開されています<i class="fas fa-external-link-alt fa-fw"></i></a>。</p>
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-9.png" class>
 
 <p>またカーネルは図のようにノートブックを開くたびにひとつ起動されるイメージで、カーネル間でのメモリ等の共有はなく完全に独立しています。また、このカーネルは明示的にシャットダウンしないとずっと動きっぱなしになります。<br>従ってノートブックを開くとカーネルが起動してマシンのリソースを消費するので、不要なカーネルはこまめにシャットダウンすることをおすすめします。</p>
 <h2 id="ノートブックとファイル"><a href="#ノートブックとファイル" class="header-anchor"></a>6. <a href="#ノートブックとファイル" class="headerlink" title="ノートブックとファイル"></a>ノートブックとファイル</h2><p>ノートブックの実体は一つのファイルです。もう少し具体的に述べると拡張子が「.ipynb」でJSONフォーマットで保存されています。単なるファイルなのでフォルダによる整理やGit等のバージョン管理システムによる管理も可能です<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-10.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-10.png" class>
 
 
 
 <h2 id="ノートブックの変換"><a href="#ノートブックの変換" class="header-anchor"></a>7. <a href="#ノートブックの変換" class="headerlink" title="ノートブックの変換"></a>ノートブックの変換</h2><p>ノートブックは以下の図のように様々な形式に変更可能です。単純に実行スクリプトに変換できるのはもちろんですが、HTMLやマークダウンにも変換できるのでQiitaやブログサービスへの埋込も可能です。Reveal.jsのスライドにすればプレゼンテーションにも利用できます。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-11.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-11.png" class>
 
 <h2 id="ノートブックの共有"><a href="#ノートブックの共有" class="header-anchor"></a>8. <a href="#ノートブックの共有" class="headerlink" title="ノートブックの共有"></a>ノートブックの共有</h2><p>ノートブックの実体はファイルだということは前述のとおりですが、このファイルは様々な環境で開くことができます。例えばVisual Studio Codeでは拡張機能でノートブックに対応しています。さらに、クラウド上にはノートブックに対応したマネージドサービスが揃っているので、ローカルで作成したノートブックをクラウドで実行するのも簡単です。また編集や実行機能が必要なければ、nbviewerのGitHubのように表示だけが可能なサービスも存在するので、コードや実行結果の共有だけがしたい場合はこちらのほうが手軽です。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-12.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-12.png" class>
 
 <h2 id="ノートブックとjupyterlab"><a href="#ノートブックとjupyterlab" class="header-anchor"></a>9. <a href="#ノートブックとJupyterLab" class="headerlink" title="ノートブックとJupyterLab"></a>ノートブックとJupyterLab</h2><p>JupyterLabはJupyter Notebookの次世代ユーザインターフェースです。タブインタフェースで非常に使いやすく自分も愛用しています。まだ、バージョン1.0には達していませんが、普段の利用にはほぼ問題ない感じです。現在は混在期間でどちらも非常に多く使われており甲乙付け難いです。拡張機能も含めた安定性や情報の多さを取るならJupyter Notebookに軍配が上がりますが、一部の先進的な機能や格好良さを求めるならJupyterLabをおすすめします。以下の画面は自分が実際に利用しているJupyterLabの画面です<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/jupyterlab.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/jupyterlab.png" class>
 
 
 
 <h2 id="ノートブックを始めてみる"><a href="#ノートブックを始めてみる" class="header-anchor"></a>10. <a href="#ノートブックを始めてみる" class="headerlink" title="ノートブックを始めてみる"></a>ノートブックを始めてみる</h2><p>ノートブックの始め方はいろいろあるので、ざっくりとしたチャートを自分の主観で書いてみました。最初の一歩を踏み出すための道標としてご利用ください<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup>。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-13.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-13.png" class>
 
 <table>
 <thead>
@@ -313,7 +316,7 @@
 </tr>
 </tbody></table>
 <h2 id="ノートブックの用途"><a href="#ノートブックの用途" class="header-anchor"></a>11. <a href="#ノートブックの用途" class="headerlink" title="ノートブックの用途"></a>ノートブックの用途</h2><p>ノートブックは非常に用途が広いので、プログラミングにおける様々な場面で活用することができると思います。以下の図は思いついた用途です。</p>
-<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-14.png" class="">
+<img src="/cats-cats-cats/gallery/daily/tools/jupyter/notebook-14.png" class>
 
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>12. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>以下、「ノートブック」のまとめです。</p>
 <ul>
@@ -324,7 +327,7 @@
 <li>「ノートブック」にはプログラミング全般に幅広い用途がある</li>
 </ul>
 <p>Jupyter Notebookはデータサイエンスの分野ではほぼ必須とまで言われるようなツールになりましたが、一般のプログラマへの浸透具合はいまいちと感じたので、データサイエンスの文脈からなるべく切り離して解説をしてみました。</p>
-<p>本記事が「<code>ノートブック</code>」の理解と普及の一助になれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">REPLは「Read-Eval-Print loop」の略で、入力された部分ごとに評価して表示することを繰り返す、対話型実行環境を意味しています。PythonにおけるiPythonやRubyにおけるirbにあたります。インタラクティブシェルと呼ばれることもあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Pythonでは代入以外にも<code>if</code>や<code>while</code>等の制御構造も戻り値を持ちません。一方Rubyのように、代入や<code>if</code>や<code>while</code>が戻り値を持つ言語もあります。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><code>print</code>は戻り値を持たない関数なので、戻り値は表示されません。しかし一般的なPythonの関数は戻り値を持つもの(<code>return</code>で値を返す)が多いので、大抵は関数の結果確認のために「最後の行の戻り値」を有効活用できます。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">埋め込まれている動画は「 <a href="https://www.youtube.com/watch?v=XQB3H6I8t_4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=XQB3H6I8t_4</a> 」になります。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">ノートブックの図はJupyter Notebookの新インターフェースであるJupyterLabを元に作成しています。Jupyter Notebookだと若干見え方は異なりますが、ここで説明される概念は共通です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">この注意点はPythonを例にしているので他の言語では当てはまらない場合があります。ノートブックの特性と言語の特性の組み合わせで思わぬ落とし穴があるかもしれないということだけ覚えておくといいかと思います。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">ノートブックには実行結果も含まれますが、実行結果を除いてバージョン管理しようとすると少し工夫が必要になります。手段はいろいろあるので気になる方は検索してみてください。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">画面に写り込んでいるプログラムは <a href="https://www.oreilly.co.jp/books/9784873118727/" target="_blank" rel="noopener">PythonによるAIプログラミング入門<i class="fas fa-external-link-alt fa-fw"></i></a>の例題になります。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;">ツッコミどころがあるのは理解しております。スルーして頂けると幸いです。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div><p></p>
+<p>本記事が「<code>ノートブック</code>」の理解と普及の一助になれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">REPLは「Read-Eval-Print loop」の略で、入力された部分ごとに評価して表示することを繰り返す、対話型実行環境を意味しています。PythonにおけるiPythonやRubyにおけるirbにあたります。インタラクティブシェルと呼ばれることもあります。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Pythonでは代入以外にも<code>if</code>や<code>while</code>等の制御構造も戻り値を持ちません。一方Rubyのように、代入や<code>if</code>や<code>while</code>が戻り値を持つ言語もあります。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><code>print</code>は戻り値を持たない関数なので、戻り値は表示されません。しかし一般的なPythonの関数は戻り値を持つもの(<code>return</code>で値を返す)が多いので、大抵は関数の結果確認のために「最後の行の戻り値」を有効活用できます。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">埋め込まれている動画は「 <a href="https://www.youtube.com/watch?v=XQB3H6I8t_4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=XQB3H6I8t_4</a> 」になります。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">ノートブックの図はJupyter Notebookの新インターフェースであるJupyterLabを元に作成しています。Jupyter Notebookだと若干見え方は異なりますが、ここで説明される概念は共通です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">この注意点はPythonを例にしているので他の言語では当てはまらない場合があります。ノートブックの特性と言語の特性の組み合わせで思わぬ落とし穴があるかもしれないということだけ覚えておくといいかと思います。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">ノートブックには実行結果も含まれますが、実行結果を除いてバージョン管理しようとすると少し工夫が必要になります。手段はいろいろあるので気になる方は検索してみてください。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">画面に写り込んでいるプログラムは <a href="https://www.oreilly.co.jp/books/9784873118727/" target="_blank" rel="noopener" title target>PythonによるAIプログラミング入門<i class="fas fa-external-link-alt fa-fw"></i></a>の例題になります。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;">ツッコミどころがあるのは理解しております。スルーして頂けると幸いです。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div><p></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -343,7 +346,7 @@
             });
             document.body.appendChild(img);
           });
-      </script>
+      </script></body></html>
         </div>
         
         
@@ -387,7 +390,7 @@
 
 
 
-  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" title="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/others/loss.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-10-20</div><a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" title="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10" rel="bookmark">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-15</div><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark">Developers Summit 2019に参加した感想など</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" title="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-11-21</div><a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" title="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました" rel="bookmark">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-12-25</div><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a></h3></div></li></ul></div>
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" title="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/others/loss.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-10-20</div><a href="/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/" title="MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10" rel="bookmark">MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-12-25</div><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/devsumi-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-15</div><a href="/cats-cats-cats/2019/02/15/devsumi-2019-winter/" title="Developers Summit 2019に参加した感想など" rel="bookmark">Developers Summit 2019に参加した感想など</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" title="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-11-21</div><a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" title="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました" rel="bookmark">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a></h3></div></li></ul></div>
 </div>
                 
 
@@ -742,7 +745,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -753,7 +756,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -764,7 +767,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -775,7 +778,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -786,7 +789,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -797,7 +800,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -808,7 +811,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -819,7 +822,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -830,7 +833,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -841,7 +844,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -852,7 +855,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -863,7 +866,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1318,7 +1321,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1329,7 +1332,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1340,7 +1343,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1351,7 +1354,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1362,7 +1365,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1373,7 +1376,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1384,7 +1387,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1395,7 +1398,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1406,7 +1409,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1417,7 +1420,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1428,7 +1431,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1439,7 +1442,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>

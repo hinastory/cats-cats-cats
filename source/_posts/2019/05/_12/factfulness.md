@@ -21,7 +21,7 @@ date: 2019-05-12 06:03:57
 ## マインドフルネスとは
 
 
-{% linkPreview https://calil.jp/book/4864873798 %}
+{% blogCard https://calil.jp/book/4864873798 %}
 
 ## ファクトフルネスとは
 

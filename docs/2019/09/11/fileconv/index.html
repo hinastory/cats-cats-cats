@@ -8,15 +8,17 @@
 
 
     <meta name="description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
-<meta name="keywords" content="Ruby">
 <meta property="og:type" content="article">
 <meta property="og:title" content="長年育て続けた秘蔵の一括ファイル変換ライブラリを晒してみる">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリfileconvを作り始めました・・・">
-<meta property="og:locale" content="ja">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
-<meta property="og:updated_time" content="2019-11-02T01:33:32.785Z">
+<meta property="article:published_time" content="2019-09-10T22:28:45.000Z">
+<meta property="article:modified_time" content="2019-11-02T01:33:32.785Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="Ruby">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/files.png">
 
@@ -110,7 +112,7 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -164,15 +166,15 @@
     
     <div class="card-content article ">
         <div class="content">
-            <p>時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリ<code>fileconv</code>を作り始めました・・・</p>
+            <html><head></head><body><p>時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリ<code>fileconv</code>を作り始めました・・・</p>
 <a id="more"></a>
 
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#インストール" class="contents-header">2. インストール</a></li><li><a href="#使い方" class="contents-header">3. 使い方</a><ul><li><a href="#コンバータのフック" class="contents-header">3.1. コンバータのフック</a></li><li><a href="#コンバータの変数" class="contents-header">3.2. コンバータの変数</a></li><li><a href="#デフォルトのメタコンバータ" class="contents-header">3.3. デフォルトのメタコンバータ</a></li><li><a href="#メタコンバータを作ってみる" class="contents-header">3.4. メタコンバータを作ってみる</a></li></ul></li><li><a href="#リポジトリ" class="contents-header">4. リポジトリ</a></li><li><a href="#fileconvの失敗談" class="contents-header">5. fileconvの失敗談</a></li><li><a href="#最後に" class="contents-header">6. 最後に</a></li></ul></div>
 
 <h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事は拡張可能な一括ファイル変換ライブラリ<code>fileconv</code>の紹介記事です。<code>fileconv</code>を使えばファイルのオープンや読み書きに手を煩わせることなく、簡単に複数ファイルの変換処理を実装することができます。またデフォルトでCSVやJSONフォーマットにも対応しており、他のフォーマットに対応するのも簡単です。</p>
 <ul>
-<li><a href="https://rubygems.org/gems/fileconv" target="_blank" rel="noopener">fileconv - RubyGems<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://github.com/hinastory/fileconv/" target="_blank" rel="noopener">fileconv - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>
+<li><a href="https://rubygems.org/gems/fileconv" target="_blank" rel="noopener" title target>fileconv - RubyGems<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://github.com/hinastory/fileconv/" target="_blank" rel="noopener" title target>fileconv - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>
 
 
 
@@ -183,7 +185,7 @@
 <figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">gem <span class="hljs-string">'fileconv'</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>それから以下を実行してください。</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ">$ bundle<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$ bundle<br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>もしくは以下のようにgemコマンドで直接インストールしてください。</p>
@@ -202,14 +204,14 @@
 <figure class="highlight ruby hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ruby">convertor = AddLinenoConvertor.new<br>convertor.conv<br></code></pre></td></tr></tbody></table></figure>
 
 <p>つまり以下の2つのファイルがあるとすると、</p>
-<figure class="highlight plain hljs"><figcaption><span>aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">aaa<br>bbb<br>ccc<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">aaa<br>bbb<br>ccc<br></code></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight plain hljs"><figcaption><span>bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">111<br>222<br>333<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">111<br>222<br>333<br></code></pre></td></tr></tbody></table></figure>
 
 <p>コンバータの実行後には以下のような2つのファイルが変換結果として生成されます。</p>
-<figure class="highlight plain hljs"><figcaption><span>output/aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">1: aaa<br>2: bbb<br>3: ccc<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>output/aaa.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">1: aaa<br>2: bbb<br>3: ccc<br></code></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight plain hljs"><figcaption><span>output/bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ">1: 111<br>2: 222<br>3: 333<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>output/bbb.txt</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">1: 111<br>2: 222<br>3: 333<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="コンバータのフック"><a href="#コンバータのフック" class="header-anchor"></a>3.1. <a href="#コンバータのフック" class="headerlink" title="コンバータのフック"></a>コンバータのフック</h3><p>前出の例では最低限のフックしかオーバーライドしていませんでしたが、必要に応じて様々なフックをオーバーライドできます。フックを一つもオーバーライドしない場合のデフォルトのアクションでは、カレントディレクトリのすべてのファイルを”output”ディレクトリにコピーします<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
 <table>
@@ -406,7 +408,7 @@
 <li>post_conv_result</li>
 </ul>
 <h2 id="リポジトリ"><a href="#リポジトリ" class="header-anchor"></a>4. <a href="#リポジトリ" class="headerlink" title="リポジトリ"></a>リポジトリ</h2><p>以下のリポジトリで開発しています。バグ報告、ご要望はIssuesへどうぞ。プルリクエストも歓迎です。</p>
-<a href="https://github.com/hinastory/fileconv" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/fileconv.svg?fullname"></a>
+<a href="https://github.com/hinastory/fileconv" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/fileconv.svg?fullname"></img></a>
 
 <p>このライブラリの今後についてですが、最近は複雑なコンバータを書くのをやめて単純なコンバータをつなげて処理を書くことが多くなっています。従ってそのうちその知見を生かして<code>fileconv</code>にコンバータの「合成」を実装するかもしれません。</p>
 <h2 id="fileconvの失敗談"><a href="#fileconvの失敗談" class="header-anchor"></a>5. <a href="#fileconvの失敗談" class="headerlink" title="fileconvの失敗談"></a><code>fileconv</code>の失敗談</h2><p><code>fileconv</code>を長年使い続ける中で色々と失敗を重ね、少しずつ改良していきました。以下は主な失敗した点です。</p>
@@ -440,7 +442,7 @@
             });
             document.body.appendChild(img);
           });
-      </script>
+      </script></body></html>
         </div>
         
         
@@ -484,7 +486,7 @@
 
 
 
-  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-23</div><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark">RubyKaigi 2019 in 福岡に参加してきた話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-12-25</div><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" title="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)" rel="bookmark"><img src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-12-29</div><a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" title="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)" rel="bookmark">【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)</a></h3></div></li></ul></div>
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ruby-kaigi-2019-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-23</div><a href="/cats-cats-cats/2019/04/23/ruby-kaigi-2019/" title="RubyKaigi 2019 in 福岡に参加してきた話" rel="bookmark">RubyKaigi 2019 in 福岡に参加してきた話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" title="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)" rel="bookmark"><img src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-12-29</div><a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" title="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)" rel="bookmark">【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-12-25</div><a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" title="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた" rel="bookmark">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a></h3></div></li></ul></div>
 </div>
                 
 
@@ -839,7 +841,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -850,7 +852,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -861,7 +863,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -872,7 +874,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -883,7 +885,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -894,7 +896,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -905,7 +907,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -916,7 +918,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -927,7 +929,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -938,7 +940,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -949,7 +951,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -960,7 +962,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1415,7 +1417,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1426,7 +1428,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1437,7 +1439,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1448,7 +1450,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1459,7 +1461,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1470,7 +1472,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1481,7 +1483,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1492,7 +1494,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1503,7 +1505,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1514,7 +1516,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1525,7 +1527,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1536,7 +1538,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>

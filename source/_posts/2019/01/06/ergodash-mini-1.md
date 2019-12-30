@@ -11,7 +11,7 @@ tags:
 
 2018年のキーボード納めとして、年末にErgoDash miniを組みました。ただ普通に作ったのでは成長がないので、以前よりやってみたかった静音化とキースイッチとProMicroのホットスワップ化に挑みます。
 
-{% linkPreview https://github.com/omkbd/ErgoDash/tree/master/mini %}
+{% blogCard https://github.com/omkbd/ErgoDash/tree/master/mini %}
 
 <!-- more -->
 

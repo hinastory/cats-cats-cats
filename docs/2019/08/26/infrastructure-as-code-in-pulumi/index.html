@@ -8,15 +8,19 @@
 
 
     <meta name="description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormat">
-<meta name="keywords" content="AWS,pulumi,IaC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pulumiでプログラマのための「Infrastructure as Code」を実践する">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えばインフラをコード化するという概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormat">
-<meta property="og:locale" content="ja">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/pulumi.png">
-<meta property="og:updated_time" content="2019-11-04T09:24:02.888Z">
+<meta property="article:published_time" content="2019-08-25T22:28:45.000Z">
+<meta property="article:modified_time" content="2019-11-04T09:24:02.888Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="pulumi">
+<meta property="article:tag" content="IaC">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/pulumi.png">
 
@@ -110,7 +114,7 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -164,13 +168,13 @@
     
     <div class="card-content article ">
         <div class="content">
-            <p>「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば<strong>インフラをコード化する</strong>という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは<strong>「コレジャナイ」</strong>と。そして長い、長い旅路の末にようやく巡り会うことができました。<a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi<i class="fas fa-external-link-alt fa-fw"></i></a>という希望の星に。</p>
+            <html><head></head><body><p>「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば<strong>インフラをコード化する</strong>という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは<strong>「コレジャナイ」</strong>と。そして長い、長い旅路の末にようやく巡り会うことができました。<a href="https://www.pulumi.com/" target="_blank" rel="noopener" title target>Pulumi<i class="fas fa-external-link-alt fa-fw"></i></a>という希望の星に。</p>
 <a id="more"></a>
 
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#はじめに" class="contents-header">1. はじめに</a></li><li><a href="#実践-infrastructure-as-code" class="contents-header">2. 実践 Infrastructure as Code</a><ul><li><a href="#pulumiの導入" class="contents-header">2.1. Pulumiの導入</a></li><li><a href="#pulumiログイン" class="contents-header">2.2. pulumiログイン</a></li><li><a href="#プロジェクトとスタックの作成" class="contents-header">2.3. プロジェクトとスタックの作成</a></li><li><a href="#indextsの作成" class="contents-header">2.4. index.tsの作成</a></li><li><a href="#utilstsの作成" class="contents-header">2.5. utils.tsの作成</a></li><li><a href="#インフラのデプロイ" class="contents-header">2.6. インフラのデプロイ</a></li><li><a href="#デプロイ結果の確認" class="contents-header">2.7. デプロイ結果の確認</a></li><li><a href="#リソースの後片付け" class="contents-header">2.8. リソースの後片付け</a></li><li><a href="#コードの解説" class="contents-header">2.9. コードの解説</a></li></ul></li><li><a href="#pulumiのいいところ" class="contents-header">3. Pulumiのいいところ</a></li><li><a href="#pulumiの仕組み" class="contents-header">4. Pulumiの仕組み</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
 
 <h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>1. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事ではPulumi<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>で「Infrastructure as Code」を実践します。具体的にはAWS上に以下の2層構造のWebアプリケーション<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>のインフラを100行未満のTypeScriptで記述します。</p>
-<img src="/cats-cats-cats/gallery/daily/cloud/aws/two-tier-web.png" class="">
+<img src="/cats-cats-cats/gallery/daily/cloud/aws/two-tier-web.png" class>
 
 
 
@@ -183,7 +187,7 @@
 
 <p>ブラウザでログインする場合は上記のコマンド後に「<code>Enter</code>」キーを押します。するとブラウザ側でサインインできます。自分はGitHubでPulumiにサインインしましたが、他にもGitLabやE-mail等でもサインインできます<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
 <h3 id="プロジェクトとスタックの作成"><a href="#プロジェクトとスタックの作成" class="header-anchor"></a>2.3. <a href="#プロジェクトとスタックの作成" class="headerlink" title="プロジェクトとスタックの作成"></a>プロジェクトとスタックの作成</h3><p>次にプロジェクトとスタックの作成をします。以下のコマンドで実行します。</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdir aws-ts-twe-tier-web &amp;&amp; <span class="hljs-built_in">cd</span> aws-ts-twe-tier-web<br>$ pulumi new aws-typescript<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdir aws-ts-twe-tier-web && <span class="hljs-built_in">cd</span> aws-ts-twe-tier-web<br>$ pulumi new aws-typescript<br></code></pre></td></tr></tbody></table></figure>
 
 
 <p><code>pulumi new</code>は基本的にはデフォルトでOKなので<code>Enter</code>で進めますが以下の質問だけ「<code>ap-northeast-1</code>」にして<code>Enter</code>を押してください。</p>
@@ -194,7 +198,7 @@
 <figure class="highlight ts hljs"><figcaption><span>index.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> pulumi <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/pulumi"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> utils <span class="hljs-keyword">from</span> <span class="hljs-string">"./utils"</span><br><br><span class="hljs-keyword">const</span> vpcPrefix = <span class="hljs-string">"custom"</span><br><span class="hljs-keyword">const</span> vpc = <span class="hljs-keyword">new</span> awsx.ec2.Vpc(vpcPrefix)<br><span class="hljs-keyword">const</span> db = utils.createRDSInstance(vpcPrefix, vpc)<br><span class="hljs-keyword">const</span> alb = utils.createApplicationLoadBalancer(vpcPrefix, vpc)<br><span class="hljs-keyword">const</span> targetGroup = alb.createTargetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-tg`</span>, { port: <span class="hljs-number">80</span>, targetType: <span class="hljs-string">"instance"</span> })<br><span class="hljs-keyword">const</span> listener = targetGroup.createListener(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-listener`</span>, { port: <span class="hljs-number">80</span> })<br><span class="hljs-keyword">const</span> autoScalingGroup = utils.createAutoScalingGroup(vpcPrefix, vpc, alb)<br>autoScalingGroup.scaleToTrackAverageCPUUtilization(<span class="hljs-string">"keepAround50Percent"</span>, { targetValue: <span class="hljs-number">50</span> })<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endpoint = listener.endpoint.hostname<br><br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="utilstsの作成"><a href="#utilstsの作成" class="header-anchor"></a>2.5. <a href="#utils-tsの作成" class="headerlink" title="utils.tsの作成"></a>utils.tsの作成</h3><p>同じフォルダに<code>utils.ts</code>を作成して、ファイルに以下を記述してください。コーディングは以上です。</p>
-<figure class="highlight ts hljs"><figcaption><span>utils.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> aws <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/aws"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAmazonLinux</span>(<span class="hljs-params"></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">string</span>&gt; </span>{<br>  <span class="hljs-keyword">return</span> aws.getAmi({<br>    filters: [<br>      { name: <span class="hljs-string">"name"</span>, values: [<span class="hljs-string">"amzn-ami-hvm-*"</span>] },<br>      { name: <span class="hljs-string">"virtualization-type"</span>, values: [<span class="hljs-string">"hvm"</span>] },<br>      { name: <span class="hljs-string">"architecture"</span>, values: [<span class="hljs-string">"x86_64"</span>] },<br>      { name: <span class="hljs-string">"root-device-type"</span>, values: [<span class="hljs-string">"ebs"</span>] },<br>      { name: <span class="hljs-string">"block-device-mapping.volume-type"</span>, values: [<span class="hljs-string">"gp2"</span>] }<br>    ],<br>    mostRecent: <span class="hljs-literal">true</span>,<br>    owners: [<span class="hljs-string">"amazon"</span>]<br>  }).then(<span class="hljs-function"><span class="hljs-params">ami</span> =&gt;</span> ami.id)<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createRDSInstance</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">aws</span>.<span class="hljs-title">rds</span>.<span class="hljs-title">Instance</span> </span>{<br>  <span class="hljs-keyword">const</span> dbSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db-sg`</span>,<br>    {<br>      vpc,<br>      ingress: [{ protocol: <span class="hljs-string">"tcp"</span>, fromPort: <span class="hljs-number">3306</span>, toPort: <span class="hljs-number">3306</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>      egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">const</span> dbSubnets = <span class="hljs-keyword">new</span> aws.rds.SubnetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-dbsubnets`</span>, {<br>    subnetIds: vpc.privateSubnetIds,<br>  })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> aws.rds.Instance(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db`</span>, {<br>    engine: <span class="hljs-string">"mysql"</span>,<br>    instanceClass: <span class="hljs-string">"db.t2.micro"</span>,<br>    allocatedStorage: <span class="hljs-number">10</span>,<br>    dbSubnetGroupName: dbSubnets.id,<br>    vpcSecurityGroupIds: [dbSg.id],<br>    name: <span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>DbInstance`</span>,<br>    username: <span class="hljs-string">"testdb"</span>,<br>    password: <span class="hljs-string">"testdb123"</span>,<br>    multiAz: <span class="hljs-literal">true</span>,<br>    skipFinalSnapshot: <span class="hljs-literal">true</span>,<br>  })<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createApplicationLoadBalancer</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">elasticloadbalancingv2</span>.<span class="hljs-title">ApplicationLoadBalancer</span> </span>{<br>  <span class="hljs-keyword">const</span> albSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-alb-sg`</span>,<br>    {<br>      vpc, egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.lb.ApplicationLoadBalancer(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-traffic`</span>, { vpc, securityGroups: [albSg] });<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRunCmd</span>(<span class="hljs-params">title: <span class="hljs-built_in">string</span>, content: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span> </span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`az=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)<br>echo "&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;<span class="hljs-subst">${title}</span>&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;<span class="hljs-subst">${content}</span> from $az&amp;lt;/h1&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;" &gt; index.html<br>nohup python -m SimpleHTTPServer 80 &amp;`</span><br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createAutoScalingGroup</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc, alb: awsx.elasticloadbalancingv2.ApplicationLoadBalancer</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">autoscaling</span>.<span class="hljs-title">AutoScalingGroup</span> </span>{<br>  <span class="hljs-keyword">const</span> userDataLines = getRunCmd(<span class="hljs-string">"My Web Site"</span>, <span class="hljs-string">"Hello World"</span>).split(<span class="hljs-string">`\n`</span>).map(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> ({ contents: <span class="hljs-string">`    <span class="hljs-subst">${e}</span>`</span>, }) <span class="hljs-keyword">as</span> awsx.autoscaling.UserDataLine)<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.autoscaling.AutoScalingGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-asg`</span>, {<br>    vpc,<br>    subnetIds: vpc.publicSubnets.map(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> e.id),<br>    targetGroups: alb.targetGroups,<br>    templateParameters: {<br>      minSize: <span class="hljs-number">2</span>,<br>      maxSize: <span class="hljs-number">4</span>,<br>    },<br>    launchConfigurationArgs: {<br>      instanceType: <span class="hljs-string">"t2.micro"</span>,<br>      imageId: getAmazonLinux(),<br>      securityGroups: alb.securityGroups,<br>      userData: { extraRuncmdLines: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> userDataLines }<br>    }<br>  })<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight ts hljs"><figcaption><span>utils.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs ts"><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> aws <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/aws"</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> awsx <span class="hljs-keyword">from</span> <span class="hljs-string">"@pulumi/awsx"</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAmazonLinux</span>(<span class="hljs-params"></span>): <span class="hljs-title">Promise</span><<span class="hljs-title">string</span>> </span>{<br>  <span class="hljs-keyword">return</span> aws.getAmi({<br>    filters: [<br>      { name: <span class="hljs-string">"name"</span>, values: [<span class="hljs-string">"amzn-ami-hvm-*"</span>] },<br>      { name: <span class="hljs-string">"virtualization-type"</span>, values: [<span class="hljs-string">"hvm"</span>] },<br>      { name: <span class="hljs-string">"architecture"</span>, values: [<span class="hljs-string">"x86_64"</span>] },<br>      { name: <span class="hljs-string">"root-device-type"</span>, values: [<span class="hljs-string">"ebs"</span>] },<br>      { name: <span class="hljs-string">"block-device-mapping.volume-type"</span>, values: [<span class="hljs-string">"gp2"</span>] }<br>    ],<br>    mostRecent: <span class="hljs-literal">true</span>,<br>    owners: [<span class="hljs-string">"amazon"</span>]<br>  }).then(<span class="hljs-function"><span class="hljs-params">ami</span> =></span> ami.id)<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createRDSInstance</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">aws</span>.<span class="hljs-title">rds</span>.<span class="hljs-title">Instance</span> </span>{<br>  <span class="hljs-keyword">const</span> dbSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db-sg`</span>,<br>    {<br>      vpc,<br>      ingress: [{ protocol: <span class="hljs-string">"tcp"</span>, fromPort: <span class="hljs-number">3306</span>, toPort: <span class="hljs-number">3306</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>      egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">const</span> dbSubnets = <span class="hljs-keyword">new</span> aws.rds.SubnetGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-dbsubnets`</span>, {<br>    subnetIds: vpc.privateSubnetIds,<br>  })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> aws.rds.Instance(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-db`</span>, {<br>    engine: <span class="hljs-string">"mysql"</span>,<br>    instanceClass: <span class="hljs-string">"db.t2.micro"</span>,<br>    allocatedStorage: <span class="hljs-number">10</span>,<br>    dbSubnetGroupName: dbSubnets.id,<br>    vpcSecurityGroupIds: [dbSg.id],<br>    name: <span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>DbInstance`</span>,<br>    username: <span class="hljs-string">"testdb"</span>,<br>    password: <span class="hljs-string">"testdb123"</span>,<br>    multiAz: <span class="hljs-literal">true</span>,<br>    skipFinalSnapshot: <span class="hljs-literal">true</span>,<br>  })<br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createApplicationLoadBalancer</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">elasticloadbalancingv2</span>.<span class="hljs-title">ApplicationLoadBalancer</span> </span>{<br>  <span class="hljs-keyword">const</span> albSg = <span class="hljs-keyword">new</span> awsx.ec2.SecurityGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-alb-sg`</span>,<br>    {<br>      vpc, egress: [{ protocol: <span class="hljs-string">"-1"</span>, fromPort: <span class="hljs-number">0</span>, toPort: <span class="hljs-number">0</span>, cidrBlocks: [<span class="hljs-string">"0.0.0.0/0"</span>] }],<br>    })<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.lb.ApplicationLoadBalancer(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-traffic`</span>, { vpc, securityGroups: [albSg] });<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRunCmd</span>(<span class="hljs-params">title: <span class="hljs-built_in">string</span>, content: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span> </span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`az=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)<br>echo "&lt;html&gt;&lt;head&gt;&lt;title&gt;<span class="hljs-subst">${title}</span>&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;<span class="hljs-subst">${content}</span> from $az&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;" > index.html<br>nohup python -m SimpleHTTPServer 80 &`</span><br>}<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createAutoScalingGroup</span>(<span class="hljs-params">vpcPrefix: <span class="hljs-built_in">string</span>, vpc: awsx.ec2.Vpc, alb: awsx.elasticloadbalancingv2.ApplicationLoadBalancer</span>): <span class="hljs-title">awsx</span>.<span class="hljs-title">autoscaling</span>.<span class="hljs-title">AutoScalingGroup</span> </span>{<br>  <span class="hljs-keyword">const</span> userDataLines = getRunCmd(<span class="hljs-string">"My Web Site"</span>, <span class="hljs-string">"Hello World"</span>).split(<span class="hljs-string">`\n`</span>).map(<span class="hljs-function"><span class="hljs-params">e</span> =></span> ({ contents: <span class="hljs-string">`    <span class="hljs-subst">${e}</span>`</span>, }) <span class="hljs-keyword">as</span> awsx.autoscaling.UserDataLine)<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> awsx.autoscaling.AutoScalingGroup(<span class="hljs-string">`<span class="hljs-subst">${vpcPrefix}</span>-web-asg`</span>, {<br>    vpc,<br>    subnetIds: vpc.publicSubnets.map(<span class="hljs-function"><span class="hljs-params">e</span> =></span> e.id),<br>    targetGroups: alb.targetGroups,<br>    templateParameters: {<br>      minSize: <span class="hljs-number">2</span>,<br>      maxSize: <span class="hljs-number">4</span>,<br>    },<br>    launchConfigurationArgs: {<br>      instanceType: <span class="hljs-string">"t2.micro"</span>,<br>      imageId: getAmazonLinux(),<br>      securityGroups: alb.securityGroups,<br>      userData: { extraRuncmdLines: <span class="hljs-function"><span class="hljs-params">()</span> =></span> userDataLines }<br>    }<br>  })<br>}<br><br></code></pre></td></tr></tbody></table></figure>
 
 
 <p>これで見事に冒頭で示した構成が<code>index.ts</code>と<code>utils.ts</code>を合わせて100行弱のコードで作成できました。</p>
@@ -267,7 +271,7 @@
 <li>“endpoint”の出力</li>
 </ol>
 <p>注意すべきは、実際にPulumiが<strong>上記の流れどおりにリソースを作成しているわけではない</strong>ということです。プログラマはあくまでリソースの依存関係だけを気にしてプログラムを作成すればよく、実際のリソースの作成はPulumiが依存関係を賢く判断して<strong>並列に作成できるリソースは並列に作成してくれます。</strong> さらに言えば、Pulumiは上記のプログラムを「実行」して実際に必要なリソースを確定し、<strong>現在すでに存在するリソースとの差分を計算して</strong>差分のリソースだけをAWS側に作成してくれます。つまり一旦上記のコードを<code>pulumi up</code>で実行したあとにEC2インスタンスを作成するコードを付け足して再実行した場合には、<strong>差分であるEC2インスタンスの作成のみ</strong>が行われるということです。これは例えるならPulumiは<strong>キャッシュ付きの自動並列化コンパイラ</strong>のような役割を果たしていると考えられると思います。</p>
-<p>一番最後の「”endpoint”の出力」は分かりづらいかもしれませんが、変数を<code>export</code>しておくと<code>pulumi up</code>した最後の結果として変数の値を出力してくれます。また「<code>pulumi stack output &lt;変数名&gt;</code>」を実行することで変数の値を出力することができるので、外部のプログラムとの連携が容易になります。</p>
+<p>一番最後の「”endpoint”の出力」は分かりづらいかもしれませんが、変数を<code>export</code>しておくと<code>pulumi up</code>した最後の結果として変数の値を出力してくれます。また「<code>pulumi stack output <変数名></code>」を実行することで変数の値を出力することができるので、外部のプログラムとの連携が容易になります。</p>
 <h2 id="pulumiのいいところ"><a href="#pulumiのいいところ" class="header-anchor"></a>3. <a href="#Pulumiのいいところ" class="headerlink" title="Pulumiのいいところ"></a>Pulumiのいいところ</h2><p>Pulumiのいいところは以下のとおりです。</p>
 <ul>
 <li>マルチクラウド<ul>
@@ -298,17 +302,17 @@
 <p>1つ目はマルチクラウドなところです。AWSやAzureやGCPのようなパブリッククラウドだけではなくOpenStackもサポートしています。またKubernetesのようなコンテナオーケストレーションもPulumiでコード化することができるので、Pulumiを覚えるだけで非常に広範囲のインフラ構築を自動化できることが分かると思います。</p>
 <p>2つ目は複数の汎用言語をサポートしていることです。現在はJavaScriptやTypeScriptやPythonがサポートされており、Go言語も仲間入りする予定です。また拡張可能なように作られていて自分のお気に入りの言語を追加することも可能です<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
 <p>3つ目はインフラのリソースの状態をPulumi側で管理していることです。このことでプログラマは最終的にあるべき状態だけを意識するだけでインフラをプログラミングできます。もしこれが現在のリソース作成状況を意識しながらプログラムを考えなければ行けないとすると非常に大変です。インフラの最終状態だけを思い浮かべて<strong>ロジックに集中できる</strong>ということはプログラマにとってありがたいことです。</p>
-<p>もう一つプログラマに取ってありがたいのはリソースの削除が<code>pulumi destroy</code>で簡単にできることです。プログラマは基本的にはトライアル&amp;エラーでプログラムを作成することに慣れています。しかしリソースの破棄が面倒であれば試行錯誤する気にもならないかもしれません。実際のインフラではリソースに複雑な依存関係がついており順番を守らなければリソースの削除に失敗することもよくあります。しかし、Pulumiはリソースの状態を管理して、依存関係を把握することで、大量かつ複雑な依存関係のリソース群を一括で削除できます。</p>
+<p>もう一つプログラマに取ってありがたいのはリソースの削除が<code>pulumi destroy</code>で簡単にできることです。プログラマは基本的にはトライアル&エラーでプログラムを作成することに慣れています。しかしリソースの破棄が面倒であれば試行錯誤する気にもならないかもしれません。実際のインフラではリソースに複雑な依存関係がついており順番を守らなければリソースの削除に失敗することもよくあります。しかし、Pulumiはリソースの状態を管理して、依存関係を把握することで、大量かつ複雑な依存関係のリソース群を一括で削除できます。</p>
 <p>4つ目は複数のプロジェクトおよびスタックを使い分けられることです。プロジェクトは再利用の単位にもなっていて「自分が作成したインフラ」を簡単に公開して共有することができます。今回作成したコードも以下にGitHubで公開してあるので、ぜひ試してみてください。</p>
 <p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8">👇</span> <a href="https://github.com/hinastory/aws-ts-two-tier-web" target="_blank" rel="noopener">hinastory/aws-ts-two-tier-web: 2-tier web application hosting example for AWS by Pulumi</a></p>
-<a href="https://github.com/hinastory/aws-ts-two-tier-web" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/aws-ts-two-tier-web.svg?fullname"></a>
+<a href="https://github.com/hinastory/aws-ts-two-tier-web" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/hinastory/aws-ts-two-tier-web.svg?fullname"></img></a>
 
 <p>また、プロジェクトの中でスタックを作成でき、コードの中で利用可能な「設定」を定義できます。例えばリージョン情報やユーザ名やパスワード等を「設定」としてコードから外出しすれば再利用性が高まり、スタックの切り替えで「設定」の切り替えもできるので非常に便利です。一番よくある使い方は開発用のスタックと本番用のスタックを分けるやり方です。その他にもパスワードを暗号化して管理する方法も提供されているので安全にインフラを共有することが可能です。</p>
 <h2 id="pulumiの仕組み"><a href="#pulumiの仕組み" class="header-anchor"></a>4. <a href="#Pulumiの仕組み" class="headerlink" title="Pulumiの仕組み"></a>Pulumiの仕組み</h2><p>Pulumiの仕組みは以下のとおりです。</p>
-<img src="/cats-cats-cats/gallery/daily/others/how-pulumi-works.png" class="" width="500">
+<img src="/cats-cats-cats/gallery/daily/others/how-pulumi-works.png" class width="500">
 
-<p><strong>*<a href="https://www.pulumi.com/docs/intro/concepts/how-pulumi-works/" target="_blank" rel="noopener">How Pulumi Works<i class="fas fa-external-link-alt fa-fw"></i></a>より引用*</strong></p>
-<p>まず言語ホストがTypeScript等のコードを実行して、その結果をPulumiのエンジンに伝えます。Pulumiのエンジンは最後のデプロイの情報を確認して、必要に応じてクラウド上のリソースの作成、更新、削除を行い、その結果をまたデプロイの最終結果として保存します。最終結果の保存先はデフォルトでは <a href="https://app.pulumi.com/" target="_blank" rel="noopener">Pulumiのサービス<i class="fas fa-external-link-alt fa-fw"></i></a>になりますが、ローカルやクラウドストレージ上に保存することも可能です。</p>
+<p><strong>*<a href="https://www.pulumi.com/docs/intro/concepts/how-pulumi-works/" target="_blank" rel="noopener" title target>How Pulumi Works<i class="fas fa-external-link-alt fa-fw"></i></a>より引用*</strong></p>
+<p>まず言語ホストがTypeScript等のコードを実行して、その結果をPulumiのエンジンに伝えます。Pulumiのエンジンは最後のデプロイの情報を確認して、必要に応じてクラウド上のリソースの作成、更新、削除を行い、その結果をまたデプロイの最終結果として保存します。最終結果の保存先はデフォルトでは <a href="https://app.pulumi.com/" target="_blank" rel="noopener" title target>Pulumiのサービス<i class="fas fa-external-link-alt fa-fw"></i></a>になりますが、ローカルやクラウドストレージ上に保存することも可能です。</p>
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>5. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>本記事ではPulumiを利用して100行未満のTypeScriptでAWS上に高可用な2層構造のWebアプリケーションのインフラを作成しました。Pulumiを利用した利点は以下のとおりであり、プログラマが「Infrastracture as Code」を実践するのに最適なツールだと感じました<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。</p>
 <ul>
 <li>マルチクラウド<ul>
@@ -330,7 +334,7 @@
 </ul>
 </li>
 <li>インフラのコードの再利用性のための枠組みがある<ul>
-<li>今回作成したコードは <a href="https://github.com/hinastory/aws-ts-two-tier-web" target="_blank" rel="noopener">aws-ts-two-tier-web - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>で公開中</li>
+<li>今回作成したコードは <a href="https://github.com/hinastory/aws-ts-two-tier-web" target="_blank" rel="noopener" title target>aws-ts-two-tier-web - GitHub<i class="fas fa-external-link-alt fa-fw"></i></a>で公開中</li>
 </ul>
 </li>
 </ul>
@@ -339,24 +343,24 @@
 <p>もはやインフラが「ハード」と思われる時代は過ぎ去り、プログラマが柔軟に抽象化し、ライブラリ化し、複雑なインフラ構成をも再利用可能にしていく時代が到来しようとしています。そしてPulumiはその先頭を走るプロダクトであり、自分は多くのPulumiプロジェクトがネット上に公開され、多くのインフラコードのエコシステムが生まれてくることを願って止みません。</p>
 <p>本記事がPulumiの普及とプログラマのためのIaCの一助になれば幸いです。</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://www.pulumi.com/docs/" target="_blank" rel="noopener">Pulumi Documentation<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="http://joeduffyblog.com/2018/06/18/hello-pulumi/" target="_blank" rel="noopener">Joe Duffy - Hello, Pulumi!<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://devops.com/pulumi-advances-devops-on-aws/" target="_blank" rel="noopener">Pulumi Advances DevOps on AWS - DevOps.com<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://thenewstack.io/pulumi-crosswalk-aims-to-simplify-deploying-to-aws/" target="_blank" rel="noopener">Pulumi Crosswalk Aims to Simplify Deploying to AWS - The New Stack<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://www.ibm.com/cloud/blog/chef-ansible-puppet-terraform" target="_blank" rel="noopener">Infrastructure as Code: Chef, Ansible, Puppet, or Terraform? | IBM<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://ja.wikipedia.org/wiki/Infrastructure_as_Code" target="_blank" rel="noopener">Infrastructure as Code - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="http://simplearchitect.hatenablog.com/entry/2016/02/18/165917" target="_blank" rel="noopener">私は Infrastructure as Code をわかっていなかった - メソッド屋のブログ<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://www.apps-gcp.com/terraform-to-pulumi/" target="_blank" rel="noopener">まだTerraform使ってるの？未来はPulumiだよ | apps-gcp.com<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://www.apps-gcp.com/terraform-pulumi-comparison/" target="_blank" rel="noopener">Terraform と Pulumiを比較する | apps-gcp.com<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://dev.classmethod.jp/cloud/aws/pulumi-aws/" target="_blank" rel="noopener">これが次世代プロビジョニングツールの実力か！？ PulumiでAWSリソースを作成してみた ｜ DevelopersIO<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/suzuki_sh/items/69abd7bebcda0d1aa6e1" target="_blank" rel="noopener">Pulumi で AWS Application Load Balancer を構築する - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/keiichi-hikita/items/e21713716840aca6292c" target="_blank" rel="noopener">昨今話題?の Pulumi を使ってみた - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/sirotosiko/items/91490b22aa39b9705b0a" target="_blank" rel="noopener">pulumiのチュートリアルをやってみた - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/346/items/6f972990baf3c708273f" target="_blank" rel="noopener">pulumiのapplyを理解する - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/fukasawah/items/7c793ab8b08d19cd9376" target="_blank" rel="noopener">Pulumiの状態管理にクラウドストレージバックエンドを使う - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/majikahtn/items/828906df8de0b11a9309" target="_blank" rel="noopener">Pulumi+VSCodeの書き心地が抜群な件 - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
-<li><a href="https://qiita.com/keiichi-hikita/items/aa69eb4716db49cabeda" target="_blank" rel="noopener">PulumiのProviderをTerraformのProviderから実際に作成してみた - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi<i class="fas fa-external-link-alt fa-fw"></i></a>はモダンなInfrastructure as Codeを実践するためのプロダクトであり、OSSです。そして、それを開発、サポートする会社の名前でもあります。Pulumiの由来はハワイ語の箒(ほうき)になります。もしくはPulumiの創業者でありCEOでもあるJoe Duffyの親友でもあった「Chris Brumme(故人)」の名前の誤発音です。詳細は<a href="http://joeduffyblog.com/2018/06/18/hello-pulumi/" target="_blank" rel="noopener">Joe Duffy's Blog<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">一般的には<a href="https://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_web_01.pdf" target="_blank" rel="noopener">AWSのリファレンスアーキテクチャ<i class="fas fa-external-link-alt fa-fw"></i></a>にある通り、Webサーバとアプリケーションサーバを分離した構成をとることが多いです。またDNSであるRoute53やCDNのCloudFrontもWebサーバの構成として入れるのが妥当ですが、今回はなるべく応用可能な「基礎」を提示したかったのでこの構成にしました。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">Pulumiにサインインせずにローカルだけで完結させる方法もあります。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">AWSのマネジメントコンソール側でPulumiで作成したリソースの変更をしないでください。Pulumi側が管理している状態とAWSの状態がずれるとこの後説明するリソースの後片付けで失敗する可能性があります。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">特にRDSのマルチAZ構成はお高いので注意してください。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">言語エンジンは外部プロセスと実行されgRPCを介してPulumiエンジンやリソースプロバイダと通信します。つまり通信プロトコルさえ守れば、Pulumi本体に手を入れることなく簡単に別の言語サポートを追加できるということです。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">Pulumiが他のIaCツールと何が違うのかを詳しく知りたい方は「<a href="https://www.pulumi.com/docs/intro/vs/" target="_blank" rel="noopener">Pulumi vs. Other Solutions</a>」を参照してください。</span><a href="#fnref:7" rev="footnote"> ↩</a></li></ol></div></div></li>
+<li><a href="https://www.pulumi.com/docs/" target="_blank" rel="noopener" title target>Pulumi Documentation<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="http://joeduffyblog.com/2018/06/18/hello-pulumi/" target="_blank" rel="noopener" title target>Joe Duffy - Hello, Pulumi!<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://devops.com/pulumi-advances-devops-on-aws/" target="_blank" rel="noopener" title target>Pulumi Advances DevOps on AWS - DevOps.com<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://thenewstack.io/pulumi-crosswalk-aims-to-simplify-deploying-to-aws/" target="_blank" rel="noopener" title target>Pulumi Crosswalk Aims to Simplify Deploying to AWS - The New Stack<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://www.ibm.com/cloud/blog/chef-ansible-puppet-terraform" target="_blank" rel="noopener" title target>Infrastructure as Code: Chef, Ansible, Puppet, or Terraform? | IBM<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Infrastructure_as_Code" target="_blank" rel="noopener" title target>Infrastructure as Code - Wikipedia<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="http://simplearchitect.hatenablog.com/entry/2016/02/18/165917" target="_blank" rel="noopener" title target>私は Infrastructure as Code をわかっていなかった - メソッド屋のブログ<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://www.apps-gcp.com/terraform-to-pulumi/" target="_blank" rel="noopener" title target>まだTerraform使ってるの？未来はPulumiだよ | apps-gcp.com<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://www.apps-gcp.com/terraform-pulumi-comparison/" target="_blank" rel="noopener" title target>Terraform と Pulumiを比較する | apps-gcp.com<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dev.classmethod.jp/cloud/aws/pulumi-aws/" target="_blank" rel="noopener" title target>これが次世代プロビジョニングツールの実力か！？ PulumiでAWSリソースを作成してみた ｜ DevelopersIO<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/suzuki_sh/items/69abd7bebcda0d1aa6e1" target="_blank" rel="noopener" title target>Pulumi で AWS Application Load Balancer を構築する - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/keiichi-hikita/items/e21713716840aca6292c" target="_blank" rel="noopener" title target>昨今話題?の Pulumi を使ってみた - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/sirotosiko/items/91490b22aa39b9705b0a" target="_blank" rel="noopener" title target>pulumiのチュートリアルをやってみた - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/346/items/6f972990baf3c708273f" target="_blank" rel="noopener" title target>pulumiのapplyを理解する - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/fukasawah/items/7c793ab8b08d19cd9376" target="_blank" rel="noopener" title target>Pulumiの状態管理にクラウドストレージバックエンドを使う - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/majikahtn/items/828906df8de0b11a9309" target="_blank" rel="noopener" title target>Pulumi+VSCodeの書き心地が抜群な件 - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/keiichi-hikita/items/aa69eb4716db49cabeda" target="_blank" rel="noopener" title target>PulumiのProviderをTerraformのProviderから実際に作成してみた - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.pulumi.com/" target="_blank" rel="noopener" title target>Pulumi<i class="fas fa-external-link-alt fa-fw"></i></a>はモダンなInfrastructure as Codeを実践するためのプロダクトであり、OSSです。そして、それを開発、サポートする会社の名前でもあります。Pulumiの由来はハワイ語の箒(ほうき)になります。もしくはPulumiの創業者でありCEOでもあるJoe Duffyの親友でもあった「Chris Brumme(故人)」の名前の誤発音です。詳細は<a href="http://joeduffyblog.com/2018/06/18/hello-pulumi/" target="_blank" rel="noopener" title target>Joe Duffy's Blog<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">一般的には<a href="https://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_web_01.pdf" target="_blank" rel="noopener" title target>AWSのリファレンスアーキテクチャ<i class="fas fa-external-link-alt fa-fw"></i></a>にある通り、Webサーバとアプリケーションサーバを分離した構成をとることが多いです。またDNSであるRoute53やCDNのCloudFrontもWebサーバの構成として入れるのが妥当ですが、今回はなるべく応用可能な「基礎」を提示したかったのでこの構成にしました。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">Pulumiにサインインせずにローカルだけで完結させる方法もあります。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">AWSのマネジメントコンソール側でPulumiで作成したリソースの変更をしないでください。Pulumi側が管理している状態とAWSの状態がずれるとこの後説明するリソースの後片付けで失敗する可能性があります。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">特にRDSのマルチAZ構成はお高いので注意してください。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">言語エンジンは外部プロセスと実行されgRPCを介してPulumiエンジンやリソースプロバイダと通信します。つまり通信プロトコルさえ守れば、Pulumi本体に手を入れることなく簡単に別の言語サポートを追加できるということです。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">Pulumiが他のIaCツールと何が違うのかを詳しく知りたい方は「<a href="https://www.pulumi.com/docs/intro/vs/" target="_blank" rel="noopener">Pulumi vs. Other Solutions</a>」を参照してください。</span><a href="#fnref:7" rev="footnote"> ↩</a></li></ol></div></div></li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -376,7 +380,7 @@
             });
             document.body.appendChild(img);
           });
-      </script>
+      </script></body></html>
         </div>
         
         
@@ -775,7 +779,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -786,7 +790,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -797,7 +801,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -808,7 +812,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -819,7 +823,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -830,7 +834,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -841,7 +845,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -852,7 +856,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -863,7 +867,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -874,7 +878,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -885,7 +889,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -896,7 +900,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1351,7 +1355,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1362,7 +1366,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1373,7 +1377,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1384,7 +1388,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1395,7 +1399,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1406,7 +1410,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1417,7 +1421,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1428,7 +1432,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1439,7 +1443,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1450,7 +1454,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1461,7 +1465,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1472,7 +1476,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>

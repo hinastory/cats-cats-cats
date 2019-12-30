@@ -8,15 +8,18 @@
 
 
     <meta name="description" content="2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。 サイレントでホットスワップなErgoDash miniを制作(前編)">
-<meta name="keywords" content="Keyboard,ErgoDash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="サイレントでホットスワップなErgoDash miniを制作(後編)">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2019/01/10/ergodash-mini-2/index.html">
 <meta property="og:site_name" content="cats cats cats">
 <meta property="og:description" content="2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。 サイレントでホットスワップなErgoDash miniを制作(前編)">
-<meta property="og:locale" content="ja">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/ergodash-mini2.jpg">
-<meta property="og:updated_time" content="2019-01-22T21:22:32.750Z">
+<meta property="article:published_time" content="2019-01-10T14:37:02.000Z">
+<meta property="article:modified_time" content="2019-12-30T04:32:47.860Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="Keyboard">
+<meta property="article:tag" content="ErgoDash">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/ergodash-mini2.jpg">
 
@@ -110,7 +113,7 @@
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -164,7 +167,7 @@
     
     <div class="card-content article ">
         <div class="content">
-            <p>2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。</p>
+            <html><head></head><body><p>2018年のキーボード納めとして、年末にErgoDash miniを組みました。この記事はその後編にあたります。前編は以下になります。</p>
 <a href="/cats-cats-cats/2019/01/06/ergodash-mini-1/" title="サイレントでホットスワップなErgoDash miniを制作(前編)">サイレントでホットスワップなErgoDash miniを制作(前編)</a>
 
 <a id="more"></a>
@@ -172,49 +175,49 @@
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#制作工程" class="contents-header">1. 制作工程</a><ul><li><a href="#pro-micro用のコンスルーの取り付け" class="contents-header">1.1. Pro Micro用のコンスルーの取り付け</a></li><li><a href="#ホットスワップ用ベリリウムの取り付け" class="contents-header">1.2. ホットスワップ用ベリリウムの取り付け</a></li><li><a href="#スタビライザー-キースイッチ-pro-microの取り付け" class="contents-header">1.3. スタビライザー、キースイッチ、Pro Microの取り付け</a></li><li><a href="#pro-microにqmk-firmwareの書き込み" class="contents-header">1.4. Pro MicroにQMK Firmwareの書き込み</a></li><li><a href="#動作確認" class="contents-header">1.5. 動作確認</a></li><li><a href="#ケースの組み立て" class="contents-header">1.6. ケースの組み立て</a></li><li><a href="#キーキャップの取り付け-o-ringによる静音化" class="contents-header">1.7. キーキャップの取り付け 〜O-ringによる静音化〜</a></li><li><a href="#完成" class="contents-header">1.8. 完成!</a></li></ul></li><li><a href="#トラブルシューティング" class="contents-header">2. トラブルシューティング</a></li><li><a href="#ホットスワップ化の長所と短所" class="contents-header">3. ホットスワップ化の長所と短所</a></li><li><a href="#まとめ" class="contents-header">4. まとめ</a></li></ul></div>
 
 <h2 id="制作工程"><a href="#制作工程" class="header-anchor"></a>1. <a href="#制作工程" class="headerlink" title="制作工程"></a>制作工程</h2><p>前回はUndergrow LEDの取り付けまで行いました。今回はいよいよPro Microとキースイッチのホットスワップ化に挑みます。</p>
-<h3 id="pro-micro用のコンスルーの取り付け"><a href="#pro-micro用のコンスルーの取り付け" class="header-anchor"></a>1.1. <a href="#Pro-Micro用のコンスルーの取り付け" class="headerlink" title="Pro Micro用のコンスルーの取り付け"></a>Pro Micro用のコンスルーの取り付け</h3><p>Pro Microのホットスワップ化<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>ですが、これはなるべく行っておいたほうがよいです。理由は前述のとおりモゲる心配もありますし、初期不良でPro Microが動作しないこともあります。基盤にはんだ付けすると後で剥がすのが非常に大変です。Pro Microのホットスワップ化の方法は主に２つあって、<a href="https://yushakobo.jp/shop/a01mc-00/" target="_blank" rel="noopener">コンスルー(スプリングピンヘッダ)<i class="fas fa-external-link-alt fa-fw"></i></a>を用いる方法と、ソケットを用いる方法です。今回はコンスルーを利用しました。コンスルーはピンの部分がバネのような構造になっており、基盤部分にはんだ付けしなくてもスルーホールと密着する仕組みになっています。ただし、コンスルーとPro Microのはんだ付けは必要なようです。コンスルー利用時の注意点としては、コンスルー自体に向きがあることです。</p>
-<blockquote><img src="https://camo.githubusercontent.com/c05368781c4341d65f5405ba7ae7d0c1babf2438/68747470733a2f2f692e696d6775722e636f6d2f4779414555336c2e6a7067" class="" width="400"><footer><strong>Helixビルドガイドより</strong><cite><a href="https://github.com/MakotoKurauchi/helix/blob/master/Doc/buildguide_jp.md" target="_blank" rel="noopener">引用元</a></cite></footer></blockquote>
+<h3 id="pro-micro用のコンスルーの取り付け"><a href="#pro-micro用のコンスルーの取り付け" class="header-anchor"></a>1.1. <a href="#Pro-Micro用のコンスルーの取り付け" class="headerlink" title="Pro Micro用のコンスルーの取り付け"></a>Pro Micro用のコンスルーの取り付け</h3><p>Pro Microのホットスワップ化<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>ですが、これはなるべく行っておいたほうがよいです。理由は前述のとおりモゲる心配もありますし、初期不良でPro Microが動作しないこともあります。基盤にはんだ付けすると後で剥がすのが非常に大変です。Pro Microのホットスワップ化の方法は主に２つあって、<a href="https://yushakobo.jp/shop/a01mc-00/" target="_blank" rel="noopener" title target>コンスルー(スプリングピンヘッダ)<i class="fas fa-external-link-alt fa-fw"></i></a>を用いる方法と、ソケットを用いる方法です。今回はコンスルーを利用しました。コンスルーはピンの部分がバネのような構造になっており、基盤部分にはんだ付けしなくてもスルーホールと密着する仕組みになっています。ただし、コンスルーとPro Microのはんだ付けは必要なようです。コンスルー利用時の注意点としては、コンスルー自体に向きがあることです。</p>
+<blockquote><img src="https://camo.githubusercontent.com/c05368781c4341d65f5405ba7ae7d0c1babf2438/68747470733a2f2f692e696d6775722e636f6d2f4779414555336c2e6a7067" class width="400"><footer><strong>Helixビルドガイドより</strong><cite><a href="https://github.com/MakotoKurauchi/helix/blob/master/Doc/buildguide_jp.md" target="_blank" rel="noopener">引用元</a></cite></footer></blockquote>
 
 <p>向きを間違えると基盤から抜けやすくなったり接触不良になりやすいので、Helixのビルドガイドを参考に取り付けをしました。</p>
-<h3 id="ホットスワップ用ベリリウムの取り付け"><a href="#ホットスワップ用ベリリウムの取り付け" class="header-anchor"></a>1.2. <a href="#ホットスワップ用ベリリウムの取り付け" class="headerlink" title="ホットスワップ用ベリリウムの取り付け"></a>ホットスワップ用ベリリウムの取り付け</h3><p>ここからがようやくキースイッチのホットスワップ化の話です。キースイッチのホットスワップ化する方法も主に２つあり、スルーホールに<a href="https://www.digikey.jp/product-detail/ja/mill-max-manufacturing-corp/7305-0-15-15-47-27-10-0/ED1039-ND/1765737" target="_blank" rel="noopener">ベリリウム銅<i class="fas fa-external-link-alt fa-fw"></i></a>を埋め込む方法と<a href="https://yushakobo.jp/shop/a01ps/" target="_blank" rel="noopener">スイッチ用PCBソケット<i class="fas fa-external-link-alt fa-fw"></i></a>を利用する方法です。後者は基盤やケースの対応が必要になるので、今回は「みんな大好きベリリウム」<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>を使います。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/switch-socket.jpg" class="" width="400">
+<h3 id="ホットスワップ用ベリリウムの取り付け"><a href="#ホットスワップ用ベリリウムの取り付け" class="header-anchor"></a>1.2. <a href="#ホットスワップ用ベリリウムの取り付け" class="headerlink" title="ホットスワップ用ベリリウムの取り付け"></a>ホットスワップ用ベリリウムの取り付け</h3><p>ここからがようやくキースイッチのホットスワップ化の話です。キースイッチのホットスワップ化する方法も主に２つあり、スルーホールに<a href="https://www.digikey.jp/product-detail/ja/mill-max-manufacturing-corp/7305-0-15-15-47-27-10-0/ED1039-ND/1765737" target="_blank" rel="noopener" title target>ベリリウム銅<i class="fas fa-external-link-alt fa-fw"></i></a>を埋め込む方法と<a href="https://yushakobo.jp/shop/a01ps/" target="_blank" rel="noopener" title target>スイッチ用PCBソケット<i class="fas fa-external-link-alt fa-fw"></i></a>を利用する方法です。後者は基盤やケースの対応が必要になるので、今回は「みんな大好きベリリウム」<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>を使います。</p>
+<img src="/cats-cats-cats/gallery/daily/keyboards/switch-socket.jpg" class width="400">
 
 <p>ベリリウムは上記の写真のとおり非常に小さな金属です。写真右下のキースイッチに実際にベリリウムを嵌めていますが、上の方の足のベリリウムは非常に硬かったので最初下の足だけピンセットでベリリウムを嵌めて、もう一つのベリリウムは基盤のスルーホールに嵌めてからスイッチを垂直に挿すようにして嵌めました。このとき大事なのはベリリウムの穴に対してちゃんと狙って真上から力をかけることです。スイッチの足は折れやすいので斜めに力を掛けるとすぐに穴に入らずグニャリと逝ってしまわれます<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。このベリリウムを挿す作業は非常に辛い作業で一部の人々には「田植え」とも呼ばれていますが、基盤から生え揃った金色の稲穂を眼前にすれば目頭が熱くなること必死です(笑)。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/golden-rice.jpg" class="" width="400">
+<img src="/cats-cats-cats/gallery/daily/keyboards/golden-rice.jpg" class width="400">
 
 <p>ErgoDash miniではこの段階で親指付近のキーの物理配置を決定しますが、せっかくホットスワップにしたのでキーの足が入る全てのスルーホールにベリリウムを埋め込んでおくことをオススメします。こうすることで後ではんだ付けすることなくキーの物理配置を変更することができます。実際にキーマップをいじっていると物理配置をいじりたくなる瞬間が何回かあってホットスワップにしておいてよかったと実感できました。</p>
 <p>さて、この田植え作業が終わったと思って一息つけるかと思えば、そうは問屋が卸しません・・・組立工程の屈指の難関、ベリリウムのはんだ付けです。このはんだ付けの何が難しいかと言えば、基盤から顔を覗かせているベリリウムの高さがあまりないので、ベリリウムの穴にはんだが入らないように周囲にだけはんだを盛るのが大変なのです。単にスイッチの足をはんだ付けすればいいのであれば、一つの足に付き数秒で済みますが、ベリリウムの周囲をはんだが入らないように固めるとすれば、はんだを数回に分けて慎重に盛らねばなりません。自分の場合、普通にスイッチにはんだ付けするより5倍程の時間がかかりました・・・<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></p>
 <h3 id="スタビライザー-キースイッチ-pro-microの取り付け"><a href="#スタビライザー-キースイッチ-pro-microの取り付け" class="header-anchor"></a>1.3. <a href="#スタビライザー、キースイッチ、Pro-Microの取り付け" class="headerlink" title="スタビライザー、キースイッチ、Pro Microの取り付け"></a>スタビライザー、キースイッチ、Pro Microの取り付け</h3><p>ホットスワップにしたのでここからは基盤に挿すだけのお仕事です。ただスタビライザーを取り付ける場合には静音化のためにグリスをしっかり塗りましょう。自分は手元にあったシリコングリスを塗りました。オイル系だとあまり音を抑えられなかったのでここはグリスがいい感じでした。キースイッチは足が曲がらないように慎重にベリリウムを狙って挿すようにしましょう。Pro Microは基盤に挿すだけなのですが、Pro Microに着いているLEDは光量があって透明のアクリルケースだと拡散して結構目立ちます。気になる人は不透明な絶縁テープで目張りをすることをオススメします。下の写真では左が目張りをしていて、右が目張りをしていません。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/pro-micro-light.jpg" class="" width="300">
+<img src="/cats-cats-cats/gallery/daily/keyboards/pro-micro-light.jpg" class width="300">
 
 <p>USBの口と反対側にライトがあるのでここにテープを貼ります。この写真では赤色のLEDしか目張りしていませんが、緑色のLEDも気になる場合は全体に貼りましょう。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/pro-micro-tape.jpg" class="" width="300">
+<img src="/cats-cats-cats/gallery/daily/keyboards/pro-micro-tape.jpg" class width="300">
 
 <h3 id="pro-microにqmk-firmwareの書き込み"><a href="#pro-microにqmk-firmwareの書き込み" class="header-anchor"></a>1.4. <a href="#Pro-MicroにQMK-Firmwareの書き込み" class="headerlink" title="Pro MicroにQMK Firmwareの書き込み"></a>Pro MicroにQMK Firmwareの書き込み</h3><p>この作業は公式のビルドガイドどおりで大丈夫です・・・といっても公式もリンクで実際はQMK Firmwareのページにもろもろ書いてあります。とりあえずGMK Firmwareの環境構築は終わっているものとして、骨子だけ説明します。ターミナルを開いて以下の手順で実施すれば大丈夫です。</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ＜QMK Firmwareのトップディレクトリ＞<br>cp -r keyboards/ergodash/mini/keymaps/default keyboards/ergodash/mini/keymaps/hinastory <span class="hljs-comment"># デフォルトのキーマップをコピーして自分専用のものを作る</span><br>emacs -nw keyboards/ergodash/mini/keymaps/hinastory/rules.mk <span class="hljs-comment"># 「RGBLIGHT_ENABLE = yes」を追加</span><br>emacs -nw keyboards/ergodash/mini/keymaps/hinastory/keymap.c <span class="hljs-comment"># お好きなキーマップに変更</span><br>sudo make ergodash/mini:hinastory <span class="hljs-comment"># ファームウェアのビルドと転送。</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>上記で「hinastory」の部分は適当に好きな名前にしてください。自分のオリジナルのキーマップになるはずなのでユーザ名にしておくとわかりやすいです。emacsの部分はお好きなエディタに読み替えてください。Backlight LEDを有効にするためにはrule.mkに「RGBLIGHT_ENABLE = yes」を追加する必要があります。ファームウェアのビルドの転送に関してはコマンド実行後に以下のメッセージが表示されたら、PCと片側のキーボードをUSBケーブルでつないで、キーボードのリセットスイッチを押してください。この作業時にはTRRSケーブルは抜いておいてください。もう片側も同様にファームウェアの転送が必要です。</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">Detecting USB port, reset your controller now...<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Detecting USB port, reset your controller now...<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="動作確認"><a href="#動作確認" class="header-anchor"></a>1.5. <a href="#動作確認" class="headerlink" title="動作確認"></a>動作確認</h3><p>おめでとうございます！<br>ここまでの作業でマスターにUSBケーブルをつなぎ、左右のキーボードをTRRSケーブル<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>で繋げはキーボードは光り、全てのキーが入力できるはずです。動作に問題があった方はご愁傷様です・・・ケースを組む前にトラブルシューティングにお進みください・・・<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup></p>
 <h3 id="ケースの組み立て"><a href="#ケースの組み立て" class="header-anchor"></a>1.6. <a href="#ケースの組み立て" class="headerlink" title="ケースの組み立て"></a>ケースの組み立て</h3><p>ケース組み立てはビルドガイドの通りにアクリルプレートをネジ止めすれば大丈夫です。問題はキーボードに傾斜をつけたい場合です。もともとErgodash miniにはPro Microのスペースを確保するために手前から奥にかけて軽めの傾斜が付いていますが、もう少し奥側を高くしたい場合はゴム足で調整するのが簡単です。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/tilt.jpg" class="" width="500">
+<img src="/cats-cats-cats/gallery/daily/keyboards/tilt.jpg" class width="500">
 
 <p>上記の写真右がキーボードの手前側で写真左がキーボードの奥側になります。手前に着いている小さいゴム足がキットに付属しているもので、奥側の少し大きめのゴム足が追加で購入したものです。ゴム足は色々なサイズのものがあるので好みの大きさを購入してください。Ergodash miniはコンパクトなキーボードなのでこのくらいの傾斜が自分にはちょうどよかったです。また、キーボードの中央と外側で高さを変えたい場合もゴム足の高さを変えることで調整できます。</p>
 <h3 id="キーキャップの取り付け-o-ringによる静音化"><a href="#キーキャップの取り付け-o-ringによる静音化" class="header-anchor"></a>1.7. <a href="#キーキャップの取り付け-〜O-ringによる静音化〜" class="headerlink" title="キーキャップの取り付け 〜O-ringによる静音化〜"></a>キーキャップの取り付け 〜O-ringによる静音化〜</h3><p>いよいよ最後にキーキャップを取り付け作業です。自作キーボードの制作の中でも屈指の楽しい作業です。まずは手持ちのキーキャップを机に並べる所から始めましょう。自分はピラミッドを組みました(笑)<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。キーキャップはキースイッチに適合したものであれば何でもよいです。一般的にはCherry MX互換スイッチが大多数なのでCherry MX対応のキーキャップから揃えることをオススメします。今回使ったGateron SilentスイッチもCherry MX互換のスイッチだったので、大量のキーキャップとキャッキャウフフしながら、キーボードの着せ替えを楽しみました。まさに至福のひとときです。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/keycap.jpg" class="" width="300">
+<img src="/cats-cats-cats/gallery/daily/keyboards/keycap.jpg" class width="300">
 
 <p>どのキーキャップをつけるか決めたら最後に静音化の一手間をかけます。前編で説明したO-ringです。今回はグループバイ(共同購入)した3mm O-ringを装着しました。O-ringの大きさや素材によって静音性は変わるので好みのものを選んでください。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/o-ring.jpg" class="" width="300">
+<img src="/cats-cats-cats/gallery/daily/keyboards/o-ring.jpg" class width="300">
 
 <p>取り付け方は簡単で上記の写真のようにキーキャップの裏の足に嵌めるだけです。2uのキーキャップには3箇所嵌める必要があります。</p>
 <h3 id="完成"><a href="#完成" class="header-anchor"></a>1.8. <a href="#完成" class="headerlink" title="完成!"></a>完成!</h3><p>お疲れ様でした。完成です！</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/ergodash-mini.jpg" class="" width="500">
+<img src="/cats-cats-cats/gallery/daily/keyboards/ergodash-mini.jpg" class width="500">
 
 <h2 id="トラブルシューティング"><a href="#トラブルシューティング" class="header-anchor"></a>2. <a href="#トラブルシューティング" class="headerlink" title="トラブルシューティング"></a>トラブルシューティング</h2><p>今回自分が体験したトラブルはダイオードの挿し忘れ、LEDのはんだ不良、ベリリウムの穴にはんだ流し込み、ベリリウムのはんだ忘れ、スイッチの足にベリリムを嵌めようとしてスイッチの足を壊す、スタビライザーつけ忘れ、TRSケーブルとTRRSケーブルの間違い・・・<br>書いてて自分はアホの子ではないかとおもうくらいやらかしています・・・orz<br>ただこれはみんな通る道だと信じています・・・<br>以下のリンク先にこれらのトラブルの原因と対処方法がまとまっているのでご確認ください。ここに自分が体験したほぼ全てのトラブルが記載してありました。本当にいい情報なのでまとめてくれた人に感謝です。自分が自作キーボードを始めた頃にこのページはなかったのが悔やまれます・・・</p>
-<a href="https://scrapbox.io/self-made-kbds-ja/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%99%A5%E3%82%8B%E3%83%9F%E3%82%B9%E3%81%A8%E5%AF%BE%E7%AD%96" target="_blank" rel="noopener" class="link-preview"><div class="link-area"><div class="og-image"><img src="https://gyazo.com/9fe735ea9881ea3ff60b23bb6f8e0d4c/thumb/1000"></div><div class="descriptions"><div class="og-title">キーボードを組み立てるときに陥るミスと対策 - Self-Made Keyboards in  Japan</div><div class="og-description">はじめてキットを組む人に是非一読して欲しいもの、としてまとめていきたい htomine シチュエーションごとになっていたほうがわかりやすい気はするので、項目別の内容をそちらに転化していけるといいかも。 これだけは確認して欲しいリスト とても多い間違い・ミスをピックアップしました。…</div></div></div></a>
+<div class="blog-card"><div class="hbc-link-wrap"><a class="hbc-link" href="https://scrapbox.io/self-made-kbds-ja/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%99%A5%E3%82%8B%E3%83%9F%E3%82%B9%E3%81%A8%E5%AF%BE%E7%AD%96" target="_blank" rel="noopener"><div class="hbc-card"><div class="hbc-info"><img class="hbc-favicon" src="https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2Fscrapbox.io%2Fself-made-kbds-ja%2F%25E3%2582%25AD%25E3%2583%25BC%25E3%2583%259C%25E3%2583%25BC%25E3%2583%2589%25E3%2582%2592%25E7%25B5%2584%25E3%2581%25BF%25E7%25AB%258B%25E3%2581%25A6%25E3%2582%258B%25E3%2581%25A8%25E3%2581%258D%25E3%2581%25AB%25E9%2599%25A5%25E3%2582%258B%25E3%2583%259F%25E3%2582%25B9%25E3%2581%25A8%25E5%25AF%25BE%25E7%25AD%2596"><div class="hbc-site-name">Self-Made Keyboards in  Japan</div></div><div class="hbc-contents"><div class="hbc-thumbnail"><img src="https://gyazo.com/9fe735ea9881ea3ff60b23bb6f8e0d4c/thumb/1000"></div><div class="hbc-title">キーボードを組み立てるときに陥るミスと対策 - Self-Made Keyboards in  Japan</div><div class="hbc-url">https://scrapbox.io/self-made-kbds-ja/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%92%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%99%A5%E3%82%8B%E3%83%9F%E3%82%B9%E3%81%A8%E5%AF%BE%E7%AD%96</div><div class="hbc-description">はじめてキットを組む人に是非一読して欲しいもの、としてまとめていきたい htomine シチュエーションごとになっていたほうがわかりやすい気はするので、項目別の内容をそちらに転化していけるといいかも。 これだけは確認して欲しいリスト とても多い間違い・ミスをピックアップしました。…</div></div></div></a></div></div>
 
-<p>上記のページで解決しない場合は<a href="https://discordapp.com/invite/NM7XtDW" target="_blank" rel="noopener">Discode<i class="fas fa-external-link-alt fa-fw"></i></a>で質問しましょう。「#ergodash」という専用チャンネルもありますし、自作キーボードの入門的な質問なら「#beginner-help」でもいいでしょう。親切な人が多いのできっと誰かが手を差し伸べてくれるはずです<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。</p>
+<p>上記のページで解決しない場合は<a href="https://discordapp.com/invite/NM7XtDW" target="_blank" rel="noopener" title target>Discode<i class="fas fa-external-link-alt fa-fw"></i></a>で質問しましょう。「#ergodash」という専用チャンネルもありますし、自作キーボードの入門的な質問なら「#beginner-help」でもいいでしょう。親切な人が多いのできっと誰かが手を差し伸べてくれるはずです<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。</p>
 <p>ここからはトラブルの傾向に対する自分の感想ですが、やはりいちばんの関門はキットやパーツの入手性の悪さですね。人気のキットはすぐに売り切れますし、グループバイ(共同購入)の情報も様々な情報を注視していないと拾えないです。最近は大分改善されましたが、一昨年まではまともに組もうとすると海外通販を避けて通れない状態でした。しかし、去年はコミケやTokyo Maker Fairや技術書店にいけばキットを購入でき、Boothでも手に入りやすい状態でした。今年はもうすぐ遊舎工房さんの実店舗が秋葉原にオープンするらしいので、入手性に関してはさらに改善される見込みです。次の鬼門ははんだ付けですね。特にPro Microのはんだ不良は結構耳にします。またダイオードやPro Microを逆付けしてはんだを剥がそうとして基盤を壊す人もそこそこいます。またLEDチップの実装は阿鼻叫喚の様相を呈しています。</p>
 <p>あとはQMK Firmwareですね。苦労のタイプは大きく２つあって、QMK Firmwareそのものに苦戦する場合とQMK FIrmwareにたどり着く前の前提知識で苦戦する場合です。前者はQMK Firmwareのどこをいじればキーマップを思い通りにできるか悩む場合でドキュメントを読んである程度試行錯誤しないといけないでしょう。後者はそもそもビルド環境の構築やGit操作やC言語やmakeの仕組みの理解が足りなくて苦労しています。自分は前者の苦労だけで済んだので比較的楽でしたが、後者で苦労している人も多そうですね。残念ながらこの辺の苦労話を書くのはここの余白は狭すぎます・・・<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup></p>
 <h2 id="ホットスワップ化の長所と短所"><a href="#ホットスワップ化の長所と短所" class="header-anchor"></a>3. <a href="#ホットスワップ化の長所と短所" class="headerlink" title="ホットスワップ化の長所と短所"></a>ホットスワップ化の長所と短所</h2><p>最後にホットスワップ化の作業について、自分が感じたProsとConsをまとめてみたいとおもいます。</p>
@@ -251,10 +254,10 @@
 </ul>
 <p>Pro Microに関しては特に言うことないですね。大抵の人にオススメできると思います。スイッチのホットスワップ化は本当に人を選びます。とにかくお金と慎重さと忍耐が必要です。一旦ホットスワップ化をしてしまえば当然最高の気分になれます。特に末永くキーボードを使っていくとなると、後でキースイッチを変えたり、lubeをやり直したくなったりしますがこれをいつでもできるという安心感はすごいですね。ケースもスイッチをはんだ付けするとトッププレートはかえられませんが、これもスイッチを引き抜けると簡単に交換可能になります。あと最初は意識していなかったキーの物理配置を後から簡単に変えられるのも地味に嬉しかったです。</p>
 <p>キースイッチのホットスワップ化後の注意点には、キーキャップを引き抜くときにキースイッチも抜ける場合があります。これはケースやキーキャップの装着部分のきつさにもよるのですが、自分の場合何もしないと3つに一つはキースイッチも一緒に抜けます。対策としてはキーキャップ引き抜き器(針金タイプのもの)の一つを治具代わりにして、キースイッチの上部を押さえて、２本めのキーキャップ引き抜き器でキーキャップを抜いています。</p>
-<img src="/cats-cats-cats/gallery/daily/keyboards/pull-keycap.jpg" class="" width="250">
+<img src="/cats-cats-cats/gallery/daily/keyboards/pull-keycap.jpg" class width="250">
 
 <h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>4. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>まず、静音化ですがこれは体感でかなり変わりました。もちろん人によって評価は変わると思いますが、静かな会議室で利用しても問題ないくらいにはなったと感じています。また打ち心地に関してもlubeのおかげで大分なめらかになって、疲れにくくなったと感じました。ホットスワップ化に関しては、特にスイッチの作業自体は苦労しましたが一度壁を超えてしまえば恐れることはないし、その後に得られるものも大きいので次回のキーボード制作でも採用したいと思います。</p>
-<p>最初は本当に静音化とホットスワップ化のことだけについて書く予定でしたが、書いている途中で色々盛り込みたくなって結局、前半、後半に分けても長い記事になってしまいました。本当にここまで読んで頂いてありがとうございました。この記事が読んでくれた方の自作キーボードの一助となれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ここで言うホットスワップ化とは、はんだ付けせずにパーツを交換できる仕組みを指しています。電源を入れたまま抜き差しできるという意味ではないです。詳しくは<a href="https://scrapbox.io/self-made-kbds-ja/%E3%83%9B%E3%83%83%E3%83%88%E3%82%B9%E3%83%AF%E3%83%83%E3%83%97" target="_blank" rel="noopener">ここ<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://nillpo.hatenablog.com/entry/2018/02/25/022158" target="_blank" rel="noopener">出典<i class="fas fa-external-link-alt fa-fw"></i></a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">この作業でスイッチを2個ダメにしました・・・</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">一回失敗してベリリウムの穴にはんだを入れてしまいました。5倍の時間というのは失敗したベリリウムを基盤から剥がす時間込みです。やっちまった瞬間は地獄に落とされたような感覚でした・・・</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">TRSケーブルだとマスターの反対側のLEDが光りません。片側しかLEDがつかなかったらケーブルを疑ってみてください。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">当然自分もトラブルシューティングに進みました・・・なのでトラブルシューティングの節は体験談です・・・orz</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">キーキャップを入れている容器はダイソーで買ったアルミキャップPET容器です。Seriaでも買えるようです。安いし軽いしサイズも色々あってキーキャップ入れにちょうどよかったです。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">自分も1台目のときにお世話になりました。このときははんだ不良で貼り付けた写真にいろいろな人にアドバイスを頂きました。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;"><a href="/cats-cats-cats/2019/01/12/keymap/" title="ようこそキーマップ沼へ">ようこそキーマップ沼へ</a> を書きました。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div><p></p>
+<p>最初は本当に静音化とホットスワップ化のことだけについて書く予定でしたが、書いている途中で色々盛り込みたくなって結局、前半、後半に分けても長い記事になってしまいました。本当にここまで読んで頂いてありがとうございました。この記事が読んでくれた方の自作キーボードの一助となれば幸いです。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ここで言うホットスワップ化とは、はんだ付けせずにパーツを交換できる仕組みを指しています。電源を入れたまま抜き差しできるという意味ではないです。詳しくは<a href="https://scrapbox.io/self-made-kbds-ja/%E3%83%9B%E3%83%83%E3%83%88%E3%82%B9%E3%83%AF%E3%83%83%E3%83%97" target="_blank" rel="noopener" title target>ここ<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://nillpo.hatenablog.com/entry/2018/02/25/022158" target="_blank" rel="noopener" title target>出典<i class="fas fa-external-link-alt fa-fw"></i></a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">この作業でスイッチを2個ダメにしました・・・</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">一回失敗してベリリウムの穴にはんだを入れてしまいました。5倍の時間というのは失敗したベリリウムを基盤から剥がす時間込みです。やっちまった瞬間は地獄に落とされたような感覚でした・・・</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">TRSケーブルだとマスターの反対側のLEDが光りません。片側しかLEDがつかなかったらケーブルを疑ってみてください。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">当然自分もトラブルシューティングに進みました・・・なのでトラブルシューティングの節は体験談です・・・orz</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">キーキャップを入れている容器はダイソーで買ったアルミキャップPET容器です。Seriaでも買えるようです。安いし軽いしサイズも色々あってキーキャップ入れにちょうどよかったです。</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">自分も1台目のときにお世話になりました。このときははんだ不良で貼り付けた写真にいろいろな人にアドバイスを頂きました。</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;"><a href="/cats-cats-cats/2019/01/12/keymap/" title="ようこそキーマップ沼へ">ようこそキーマップ沼へ</a> を書きました。</span><a href="#fnref:9" rev="footnote"> ↩</a></li></ol></div></div><p></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -273,7 +276,7 @@
             });
             document.body.appendChild(img);
           });
-      </script>
+      </script></body></html>
         </div>
         
         
@@ -672,7 +675,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -683,7 +686,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -694,7 +697,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -705,7 +708,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -716,7 +719,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -727,7 +730,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -738,7 +741,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -749,7 +752,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -760,7 +763,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -771,7 +774,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -782,7 +785,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -793,7 +796,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1248,7 +1251,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1259,7 +1262,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">11月 2019</span>
+                    <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1270,7 +1273,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
                 <span class="level-start">
-                    <span class="level-item">10月 2019</span>
+                    <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1281,7 +1284,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
                 <span class="level-start">
-                    <span class="level-item">9月 2019</span>
+                    <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1292,7 +1295,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">8月 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>
@@ -1303,7 +1306,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
                 <span class="level-start">
-                    <span class="level-item">7月 2019</span>
+                    <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1314,7 +1317,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
                 <span class="level-start">
-                    <span class="level-item">5月 2019</span>
+                    <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1325,7 +1328,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">4月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">4</span>
@@ -1336,7 +1339,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
                 <span class="level-start">
-                    <span class="level-item">3月 2019</span>
+                    <span class="level-item">三月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1347,7 +1350,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
                 <span class="level-start">
-                    <span class="level-item">2月 2019</span>
+                    <span class="level-item">二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1358,7 +1361,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
                 <span class="level-start">
-                    <span class="level-item">1月 2019</span>
+                    <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">5</span>
@@ -1369,7 +1372,7 @@
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">12月 2018</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">3</span>

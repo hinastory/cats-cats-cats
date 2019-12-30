@@ -12,7 +12,7 @@ date: 2019-01-20 05:09:37
 ---
 Kubernetes Meetup Tokyoに初参加しました。会場は六本木ヒルズのGoogle東京オフィスです。倍率2倍の抽選を潜り抜けて参加できることになりました。
 
-{% linkPreview https://k8sjp.connpass.com/event/112661/?utm_campaign=&utm_source=notifications&utm_medium=email&utm_content=title_link %}
+{% blogCard https://k8sjp.connpass.com/event/112661/?utm_campaign=&utm_source=notifications&utm_medium=email&utm_content=title_link %}
 
 <!-- more -->
 
@@ -39,7 +39,7 @@ Kubernetes[^1] Meetup Tokyoは、東京都内で不定期に開催されるKuber
 
 開場は食堂だったようで中央にオープンキッチンがあってその周囲にテーブルや椅子が配置されていました。さすがGoogleだけあってスペースも広く、ガラス張りの展望も素晴らしいものでした。Google東京オフィスは今年中に渋谷ストリームに移転するらしいので、その前にこれて良かったです。
 
-{% linkPreview http://www.itmedia.co.jp/news/articles/1711/17/news082.html %}
+{% blogCard http://www.itmedia.co.jp/news/articles/1711/17/news082.html %}
 
 ## 発表内容
 

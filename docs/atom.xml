@@ -4,7 +4,7 @@
   <icon>https://hinastory.github.io/cats-cats-cats/favicon.ico</icon>
   <subtitle>射は圏よりも強し</subtitle>
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
-  <link href="https://pubsubhubbub.appspot.com" rel="hub"/>
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
   <updated>2019-12-29T09:32:35.793Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
@@ -14,7 +14,7 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)</title>
@@ -25,7 +25,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の19日目の記事です。&lt;br&gt;(19日目が投稿されなかったので代理投稿します。)&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title target&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の19日目の記事です。&lt;br&gt;(19日目が投稿されなかったので代理投稿します。)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -52,9 +52,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の25日目の記事です。&lt;/p&gt;
-&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/ruby-2-7-0-rc2-released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;🎉🎉 そして無事に本日リリースされました!! おめでとうございます!!! 🎉🎉&lt;br&gt;&lt;del&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;そこでRuby2.7のリリースのお祝いとコミッターのみなさんのハードワークに感謝の気持ちを込めて、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title target&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の25日目の記事です。&lt;/p&gt;
+&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/ruby-2-7-0-rc2-released/&quot; title target&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;🎉🎉 そして無事に本日リリースされました!! おめでとうございます!!! 🎉🎉&lt;br&gt;&lt;del&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;そこでRuby2.7のリリースのお祝いとコミッターのみなさんのハードワークに感謝の気持ちを込めて、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -79,13 +79,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</id>
     <published>2019-12-19T22:28:45.000Z</published>
-    <updated>2019-12-29T18:17:20.241Z</updated>
+    <updated>2019-12-30T04:33:15.251Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
 &lt;p&gt;・・・というのは前置きで、自分は&lt;strong&gt;Googleが好き&lt;/strong&gt;🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。&lt;/p&gt;
-&lt;a href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://storage.googleapis.com/gdgtokyo_img/devfest19/misc/topimg.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;GDG Tokyo | DevFest Tokyo 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。東京では、Android、Google Cloud Platform（GCP）、Web、Firebase、Machine Learni…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://storage.googleapis.com/gdgtokyo_img/devfest19/misc/topimg.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo | DevFest Tokyo 2019&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。東京では、Android、Google Cloud Platform（GCP）、Web、Firebase、Machine Learni…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -108,17 +108,17 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/</id>
     <published>2019-12-01T22:28:45.000Z</published>
-    <updated>2019-12-26T20:50:06.226Z</updated>
+    <updated>2019-12-30T04:33:14.389Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;この記事は &lt;a href=&quot;https://adventar.org/calendars/4332&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;キーボード #2 Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の２日目の記事です。天下一キーボードわいわい会 Vol.3に参加してきたのでその熱が冷めやらぬ内にレポートしようと思います。というかほぼフォトギャラリーです。写真を見て楽しんで頂ければと思います。&lt;/p&gt;
-&lt;a href=&quot;https://adventar.org/calendars/4332&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://adventar.org/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;キーボード #2 Advent Calendar 2019 - Adventar&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;キーボード Advent Calendar 2019 の2枚目です。
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は &lt;a href=&quot;https://adventar.org/calendars/4332&quot; title target&gt;キーボード #2 Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の２日目の記事です。天下一キーボードわいわい会 Vol.3に参加してきたのでその熱が冷めやらぬ内にレポートしようと思います。というかほぼフォトギャラリーです。写真を見て楽しんで頂ければと思います。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://adventar.org/calendars/4332&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2Fadventar.org%2Fcalendars%2F4332&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Adventar&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://adventar.org/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-title&quot;&gt;キーボード #2 Advent Calendar 2019 - Adventar&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://adventar.org/calendars/4332&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;キーボード Advent Calendar 2019 の2枚目です。
 1枚目は[こちら](https://adventar.org/calendars/4117)
 
 こんにちは
 
-2019年、遊舎工房のリアル店舗のオープンに始まり、キーボード・キーキャップ・スイッチのGBが頻繁に…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+2019年、遊舎工房のリアル店舗のオープンに始まり、キーボード・キーキャップ・スイッチのGBが頻繁に…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -145,8 +145,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;G検定はAI・機械学習をビジネスに応用したい人向けの資格で近年注目を集めています。AI・機械学習は&lt;strong&gt;「何ができるか」&lt;/strong&gt;を誤解しているひとが非常に多く、魔法のように何でもできると思いこんでいる人や、以前のAIや機械学習のイメージを払拭できずにまだまだ&lt;strong&gt;「おもちゃ」&lt;/strong&gt;だと思いこんでいる人まで様々です。&lt;/p&gt;
-&lt;p&gt;G検定はこれらの誤解を乗り越えて、現実的にAI・機械学習をビジネスに応用するための&lt;strong&gt;「視座」&lt;/strong&gt;を身につけるためのうってつけの資格です。本記事では実際にG検定(JDLA Deep Learning for GENERAL 2019 #3)を受験した体験と得られた知見を紹介したいと思います。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;G検定はAI・機械学習をビジネスに応用したい人向けの資格で近年注目を集めています。AI・機械学習は&lt;strong&gt;「何ができるか」&lt;/strong&gt;を誤解しているひとが非常に多く、魔法のように何でもできると思いこんでいる人や、以前のAIや機械学習のイメージを払拭できずにまだまだ&lt;strong&gt;「おもちゃ」&lt;/strong&gt;だと思いこんでいる人まで様々です。&lt;/p&gt;
+&lt;p&gt;G検定はこれらの誤解を乗り越えて、現実的にAI・機械学習をビジネスに応用するための&lt;strong&gt;「視座」&lt;/strong&gt;を身につけるためのうってつけの資格です。本記事では実際にG検定(JDLA Deep Learning for GENERAL 2019 #3)を受験した体験と得られた知見を紹介したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -167,12 +167,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/</id>
     <published>2019-10-26T22:28:45.000Z</published>
-    <updated>2019-11-01T17:59:08.935Z</updated>
+    <updated>2019-12-30T04:33:13.720Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Serverless Days Tokyo 2019に初参加してきました。サーバーレスの息吹を感じられる素晴らしいカンファレンスでした。&lt;/p&gt;
-&lt;a href=&quot;https://tokyo.serverlessdays.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Serverless Days Tokyo 2019に初参加してきました。サーバーレスの息吹を感じられる素晴らしいカンファレンスでした。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.serverlessdays.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2Ftokyo.serverlessdays.io%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;ServerlessDays Tokyo&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.serverlessdays.io/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -199,7 +199,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -209,9 +209,9 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
       <category term="Minikube" scheme="https://hinastory.github.io/cats-cats-cats/tags/Minikube/"/>
     
@@ -232,9 +232,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;ようやく本ブログの記事数も30本突破しました。お読み頂きありごとうございます。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ようやく本ブログの記事数も30本突破しました。お読み頂きありごとうございます。&lt;/p&gt;
 &lt;p&gt;記事30本は目標にしていた数字ですが、2018年12月に書き始めて達成したのが2019年9月なので10ヶ月かかりました。&lt;/p&gt;
-&lt;p&gt;普段は技術以外のことは全く書かない本ブログですが、今回は30本突破記念として特別に「なぜ自分は技術ブログを書き続けるのか」というテーマで書いてみたいと思います。あと、本ブログのPV数や人気記事も紹介したいと思いますので目次を見て気になるところから読み進めてください。&lt;/p&gt;
+&lt;p&gt;普段は技術以外のことは全く書かない本ブログですが、今回は30本突破記念として特別に「なぜ自分は技術ブログを書き続けるのか」というテーマで書いてみたいと思います。あと、本ブログのPV数や人気記事も紹介したいと思いますので目次を見て気になるところから読み進めてください。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -257,8 +257,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。&lt;/p&gt;
-&lt;p&gt;(本記事は「&lt;a href=&quot;https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;」に触発されて書かれたものです。)&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。&lt;/p&gt;
+&lt;p&gt;(本記事は「&lt;a href=&quot;https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658&quot; title target&gt;数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;」に触発されて書かれたものです。)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -283,8 +283,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・&lt;/p&gt;
-&lt;p&gt;(2019年9月28日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;br&gt;(2019年11月16日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B411%E6%9C%8816%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・&lt;/p&gt;
+&lt;p&gt;(2019年9月28日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;br&gt;(2019年11月16日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B411%E6%9C%8816%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -309,7 +309,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリ&lt;code&gt;fileconv&lt;/code&gt;を作り始めました・・・&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;時々、複数のCSVファイルやJSONファイルを変換したい場面に遭遇します。そういうときはよくRubyで使い捨てのスクリプトを書いて済ませていました。しかし、複数のファイルを読み込む処理や行を分割して改行コードを取り除いたり等、同じ処理を何回も書いていることに気づきました。そして次第に「変換処理」だけに集中したいと思うようになり、自前のライブラリ&lt;code&gt;fileconv&lt;/code&gt;を作り始めました・・・&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -332,7 +332,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば&lt;strong&gt;インフラをコード化する&lt;/strong&gt;という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは&lt;strong&gt;「コレジャナイ」&lt;/strong&gt;と。そして長い、長い旅路の末にようやく巡り会うことができました。&lt;a href=&quot;https://www.pulumi.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pulumi&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という希望の星に。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば&lt;strong&gt;インフラをコード化する&lt;/strong&gt;という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは&lt;strong&gt;「コレジャナイ」&lt;/strong&gt;と。そして長い、長い旅路の末にようやく巡り会うことができました。&lt;a href=&quot;https://www.pulumi.com/&quot; title target&gt;Pulumi&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という希望の星に。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -355,12 +355,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/</id>
     <published>2019-08-19T22:28:45.000Z</published>
-    <updated>2019-08-22T21:03:10.470Z</updated>
+    <updated>2019-12-30T04:33:12.543Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコンピューティングサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;です。そのAWSの認定の中でも屈指の人気を誇る「AWS認定ソリューションアーキテクト - アソシエイト」を5日間の勉強で合格することができました。本当に月曜日に思い立って試験の申込みをして勉強を開始し、その週の土曜日の朝一の試験で合格しました。本記事はその合格に至るまでの体験談になります。&lt;/p&gt;
-&lt;a href=&quot;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;AWS 認定ソリューションアーキテクト – アソシエイト | AWS&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;「AWS 認定ソリューションアーキテクト – アソシエイト」試験は、ソリューションアーキテクトの方を対象としており、AWS 上でセキュアかつ堅牢なアプリケーションを設計および展開する方法についての理解度を評価するものです。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコンピューティングサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;です。そのAWSの認定の中でも屈指の人気を誇る「AWS認定ソリューションアーキテクト - アソシエイト」を5日間の勉強で合格することができました。本当に月曜日に思い立って試験の申込みをして勉強を開始し、その週の土曜日の朝一の試験で合格しました。本記事はその合格に至るまでの体験談になります。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fcertification%2Fcertified-solutions-architect-associate%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-title&quot;&gt;AWS 認定ソリューションアーキテクト – アソシエイト | AWS&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;「AWS 認定ソリューションアーキテクト – アソシエイト」試験は、ソリューションアーキテクトの方を対象としており、AWS 上でセキュアかつ堅牢なアプリケーションを設計および展開する方法についての理解度を評価するものです。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -379,12 +379,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/</id>
     <published>2019-08-03T22:28:45.000Z</published>
-    <updated>2019-08-06T21:11:33.355Z</updated>
+    <updated>2019-12-30T04:33:11.886Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;今年もMakerさんたちの熱い作品とパフォーマンスから目が離せないお祭りがやって来ました。遊園地や花火大会を否定するつもりはありませんが、やっぱりいちばん楽しくて嬉しいのは自分の手を動かして作ったモノが動いたときではないでしょうか？ そんな夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました。&lt;/p&gt;
-&lt;a href=&quot;https://makezine.jp/event/mft2019/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://makezine.jp/event/wp-content/themes/makerfairetokyo/mft2019/img/make_ogp_pre.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;Maker Faire Tokyo 2019 | Maker Faire Tokyo 2019 | Make: Japan&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Maker Faire Tokyo 2019は8月3日（土）、4日（日）東京ビッグサイトで開催！ユニークな発想と新しいテクノロジーの力で作り出される作品や、Makerたちに会いにいこう&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;今年もMakerさんたちの熱い作品とパフォーマンスから目が離せないお祭りがやって来ました。遊園地や花火大会を否定するつもりはありませんが、やっぱりいちばん楽しくて嬉しいのは自分の手を動かして作ったモノが動いたときではないでしょうか？ そんな夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://makezine.jp/event/mft2019/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2Fmakezine.jp%2Fevent%2Fmft2019%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Maker Faire Tokyo 2019&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://makezine.jp/event/wp-content/themes/makerfairetokyo/mft2019/img/make_ogp_pre.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-title&quot;&gt;Maker Faire Tokyo 2019 | Maker Faire Tokyo 2019 | Make: Japan&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://makezine.jp/event/mft2019/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;Maker Faire Tokyo 2019は8月3日（土）、4日（日）東京ビッグサイトで開催！ユニークな発想と新しいテクノロジーの力で作り出される作品や、Makerたちに会いにいこう&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -411,8 +411,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;gRPC&lt;/code&gt;は近年非常によく使われるようになったRPCフレームワーク&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいう&lt;a href=&quot;https://www.getpostman.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Postman&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は現在においてはほぼ払拭されたといっても過言ではありません。&lt;a href=&quot;https://github.com/fullstorydev/grpcui&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gRPC UI&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;が登場したからです。&lt;/p&gt;
-&lt;p&gt;(2019/10/4 追記)&lt;br&gt;gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で&lt;a href=&quot;https://arukas.io/updates/20190930-terminate-of-service/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;終了&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;するようです。今後gRPC UI playgroundをどうするかは検討中です。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;code&gt;gRPC&lt;/code&gt;は近年非常によく使われるようになったRPCフレームワーク&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ですが、その柔軟なメッセージフォーマットに対応するリッチなGUIクライアントに欠けていました。REST APIでいう&lt;a href=&quot;https://www.getpostman.com/&quot; title target&gt;Postman&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;的な存在です。このようなツールがなければgRPCを利用した開発が面倒なのですが、その問題は現在においてはほぼ払拭されたといっても過言ではありません。&lt;a href=&quot;https://github.com/fullstorydev/grpcui&quot; title target&gt;gRPC UI&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;が登場したからです。&lt;/p&gt;
+&lt;p&gt;(2019/10/4 追記)&lt;br&gt;gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で&lt;a href=&quot;https://arukas.io/updates/20190930-terminate-of-service/&quot; title target&gt;終了&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;するようです。今後gRPC UI playgroundをどうするかは検討中です。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -437,7 +437,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「&lt;code&gt;定義&lt;/code&gt;・&lt;code&gt;命題&lt;/code&gt;・&lt;code&gt;証明&lt;/code&gt;」の積み重ねで書かれています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「&lt;code&gt;Haskell&lt;/code&gt;」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3つの文献をご紹介したいと思います。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「&lt;code&gt;定義&lt;/code&gt;・&lt;code&gt;命題&lt;/code&gt;・&lt;code&gt;証明&lt;/code&gt;」の積み重ねで書かれています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「&lt;code&gt;Haskell&lt;/code&gt;」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3つの文献をご紹介したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -460,7 +460,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/17/unscared_qiita/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/17/unscared_qiita/</id>
     <published>2019-07-16T22:28:45.000Z</published>
-    <updated>2019-07-17T21:04:51.108Z</updated>
+    <updated>2019-12-30T04:33:10.329Z</updated>
     
     <summary type="html">
     
@@ -490,7 +490,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単に&lt;code&gt;go.mod&lt;/code&gt;がある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単に&lt;code&gt;go.mod&lt;/code&gt;がある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -509,12 +509,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/</id>
     <published>2019-07-03T22:28:45.000Z</published>
-    <updated>2019-07-06T13:40:48.022Z</updated>
+    <updated>2019-12-30T04:33:09.404Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。&lt;/p&gt;
-&lt;a href=&quot;https://2019.scalamatsuri.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;http://scalamatsuri.org/img/common/img_main_txt.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala カンファレンス&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt;Scala をテーマに日本最大級のカンファレンスが開催されます。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://2019.scalamatsuri.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2F2019.scalamatsuri.org%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala のカンファレンス&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;http://scalamatsuri.org/img/common/img_main_txt.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-title&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala カンファレンス&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://2019.scalamatsuri.org/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;Scala をテーマに日本最大級のカンファレンスが開催されます。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -535,13 +535,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/05/11/mindfulness/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/05/11/mindfulness/</id>
     <published>2019-05-11T00:48:16.000Z</published>
-    <updated>2019-07-31T08:47:26.338Z</updated>
+    <updated>2019-12-30T04:33:08.200Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;「エンジニアの心を整える技術」は実は気になって技術書展で一度は手にとったのですが、ちょうど開いたページがプロジェクト炎上中の様子を記述していて、また「プロジェクト炎上の火消しネタか・・・」と勝手に思い込んでしまいそっと本を閉じてしまいました。今まで何回かその手の本を読んだことがあったのですが、結局は体験談止まりで一回読めばお腹いっぱいというものがほとんどでした。&lt;/p&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;「エンジニアの心を整える技術」は実は気になって技術書展で一度は手にとったのですが、ちょうど開いたページがプロジェクト炎上中の様子を記述していて、また「プロジェクト炎上の火消しネタか・・・」と勝手に思い込んでしまいそっと本を閉じてしまいました。今まで何回かその手の本を読んだことがあったのですが、結局は体験談止まりで一回読めばお腹いっぱいというものがほとんどでした。&lt;/p&gt;
 &lt;p&gt;しかし、「エンジニアの心を整える技術」は一味違いました。著者の方がnoteで2章まで公開されていて、本の目次まで見てようやく勘違いに気づきました。この本は体験談から一歩進んだれっきとした「技術書」だったのです。&lt;/p&gt;
-&lt;a href=&quot;https://note.mu/karamage/n/n39f4cc266ba9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; class=&quot;link-preview&quot;&gt;&lt;div class=&quot;link-area&quot;&gt;&lt;div class=&quot;og-image&quot;&gt;&lt;img src=&quot;https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11415227/rectangle_large_type_2_ce033937fa3f38928f1c8fe4b936000a.jpeg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;descriptions&quot;&gt;&lt;div class=&quot;og-title&quot;&gt;「エンジニアの心を整える技術」をnoteで2章まで無料公開します! #感想まとめ #技術書典6｜karamage@柿本 匡章｜note&lt;/div&gt;&lt;div class=&quot;og-description&quot;&gt; このnoteは、2019年4月14日に開催された「技術書典6」で頒布し、これまで600部以上(書籍＋PDF版)販売している「エンジニアの心を整える技術 - 誰でも実践できる心のリファクタリング術 - 」のPDF版のダウンロードページになります。    技術書典6での当日の販売の…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://note.mu/karamage/n/n39f4cc266ba9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2Fnote.mu%2Fkaramage%2Fn%2Fn39f4cc266ba9&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;note（ノート）&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11415227/rectangle_large_type_2_ce033937fa3f38928f1c8fe4b936000a.jpeg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-title&quot;&gt;「エンジニアの心を整える技術」をnoteで2章まで無料公開します! #感想まとめ #技術書典6｜karamage@柿本 匡章｜note&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://note.mu/karamage/n/n39f4cc266ba9&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt; このnoteは、2019年4月14日に開催された「技術書典6」で頒布し、これまで600部以上(書籍＋PDF版)販売している「エンジニアの心を整える技術 - 誰でも実践できる心のリファクタリング術 - 」のPDF版のダウンロードページになります。    技術書典6での当日の販売の…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     

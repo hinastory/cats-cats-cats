@@ -14,7 +14,7 @@ date: 2019-12-20 07:28:45
 
 ・・・というのは前置きで、自分は**Googleが好き**🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。
 
-{% linkPreview https://tokyo.gdgjapan.org/devfest2019 %}
+{% blogCard https://tokyo.gdgjapan.org/devfest2019 %}
 
 <!-- more -->
 
@@ -125,7 +125,7 @@ Go言語の進化の歴史を丁寧にまとめたセッションでした。や
 
 またGo言語は最近教育や普及にも力を入れて以下のようなサイトが公開されています。
 
-{% linkPreview https://go.dev %}
+{% blogCard https://go.dev %}
 
 ### 令和元年Google機械学習技術総決算 @ 足立 昌彦(カブク)
 

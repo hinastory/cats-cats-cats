@@ -11,7 +11,7 @@ date: 2019-01-13 09:29:23
 新年そうそうビッグニュースが流れてきました。
 GitHubがプライベートリポジトリをタダで使わせてくれるってよ!
 
-{% linkPreview http://www.itmedia.co.jp/news/articles/1901/08/news051.html %}
+{% blogCard http://www.itmedia.co.jp/news/articles/1901/08/news051.html %}
 
 <!-- more -->
 
@@ -22,7 +22,7 @@ GitHubがプライベートリポジトリをタダで使わせてくれるっ�
 
 これまではパブリックなリポジトリはGitHubにおいて、プライベートなリポジトリは自宅のKubernetes上にGitBucketを立てて、そこに置いていました。
 
-{% linkPreview https://github.com/gitbucket/gitbucket%}
+{% blogCard https://github.com/gitbucket/gitbucket%}
 
 ## なんでそんな運用にしていたのか？
 
