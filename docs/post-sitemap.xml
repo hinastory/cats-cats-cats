@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/</loc>
+        <lastmod>2019-12-31T02:37:49.428Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</loc>
-        <lastmod>2019-12-30T04:33:15.251Z</lastmod>
+        <lastmod>2019-12-31T00:34:13.400Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -186,14 +194,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</loc>
         <lastmod>2019-12-29T09:33:00.538Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/</loc>
-        <lastmod>2019-12-29T09:32:35.793Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
