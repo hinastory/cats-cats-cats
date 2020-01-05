@@ -78,7 +78,7 @@ hexo.extend.tag.register('include_code', function(args){
 }, {async: true});
 {% endcode %}
 
-[^2]: 一般的に「プロミス」といえば非同期処理を扱うための手法または概念の一つですが、ここで言うプロミスとはJavaScriptの標準仕様である{% elink ECMAScript 6th Edition(ECMAScript 2015) http://www.ecma-international.org/ecma-262/6.0/ %}で定義されているプロミスを指しています。JavaScriptの仕様に比較的最近入った仕様ですが最近のモダンブラウザでは問題なく利用することができます。またHexoが基盤として利用している{% elink Node.js %}でも標準仕様のプロミスがサポートされています。標準のプロミスについては{% elink JavaScript Promiseの本 http://azu.github.io/promises-book/ %}によくまとめられているので参考にしてみてください。ちなみにJavaScriptのライブラリとして実装されている「プロミス」は標準仕様に準拠したもの以外にも星の数程あるのでそれらと混同しないようにしてください。有名なものでは{% elink Bluebird https://github.com/petkaantonov/bluebird %}があり、これはHexo内部でも利用されています。
+[^2]: 一般的に「プロミス」といえば非同期処理を扱うための手法または概念の一つですが、ここで言うプロミスとはJavaScriptの標準仕様である{% elink ECMAScript 6th Edition(ECMAScript 2015) http://www.ecma-international.org/ecma-262/6.0/ %}で定義されているプロミスを指しています。JavaScriptの仕様に比較的最近入った仕様ですが最近のモダンブラウザでは問題なく利用することができます。またHexoが基盤として利用している{% elink Node.js https://nodejs.org/ja/ %}でも標準仕様のプロミスがサポートされています。標準のプロミスについては{% elink JavaScript Promiseの本 http://azu.github.io/promises-book/ %}によくまとめられているので参考にしてみてください。ちなみにJavaScriptのライブラリとして実装されている「プロミス」は標準仕様に準拠したもの以外にも星の数程あるのでそれらと混同しないようにしてください。有名なものでは{% elink Bluebird https://github.com/petkaantonov/bluebird %}があり、これはHexo内部でも利用されています。
 
 ## Speaker Deckのタグを作ろうとして惨敗
 

@@ -18,13 +18,14 @@
     "hexo-generator-seo-friendly-sitemap": "0.0.25",
     "hexo-generator-tag": "^1.0.0",
     "hexo-oembed": "^0.1.5",
+    "hexo-pdf": "^1.1.1",
     "hexo-related-popular-posts": "https://github.com/hinastory/hexo-related-popular-posts.git",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
-    "hexo-tag-blog-card": "https://github.com/hinastory/hexo-tag-blog-card.git",
+    "hexo-tag-blog-card": "git+https://github.com/hinastory/hexo-tag-blog-card.git",
     "hexo-tag-details": "^0.1.7",
     "hexo-toc-ext": "^1.0.5"
   }

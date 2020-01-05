@@ -64,7 +64,7 @@ Composition is at the very root of category theory — it’s part of the defini
   - Scalaエディションのダウンロードページ
   - 上記のページから「category-theory-for-programmers-scala.pdf」をダウンロード
 
-この本はもともとHaskell(と若干のC++)で書かれていた例に、後でScalaの例を付け加えたものになっています。この本の特徴のひとつは豊富な図解とスニペットです。これは具体的に引用して見てもらった方が早と思います。以下は10章の自然変換で使われている4つの図になります。
+この本はもともとHaskell(と若干のC++)で書かれていた例に、後でScalaの例を付け加えたものになっています。この本の特徴のひとつは豊富な図解とスニペットです。これは具体的に引用して見てもらった方が早いと思います。以下は10章の自然変換で使われている4つの図になります。
 
 {% img /gallery/daily/cats/natural-transformation.png   %}
 

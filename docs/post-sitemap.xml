@@ -8,6 +8,54 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/01/05/blog_to_book/</loc>
+        <lastmod>2020-01-05T05:07:48.235Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2018/12/06/container-days/</loc>
+        <lastmod>2020-01-04T20:38:47.951Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/</loc>
+        <lastmod>2020-01-04T19:34:24.564Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/</loc>
+        <lastmod>2020-01-04T04:42:15.625Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/09/hexo-oembed-1/</loc>
+        <lastmod>2020-01-04T02:49:35.351Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/</loc>
+        <lastmod>2020-01-03T21:19:51.437Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/</loc>
         <lastmod>2019-12-31T02:37:49.428Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -104,24 +152,8 @@
     </url>
 
     <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/</loc>
-        <lastmod>2019-12-30T04:33:01.870Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/02/11/hexo-oembed-2/</loc>
         <lastmod>2019-12-30T04:33:01.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/09/hexo-oembed-1/</loc>
-        <lastmod>2019-12-30T04:32:56.234Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -178,14 +210,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2018/12/12/keyboard/</loc>
         <lastmod>2019-12-30T04:32:46.184Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2018/12/06/container-days/</loc>
-        <lastmod>2019-12-30T04:32:45.112Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -280,14 +304,6 @@
     </url>
 
     <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/</loc>
-        <lastmod>2019-08-14T08:33:20.746Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/04/30/understanding-pattern-matching/</loc>
         <lastmod>2019-04-30T15:28:08.896Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -298,14 +314,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/04/06/understanding-notebook/</loc>
         <lastmod>2019-04-13T19:43:21.208Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2018/12/02/start-blog-hexo/</loc>
-        <lastmod>2019-01-13T22:35:19.124Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -128,11 +128,11 @@ Trail MapはともかくLandscapeは圧巻ですね・・・
   - 2.0でk8s一本になり、Pure Goになり、マネージドもOKになりカタログがHelmになった
   - rioはおもしろそうだがまだかなり柔らかい。k8sを意識しない時代に・・・
 - [MeetUpを活性化せよ！最強のリアルタイムQA投稿アプリをCloud_Nativeにつくってみた](https://speakerdeck.com/cndjp/jkd-v18-dot-12-2w3)
-　　- [Qicoo](https://qicoo.tokyo/)
-　　- 自演が可能です
-　　- eks,ec2,elastic cache, rds,cloud flront, route 53,cert manager, elb, travis ci, kustomize, hepioak, spinnaker,kanyeta,prometheousOperator, Halyard
-　　- [Cloud Native Developers JP](https://github.com/cndjp)
-　　- [Cloudcraft – Draw AWS diagrams](https://cloudcraft.co/)
+  - [Qicoo](https://qicoo.tokyo/)
+  - 自演が可能です
+  - eks,ec2,elastic cache, rds,cloud flront, route 53,cert manager, elb, travis ci, kustomize, hepioak, spinnaker,kanyeta,prometheousOperator, Halyard
+  - [Cloud Native Developers JP](https://github.com/cndjp)
+  - [Cloudcraft – Draw AWS diagrams](https://cloudcraft.co/)
 - コンテナ時代のOpenStack
 - [Kubernetes Meetup Tokyo 2年間の振り返りと未来](https://speakerdeck.com/superbrothers/kubernetes-meetup-tokyo-looking-back-for-two-years-and-the-future)
   - 参加者の規模数がすごい

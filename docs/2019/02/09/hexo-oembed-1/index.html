@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/hexo-logo-2.png">
 <meta property="article:published_time" content="2019-02-08T23:36:19.000Z">
-<meta property="article:modified_time" content="2019-12-30T04:32:56.234Z">
+<meta property="article:modified_time" content="2020-01-04T02:49:35.351Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Web">
@@ -267,7 +267,7 @@
 
 
 <h3 id="後編へと続く"><a href="#後編へと続く" class="header-anchor"></a>5.4. <a href="#後編へと続く・・・" class="headerlink" title="後編へと続く・・・"></a>後編へと続く・・・</h3><p>ここにきてようやくHexoのタグを作成する準備が整いました。長かった・・・<br>後編ではいよいよコーディングの話と公開に至るまでを紹介します。</p>
-<a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)">HexoのoEmbedプラグインをnpmに公開した話(後編)</a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.npmjs.com/" target="_blank" rel="noopener" title target>npm<i class="fas fa-external-link-alt fa-fw"></i></a>はNode.jsのパッケージ管理システムです。Node Package Managerが由来ですがnpmのページの左上を見るとクリックするごとに色々は<code>NPM</code>に出会えます(笑)。現在ではJavaScriptのパッケージ管理システムのデファクトスタンダートとなっています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">一般的に「プロミス」といえば非同期処理を扱うための手法または概念の一つですが、ここで言うプロミスとはJavaScriptの標準仕様である<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener" title target>ECMAScript 6th Edition(ECMAScript 2015)<i class="fas fa-external-link-alt fa-fw"></i></a>で定義されているプロミスを指しています。JavaScriptの仕様に比較的最近入った仕様ですが最近のモダンブラウザでは問題なく利用することができます。またHexoが基盤として利用している<a href title target>Node.js<i class="fas fa-external-link-alt fa-fw"></i></a>でも標準仕様のプロミスがサポートされています。標準のプロミスについては<a href="http://azu.github.io/promises-book/" target="_blank" rel="noopener" title target>JavaScript Promiseの本<i class="fas fa-external-link-alt fa-fw"></i></a>によくまとめられているので参考にしてみてください。ちなみにJavaScriptのライブラリとして実装されている「プロミス」は標準仕様に準拠したもの以外にも星の数程あるのでそれらと混同しないようにしてください。有名なものでは<a href="https://github.com/petkaantonov/bluebird" target="_blank" rel="noopener" title target>Bluebird<i class="fas fa-external-link-alt fa-fw"></i></a>があり、これはHexo内部でも利用されています。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">一般的にはパーマリンクが用いられることが多いですが、oEmbedの仕様上は特にパーマリンクでなければならないという制約はありません。ちなみに例のパーマリンクのURLは公式のサンプルに乗っていたものであり、実際の写真の中身には自分は関知しておりません。あのパーマリンクを開くことによるいかなる被害および損害の責任はとれませんのでご了承ください・・・誰？</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">このシーケンス図の作成には<a href="http://plantuml.com/ja/" target="_blank" rel="noopener" title target>PlantUML<i class="fas fa-external-link-alt fa-fw"></i></a>を用いています。Hexoのタグとしては<a href="https://github.com/wafer-li/hexo-filter-plantuml#hexo-filter-plantuml" target="_blank" rel="noopener" title target>hexo-filter-plantuml<i class="fas fa-external-link-alt fa-fw"></i></a>を利用しました。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">2019年2月現在、flickr、Gyazo、InstagramはoEmbedには対応しているけどDiscoveryには対応していなさそうでした。ちなみにoEmbedそのものに対応していないサイトとしては自分が試した限りニコニコ動画やAmazonやメルカリがありました。ショッピング系は物量も多いし入れ替わりも早いので仕方がないとしても、ニコ動には頑張ってほしかった・・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div><script>
+<a href="/cats-cats-cats/2019/02/11/hexo-oembed-2/" title="HexoのoEmbedプラグインをnpmに公開した話(後編)">HexoのoEmbedプラグインをnpmに公開した話(後編)</a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.npmjs.com/" target="_blank" rel="noopener" title target>npm<i class="fas fa-external-link-alt fa-fw"></i></a>はNode.jsのパッケージ管理システムです。Node Package Managerが由来ですがnpmのページの左上を見るとクリックするごとに色々は<code>NPM</code>に出会えます(笑)。現在ではJavaScriptのパッケージ管理システムのデファクトスタンダートとなっています。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">一般的に「プロミス」といえば非同期処理を扱うための手法または概念の一つですが、ここで言うプロミスとはJavaScriptの標準仕様である<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener" title target>ECMAScript 6th Edition(ECMAScript 2015)<i class="fas fa-external-link-alt fa-fw"></i></a>で定義されているプロミスを指しています。JavaScriptの仕様に比較的最近入った仕様ですが最近のモダンブラウザでは問題なく利用することができます。またHexoが基盤として利用している<a href="https://nodejs.org/ja/" target="_blank" rel="noopener" title target>Node.js<i class="fas fa-external-link-alt fa-fw"></i></a>でも標準仕様のプロミスがサポートされています。標準のプロミスについては<a href="http://azu.github.io/promises-book/" target="_blank" rel="noopener" title target>JavaScript Promiseの本<i class="fas fa-external-link-alt fa-fw"></i></a>によくまとめられているので参考にしてみてください。ちなみにJavaScriptのライブラリとして実装されている「プロミス」は標準仕様に準拠したもの以外にも星の数程あるのでそれらと混同しないようにしてください。有名なものでは<a href="https://github.com/petkaantonov/bluebird" target="_blank" rel="noopener" title target>Bluebird<i class="fas fa-external-link-alt fa-fw"></i></a>があり、これはHexo内部でも利用されています。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">一般的にはパーマリンクが用いられることが多いですが、oEmbedの仕様上は特にパーマリンクでなければならないという制約はありません。ちなみに例のパーマリンクのURLは公式のサンプルに乗っていたものであり、実際の写真の中身には自分は関知しておりません。あのパーマリンクを開くことによるいかなる被害および損害の責任はとれませんのでご了承ください・・・誰？</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">このシーケンス図の作成には<a href="http://plantuml.com/ja/" target="_blank" rel="noopener" title target>PlantUML<i class="fas fa-external-link-alt fa-fw"></i></a>を用いています。Hexoのタグとしては<a href="https://github.com/wafer-li/hexo-filter-plantuml#hexo-filter-plantuml" target="_blank" rel="noopener" title target>hexo-filter-plantuml<i class="fas fa-external-link-alt fa-fw"></i></a>を利用しました。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">2019年2月現在、flickr、Gyazo、InstagramはoEmbedには対応しているけどDiscoveryには対応していなさそうでした。ちなみにoEmbedそのものに対応していないサイトとしては自分が試した限りニコニコ動画やAmazonやメルカリがありました。ショッピング系は物量も多いし入れ替わりも早いので仕方がないとしても、ニコ動には頑張ってほしかった・・・</span><a href="#fnref:5" rev="footnote"> ↩</a></li></ol></div></div><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -374,7 +374,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        38
+                        39
                     </p>
                 </div>
             </div>
@@ -384,7 +384,7 @@
                         カテゴリ
                     </p>
                     <p class="title has-text-weight-normal">
-                        13
+                        14
                     </p>
                 </div>
             </div>
@@ -394,7 +394,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        42
+                        43
                     </p>
                 </div>
             </div>
@@ -477,9 +477,17 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">32</span>
+                <span class="level-item tag">33</span>
             </span>
         </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Boook/">
+            <span class="level-start">
+                <span class="level-item">Boook</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Cloud/">
             <span class="level-start">
                 <span class="level-item">Cloud</span>
@@ -568,6 +576,25 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/hinastory_cover.jpeg" alt="Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-04T22:28:45.000Z">2020-01-05</time></div>
+                    <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="has-link-black-ter is-size-6 has-text-weight-normal">Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Boook/">Boook</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" alt="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)">
@@ -642,25 +669,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" alt="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-20T22:28:45.000Z">2019-11-21</time></div>
-                    <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="has-link-black-ter is-size-6 has-text-weight-normal">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -669,7 +677,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 15px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 16.67px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
         
@@ -680,6 +688,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
@@ -1044,9 +1063,16 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
                         <span class="tag">Ruby</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1144,6 +1170,25 @@
         
         <article class="media">
             
+            <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/hinastory_cover.jpeg" alt="Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-04T22:28:45.000Z">2020-01-05</time></div>
+                    <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="has-link-black-ter is-size-6 has-text-weight-normal">Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Boook/">Boook</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" alt="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)">
@@ -1218,25 +1263,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/general20193_regular-768x329.png" alt="AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-20T22:28:45.000Z">2019-11-21</time></div>
-                    <a href="/cats-cats-cats/2019/11/21/deep-learning-for-general/" class="has-link-black-ter is-size-6 has-text-weight-normal">AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1245,7 +1271,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 15px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 10px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 16.67px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 16.67px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
     </div>
 </div>
     
@@ -1256,6 +1282,17 @@
             アーカイブ
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
@@ -1620,9 +1657,16 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
                         <span class="tag">Ruby</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1716,7 +1760,7 @@
                  <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="HexoのoEmbedプラグインをnpmに公開した話(前編)" height="28">
                 
                 </a>
-                <span class="copyright-text">&copy;2019 hinastory</span>
+                <span class="copyright-text">&copy;2020 hinastory</span>
             </span>
             <p class="is-size-7">
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a

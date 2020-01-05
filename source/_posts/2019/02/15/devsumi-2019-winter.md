@@ -31,7 +31,7 @@ Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})
 ### Cloud Native時代における Docker / Kubernetes による開発
 　{% elink 【14-A-4】 https://event.shoeisha.jp/devsumi/20190214/session/1931/ %} *13:05～13:50  青山 真也[サイバーエージェント]*
 
-{% elink Kubernetes完全ガイド https://book.impress.co.jp/books/1118101055 %}の著者によるセッションです。1/10にあったKubernetes Meetup Tokyo　#15の発表も見ていたので、今回も楽しみにしていました。発表内容はタイトルどおりクラウドネイティブやKubernetesの解説だったのですが、その構成が素晴らしかったです。マイクロサービスとサービスメッシュから始めて徐々にブレークダウンしてKubernetesの話題にもっていき、最後にGitOpsで締める流れは非常に分かりやすかったです。もしクラウドネィティブやKubernetesにもやもやしている方はスライドを一読することをオススメします。
+{% elink Kubernetes完全ガイド https://book.impress.co.jp/books/1118101055 %}の著者によるセッションです。1/10にあったKubernetes Meetup Tokyo　#15の発表も見ていたので、今回も楽しみにしていました。発表内容はタイトルどおりクラウドネイティブやKubernetesの解説だったのですが、その構成が素晴らしかったです。マイクロサービスとサービスメッシュから始めて徐々にブレークダウンしてKubernetesの話題にもっていき、最後にGitOpsで締める流れは非常に分かりやすかったです。もしクラウドネイティブやKubernetesにもやもやしている方はスライドを一読することをオススメします。
 
 {% oembed https://speakerdeck.com/masayaaoyama/devsumi2019-amsy810-k8s 600 %}
 
