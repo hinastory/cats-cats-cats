@@ -80,11 +80,24 @@ $ wc -lm *
   - これが一番重要
 - ローカルのMarkdownファイルを変換できる
   - Web上で変換はファイルが多いのでつらい
-- 印刷用PFF、電子書籍用PDF、ePubの３つに対応できる
+- 印刷用PDF、電子書籍用PDF、ePubの３つに対応できる
 
 まず、Markdownなら{% elink Pandoc https://pandoc.org/ %}や{% elink GitBook https://www.gitbook.com/ %}があるのですが、印刷用のPDFを作成するのに辛そうな印象があります。オンラインなら{% elink FlightBooks http://flightbooks.pub/ %}や{% elink でんでんマークダウン https://conv.denshochan.com/markdown %}がありますが、これはローカルファイルを変換する今回の趣旨には向いていないです。
 
-ということで、すでにタイトルでネタバレしていますが、基本的にはRe:VIEWを使います。ただし、Re:VIEWはマークダウンの変換には対応してないので{% elink md2review https://github.com/takahashim/md2review %}を用いてMarkdownをRe:VIEW形式に変換します。
+ということで、すでにタイトルでネタバレしていますが、基本的には{% elink Re:VIEW https://reviewml.org/ja/ %}を使います。ただし、Re:VIEWはマークダウンの変換には対応してないので{% elink md2review https://github.com/takahashim/md2review %}を用いてMarkdownをRe:VIEW形式に変換します。
+
+### Re:VIEWとは？
+
+メインで使うツールなので少し詳しく説明します。Re:VIEW[^2]は紙の本や電子書籍を作成するための**デジタル出版システム**です。OSSとして開発されており主にRubyで記述されています[^3]。デジタル出版システムといっても基本的な動作はフォーマットを変換するソフトウェアで、オリジナルのマークアップ言語（.reファイル）とyamlの設定ファイルとスタイルファイル、画像ファイルを結合して様々なフォーマットに変換できるようになっています。
+
+{% img /gallery/daily/others/review-generate.png 400 %}
+
+**{% elink 開発元より引用 https://github.com/kmuto/review %}**
+
+上の図のとおりPDFだけは少し特殊でLaTeXフォーマットに変換後にPDFへ変換するようになっています。このためPDFの作成には面倒なLaTeX環境の構築が必要となります・・・もちろんDockerを使えば環境構築は避けられますがLaTexの呪いは避けられるべくもなく、後に苦しめられることになります・・・・
+
+[^2]: 「りびゅー」と発音します。
+[^3]: もともとは{% elink Rubyソースコード完全解説 http://i.loveruby.net/ja/rhg/book/ %}で有名な青木峰郎さんが2002年頃に設計・開発されたものを、現在は有志の方々が引き継いで開発しています。
 
 ### テンプレートを決める
 
@@ -153,8 +166,9 @@ $ wc -lm *
 - 取り消し線が引けない
   - {% elink [ReVIEW Tips] LaTeXで取り消し線を引く - Qiita https://qiita.com/takahashim/items/5c1af2941a1ce9fa5919 %}
 - ソース上何も問題ないはずなのに，Text line contains an invalid character. ^^H や Package inputenc Error: Keyboard character used is undefined (inputenc) in inputencoding utf8 というエラーが出てコンパイルできない
-  - [TeXShop FAQ - TeX Wiki](https://texwiki.texjp.org/?TeXShop%20FAQ)
-  - Macの日本語変換のバグだと・・・　まじかよ・・・
+  - {% elink TeXShop FAQ - TeX Wiki https://texwiki.texjp.org/?TeXShop%20FAQ#tb887cbe %}
+  - Macの日本語変換のバグだと・・・　まじかよ・・・日本語入力中に制御コードが入力されてしまうことがあるとか罠でしかない・・・
+  - この問題は2019/2/15から2019/9/11までの記事で合計15回観測されています。最近の記事では起こっていないのでもしかしたら修正されたのかもしれません・・・
 - エラーでTeXの行数が出力された・・・
   - config.ymlでdebugをtrueにすると出力されたTeXが削除されない
 - 記法が入れ子になるところで所々エラーになる
@@ -175,7 +189,7 @@ $ wc -lm *
 ### 表紙、裏表紙の作成
 
 印刷用原稿はできましたが、表紙と裏表紙は原稿とは別に作成します。一般的には表紙と原稿は紙質やカラー/モノクロかの違いがあるのでファイルとしても別になります。
-今回は表紙と裏表紙の作成にはMac標準のKeynoteを使いました。といっても適当に取った写真を加工しただけです。
+今回は表紙と裏表紙の作成にはMac標準のKeynoteを使いました。といっても適当にiPhoneで撮った写真を加工しただけです。
 
 注意すべきは**サイズと解像度**です。表紙は全面になるので本のサイズより少し大きい**実寸**で作成します。今回はB5なので595.28 x 841.89ポイントになります。ちなみに1ポイント0.3528mmなので覚えておくと便利です。KeynoteはそのままPDF出力ができるので最初にスライドの大きさをポイントで指定してPDFで出力するだけでOKです。
 
