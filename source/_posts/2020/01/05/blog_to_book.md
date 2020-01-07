@@ -136,7 +136,7 @@ $ wc -lm *
 
 ### 環境の構築
 
-環境の構築で必要なのは主に以下の３つです。MacでTeX環境を維持するのは面倒だったのでDockerビルドを選択しました。RubyとNode.jsの環境は{% elink anyenv https://anyenv.github.io/ %}を使えば簡単に手に入るのでおすすめです。
+環境の構築で必要なのは主に以下の３つです。MacでLaTeX環境を維持するのは面倒だったのでDockerビルドを選択しました。RubyとNode.jsの環境は{% elink anyenv https://anyenv.github.io/ %}を使えば簡単に手に入るのでおすすめです。
 
 - Ruby
   - anyenv経由でrbenvを入れてインストール
@@ -157,7 +157,7 @@ $ wc -lm *
 3. Re:VIEW形式をPDFに変換
    - config.ymlに基本設定を書く。catalog.ymlに章構成を書く。
    - あとは`./build-in-docker.sh`を実行してpdfファイルを出力させるだけ
-     - Re:VIEW内部では一旦TeXに変換されてPDFとして出力される
+     - Re:VIEW内部では一旦LaTeXに変換されてPDFとして出力される
 
 ### 変換で嵌った点
 
@@ -169,8 +169,8 @@ $ wc -lm *
   - {% elink TeXShop FAQ - TeX Wiki https://texwiki.texjp.org/?TeXShop%20FAQ#tb887cbe %}
   - Macの日本語変換のバグだと・・・　まじかよ・・・日本語入力中に制御コードが入力されてしまうことがあるとか罠でしかない・・・
   - この問題は2019/2/15から2019/9/11までの記事で合計15回観測されています。最近の記事では起こっていないのでもしかしたら修正されたのかもしれません・・・
-- エラーでTeXの行数が出力された・・・
-  - config.ymlでdebugをtrueにすると出力されたTeXが削除されない
+- エラーでLaTeXの行数が出力された・・・
+  - config.ymlでdebugをtrueにすると出力されたLaTeXが削除されない
 - 記法が入れ子になるところで所々エラーになる
   - 例えば太字のなかでURL参照とか
   - どちらかを諦める
