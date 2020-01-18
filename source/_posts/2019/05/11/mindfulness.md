@@ -2,7 +2,8 @@
 title: 「エンジニアの心を整える技術」が予想以上に「技術書」だった件
 thumbnail: /gallery/thumbnails/mindfulness.png
 categories:
-  - [Tech, Engineering]
+  - Tech
+  - Book
 tags:
   - Book
   - Mind

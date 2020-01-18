@@ -3,7 +3,7 @@ title: Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選
 thumbnail: /gallery/profile/cats-cats-cats-logo.png
 categories:
   - Tech
-  - Language
+  - ComputerScience
 tags:
   - CategoryTheory
   - Scala

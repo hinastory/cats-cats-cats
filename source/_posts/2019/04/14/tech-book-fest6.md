@@ -2,7 +2,8 @@
 title: 技術書典6に一般参加した話
 thumbnail: /gallery/thumbnails/tech-book-fest6-logo.jpg
 categories:
-  - [Tech, Miscellaneous]
+  - Tech
+  - Event
 tags:
   - Book
   - Event

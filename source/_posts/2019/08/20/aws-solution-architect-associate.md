@@ -3,7 +3,7 @@ title: 暗記が苦手な人間が「AWS認定ソリューションアーキテ�
 thumbnail: /gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png
 categories:
   - Tech
-  - Cloud
+  - CloudNative
 tags:
   - AWS
 date: 2019-08-20 07:28:45

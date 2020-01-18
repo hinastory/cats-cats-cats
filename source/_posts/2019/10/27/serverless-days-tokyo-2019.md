@@ -3,7 +3,7 @@ title: Serverless Days Tokyo 2019 に参加してきました
 thumbnail: /gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png
 categories:
   - Tech
-  - Cloud
+  - CloudNative
 tags:
   - Serverless
   - AWS

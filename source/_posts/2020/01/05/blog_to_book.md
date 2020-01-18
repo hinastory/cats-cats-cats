@@ -3,7 +3,7 @@ title: Markdownで書かれたブログ記事をRe:VIEWを使って「本」に�
 thumbnail: /gallery/daily/others/hinastory_cover.jpeg
 categories:
   - Tech
-  - Boook
+  - Book
 tags:
   - ReView
   - Ruby

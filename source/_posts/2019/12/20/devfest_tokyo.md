@@ -3,7 +3,7 @@ title: Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加して
 thumbnail: /gallery/thumbnails/devfest2019.png
 categories:
   - Tech
-  - Miscellaneous
+  - Event
 tags:
   - GCP
   - Go

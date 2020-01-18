@@ -3,7 +3,7 @@ title: あの頃の自分に読ませたい「怖くないQiita」をQiitaに書
 thumbnail: /gallery/thumbnails/qiita-text.png
 categories:
   - Tech
-  -  Miscellaneous
+  - Miscellaneous
 tags:
   - Qiita
 date: 2019-07-17 07:28:45

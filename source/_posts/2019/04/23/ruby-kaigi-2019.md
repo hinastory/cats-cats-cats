@@ -2,7 +2,8 @@
 title: RubyKaigi 2019 in 福岡に参加してきた話
 thumbnail: /gallery/thumbnails/ruby-kaigi-2019-logo.png
 categories:
-  - [Tech, Language]
+  - Tech
+  - Event
 tags:
   - Ruby
   - Event

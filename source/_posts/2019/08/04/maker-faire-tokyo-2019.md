@@ -2,7 +2,7 @@
 title: 夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました
 thumbnail: /gallery/thumbnails/Tokyo-MF_logo.gif
 categories:
-  - DIY
+  - Tech
   - Event
 tags:
   - MakerFaire

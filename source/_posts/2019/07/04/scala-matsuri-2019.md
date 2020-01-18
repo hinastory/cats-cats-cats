@@ -3,7 +3,7 @@ title: ScalaMatsuri 2019に参加してきました
 thumbnail: /gallery/thumbnails/scala-matsuri-logo.png
 categories:
   - Tech
-  - Language
+  - Event
 tags:
   - Scala
   - Event

@@ -3,7 +3,8 @@ title: JapanContainerDays v18.12 に初参加
 date: 2018-12-06 23:22:18
 thumbnail: /gallery/thumbnails/container-days-logo.png
 categories:
-    - [Tech, Container]
+    - Tech
+    - Event
 tags:
     - Container
     - k8s

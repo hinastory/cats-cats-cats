@@ -3,7 +3,7 @@ title: gRPC UIを使ってみんなが触れるgRPCの遊び場を作りまし�
 thumbnail: /gallery/thumbnails/grpc-horizontal-color.png
 categories:
   - Tech
-  - Tool
+  - Miscellaneous
 tags:
   - gRPC
   - Go

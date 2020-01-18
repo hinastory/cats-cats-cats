@@ -2,8 +2,8 @@
 title: 天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)
 thumbnail: /gallery/thumbnails/tenkaichi-keyboard-3.png
 categories:
-  - DIY
-  - Keyboard
+  - Tech
+  - Event
 tags:
   - Keyboard
   - Event

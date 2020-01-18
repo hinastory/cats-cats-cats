@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-01-07T21:39:12.625Z</updated>
+  <updated>2020-01-18T10:15:20.659Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/01/05/blog_to_book/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/01/05/blog_to_book/</id>
     <published>2020-01-04T22:28:45.000Z</published>
-    <updated>2020-01-07T21:39:12.625Z</updated>
+    <updated>2020-01-18T10:15:20.659Z</updated>
     
     <summary type="html">
     
@@ -33,7 +33,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Boook" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Boook/"/>
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Book/"/>
     
     
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
@@ -105,7 +105,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</id>
     <published>2019-12-19T22:28:45.000Z</published>
-    <updated>2019-12-31T00:34:13.400Z</updated>
+    <updated>2020-01-18T10:22:47.090Z</updated>
     
     <summary type="html">
     
@@ -118,7 +118,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
@@ -134,7 +134,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/</id>
     <published>2019-12-01T22:28:45.000Z</published>
-    <updated>2019-12-30T04:33:14.389Z</updated>
+    <updated>2020-01-18T10:28:05.382Z</updated>
     
     <summary type="html">
     
@@ -149,9 +149,9 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Keyboard/"/>
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
@@ -193,7 +193,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/</id>
     <published>2019-10-26T22:28:45.000Z</published>
-    <updated>2019-12-30T04:33:13.720Z</updated>
+    <updated>2020-01-18T10:16:44.412Z</updated>
     
     <summary type="html">
     
@@ -205,7 +205,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Cloud" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Cloud/"/>
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
@@ -279,7 +279,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/</id>
     <published>2019-09-22T22:28:45.000Z</published>
-    <updated>2019-09-23T11:34:39.774Z</updated>
+    <updated>2020-01-18T10:35:29.416Z</updated>
     
     <summary type="html">
     
@@ -291,7 +291,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+      <category term="ComputerScience" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/ComputerScience/"/>
     
     
       <category term="Compiler" scheme="https://hinastory.github.io/cats-cats-cats/tags/Compiler/"/>
@@ -331,7 +331,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/09/11/fileconv/</id>
     <published>2019-09-10T22:28:45.000Z</published>
-    <updated>2019-11-02T01:33:32.785Z</updated>
+    <updated>2020-01-18T10:38:47.407Z</updated>
     
     <summary type="html">
     
@@ -342,7 +342,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
@@ -354,7 +354,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</id>
     <published>2019-08-25T22:28:45.000Z</published>
-    <updated>2019-11-04T09:24:02.888Z</updated>
+    <updated>2020-01-18T10:17:32.083Z</updated>
     
     <summary type="html">
     
@@ -365,7 +365,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Cloud" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Cloud/"/>
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
@@ -381,7 +381,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/</id>
     <published>2019-08-19T22:28:45.000Z</published>
-    <updated>2019-12-30T04:33:12.543Z</updated>
+    <updated>2020-01-18T10:18:08.714Z</updated>
     
     <summary type="html">
     
@@ -393,7 +393,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Cloud" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Cloud/"/>
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
@@ -405,7 +405,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/</id>
     <published>2019-08-03T22:28:45.000Z</published>
-    <updated>2019-12-30T04:33:11.886Z</updated>
+    <updated>2020-01-18T10:23:42.025Z</updated>
     
     <summary type="html">
     
@@ -415,9 +415,9 @@
     </summary>
     
     
-      <category term="DIY" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/"/>
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/DIY/Event/"/>
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
@@ -433,7 +433,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</id>
     <published>2019-07-26T22:28:45.000Z</published>
-    <updated>2019-12-26T22:07:46.500Z</updated>
+    <updated>2020-01-18T10:39:24.577Z</updated>
     
     <summary type="html">
     
@@ -445,7 +445,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Tool" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Tool/"/>
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
       <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
@@ -459,7 +459,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/</id>
     <published>2019-07-19T22:28:45.000Z</published>
-    <updated>2020-01-03T21:19:51.437Z</updated>
+    <updated>2020-01-18T10:36:13.580Z</updated>
     
     <summary type="html">
     
@@ -470,7 +470,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+      <category term="ComputerScience" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/ComputerScience/"/>
     
     
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
@@ -486,7 +486,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/17/unscared_qiita/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/17/unscared_qiita/</id>
     <published>2019-07-16T22:28:45.000Z</published>
-    <updated>2019-12-30T04:33:10.329Z</updated>
+    <updated>2020-01-18T10:39:05.375Z</updated>
     
     <summary type="html">
     
@@ -535,7 +535,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/</id>
     <published>2019-07-03T22:28:45.000Z</published>
-    <updated>2019-12-30T04:33:09.404Z</updated>
+    <updated>2020-01-18T10:25:54.464Z</updated>
     
     <summary type="html">
     
@@ -547,7 +547,7 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>

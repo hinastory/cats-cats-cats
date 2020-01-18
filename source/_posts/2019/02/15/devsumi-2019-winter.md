@@ -2,7 +2,8 @@
 title: Developers Summit 2019に参加した感想など
 thumbnail: /gallery/thumbnails/devsumi-logo.png
 categories:
-  - [Tech, Miscellaneous]
+  - Tech
+  - Event
 tags:
   - Event
   - GCP

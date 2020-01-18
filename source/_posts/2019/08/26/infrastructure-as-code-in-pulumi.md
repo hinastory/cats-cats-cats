@@ -3,7 +3,7 @@ title: Pulumiでプログラマのための「Infrastructure as Code」を実践
 thumbnail: /gallery/thumbnails/pulumi.png
 categories:
   - Tech
-  - Cloud
+  - CloudNative
 tags:
   - AWS
   - pulumi

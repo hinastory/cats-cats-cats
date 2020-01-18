@@ -2,7 +2,8 @@
 title: GitHubのプライベートリポジトリに移行した話
 thumbnail: /gallery/thumbnails/github-logo.png
 categories:
-  - ['Tech', 'Tool']
+  - Tech
+  - Miscellaneous
 tags:
   - Git
 date: 2019-01-13 09:29:23

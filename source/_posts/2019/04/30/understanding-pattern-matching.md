@@ -3,7 +3,7 @@ title: 全プログラマに捧ぐ！図解「パターンマッチ」
 thumbnail: /gallery/daily/algorithm/pattern-match/pattern-01.png
 categories:
   - Tech
-  - Programming
+  - ComputerScience
 tags:
   - Algorithm
   - Scala

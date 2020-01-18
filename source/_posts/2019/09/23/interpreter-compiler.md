@@ -3,7 +3,7 @@ title: ベン図を使って、インタプリタとコンパイラの違いを�
 thumbnail: /gallery/thumbnails/venn.png
 categories:
   - Tech
-  - Language
+  - ComputerScience
 tags:
   - Compiler
   - Interpreter

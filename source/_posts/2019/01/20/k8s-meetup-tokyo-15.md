@@ -2,7 +2,8 @@
 title: Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加
 thumbnail: /gallery/thumbnails/k8s-tokyo-logo.png
 categories:
-  - [Tech, Container]
+  - Tech
+  - CloudNative
 tags:
   - k8s
   - Container
