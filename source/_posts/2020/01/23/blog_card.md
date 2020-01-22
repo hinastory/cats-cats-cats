@@ -259,5 +259,6 @@ function adjustLength(description) {
 
 - {% elink The Open Graph protocol https://ogp.me/ %}
 - {% elink Favicon - Wikipedia https://ja.wikipedia.org/wiki/Favicon %}
+- {% elink ICO (ファイルフォーマット) - Wikipedia https://ja.wikipedia.org/wiki/ICO_(%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88) %}
 - {% elink ファビコン画像を取得する便利なWebサービス（API） | 俺の開発研究所 https://itlogs.net/get-favicon/ %}
 - [はてなブックマーク件数取得API - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/bookmark/apis/getcount)
