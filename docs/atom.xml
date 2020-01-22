@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-01-18T10:15:20.659Z</updated>
+  <updated>2020-01-22T21:03:32.320Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ブログカードを支える技術</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/01/23/blog_card/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/01/23/blog_card/</id>
+    <published>2020-01-22T22:28:45.000Z</published>
+    <updated>2020-01-22T21:03:32.320Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ブログカードとは以下のようにリンクをちょっとリッチに表示してくれる機能のことです。以前はこれってどうやって実現しているんだろうと不思議に思っていました。&lt;/p&gt;
+&lt;img src=&quot;/cats-cats-cats/gallery/daily/others/blogCard.png&quot; class&gt;
+&lt;p&gt;　&lt;br&gt;上記のようなブログカードは「はてなブログ」や「WordPress」等のブログサービスでよく見かけますが、基本的にこれらのブログカードは&lt;strong&gt;リンク先のURLを指定するだけ&lt;/strong&gt;で自動的に生成されています。本記事では上記のようなブログカードを支える技術について解説します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
+    
+    
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="OGP" scheme="https://hinastory.github.io/cats-cats-cats/tags/OGP/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる</title>
@@ -61,9 +88,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -90,9 +117,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
@@ -527,32 +554,6 @@
     
     
       <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ScalaMatsuri 2019に参加してきました</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/07/04/scala-matsuri-2019/</id>
-    <published>2019-07-03T22:28:45.000Z</published>
-    <updated>2020-01-18T10:25:54.464Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにしているお祭りです。今年も面白い発表がたくさんあり、お祭り気分も充分に味わえたので満足の行くカンファレンスでした。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://2019.scalamatsuri.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2F2019.scalamatsuri.org%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala のカンファレンス&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;http://scalamatsuri.org/img/common/img_main_txt.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;ScalaMatsuri 2019｜日本最大級の Scala カンファレンス&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://2019.scalamatsuri.org/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;Scala をテーマに日本最大級のカンファレンスが開催されます。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
-    
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
     
   </entry>
   
