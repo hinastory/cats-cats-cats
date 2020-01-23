@@ -90,9 +90,15 @@ MIMEタイプを指定することによってgifやpngといった画像形式�
 
 ## ブログカードの実装
 
-今回は以下のようなブログカードをJavaScriptで実装してみたいと思います。JavaScriptでHTMLを出力するイメージです。
+今回は以下のようなブログカードをJavaScriptで実装してみたいと思います。
 
 {% img /gallery/daily/others/sample-blog-card.png %}
+
+JavaScriptでHTMLを出力するイメージです。
+
+{% code lang:js blog_card.js %}
+getTag({url: "http://localhost:4000/cats-cats-cats/2020/01/05/blog_to_book/"}).then(e => console.log(e))
+{% endcode lang:js %}
 
 ### HTMLの骨組み
 
@@ -113,7 +119,7 @@ MIMEタイプを指定することによってgifやpngといった画像形式�
             - hbc-description
 
 {% code lang:js %}
-let html = getTag({url: "http://localhost:4000/cats-cats-cats/2020/01/05/blog_to_book/"})
+getTag({url: "http://localhost:4000/cats-cats-cats/2020/01/05/blog_to_book/"}).then(e => console.log(e))
 {% endcode lang:js %}
 
 

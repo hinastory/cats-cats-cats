@@ -255,6 +255,14 @@ function adjustLength(description) {
 
 本記事がブログカードを支える技術の理解の一助となれば幸いです。
 
+# おまけ（1/24追記）
+
+記事本文では触れませんでしたが、ブログカードに使われる技術の一つとして{% elink oEmbed https://oembed.com/ %}というものもあります。これはWebサイトに動画や写真を埋め込むためのプロトコルで、YouTubeやInstagram等のリッチコンテンツを提供しているサイトが対応しています。一部のブログカードの実装ではWebサイトがoEmbedに対応していたらoEmbedを優先するという動作をします。
+
+現在(2020年)時点では、oEmbedに対応しているサイトはOGPに対応しているサイトと比較するとごく一部であり、oEmbedに対応しているサイトも自分が調べた限りではOGPに対応していたので[^4]、本記事ではOGPメインの構成にしています。oEmbedも非常に興味深い技術なので興味がある方は調べてみてください。
+
+[^4]: YouTube、Twitter、Instagram、Flickr、Gyazo、Vimeo、Speaker Deck、SlideShareはOGPに対応していることを確認しています。
+
 ## 参考文献
 
 - {% elink The Open Graph protocol https://ogp.me/ %}
