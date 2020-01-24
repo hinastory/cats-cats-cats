@@ -67,7 +67,7 @@ OGPで必須とされているメタデータは`og:title`、`og:type`、`og:ima
 
 ### favicon
 
-「favicon」はWebサイトのシンボルとして表示される画像のことでブラウザのタブやブックマークで表示されます。もともとInternet Explorer 5で「お気に入り」に画像を表示するための技術で、「favicon」の由来は「favarite icon」だとされています。
+「favicon」はWebサイトのシンボルとして表示される画像のことでブラウザのタブやブックマークで表示されます。もともとInternet Explorer 5で「お気に入り」に画像を表示するための技術で、「favicon」の由来は「favorite icon」だとされています。
 
 {% img /gallery/daily/others/favicon.png %}
 　
@@ -149,7 +149,7 @@ getTag({url: "https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ru
 
 ### JavaScriptにおける実装
 
-実装は以下のとおりです。基本的には上記の骨格どうりにHTMLタグを組み立てているだけです。今回はソーシャルリンクの実装は行っていませんが、実装はそれほど難しくはないはずです。
+実装は以下のとおりです。基本的には上記の骨格どうりにHTMLタグを組み立てているだけです。今回はソーシャルカウントの実装は行っていませんが、実装はそれほど難しくはないはずです。
 
 {% code lang:js blog_card.js %}
 const util = require('hexo-util');
