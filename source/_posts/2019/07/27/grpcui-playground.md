@@ -14,6 +14,11 @@ date: 2019-07-27 07:28:45
 (2019/10/4 追記)
 gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で{% elink 終了 https://arukas.io/updates/20190930-terminate-of-service/ %}するようです。今後gRPC UI playgroundをどうするかは検討中です。
 
+(2020/2/2 追記)
+gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で終了したので、gRPC UI playgroundを以下の場所に移動しました。
+
+- http://grpcui.hinastory.com
+
 [^1]: RPC(Remote Procedure Call)は、簡単に言えばプログラムの中から内部の関数を呼ぶのと似たような感覚で、外部のネットワーク上の関数や手続きを呼べるようにする技術のことです。他のRPCにはSOAPやJSON-RPCなどがあります。
 
 <!-- more -->
@@ -23,13 +28,14 @@ gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で{% e
 
 ## TL;DR
 
-- gRPC UIで作成した遊び場はこちらです :point_right: {% elink  gRPC UI playground https://cocky-knuth-7862.arukascloud.io %}
+- gRPC UIで作成した遊び場はこちらです :point_right: {% elink  gRPC UI playground http://grpcui.hinastory.com %}
 - gRPC UIはgRPCサーバへの要求と応答がWebで簡単にできるので、今後のgRPCを利用した開発に広く使われるツールとなりそうです
 - gRPC UI playground´は以下のサービスを利用して、無料で立ち上げました。当面はみんなが遊べるようにしておくつもりです
   - {% elink GitHub https://github.com/ %}
   - {% elink Docker Hub https://hub.docker.com/ %}
   - {% elink Arukas https://arukas.io/ %}
-- gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で{% elink 終了 | Arukas https://arukas.io/updates/20190930-terminate-of-service/ %}するようです。今後gRPC UI playgroundをどうするかは検討中です
+- Arukasは正式に終了しました。Arukas関連の説明はそのままにしておきますが試すことはできません。gRPC UI playgroudは以下の場所に移転して稼働させています。
+  - http://grpcui.hinastory.com
 
 
 ## はじめに
@@ -85,7 +91,7 @@ JSON形式で便利なのはコピペが容易なところです。また省略�
 
 さて、ここまで来たらgRPC UIで遊んでみたくなったと思います。以下にみんなが遊べるように「遊び場」を立ち上げたのでぜひいろいろ遊んでみてください。
 
-- {% elink gRPC UI playground https://cocky-knuth-7862.arukascloud.io %}
+- {% elink gRPC UI playground http://grpcui.hinastory.com %}
 
 gRPC UIはバックグラウンドで起動している{% elink gRPC UIのテストサーバ(testsvr) https://github.com/fullstorydev/grpcui/tree/master/testing/cmd/testsvr %}とやりとりしています。プロトコルは「{% elink test.proto https://github.com/fullstorydev/grpcui/blob/master/testing/cmd/testsvr/test.proto %}」、サーバの実装は「{% elink testsvr.go https://github.com/fullstorydev/grpcui/blob/master/testing/cmd/testsvr/testsvr.go %}」に記述されています。実際にgRPC UIを動かしながらソースやIDLを読むとgRPCの理解が深まると思います。
 
@@ -165,7 +171,7 @@ Docker Hubでその設定をするのは簡単でDockerHubのリポジトリの`
 本記事では、gRPCサーバとブラウザでやり取りできる{% elink gRPC UI https://github.com/fullstorydev/grpcui %}を紹介しました。gRPC UIは非常に便利なので今後gRPC関連の開発で広く使われていくものと思われます。そして実際にgRPC UIを触れる遊び場を作成して以下に公開しました。
 
 - 遊び場
-  - {% elink gRPC UI playground https://cocky-knuth-7862.arukascloud.io %}
+  - {% elink gRPC UI playground http://grpcui.hinastory.com %}
   - プロトコルは「{% elink test.proto https://github.com/fullstorydev/grpcui/blob/master/testing/cmd/testsvr/test.proto %}」、サーバの実装は「{% elink testsvr.go https://github.com/fullstorydev/grpcui/blob/master/testing/cmd/testsvr/testsvr.go %}」
   - 遊び場は当面は公開予定ですが、ある日突然告知なしで死ぬ可能性があるのでご容赦ください
 - Dockerfile
