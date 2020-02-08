@@ -19,7 +19,7 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 (2019年9月28日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年9月28日の更新内容)を見てください)
 
-(2019年2月8日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年2月8日の更新内容)を見てください)
+(2020年2月8日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年2月8日の更新内容)を見てください)
 
 <!-- more -->
 
@@ -413,7 +413,7 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 - {% link Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！ https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/ %}
 
-### 2019年9月28日の更新内容
+### 2020年9月28日の更新内容
 
 先日発表された{% elink Dotty 0.19.0-RC1 https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html %}で本記事に関する文法が大きく変更されました。関連するプルリクは主に以下の4つです。
 
