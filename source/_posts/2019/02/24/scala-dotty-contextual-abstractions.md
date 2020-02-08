@@ -19,6 +19,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 (2019年9月28日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年9月28日の更新内容)を見てください)
 
+(2019年2月8日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年2月8日の更新内容)を見てください)
+
 <!-- more -->
 
 ## 目次
@@ -30,7 +32,8 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
   - ~~利用したDottyのバージョンは2019年2月時点で最新の0.13.0-RC1です。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
   - ~~2019年6月時点で最新の0.16.0-RC3で変更があった文法の更新を反映しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
   - ~~2019年9月時点で最新の0.18.1-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
-  - 2019年9月時点で最新の0.19.0-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
+  - ~~2019年9月時点で最新の0.19.0-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります~~
+  - 2020年2月時点で最新の0.19.0-RC1に更新しました。Dottyの開発は非常に活発なので異なるバージョンでは本記事の内容とは異なる場合があります
 - 「Contextual Abstractions」は従来のImplicitsで初学者が躓きそうな機能を整理して使いやすくしています
   - 「Contextual Abstractions」には従来のImplicitsでは実現できなかった機能(暗黙のインポート、型クラス導出、コンテキストクエリ等)も含まれています
 - 「Contextual Abstractions」の機能はまだ提案段階でありScala3の正式な仕様に決定したわけではありません
@@ -58,7 +61,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
 
 - `given`インスタンス(Given Instances)
   - 従来の`implicit`で定義されていたインスタンスと同等です
-- `given`パラメータ(Given Parameters)
+- `using`節(Using Clauses)
   - 従来の`implicit`で定義されていたパラメータリストと同等です
 - `given`インポート(Given Imports)
   - 通常のimportでは`given`で定義された`given`インスタンスはインポートされず、別途`import A.given`でインポートする必要があります
@@ -68,7 +71,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
   - Dottyの新機能です
   - 型が定義された後にメソッドを追加することができます
 - 型クラスの実装(Implementing Typeclasses)
-  - 「`given`インスタンス」、「`given`パラメータ」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
+  - 「`given`インスタンス」、「`using`節」、「拡張メソッド」でよりシンプルに型クラスが実装可能になりました
 
 [^5]: 現行のImplicitsの混乱するポイントについては{% elink こちらの記事 http://kmizu.hatenablog.com/entry/2017/05/19/074149 %}で詳しく取り上げられています。
 [^6]: 暗黙のインスタンスと推論可能パラメータが追加された経緯を知りたい方は{% elink #5458 https://github.com/lampepfl/dotty/pull/5458 %}と {% elink #5852 https://github.com/lampepfl/dotty/pull/5825 %}をご確認ください・・・#5458の方は長すぎてまともに追っていませんが元々は`witness`というキーワードで提案されて途中で`instance`に変わって#5825で`implied`に変わったようです。本当に大激論で互換性に対する懸念が何回も強く出ています。とりあえずこの機能はSIPを通さないとScala3に入ることはないという念押しでマージされました。それ以外のContextual Abstractionsの機能(拡張メソッドや型クラスの導出等)はここまでもめた様子はなかったです。さらに{% elink #6649 https://github.com/lampepfl/dotty/pull/6649 %}
@@ -78,7 +81,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
 
 ## 味見の方法
 
-{% elink ここ https://github.com/lampepfl/dotty/releases/tag/0.16.0-RC3 %}から`dotty-0.19.0-RC1.zip`をダウンロードして解凍します。解凍後のフォルダの`bin`にパスを通せば利用できるようになります。
+{% elink ここ https://github.com/lampepfl/dotty/releases/tag/0.22.0-RC1 %}から`dotty-0.22.0-RC1.zip`をダウンロードして解凍します。解凍後のフォルダの`bin`にパスを通せば利用できるようになります。
 `dotc`がコンパイラです。`dotr`はクラス名を指定するとコンパイル済みのバイナリを実行します。単独で起動した場合にはREPLになります。
 
 ```bash
@@ -96,13 +99,14 @@ Dottyドキュメントに記載されている例をベースに味見をして
 
 [^9]: 一部で実行しやすいように手を加えたり、コメントで説明を加えたり、例が間違っている箇所を修正したりしているのでドキュメントそのままというわけではないです。
 
-### 基本的な例
+### 基本的な例(`given`パラメータ、`using`節)
 
 従来のImplicitsが分かっている人から見れば、おおよそ以下のコードの意味が分かると思います。
 拡張メソッド記法だけは、最初は戸惑うかもしれません。自分は最初Go言語に似ているなと思いました・・・
+`given`インスタンスを定義してみた例が以下になります。
 
 {% code lang:scala %}
-/** `given`インスタンス、`given`パラメータのサンプル */
+/** `given`インスタンス、`using`節のサンプル */
 object GivenExampleDefs {
   /** 順序型の定義 */
   trait Ord[T] {
@@ -114,45 +118,52 @@ object GivenExampleDefs {
   /** 順序型のIntの`given`インスタンスの定義 */
   given intOrd: Ord[Int] {
     def compare(x: Int, y: Int) =
-      if x < y then -1 else if x > y then +1 else 0
+      if (x < y) -1 else if (x > y) +1 else 0
   }
 
   /** 順序型のListの`given`インスタンスの定義 */
-  given listOrd[T](given ord: Ord[T]): Ord[List[T]] {
+  given listOrd[T](using ord: Ord[T]): Ord[List[T]]  {
     def compare(xs: List[T], ys: List[T]): Int = (xs, ys) match {
       case (Nil, Nil) => 0
       case (Nil, _) => -1 // 空リストよりも非空リストの方が大きい
       case (_, Nil) => +1 // 同上
       case (x :: xs1, y :: ys1) =>
         val fst = ord.compare(x, y) // 先頭の大きさがLists全体の大きさ
-        if fst != 0 then fst else compare(xs1, ys1) // 同じだったら次の要素を再帰的に繰り返す
+        if (fst != 0) fst else compare(xs1, ys1) // 同じだったら次の要素を再帰的に繰り返す
     }
   }
 
-  /** `given`パラメータ */
-  def max[T](x: T, y: T)(given ord: Ord[T]): T =
-    if ord.compare(x, y) < 1 then y else x
+  /** `using`節 */
+  def max[T](x: T, y: T)(using ord: Ord[T]): T =
+    if (ord.compare(x, y) < 1) y else x
 
-  /** 無名`given`パラメータ */
-  def maximum[T](xs: List[T])(given Ord[T]): T = xs.reduceLeft(max)
+  /** 無名`using`節 */
+  def maximum[T](xs: List[T])(using Ord[T]): T = xs.reduceLeft(max)
 
   /** コンテキスト境界使った書き換え(Scala2と同様) */
   def maximum2[T: Ord](xs: List[T]): T = xs.reduceLeft(max)
 
-  /** `given`パラメータを使って新しい逆順序型クラスインスタンスを作る関数 */
-  def descending[T](given asc: Ord[T]): Ord[T] = new Ord[T] {
+  /** `using`節を使って新しい逆順序型クラスインスタンスを作る関数 */
+  def descending[T](using asc: Ord[T]): Ord[T] = new Ord[T] {
     def compare(x: T, y: T) = asc.compare(y, x)
   }
 
   /** より複雑な推論 */
-  def minimum[T](xs: List[T])(given Ord[T]) = maximum(xs)(given descending)
+  def minimum[T](xs: List[T])(using Ord[T]) = maximum(xs)(given descending)
 }
+{% endcode %}
+
+`given`インスタンスの利用例が以下になります。
+
+{% code lang:scala %}
 
 /** `GivenExapmple`の利用方法 */
 object GivenExample {
   import GivenExampleDefs.{_, given} // givenは　`Ord`の`<`演算子を利用するのに必要
 
   def use(): Unit = {
+    println("\n--- start GivenExample ---")
+
     println( max(2,3) ) // 3
     println( max(List(1, 2, 3), Nil) ) // List(1, 2, 3)
     println(List(1, 2, 3) < List(1, 2, 3, 4)) // true
@@ -166,38 +177,104 @@ object GivenExample {
 }
 {% endcode %}
 
-### 高度な例
+### 基本的な例(拡張メソッド)
+
+拡張メソッドは既存の型にメソッドを追加できる機能です。ポイントは「継承」を用いずにアドホックに拡張できる点です。
+拡張メソッドは以下のように定義します。
+
+{% code lang:scala %}
+/** 拡張メソッドのサンプル */
+object ExtensionMethodExampleDefs {
+  // Circle型にcircumferenceメソッドを拡張する
+  case class Circle(x: Double, y: Double, radius: Double)
+  def (c: Circle).circumference: Double = c.radius * math.Pi * 2
+
+  // Seq[String]型にlongestStringsメソッドを拡張する
+  trait StringSeqOps {
+    def (xs: Seq[String]).longestStrings = {
+      val maxLength = xs.map(_.length).max
+      xs.filter(_.length == maxLength)
+    }
+  }
+
+  // 演算子タイプの拡張メソッド
+  def (x: String) << (y: String) = s"???? $x $y ????"
+
+  // `extension`を用いた専用構文でも定義可能
+  extension stringOps on (xs: Seq[String]) {
+    def longestStrings2: Seq[String] = {
+      val maxLength = xs.map(_.length).max
+      xs.filter(_.length == maxLength)
+    }
+  }
+
+  // ジェネリクスを用いた`extension`も可能
+  extension listOps on [T](xs: List[T]) {
+    def second = xs.tail.head
+    def third: T = xs.tail.tail.head
+  }
+
+  // 無名の`extension`も可能
+  extension on [T](xs: List[T])(using Ordering[T]) {
+    def largest(n: Int) = xs.sorted.takeRight(n)
+  }
+}
+{% endcode %}
+
+以下のように利用します。
+
+{% code lang:scala %}
+object ExtensionMethodExample {
+  import ExtensionMethodExampleDefs.{_, given}
+  def use(): Unit = {
+    println("\n--- start ExtensionMethodExample ---")
+    val circle = Circle(0, 0, 1)
+    println( circle.circumference ) // 6.283185307179586
+    println( "abc" << "def" ) // ???? abc def ????
+
+    given ops1 as StringSeqOps
+    println( List("here", "is", "a", "list").longestStrings ) // List("here", "list")
+
+    // extension構文で定義してものは`given`をする必要はない
+    println( List("here", "is", "a", "list").longestStrings2 ) // List("here", "list")
+    println( List(1, 2, 3, 4, 5).third ) // 3
+    println( List(1, 2, 5, 12, -3).largest(2) ) // List(5, 12)
+  }
+}
+{% endcode %}
+
+### 高度な例(型クラス)
 
 型クラスの高度な実装例です。高度なのでわからない人はスルーしてください。
-モナドとは・・・という禅問答をここでする気はないです・・・
+以下の例では型クラスとして半群(`Semigroup`)、モノイド(`Monoid`)、関手(`Functor`)、モナド(`Monad`)を定義しています。
+また、型クラスの`given`インスタンスも定義しています。
 
 {% code lang:scala %}
 /** 型クラスのサンプル */
 object TypeClassExampleDefs {
+  import annotation.infix
   /** 半群の型クラス */
   trait SemiGroup[T] {
-    def (x: T) combine (y: T): T
+    @infix def (x: T) combine (y: T): T
   }
 
-  /**モノイドの型クラス */
+  /** モノイドの型クラス */
   trait Monoid[T] extends SemiGroup[T] {
     def unit: T
   }
 
-  /** applyでモノイドを召喚
-   * `summon`はScala2の`implicitly`相当
-   */
+  /** applyでモノイドを召喚 */
   object Monoid {
-    def apply[T](given Monoid[T]) = summon[Monoid[T]]
+    def apply[T](using m: Monoid[T]) = m
   }
 
-  /** `String`のモノイド */
+  /** `String`モノイド */
   given Monoid[String] {
     def (x: String) combine (y: String): String = x.concat(y)
     def unit: String = ""
   }
 
-  /** `Int`のモノイド */
+  /** `Int`モノイド */
   given Monoid[Int] {
     def (x: Int) combine (y: Int): Int = x + y
     def unit: Int = 0
@@ -205,60 +282,65 @@ object TypeClassExampleDefs {
 
   /** モノイドの和を求める */
   def sum[T: Monoid](xs: List[T]): T =
-    xs.foldLeft(Monoid[T].unit)(_.combine(_))
-
+    xs.foldLeft(Monoid[T].unit)(_ combine _)
 
   /** 関手の型クラス */
   trait Functor[F[_]] {
-    def (x: F[A]) map [A, B] (f: A => B): F[B]
+    def [A, B](x: F[A]).map(f: A => B): F[B]
   }
 
   /** モナドの型クラス */
   trait Monad[F[_]] extends Functor[F] {
-    def (x: F[A])flatMap [A, B] (f: A => F[B]): F[B]
-    def (x: F[A])map [A, B] (f: A => B) = x.flatMap(f `andThen` pure)
+    def [A, B](x: F[A]).flatMap(f: A => F[B]): F[B]
+    def [A, B](x: F[A]).map(f: A => B) = x.flatMap(f `andThen` pure)
 
     def pure[A](x: A): F[A]
   }
 
   /** リストモナドのインスタンスを定義 */
-  given listMonad: Monad[List] {
-    def (xs: List[A]) flatMap [A, B] (f: A => List[B]): List[B] =
+  given listMonad as Monad[List] {
+    def [A, B](xs: List[A]).flatMap(f: A => List[B]): List[B] =
       xs.flatMap(f)
     def pure[A](x: A): List[A] =
       List(x)
   }
 
   /** リーダモナドのインスタンスを定義 */
-  given readerMonad[Ctx]: Monad[[X] =>> Ctx => X] {
-    def (r: Ctx => A) flatMap [A, B] (f: A => Ctx => B): Ctx => B =
+  given readerMonad[Ctx] as Monad[[X] =>> Ctx => X] {
+    def [A, B](r: Ctx => A).flatMap(f: A => Ctx => B): Ctx => B =
       ctx => f(r(ctx))(ctx)
     def pure[A](x: A): Ctx => A =
       ctx => x
   }
 
   /** 関手の利用 */
-  def transform[F[_], A, B](src: F[A], func: A => B)(given Functor[F]): F[B] = src.map(func)
+  def transform[F[_], A, B](src: F[A], func: A => B)(using Functor[F]): F[B] = src.map(func)
 
   /** コンテキスト境界を使った書き換え */
   def transform2[F[_]: Functor, A, B](src: F[A], func: A => B): F[B] = src.map(func)
 }
+{% endcode %}
 
+型クラスは以下のように利用できます。
+
+{% code lang:scala %}
 /** `TypeClassExampleDefs`の利用方法 */
 object TypeClassExample {
   import TypeClassExampleDefs.{given, _}
 
   def use(): Unit = {
-    println( sum(List("abc", "def", "gh")) ) // "abcdefgh"
+    println("\n--- start TypeClassExample ---")
+    println( sum(List("abc", "def", "gh")) ) // abcdefgh
     println( sum(List(1, 2, 3)) ) // 6
+    println( summon[Monad[List]].pure(12) ) // List(12)
 
     println( transform(List(1, 2, 3), (_:Int) * 2) ) // List(2, 4, 6)
 
+    // Reader Monad Example
     val calc: Int => Int = for {
       x <- (e:Int) => e + 1
       y <- (e:Int) => e * 10
-    }
-    yield x + y
+    } yield x + y
 
     println( calc(3) ) // 34
   }
@@ -330,3 +412,16 @@ The implicit keyword is used for both implicit conversions and conditional impli
 - {% elink Replace the[...] by summon[...] by odersky · Pull Request #7205 · lampepfl/dotty https://github.com/lampepfl/dotty/pull/7205 %}
 
 簡単に言うと`delegate`が`given`に置き換えられて`given`節が`given`パラメータになって`summon`大復活です。0.19.0-RC1より前のものも含まれていますが、今回合わせて修正しました。
+
+
+### 2019年2月8日の更新内容
+
+Dottyは0.21.0でめでたく`feature-complete`しました。つまりこれ以降は大きな機能追加はないはずです。　・・・と安心していたら0.22.0で`using`キーワードが追加されました。文法の調整はまだ続くようです・・・
+今回は以下の３つのリリースで行われた修正を反映しています。
+
+- {% elink Announcing Dotty 0.20.0-RC1 – `with` starting indentation blocks, inline given specializations and more https://dotty.epfl.ch/blog/2019/11/04/20th-dotty-milestone-release.html %}
+- {% elink Announcing Dotty 0.21.0-RC1 - explicit nulls, new syntax for `match` and conditional givens, and more https://dotty.epfl.ch/blog/2019/12/20/21th-dotty-milestone-release.html %}
+- {% elink Announcing Dotty 0.22.0-RC1 - syntactic enhancements, type-level arithmetic and more https://dotty.epfl.ch/blog/2020/02/05/22nd-dotty-milestone-release.html %}
+
+大きな変更は`using`、`on`、`as`、`extention`などのキーワードが登場してより読みやすくなったことだと思います。実際の使い方は記事本文をご覧ください。
+あと、今まで拡張メソッドはこの記事では説明がなかったので追加しました。

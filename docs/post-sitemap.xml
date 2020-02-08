@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
+        <lastmod>2020-02-08T01:47:19.988Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/07/27/grpcui-playground/</loc>
         <lastmod>2020-02-02T02:04:35.846Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -298,14 +306,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/07/07/go-multimodules/</loc>
         <lastmod>2019-11-02T01:33:10.402Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
-        <lastmod>2019-11-02T01:32:57.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
