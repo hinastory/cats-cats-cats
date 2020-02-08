@@ -413,7 +413,7 @@ The implicit keyword is used for both implicit conversions and conditional impli
 
 - {% link Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！ https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/ %}
 
-### 2020年9月28日の更新内容
+### 2019年9月28日の更新内容
 
 先日発表された{% elink Dotty 0.19.0-RC1 https://dotty.epfl.ch/blog/2019/09/23/19th-dotty-milestone-release.html %}で本記事に関する文法が大きく変更されました。関連するプルリクは主に以下の4つです。
 
@@ -425,7 +425,7 @@ The implicit keyword is used for both implicit conversions and conditional impli
 簡単に言うと`delegate`が`given`に置き換えられて`given`節が`given`パラメータになって`summon`大復活です。0.19.0-RC1より前のものも含まれていますが、今回合わせて修正しました。
 
 
-### 2019年2月8日の更新内容
+### 2020年2月8日の更新内容
 
 Dottyは0.21.0でめでたく`feature-complete`しました。つまりこれ以降は大きな機能追加はないはずです。　・・・と安心していたら0.22.0で`using`キーワードが追加されました。文法の調整はまだ続くようです・・・
 今回は以下の３つのリリースで行われた修正を反映しています。
