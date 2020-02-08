@@ -19,7 +19,7 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 
 (2019年9月28日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年9月28日の更新内容)を見てください)
 
-(2020年2月8日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年2月8日の更新内容)を見てください)
+(2020年2月8日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2020年2月8日の更新内容)を見てください)
 
 <!-- more -->
 
