@@ -101,83 +101,6 @@ Dottyドキュメントに記載されている例をベースに味見をして
 
 [^9]: 一部で実行しやすいように手を加えたり、コメントで説明を加えたり、例が間違っている箇所を修正したりしているのでドキュメントそのままというわけではないです。
 
-### 基本的な例(`given`パラメータ、`using`節)
-
-従来のImplicitsが分かっている人から見れば、おおよそ以下のコードの意味が分かると思います。
-拡張メソッド記法だけは、最初は戸惑うかもしれません。自分は最初Go言語に似ているなと思いました・・・
-`given`インスタンスを定義してみた例が以下になります。
-
-{% code lang:scala %}
-/** `given`インスタンス、`using`節のサンプル */
-object GivenExampleDefs {
-  /** 順序型の定義 */
-  trait Ord[T] {
-    def compare(x: T, y: T): Int
-    def (x: T) < (y: T) = compare(x, y) < 0 // 拡張メソッド記法を使って定義してあります
-    def (x: T) > (y: T) = compare(x, y) > 0 // 上記と同様
-  }
-
-  /** 順序型のIntの`given`インスタンスの定義 */
-  given intOrd: Ord[Int] {
-    def compare(x: Int, y: Int) =
-      if (x < y) -1 else if (x > y) +1 else 0
-  }
-
-  /** 順序型のListの`given`インスタンスの定義 */
-  given listOrd[T](using ord: Ord[T]): Ord[List[T]]  {
-    def compare(xs: List[T], ys: List[T]): Int = (xs, ys) match {
-      case (Nil, Nil) => 0
-      case (Nil, _) => -1 // 空リストよりも非空リストの方が大きい
-      case (_, Nil) => +1 // 同上
-      case (x :: xs1, y :: ys1) =>
-        val fst = ord.compare(x, y) // 先頭の大きさがLists全体の大きさ
-        if (fst != 0) fst else compare(xs1, ys1) // 同じだったら次の要素を再帰的に繰り返す
-    }
-  }
-
-  /** `using`節 */
-  def max[T](x: T, y: T)(using ord: Ord[T]): T =
-    if (ord.compare(x, y) < 1) y else x
-
-  /** 無名`using`節 */
-  def maximum[T](xs: List[T])(using Ord[T]): T = xs.reduceLeft(max)
-
-  /** コンテキスト境界使った書き換え(Scala2と同様) */
-  def maximum2[T: Ord](xs: List[T]): T = xs.reduceLeft(max)
-
-  /** `using`節を使って新しい逆順序型クラスインスタンスを作る関数 */
-  def descending[T](using asc: Ord[T]): Ord[T] = new Ord[T] {
-    def compare(x: T, y: T) = asc.compare(y, x)
-  }
-
-  /** より複雑な推論 */
-  def minimum[T](xs: List[T])(using Ord[T]) = maximum(xs)(given descending)
-}
-{% endcode %}
-
-`given`インスタンスの利用例が以下になります。
-
-{% code lang:scala %}
-
-/** `GivenExapmple`の利用方法 */
-object GivenExample {
-  import GivenExampleDefs.{_, given} // givenは　`Ord`の`<`演算子を利用するのに必要
-
-  def use(): Unit = {
-    println("\n--- start GivenExample ---")
-
-    println( max(2,3) ) // 3
-    println( max(List(1, 2, 3), Nil) ) // List(1, 2, 3)
-    println(List(1, 2, 3) < List(1, 2, 3, 4)) // true
-    println(List(9, 2, 3) < List(1, 2, 3, 4)) // false
-
-    val numList = List(1,10,2)
-    println( maximum(numList) ) // 10
-    println( maximum2(numList) ) // 10
-    println( minimum(numList) ) // 1
-  }
-}
-{% endcode %}
 
 ### 基本的な例(拡張メソッド)
 
@@ -242,6 +165,87 @@ object ExtensionMethodExample {
     println( List("here", "is", "a", "list").longestStrings2 ) // List("here", "list")
     println( List(1, 2, 3, 4, 5).third ) // 3
     println( List(1, 2, 5, 12, -3).largest(2) ) // List(5, 12)
+  }
+}
+{% endcode %}
+
+
+### 少し高度な例(`given`インスタンス、`using`節)
+
+前述のとおり`given`インスタンスは型を拡張するときに用いることができますが、その応用として型パラメータを持つ型を「共通の型」として他の型を拡張できます。この機能は「型クラス」とも呼ばれますが詳細は次節で説明します。
+
+`using`節ではスコープに存在する`given`インスタンスを受け取ることができます。仮に`using`節で指定された変数の型にマッチする`given`インスタンスがスコープに存在すれば、呼び出し時に`using`節を省略することができます。
+
+以下の例では`Int`型と`List`型を`Ord`型で拡張しています。また、`using`節を用いて`max`関数や`maximam`関数等を定義しています。
+
+{% code lang:scala %}
+/** `given`インスタンス、`using`節のサンプル */
+object GivenExampleDefs {
+  /** 順序型の定義 */
+  trait Ord[T] {
+    def compare(x: T, y: T): Int
+    def (x: T) < (y: T) = compare(x, y) < 0 // 拡張メソッド記法を使って定義してあります
+    def (x: T) > (y: T) = compare(x, y) > 0 // 上記と同様
+  }
+
+  /** 順序型のIntの`given`インスタンスの定義 */
+  given intOrd: Ord[Int] {
+    def compare(x: Int, y: Int) =
+      if (x < y) -1 else if (x > y) +1 else 0
+  }
+
+  /** 順序型のListの`given`インスタンスの定義 */
+  given listOrd[T](using ord: Ord[T]): Ord[List[T]]  {
+    def compare(xs: List[T], ys: List[T]): Int = (xs, ys) match {
+      case (Nil, Nil) => 0
+      case (Nil, _) => -1 // 空リストよりも非空リストの方が大きい
+      case (_, Nil) => +1 // 同上
+      case (x :: xs1, y :: ys1) =>
+        val fst = ord.compare(x, y) // 先頭の大きさがLists全体の大きさ
+        if (fst != 0) fst else compare(xs1, ys1) // 同じだったら次の要素を再帰的に繰り返す
+    }
+  }
+
+  /** `using`節 */
+  def max[T](x: T, y: T)(using ord: Ord[T]): T =
+    if (ord.compare(x, y) < 1) y else x
+
+  /** 無名`using`節 */
+  def maximum[T](xs: List[T])(using Ord[T]): T = xs.reduceLeft(max)
+
+  /** コンテキスト境界使った書き換え(Scala2と同様) */
+  def maximum2[T: Ord](xs: List[T]): T = xs.reduceLeft(max)
+
+  /** `using`節を使って新しい逆順序型クラスインスタンスを作る関数 */
+  def descending[T](using asc: Ord[T]): Ord[T] = new Ord[T] {
+    def compare(x: T, y: T) = asc.compare(y, x)
+  }
+
+  /** より複雑な推論 */
+  def minimum[T](xs: List[T])(using Ord[T]) = maximum(xs)(using descending)
+}
+{% endcode %}
+
+`given`インスタンスの利用例が以下になります。
+
+{% code lang:scala %}
+
+/** `GivenExapmple`の利用方法 */
+object GivenExample {
+  import GivenExampleDefs.{_, given} // givenは　`Ord`の`<`演算子を利用するのに必要
+
+  def use(): Unit = {
+    println("\n--- start GivenExample ---")
+
+    println( max(2,3) ) // 3
+    println( max(List(1, 2, 3), Nil) ) // List(1, 2, 3)
+    println(List(1, 2, 3) < List(1, 2, 3, 4)) // true
+    println(List(9, 2, 3) < List(1, 2, 3, 4)) // false
+
+    val numList = List(1,10,2)
+    println( maximum(numList) ) // 10
+    println( maximum2(numList) ) // 10
+    println( minimum(numList) ) // 1
   }
 }
 {% endcode %}
