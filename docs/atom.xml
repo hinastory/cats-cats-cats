@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-01-24T18:51:42.621Z</updated>
+  <updated>2020-02-11T08:52:41.515Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scala3とプログラミングと圏論</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</id>
+    <published>2020-02-10T22:28:45.000Z</published>
+    <updated>2020-02-11T08:52:41.515Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;最近、&lt;a href=&quot;https://speakerdeck.com/inamiy/category-theory-and-programming&quot; title target&gt;圏論とプログラミング&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・&lt;/p&gt;
+&lt;p&gt;ただ、自分にとって残念だったのは、資料で説明用に選択されたプログラミング言語が&lt;strong&gt;「Haskell」&lt;/strong&gt;だったことです。もちろんHaskellは素晴らしい言語です。ただ、自分にとってHaskellは外国語なのでちょっと理解が難しいのです。そしてこの資料が&lt;strong&gt;「Scala」&lt;/strong&gt;で書かれていたらと夢想せずにはいられなかったのです。&lt;/p&gt;
+&lt;p&gt;Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeature Completeを宣言しました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。この宣言で新機能の追加は終了して、あとは2020年末のリリースに向けてひたすら品質を上げていく段階に突入しました。つまり、ようやく次世代のScalaが全貌を表したということです。&lt;/p&gt;
+&lt;p&gt;ここである考えが脳裏を過りました。もしかしたら「圏論とプログラミング」に出てくるHaskellの記述を&lt;strong&gt;「素のScala3」&lt;/strong&gt;で置き換えられるのではないかと。&lt;/p&gt;
+&lt;p&gt;本記事ではその疑問を検証してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="CategoryTheory" scheme="https://hinastory.github.io/cats-cats-cats/tags/CategoryTheory/"/>
+    
+  </entry>
   
   <entry>
     <title>ブログカードを支える技術</title>
@@ -535,29 +564,6 @@
     
     
       <category term="Qiita" scheme="https://hinastory.github.io/cats-cats-cats/tags/Qiita/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go Modulesとマルチモジュール構成でGo Homeする方法</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/07/07/go-multimodules/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/07/07/go-multimodules/</id>
-    <published>2019-07-06T22:28:45.000Z</published>
-    <updated>2019-11-02T01:33:10.402Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Go Modulesでマルチモジュールにする方法がわからなくて調べました。発端は単に&lt;code&gt;go.mod&lt;/code&gt;がある別モジュールのパッケージをインポートしようとしても出来なかったことです。そこで、Go Modulesでマルチモジュールを実現するためのシナリオを説明してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
-    
-    
-      <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
     
   </entry>
   

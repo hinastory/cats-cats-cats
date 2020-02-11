@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</loc>
+        <lastmod>2020-02-11T08:52:41.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
         <lastmod>2020-02-08T03:02:57.538Z</lastmod>
         <changefreq>weekly</changefreq>

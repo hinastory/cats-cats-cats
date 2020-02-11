@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html  lang="ja">
+<head>
+    <meta charset="utf-8">
+<title>Scala3とプログラミングと圏論 - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta name="description" content="最近、圏論とプログラミングという素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・ ただ、自分にとって残念だったのは、資料で説明用に選択されたプログラミング言語が「Haskell」だったことです。もちろんHaskellは素晴らしい言語です。ただ、自分にとってHaskellは外国語なのでちょっと理解が難し">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala3とプログラミングと圏論">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="最近、圏論とプログラミングという素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・ ただ、自分にとって残念だったのは、資料で説明用に選択されたプログラミング言語が「Haskell」だったことです。もちろんHaskellは素晴らしい言語です。ただ、自分にとってHaskellは外国語なのでちょっと理解が難し">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/scala3_cats.png">
+<meta property="article:published_time" content="2020-02-10T22:28:45.000Z">
+<meta property="article:modified_time" content="2020-02-11T08:52:41.515Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="Scala">
+<meta property="article:tag" content="CategoryTheory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/scala3_cats.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="Scala3とプログラミングと圏論" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
+
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3とプログラミングと圏論">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            Scala3とプログラミングと圏論
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="media-left">
+                <time datetime="2020-02-10T22:28:45.000Z">2020-02-11</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/CategoryTheory/" rel="tag">CategoryTheory</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/Scala/" rel="tag">Scala</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala3_cats.png" alt="Scala3とプログラミングと圏論">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <div class="content">
+            <html><head></head><body><p>最近、<a href="https://speakerdeck.com/inamiy/category-theory-and-programming" target="_blank" rel="noopener" title target>圏論とプログラミング<i class="fas fa-external-link-alt fa-fw"></i></a>という素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・</p>
+<p>ただ、自分にとって残念だったのは、資料で説明用に選択されたプログラミング言語が<strong>「Haskell」</strong>だったことです。もちろんHaskellは素晴らしい言語です。ただ、自分にとってHaskellは外国語なのでちょっと理解が難しいのです。そしてこの資料が<strong>「Scala」</strong>で書かれていたらと夢想せずにはいられなかったのです。</p>
+<p>Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeature Completeを宣言しました<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。この宣言で新機能の追加は終了して、あとは2020年末のリリースに向けてひたすら品質を上げていく段階に突入しました。つまり、ようやく次世代のScalaが全貌を表したということです。</p>
+<p>ここである考えが脳裏を過りました。もしかしたら「圏論とプログラミング」に出てくるHaskellの記述を<strong>「素のScala3」</strong>で置き換えられるのではないかと。</p>
+<p>本記事ではその疑問を検証してみたいと思います。</p>
+<a id="more"></a>
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#はじめに" class="contents-header">2. はじめに</a></li><li><a href="#scala3で圏論の概念を実装してみる" class="contents-header">3. Scala3で圏論の概念を実装してみる</a><ul><li><a href="#型クラスを使った圏の定義" class="contents-header">3.1. 型クラスを使った圏の定義</a></li><li><a href="#圏の例クライスリ圏" class="contents-header">3.2. 圏の例：クライスリ圏</a></li><li><a href="#圏の例レンズ圏" class="contents-header">3.3. 圏の例：レンズ圏</a></li><li><a href="#関手" class="contents-header">3.4. 関手</a></li><li><a href="#自己関手endofunctor" class="contents-header">3.5. 自己関手（Endofunctor）</a></li><li><a href="#関手圏と自然変換" class="contents-header">3.6. 関手圏と自然変換</a></li><li><a href="#自然変換の例多相関数" class="contents-header">3.7. 自然変換の例：多相関数</a></li><li><a href="#米田の補題" class="contents-header">3.8. 米田の補題</a></li><li><a href="#余米田の補題coyoneda" class="contents-header">3.9. 余米田の補題(Coyoneda)</a></li></ul></li><li><a href="#scala3とhaskellの比較" class="contents-header">4. Scala3とHaskellの比較</a></li><li><a href="#haskellとscala3の開発環境" class="contents-header">5. HaskellとScala3の開発環境</a></li><li><a href="#まとめ" class="contents-header">6. まとめ</a></li><li><a href="#おまけ" class="contents-header">7. おまけ</a></li><li><a href="#参考文献" class="contents-header">8. 参考文献</a></li></ul></div>
+
+<h2 id="tldr"><a href="#tldr" class="header-anchor"></a>1. <a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
+<li><a href="https://speakerdeck.com/inamiy/category-theory-and-programming" target="_blank" rel="noopener" title target>圏論とプログラミング<i class="fas fa-external-link-alt fa-fw"></i></a>に記載されているHaskellの記述をScala3に書き換えてみた
+<ul>
+<li>Scala3(Dotty)は0.22.0-RC1を利用</li>
+<li>外部ライブラリは使わない<ul>
+<li>標準言語機能と標準ライブラリとコンパイラオプションは利用してもよい</li>
+</ul>
+</li>
+<li>メタプログラミングは使わない</li>
+<li>書き換えたのは余米田の補題まで<ul>
+<li>それ以降はだれか挑戦してください・・・</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>結論<ul>
+<li>かなり自然に圏論の概念を記述できるようになった</li>
+<li>記述量的にはHaskellに大分近づいたがまだ若干差がある<ul>
+<li>行数的にはかなり肉薄したが、Scalaは型記述が多いため文字数ではまだ差がある</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="はじめに"><a href="#はじめに" class="header-anchor"></a>2. <a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>本記事では「<a href="https://speakerdeck.com/inamiy/category-theory-and-programming" target="_blank" rel="noopener" title target>圏論とプログラミング<i class="fas fa-external-link-alt fa-fw"></i></a>（以降、「元記事」と表記）」に記述されているHaskellの記述をScala3(Dotty 0.22.0-RC1)で書き換える検証を行った結果を解説します。</p>
+<p>本記事のHaskellのソースコードは基本的に元記事からの引用になります<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。Scala3のコードはなるべくHaskellのソースコードを忠実に再現するようにしていますが、言語の機能や慣習の違いにより様々な差異があることをご了承ください。</p>
+<p>基本的には以下のルールで書き換えています。</p>
+<ul>
+<li>なるべくScala3の新機能<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>を用いてスマートに書き換える</li>
+<li>外部ライブラリは使わない<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup><ul>
+<li>標準言語機能と標準ライブラリのみ使って良い</li>
+<li>コンパイラオプションは使って良い<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup></li>
+</ul>
+</li>
+<li>メタプログラミングは使わない<ul>
+<li>本記事では「素のScala3」でどこまでできるかがテーマなので今回は用いないこととする</li>
+</ul>
+</li>
+<li>Haskellで用いられている記号の演算子はScalaでは文字のメソッド名に変換する</li>
+<li>Haskellの型引数は小文字が用いられるが、Scalaでは大文字にする</li>
+</ul>
+<h2 id="scala3で圏論の概念を実装してみる"><a href="#scala3で圏論の概念を実装してみる" class="header-anchor"></a>3. <a href="#Scala3で圏論の概念を実装してみる" class="headerlink" title="Scala3で圏論の概念を実装してみる"></a>Scala3で圏論の概念を実装してみる</h2><p>それではいよいよScala3で実装してみます。以降のタイトルは元記事と対応しています。元記事の発表スライドメモを並べながら見るとわかりやすいと思います。</p>
+<ul>
+<li><a href="https://qiita.com/inamiy/items/9af1da1faec22cd968f0#comments" target="_blank" rel="noopener" title target>「圏論とプログラミング」発表スライドメモ - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<h3 id="型クラスを使った圏の定義"><a href="#型クラスを使った圏の定義" class="header-anchor"></a>3.1. <a href="#型クラスを使った圏の定義" class="headerlink" title="型クラスを使った圏の定義"></a>型クラスを使った圏の定義</h3><p>まずは基本的な圏の定義です。行数はHaskellもScala3も3行に収まっていますが、文字数的にはHaskellのほうが少ないようです。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Category</span> cat <span class="hljs-keyword">where</span></span><br>    id :: cat a a<br>    (.) :: cat b c -> cat a b -> cat a c<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Category</span>[<span class="hljs-type">F</span>[_, _]]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>]: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">A</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">C</span>]<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Scala 3の解説をすると、まずこのインデント記法を初めて見る方は驚くかもしれません。Scala 3ではHaskellやPythonのようにインデントベースで書けるようになりました。もちろん括弧を用いた記法も可能です。詳細は以下を御覧ください。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/indentation.html" target="_blank" rel="noopener" title target>Optional Braces<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/control-syntax.html" target="_blank" rel="noopener" title target>New Control Syntax<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<p>また以下の拡張メソッド記法も初見はGo言語っぽいなと思いました。以下のメソッドは<code>F[B,C]</code>型を拡張して<code>compose</code>メソッドを追加する構文です。</p>
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">C</span>]<br></code></pre></td></tr></tbody></table></figure>
+
+<p>拡張メソッドの詳細は以下を確認してください。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/docs/reference/contextual/extension-methods.html" target="_blank" rel="noopener" title target>Extension Methods<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<h3 id="圏の例クライスリ圏"><a href="#圏の例クライスリ圏" class="header-anchor"></a>3.2. <a href="#圏の例：クライスリ圏" class="headerlink" title="圏の例：クライスリ圏"></a>圏の例：クライスリ圏</h3><p>次にクライスリ圏を定義ですが、その前にモナドを定義する必要があります。モナドの定義は[<a href="https://speakerdeck.com/inamiy/number-cat4pg?slide=121" target="_blank" rel="noopener" title target>ここ<i class="fas fa-external-link-alt fa-fw"></i></a>]から引用させて頂きました。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Functor</span> f <span class="hljs-keyword">where</span></span><br>    fmap :: (a -> b) -> f a -> f b<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">Functor</span> f => <span class="hljs-type">Applicative</span> f <span class="hljs-keyword">where</span></span><br>    pure :: a -> f a<br>    (<*>) :: f (a -> b) -> f a -> f b<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">Applicative</span> m => <span class="hljs-type">Monad</span> m <span class="hljs-keyword">where</span></span><br>    (>>=) :: m a -> (a -> m b) -> m b<br><br>    return :: a -> m a<br>    return = pure<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]).map(y: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br><br><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">F</span>[_]] <span class="hljs-keyword">extends</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span> => <span class="hljs-type">B</span>]).ap(y: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](f: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]).map(y: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = ap(pure(y))(x)<br><br><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">F</span>[_]] <span class="hljs-keyword">extends</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">F</span>]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]).flatMap(y: <span class="hljs-type">A</span> => <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Scalaの定義も大分スッキリしていると思います。Haskellの関数とScalaのメソッドの対応は以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>Haskell</th>
+<th>Scala</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fmap</td>
+<td>map</td>
+</tr>
+<tr>
+<td><*></td>
+<td>ap</td>
+</tr>
+<tr>
+<td>pure</td>
+<td>pure</td>
+</tr>
+<tr>
+<td>>>=</td>
+<td>flatMap</td>
+</tr>
+<tr>
+<td>return</td>
+<td>pure</td>
+</tr>
+</tbody></table>
+<p>準備が整ったのでクライスリ圏の定義を比較してみます。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">newtype</span> <span class="hljs-type">Kleisli</span> m a b = <span class="hljs-type">Kleisli</span> { <span class="hljs-title">runKleisli</span> :: <span class="hljs-title">a</span> ->  <span class="hljs-title">m</span> <span class="hljs-title">b</span>}</span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Monad</span> m => <span class="hljs-type">Category</span> (<span class="hljs-type">Kleisli</span> <span class="hljs-title">m</span>) <span class="hljs-keyword">where</span></span><br>    id :: <span class="hljs-type">Kleisli</span> m a a<br>    id = <span class="hljs-type">Kleisli</span> pure<br><br>    (.) :: <span class="hljs-type">Kleisli</span> m b c -> <span class="hljs-type">Kleisli</span> m a b -> <span class="hljs-type">Kleisli</span> m a c<br>    f . g = <span class="hljs-type">Kleisli</span> (\x -> runKleisli g x >>= runKleisli f)<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scala">opaque <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Kleisli</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">A</span>, <span class="hljs-title">B</span>] </span>= <span class="hljs-type">A</span> => <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Kleisli</span></span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">A</span> => <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]) = x<br><br>given kleisliCategory[<span class="hljs-type">F</span>[_]](using m: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]) as <span class="hljs-type">Category</span>[<span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, *, *]]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Kleisli</span>(m.pure(_))<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>, <span class="hljs-type">B</span>]) =<br>    <span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>, <span class="hljs-type">C</span>](k => y(k).flatMap(x))<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Scala3では新しく「不透明型エイリアス(Opaque Type Alias)」を用いています。これはHaskellのnewtypeに対応するもので、単一の型のゼロコスト抽象化を提供します。詳細は以下を確認してください。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/opaques.html" target="_blank" rel="noopener" title target>Opaque Type Aliases<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<p>またScala3では型クラスのインスタンスを定義するために<code>given</code>、<code>using</code>、<code>as</code>という構文が追加されています。これらは従来の<code>implicit</code>構文をわかりやすくしたものです。詳細は以下を確認してください。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/docs/reference/contextual/givens.html" target="_blank" rel="noopener" title target>Given Instances<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/docs/reference/contextual/using-clauses.html" target="_blank" rel="noopener" title target>Using Clauses<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/docs/reference/contextual/typeclasses.html" target="_blank" rel="noopener" title target>Implementing Typeclasses<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<p>あと、型の部分適用を簡単にするためにKind projector syntax supportを有効にしています。利用した箇所は「<code>Kleisli[F, *, *]</code>」の部分です。詳細は以下を確認してください。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/blog/2020/02/05/22nd-dotty-milestone-release.html#kind-projector-syntax-support" target="_blank" rel="noopener" title target>Kind projector syntax support<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<h3 id="圏の例レンズ圏"><a href="#圏の例レンズ圏" class="header-anchor"></a>3.3. <a href="#圏の例：レンズ圏" class="headerlink" title="圏の例：レンズ圏"></a>圏の例：レンズ圏</h3><p>次はレンズ圏の定義です。これも大体同じ記述量ですんでいます。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Lens</span> a b = <span class="hljs-type">Lens</span> (<span class="hljs-title">a</span> -> <span class="hljs-title">b</span>) (<span class="hljs-title">a</span> -> <span class="hljs-title">b</span> -> <span class="hljs-title">a</span>)</span><br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Category</span> <span class="hljs-type">Lens</span> <span class="hljs-keyword">where</span></span><br>    id :: <span class="hljs-type">Lens</span> a a<br>    id = <span class="hljs-type">Lens</span> <span class="hljs-type">Prelude</span>.id (const <span class="hljs-type">Prelude</span>.id)<br><br>    (.) :: <span class="hljs-type">Lens</span> b c -> <span class="hljs-type">Lens</span> a b -> <span class="hljs-type">Lens</span> a c<br>    <span class="hljs-type">Lens</span> g1 s1 . <span class="hljs-type">Lens</span> g2 s2 = <span class="hljs-type">Lens</span> (g1 <span class="hljs-type">Prelude</span>.. g2) s3<br>        <span class="hljs-keyword">where</span><br>            s3 a c = s2 a (s1 (g2 a) c)<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Lens</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](<span class="hljs-params">val g: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>, val s: <span class="hljs-type">A</span> => <span class="hljs-type">B</span> => <span class="hljs-type">A</span></span>)</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Lens</span></span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](g: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>, s: <span class="hljs-type">A</span> => <span class="hljs-type">B</span> => <span class="hljs-type">A</span>) = <span class="hljs-keyword">new</span> <span class="hljs-type">Lens</span>(g, s){}<br><br>given <span class="hljs-type">Category</span>[<span class="hljs-type">Lens</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Lens</span>(identity, <span class="hljs-type">Function</span>.const(identity))<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">Lens</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">Lens</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]) =<br>    <span class="hljs-keyword">val</span> s3: <span class="hljs-type">A</span> => <span class="hljs-type">C</span> => <span class="hljs-type">A</span> = a => c => y.s(a)(x.s(y.g(a))(c))<br>    <span class="hljs-type">Lens</span>(x.g compose y.g, s3)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Scala3では新しくトレイトにパラメータを持てるようになったのでこれを利用しています。またLensを生成しやすくするためにコンパニオンオブジェクトにapplyメソッドを定義しています。Scala3のCreator Applicationsが利用できるかと思ったのですがトレイトには利用できないようです。詳細は以下を確認してください。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/trait-parameters.html" target="_blank" rel="noopener" title target>Trait Parameters<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/creator-applications.html" target="_blank" rel="noopener" title target>Creator Applications<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<h3 id="関手"><a href="#関手" class="header-anchor"></a>3.4. <a href="#関手" class="headerlink" title="関手"></a>関手</h3><p>ようやく関手まで来ました。ここの関手は圏論の関手です。関手の記述量もHaskellとScalaで大差はないと思います。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> (<span class="hljs-type">Category</span> <span class="hljs-title">c</span>, <span class="hljs-type">Category</span> <span class="hljs-title">d</span>) => <span class="hljs-type">Functor'</span> c d f <span class="hljs-keyword">where</span></span><br>    fmap' :: c a b -> d (f a) (f b)<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor'</span> (->) (->) <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span><br>    fmap' _ <span class="hljs-type">Nothing</span> = <span class="hljs-type">Nothing</span><br>    fmap' f (<span class="hljs-type">Just</span> a) = <span class="hljs-type">Just</span> (f a)<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor_</span>[<span class="hljs-type">C</span>[_, _], <span class="hljs-title">D</span>[_, _], <span class="hljs-title">F</span>[_]](<span class="hljs-params">using <span class="hljs-type">Category</span>[<span class="hljs-type">C</span>], <span class="hljs-type">Category</span>[<span class="hljs-type">D</span>]</span>)</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fmap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](c: <span class="hljs-type">C</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]): <span class="hljs-type">D</span>[<span class="hljs-type">F</span>[<span class="hljs-type">A</span>], <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]]<br><br>given <span class="hljs-type">Functor_</span>[<span class="hljs-type">Function1</span>, <span class="hljs-type">Function1</span>, <span class="hljs-type">Option</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fmap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = x => x <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> => <span class="hljs-type">None</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(a) => <span class="hljs-type">Some</span>(f(a))<br></code></pre></td></tr></tbody></table></figure>
+
+<p>一応Functorのgivenインスタンスの実装はHaskellに倣いましたが、以下のように<code>Option</code>の<code>map</code>に委譲もできます。</p>
+<figure class="highlight scala hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scala">given <span class="hljs-type">Functor_</span>[<span class="hljs-type">Function1</span>, <span class="hljs-type">Function1</span>, <span class="hljs-type">Option</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fmap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](c: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = _.map(c)<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="自己関手endofunctor"><a href="#自己関手endofunctor" class="header-anchor"></a>3.5. <a href="#自己関手（Endofunctor）" class="headerlink" title="自己関手（Endofunctor）"></a>自己関手（Endofunctor）</h3><p>こちらがプログラミングでよく使われる「関手」です。ここでもHaskellをScalaの記述量は大差ないものになっています。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Functor</span> f <span class="hljs-keyword">where</span></span><br>    fmap :: (a -> b) -> f a -> f b<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span><br>    fmap _ <span class="hljs-type">Nothing</span> = <span class="hljs-type">Nothing</span><br>    fmap f (<span class="hljs-type">Just</span> a) = <span class="hljs-type">Just</span> (f a)<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]).map(y: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br><br>given <span class="hljs-type">Functor</span>[<span class="hljs-type">Option</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>]).map(y: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = x.map(y)<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="関手圏と自然変換"><a href="#関手圏と自然変換" class="header-anchor"></a>3.6. <a href="#関手圏と自然変換" class="headerlink" title="関手圏と自然変換"></a>関手圏と自然変換</h3><p>とうとう関手圏と自然変換までやってきました。ここでとうとうHaskellとScalaに決定的な差がついてしまいました。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">newtype</span> f :~> g = <span class="hljs-type">NT</span> { <span class="hljs-title">unNT</span> :: <span class="hljs-title">forall</span> <span class="hljs-title">x</span>. <span class="hljs-title">f</span> <span class="hljs-title">x</span> -> <span class="hljs-title">g</span> <span class="hljs-title">x</span> }</span><br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Category</span> (:~>) <span class="hljs-keyword">where</span></span><br>    id :: a :~> a<br>    id = <span class="hljs-type">NT</span> <span class="hljs-type">Prelude</span>.id<br><br>    (.) :: (b :~> c) -> (a:~> b) -> (a :~> c)<br>    <span class="hljs-type">NT</span> f . <span class="hljs-type">NT</span> g = <span class="hljs-type">NT</span> (f <span class="hljs-type">Prelude</span>.. g)<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">NT</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">G</span>[_]]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">G</span>[<span class="hljs-type">A</span>]<br><br><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Category2</span>[<span class="hljs-type">K</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">G</span>[_]]]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>[_]]: <span class="hljs-type">K</span>[<span class="hljs-type">A</span>, <span class="hljs-type">A</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>[_], <span class="hljs-type">B</span>[_], <span class="hljs-type">C</span>[_]](x: <span class="hljs-type">K</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">K</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]): <span class="hljs-type">K</span>[<span class="hljs-type">A</span>, <span class="hljs-type">C</span>]<br><br>given <span class="hljs-type">Category2</span>[<span class="hljs-type">NT</span>]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>[_]] = <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> { <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">E</span>](fa: <span class="hljs-type">A</span>[<span class="hljs-type">E</span>]) = fa }<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>[_], <span class="hljs-type">B</span>[_], <span class="hljs-type">C</span>[_]](x: <span class="hljs-type">NT</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">NT</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]) =<br>    <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> { <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">X</span>](fa: <span class="hljs-type">A</span>[<span class="hljs-type">X</span>]) = x(y(fa)) }<br></code></pre></td></tr></tbody></table></figure>
+
+<p>まず、Scala3にはHaskellのような<code>forall</code>がありません。つまり単純にunNTのような関数を定義することはできませんでした。また自然変換(NT)の型引数は2つなので、内部のメソッド(<code>apply</code>)に型引数を追加してunNTっぽい関数を実装しました。こうすることで<code>apply</code>の型引数<code>A</code>を外部に晒さずにすみます。</p>
+<p>次の問題は自然変換を圏のインスタンスにしようとしたとき、圏(Category)と自然変換(NT)のカインドが異なることです。Categoryのインスタンスになれるのは2つの型引数を持つ1階の型コンストラクタですが、NTは2つの1階の型コンストラクタを引数に持つのでカインドが異なると怒られるのです。こういう場合のためにScala3で追加されたカインドポリモルフィズムが使えるのではと思ったのですが、残念ながら今回のケースでは利用できませんでした。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/docs/reference/other-new-features/kind-polymorphism.html" target="_blank" rel="noopener" title target>Kind Polymorphism<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<p>仕方がないので2つの型コンストラクタを引数にとる<code>Category2</code>を作成してNTをインスタンスにしてみました・・・</p>
+<h3 id="自然変換の例多相関数"><a href="#自然変換の例多相関数" class="header-anchor"></a>3.7. <a href="#自然変換の例：多相関数" class="headerlink" title="自然変換の例：多相関数"></a>自然変換の例：多相関数</h3><p>今まで自然変換が多相関数だと言われてもピンと来なかったのですがNTを使ってheadやlengthを実装してみることでようやく腹落ちしました。</p>
+<p>まずはheadからです。元記事にはListの定義がなかったので追加しています。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">List</span> a = <span class="hljs-type">Nil'</span> | <span class="hljs-type">Cons'</span> a (<span class="hljs-type">List</span> <span class="hljs-title">a</span>)</span><br><br><span class="hljs-title">head'</span> :: <span class="hljs-type">List</span> :~> <span class="hljs-type">Maybe</span><br><span class="hljs-title">head'</span> = <span class="hljs-type">NT</span> $ \<span class="hljs-keyword">case</span><br>    <span class="hljs-type">Nil'</span>      -> <span class="hljs-type">Nothing</span><br>    <span class="hljs-type">Cons'</span> a _ -> <span class="hljs-type">Just</span> a<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">head</span></span>: <span class="hljs-type">NT</span>[<span class="hljs-type">List</span>, <span class="hljs-type">Option</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> {<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">X</span>](fa: <span class="hljs-type">List</span>[<span class="hljs-type">X</span>]) = fa <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> => <span class="hljs-type">None</span><br>    <span class="hljs-keyword">case</span> a :: _ => <span class="hljs-type">Some</span>(a)<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>ScalaではListのメソッドの<code>headOption</code>を利用すれば以下のように簡潔に定義できます。</p>
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">head2</span></span>: <span class="hljs-type">NT</span>[<span class="hljs-type">List</span>, <span class="hljs-type">Option</span>] =<br>  <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> { <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">X</span>](fa: <span class="hljs-type">List</span>[<span class="hljs-type">X</span>]) = fa.headOption }<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次に<code>Length</code>メソッドです。注目すべきは<code>Const</code>です。片側を捨てる関手ですが、こういうときに役に立ちます。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">length'</span> :: <span class="hljs-type">List</span> :~> <span class="hljs-type">Const</span> <span class="hljs-type">Int</span><br><span class="hljs-title">length'</span> = <span class="hljs-type">NT</span> $ \<span class="hljs-keyword">case</span><br>    <span class="hljs-type">Nil'</span>       -> <span class="hljs-type">Const</span> <span class="hljs-number">0</span><br>    <span class="hljs-type">Cons'</span> _ <span class="hljs-keyword">as</span> -> <span class="hljs-type">Const</span> $ <span class="hljs-number">1</span> + getConst (unNT length' <span class="hljs-keyword">as</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scala">opaque <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Const</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] </span>= <span class="hljs-type">A</span><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Const</span></span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>) = x<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">length</span></span>: <span class="hljs-type">NT</span>[<span class="hljs-type">List</span>, <span class="hljs-type">Const</span>[<span class="hljs-type">Int</span>, *]] = <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> {<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">X</span>](fa: <span class="hljs-type">List</span>[<span class="hljs-type">X</span>]) = fa <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> => <span class="hljs-type">Const</span>(<span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">case</span> _ :: as => <span class="hljs-type">Const</span>(<span class="hljs-number">1</span> + length(as))<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Scala3のコードにも大分なれて来たと思いますが、ここでもKind Projectorを利用してConstにIntを部分適用しています。</p>
+<h3 id="米田の補題"><a href="#米田の補題" class="header-anchor"></a>3.8. <a href="#米田の補題" class="headerlink" title="米田の補題"></a>米田の補題</h3><p>ようやく圏論の華もしくは到達点とも言える米田の補題までやってきました。この抽象度の高い概念もScala3はHaskellと同等の記述力を有しています。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">newtype</span> <span class="hljs-type">Yoneda</span> f a =</span><br>    <span class="hljs-type">Yoneda</span> { runYoneda :: <span class="hljs-keyword">forall</span> b. (a -> b) -> f b}<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> (<span class="hljs-type">Yoneda</span> <span class="hljs-title">f</span>) <span class="hljs-keyword">where</span></span><br>    fmap f m = <span class="hljs-type">Yoneda</span> (\k -> runYoneda m (k . f))<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Yoneda</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">A</span>]</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br><br>given yonedaFunctor[<span class="hljs-type">F</span>[_]] as <span class="hljs-type">Functor</span>[<span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, *]]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]).map(f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = <span class="hljs-keyword">new</span> <span class="hljs-type">Yoneda</span> {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">C</span>](k: <span class="hljs-type">B</span> => <span class="hljs-type">C</span>) = x(k compose f)<br>  }<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次に<code>liftYoneda</code>と<code>lowerYoneda</code>です。これもほとんど遜色なく記述できています。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">liftYoneda</span> :: <span class="hljs-type">Functor</span> f => f a -> <span class="hljs-type">Yoneda</span> f a<br><span class="hljs-title">liftYoneda</span> a = <span class="hljs-type">Yoneda</span> (\f -> <span class="hljs-type">Main</span>.fmap f a) <span class="hljs-comment">-- 元記事になかったので追加</span><br><br><span class="hljs-title">lowerYoneda</span> :: <span class="hljs-type">Yoneda</span> f a -> f a<br><span class="hljs-title">lowerYoneda</span> (<span class="hljs-type">Yoneda</span> f) = f id <span class="hljs-comment">-- 元記事になかったので追加</span><br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">liftYoneda</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(using <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">Yoneda</span> {<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = fa.map(f)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lowerYoneda</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](y: <span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>] = y(identity)<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="余米田の補題coyoneda"><a href="#余米田の補題coyoneda" class="header-anchor"></a>3.9. <a href="#余米田の補題-Coyoneda" class="headerlink" title="余米田の補題(Coyoneda)"></a>余米田の補題(Coyoneda)</h3><p>最後に余米田の補題です。ここまで来るとFreerモナドの夢を見る一歩手前です。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Coyoneda</span> f a where</span><br>    <span class="hljs-type">Coyoneda</span> :: (z -> a) -> f z -> <span class="hljs-type">Coyoneda</span> f a<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> (<span class="hljs-type">Coyoneda</span> <span class="hljs-title">f</span>) <span class="hljs-keyword">where</span></span><br>    fmap f (<span class="hljs-type">Coyoneda</span> g v) = <span class="hljs-type">Coyoneda</span> (f <span class="hljs-type">Prelude</span>.. g) v<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scala">enum <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>]<br>  <span class="hljs-keyword">case</span> <span class="hljs-type">New</span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">Z</span>](za: <span class="hljs-type">Z</span> => <span class="hljs-type">A</span>, fz: <span class="hljs-type">F</span>[<span class="hljs-type">Z</span>]) <span class="hljs-keyword">extends</span> <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]<br><br>given coyonedaFunctor[<span class="hljs-type">F</span>[_]] as <span class="hljs-type">Functor</span>[<span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, *]]<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]).map(f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = x <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(g, v) => <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(f compose g, v)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>ここに来てScala3の新機能を利用しました。<code>enum</code>です。Haskellの方でGADTが登場したので満を持してここに<code>enum</code>を持ってきました。<code>enum</code>は代数的データ型を簡単に書ける機能です。詳細は以下を確認してください。</p>
+<ul>
+<li><a href="https://dotty.epfl.ch/docs/reference/enums/adts.html" target="_blank" rel="noopener" title target>Algebraic Data Types<i class="fas fa-external-link-alt fa-fw"></i></a>
+
+</li>
+</ul>
+<p>最後に<code>liftCoyoneda</code>と<code>lowerCoyoneda</code>を比較して終わりです。最後は文字数的にも肉薄しています。</p>
+<figure class="highlight haskell hljs"><figcaption><span>haskell</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">liftCoyoneda</span> :: f a -> <span class="hljs-type">Coyoneda</span> f a<br><span class="hljs-title">liftCoyoneda</span> = <span class="hljs-type">Coyoneda</span> <span class="hljs-type">Prelude</span>.id<br><br><span class="hljs-title">lowerCoyoneda</span> :: <span class="hljs-type">Functor</span> f =><span class="hljs-type">Coyoneda</span> f a -> f a<br><span class="hljs-title">lowerCoyoneda</span> (<span class="hljs-type">Coyoneda</span> f m) = <span class="hljs-type">Main</span>.fmap f m<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight scala hljs"><figcaption><span>scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">liftCoyoneda</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]) =<br>  <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(identity[<span class="hljs-type">A</span>], fa)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lowerCoyoneda</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Functor</span>, <span class="hljs-type">A</span>](x: <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]) = x <span class="hljs-keyword">match</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(f, m) => m.map(f)<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="scala3とhaskellの比較"><a href="#scala3とhaskellの比較" class="header-anchor"></a>4. <a href="#Scala3とHaskellの比較" class="headerlink" title="Scala3とHaskellの比較"></a>Scala3とHaskellの比較</h2><p>実際にどれだけのScalaとHaskellの記述量を比較してみました。Haskell側は記述量を揃えるために標準ライブラリで提供されているものも定義しました。</p>
+<p>また、Hakellは8個ものGHC言語拡張を利用していました。これもそのままソースコードに記述して行数としてカウントすることにしました。一種のペナルティみたいなものです。</p>
+<p>比較結果は以下のとおりです。行数ベースではかなり肉薄していると思います。ただScalaの方が型の記述が多くなるため文字数としてはHaskellが簡潔になります。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>文字数（スペース込み）</th>
+<th>文字数（スペース無視）</th>
+<th>行数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Haskell</td>
+<td>2786</td>
+<td>2076</td>
+<td>113</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td>3334</td>
+<td>2630</td>
+<td>112</td>
+</tr>
+</tbody></table>
+<details><summary>コンパイル可能なHaskellコード</summary><figure class="highlight haskell hljs"><figcaption><span>category_haskell.hs</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-meta">{-# LANGUAGE InstanceSigs #-}</span><br><span class="hljs-meta">{-# LANGUAGE MultiParamTypeClasses #-}</span><br><span class="hljs-meta">{-# LANGUAGE ExistentialQuantification #-}</span><br><span class="hljs-meta">{-# LANGUAGE RankNTypes #-}</span><br><span class="hljs-meta">{-# LANGUAGE TypeOperators #-}</span><br><span class="hljs-meta">{-# LANGUAGE PolyKinds #-}</span><br><span class="hljs-meta">{-# LANGUAGE LambdaCase #-}</span><br><span class="hljs-meta">{-# LANGUAGE GADTs #-}</span><br><br><span class="hljs-keyword">import</span> Prelude <span class="hljs-keyword">hiding</span> (<span class="hljs-type">Functor</span>, <span class="hljs-type">Applicative</span>, <span class="hljs-type">Monad</span>, <span class="hljs-title">pure</span>, (>>=))<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">Category</span> cat <span class="hljs-keyword">where</span></span><br>    id :: cat a a<br>    (.) :: cat b c -> cat a b -> cat a c<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Category</span> (->) <span class="hljs-keyword">where</span></span><br>    id :: (->) a a<br>    id a = a<br><br>    (.) :: (->) b c -> (->) a b -> (->) a c<br>    f . g = \x -> f (g x)<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">Functor</span> f <span class="hljs-keyword">where</span></span><br>    fmap :: (a -> b) -> f a -> f b<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">Functor</span> f => <span class="hljs-type">Applicative</span> f <span class="hljs-keyword">where</span></span><br>    pure :: a -> f a<br>    (<*>) :: f (a -> b) -> f a -> f b<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> <span class="hljs-type">Applicative</span> m => <span class="hljs-type">Monad</span> m <span class="hljs-keyword">where</span></span><br>    (>>=) :: m a -> (a -> m b) -> m b<br><br>    return :: a -> m a<br>    return = pure<br><br><span class="hljs-class"><span class="hljs-keyword">newtype</span> <span class="hljs-type">Kleisli</span> m a b = <span class="hljs-type">Kleisli</span> { <span class="hljs-title">runKleisli</span> :: <span class="hljs-title">a</span> ->  <span class="hljs-title">m</span> <span class="hljs-title">b</span>}</span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Monad</span> m => <span class="hljs-type">Category</span> (<span class="hljs-type">Kleisli</span> <span class="hljs-title">m</span>) <span class="hljs-keyword">where</span></span><br>    id :: <span class="hljs-type">Kleisli</span> m a a<br>    id = <span class="hljs-type">Kleisli</span> pure<br><br>    (.) :: <span class="hljs-type">Kleisli</span> m b c -> <span class="hljs-type">Kleisli</span> m a b -> <span class="hljs-type">Kleisli</span> m a c<br>    f . g = <span class="hljs-type">Kleisli</span> (\x -> runKleisli g x >>= runKleisli f)<br><br><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Lens</span> a b = <span class="hljs-type">Lens</span> (<span class="hljs-title">a</span> -> <span class="hljs-title">b</span>) (<span class="hljs-title">a</span> -> <span class="hljs-title">b</span> -> <span class="hljs-title">a</span>)</span><br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Category</span> <span class="hljs-type">Lens</span> <span class="hljs-keyword">where</span></span><br>    id :: <span class="hljs-type">Lens</span> a a<br>    id = <span class="hljs-type">Lens</span> <span class="hljs-type">Prelude</span>.id (const <span class="hljs-type">Prelude</span>.id)<br><br>    (.) :: <span class="hljs-type">Lens</span> b c -> <span class="hljs-type">Lens</span> a b -> <span class="hljs-type">Lens</span> a c<br>    <span class="hljs-type">Lens</span> g1 s1 . <span class="hljs-type">Lens</span> g2 s2 = <span class="hljs-type">Lens</span> (g1 <span class="hljs-type">Prelude</span>.. g2) s3<br>        <span class="hljs-keyword">where</span><br>            s3 a c = s2 a (s1 (g2 a) c)<br><span class="hljs-class"><br><span class="hljs-keyword">class</span> (<span class="hljs-type">Category</span> <span class="hljs-title">c</span>, <span class="hljs-type">Category</span> <span class="hljs-title">d</span>) => <span class="hljs-type">Functor'</span> c d f <span class="hljs-keyword">where</span></span><br>    fmap' :: c a b -> d (f a) (f b)<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor'</span> (->) (->) <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span><br>    fmap' _ <span class="hljs-type">Nothing</span> = <span class="hljs-type">Nothing</span><br>    fmap' f (<span class="hljs-type">Just</span> a) = <span class="hljs-type">Just</span> (f a)<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span><br>    fmap _ <span class="hljs-type">Nothing</span> = <span class="hljs-type">Nothing</span><br>    fmap f (<span class="hljs-type">Just</span> a) = <span class="hljs-type">Just</span> (f a)<br><br><span class="hljs-class"><span class="hljs-keyword">newtype</span> f :~> g = <span class="hljs-type">NT</span> { <span class="hljs-title">unNT</span> :: <span class="hljs-title">forall</span> <span class="hljs-title">x</span>. <span class="hljs-title">f</span> <span class="hljs-title">x</span> -> <span class="hljs-title">g</span> <span class="hljs-title">x</span> }</span><br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Category</span> (:~>) <span class="hljs-keyword">where</span></span><br>    id :: a :~> a<br>    id = <span class="hljs-type">NT</span> <span class="hljs-type">Prelude</span>.id<br><br>    (.) :: (b :~> c) -> (a:~> b) -> (a :~> c)<br>    <span class="hljs-type">NT</span> f . <span class="hljs-type">NT</span> g = <span class="hljs-type">NT</span> (f <span class="hljs-type">Prelude</span>.. g)<br><br><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">List</span> a = <span class="hljs-type">Nil'</span> | <span class="hljs-type">Cons'</span> a (<span class="hljs-type">List</span> <span class="hljs-title">a</span>)</span><br><br><span class="hljs-title">head'</span> :: <span class="hljs-type">List</span> :~> <span class="hljs-type">Maybe</span><br><span class="hljs-title">head'</span> = <span class="hljs-type">NT</span> $ \<span class="hljs-keyword">case</span><br>    <span class="hljs-type">Nil'</span>      -> <span class="hljs-type">Nothing</span><br>    <span class="hljs-type">Cons'</span> a _ -> <span class="hljs-type">Just</span> a<br><br><span class="hljs-class"><span class="hljs-keyword">newtype</span> <span class="hljs-type">Const</span> a b = <span class="hljs-type">Const</span> { <span class="hljs-title">getConst</span> :: <span class="hljs-title">a</span> }</span><br><span class="hljs-title">length'</span> :: <span class="hljs-type">List</span> :~> <span class="hljs-type">Const</span> <span class="hljs-type">Int</span><br><span class="hljs-title">length'</span> = <span class="hljs-type">NT</span> $ \<span class="hljs-keyword">case</span><br>    <span class="hljs-type">Nil'</span>       -> <span class="hljs-type">Const</span> <span class="hljs-number">0</span><br>    <span class="hljs-type">Cons'</span> _ <span class="hljs-keyword">as</span> -> <span class="hljs-type">Const</span> $ <span class="hljs-number">1</span> + getConst (unNT length' <span class="hljs-keyword">as</span>)<br><br><span class="hljs-class"><span class="hljs-keyword">newtype</span> <span class="hljs-type">Yoneda</span> f a =</span><br>    <span class="hljs-type">Yoneda</span> { runYoneda :: <span class="hljs-keyword">forall</span> b. (a -> b) -> f b}<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> (<span class="hljs-type">Yoneda</span> <span class="hljs-title">f</span>) <span class="hljs-keyword">where</span></span><br>    fmap f m = <span class="hljs-type">Yoneda</span> (\k -> (runYoneda m) (k <span class="hljs-type">Prelude</span>.. f))<br><br><span class="hljs-title">liftYoneda</span> :: <span class="hljs-type">Functor</span> f => f a -> <span class="hljs-type">Yoneda</span> f a<br><span class="hljs-title">liftYoneda</span> a = <span class="hljs-type">Yoneda</span> (\f -> <span class="hljs-type">Main</span>.fmap f a)<br><br><span class="hljs-title">lowerYoneda</span> :: <span class="hljs-type">Yoneda</span> f a -> f a<br><span class="hljs-title">lowerYoneda</span> (<span class="hljs-type">Yoneda</span> f) = f <span class="hljs-type">Prelude</span>.id<br><br><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Coyoneda</span> f a where</span><br>    <span class="hljs-type">Coyoneda</span> :: (z -> a) -> f z -> <span class="hljs-type">Coyoneda</span> f a<br><span class="hljs-class"><br><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> (<span class="hljs-type">Coyoneda</span> <span class="hljs-title">f</span>) <span class="hljs-keyword">where</span></span><br>    fmap f (<span class="hljs-type">Coyoneda</span> g v) = <span class="hljs-type">Coyoneda</span> (f <span class="hljs-type">Prelude</span>.. g) v<br><br><span class="hljs-title">liftCoyoneda</span> :: f a -> <span class="hljs-type">Coyoneda</span> f a<br><span class="hljs-title">liftCoyoneda</span> = <span class="hljs-type">Coyoneda</span> <span class="hljs-type">Prelude</span>.id<br><br><span class="hljs-title">lowerCoyoneda</span> :: <span class="hljs-type">Functor</span> f => <span class="hljs-type">Coyoneda</span> f a -> f a<br><span class="hljs-title">lowerCoyoneda</span> (<span class="hljs-type">Coyoneda</span> f m) = <span class="hljs-type">Main</span>.fmap f m<br><br><span class="hljs-title">main</span> = <span class="hljs-keyword">do</span><br>    putStrLn <span class="hljs-string">"Hello Category Theory!"</span><br></code></pre></td></tr></tbody></table></figure></details>
+
+<details><summary>コンパイル可能なScala3コード</summary><figure class="highlight scala hljs"><figcaption><span>category_scala.scala</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CategoryTheoryExampleDefs</span></span><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Category</span>[<span class="hljs-type">F</span>[_, _]]</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>]: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">A</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>, <span class="hljs-type">C</span>]<br><br>  given <span class="hljs-type">Category</span>[<span class="hljs-type">Function1</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>] = x => x<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">Function1</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">Function1</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]) = a =>x(y(a))<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]]</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]).map(y: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">F</span>[_]] <span class="hljs-keyword">extends</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>]</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span> => <span class="hljs-type">B</span>]).ap(y: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pure</span></span>[<span class="hljs-type">A</span>](f: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]).map(y: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = ap(pure(y))(x)<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">F</span>[_]] <span class="hljs-keyword">extends</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">F</span>]</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]).flatMap(y: <span class="hljs-type">A</span> => <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br><br>  opaque <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Kleisli</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">A</span>, <span class="hljs-title">B</span>] </span>= <span class="hljs-type">A</span> => <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br>  <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Kleisli</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">A</span> => <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]) = x<br><br>  given kleisliCategory[<span class="hljs-type">F</span>[_]](using m: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]) as <span class="hljs-type">Category</span>[<span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, *, *]]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Kleisli</span>(m.pure(_))<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>, <span class="hljs-type">B</span>]) =<br>      <span class="hljs-type">Kleisli</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>, <span class="hljs-type">C</span>](k => y(k).flatMap(x))<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Lens</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](<span class="hljs-params">val g: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>, val s: <span class="hljs-type">A</span> => <span class="hljs-type">B</span> => <span class="hljs-type">A</span></span>)</span><br>  <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Lens</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](g: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>, s: <span class="hljs-type">A</span> => <span class="hljs-type">B</span> => <span class="hljs-type">A</span>) = <span class="hljs-keyword">new</span> <span class="hljs-type">Lens</span>(g, s){}<br><br>  given <span class="hljs-type">Category</span>[<span class="hljs-type">Lens</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Lens</span>(identity, <span class="hljs-type">Function</span>.const(identity))<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](x: <span class="hljs-type">Lens</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">Lens</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]) =<br>      <span class="hljs-keyword">val</span> s3: <span class="hljs-type">A</span> => <span class="hljs-type">C</span> => <span class="hljs-type">A</span> = a => c => y.s(a)(x.s(y.g(a))(c))<br>      <span class="hljs-type">Lens</span>(x.g compose y.g, s3)<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor_</span>[<span class="hljs-type">C</span>[_, _], <span class="hljs-title">D</span>[_, _], <span class="hljs-title">F</span>[_]](<span class="hljs-params">using <span class="hljs-type">Category</span>[<span class="hljs-type">C</span>], <span class="hljs-type">Category</span>[<span class="hljs-type">D</span>]</span>)</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fmap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](c: <span class="hljs-type">C</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]): <span class="hljs-type">D</span>[<span class="hljs-type">F</span>[<span class="hljs-type">A</span>], <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]]<br><br>  given <span class="hljs-type">Functor_</span>[<span class="hljs-type">Function1</span>, <span class="hljs-type">Function1</span>, <span class="hljs-type">Option</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fmap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = x => x <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> => <span class="hljs-type">None</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(a) => <span class="hljs-type">Some</span>(f(a))<br><br>  given <span class="hljs-type">Functor</span>[<span class="hljs-type">Option</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>]).map(y: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = x.map(y)<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">NT</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">G</span>[_]]</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">G</span>[<span class="hljs-type">A</span>]<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Category2</span>[<span class="hljs-type">K</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">G</span>[_]]]</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>[_]]: <span class="hljs-type">K</span>[<span class="hljs-type">A</span>, <span class="hljs-type">A</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>[_], <span class="hljs-type">B</span>[_], <span class="hljs-type">C</span>[_]](x: <span class="hljs-type">K</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">K</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]): <span class="hljs-type">K</span>[<span class="hljs-type">A</span>, <span class="hljs-type">C</span>]<br><br>  given <span class="hljs-type">Category2</span>[<span class="hljs-type">NT</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span></span>[<span class="hljs-type">A</span>[_]] = <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> { <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">E</span>](fa: <span class="hljs-type">A</span>[<span class="hljs-type">E</span>]) = fa }<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>[_], <span class="hljs-type">B</span>[_], <span class="hljs-type">C</span>[_]](x: <span class="hljs-type">NT</span>[<span class="hljs-type">B</span>, <span class="hljs-type">C</span>]).compose(y: <span class="hljs-type">NT</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]) =<br>      <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> { <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">X</span>](fa: <span class="hljs-type">A</span>[<span class="hljs-type">X</span>]) = x(y(fa)) }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">head</span></span>: <span class="hljs-type">NT</span>[<span class="hljs-type">List</span>, <span class="hljs-type">Option</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">X</span>](fa: <span class="hljs-type">List</span>[<span class="hljs-type">X</span>]) = fa <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> => <span class="hljs-type">None</span><br>      <span class="hljs-keyword">case</span> a :: _ => <span class="hljs-type">Some</span>(a)<br>  }<br><br>  opaque <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Const</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>] </span>= <span class="hljs-type">A</span><br>  <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Const</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">A</span>](x: <span class="hljs-type">A</span>) = x<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">length</span></span>: <span class="hljs-type">NT</span>[<span class="hljs-type">List</span>, <span class="hljs-type">Const</span>[<span class="hljs-type">Int</span>, *]] = <span class="hljs-keyword">new</span> <span class="hljs-type">NT</span> {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">X</span>](fa: <span class="hljs-type">List</span>[<span class="hljs-type">X</span>]) = fa <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> => <span class="hljs-type">Const</span>(<span class="hljs-number">0</span>)<br>      <span class="hljs-keyword">case</span> _ :: as => <span class="hljs-type">Const</span>(<span class="hljs-number">1</span> + length(as))<br>  }<br><br>  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Yoneda</span>[<span class="hljs-type">F</span>[_], <span class="hljs-title">A</span>]</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]<br><br>  given yonedaFunctor[<span class="hljs-type">F</span>[_]] as <span class="hljs-type">Functor</span>[<span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, *]]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]).map(f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">B</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">Yoneda</span> {<br>      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">C</span>](k: <span class="hljs-type">B</span> => <span class="hljs-type">C</span>) = x(k compose f)<br>    }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">liftYoneda</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(using <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>] = <span class="hljs-keyword">new</span> <span class="hljs-type">Yoneda</span> {<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>[<span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = fa.map(f)<br>  }<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lowerYoneda</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](y: <span class="hljs-type">Yoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>] = y(identity)<br><br>  enum <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>]<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">New</span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">Z</span>](za: <span class="hljs-type">Z</span> => <span class="hljs-type">A</span>, fz: <span class="hljs-type">F</span>[<span class="hljs-type">Z</span>]) <span class="hljs-keyword">extends</span> <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]<br><br>  given coyonedaFunctor[<span class="hljs-type">F</span>[_]] as <span class="hljs-type">Functor</span>[<span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, *]]<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](x: <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]).map(f: <span class="hljs-type">A</span> => <span class="hljs-type">B</span>) = x <span class="hljs-keyword">match</span><br>      <span class="hljs-keyword">case</span> <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(g, v) => <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(f compose g, v)<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">liftCoyoneda</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]) =<br>    <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(identity[<span class="hljs-type">A</span>], fa)<br><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lowerCoyoneda</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Functor</span>, <span class="hljs-type">A</span>](x: <span class="hljs-type">Coyoneda</span>[<span class="hljs-type">F</span>, <span class="hljs-type">A</span>]) = x <span class="hljs-keyword">match</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-type">Coyoneda</span>.<span class="hljs-type">New</span>(f, m) => m.map(f)<br><br><span class="hljs-meta">@main</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">example</span></span>: <span class="hljs-type">Unit</span> =<br>   <span class="hljs-keyword">import</span> <span class="hljs-type">CategoryTheoryExampleDefs</span>.{_, given}<br>    println(<span class="hljs-string">"Hello Category Theory"</span>)<br></code></pre></td></tr></tbody></table></figure></details>
+
+<h2 id="haskellとscala3の開発環境"><a href="#haskellとscala3の開発環境" class="header-anchor"></a>5. <a href="#HaskellとScala3の開発環境" class="headerlink" title="HaskellとScala3の開発環境"></a>HaskellとScala3の開発環境</h2><p>HaskellとScala 3の開発環境にはVisual Studio Codeを使いました。どちらも文法エラーですぐに赤くなるし、マウスオーバーで型がすぐに分かるので非常に助かりました。Language Server Protocolは偉大です。環境構築は以下を参照しました。</p>
+<ul>
+<li><a href="https://qiita.com/waddlaw/items/b83cd10311200095fe87" target="_blank" rel="noopener">vscode と haskell-ide-engine で Haskell 開発環境を構築する - Qiita</a></li>
+<li><a href="https://dotty.epfl.ch/docs/usage/ide-support.html" target="_blank" rel="noopener">IDE support for Dotty</a></li>
+</ul>
+<h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>6. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><a href="https://speakerdeck.com/inamiy/category-theory-and-programming" target="_blank" rel="noopener" title target>圏論とプログラミング<i class="fas fa-external-link-alt fa-fw"></i></a>に記載されているHaskellコードを以下の条件でScala3に書き換えてみました。
+
+<ul>
+<li>Scala3(Dotty)は0.22.0-RC1を利用<ul>
+<li>外部ライブラリは使わない<ul>
+<li>標準言語機能と標準ライブラリとコンパイラオプションは利用してもよい</li>
+</ul>
+</li>
+<li>メタプログラミングは使わない</li>
+</ul>
+</li>
+<li>余米田の補題まで書き換えてみた<ul>
+<li>それ以降はだれか挑戦してください・・・</li>
+</ul>
+</li>
+</ul>
+<p>結論としては、Scala3でかなり自然に圏論の概念を記述できるようになったように感じました。記述量的にも大分Haskellに近づいたように思います。この一年近くはScala3の<code>implicit</code>周りの文法がめちゃくちゃ変わってどうなるか心配だったのですが、なんとなくいい感じの文法に仕上がってきたのではないかと思います（個人の感想です）。あとはラムダ関数がジェネリクスに対応してくれるとかなり嬉しいですね<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
+<p>本記事がScala3と圏論に興味がある方の一助になれば幸いです。</p>
+<h2 id="おまけ"><a href="#おまけ" class="header-anchor"></a>7. <a href="#おまけ" class="headerlink" title="おまけ"></a>おまけ</h2><p>いつの間にか<a href="https://talk.hyuki.net/" target="_blank" rel="noopener" title target>圏論と学びをめぐる往復書簡<i class="fas fa-external-link-alt fa-fw"></i></a>というものが始まっていました。数学ガールの圏論版が出て欲しいなぁ・・・</p>
+<h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>8. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://speakerdeck.com/inamiy/category-theory-and-programming" target="_blank" rel="noopener" title target>圏論とプログラミング<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/inamiy/items/9af1da1faec22cd968f0#comments" target="_blank" rel="noopener" title target>「圏論とプログラミング」発表スライドメモ - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://speakerdeck.com/inamiy/number-cat4pg" target="_blank" rel="noopener" title target>プログラマのためのモナド(圏論)<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/blog/index.html" target="_blank" rel="noopener" title target>Dotty Blog<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://dotty.epfl.ch/docs/index.html" target="_blank" rel="noopener" title target>Dotty Documentation<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://typelevel.org/cats/" target="_blank" rel="noopener" title target>Cats: Home<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://typista.org/categories-in-dotty/" target="_blank" rel="noopener" title target>Notes on Category Theory in Scala 3 (Dotty) | Typista.org<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/hinastory/items/6dacb1f61d86f4a5d533" target="_blank" rel="noopener" title target>Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり) - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a></li>
+<li><a href="https://qiita.com/hinastory/items/abb68fe47755894b79ea" target="_blank" rel="noopener" title target>Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！ - Qiita<i class="fas fa-external-link-alt fa-fw"></i></a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">詳細は<a href="https://dotty.epfl.ch/blog/2019/12/20/21th-dotty-milestone-release.html" target="_blank" rel="noopener" title target>ここ<i class="fas fa-external-link-alt fa-fw"></i></a>を参照してください。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">コンパイルを通すため、必要に応じて若干修正してある箇所もあります。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">直接利用はしていませんが、<a href="https://typelevel.org/cats/" target="_blank" rel="noopener" title target>Cats<i class="fas fa-external-link-alt fa-fw"></i></a>はScala3で実装する上で少し参考にしています。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">ここで言う新機能とはScala2にはなく、Dotty 0.22.0-RC1に実装されている機能を指しています。まだScala3はリリースされていないので、ここで紹介した機能も変更されたり削除されたりする可能性があります。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">元記事のHaskellのコードにもGHCの言語拡張が用いられているので、Scala3でもOKとしました。Scalaでは<code>-Ykind-projector</code>フラグを利用しています。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">実装が一部マージされているようです。👉<a href="https://github.com/lampepfl/dotty/pull/4672" target="_blank" rel="noopener" title target>[Proof of concept] Polymorphic function types by smarter · Pull Request #4672 · lampepfl/dotty<i class="fas fa-external-link-alt fa-fw"></i></a></span><a href="#fnref:6" rev="footnote"> ↩</a></li></ol></div></div></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2020/01/23/blog_card/">
+                <span class="level-item">ブログカードを支える技術</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-20</div><a href="/cats-cats-cats/2019/07/20/learning-category-theory/" title="Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選" rel="bookmark">Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/algorithm/pattern-match/pattern-01.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-04-30</div><a href="/cats-cats-cats/2019/04/30/understanding-pattern-matching/" title="全プログラマに捧ぐ！図解「パターンマッチ」" rel="bookmark">全プログラマに捧ぐ！図解「パターンマッチ」</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/09/15/scala-indentation/" title="Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-09-15</div><a href="/cats-cats-cats/2019/09/15/scala-indentation/" title="Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！" rel="bookmark">Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/dotty-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-02-24</div><a href="/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/" title="Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)" rel="bookmark">Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/scala-matsuri-logo.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-07-04</div><a href="/cats-cats-cats/2019/07/04/scala-matsuri-2019/" title="ScalaMatsuri 2019に参加してきました" rel="bookmark">ScalaMatsuri 2019に参加してきました</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        41
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        44
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Qiita" href="https://qiita.com/hinastory">
+                
+                <i class="fas fa-search"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">37</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Book/">
+            <span class="level-start">
+                <span class="level-item">Book</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/CloudNative/">
+            <span class="level-start">
+                <span class="level-item">CloudNative</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/ComputerScience/">
+            <span class="level-start">
+                <span class="level-item">ComputerScience</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Event/">
+            <span class="level-start">
+                <span class="level-item">Event</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/MachineLearning/">
+            <span class="level-start">
+                <span class="level-item">MachineLearning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala3_cats.png" alt="Scala3とプログラミングと圏論">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T22:28:45.000Z">2020-02-11</time></div>
+                    <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala3とプログラミングと圏論</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/01/23/blog_card/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/blogCards.png" alt="ブログカードを支える技術">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-22T22:28:45.000Z">2020-01-23</time></div>
+                    <a href="/cats-cats-cats/2020/01/23/blog_card/" class="has-link-black-ter is-size-6 has-text-weight-normal">ブログカードを支える技術</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/hinastory_cover.jpeg" alt="Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-04T22:28:45.000Z">2020-01-05</time></div>
+                    <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="has-link-black-ter is-size-6 has-text-weight-normal">Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Book/">Book</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" alt="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T22:28:45.000Z">2019-12-29</time></div>
+                    <a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" class="has-link-black-ter is-size-6 has-text-weight-normal">【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" alt="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T22:28:45.000Z">2019-12-25</time></div>
+                    <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="has-link-black-ter is-size-6 has-text-weight-normal">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 11.67px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18.33px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/OGP/" style="font-size: 10px;">OGP</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 16.67px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18.33px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2020/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">2020/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">2019/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">2019/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">2019/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019/08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019/07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019/05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/">
+                        <span class="tag">Flourish</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/OGP/">
+                        <span class="tag">OGP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala3_cats.png" alt="Scala3とプログラミングと圏論">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T22:28:45.000Z">2020-02-11</time></div>
+                    <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala3とプログラミングと圏論</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/01/23/blog_card/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/blogCards.png" alt="ブログカードを支える技術">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-22T22:28:45.000Z">2020-01-23</time></div>
+                    <a href="/cats-cats-cats/2020/01/23/blog_card/" class="has-link-black-ter is-size-6 has-text-weight-normal">ブログカードを支える技術</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/hinastory_cover.jpeg" alt="Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-04T22:28:45.000Z">2020-01-05</time></div>
+                    <a href="/cats-cats-cats/2020/01/05/blog_to_book/" class="has-link-black-ter is-size-6 has-text-weight-normal">Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Book/">Book</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/events/advent-calendar-2019/ruby-viz-file.png" alt="【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T22:28:45.000Z">2019-12-29</time></div>
+                    <a href="/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/" class="has-link-black-ter is-size-6 has-text-weight-normal">【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/header-ruby-logo@2x.png" alt="🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T22:28:45.000Z">2019-12-25</time></div>
+                    <a href="/cats-cats-cats/2019/12/25/visualize_ruby_development/" class="has-link-black-ter is-size-6 has-text-weight-normal">🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 13.33px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 11.67px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18.33px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/OGP/" style="font-size: 10px;">OGP</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 16.67px;">Ruby</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18.33px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2020/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">2020/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">2019/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">2019/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">2019/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019/08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019/07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019/05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/">
+                        <span class="tag">Flourish</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/OGP/">
+                        <span class="tag">OGP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Scala3とプログラミングと圏論" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2020 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                    href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="#">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>
