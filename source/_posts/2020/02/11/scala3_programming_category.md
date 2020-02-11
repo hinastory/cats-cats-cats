@@ -309,7 +309,7 @@ given Category2[NT]
 まずはheadからです。元記事にはListの定義がなかったので追加しています。
 
 {% code lang:haskell haskell %}
-data List a = Nil' | Cons' a (List a)
+data List a = Nil' | Cons' a (List a)  -- 元記事になかったので追加
 
 head' :: List :~> Maybe
 head' = NT $ \case
@@ -335,6 +335,7 @@ def head2: NT[List, Option] =
 次に`Length`メソッドです。注目すべきは`Const`です。片側を捨てる関手ですが、こういうときに役に立ちます。
 
 {% code lang:haskell haskell %}
+newtype Const a b = Const { getConst :: a } -- 元記事になかったので追加
 length' :: List :~> Const Int
 length' = NT $ \case
     Nil'       -> Const 0
@@ -424,10 +425,10 @@ given coyonedaFunctor[F[_]] as Functor[Coyoneda[F, *]]
 
 {% code lang:haskell haskell %}
 liftCoyoneda :: f a -> Coyoneda f a
-liftCoyoneda = Coyoneda Prelude.id
+liftCoyoneda = Coyoneda Prelude.id  -- 元記事になかったので追加
 
 lowerCoyoneda :: Functor f =>Coyoneda f a -> f a
-lowerCoyoneda (Coyoneda f m) = Main.fmap f m
+lowerCoyoneda (Coyoneda f m) = Main.fmap f m  -- 元記事になかったので追加
 {% endcode %}
 
 {% code lang:scala scala %}
@@ -451,7 +452,7 @@ def lowerCoyoneda[F[_]: Functor, A](x: Coyoneda[F, A]) = x match
 |Haskell|2786| 2076 |113|
 |Scala|3334|2630|112|
 
-
+以下に比較に用いたコンパイル可能なHaskellとScalaのコードを記載します。興味がある方は中を覗いてみてください。
 
 {% details コンパイル可能なHaskellコード %}
 {% code lang:haskell category_haskell.hs %}
