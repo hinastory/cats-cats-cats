@@ -41,7 +41,7 @@ Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeat
 
 ## はじめに
 
-本記事では「{% elink 圏論とプログラミング https://speakerdeck.com/inamiy/category-theory-and-programming %}（以降、「元記事」と表記）」に記述されているHaskellの記述をScala3(Dotty 0.22.0-RC1)で書き換える検証を行った結果を解説します。
+本記事では「{% elink 圏論とプログラミング https://speakerdeck.com/inamiy/category-theory-and-programming %}」（以降、「元記事」と表記）に記述されているHaskellの記述をScala3(Dotty 0.22.0-RC1)で書き換える検証を行った結果を解説します。
 
 本記事のHaskellのソースコードは基本的に元記事からの引用になります[^2]。Scala3のコードはなるべくHaskellのソースコードを忠実に再現するようにしていますが、言語の機能や慣習の違いにより様々な差異があることをご了承ください。
 
@@ -65,7 +65,7 @@ Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeat
 
 それではいよいよScala3で実装してみます。以降のタイトルは元記事と対応しています。元記事の発表スライドメモを並べながら見るとわかりやすいと思います。
 
-- {% elink 「圏論とプログラミング」発表スライドメモ - Qiita https://qiita.com/inamiy/items/9af1da1faec22cd968f0#comments %}
+- {% elink 「圏論とプログラミング」発表スライドメモ - Qiita https://qiita.com/inamiy/items/9af1da1faec22cd968f0 %}
 
 ### 型クラスを使った圏の定義
 
@@ -181,7 +181,7 @@ Scala3では新しく「不透明型エイリアス(Opaque Type Alias)」を用�
 
 ### 圏の例：レンズ圏
 
-次はレンズ圏の定義です。これも大体同じ記述量ですんでいます。
+次はレンズ圏の定義です。次はレンズ圏の定義です。定義だけ見ると相当ややこしい感じがします・・・
 
 {% code lang:haskell haskell %}
 data Lens a b = Lens (a -> b) (a -> b -> a)
@@ -267,7 +267,7 @@ given Functor[Option]
 
 ### 関手圏と自然変換
 
-とうとう関手圏と自然変換までやってきました。ここでとうとうHaskellとScalaに決定的な差がついてしまいました。
+ついに関手圏と自然変換までやってきました。そしてここでHaskellとScalaに決定的な差がついてしまいました。
 
 {% code lang:haskell haskell %}
 newtype f :~> g = NT { unNT :: forall x. f x -> g x }
@@ -357,7 +357,7 @@ Scala3のコードにも大分なれて来たと思いますが、ここでもKi
 
 ### 米田の補題
 
-ようやく圏論の華もしくは到達点とも言える米田の補題までやってきました。この抽象度の高い概念もScala3はHaskellと同等の記述力を有しています。
+ようやく圏論の華もしくは到達点とも言える米田の補題までやってきました。この抽象度の高い概念の記述の際にもScala3はHaskellと同等の記述力を発揮します。
 
 {% code lang:haskell haskell %}
 newtype Yoneda f a =
