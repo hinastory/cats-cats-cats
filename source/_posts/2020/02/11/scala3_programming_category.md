@@ -1,5 +1,5 @@
 ---
-title: Scala3とプログラミングと圏論
+title: Scala3と圏論とプログラミング
 thumbnail: /gallery/thumbnails/scala3_cats.png
 categories:
   - Tech
@@ -48,6 +48,7 @@ Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeat
 基本的には以下のルールで書き換えています。
 
 - なるべくScala3の新機能[^3]を用いてスマートに書き換える
+    - ただし、0.22.0-RC1のリリース時点で {% elink ブログ https://dotty.epfl.ch/blog/index.html %}や {% elink ドキュメント https://dotty.epfl.ch/docs/index.html %}に利用方法の記載のない機能は本記事では扱わない
 - 外部ライブラリは使わない[^4]
   - 標準言語機能と標準ライブラリのみ使って良い
   - コンパイラオプションは使って良い[^5]
@@ -131,9 +132,9 @@ trait Monad[F[_]] extends Applicative[F]
   def [A, B](x: F[A]).flatMap(y: A => F[B]): F[B]
 {% endcode %}
 
-Scalaの定義も大分スッキリしていると思います。Haskellの関数とScalaのメソッドの対応は以下のとおりです。
+Scalaの定義も大分スッキリしていると思います。特徴としてはScala3では継承を用いて実装を行っています。継承を用いずに型制約を実現することもできますが、型が素直な`is-a`関係にあるときは継承を用いたほうがシンプルになります。また、慣習の違いによりHaskellとScala3では関数名を変えています。Haskellの関数とScalaのメソッドの対応は以下のとおりです。
 
-| Haskell | Scala |
+| Haskell | Scala3 |
 | --- | --- |
 |  fmap | map    |
 |  <*> | ap    |
@@ -216,7 +217,7 @@ Scala3では新しくトレイトにパラメータを持てるようになっ�
 
 ### 関手
 
-ようやく関手まで来ました。ここの関手は圏論の関手です。関手の記述量もHaskellとScalaで大差はないと思います。
+ようやく関手まで来ました。ここの関手は圏論の関手です。HaskellのコードはMaybeがHask圏（型と関数の圏）からHask圏への関手になっていることを示していますが、Scalaのコードは`Maybe`と同等の意味論を持つ`Option`がScala圏(この名称でいいかは謎)からScala圏への関手になっていることを示しています。
 
 {% code lang:haskell haskell %}
 class (Category c, Category d) => Functor' c d f where
@@ -237,7 +238,8 @@ given Functor_[Function1, Function1, Option]
     case Some(a) => Some(f(a))
 {% endcode %}
 
-一応Functorのgivenインスタンスの実装はHaskellに倣いましたが、以下のように`Option`の`map`に委譲もできます。
+そういえば`using`ってトレイトに直接書けることを今回気づきました。正直Haskellの定義を見たときにScala3に翻訳するのが難しそうかなって思いましたが、案外簡単にいけました。
+また、Functorのgivenインスタンスの実装はHaskellに倣いましたが、以下のように`Option`の`map`に委譲もできます。
 
 {% code lang:scala %}
 given Functor_[Function1, Function1, Option]
