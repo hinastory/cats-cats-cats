@@ -3,10 +3,10 @@ title: 【ギリギリセーフ】Developers Summit 2020に参加してきまし
 thumbnail: /gallery/thumbnails/devsumi2020.png
 categories:
     - Tech
-    - Language
+    - Event
 tags:
-    - Scala
-    - CategoryTheory
+    - Event
+    - Book
 date: 2020-02-20 07:28:45
 ---
 毎年恒例のDevelopers Summit 2020(#devsumi)に参加してきました。今年は新型コロナウイルス感染（COVID-19)の流行により開催が危ぶまれていましたが、ぎりぎり開催ができたようです[^1]。
@@ -51,23 +51,23 @@ date: 2020-02-20 07:28:45
 
 - 2/13 10:00～10:45 最新のブラウザで変わるCookieの取扱いやプライバシーの考え方 ★★★★★
     - 登壇者：古川 陽介[リクルートテクノロジーズ]　[@yosuke_furukawa](https://twitter.com/yosuke_furukawa)
-    - 資料：[SpeakerDeck](https://speakerdeck.com/yosuke_furukawa/zui-xin-falseburauzadebian-warucookiefalsequ-rixi-iyaprivacyfalsekao-efang)
+    - 資料：{% elink SpeakerDeck https://speakerdeck.com/yosuke_furukawa/zui-xin-falseburauzadebian-warucookiefalsequ-rixi-iyaprivacyfalsekao-efang %}
 - 2/13 11:05～11:50 ぼくらの六十日間戦争 ～ｵﾝﾌﾟﾚからｸﾗｳﾄﾞへの移行～ ★★★
     - 登壇者：左近充 裕樹[ブロードリーフ]
-    - 資料：[SpeakerDeck](https://speakerdeck.com/broadleaf/our60dayswar-migrationfromon-premisetocloud)
+    - 資料：elin {% elink SpeakerDeck https://speakerdeck.com/broadleaf/our60dayswar-migrationfromon-premisetocloud %}
 - 2/13 12:10～12:40 Kubernetes未経験者がGKEの本番リリース〜障害対応を経験して苦悩した話 ★
     - 登壇者：泉水 朝匡[grasys]
 - 2/13 13:05～13:50 インターネットが変えた世界・変える未来 ★★
     - 登壇者：伊勢 幸一[さくらインターネット]　[@ibucho](https://twitter.com/ibucho)
 - 2/13 14:10～14:55 Best Practices In Implementing Container Image Promotion Pipelines -知っておくべきコンテナイメージ・プロモーションの方法 ★★
     - 登壇者：Baruch Sadogursky[JFrog]　[@jbaruch](https://twitter.com/jbaruch)
-    - 資料：[JFrog](https://jfrog.com/shownote/developers-summit-2020/)
+    - 資料： {% elink JFrog https://jfrog.com/shownote/developers-summit-2020/ %}
 - 2/13 15:15～16:00 「厳密な共通言語」としての形式手法 ★★★★★
     - 登壇者：チェシャ猫[ProofCafe]　[@y_taka_23](https://twitter.com/y_taka_23)
-    - 資料：[SpeakerDeck](https://speakerdeck.com/ytaka23/developers-summit-2020)
+    - 資料： {% elink SpeakerDeck https://speakerdeck.com/ytaka23/developers-summit-2020 %}
 - 2/13 16:20～17:05 少量データで軽量な機械学習の手法について ★★★★
     - 登壇者：秋吉 信吾[QuantumCore]　[@a_shin1985](https://twitter.com/a_shin1985)
-    - 資料：[SpeakerDeck](https://speakerdeck.com/shin1985/developers-summit-2020)
+    - 資料：{% elink SpeakerDeck https://speakerdeck.com/shin1985/developers-summit-2020 %}
 - 2/13 17:25～18:45 「ITエンジニア本大賞 2020」プレゼン大会 ★★★★
     - 司会：高柳 謙
     - 特別ゲスト：
@@ -79,15 +79,15 @@ date: 2020-02-20 07:28:45
     - 登壇者：
         - 城 航太[サーバーワークス]　[@kota_jo](https://twitter.com/kota_jo)
         - 佐藤 豊[サーバーワークス]
-    - 資料：[SpeakerDeck](https://speakerdeck.com/swx_marketing/awszhang-hai-dekao-esaserareta-apurikesiyoninhuragou-cheng-falsezhu-yi-pointo)
+    - 資料： {% elink SpeakerDeck https://speakerdeck.com/swx_marketing/awszhang-hai-dekao-esaserareta-apurikesiyoninhuragou-cheng-falsezhu-yi-pointo %}
 - 2/14 11:05～11:50 守りのモニタリングから攻めのモニタリングへ ★★★
     - 登壇者：大谷 和紀[New Relic]　[@katzchang](https://twitter.com/katzchang)
-    - レポート記事：[note](https://note.com/dora_e_m/n/n6a9daf7cbe61)
+    - レポート記事：{% elink note https://note.com/dora_e_m/n/n6a9daf7cbe61 %}
 - 2/14 12:10～12:40 Python基礎試験とデータ分析の例題解説～稟議に使えるPython市場データと試験も紹介～ ★★
     - 登壇者：
         - 吉政 忠志[Pythonエンジニア育成推進協会]　[@_yoshimasa](https://twitter.com/_yoshimasa)
         - 寺田 学[Pythonエンジニア育成推進協会]
-    - 資料：[PythonED](https://www.pythonic-exam.com/archives/news/devsumi2020wintokyo)
+    - 資料： {% elink PythonED https://www.pythonic-exam.com/archives/news/devsumi2020wintokyo %}
 - 2/14 13:05～13:50 デザイナー/リサーチャー/エンジニアが語る、UXとの関わりかた ★★★
     - 登壇者：
         - 松薗 美帆[メルペイ]　[@mihozono](https://twitter.com/mihozono)
@@ -99,21 +99,20 @@ date: 2020-02-20 07:28:45
         - 伊田 正寿[JapanTaxi]　[@mida12251141](https://twitter.com/mida12251141)
         - 小林 寛和[primeNumber]　[@hiro_koba_jp](https://twitter.com/hiro_koba_jp)
     - 資料
-        - [森谷 SpeakerDeck
-](https://speakerdeck.com/moriya_mitsuo/1keyue-dedetaji-pan-wozheng-ejing-ying-falsejie-xiang-du-wobian-etahua)
+        - {% elink 森谷 SpeakerDeck https://speakerdeck.com/moriya_mitsuo/1keyue-dedetaji-pan-wozheng-ejing-ying-falsejie-xiang-du-wobian-etahua %}
 - 2/14 15:15～16:00 サービスメッシュは本当に必要なのか、何を解決するのか ★★★
     - 登壇者：Yasuhiro Tori Hara[Amazon Web Services Japan]　[@toricls](https://twitter.com/toricls)
-        - 資料：[SpeakerDeck](https://speakerdeck.com/toricls/service-meshes-do-we-really-need-them-what-problems-do-they-solve)
+        - 資料：{% elink  SpeakerDeck https://speakerdeck.com/toricls/service-meshes-do-we-really-need-them-what-problems-do-they-solve %}
 - 2/14 16:20～17:05 Hackが好きなエンジニアが組織をHackしてみる考えと実践を経てきたヒストリー
     - 登壇者：萩原 北斗[うるる]
-    - 資料：[SpeakerDeck](https://speakerdeck.com/hokutohagi/hackkahao-kinaensiniakazu-zhi-wohacksitemirukao-etoshi-jian-wojing-tekitahisutori/)
+    - 資料：{% elink SpeakerDeck https://speakerdeck.com/hokutohagi/hackkahao-kinaensiniakazu-zhi-wohacksitemirukao-etoshi-jian-wojing-tekitahisutori/ %}
 - 2/14 17:25～18:25 雲の中心で愛を叫ぶ！ クラウド横断パネルディスカッション ★★★★★
     - 登壇者：
-        - 濱田 孝治[クラスメソッド]　[@hamako9999](https://twitter.com/hamako9999)
-        - 松村 優大[オルターブース]　[@tsubakimoto_s](https://twitter.com/tsubakimoto_s)
-        - 高野 遼[クラウドエース]
+        - 濱田 孝治[クラスメソッド/AWS代表]　[@hamako9999](https://twitter.com/hamako9999)
+        - 松村 優大[オルターブース/Azure代表]　[@tsubakimoto_s](https://twitter.com/tsubakimoto_s)
+        - 高野 遼[クラウドエース/GCP代表]
     - 司会：近藤 佑子[翔泳社]　[@kondoyuko](https://twitter.com/kondoyuko)
-    - [レポート(完全版)](https://dev.classmethod.jp/cloud/devsumi2020-report-14-c-8/)
+    - {% elink レポート(完全版) https://dev.classmethod.jp/cloud/devsumi2020-report-14-c-8/ %}
 
 ## 面白かったセッションの紹介
 
@@ -144,7 +143,7 @@ date: 2020-02-20 07:28:45
         - DNS over https
             - アダルトフィルターに影響
 
-本セッションではブラウザ周りの最新のセキュリティ動向が聞けて非常に面白かったです。特に3rd Party Cookieが悪役にされて今後どういう方向に向かうのか気になっていたので大満足でした。個人的にはDNS over httpsが今後どうなっていくのか気になるのでウォッチしたいと思います。
+本セッションではブラウザ周りの最新のセキュリティ動向が聞けて非常に面白かったです。特に**3rd Party Cookie**が悪役にされて今後どういう方向に向かうのか気になっていたので大満足でした。個人的には**DNS over https**が今後どうなっていくのか気になるのでウォッチしたいと思います。
 
 ### 15:15～16:00 「厳密な共通言語」としての形式手法
 
@@ -196,7 +195,7 @@ date: 2020-02-20 07:28:45
         - 状態の列に対して真偽を判定
             - 時間的に幅がある振る舞いについて性質を記述できる
 
-セッションメモが長くなってしまいましたが、それだけこのセッションから得るものが大きかったです。分散コンピューティングの曖昧性は耳が痛い限りです。形式手法の考え方は非常に興味深いと感じてて、時相論理がモデル検査で実用化されているとは知りませんでした。TLA+は面白そうなので試してみたいと思います。
+セッションメモが長くなってしまいましたが、それだけこのセッションから得るものが大きかったです。分散コンピューティングの曖昧性は耳が痛い限りです。形式手法の考え方は非常に興味深いと感じてて、**時相論理**がモデル検査で実用化されているとは知りませんでした。TLA+は面白そうなので試してみたいと思います。
 
 ### 16:20～17:05 少量データで軽量な機械学習の手法について
 
@@ -217,7 +216,7 @@ date: 2020-02-20 07:28:45
         - EchoStateProperty
             - この原理原則に従うと、複雑系の初期状態に依らず同一の入力データが入力された場合、高次元空間に同じ部分が射影される
 
-本セッションで、リザーバコンピューティングというものを初めて知りました。少量のデータでディープラーニングを超える成果が出るならすごい夢があるように感じました。もちろん適用範囲が異なる場面もあるので注意は必要だと思いますが、正直ビッグデータで汎用的なモデルよりも個人に特化した予測のほうが需要があるような気がしているので非常に興味深かったです。仕組みに関しては複雑系力学の応用らしいのでもう少し調べてみたいと思います。
+本セッションで、**リザーバコンピューティング**というものを初めて知りました。少量のデータでディープラーニングを超える成果が出るならすごい夢があるように感じました。もちろん適用範囲が異なる場面もあるので注意は必要だと思いますが、正直ビッグデータで汎用的なモデルよりも個人に特化した予測のほうが需要があるような気がしているので非常に興味深かったです。仕組みに関しては**複雑系力学**の応用らしいのでもう少し調べてみたいと思います。
 
 ### 2/13 17:25～18:45 「ITエンジニア本大賞 2020」プレゼン大会
 
@@ -226,16 +225,20 @@ date: 2020-02-20 07:28:45
     - 永瀬 美穂[アトラクタ]　[@miholovesq](https://twitter.com/miholovesq)
     - 広木 大地[レクター]　[@hiroki_daichi](https://twitter.com/hiroki_daichi)
     - 山下 智也[英治出版]　[@yamanami1985](https://twitter.com/yamanami1985)
-- セッションメモ
-    - 今年の技術書部門大賞は{% elink O'Reilly Japan - レガシーコードからの脱却 https://www.oreilly.co.jp/books/9784873118864/ %}
-    - 今年のビジネス書部門対象は{% elink プレゼン資料のデザイン図鑑 | 書籍 | ダイヤモンド社 https://www.diamond.co.jp/book/9784478105870.html %}
 
 {% blogCard https://www.shoeisha.co.jp/campaign/award/2020/result/ %}
 
-毎年楽しみにしているセッションです。今年は自分が投票した本は大賞には選ばれませんでした。ビジネス部門の大賞に選ばれた「プレゼン資料のデザイン図鑑」は面白そうなのでぜひ手元において活用したいと思いました。
+毎年楽しみにしているセッションです。今年は自分が投票した本は大賞には選ばれませんでしたが、どちらも非常に興味深い本です。技術書部門大賞に選ばれた「レガシーコードからの脱却」は、レガシーコードを**「どうやって直すか」**ではなく**「どうやって作らないようにするか」**に軸足を置いた本らしいです。どちらかというとアジャイル系に近い本だという印象を受けました。ビジネス部門の大賞に選ばれた「プレゼン資料のデザイン図鑑」は即戦力になりそうなので、ぜひ手元において活用したいと思いました。
 
-自分が技術書で投票したのは『Kaggleで勝つデータ分析の技術』でビジネス本は『FACTFULNESS 10の思い込みを乗り越え、データを基に世界を正しく見る習慣』です。FACTFULNESSは去年の4月頃読んだけど、目からウロコなのでぜひ読んでみて欲しいと思います。冗談抜きで世界の見方が変わります。
+🎉🎉2020年の技術書部門大賞🎉🎉
+<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"レガシーコードからの脱却 ―ソフトウェアの寿命を延ばし価値を高める9つのプラクティス","b":"オライリージャパン","t":"","d":"https:\/\/m.media-amazon.com","c_p":"","p":["\/images\/I\/51Y2mtMUYwL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/4873118867","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"zdNvH","s":"s"});</script><div id="msmaflink-zdNvH">リンク</div><!-- MoshimoAffiliateEasyLink END -->
+　
+🎉🎉2020年のビジネス書部門大賞🎉🎉
+<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"プレゼン資料のデザイン図鑑","b":"","t":"","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/51LgOM6GsXL.jpg","\/51LgOM6GsXL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/4478105871","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"LGkUk","s":"s"});</script><div id="msmaflink-LGkUk">リンク</div><!-- MoshimoAffiliateEasyLink END -->
+　
+自分が技術書で投票したのは『Kaggleで勝つデータ分析の技術』でビジネス本は『FACTFULNESS 10の思い込みを乗り越え、データを基に世界を正しく見る習慣』です。「FACTFULNESS」は去年の4月頃読読みましたが本当の意味での**「客観」**とは何かが分かる本なので、ぜひ読んでみて欲しいと思います。冗談抜きで世界の見方が変わります。
 
+<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"FACTFULNESS(ファクトフルネス) 10の思い込みを乗り越え、データを基に世界を正しく見る習慣","b":"日経BP","t":"","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/51jPX80edlL.jpg","\/61X+L78ZFJL.jpg","\/41vdmPfStTL.jpg","\/411yj1odi0L.jpg","\/51IkFu4QpCL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/4822289605","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"G28S6","s":"s"});</script><div id="msmaflink-G28S6">リンク</div><!-- MoshimoAffiliateEasyLink END -->
 
 ### 2/14 17:25～18:25 雲の中心で愛を叫ぶ！ クラウド横断パネルディスカッション
 
@@ -272,16 +275,17 @@ date: 2020-02-20 07:28:45
 ![こんなにも子供向けのプログラミング本があるのか・・・](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-9.jpeg)
 ![豪華なシャンデリアがある部屋でセッションを聴きます](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-10.jpeg)
 
-
 </div>
 
 ## まとめ
 
-今年はコロナの問題があったので開催当日まで気が抜けませんでしたが、無事参加できてよかったです。こういった総合ITカンファレンスは、分野が幅広いので自分が普段接しないジャンルの話が聞けたり技術トレンドを感じることができるので、エンジニアとしては参加するだけで様々なご利益があると思っています。
+今年はコロナの問題があったので開催当日まで気が抜けませんでしたが、無事参加できてよかったです。こういった総合ITカンファレンスは、分野が幅広いので自分が普段接しないジャンルの話が聞けたり技術トレンドを感じることができるので、**視野を広げるにはもってこい**のイベントだと思っています。難点はこのイベントは**人気すぎて**基本的にどのセッションも満席で立ち見になる場合もあるので、来年も今年のように二日間フルで参加できるのであれば一万円払って {% elink 個人スポンサー https://www.seshop.com/product/detail/23412 %}で参加してみたいですね[^2]。
 
 本記事はデブサミに参加したくても諸般の事情で参加できなかった人や、興味があるけどいろいろと悩んでいる人のためになるべく面白さが伝わるように心がけて書きました。本記事を読んでデブサミに興味を持っていただけば幸いです。
 
-{% img /gallery/events/devsumi-2020/devsumi2020-11.jpeg   %}
+{% img /gallery/events/devsumi-2020/devsumi2020-11.jpeg  %}
+
+[^2]: 正直、一万円で事前登録なしでフリーパスで入れて前方の机席でゆったり見れるのであれば美味しいと思います。
 
 ## 参考文献
 

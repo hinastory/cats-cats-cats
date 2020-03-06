@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-03-06T17:52:07.651Z</updated>
+  <updated>2020-03-06T19:08:58.923Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/</id>
     <published>2020-02-19T22:28:45.000Z</published>
-    <updated>2020-03-06T17:52:07.651Z</updated>
+    <updated>2020-03-06T19:08:58.923Z</updated>
     
     <summary type="html">
     
@@ -33,12 +33,12 @@
     
       <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
     
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
     
-      <category term="CategoryTheory" scheme="https://hinastory.github.io/cats-cats-cats/tags/CategoryTheory/"/>
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
   </entry>
   
