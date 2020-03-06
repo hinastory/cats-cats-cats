@@ -44,9 +44,9 @@ date: 2020-02-20 07:28:45
 
 ## 参加セッション
 
-今回は2日間フル参加で合計16セクションを聴講しました。流石に量が多いので全ての感想を書くと書くのにも読むのにも日が暮れてしまいます。そこで僭越ながら個人的にセッションを5段階評価でランク付けしてみたいと思います。
+今回は2日間フル参加で合計16セッションを聴講しました。流石に量が多いので全ての感想を書くと書くのにも読むのにも日が暮れてしまいます。そこで僭越ながら個人的にセッションを5段階評価でランク付けしてみたいと思います。
 
-このランクは現時点で自分が個人的に面白かったと思えるランクなので、一般的なセッションの良し悪しを行っているわけではないことをご了承ください。
+このランクは現時点で自分が個人的に面白かったと思えるランクなので、一般的なセッションの良し悪しの判断を行っているわけではないことをご了承ください。
 ランクはタイトル横に★印で記載しています。
 
 - 2/13 10:00～10:45 最新のブラウザで変わるCookieの取扱いやプライバシーの考え方 ★★★★★
@@ -261,9 +261,9 @@ date: 2020-02-20 07:28:45
 
 <div class="justified-gallery">
 
-![配られた昼食です](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-1.jpeg)
-![受付を３階から撮りました](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-2.jpeg)
-![こち亀のパロディですね](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-3.jpeg)
+![受付を３階から撮りました](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-1.jpeg)
+![「こうしす！」はこち亀のパロディですね](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-2.jpeg)
+![セッションで配られた昼食です](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-3.jpeg)
 ![ITエンジニア本大賞](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-4.jpeg)
 ![夜の雅叙園](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-5.jpeg)
 ![廊下の様子](/cats-cats-cats/gallery/events/devsumi-2020/devsumi2020-6.jpeg)
