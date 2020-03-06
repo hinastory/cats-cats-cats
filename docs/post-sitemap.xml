@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/</loc>
+        <lastmod>2020-03-06T04:20:23.187Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</loc>
-        <lastmod>2020-02-11T09:52:21.108Z</lastmod>
+        <lastmod>2020-02-12T14:56:30.634Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
