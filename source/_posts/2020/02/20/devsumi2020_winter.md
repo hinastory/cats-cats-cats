@@ -116,8 +116,9 @@ date: 2020-02-20 07:28:45
 
 ## 面白かったセッションの紹介
 
+聴講した18のセッションの中から自分が特に面白かったと思うものを５つに絞ってご紹介します。紹介の順番は聴講した順となります。
 
-### 10:00～10:45 最新のブラウザで変わるCookieの取扱いやプライバシーの考え方
+### 最新のブラウザで変わるCookieの取扱いやプライバシーの考え方
 - 登壇者：古川 陽介[リクルートテクノロジーズ]　[@yosuke_furukawa](https://twitter.com/yosuke_furukawa)
 
 {% oembed https://speakerdeck.com/yosuke_furukawa/zui-xin-falseburauzadebian-warucookiefalsequ-rixi-iyaprivacyfalsekao-efang %}
@@ -145,7 +146,7 @@ date: 2020-02-20 07:28:45
 
 本セッションではブラウザ周りの最新のセキュリティ動向が聞けて非常に面白かったです。特に**3rd Party Cookie**が悪役にされて今後どういう方向に向かうのか気になっていたので大満足でした。個人的には**DNS over https**が今後どうなっていくのか気になるのでウォッチしたいと思います。
 
-### 15:15～16:00 「厳密な共通言語」としての形式手法
+###  「厳密な共通言語」としての形式手法
 
 - 登壇者：チェシャ猫[ProofCafe]　[@y_taka_23](https://twitter.com/y_taka_23)
 
@@ -197,7 +198,7 @@ date: 2020-02-20 07:28:45
 
 セッションメモが長くなってしまいましたが、それだけこのセッションから得るものが大きかったです。分散コンピューティングの曖昧性は耳が痛い限りです。形式手法の考え方は非常に興味深いと感じてて、**時相論理**がモデル検査で実用化されているとは知りませんでした。TLA+は面白そうなので試してみたいと思います。
 
-### 16:20～17:05 少量データで軽量な機械学習の手法について
+### 少量データで軽量な機械学習の手法について
 
 - 登壇者：秋吉 信吾[QuantumCore]　[@a_shin1985](https://twitter.com/a_shin1985)
 
@@ -218,7 +219,7 @@ date: 2020-02-20 07:28:45
 
 本セッションで、**リザーバコンピューティング**というものを初めて知りました。少量のデータでディープラーニングを超える成果が出るならすごい夢があるように感じました。もちろん適用範囲が異なる場面もあるので注意は必要だと思いますが、正直ビッグデータで汎用的なモデルよりも個人に特化した予測のほうが需要があるような気がしているので非常に興味深かったです。仕組みに関しては**複雑系力学**の応用らしいのでもう少し調べてみたいと思います。
 
-### 2/13 17:25～18:45 「ITエンジニア本大賞 2020」プレゼン大会
+### 「ITエンジニア本大賞 2020」プレゼン大会
 
 - 司会：高柳 謙
 - 特別ゲスト：
@@ -240,7 +241,7 @@ date: 2020-02-20 07:28:45
 
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"FACTFULNESS(ファクトフルネス) 10の思い込みを乗り越え、データを基に世界を正しく見る習慣","b":"日経BP","t":"","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/51jPX80edlL.jpg","\/61X+L78ZFJL.jpg","\/41vdmPfStTL.jpg","\/411yj1odi0L.jpg","\/51IkFu4QpCL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/4822289605","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"G28S6","s":"s"});</script><div id="msmaflink-G28S6">リンク</div><!-- MoshimoAffiliateEasyLink END -->
 
-### 2/14 17:25～18:25 雲の中心で愛を叫ぶ！ クラウド横断パネルディスカッション
+### 雲の中心で愛を叫ぶ！ クラウド横断パネルディスカッション
 
 - 登壇者：
     - 濱田 孝治[クラスメソッド/AWS代表]　[@hamako9999](https://twitter.com/hamako9999)
