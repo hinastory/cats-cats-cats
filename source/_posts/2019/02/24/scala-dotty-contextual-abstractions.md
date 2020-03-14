@@ -11,15 +11,7 @@ date: 2019-02-24 12:49:20
 
 Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch/ %}にImplicitsに代わる「Contextual Abstractions」と呼ばれる一連の機能が実装されていたので一部を味見してみました。
 
-(2019年3月10日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B43%E6%9C%8810%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
-
-(2019年6月22日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B46%E6%9C%8822%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
-
-(2019年9月15日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019%E5%B9%B49%E6%9C%8815%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
-
-(2019年9月28日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2019年9月28日の更新内容)を見てください)
-
-(2020年2月8日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#2020年2月8日の更新内容)を見てください)
+（記事の本文は2020年2月8日時点のDotty最新版と整合するように更新されています。更新の詳細は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#追記更新内容)を見てくださいを見てください。)
 
 <!-- more -->
 
@@ -68,7 +60,7 @@ Dotty[^3]はScala3の研究用コンパイラで、Scala3の仕様や実装を�
 - `given`インポート(Given Imports)
   - 通常のimportでは`given`で定義された`given`インスタンスはインポートされず、別途`import A.given`でインポートする必要があります
   - `import A.{given, _}`でパッケージAの`given`インスタンスも含めた全てをインポートできます
-  - デリゲートがどこから来たのかを明確にするために導入されたようです
+  - `given`インスタンスがどこから来たのかを明確にするために導入されたようです
 - 拡張メソッド(Extension Methods)
   - Dottyの新機能です
   - 型が定義された後にメソッドを追加することができます
@@ -438,5 +430,5 @@ Dottyは0.21.0でめでたく`feature-complete`しました。つまりこれ以
 - {% elink Announcing Dotty 0.21.0-RC1 - explicit nulls, new syntax for `match` and conditional givens, and more https://dotty.epfl.ch/blog/2019/12/20/21th-dotty-milestone-release.html %}
 - {% elink Announcing Dotty 0.22.0-RC1 - syntactic enhancements, type-level arithmetic and more https://dotty.epfl.ch/blog/2020/02/05/22nd-dotty-milestone-release.html %}
 
-大きな変更は`using`、`on`、`as`、`extention`などのキーワードが登場してより読みやすくなったことだと思います。実際の使い方は記事本文をご覧ください。
+大きな変更は`using`、`on`、`as`、`extension`などのキーワードが登場してより読みやすくなったことだと思います。実際の使い方は記事本文をご覧ください。
 あと、今まで拡張メソッドはこの記事では説明がなかったので追加しました。

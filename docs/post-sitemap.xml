@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
+        <lastmod>2020-03-14T06:45:30.916Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/</loc>
         <lastmod>2020-03-09T17:24:47.543Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +26,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</loc>
         <lastmod>2020-02-12T14:56:30.634Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/</loc>
-        <lastmod>2020-02-08T03:02:57.538Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
