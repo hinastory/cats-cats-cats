@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-03-09T17:24:47.543Z</updated>
+  <updated>2020-03-15T02:36:55.794Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>技術書典 応援祭を応援してみる</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/</id>
+    <published>2020-03-14T22:28:45.000Z</published>
+    <updated>2020-03-15T02:36:55.794Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
+&lt;p&gt;技術書典 応援祭は3月7日から4月5日までの期間限定開催です。技術書典には600を超えるサークルから技術本が出典されているので検索すればきっと気になる技術書が見つかると思います。本記事では自分が買って面白かった本をご紹介したいと思います。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf08/images/cheering-ogp.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;新しい技術に出会えるお祭りです&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
+    
+    
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+  </entry>
   
   <entry>
     <title>【ギリギリセーフ】Developers Summit 2020に参加してきました</title>
@@ -537,33 +564,6 @@
       <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
     
       <category term="gRPC" scheme="https://hinastory.github.io/cats-cats-cats/tags/gRPC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/07/20/learning-category-theory/</id>
-    <published>2019-07-19T22:28:45.000Z</published>
-    <updated>2020-01-18T10:36:13.580Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;圏論は数学の一分野です。これを学ぶのには「数学書」を手に取るのが王道なのですが、残念ながらこれは大部分のプログラマに理解できる言葉では書かれていません。「&lt;code&gt;定義&lt;/code&gt;・&lt;code&gt;命題&lt;/code&gt;・&lt;code&gt;証明&lt;/code&gt;」の積み重ねで書かれています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。ここで大半のScalaプログラマは苦い顔をすると思います。もう少し分かりやすいScalaプログラマ向けの圏論入門がないかと探してみると「&lt;code&gt;Haskell&lt;/code&gt;」向けの記事が大量に引っかかるでしょう。ここで多くのScalaプログラマは心を折られてしまいます。「圏論」はまだScalaプログラマには早すぎたんだと・・・ 本記事ではそんなあなたに贈る3つの文献をご紹介したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="ComputerScience" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/ComputerScience/"/>
-    
-    
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
-      <category term="CategoryTheory" scheme="https://hinastory.github.io/cats-cats-cats/tags/CategoryTheory/"/>
-    
-      <category term="Cats" scheme="https://hinastory.github.io/cats-cats-cats/tags/Cats/"/>
     
   </entry>
   
