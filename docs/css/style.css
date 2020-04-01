@@ -694,6 +694,7 @@ figure.highlight .section {
 }
 .blog-card .hbc-link-wrap .hbc-link .hbc-card .hbc-contents .hbc-thumbnail {
   max-width: 100px;
+  min-width: 100px;
   max-height: 108px;
   padding: 0;
   margin: 0 6px 4px 4px;
