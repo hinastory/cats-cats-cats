@@ -72,10 +72,12 @@ RustはMozilla[^1]が支援するオープンソースのプログラミング�
 
 Rustを利用しているユーザにはMozillaはもちろん**Dropbox**や**AWS**や**Microsoft**などの著名企業も含まれるので、今後も安定して開発やメンテナンスが行われる言語だと考えられます。
 
-向いている用途としてはシステムプログラミングが挙げられ、OSやデータベース等のミドルウェアの開発に適しています。個人的には**C/C++やGo言語が向いている用途にはRustも適している**と考えています。
+向いている用途としてはシステムプログラミングが挙げられ、OSやデータベース等のミドルウェアの開発に適しています。個人的には**C/C++やGo言語が向いている用途にはRustも適している**と考えています。特に性能を要求されるプログラムには向いています。以下は{% elink Computer Language Benchmarks Game https://benchmarksgame-team.pages.debian.net/benchmarksgame/which-programs-are-fastest.html %}からの引用ですが、Rustの性能がC/C++と同等であることが示されています。
+
+{% img /gallery/daily/others/fastest.png 370 %}{% img /gallery/daily/others/fastest-more.png 370 %}
+
 
 向いていない用途としては、RubyやPythonのようにプログラムを書いてすぐに実行するような軽量的な使い方です。Rustは必ずコンパイルする作業が発生し、しかもコンパイルのチェックが比較的厳しいので[^2]「正しい」プログラムを書くのに時間がかかります。これはある程度大きな開発時にはメリットともとれますが、**アイデアをプログラムで緩く試したい場合には不向き**なので用途を使い分ける必要があります。
-
 
 [^1]: ブラウザのFirefoxの開発を支援している非営利団体です。
 [^2]: ここではC/C++と比較しています。またJavaと比べてもnullやキャストのチェックが厳しいです。もちろん`unsafe`という魔法は使わないことが大前提ですが・・・
@@ -640,7 +642,7 @@ fn fizz_buzz10() {
 
 10日目のプログラムでなんとなく`fz`関数を眺めていると引数の型が`i32`型に固定されていることに気づきました。せっかくジェネリックを覚えたので`fz`をジェネリックにして`u32`型や`i64`型にも対応できるようにしたくなりました。
 
-{% code lang:rust fizz_buzz13(rust) %}
+{% code lang:rust fizz_buzz11(rust) %}
 fn fizz_buzz11() {
   use std::ops::Rem;
 
@@ -671,7 +673,7 @@ fn fizz_buzz11() {
 
 11日目のプログラムでトレイトの存在に気づき、トレイトを生かしてFizzBuzzを実装してみたくなりました。
 
-{% code lang:rust fizz_buzz14(rust) %}
+{% code lang:rust fizz_buzz12(rust) %}
 struct FizzBuzz<T> {
   div_a: T,
   div_b: T,
@@ -714,7 +716,7 @@ fn fizz_buzz12() {
 
 12日目のプログラムでは`ToFzStr`は`i32`型にしか実装していませんでしたが、他の型にも実装したくなりました。
 
-{% code lang:rust fizz_buzz15(rust) %}
+{% code lang:rust fizz_buzz13(rust) %}
 use std::ops::Rem;
 fn common_fz_str<T>(x: T, div_a: T, div_b: T, zero: T) -> String
 where T: Rem<T, Output=T> + Eq + Copy + ToString {
@@ -752,7 +754,7 @@ fn fizz_buzz13() {
 
 13日目のプログラムまでは1から100までのFizzBuzzに対応してきましたが、もっと大きなFizzBuzzも試してみたくなりました。
 
-{% code lang:rust fizz_buzz16(rust) %}
+{% code lang:rust fizz_buzz14(rust) %}
 fn fizz_buzz14(end: usize) {
   (1 ..).take(end).map(|x| FizzBuzz::new(3, 5, 0).to_str(x)).for_each(|x| println!("{}", x))
 }
@@ -769,7 +771,7 @@ fn fizz_buzz14(end: usize) {
 
 14日目のプログラムで無限の奥深さに惹かれました。そしてとうとう無限を表現する禁忌の手段、**再帰の沼**にハマってしまったのです。こうなるともう元の生活に戻るのは困難でしょう。終わりの始まりです。
 
-{% code lang:rust fizz_buzz16(rust) %}
+{% code lang:rust fizz_buzz15(rust) %}
 fn fizz_buzz15(end: u32) {
   if end > 1 { fizz_buzz15(end - 1) }
 
