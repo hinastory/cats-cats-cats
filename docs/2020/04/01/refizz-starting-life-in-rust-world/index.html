@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/rust.png">
 <meta property="article:published_time" content="2020-03-31T22:28:45.000Z">
-<meta property="article:modified_time" content="2020-04-03T17:25:57.275Z">
+<meta property="article:modified_time" content="2020-04-03T21:06:01.351Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Rust">
 <meta property="article:tag" content="FizzBuzz">
@@ -238,7 +238,7 @@
 <a href="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=c4b493bb208a03883d8ccd1d4cb19672" target="_blank" rel="noopener" title target>Run<i class="fas fa-external-link-alt fa-fw"></i></a>
 <p>　<br><code>match a {b}</code>の構文では、<code>a</code>の式を評価した結果を<code>b</code>のパターンで網羅的に分類できます。<code>b</code>のパターンは<code>p => v</code>の形式(これはアームとも呼ばれます)でカンマ<code>,</code>で区切って複数並べることができ、上から順番に<code>p</code>のパターンにマッチングするか検査されます。マッチングが成立すると<code>v</code>が実行されてその評価値が<code>match</code>式の評価値となります。</p>
 <p><code>p</code>のパターンでは一つの値だけではなく<code>|</code>で区切って、複数の値にマッチングさせることもできます。例えば上記でいけば<code>3 | 6 | 9 | 12</code>は「3または6または9または12」の意味になります。またパターンにアンダースコア<code>_</code>を用いると<strong>ワイルドカードパターン</strong>になり、全ての値にマッチングします。パターンは上のほうが優先順位が高いのでワイルドカードパターンは通常一番下に置かれます。</p>
-<p>上記の例だけ見ると<code>match</code>は単に<code>if</code>のシンタックスシュガーのように見えてしまいますが、実は大きく異なります。そのひとつに<code>match</code>では網羅性検査が行われる点があります。例えば以下のように任意パターンを<code>99</code>に置き換えてコンパイルしてみます。</p>
+<p>上記の例だけ見ると<code>match</code>は単に<code>if</code>のシンタックスシュガーのように見えてしまいますが、実は大きく異なります。そのひとつに<code>match</code>では網羅性検査が行われる点があります。例えば以下のようにワイルドカードパターンを<code>99</code>に置き換えてコンパイルしてみます。</p>
 <figure class="highlight rust hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">match</span> x % <span class="hljs-number">15</span> {   <span class="hljs-comment">// パターンマッチを利用してxの15による剰余を分類</span><br>  <span class="hljs-number">0</span> => <span class="hljs-built_in">println!</span>(<span class="hljs-string">"FizzBuzz"</span>),<br>  <span class="hljs-number">3</span> | <span class="hljs-number">6</span> | <span class="hljs-number">9</span> | <span class="hljs-number">12</span> => <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Fizz"</span>),<br>  <span class="hljs-number">5</span> | <span class="hljs-number">10</span> => <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Buzz"</span>),<br>  <span class="hljs-number">99</span> => <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, x),  <span class="hljs-comment">// `_` から `99`に変更</span><br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>するとコンパイルエラーになり、以下のように色付きでわかりやすくエラーが表示されます。</p>
