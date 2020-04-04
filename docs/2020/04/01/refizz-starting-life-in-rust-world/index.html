@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/rust.png">
 <meta property="article:published_time" content="2020-03-31T22:28:45.000Z">
-<meta property="article:modified_time" content="2020-04-04T07:40:15.720Z">
+<meta property="article:modified_time" content="2020-04-04T08:02:37.356Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Rust">
 <meta property="article:tag" content="FizzBuzz">
@@ -213,7 +213,7 @@
 <a href="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=d761b62e11b5f019ee0cba90f6edaf80" target="_blank" rel="noopener" title target>Run<i class="fas fa-external-link-alt fa-fw"></i></a>
 
 <p>　<br>まず、1行目は<code>fn</code>で始まる関数宣言です。<strong>fizz_buzz1</strong>という関数を定義しています。関数名はこのようにアンダースコア(<code>_</code>)で区切った小文字の<strong>スネークケース</strong>で書くのがRustのコーディング規約になっています。この関数は引数を持っていませんが戻り値は一応あります。戻り値は<strong>ユニット</strong><code>()</code>になります。ユニットは意味を持たない値の代表として用いられます。</p>
-<p>2行目の<code>let</code>で始まる文は<strong>宣言文</strong>と呼ばれており、関数のスコープに変数<code>x</code>を導入して整数1に束縛しています。<code>mut</code>キーワードは<code>mutation</code>の略であり、この変数が再代入可能であることを示しています。再代入が可能になるとプログラムの挙動の把握が難しくなるので<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>、不必要な箇所では<code>mut</code>をつけないことがRustの基本です。</p>
+<p>2行目の<code>let</code>で始まる文は<strong>宣言文</strong>と呼ばれており、関数のスコープに変数<code>x</code>を導入して整数1に束縛しています。<code>mut</code>キーワードは<code>mutable</code>の略であり、この変数が再代入可能であることを示しています。再代入が可能になるとプログラムの挙動の把握が難しくなるので<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>、不必要な箇所では<code>mut</code>をつけないことがRustの基本です。</p>
 <p>さらに、2行目は型推論により変数の型が省略されています。省略せずに書くと以下のようになります。</p>
 <figure class="highlight rust hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x: <span class="hljs-built_in">i32</span> = <span class="hljs-number">1</span>;<br></code></pre></td></tr></tbody></table></figure>
 
