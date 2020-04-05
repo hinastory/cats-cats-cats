@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/rust.png">
 <meta property="article:published_time" content="2020-03-31T22:28:45.000Z">
-<meta property="article:modified_time" content="2020-04-04T08:02:37.356Z">
+<meta property="article:modified_time" content="2020-04-05T00:53:02.862Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Rust">
 <meta property="article:tag" content="FizzBuzz">
@@ -202,7 +202,7 @@
 <img src="/cats-cats-cats/gallery/daily/others/fastest.png" class width="370"><img src="/cats-cats-cats/gallery/daily/others/fastest-more.png" class width="370">
 
 
-<p>向いていない用途としては、RubyやPythonのようにプログラムを書いてすぐに実行するような軽量的な使い方です。Rustは必ずコンパイルする作業が発生し、しかもコンパイルのチェックが比較的厳しいので<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>「正しい」プログラムを書くのに時間がかかります。これはある程度大きな開発時にはメリットともとれますが、<strong>アイデアをプログラムで緩く試したい場合には不向き</strong>なので用途で使い分ける必要があります。</p>
+<p>向いていない用途としては、RubyやPythonのようにプログラムを書いてすぐに実行するような軽量的な使い方です。Rustは必ずコンパイルする作業が発生し、しかもコンパイラのチェックが比較的厳しいので<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>「正しい」プログラムを書くのに時間がかかります。これはある程度大きな開発時にはメリットともとれますが、<strong>アイデアをプログラムで緩く試したい場合には不向き</strong>なので用途で使い分ける必要があります。</p>
 <h2 id="第一章-rust生活初級編"><a href="#第一章-rust生活初級編" class="header-anchor"></a>3. <a href="#第一章-Rust生活-初級編" class="headerlink" title="第一章 Rust生活:初級編"></a>第一章 Rust生活:初級編</h2><p>さて、ここからが本題のRust生活です。１日にひとつのFizzBuzzを紹介するというスタイルで書いています。後半に行くほど難しくなっているので、自分のレベルに合った箇所から読み進めて頂いても構いません。</p>
 <p>また、FizzBuzzプログラムのスタイルとしては関数として記述しています。実際にコンパイルして実行するには以下のように<code>main</code>関数の中から呼び出す必要があります。</p>
 <figure class="highlight rust hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {<br>    fizz_buzz1()<br>}<br></code></pre></td></tr></tbody></table></figure>
@@ -227,7 +227,7 @@
 <p>次の要素は「<code>println!</code>」マクロです。関数っぽく見えますが名前の最後の「<code>!</code>」がマクロであることを示しています。Rustの関数には可変長引数がないのでマクロを使って実現されています<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。呼び出し側は呼び出し先が関数かマクロかはあまり気を使う必要がないので、入門の段階では気にしなくても問題はありません。println!マクロでは表示する文字列に変数を埋め込むことができます。「<code>{}</code>」はプレースホルダになっていて以下のように複数利用することもできます。</p>
 <figure class="highlight rust hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> from = <span class="hljs-string">"FizzBuzz"</span>;<br><span class="hljs-keyword">let</span> lang = <span class="hljs-string">"Rust"</span>;<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"Re:{} Starting Life in {} World!"</span>, from, lang); <span class="hljs-comment">// 「Re:FizzBuzz Starting Life in Rust World!」と表示される。</span><br></code></pre></td></tr></tbody></table></figure>
 <a href="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=3fc5a8f22c6c1525190d576946583a50" target="_blank" rel="noopener" title target>Run<i class="fas fa-external-link-alt fa-fw"></i></a>
-<p>　<br> 1日目の最後の説明は<code>x += 1</code>についてです。この式は他の言語と同じく<code>x = x + 1</code>のシンタックスシュガーです。つまり再代入の処理になります。Rustでは再代入は<code>mut</code>をつけて宣言された変数にしか許可されませんが、<code>x</code>は<code>mut</code>付きで宣言されているのこのように再代入が可能です。ちなみにRustにはインクリメント演算子(<code>++</code>)は用意されていません。</p>
+<p>　<br> 1日目の最後の説明は<code>x += 1</code>についてです。この式は他の言語と同じく<code>x = x + 1</code>のシンタックスシュガーです。つまり再代入の処理になります。Rustでは再代入は<code>mut</code>をつけて宣言された変数にしか許可されませんが、<code>x</code>は<code>mut</code>付きで宣言されているのでこのように再代入が可能です。ちなみにRustにはインクリメント演算子(<code>++</code>)は用意されていません。</p>
 <h3 id="2日目-fizzbuzzでforとrangeに出会う"><a href="#2日目-fizzbuzzでforとrangeに出会う" class="header-anchor"></a>3.2. <a href="#2日目-〜FizzBuzzでforとrangeに出会う〜" class="headerlink" title="2日目 〜FizzBuzzでforとrangeに出会う〜"></a>2日目 〜FizzBuzzでforとrangeに出会う〜</h3><p>1日目のプログラムで<code>FizzBuzz</code>は問題なく動作します。しかし、<code>while</code>の条件判定と<code>x += 1</code>を組み合わせてループを行うのは些か面倒です。でもご安心ください。Rustにはループの強い味方、<code>for</code>とレンジ(範囲)があります。</p>
 <figure class="highlight rust hljs"><figcaption><span>fizz_buzz2(rust)</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">fizz_buzz2</span></span>() {<br>  <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> .. <span class="hljs-number">101</span> { <span class="hljs-comment">// 1から100まで繰り返す</span><br>    <span class="hljs-keyword">if</span> x % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> {<br>      <span class="hljs-built_in">println!</span>(<span class="hljs-string">"FizzBuzz"</span>);<br>    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> x % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> {<br>      <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Fizz"</span>);<br>    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> x % <span class="hljs-number">5</span> == <span class="hljs-number">0</span> {<br>      <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Buzz"</span>);<br>    } <span class="hljs-keyword">else</span> {<br>      <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, x);<br>    }<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 <a href="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=e86db7a58f89d96fd8fd39e7e8afcc95" target="_blank" rel="noopener" title target>Run<i class="fas fa-external-link-alt fa-fw"></i></a>
@@ -416,7 +416,7 @@
 <ul>
 <li>再帰を理解する<ul>
 <li>末尾再帰最適化について調べ始める・・・<sup id="fnref:10"><a href="#fn:10" rel="footnote">10</a></sup></li>
-<li>素直にイテレータを使ったほうが幸せだと気付く</li>
+<li><strong>素直にイテレータを使ったほうが幸せだと気付く</strong></li>
 </ul>
 </li>
 </ul>
@@ -2092,7 +2092,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="#">
+<a id="back-to-top" title="Kembali ke atas" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
