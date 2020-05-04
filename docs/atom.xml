@@ -103,13 +103,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</id>
     <published>2020-02-10T22:28:45.000Z</published>
-    <updated>2020-02-12T14:56:30.634Z</updated>
+    <updated>2020-05-04T01:21:17.473Z</updated>
     
     <summary type="html">
     
       &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;最近、&lt;a href=&quot;https://speakerdeck.com/inamiy/category-theory-and-programming&quot; title target&gt;圏論とプログラミング&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・&lt;/p&gt;
 &lt;p&gt;ただ、自分にとって残念だったのは、資料で説明用に選択されたプログラミング言語が&lt;strong&gt;「Haskell」&lt;/strong&gt;だったことです。もちろんHaskellは素晴らしい言語です。ただ、自分にとってHaskellは外国語なのでちょっと理解が難しいのです。そしてこの資料が&lt;strong&gt;「Scala」&lt;/strong&gt;で書かれていたらと夢想せずにはいられなかったのです。&lt;/p&gt;
-&lt;p&gt;Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeature Completeを宣言しました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。この宣言で新機能の追加は終了して、あとは2020年末のリリースに向けてひたすら品質を上げていく段階に突入しました。つまり、ようやく次世代のScalaが全貌を表したということです。&lt;/p&gt;
+&lt;p&gt;Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeature Completeを宣言しました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。この宣言で新機能の追加は終了して、あとは2020年末のリリースに向けてひたすら品質を上げていく段階に突入しました。つまり、ようやく次世代のScalaが全貌を現したということです。&lt;/p&gt;
 &lt;p&gt;ここである考えが脳裏を過りました。もしかしたら「圏論とプログラミング」に出てくるHaskellの記述を&lt;strong&gt;「素のScala3」&lt;/strong&gt;で置き換えられるのではないかと。&lt;/p&gt;
 &lt;p&gt;本記事ではその疑問を検証してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
