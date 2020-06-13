@@ -49,7 +49,7 @@ Rustを使っていると時々**「あれ？この機能、他の言語に似�
 | **Rust**  | 2010     | o   | o   | o        | o          | o              | o              |       |
 | Swift     | 2014     | △   | o   |          | o          | o              | o              | o[^5] |
 
-各カラムの意味は次のとおりです。言語の特徴は主にWikipediaを参考にしていますが、多少の独断と偏見が含まれています。
+各カラムの意味は次のとおりです。言語の特徴は主にWikipediaを参考にしていますが、正確な分類は困難なため多少の独断と偏見が含まれていることをご了承ください。
 
 - 登場年代
     - プログラミングが登場した年代です。前後3年の誤差は見逃してください
@@ -406,7 +406,7 @@ fn main() {
     - Newsqueak, Alef, Limbo
 
 
-### メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)
+### メッセージパッシング(message passing), スレッド失敗(thread failure)
 
 調べきれなかったので割愛します。
 
@@ -514,13 +514,13 @@ Rustに影響を与えた言語についてざっくり表に分類して、さ�
 - ML Kit, Cyclone: region based memory management
 - Haskell (GHC): typeclasses, type families
 - Newsqueak, Alef, Limbo: channels, concurrency
-- Erlang: message passing, thread failure, linked thread failure, lightweight concurrency
+- Erlang: message passing, thread failure, ~~linked thread failure~~, ~~lightweight concurrency~~
 - Swift: optional bindings
 - Scheme: hygienic macros
 - C#: attributes
 - Ruby: closure syntax, ~~block syntax~~
 - NIL, Hermes: ~~typestate~~
-    - 削除された機能なので本記事では扱わなかった
+    - 削除された機能のみに紐づく言語なので本記事では扱わなかった
 - Unicode Annex #31: identifier and pattern syntax
     - 言語ではないので本記事では扱わなかった
 

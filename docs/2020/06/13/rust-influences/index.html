@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/rust-influences.png">
 <meta property="article:published_time" content="2020-06-12T22:28:45.000Z">
-<meta property="article:modified_time" content="2020-06-13T19:27:46.628Z">
+<meta property="article:modified_time" content="2020-06-13T19:45:29.815Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Rust">
 <meta name="twitter:card" content="summary">
@@ -169,7 +169,7 @@
             <html><head></head><body><p>Rustを使っていると時々<strong>「あれ？この機能、他の言語に似てない？」</strong>と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな<strong>「似ている」</strong>を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。</p>
 <a id="more"></a>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#影響を受けた言語" class="contents-header">2. 影響を受けた言語</a></li><li><a href="#影響を受けた機能" class="contents-header">3. 影響を受けた機能</a><ul><li><a href="#代数的データ型algebraic-data-types" class="contents-header">3.1. 代数的データ型(algebraic data types)</a></li><li><a href="#パターンマッチpattern-matching" class="contents-header">3.2. パターンマッチ(pattern matching)</a></li><li><a href="#型推論type-inference" class="contents-header">3.3. 型推論(type inference)</a></li><li><a href="#セミコロンの文区切りsemicolon-statement-separation" class="contents-header">3.4. セミコロンの文区切り(semicolon statement separation)</a></li><li><a href="#参照references" class="contents-header">3.5. 参照(references)</a></li><li><a href="#raiiresource-acquisition-is-initialization" class="contents-header">3.6. RAII(Resource Acquisition Is Initialization)</a></li><li><a href="#スマートポインタsmart-pointers" class="contents-header">3.7. スマートポインタ(smart pointers)</a></li><li><a href="#ムーブセマンティクスmove-semantics" class="contents-header">3.8. ムーブセマンティクス(move semantics)</a></li><li><a href="#単形化monomorphization" class="contents-header">3.9. 単形化(monomorphization)</a></li><li><a href="#メモリモデルmemory-model" class="contents-header">3.10. メモリモデル(memory model)</a></li><li><a href="#リージョンベースのメモリ管理region-based-memory-management" class="contents-header">3.11. リージョンベースのメモリ管理(region based memory management)</a></li><li><a href="#型クラスtypeclasses-型族type-families" class="contents-header">3.12. 型クラス(typeclasses)、型族(type families)</a></li><li><a href="#チャネルchannels-並列性concurrency" class="contents-header">3.13. チャネル(channels), 並列性(concurrency)</a></li><li><a href="#メッセージパッシングmessage-passing-スレッド失敗thread-failure-リンクスレッド失敗linked-thread-failure-軽量並列性lightweight-concurrency" class="contents-header">3.14. メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)</a></li><li><a href="#オプショナルバインディング" class="contents-header">3.15. オプショナルバインディング</a></li><li><a href="#衛生的マクロhygienic-macros" class="contents-header">3.16. 衛生的マクロ(hygienic macros)</a></li><li><a href="#属性attributes" class="contents-header">3.17. 属性(attributes)</a></li><li><a href="#クロージャー記法closure-syntax" class="contents-header">3.18. クロージャー記法（closure syntax）</a></li></ul></li><li><a href="#影響の可視化" class="contents-header">4. 影響の可視化</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#影響を受けた言語" class="contents-header">2. 影響を受けた言語</a></li><li><a href="#影響を受けた機能" class="contents-header">3. 影響を受けた機能</a><ul><li><a href="#代数的データ型algebraic-data-types" class="contents-header">3.1. 代数的データ型(algebraic data types)</a></li><li><a href="#パターンマッチpattern-matching" class="contents-header">3.2. パターンマッチ(pattern matching)</a></li><li><a href="#型推論type-inference" class="contents-header">3.3. 型推論(type inference)</a></li><li><a href="#セミコロンの文区切りsemicolon-statement-separation" class="contents-header">3.4. セミコロンの文区切り(semicolon statement separation)</a></li><li><a href="#参照references" class="contents-header">3.5. 参照(references)</a></li><li><a href="#raiiresource-acquisition-is-initialization" class="contents-header">3.6. RAII(Resource Acquisition Is Initialization)</a></li><li><a href="#スマートポインタsmart-pointers" class="contents-header">3.7. スマートポインタ(smart pointers)</a></li><li><a href="#ムーブセマンティクスmove-semantics" class="contents-header">3.8. ムーブセマンティクス(move semantics)</a></li><li><a href="#単形化monomorphization" class="contents-header">3.9. 単形化(monomorphization)</a></li><li><a href="#メモリモデルmemory-model" class="contents-header">3.10. メモリモデル(memory model)</a></li><li><a href="#リージョンベースのメモリ管理region-based-memory-management" class="contents-header">3.11. リージョンベースのメモリ管理(region based memory management)</a></li><li><a href="#型クラスtypeclasses-型族type-families" class="contents-header">3.12. 型クラス(typeclasses)、型族(type families)</a></li><li><a href="#チャネルchannels-並列性concurrency" class="contents-header">3.13. チャネル(channels), 並列性(concurrency)</a></li><li><a href="#メッセージパッシングmessage-passing-スレッド失敗thread-failure" class="contents-header">3.14. メッセージパッシング(message passing), スレッド失敗(thread failure)</a></li><li><a href="#オプショナルバインディング" class="contents-header">3.15. オプショナルバインディング</a></li><li><a href="#衛生的マクロhygienic-macros" class="contents-header">3.16. 衛生的マクロ(hygienic macros)</a></li><li><a href="#属性attributes" class="contents-header">3.17. 属性(attributes)</a></li><li><a href="#クロージャー記法closure-syntax" class="contents-header">3.18. クロージャー記法（closure syntax）</a></li></ul></li><li><a href="#影響の可視化" class="contents-header">4. 影響の可視化</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
 
 <h2 id="tldr"><a href="#tldr" class="header-anchor"></a>1. <a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
 <li>Rustに影響を与えた言語に関してはすでにまとまったページがありました<ul>
@@ -376,7 +376,7 @@
 <td>o<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup></td>
 </tr>
 </tbody></table>
-<p>各カラムの意味は次のとおりです。言語の特徴は主にWikipediaを参考にしていますが、多少の独断と偏見が含まれています。</p>
+<p>各カラムの意味は次のとおりです。言語の特徴は主にWikipediaを参考にしていますが、正確な分類は困難なため多少の独断と偏見が含まれていることをご了承ください。</p>
 <ul>
 <li>登場年代<ul>
 <li>プログラミングが登場した年代です。前後3年の誤差は見逃してください</li>
@@ -584,7 +584,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="メッセージパッシングmessage-passing-スレッド失敗thread-failure-リンクスレッド失敗linked-thread-failure-軽量並列性lightweight-concurrency"><a href="#メッセージパッシングmessage-passing-スレッド失敗thread-failure-リンクスレッド失敗linked-thread-failure-軽量並列性lightweight-concurrency" class="header-anchor"></a>3.14. <a href="#メッセージパッシング-message-passing-スレッド失敗-thread-failure-リンクスレッド失敗-linked-thread-failure-軽量並列性-lightweight-concurrency" class="headerlink" title="メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)"></a>メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)</h3><p>調べきれなかったので割愛します。</p>
+<h3 id="メッセージパッシングmessage-passing-スレッド失敗thread-failure"><a href="#メッセージパッシングmessage-passing-スレッド失敗thread-failure" class="header-anchor"></a>3.14. <a href="#メッセージパッシング-message-passing-スレッド失敗-thread-failure" class="headerlink" title="メッセージパッシング(message passing), スレッド失敗(thread failure)"></a>メッセージパッシング(message passing), スレッド失敗(thread failure)</h3><p>調べきれなかったので割愛します。</p>
 <ul>
 <li>影響を受けた言語<ul>
 <li>Erlang</li>
@@ -652,13 +652,13 @@
 <li>ML Kit, Cyclone: region based memory management</li>
 <li>Haskell (GHC): typeclasses, type families</li>
 <li>Newsqueak, Alef, Limbo: channels, concurrency</li>
-<li>Erlang: message passing, thread failure, linked thread failure, lightweight concurrency</li>
+<li>Erlang: message passing, thread failure, <del>linked thread failure</del>, <del>lightweight concurrency</del></li>
 <li>Swift: optional bindings</li>
 <li>Scheme: hygienic macros</li>
 <li>C#: attributes</li>
 <li>Ruby: closure syntax, <del>block syntax</del></li>
 <li>NIL, Hermes: <del>typestate</del><ul>
-<li>削除された機能なので本記事では扱わなかった</li>
+<li>削除された機能のみに紐づく言語なので本記事では扱わなかった</li>
 </ul>
 </li>
 <li>Unicode Annex #31: identifier and pattern syntax<ul>
@@ -2366,7 +2366,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Kembali ke atas" href="#">
+<a id="back-to-top" title="Back to Top" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
