@@ -114,7 +114,7 @@ match x {
 
 パターンマッチは上記のコードのようにデータ構造を分解してマッチングできるので、代数的データ型とも相性がよいです。
 
-パターンマッチに関しては過去に「[全プログラマに捧ぐ！図解「パターンマッチ」](http://localhost:4000/cats-cats-cats/2019/04/30/understanding-pattern-matching/)」という記事も書いたのでよろしければそちらも参考にしてださい。
+パターンマッチに関しては過去に「[全プログラマに捧ぐ！図解「パターンマッチ」](https://hinastory.github.io/cats-cats-cats/2019/04/30/understanding-pattern-matching/)」という記事も書いたのでよろしければそちらも参考にしてださい。
 
 - Rust本
     - [パターンマッチング](https://doc.rust-jp.rs/book/second-edition/ch18-00-patterns.html)
@@ -295,7 +295,7 @@ fn print_greet<T: Greeting>(person: T) { // トレイト境界を用いた関数
     println!("{}!", person.greet());
 }
 
-struct Japanese { name: String, } 　　　　　　// `struct`用いたを型の定義
+struct Japanese { name: String, }        // `struct`用いたを型の定義
 struct American { name: String, age: u32,}
 
 impl Greeting for Japanese { // トレイトの実装
