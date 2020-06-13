@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/rust-influences.png">
 <meta property="article:published_time" content="2020-06-12T22:28:45.000Z">
-<meta property="article:modified_time" content="2020-06-13T19:45:29.815Z">
+<meta property="article:modified_time" content="2020-06-13T20:34:20.946Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Rust">
 <meta name="twitter:card" content="summary">
@@ -389,7 +389,6 @@
 </li>
 <li>OOP（オブジェクト指向プログラミング）<ul>
 <li>言語がOOPを強くサポートしているかを示しています</li>
-<li>程々にサポートしている場合は△を示しています</li>
 </ul>
 </li>
 <li>並行計算<ul>
@@ -419,8 +418,9 @@
 </ul>
 <h2 id="影響を受けた機能"><a href="#影響を受けた機能" class="header-anchor"></a>3. <a href="#影響を受けた機能" class="headerlink" title="影響を受けた機能"></a>影響を受けた機能</h2><p>ここからは影響を受けた機能をそれぞれ見ていきたいと思います。</p>
 <h3 id="代数的データ型algebraic-data-types"><a href="#代数的データ型algebraic-data-types" class="header-anchor"></a>3.1. <a href="#代数的データ型-algebraic-data-types" class="headerlink" title="代数的データ型(algebraic data types)"></a>代数的データ型(algebraic data types)</h3><p>代数的データ型は関数型プログラミングをサポートする言語で多く利用されています。直積型の総和です。RustではEnumを用いることで代数的データ型を実現可能です。</p>
-<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">IpAddr</span></span> {<br>    V4(<span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>),<br>    V6(<span class="hljs-built_in">String</span>),<br>}<br><br>上記はIPアドレス型を表現していますが、<br><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">IpAddr</span></span> {<br>    V4(<span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>),<br>    V6(<span class="hljs-built_in">String</span>),<br>}<br></code></pre></td></tr></tbody></table></figure>
 
+<p>上記はIPアドレス型を表現していますが、V4型はu8型の直積になっており、V4型とV6型の総和がIpAddr型になっています。</p>
 <ul>
 <li>影響を受けた言語<ul>
 <li>SML, OCaml</li>
@@ -446,7 +446,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="型推論type-inference"><a href="#型推論type-inference" class="header-anchor"></a>3.3. <a href="#型推論-type-inference" class="headerlink" title="型推論(type inference)"></a>型推論(type inference)</h3><p>静的型付けを持つ言語ではJavaやC#に採用されたこともあり、型推論が徐々に浸透してきています。Rustの型推論は強力なHindley-Milner型推論をベースとしており、後方の式や文から手前の型が推論されることもあります。</p>
+<h3 id="型推論type-inference"><a href="#型推論type-inference" class="header-anchor"></a>3.3. <a href="#型推論-type-inference" class="headerlink" title="型推論(type inference)"></a>型推論(type inference)</h3><p>静的型付けを持つ言語ではJavaやC#に採用されたこともあり、型推論が徐々に浸透してきています。Rustの型推論は<strong>強力なHindley-Milner型推論をベース</strong>としており、後方の式や文から手前の型が推論されることもあります。</p>
 <figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = HashMap::new(); <span class="hljs-comment">// HashMapのキーと値の型は後方の式や文から推論される。便利！</span><br><br>x.insert(<span class="hljs-built_in">String</span>::from(<span class="hljs-string">"Key"</span>), <span class="hljs-number">10</span>);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, x);<br></code></pre></td></tr></tbody></table></figure>
 
 <p>上記の例ではHashMapのキーと値の型が後続のinsert関数の引数から推論されています。JavaやC#の型推論ではこれはできません。それはこれらの言語に導入された型推論はローカル変数の型推論であり、Rustの型推論とは異なっているからです。</p>
@@ -460,14 +460,18 @@
 <figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test</span>１</span>() -> <span class="hljs-built_in">i32</span> {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>          <span class="hljs-comment">// 式（戻り値は11）</span><br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test2</span></span>() -> () {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>;         <span class="hljs-comment">// 文（戻り値はユニット`()`）</span><br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>Rustの面白いところは、全ての「式」の後にセミコロン「;」を付けるだけで「文」に変換できてしまうところです。そして文になると関数の最後に置かれた場合の戻り値はユニット<code>()</code>になります。上記のコードで説明すると一番最後の行にセミコロン(<code>;</code>)があるかないかで戻り値が変わります<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。つまりRustにおいては「文」も「値」を返す「式」の一種と考えることができます。また、<code>if</code>や<code>match</code>や<code>while</code>のような制御構造も値を返すのでRustは<strong>式指向の言語</strong>とも言われています。</p>
-<p>影響を受けた言語であるOCamlでも同様にプログラムの構成要素の基本に「式」を置いて、セミコロンで区切るやり方になっています(参考: <a href="https://ocaml.org/learn/tutorials/structure_of_ocaml_programs.ja.html#" target="_blank" rel="noopener">OCamlプログラムの構造 – OCaml</a>)。</p>
+<p>影響を受けた言語であるOCamlでも同様にプログラムの構成要素の基本に「式」を置いて、セミコロンで区切るやり方になっています。</p>
 <ul>
+<li>参考文献<ul>
+<li><a href="https://ocaml.org/learn/tutorials/structure_of_ocaml_programs.ja.html#" target="_blank" rel="noopener">OCamlプログラムの構造 – OCaml</a></li>
+</ul>
+</li>
 <li>影響を受けた言語<ul>
 <li>SML, OCaml</li>
 </ul>
 </li>
 </ul>
-<h3 id="参照references"><a href="#参照references" class="header-anchor"></a>3.5. <a href="#参照-references" class="headerlink" title="参照(references)"></a>参照(references)</h3><p>参照は変数に<code>&</code>をつけることで生成でき、変数に「別名」を作ることができます。C言語のポインタに似た機能ですが、大きな違いはnullポインタが存在しないことです。つまり必ず参照先があることが前提となります。参照先は参照外し演算子「<code>*</code>」を用いることで参照できます。可変(<code>mut</code>付き)の変数の場合は参照先の書き換えも可能です。</p>
+<h3 id="参照references"><a href="#参照references" class="header-anchor"></a>3.5. <a href="#参照-references" class="headerlink" title="参照(references)"></a>参照(references)</h3><p>参照は変数に<code>&</code>をつけることで生成でき、変数に「別名」を作ることができます。C言語のポインタに似た機能ですが、大きな違いは<strong>nullポインタが存在しない</strong>ことです。つまり必ず参照先があることが前提となります。参照先は参照外し演算子「<code>*</code>」を用いることで参照できます。可変(<code>mut</code>付き)の変数の場合は参照先の書き換えも可能です。</p>
 <figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-string">"hoge"</span>.to_string();<br><span class="hljs-keyword">let</span> y = &<span class="hljs-keyword">mut</span> x;<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"y = {}"</span>, *y); <span class="hljs-comment">// hoge</span><br>*y = <span class="hljs-string">"mohe"</span>.to_string(); <span class="hljs-comment">// `*y`を書き換えることでxも書き換わる</span><br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"x = {}"</span>, x); <span class="hljs-comment">// mohe</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>この参照はC++の特徴的な機能と考えられており紛れもなくC++の影響と言えそうですが、大きな違いもあります。それはRustの「所有権とライフタイム」との紐づきであり、C++と異なりRustの参照が<strong>ダングリング参照になることはありません</strong>。</p>
@@ -667,7 +671,7 @@
 </li>
 </ul>
 <p>Rustは一見すると多くの先進的な機能が詰まっているように見えますが、その多くは<strong>研究成果や実績のある言語を下敷きにしている</strong>ことが分かります。そしてRustの特徴としてよく話題になる所有権システムや借用チェッカーもC++,ML Kit,Cyclone等の言語から影響が見て取れます。そして<strong>ML KitやCycloneで成し遂げられなかった完全なGCとの決別をRustで実現できた</strong>という流れも見えました。</p>
-<p>自分も調べてみるまで、ここまで多くの機能が他の言語由来だとは思っていませんでした。影響を受けた言語の年代やパラダイムもバラエティに富んでおりRustを学ぶことは<strong>言語の進化の歴史を学んでいる</strong>ような印象を受けました。従ってRustを<strong>様々な言語の叡智を結集した言語</strong>だと思えば非常に学びがいがある言語だと言えるのではないでしょうか？</p>
+<p>自分も調べてみるまで、ここまで多くの機能が他の言語由来だとは思っていませんでした。影響を受けた言語の年代やパラダイムもバラエティに富んでおり、Rustを調べている内に<strong>さながら言語の進化の歴史を学んでいる</strong>ような感覚に陥りました。Rustはよく学習曲線が急峻だと言われますが、<strong>影響を受けた様々な言語の集大成を一つの言語で学べる思えば非常に学びがいがあるお得な言語</strong>だと言えるのではないでしょうか？</p>
 <p>本記事がRustに興味がある方々の一助になれば幸いです。</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences - The Rust Reference</a></li>
