@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-04-06T19:45:18.325Z</updated>
+  <updated>2020-06-13T12:21:23.022Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rustに影響を与えた言語たち</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/</id>
+    <published>2020-06-12T22:28:45.000Z</published>
+    <updated>2020-06-13T12:21:23.022Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+  </entry>
   
   <entry>
     <title>Re：FizzBuzzから始めるRust生活</title>
@@ -243,7 +266,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</id>
     <published>2019-12-19T22:28:45.000Z</published>
-    <updated>2020-01-18T10:22:47.090Z</updated>
+    <updated>2020-06-02T17:45:53.557Z</updated>
     
     <summary type="html">
     
@@ -535,34 +558,6 @@
     
     
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/08/04/maker-faire-tokyo-2019/</id>
-    <published>2019-08-03T22:28:45.000Z</published>
-    <updated>2020-01-18T10:23:42.025Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;今年もMakerさんたちの熱い作品とパフォーマンスから目が離せないお祭りがやって来ました。遊園地や花火大会を否定するつもりはありませんが、やっぱりいちばん楽しくて嬉しいのは自分の手を動かして作ったモノが動いたときではないでしょうか？ そんな夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://makezine.jp/event/mft2019/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fmakezine.jp%2Fevent%2Fmft2019%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Maker Faire Tokyo 2019&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://makezine.jp/event/wp-content/themes/makerfairetokyo/mft2019/img/make_ogp_pre.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;Maker Faire Tokyo 2019 | Maker Faire Tokyo 2019 | Make: Japan&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://makezine.jp/event/mft2019/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;Maker Faire Tokyo 2019は8月3日（土）、4日（日）東京ビッグサイトで開催！ユニークな発想と新しいテクノロジーの力で作り出される作品や、Makerたちに会いにいこう&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
-    
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
-    
-      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
-    
-      <category term="MakerFaire" scheme="https://hinastory.github.io/cats-cats-cats/tags/MakerFaire/"/>
     
   </entry>
   

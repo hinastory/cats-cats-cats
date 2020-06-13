@@ -109,11 +109,11 @@ Keynote2は円周率世界記録(**31.4兆桁**)をクラウド(GCP)を利用し
 
 まず印象に残ったのは機械学習には訓練フェーズと推論フェーズがありエンジニアには訓練フェーズに注目が行きがちですが、実際の機械学習の利用シーンでは**推論フェーズが重要**だという話でした。そしてTensorFlowはまさにその領域にも十分力を入れていて、**「TensorFlow Serving」**、**「TensorFlow Lite」**、**「TensorFlow.js」**の3つが担っています。
 
-| 機能 | 説明 |
-| --- | --- |
-| TensorFlow Serving|サーバサイドで推論。gRPCやREST APIを簡単に作成できる |
-| TensorFlow Lite | モバイル上で推論。閉域や遅延に厳しい場面で利用 |
-|TensorFlow.js|ブラウザ上で推論。見た目の良いモデルが多い|
+| 機能               | 説明                                                 |
+| ------------------ | ---------------------------------------------------- |
+| TensorFlow Serving | サーバサイドで推論。gRPCやREST APIを簡単に作成できる |
+| TensorFlow Lite    | モバイル上で推論。閉域や遅延に厳しい場面で利用       |
+| TensorFlow.js      | ブラウザ上で推論。見た目の良いモデルが多い           |
 
 特に面白そうだと思ったのがTensorFlow.jsで、ブラウザでぬるぬる動くようなモデルもあるので試してみたいと思います。また、実際に機械学習を始める際にアルゴリズムや統計学から入る人も多いと思いますが[^5]、{% elink TensorFlow Hub https://tfhub.dev/ %}で既存のモデルを試してみたり、{% elink Papers With Code  https://paperswithcode.com/ %}で最新の研究成果でどこまで実現できるかを確認したりすることがオススメだそうです。また{% elink AutoML https://cloud.google.com/automl/?hl=ja %}は特に機械学習の知識がなくても簡単に画像分類等ができるので試してみたいと思います。
 

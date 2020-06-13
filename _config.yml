@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -53,7 +53,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -100,15 +100,15 @@ toc:
       notIncludeHeading: true
 
 sitemap:
-    path: sitemap.xml
-    tag: false
-    category: false
+  path: sitemap.xml
+  tag: false
+  category: false
 
 feed:
   type: atom
   path: atom.xml
   limit: 20
-  hub:  https://pubsubhubbub.appspot.com
+  hub: https://pubsubhubbub.appspot.com
   content:
   content_limit:
   order_by: -date
@@ -126,3 +126,6 @@ oembed:
     flickr:
       match: flickr
       url: http://www.flickr.com/services/oembed/
+    twitter:
+      match: twitter
+      url: https://publish.twitter.com/oembed

@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html  lang="ja">
+<head>
+    <meta charset="utf-8">
+<title>Rustに影響を与えた言語たち - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta name="description" content="Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rustに影響を与えた言語たち">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/rust-influences.png">
+<meta property="article:published_time" content="2020-06-12T22:28:45.000Z">
+<meta property="article:modified_time" content="2020-06-13T12:21:23.022Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="Rust">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/rust-influences.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="Rustに影響を与えた言語たち" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
+
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Rustに影響を与えた言語たち">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            Rustに影響を与えた言語たち
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2020/06/13/rust-influences/" class="media-left">
+                <time datetime="2020-06-12T22:28:45.000Z">2020-06-13</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/Rust/" rel="tag">Rust</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/rust-influences.png" alt="Rustに影響を与えた言語たち">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <div class="content">
+            <html><head></head><body><p>Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。</p>
+<a id="more"></a>
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#影響を受けた言語" class="contents-header">2. 影響を受けた言語</a></li><li><a href="#影響を受けた機能" class="contents-header">3. 影響を受けた機能</a><ul><li><a href="#代数的データ型algebraic-data-types" class="contents-header">3.1. 代数的データ型(algebraic data types)</a></li><li><a href="#パターンマッチpattern-matching" class="contents-header">3.2. パターンマッチ(pattern matching)</a></li><li><a href="#型推論type-inference" class="contents-header">3.3. 型推論(type inference)</a></li><li><a href="#セミコロンの文区切りsemicolon-statement-separation" class="contents-header">3.4. セミコロンの文区切り(semicolon statement separation)</a></li><li><a href="#参照references" class="contents-header">3.5. 参照(references)</a></li><li><a href="#raiiresource-acquisition-is-initialization" class="contents-header">3.6. RAII(Resource Acquisition Is Initialization)</a></li><li><a href="#スマートポインタsmart-pointers" class="contents-header">3.7. スマートポインタ(smart pointers)</a></li><li><a href="#ムーブセマンティクスmove-semantics" class="contents-header">3.8. ムーブセマンティクス(move semantics)</a></li><li><a href="#単形化monomorphization" class="contents-header">3.9. 単形化(monomorphization)</a></li><li><a href="#メモリモデルmemory-model" class="contents-header">3.10. メモリモデル(memory model)</a></li><li><a href="#リージョンベースのメモリ管理region-based-memory-management" class="contents-header">3.11. リージョンベースのメモリ管理(region based memory management)</a></li><li><a href="#型クラスtypeclasses-型族type-families" class="contents-header">3.12. 型クラス(typeclasses)、型族(type families)</a></li><li><a href="#チャネルchannels-並列性concurrency" class="contents-header">3.13. チャネル(channels), 並列性(concurrency)</a></li><li><a href="#メッセージパッシングmessage-passing-スレッド失敗thread-failure-リンクスレッド失敗linked-thread-failure-軽量並列性lightweight-concurrency" class="contents-header">3.14. メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)</a></li><li><a href="#オプショナルバインディング" class="contents-header">3.15. オプショナルバインディング</a></li><li><a href="#衛生的マクロhygienic-macros" class="contents-header">3.16. 衛生的マクロ(hygienic macros)</a></li><li><a href="#属性attributes" class="contents-header">3.17. 属性(attributes)</a></li><li><a href="#クロージャー記法closure-syntax" class="contents-header">3.18. クロージャー記法（closure syntax）</a></li></ul></li><li><a href="#影響の可視化" class="contents-header">4. 影響の可視化</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
+
+<h2 id="tldr"><a href="#tldr" class="header-anchor"></a>1. <a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
+<li>Rustに影響を与えた言語に関してはすでにまとまったページがありました<ul>
+<li><a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences - The Rust Reference</a></li>
+<li><a href="https://learning-rust.github.io/docs/a1.why_rust.html#Influences" target="_blank" rel="noopener">Why Rust? - #Influences | Learning Rust</a></li>
+</ul>
+</li>
+<li>この記事は上記のページをベースに以下のようにまとめ直して紹介しています<ul>
+<li>影響を受けた言語の特徴を表形式でまとめる</li>
+<li>影響を受けた機能の簡単な紹介</li>
+<li>影響の可視化（マインドマップ）</li>
+</ul>
+</li>
+</ul>
+<h2 id="影響を受けた言語"><a href="#影響を受けた言語" class="header-anchor"></a>2. <a href="#影響を受けた言語" class="headerlink" title="影響を受けた言語"></a>影響を受けた言語</h2><p><a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences - The Rust Reference</a>に記載されている言語を年代順に並べて、言語の特徴をマトリックスにしてみました<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。比較のためにRust自身も加えてあります。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>登場年代</th>
+<th>FP</th>
+<th>OOP</th>
+<th>並行計算</th>
+<th>静的型付け</th>
+<th>ジェネリクス</th>
+<th>GC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>1972</td>
+<td></td>
+<td></td>
+<td></td>
+<td>o</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scheme</td>
+<td>1975</td>
+<td>o</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>o</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>1983</td>
+<td></td>
+<td>o</td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td></td>
+</tr>
+<tr>
+<td>Newsqueak</td>
+<td>1984</td>
+<td></td>
+<td></td>
+<td>o</td>
+<td></td>
+<td></td>
+<td>o</td>
+</tr>
+<tr>
+<td>Erlang</td>
+<td>1986</td>
+<td>o</td>
+<td></td>
+<td>o</td>
+<td></td>
+<td></td>
+<td>o</td>
+</tr>
+<tr>
+<td>SML</td>
+<td>1990</td>
+<td>o</td>
+<td></td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td>1990</td>
+<td>o</td>
+<td></td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+</tr>
+<tr>
+<td>Alef</td>
+<td>1992</td>
+<td></td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td></td>
+<td>o</td>
+</tr>
+<tr>
+<td>Limbo</td>
+<td>1995</td>
+<td></td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td></td>
+<td>o</td>
+</tr>
+<tr>
+<td>ML Kit</td>
+<td>1997<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></td>
+<td>o</td>
+<td></td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td></td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>1995</td>
+<td>△</td>
+<td>o</td>
+<td></td>
+<td></td>
+<td></td>
+<td>o</td>
+</tr>
+<tr>
+<td>OCaml</td>
+<td>1996</td>
+<td>o</td>
+<td>o</td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>2000</td>
+<td>△</td>
+<td>o</td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+</tr>
+<tr>
+<td>Cyclone</td>
+<td>2006</td>
+<td>o</td>
+<td></td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td>△<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>2010</td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+<td></td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>2014</td>
+<td>△</td>
+<td>o</td>
+<td></td>
+<td>o</td>
+<td>o</td>
+<td>o<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></td>
+</tr>
+</tbody></table>
+<p>各カラムの意味は次のとおりです。言語の特徴は主にWikipediaを参考にしていますが、多少の独断と偏見が含まれています。</p>
+<ul>
+<li>登場年代<ul>
+<li>プログラミングが登場した年代です。前後５年の誤差は見逃してください</li>
+</ul>
+</li>
+<li>FP(関数型プログラミング)<ul>
+<li>言語がFPを強くサポートしているかを示しています</li>
+<li>程々にサポートしている場合は△を示しています</li>
+</ul>
+</li>
+<li>OOP（オブジェクト指向プログラミング）<ul>
+<li>言語がOOPを強くサポートしているかを示しています</li>
+<li>程々にサポートしている場合は△を示しています</li>
+</ul>
+</li>
+<li>並行計算<ul>
+<li>アクターや CSP/π計算モデルの特徴を言語が強くサポートしているかを示しています</li>
+<li>外部ライブラリを使えばできるよ！みたいなものは当然除外します</li>
+</ul>
+</li>
+<li>静的型付け<ul>
+<li>言語の最も主要な処理系が静的型付けをサポートしているかを示しています</li>
+</ul>
+</li>
+<li>ジェネリクス<ul>
+<li>言語がジェネリクスをサポートしているかを示しています</li>
+<li>テンプレート(C++)やパラメトリック多相(ML系言語)と呼ばれるものも含まれています</li>
+</ul>
+</li>
+<li>ガベージコレクション<ul>
+<li>言語の最も主要な処理系がガベージコレクションをサポートしているかを示しています</li>
+</ul>
+</li>
+</ul>
+<h2 id="影響を受けた機能"><a href="#影響を受けた機能" class="header-anchor"></a>3. <a href="#影響を受けた機能" class="headerlink" title="影響を受けた機能"></a>影響を受けた機能</h2><p>ここからは影響を受けた機能をそれぞれ見ていきたいと思います。</p>
+<h3 id="代数的データ型algebraic-data-types"><a href="#代数的データ型algebraic-data-types" class="header-anchor"></a>3.1. <a href="#代数的データ型-algebraic-data-types" class="headerlink" title="代数的データ型(algebraic data types)"></a>代数的データ型(algebraic data types)</h3><p>代数的データ型は関数型プログラミングをサポートする言語で多く利用されています。直積型の総和です。RustではEnumを用いることで代数的データ型を実現可能です。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">IpAddr</span></span> {<br>    V4(<span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>, <span class="hljs-built_in">u8</span>),<br>    V6(<span class="hljs-built_in">String</span>),<br>}<br><br>上記はIPアドレス型を表現していますが、<br><br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>影響を受けた言語<ul>
+<li>SML, OCaml</li>
+</ul>
+</li>
+</ul>
+<h3 id="パターンマッチpattern-matching"><a href="#パターンマッチpattern-matching" class="header-anchor"></a>3.2. <a href="#パターンマッチ-pattern-matching" class="headerlink" title="パターンマッチ(pattern matching)"></a>パターンマッチ(pattern matching)</h3><p>パターンマッチはざっくり言うと、<code>if</code>や<code>switch</code>等の一般的な分岐構造の強化版です。Rustでは<code>match</code>でパターンマッチが利用可能です。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> x = <span class="hljs-literal">Some</span>(<span class="hljs-number">2</span>);<br><span class="hljs-keyword">match</span> x {<br>    <span class="hljs-literal">Some</span>(<span class="hljs-number">10</span>) => <span class="hljs-built_in">println!</span>(<span class="hljs-string">"10"</span>), <span class="hljs-comment">// `Option`型を解体してマッチングしている</span><br>    <span class="hljs-literal">Some</span>(y) => <span class="hljs-built_in">println!</span>(<span class="hljs-string">"x = {:?}"</span>, y),<br>    _ => <span class="hljs-built_in">println!</span>(<span class="hljs-string">"error!"</span>),<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>パターンマッチは上記のコードのようにデータ構造を分解してマッチングできるので、代数的データ型とも相性がよいです。</p>
+<p>パターンマッチに関しては過去に「<a href="http://localhost:4000/cats-cats-cats/2019/04/30/understanding-pattern-matching/" target="_blank" rel="noopener">全プログラマに捧ぐ！図解「パターンマッチ」</a>」という記事も書いたのでよろしければそちらも参考にしてださい。</p>
+<ul>
+<li>Rust本<ul>
+<li><a href="https://doc.rust-jp.rs/book/second-edition/ch18-00-patterns.html" target="_blank" rel="noopener">パターンマッチング</a></li>
+</ul>
+</li>
+<li>リファレンス<ul>
+<li><a href="https://doc.rust-lang.org/reference/patterns.html" target="_blank" rel="noopener">Patterns - The Rust Reference</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>SML, OCaml</li>
+</ul>
+</li>
+</ul>
+<h3 id="型推論type-inference"><a href="#型推論type-inference" class="header-anchor"></a>3.3. <a href="#型推論-type-inference" class="headerlink" title="型推論(type inference)"></a>型推論(type inference)</h3><p>静的型付けを持つ言語ではJavaやC#に採用されたこともあり、型推論が徐々に浸透してきています。Rustの型推論は強力なHindley-Milner型推論をベースとしており、後方の式や文から手前の型が推論されることもあります。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = HashMap::new(); <span class="hljs-comment">// HashMapのキーと値の型は後方の式や文から推論される。便利！</span><br><br>x.insert(<span class="hljs-built_in">String</span>::from(<span class="hljs-string">"Key"</span>), <span class="hljs-number">10</span>);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, x);<br></code></pre></td></tr></tbody></table></figure>
+
+<p>上記の例ではHashMapのキーと値の型が後続のinsert関数の引数から推論されています。JavaやC#の型推論ではこれはできません。それはこれらの言語に導入された型推論はローカル変数の型推論であり、Rustの型推論とは異なっているからです。</p>
+<ul>
+<li>影響を受けた言語<ul>
+<li>SML, OCaml</li>
+</ul>
+</li>
+</ul>
+<h3 id="セミコロンの文区切りsemicolon-statement-separation"><a href="#セミコロンの文区切りsemicolon-statement-separation" class="header-anchor"></a>3.4. <a href="#セミコロンの文区切り-semicolon-statement-separation" class="headerlink" title="セミコロンの文区切り(semicolon statement separation)"></a>セミコロンの文区切り(semicolon statement separation)</h3><p>Rustの関数は主に「文」で構成され、一番最後は「文」か「式」で終わります。Rustの文と文の区切りはセミコロン「;」です。従って最後にセミコロンが付くか否かで文か式かを区別できます。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test</span>１</span>() -> <span class="hljs-built_in">i32</span> {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>          <span class="hljs-comment">// 式（戻り値は11）</span><br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test2</span></span>() -> () {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>;         <span class="hljs-comment">// 文（戻り値はユニット`()`）</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Rustの面白いところは、全ての「式」の後にセミコロン「;」を付けるだけで「文」に変換できてしまうところです。そして文になると関数の最後に置かれた場合の戻り値はユニット<code>()</code>になります。上記のコードで説明すると一番最後の行にセミコロン(<code>;</code>)があるかないかで戻り値が変わります<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。つまりRustにおいては「文」も「値」を返す「式」の一種と考えることができます。また、<code>if</code>や<code>match</code>や<code>while</code>のような制御構造も値を返すのでRustは<strong>式指向の言語</strong>とも言われています。</p>
+<p>影響を受けた言語であるOCamlでも同様にプログラムの構成要素の基本に「式」を置いて、セミコロンで区切るやり方になっています(参考: <a href="https://ocaml.org/learn/tutorials/structure_of_ocaml_programs.ja.html#" target="_blank" rel="noopener">OCamlプログラムの構造 – OCaml</a>)。</p>
+<ul>
+<li>影響を受けた言語<ul>
+<li>SML, OCaml</li>
+</ul>
+</li>
+</ul>
+<h3 id="参照references"><a href="#参照references" class="header-anchor"></a>3.5. <a href="#参照-references" class="headerlink" title="参照(references)"></a>参照(references)</h3><p>参照は変数に<code>&</code>をつけることで生成でき、変数に「別名」を作ることができます。C言語のポインタに似た機能ですが、大きな違いはnullポインタが存在しないことです。つまり必ず参照先があることが前提となります。参照先は参照外し演算子「<code>*</code>」を用いることで参照できます。可変(<code>mut</code>付き)の変数の場合は参照先の書き換えも可能です。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-string">"hoge"</span>.to_string();<br><span class="hljs-keyword">let</span> y = &<span class="hljs-keyword">mut</span> x;<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"y = {}"</span>, *y); <span class="hljs-comment">// hoge</span><br>*y = <span class="hljs-string">"mohe"</span>.to_string(); <span class="hljs-comment">// `*y`を書き換えることでxも書き換わる</span><br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"x = {}"</span>, x); <span class="hljs-comment">// mohe</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>この参照はC++の特徴的な機能と考えられており紛れもなくC++の影響と言えそうですが、大きな違いもあります。それはRustの「所有権とライフタイム」との紐づきであり、C++と異なりRustの参照が<strong>ダングリング参照になることはありません</strong>。</p>
+<ul>
+<li>影響を受けた言語<ul>
+<li>C++</li>
+</ul>
+</li>
+</ul>
+<h3 id="raiiresource-acquisition-is-initialization"><a href="#raiiresource-acquisition-is-initialization" class="header-anchor"></a>3.6. <a href="#RAII-Resource-Acquisition-Is-Initialization" class="headerlink" title="RAII(Resource Acquisition Is Initialization)"></a>RAII(Resource Acquisition Is Initialization)</h3><p>RAIIは直訳では「リソースの確保は(変数の)初期化である」になります。しかしこの概念をより適切に理解するためには<strong>「リソースの解放は変数の破棄である」</strong>と捉えたほうが真に迫っていると思われます。一般的なリソースの代表例がメモリであり、この場合は変数が初期化されるとメモリが確保され、変数が破棄されるとメモリが解放されます。このRAIIという表現はRustでは表立って出て来ませんが、<strong>「所有権」</strong>という考え方の中に取り入れられています。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs rust">{<br>    <span class="hljs-keyword">let</span> x = <span class="hljs-number">10</span>;　<span class="hljs-comment">// ここで変数xが初期化され、メモリも確保される。</span><br>    {<br>        <span class="hljs-keyword">let</span> y = <span class="hljs-string">"hoge"</span>.to_string(); <span class="hljs-comment">// ここで変数yが初期化され、メモリも確保される。</span><br><br>        <span class="hljs-comment">// いろいろ処理する</span><br><br>    } <span class="hljs-comment">// ここで変数yはスコープを抜けて破棄され、メモリも解放される</span><br><br>    <span class="hljs-comment">// いろいろ処理する</span><br><br>} <span class="hljs-comment">// ここで変数xはスコープを抜けて破棄され、メモリも解放される</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>上記のコードの例では変数の有効範囲は変数が初期化されてから、最も内側のスコープ（中括弧<code>{}</code>で囲まれた範囲）の最後までです。JavaやRubyのようなガーベージコレクション(GC)を持つ言語では変数が破棄された後も、ガベージコレクタがメモリを回収するまでメモリが解放されません<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。また上記のコードの例ではメモリをリソースとしましたが、メモリ以外でもファイルのオープン、クローズ等の「利用」と「返却」に結びつけても構いません。実際にRustの標準ライブラリの中にはRAIIを利用したものが多くあります。</p>
+<ul>
+<li>Rust By Example<ul>
+<li><a href="https://doc.rust-jp.rs/rust-by-example-ja/scope/raii.html" target="_blank" rel="noopener">RAII</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>C++</li>
+</ul>
+</li>
+</ul>
+<h3 id="スマートポインタsmart-pointers"><a href="#スマートポインタsmart-pointers" class="header-anchor"></a>3.7. <a href="#スマートポインタ-smart-pointers" class="headerlink" title="スマートポインタ(smart pointers)"></a>スマートポインタ(smart pointers)</h3><p>スマートポインタは、ポインタの一種で単にメモリアドレスを指し示すだけではなく<strong>付加的な機能</strong>を備えたもののことを言います。Rustにおけるスマートポインタとは標準ライブラリの型で言えばStringやVec<t>のように、ヒープのメモリ確保と解放を<strong>「スマート」</strong>に行うものが第一に挙げられます。Rustではスマートポインタを見分けるポイントとして、<strong>「Derefトレイト」</strong>や<strong>「Dropトレイト」</strong>を実装しているかが挙げられます。</t></p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust">{<br>    <span class="hljs-keyword">let</span> a = <span class="hljs-built_in">String</span>::from(<span class="hljs-string">"hoge"</span>); <span class="hljs-comment">// 文字列"hoge"はヒープに確保される</span><br>    <span class="hljs-keyword">let</span> b = <span class="hljs-built_in">vec!</span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]; <span class="hljs-comment">// ベクタはヒープに確保される</span><br>    <span class="hljs-keyword">let</span> c = <span class="hljs-built_in">Box</span>::new(<span class="hljs-number">5</span>); <span class="hljs-comment">// i32型の整数はヒープに確保される</span><br>} <span class="hljs-comment">// 変数a, b, cが破棄され、同時にヒープに確保されたメモリも解放される</span><br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>Rust本<ul>
+<li><a href="https://doc.rust-jp.rs/book/second-edition/ch15-00-smart-pointers.html" target="_blank" rel="noopener">スマートポインタ</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>C++</li>
+</ul>
+</li>
+</ul>
+<h3 id="ムーブセマンティクスmove-semantics"><a href="#ムーブセマンティクスmove-semantics" class="header-anchor"></a>3.8. <a href="#ムーブセマンティクス-move-semantics" class="headerlink" title="ムーブセマンティクス(move semantics)"></a>ムーブセマンティクス(move semantics)</h3><p>ムーブセマンティクスとはざっくり言うと、値を変数にアサインしたり、関数を引数に値渡ししたりするときに<strong>所有権の移動が行われること</strong>を言います。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> s1 = <span class="hljs-string">"Rust Life"</span>.to_string();<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, s1); <span class="hljs-comment">// OK</span><br><br><span class="hljs-keyword">let</span> s2 = s1; <span class="hljs-comment">// ムーブセマンティクス：所有権が`s1`から`s2`に移動している</span><br><br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, s2); <span class="hljs-comment">// OK</span><br><span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, s1); <span class="hljs-comment">// コンパイルエラー： 所有権は`s2`に移動しているので`s1`にアクセス不可</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>上記のコードでは<code>let s2 = s1;</code>がムーブセマンティクスになっています。Rustでは値の所有権は常にひとつに制限されているのでこのような動作になります。</p>
+<ul>
+<li>Rust本<ul>
+<li><a href="https://doc.rust-jp.rs/book/second-edition/ch04-01-what-is-ownership.html" target="_blank" rel="noopener">所有権とは？</a></li>
+</ul>
+</li>
+<li>Rust By Example<ul>
+<li><a href="https://doc.rust-jp.rs/rust-by-example-ja/scope/move.html" target="_blank" rel="noopener">所有権とムーブ</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>C++</li>
+</ul>
+</li>
+</ul>
+<h3 id="単形化monomorphization"><a href="#単形化monomorphization" class="header-anchor"></a>3.9. <a href="#単形化-monomorphization" class="headerlink" title="単形化(monomorphization)"></a>単形化(monomorphization)</h3><p>Rustのジェネリクスはコンパイル時にプログラム内で利用される具体的な型に展開されますが、これは「単形化」と呼ばれています。「単形化」によってコンパイル時に呼び出される関数が決定されるので<strong>静的ディスパッチ</strong>になり、抽象化に伴う実行時の呼び出しオーバーヘッドがありません。</p>
+<p>影響を受けたC++では、単形化はテンプレートのインスタンス化、特殊化として知られています。</p>
+<ul>
+<li>影響を受けた言語<ul>
+<li>C++</li>
+</ul>
+</li>
+</ul>
+<h3 id="メモリモデルmemory-model"><a href="#メモリモデルmemory-model" class="header-anchor"></a>3.10. <a href="#メモリモデル-memory-model" class="headerlink" title="メモリモデル(memory model)"></a>メモリモデル(memory model)</h3><p>メモリモデルが意味するものはいくつか挙げられますが、この文脈おけるメモリモデルは<strong>マルチスレッド環境における共有メモリアクセスの一貫性</strong>に関するものになります。一般的にマルチスレッドから安全に操作できるものとして<strong>「アトミックな操作」</strong>がありますが、これらを実現するためにメモリモデルが必要になってきます。詳細が知りたい方は以下のRustのドキュメントを参照してください。</p>
+<ul>
+<li>標準ライブラリドキュメント<ul>
+<li><a href="https://doc.rust-lang.org/std/sync/atomic/index.html" target="_blank" rel="noopener">std::sync::atomic</a></li>
+<li><a href="https://doc.rust-lang.org/std/sync/atomic/enum.Ordering.html" target="_blank" rel="noopener">std::sync::atomic::Ordering</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>C++</li>
+</ul>
+</li>
+</ul>
+<h3 id="リージョンベースのメモリ管理region-based-memory-management"><a href="#リージョンベースのメモリ管理region-based-memory-management" class="header-anchor"></a>3.11. <a href="#リージョンベースのメモリ管理-region-based-memory-management" class="headerlink" title="リージョンベースのメモリ管理(region based memory management)"></a>リージョンベースのメモリ管理(region based memory management)</h3><p>リージョンベースのメモリ管理では、メモリを「リージョン」と呼ばれる領域に分割して、さらに型システムに関連付けてメモリ管理を行います。Rustにおいては参照のライフタイム管理に大きく関わっているものと思われます。</p>
+<ul>
+<li>参考文献<ul>
+<li><a href="https://www.cs.umd.edu/projects/cyclone/papers/cyclone-regions.pdf" target="_blank" rel="noopener">Region-Based Memory Management in Cyclone</a></li>
+<li><a href="https://cyclone.thelanguage.org/wiki/Memory%20Management%20Via%20Regions/" target="_blank" rel="noopener">Cyclone: Memory Management Via Regions</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>ML Kit, Cyclone</li>
+</ul>
+</li>
+</ul>
+<h3 id="型クラスtypeclasses-型族type-families"><a href="#型クラスtypeclasses-型族type-families" class="header-anchor"></a>3.12. <a href="#型クラス-typeclasses-、型族-type-families" class="headerlink" title="型クラス(typeclasses)、型族(type families)"></a>型クラス(typeclasses)、型族(type families)</h3><p>「型クラス」はHaskell由来の言葉でRustで対応する機能は<strong>トレイト</strong>になり、<strong>型に共通する振る舞いを定義する</strong>ときに用いられます。Javaのインタフェースに近いものがありますが、<strong>型の定義時ではなく型の定義後に後付でトレイトを実装できる</strong>ことが特徴です。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeting</span></span> { <span class="hljs-comment">// トレイトの定義</span><br>    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">greet</span></span>(&<span class="hljs-keyword">self</span>) -> <span class="hljs-built_in">String</span>;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">print_greet</span></span><T: Greeting>(person: T) { <span class="hljs-comment">// トレイト境界を用いた関数</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}!"</span>, person.greet());<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Japanese</span></span> { name: <span class="hljs-built_in">String</span>, } 　　　　　　<span class="hljs-comment">// `struct`用いたを型の定義</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">American</span></span> { name: <span class="hljs-built_in">String</span>, age: <span class="hljs-built_in">u32</span>,}<br><br><span class="hljs-keyword">impl</span> Greeting <span class="hljs-keyword">for</span> Japanese { <span class="hljs-comment">// トレイトの実装</span><br>    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">greet</span></span>(&<span class="hljs-keyword">self</span>) -> <span class="hljs-built_in">String</span> { <span class="hljs-string">"こんにちわ"</span>.to_string() }<br>}<br><br><span class="hljs-keyword">impl</span> Greeting <span class="hljs-keyword">for</span> American {<br>    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">greet</span></span>(&<span class="hljs-keyword">self</span>) -> <span class="hljs-built_in">String</span> { <span class="hljs-string">"Hello"</span>.to_string() }<br>}<br><br><span class="hljs-keyword">impl</span> Greeting <span class="hljs-keyword">for</span> <span class="hljs-built_in">i32</span> { <span class="hljs-comment">// 組み込み型にもトレイトを実装できる!</span><br>    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">greet</span></span>(&<span class="hljs-keyword">self</span>) -> <span class="hljs-built_in">String</span> { <span class="hljs-keyword">self</span>.to_string() }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {<br>    <span class="hljs-keyword">let</span> person_a = Japanese {name: <span class="hljs-string">"Taro"</span>.to_string(),};<br>    <span class="hljs-keyword">let</span> person_a = American {name: <span class="hljs-string">"Alex"</span>.to_string(), age: <span class="hljs-number">20</span>,};<br><br>    <span class="hljs-comment">// printGreet関数はGreetingを実装した異なる型に対して呼び出し可能(アドホック多相)</span><br>    printGreet(person_a);<br>    printGreet(person_b);<br>    printGreet(<span class="hljs-number">123</span>);<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>上記のコードで説明すると、<code>print_greet()</code>関数はトレイト<code>Greeting</code>を実装していれば呼べる関数になっています。そしてすでに<code>Japanese</code>という型が定義されていた場合、<code>Greeting</code>トレイトを実装(<code>impl Greeting for Japanese</code>)すれば、<code>print_greet()</code>関数で呼び出すことができます。面白いのは<code>i32</code>のような組み込み型にも後付でトレイトが実装できることです。この<code>print_greet()</code>関数のように、後付けで渡せる型を増やせる関数の性質を<strong>アドホック多相性</strong>と言ったりします。</p>
+<p>「型族」は、ざっくり説明すると型を受け取って型を返す型関数を実現する機能です。Rustでは<strong>「関連型」</strong>と繋がりがあります。標準ライブラリの<code>Add</code>から定義と利用例を引用します。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Add</span></span><Rhs = <span class="hljs-keyword">Self</span>> {<br>    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Output</span></span>; <span class="hljs-comment">// 関連型</span><br>    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">add</span></span>(<span class="hljs-keyword">self</span>, rhs: Rhs) -> Self::Output;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Point</span></span> {<br>    x: <span class="hljs-built_in">i32</span>,<br>    y: <span class="hljs-built_in">i32</span>,<br>}<br><br><span class="hljs-keyword">impl</span> Add <span class="hljs-keyword">for</span> Point {<br>    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Output</span></span> = <span class="hljs-keyword">Self</span>; <span class="hljs-comment">// 関連型</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">add</span></span>(<span class="hljs-keyword">self</span>, other: <span class="hljs-keyword">Self</span>) -> <span class="hljs-keyword">Self</span> {<br>        <span class="hljs-keyword">Self</span> {<br>            x: <span class="hljs-keyword">self</span>.x + other.x,<br>            y: <span class="hljs-keyword">self</span>.y + other.y,<br>        }<br>    }<br>}<br><br><span class="hljs-built_in">assert_eq!</span>(Point { x: <span class="hljs-number">1</span>, y: <span class="hljs-number">0</span> } + Point { x: <span class="hljs-number">2</span>, y: <span class="hljs-number">3</span> },<br>           Point { x: <span class="hljs-number">3</span>, y: <span class="hljs-number">3</span> });<br></code></pre></td></tr></tbody></table></figure>
+
+<p>関連型は上記のコードのように、トレイトの中で<code>type</code>を使って宣言されます。ジェネリクスと似たようなこともできますがきちんと使いどころもあります。以下の参考文献に細かなシチュエーションが載っていたので興味がある方はご確認ください。</p>
+<ul>
+<li>関連型の参考文献<ul>
+<li><a href="https://doc.rust-jp.rs/rust-by-example-ja/generics/assoc_items/the_problem.html" target="_blank" rel="noopener">関連型が必要になる状況 - Rust By Example 日本語版</a></li>
+<li><a href="https://keens.github.io/blog/2016/11/22/rustnokanrenkatanotsukaidokoro/" target="_blank" rel="noopener">Rustの関連型の使いどころ | κeenのHappy Hacκing Blog</a>
+　</li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>Haskell</li>
+</ul>
+</li>
+</ul>
+<h3 id="チャネルchannels-並列性concurrency"><a href="#チャネルchannels-並列性concurrency" class="header-anchor"></a>3.13. <a href="#チャネル-channels-並列性-concurrency" class="headerlink" title="チャネル(channels), 並列性(concurrency)"></a>チャネル(channels), 並列性(concurrency)</h3><p>チャネルは非同期コミュニケーションのためのプリミティブです。<strong>送信側と受信側がチャネルを通して非同期にデータの受け渡しをする</strong>ことができます。以下のコードは<a href="https://doc.rust-jp.rs/rust-by-example-ja/std_misc/channels.html" target="_blank" rel="noopener">チャネル - Rust By Example 日本語版</a>からコード部分を引用したものです（コメントは独自のものに変更）。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">use</span> std::sync::mpsc::{Sender, Receiver};<br><span class="hljs-keyword">use</span> std::sync::mpsc;<br><span class="hljs-keyword">use</span> std::thread;<br><br><span class="hljs-keyword">static</span> NTHREADS: <span class="hljs-built_in">i32</span> = <span class="hljs-number">3</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {<br>    <span class="hljs-keyword">let</span> (tx, rx): (Sender<<span class="hljs-built_in">i32</span>>, Receiver<<span class="hljs-built_in">i32</span>>) = mpsc::channel(); <span class="hljs-comment">// チャネルの作成</span><br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> children = <span class="hljs-built_in">Vec</span>::new();<br><br>    <span class="hljs-keyword">for</span> id <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..NTHREADS {<br>        <span class="hljs-keyword">let</span> thread_tx = tx.clone();<br><br>        <span class="hljs-keyword">let</span> child = thread::spawn(<span class="hljs-keyword">move</span> || { <span class="hljs-comment">// スレッドの作成</span><br>            thread_tx.send(id).unwrap(); <span class="hljs-comment">// チャネルを通してデータの送信</span><br>            <span class="hljs-built_in">println!</span>(<span class="hljs-string">"thread {} finished"</span>, id);<br>        });<br><br>        children.push(child);<br>    }<br><br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> ids = <span class="hljs-built_in">Vec</span>::with_capacity(NTHREADS <span class="hljs-keyword">as</span> <span class="hljs-built_in">usize</span>);<br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..NTHREADS {<br>        ids.push(rx.recv()); <span class="hljs-comment">// 子スレッドから送信されたデータを受信</span><br>    }<br><br>    <span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> children {<br>        child.join().expect(<span class="hljs-string">"oops! the child thread panicked"</span>);<br>    }<br><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, ids);<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>上記のコードはチャネルを生成して子スレッドに渡して、子スレッドからチャネルを通してデータを送信して親スレッド受け取るコードになっています。</p>
+<ul>
+<li>影響を受けた言語<ul>
+<li>Newsqueak, Alef, Limbo</li>
+</ul>
+</li>
+</ul>
+<h3 id="メッセージパッシングmessage-passing-スレッド失敗thread-failure-リンクスレッド失敗linked-thread-failure-軽量並列性lightweight-concurrency"><a href="#メッセージパッシングmessage-passing-スレッド失敗thread-failure-リンクスレッド失敗linked-thread-failure-軽量並列性lightweight-concurrency" class="header-anchor"></a>3.14. <a href="#メッセージパッシング-message-passing-スレッド失敗-thread-failure-リンクスレッド失敗-linked-thread-failure-軽量並列性-lightweight-concurrency" class="headerlink" title="メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)"></a>メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)</h3><p>調べきれなかったので割愛します。</p>
+<ul>
+<li>影響を受けた言語<ul>
+<li>Erlang</li>
+</ul>
+</li>
+</ul>
+<h3 id="オプショナルバインディング"><a href="#オプショナルバインディング" class="header-anchor"></a>3.15. <a href="#オプショナルバインディング" class="headerlink" title="オプショナルバインディング"></a>オプショナルバインディング</h3><p>オプショナルバインディングはSwiftの機能で、その名の通りOptionalの値が存在する場合に変数を束縛してコードブロックを実行します。Rustの対応する機能は<code>if let</code>ですが、<code>Option</code>に限らず様々なパターンマッチか利用可能です。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> num = <span class="hljs-literal">Some</span>(<span class="hljs-number">10</span>);<br><br><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">Some</span>(i) = num {<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"num =  {}"</span>, i);<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>Rust本<ul>
+<li><a href="https://doc.rust-jp.rs/book/second-edition/ch06-03-if-let.html" target="_blank" rel="noopener">if letで簡潔な制御フロー</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>Swift</li>
+</ul>
+</li>
+</ul>
+<h3 id="衛生的マクロhygienic-macros"><a href="#衛生的マクロhygienic-macros" class="header-anchor"></a>3.16. <a href="#衛生的マクロ-hygienic-macros" class="headerlink" title="衛生的マクロ(hygienic macros)"></a>衛生的マクロ(hygienic macros)</h3><p>衛生的マクロとはマクロ内で導入される変数名と、マクロ呼び出し側の変数名が衝突しないことが保証されているマクロです。以下は簡単なRustのマクロのサンプルコードです。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-built_in">macro_rules!</span> my_macro { <span class="hljs-comment">// マクロ</span><br>    ($x:expr) => {<br>        {<br>            <span class="hljs-keyword">let</span> a = <span class="hljs-number">2</span>;<br>            $x + a<br>        }<br>    };<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {<br>    <span class="hljs-keyword">let</span> a = <span class="hljs-number">5</span>;<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, my_macro!(a)); <span class="hljs-comment">// 7</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Rustのマクロは衛生的なため、<code>my_macro!</code>マクロに変数<code>a</code>が渡されても内部のletで導入された変数<code>a</code>とは別物とし扱われます。これがC言語のマクロやLispマクロでは衝突する可能性があるため、意図的に衝突しない変数を選ぶ必要がありました。</p>
+<ul>
+<li>影響を受けた言語<ul>
+<li>Scheme</li>
+</ul>
+</li>
+</ul>
+<h3 id="属性attributes"><a href="#属性attributes" class="header-anchor"></a>3.17. <a href="#属性-attributes" class="headerlink" title="属性(attributes)"></a>属性(attributes)</h3><p>属性は主に<strong>宣言に対して付加される追加情報（メタデータ）</strong>です。Rustでよく見かけるのは単体テストのマークとなる<code>#[test]</code>属性です。</p>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-meta">#[test]</span> <span class="hljs-comment">// 属性(テスト関数のマーキング)</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test_hoge</span></span>() {<br>    <span class="hljs-comment">// test code</span><br>}<br><br><span class="hljs-meta">#[allow(dead_code)]</span> <span class="hljs-comment">// 属性(未使用関数の警告抑制)</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foo</span></span>() {}<br><br><span class="hljs-meta">#[derive(Debug, Clone, Copy, Default, Eq, Hash, Ord, PartialOrd, PartialEq)]</span> <span class="hljs-comment">// 属性(トレイトの自動実装)</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Num</span></span>(<span class="hljs-built_in">i32</span>);<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>リファレンス<ul>
+<li><a href="https://doc.rust-lang.org/reference/attributes.html#attributes" target="_blank" rel="noopener">Attributes - The Rust Reference</a></li>
+</ul>
+</li>
+<li>Rust By Example<ul>
+<li><a href="https://doc.rust-jp.rs/rust-by-example-ja/attribute.html" target="_blank" rel="noopener">アトリビュート</a></li>
+</ul>
+</li>
+<li>影響を受けた言語<ul>
+<li>C#</li>
+</ul>
+</li>
+</ul>
+<h3 id="クロージャー記法closure-syntax"><a href="#クロージャー記法closure-syntax" class="header-anchor"></a>3.18. <a href="#クロージャー記法（closure-syntax）" class="headerlink" title="クロージャー記法（closure syntax）"></a>クロージャー記法（closure syntax）</h3><p>これはRubyのブロック記法とRustのクロージャ記法を見比べて貰えば似ていることがおわかり頂けると思います。</p>
+<figure class="highlight ruby hljs"><figcaption><span>ruby</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ruby">ia = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><br>ia.each {<span class="hljs-params">|e|</span> puts e } <span class="hljs-comment"># Rubyのブロック(`each`の引数)</span><br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> ia = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><br>ia.iter().for_each(|e| <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{}"</span>, e)); <span class="hljs-comment">// Rustのクロージャ(`for_each`の引数)</span><br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>影響を受けた言語<ul>
+<li>Ruby</li>
+</ul>
+</li>
+</ul>
+<h2 id="影響の可視化"><a href="#影響の可視化" class="header-anchor"></a>4. <a href="#影響の可視化" class="headerlink" title="影響の可視化"></a>影響の可視化</h2><p>Rustに影響を与えた言語をマインドマップで可視化してみました。言語は年代順に時計回りでざっくり並べています。色はFP,OOP,並列計算,その他でざっくり分類しています。</p>
+<img src="/cats-cats-cats/gallery/daily/others/rust-influences.png" class>
+
+<h2 id="まとめ"><a href="#まとめ" class="header-anchor"></a>5. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>Rustに影響を与えた言語についてざっくり表に分類して、さらに可視化してみました。また、影響を与えた個々の機能に関しても大まかに紹介しました。元ネタになったRustリファレンスの<a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences</a>の記載は以下のとおりです。</p>
+<ul>
+<li>SML, OCaml: algebraic data types, pattern matching, type inference, semicolon statement separation</li>
+<li>C++: references, RAII, smart pointers, move semantics, monomorphization, memory model</li>
+<li>ML Kit, Cyclone: region based memory management</li>
+<li>Haskell (GHC): typeclasses, type families</li>
+<li>Newsqueak, Alef, Limbo: channels, concurrency</li>
+<li>Erlang: message passing, thread failure, linked thread failure, lightweight concurrency</li>
+<li>Swift: optional bindings</li>
+<li>Scheme: hygienic macros</li>
+<li>C#: attributes</li>
+<li>Ruby: closure syntax, <del>block syntax</del></li>
+<li>NIL, Hermes: <del>typestate</del><ul>
+<li>削除された機能なので本記事では扱わなかった</li>
+</ul>
+</li>
+<li>Unicode Annex #31: identifier and pattern syntax<ul>
+<li>言語ではないので本記事では扱わなかった</li>
+</ul>
+</li>
+</ul>
+<p>Rustは一見すると多くの先進的な機能が詰まっているように見えますが、その多くは<strong>研究成果や実績のある言語を下敷きにしている</strong>ことが分かります。そしてRustの特徴としてよく話題になる所有権システムや借用チェッカーもC++,ML Kit,Cyclone等の言語から影響が見て取れます。</p>
+<p>自分も調べてみるまで、ここまで多くの機能が他の言語由来だとは思っていませんでした。影響を受けた言語の年代やパラダイムもバラエティに富んでおりRustを学ぶことは<strong>言語の進化の歴史を学んでいる</strong>ような印象を受けました。従ってRustを<strong>様々な言語の叡智を結集した言語</strong>だと思えば非常に学びがいがある言語だと言えるのではないでしょうか？</p>
+<p>本記事がRustに興味がある方の一助になれば幸いです。</p>
+<h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences - The Rust Reference</a></li>
+<li><a href="https://learning-rust.github.io/docs/a1.why_rust.html#Influences" target="_blank" rel="noopener">Why Rust? - #Influences | Learning Rust</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/C%E8%A8%80%E8%AA%9E" target="_blank" rel="noopener">C言語 - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Scheme" target="_blank" rel="noopener">Scheme - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener">C++ - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Newsqueak" target="_blank" rel="noopener">Newsqueak - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Erlang" target="_blank" rel="noopener">Erlang - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Standard_ML" target="_blank" rel="noopener">Standard ML - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Haskell" target="_blank" rel="noopener">Haskell - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Alef_(programming_language)" target="_blank" rel="noopener">Alef (programming language) - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Limbo" target="_blank" rel="noopener">Limbo - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Ruby" target="_blank" rel="noopener">Ruby - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/OCaml" target="_blank" rel="noopener">OCaml - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/C_Sharp" target="_blank" rel="noopener">C Sharp - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cyclone_(programming_language)" target="_blank" rel="noopener">Cyclone (programming language) - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Swift_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)" target="_blank" rel="noopener">Swift (プログラミング言語) - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Rust_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)" target="_blank" rel="noopener">Rust (プログラミング言語) - Wikipedia</a></li>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.38.2530&rep=rep1&type=pdf" target="_blank" rel="noopener">Programming with Regions in the ML Kit</a>の発表年を基準にしています。</li>
+<li><a href="https://qnighy.hatenablog.com/entry/2017/06/05/070000" target="_blank" rel="noopener">Rustの型推論の概略 - 簡潔なQ</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%83%87%E3%83%AB_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)" target="_blank" rel="noopener">メモリモデル (プログラミング) - Wikipedia</a></li>
+<li><a href="https://qiita.com/qnighy/items/b3b728adf5e4a3f1a841" target="_blank" rel="noopener">Rustの <code>Arc</code> を読む(4): アトミック変数とメモリ順序 - Qiita</a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ML KITに関しては情報が少ないので外しました。またUnicode Annexは言語ではないので除外しました。NIL, Hermesはすでに廃止された機能への影響だったので、これも除外しました。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.38.2530&rep=rep1&type=pdf" target="_blank" rel="noopener">Programming with Regions in the ML Kit</a>の発表年を基準にしています。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">オプションでGCを利用できるので△にしています。具体的にはヒープリージョンにガベージコレクションを利用できます。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">SwiftではARC（Automatic Reference Counting / 自動参照カウント）が使われています。ARCをGCに分類するかは議論の余地がありますが、この記事ではとりあえず「GC」として分類しています。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">戻り値がユニット<code>()</code>との場合、関数のシグネチャから戻り値を省略できます。つまり<code>fn test2 -> () {...}</code>は<code>fn test2() {...}</code>と同義です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">Javaでもプリミティブ型などはローカル変数として宣言された場合にはスタックに確保されておりRAIIの要件を満たしていますが、その他のオブジェクトはほとんどヒープに確保されてガーベージコレクションの対象になります。</span><a href="#fnref:6" rev="footnote"> ↩</a></li></ol></div></div></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/">
+                <span class="level-item">Re：FizzBuzzから始めるRust生活</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/" title="Re：FizzBuzzから始めるRust生活" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/rust.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-04-01</div><a href="/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/" title="Re：FizzBuzzから始めるRust生活" rel="bookmark">Re：FizzBuzzから始めるRust生活</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        45
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        46
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Qiita" href="https://qiita.com/hinastory">
+                
+                <i class="fas fa-search"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">41</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Book/">
+            <span class="level-start">
+                <span class="level-item">Book</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/CloudNative/">
+            <span class="level-start">
+                <span class="level-item">CloudNative</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/ComputerScience/">
+            <span class="level-start">
+                <span class="level-item">ComputerScience</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Event/">
+            <span class="level-start">
+                <span class="level-item">Event</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/MachineLearning/">
+            <span class="level-start">
+                <span class="level-item">MachineLearning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/06/13/rust-influences/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/rust-influences.png" alt="Rustに影響を与えた言語たち">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-12T22:28:45.000Z">2020-06-13</time></div>
+                    <a href="/cats-cats-cats/2020/06/13/rust-influences/" class="has-link-black-ter is-size-6 has-text-weight-normal">Rustに影響を与えた言語たち</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/rust.png" alt="Re：FizzBuzzから始めるRust生活">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-31T22:28:45.000Z">2020-04-01</time></div>
+                    <a href="/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/" class="has-link-black-ter is-size-6 has-text-weight-normal">Re：FizzBuzzから始めるRust生活</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/03/15/gijyutushoten_oensai/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tech-book-fest.png" alt="技術書典 応援祭を応援してみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-14T22:28:45.000Z">2020-03-15</time></div>
+                    <a href="/cats-cats-cats/2020/03/15/gijyutushoten_oensai/" class="has-link-black-ter is-size-6 has-text-weight-normal">技術書典 応援祭を応援してみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/02/20/devsumi2020_winter/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi2020.png" alt="【ギリギリセーフ】Developers Summit 2020に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T22:28:45.000Z">2020-02-20</time></div>
+                    <a href="/cats-cats-cats/2020/02/20/devsumi2020_winter/" class="has-link-black-ter is-size-6 has-text-weight-normal">【ギリギリセーフ】Developers Summit 2020に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala3_cats.png" alt="Scala3と圏論とプログラミング">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T22:28:45.000Z">2020-02-11</time></div>
+                    <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala3と圏論とプログラミング</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 16.67px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 11.67px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/FizzBuzz/" style="font-size: 10px;">FizzBuzz</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18.33px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/OGP/" style="font-size: 10px;">OGP</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 16.67px;">Ruby</a> <a href="/cats-cats-cats/tags/Rust/" style="font-size: 11.67px;">Rust</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18.33px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">2020/06</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">2020/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">2020/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2020/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">2020/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">2019/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">2019/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">2019/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019/08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019/07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019/05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/FizzBuzz/">
+                        <span class="tag">FizzBuzz</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/">
+                        <span class="tag">Flourish</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/OGP/">
+                        <span class="tag">OGP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/06/13/rust-influences/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/daily/others/rust-influences.png" alt="Rustに影響を与えた言語たち">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-12T22:28:45.000Z">2020-06-13</time></div>
+                    <a href="/cats-cats-cats/2020/06/13/rust-influences/" class="has-link-black-ter is-size-6 has-text-weight-normal">Rustに影響を与えた言語たち</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/rust.png" alt="Re：FizzBuzzから始めるRust生活">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-31T22:28:45.000Z">2020-04-01</time></div>
+                    <a href="/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/" class="has-link-black-ter is-size-6 has-text-weight-normal">Re：FizzBuzzから始めるRust生活</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/03/15/gijyutushoten_oensai/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/tech-book-fest.png" alt="技術書典 応援祭を応援してみる">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-14T22:28:45.000Z">2020-03-15</time></div>
+                    <a href="/cats-cats-cats/2020/03/15/gijyutushoten_oensai/" class="has-link-black-ter is-size-6 has-text-weight-normal">技術書典 応援祭を応援してみる</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/02/20/devsumi2020_winter/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/devsumi2020.png" alt="【ギリギリセーフ】Developers Summit 2020に参加してきました">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T22:28:45.000Z">2020-02-20</time></div>
+                    <a href="/cats-cats-cats/2020/02/20/devsumi2020_winter/" class="has-link-black-ter is-size-6 has-text-weight-normal">【ギリギリセーフ】Developers Summit 2020に参加してきました</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Event/">Event</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/scala3_cats.png" alt="Scala3と圏論とプログラミング">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T22:28:45.000Z">2020-02-11</time></div>
+                    <a href="/cats-cats-cats/2020/02/11/scala3_programming_category/" class="has-link-black-ter is-size-6 has-text-weight-normal">Scala3と圏論とプログラミング</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 13.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 16.67px;">Book</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 11.67px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/FizzBuzz/" style="font-size: 10px;">FizzBuzz</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18.33px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/OGP/" style="font-size: 10px;">OGP</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 16.67px;">Ruby</a> <a href="/cats-cats-cats/tags/Rust/" style="font-size: 11.67px;">Rust</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18.33px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">2020/06</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">2020/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">2020/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2020/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">2020/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">2019/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">2019/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">2019/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019/08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019/07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019/05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/FizzBuzz/">
+                        <span class="tag">FizzBuzz</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/">
+                        <span class="tag">Flourish</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/OGP/">
+                        <span class="tag">OGP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="Rustに影響を与えた言語たち" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2020 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                    href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="#">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>
