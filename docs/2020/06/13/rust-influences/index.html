@@ -7,16 +7,16 @@
 
 
 
-    <meta name="description" content="Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。">
+    <meta name="description" content="Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rustに影響を与えた言語たち">
 <meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/index.html">
 <meta property="og:site_name" content="cats cats cats">
-<meta property="og:description" content="Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。">
+<meta property="og:description" content="Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/rust-influences.png">
 <meta property="article:published_time" content="2020-06-12T22:28:45.000Z">
-<meta property="article:modified_time" content="2020-06-13T12:21:23.022Z">
+<meta property="article:modified_time" content="2020-06-13T19:27:46.628Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Rust">
 <meta name="twitter:card" content="summary">
@@ -166,7 +166,7 @@
     
     <div class="card-content article ">
         <div class="content">
-            <html><head></head><body><p>Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。</p>
+            <html><head></head><body><p>Rustを使っていると時々<strong>「あれ？この機能、他の言語に似てない？」</strong>と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな<strong>「似ている」</strong>を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。</p>
 <a id="more"></a>
 
 <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><div class="toc"><ul><li><a href="#tldr" class="contents-header">1. TL;DR</a></li><li><a href="#影響を受けた言語" class="contents-header">2. 影響を受けた言語</a></li><li><a href="#影響を受けた機能" class="contents-header">3. 影響を受けた機能</a><ul><li><a href="#代数的データ型algebraic-data-types" class="contents-header">3.1. 代数的データ型(algebraic data types)</a></li><li><a href="#パターンマッチpattern-matching" class="contents-header">3.2. パターンマッチ(pattern matching)</a></li><li><a href="#型推論type-inference" class="contents-header">3.3. 型推論(type inference)</a></li><li><a href="#セミコロンの文区切りsemicolon-statement-separation" class="contents-header">3.4. セミコロンの文区切り(semicolon statement separation)</a></li><li><a href="#参照references" class="contents-header">3.5. 参照(references)</a></li><li><a href="#raiiresource-acquisition-is-initialization" class="contents-header">3.6. RAII(Resource Acquisition Is Initialization)</a></li><li><a href="#スマートポインタsmart-pointers" class="contents-header">3.7. スマートポインタ(smart pointers)</a></li><li><a href="#ムーブセマンティクスmove-semantics" class="contents-header">3.8. ムーブセマンティクス(move semantics)</a></li><li><a href="#単形化monomorphization" class="contents-header">3.9. 単形化(monomorphization)</a></li><li><a href="#メモリモデルmemory-model" class="contents-header">3.10. メモリモデル(memory model)</a></li><li><a href="#リージョンベースのメモリ管理region-based-memory-management" class="contents-header">3.11. リージョンベースのメモリ管理(region based memory management)</a></li><li><a href="#型クラスtypeclasses-型族type-families" class="contents-header">3.12. 型クラス(typeclasses)、型族(type families)</a></li><li><a href="#チャネルchannels-並列性concurrency" class="contents-header">3.13. チャネル(channels), 並列性(concurrency)</a></li><li><a href="#メッセージパッシングmessage-passing-スレッド失敗thread-failure-リンクスレッド失敗linked-thread-failure-軽量並列性lightweight-concurrency" class="contents-header">3.14. メッセージパッシング(message passing), スレッド失敗(thread failure), リンクスレッド失敗(linked thread failure), 軽量並列性(lightweight concurrency)</a></li><li><a href="#オプショナルバインディング" class="contents-header">3.15. オプショナルバインディング</a></li><li><a href="#衛生的マクロhygienic-macros" class="contents-header">3.16. 衛生的マクロ(hygienic macros)</a></li><li><a href="#属性attributes" class="contents-header">3.17. 属性(attributes)</a></li><li><a href="#クロージャー記法closure-syntax" class="contents-header">3.18. クロージャー記法（closure syntax）</a></li></ul></li><li><a href="#影響の可視化" class="contents-header">4. 影響の可視化</a></li><li><a href="#まとめ" class="contents-header">5. まとめ</a></li><li><a href="#参考文献" class="contents-header">6. 参考文献</a></li></ul></div>
@@ -184,7 +184,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="影響を受けた言語"><a href="#影響を受けた言語" class="header-anchor"></a>2. <a href="#影響を受けた言語" class="headerlink" title="影響を受けた言語"></a>影響を受けた言語</h2><p><a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences - The Rust Reference</a>に記載されている言語を年代順に並べて、言語の特徴をマトリックスにしてみました<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。比較のためにRust自身も加えてあります。</p>
+<h2 id="影響を受けた言語"><a href="#影響を受けた言語" class="header-anchor"></a>2. <a href="#影響を受けた言語" class="headerlink" title="影響を受けた言語"></a>影響を受けた言語</h2><p>「<a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences</a>」に記載されている言語<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>を年代順に並べて、言語の特徴をマトリックスにしてみました。特徴の選択はGCを除いてRustが力を入れているパラダイムを選択しています。また比較のためにRust自身も加えてあります。</p>
 <table>
 <thead>
 <tr>
@@ -194,7 +194,8 @@
 <th>OOP</th>
 <th>並行計算</th>
 <th>静的型付け</th>
-<th>ジェネリクス</th>
+<th>パラメータ多相</th>
+<th>アドホック多相</th>
 <th>GC</th>
 </tr>
 </thead>
@@ -207,11 +208,13 @@
 <td>o</td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>Scheme</td>
 <td>1975</td>
 <td>o</td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -227,12 +230,14 @@
 <td>o</td>
 <td>o</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>Newsqueak</td>
 <td>1984</td>
 <td></td>
 <td></td>
+<td>o</td>
 <td>o</td>
 <td></td>
 <td></td>
@@ -246,6 +251,7 @@
 <td>o</td>
 <td></td>
 <td></td>
+<td></td>
 <td>o</td>
 </tr>
 <tr>
@@ -256,6 +262,7 @@
 <td></td>
 <td>o</td>
 <td>o</td>
+<td></td>
 <td>o</td>
 </tr>
 <tr>
@@ -264,6 +271,7 @@
 <td>o</td>
 <td></td>
 <td></td>
+<td>o</td>
 <td>o</td>
 <td>o</td>
 <td>o</td>
@@ -276,6 +284,7 @@
 <td>o</td>
 <td>o</td>
 <td></td>
+<td></td>
 <td>o</td>
 </tr>
 <tr>
@@ -285,6 +294,7 @@
 <td></td>
 <td>o</td>
 <td>o</td>
+<td></td>
 <td></td>
 <td>o</td>
 </tr>
@@ -297,12 +307,14 @@
 <td>o</td>
 <td>o</td>
 <td></td>
+<td>△<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></td>
 </tr>
 <tr>
 <td>Ruby</td>
 <td>1995</td>
 <td>△</td>
 <td>o</td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -316,6 +328,7 @@
 <td></td>
 <td>o</td>
 <td>o</td>
+<td></td>
 <td>o</td>
 </tr>
 <tr>
@@ -326,6 +339,7 @@
 <td></td>
 <td>o</td>
 <td>o</td>
+<td></td>
 <td>o</td>
 </tr>
 <tr>
@@ -336,11 +350,13 @@
 <td></td>
 <td>o</td>
 <td>o</td>
-<td>△<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></td>
+<td></td>
+<td>△<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></td>
 </tr>
 <tr>
-<td>Rust</td>
+<td><strong>Rust</strong></td>
 <td>2010</td>
+<td>o</td>
 <td>o</td>
 <td>o</td>
 <td>o</td>
@@ -356,13 +372,14 @@
 <td></td>
 <td>o</td>
 <td>o</td>
-<td>o<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></td>
+<td>o</td>
+<td>o<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup></td>
 </tr>
 </tbody></table>
 <p>各カラムの意味は次のとおりです。言語の特徴は主にWikipediaを参考にしていますが、多少の独断と偏見が含まれています。</p>
 <ul>
 <li>登場年代<ul>
-<li>プログラミングが登場した年代です。前後５年の誤差は見逃してください</li>
+<li>プログラミングが登場した年代です。前後3年の誤差は見逃してください</li>
 </ul>
 </li>
 <li>FP(関数型プログラミング)<ul>
@@ -377,19 +394,25 @@
 </li>
 <li>並行計算<ul>
 <li>アクターや CSP/π計算モデルの特徴を言語が強くサポートしているかを示しています</li>
-<li>外部ライブラリを使えばできるよ！みたいなものは当然除外します</li>
+<li>外部ライブラリを使えばできるよ！みたいなものは除外します</li>
 </ul>
 </li>
 <li>静的型付け<ul>
 <li>言語の最も主要な処理系が静的型付けをサポートしているかを示しています</li>
 </ul>
 </li>
-<li>ジェネリクス<ul>
-<li>言語がジェネリクスをサポートしているかを示しています</li>
-<li>テンプレート(C++)やパラメトリック多相(ML系言語)と呼ばれるものも含まれています</li>
+<li>パタメータ多相<ul>
+<li>言語がパラメータ多相をサポートしているかを示しています</li>
+<li>ジェネリクス(Java)、テンプレート(C++)、let多相(ML系言語)等と呼ばれるものが含まれています</li>
 </ul>
 </li>
-<li>ガベージコレクション<ul>
+<li>アドホック多相<ul>
+<li>言語がアドホック多相をサポートしているかを示しています</li>
+<li>型クラス(Haskell)、トレイト(Rust)、プロトコル(Swift)等と呼ばれるものが含まれています</li>
+<li>単純な多重定義（オーバーロード）は含まれていません</li>
+</ul>
+</li>
+<li>GC(ガベージコレクション)<ul>
 <li>言語の最も主要な処理系がガベージコレクションをサポートしているかを示しています</li>
 </ul>
 </li>
@@ -436,7 +459,7 @@
 <h3 id="セミコロンの文区切りsemicolon-statement-separation"><a href="#セミコロンの文区切りsemicolon-statement-separation" class="header-anchor"></a>3.4. <a href="#セミコロンの文区切り-semicolon-statement-separation" class="headerlink" title="セミコロンの文区切り(semicolon statement separation)"></a>セミコロンの文区切り(semicolon statement separation)</h3><p>Rustの関数は主に「文」で構成され、一番最後は「文」か「式」で終わります。Rustの文と文の区切りはセミコロン「;」です。従って最後にセミコロンが付くか否かで文か式かを区別できます。</p>
 <figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test</span>１</span>() -> <span class="hljs-built_in">i32</span> {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>          <span class="hljs-comment">// 式（戻り値は11）</span><br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test2</span></span>() -> () {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>;         <span class="hljs-comment">// 文（戻り値はユニット`()`）</span><br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p>Rustの面白いところは、全ての「式」の後にセミコロン「;」を付けるだけで「文」に変換できてしまうところです。そして文になると関数の最後に置かれた場合の戻り値はユニット<code>()</code>になります。上記のコードで説明すると一番最後の行にセミコロン(<code>;</code>)があるかないかで戻り値が変わります<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。つまりRustにおいては「文」も「値」を返す「式」の一種と考えることができます。また、<code>if</code>や<code>match</code>や<code>while</code>のような制御構造も値を返すのでRustは<strong>式指向の言語</strong>とも言われています。</p>
+<p>Rustの面白いところは、全ての「式」の後にセミコロン「;」を付けるだけで「文」に変換できてしまうところです。そして文になると関数の最後に置かれた場合の戻り値はユニット<code>()</code>になります。上記のコードで説明すると一番最後の行にセミコロン(<code>;</code>)があるかないかで戻り値が変わります<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。つまりRustにおいては「文」も「値」を返す「式」の一種と考えることができます。また、<code>if</code>や<code>match</code>や<code>while</code>のような制御構造も値を返すのでRustは<strong>式指向の言語</strong>とも言われています。</p>
 <p>影響を受けた言語であるOCamlでも同様にプログラムの構成要素の基本に「式」を置いて、セミコロンで区切るやり方になっています(参考: <a href="https://ocaml.org/learn/tutorials/structure_of_ocaml_programs.ja.html#" target="_blank" rel="noopener">OCamlプログラムの構造 – OCaml</a>)。</p>
 <ul>
 <li>影響を受けた言語<ul>
@@ -457,7 +480,7 @@
 <h3 id="raiiresource-acquisition-is-initialization"><a href="#raiiresource-acquisition-is-initialization" class="header-anchor"></a>3.6. <a href="#RAII-Resource-Acquisition-Is-Initialization" class="headerlink" title="RAII(Resource Acquisition Is Initialization)"></a>RAII(Resource Acquisition Is Initialization)</h3><p>RAIIは直訳では「リソースの確保は(変数の)初期化である」になります。しかしこの概念をより適切に理解するためには<strong>「リソースの解放は変数の破棄である」</strong>と捉えたほうが真に迫っていると思われます。一般的なリソースの代表例がメモリであり、この場合は変数が初期化されるとメモリが確保され、変数が破棄されるとメモリが解放されます。このRAIIという表現はRustでは表立って出て来ませんが、<strong>「所有権」</strong>という考え方の中に取り入れられています。</p>
 <figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs rust">{<br>    <span class="hljs-keyword">let</span> x = <span class="hljs-number">10</span>;　<span class="hljs-comment">// ここで変数xが初期化され、メモリも確保される。</span><br>    {<br>        <span class="hljs-keyword">let</span> y = <span class="hljs-string">"hoge"</span>.to_string(); <span class="hljs-comment">// ここで変数yが初期化され、メモリも確保される。</span><br><br>        <span class="hljs-comment">// いろいろ処理する</span><br><br>    } <span class="hljs-comment">// ここで変数yはスコープを抜けて破棄され、メモリも解放される</span><br><br>    <span class="hljs-comment">// いろいろ処理する</span><br><br>} <span class="hljs-comment">// ここで変数xはスコープを抜けて破棄され、メモリも解放される</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>上記のコードの例では変数の有効範囲は変数が初期化されてから、最も内側のスコープ（中括弧<code>{}</code>で囲まれた範囲）の最後までです。JavaやRubyのようなガーベージコレクション(GC)を持つ言語では変数が破棄された後も、ガベージコレクタがメモリを回収するまでメモリが解放されません<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。また上記のコードの例ではメモリをリソースとしましたが、メモリ以外でもファイルのオープン、クローズ等の「利用」と「返却」に結びつけても構いません。実際にRustの標準ライブラリの中にはRAIIを利用したものが多くあります。</p>
+<p>上記のコードの例では変数の有効範囲は変数が初期化されてから、最も内側のスコープ（中括弧<code>{}</code>で囲まれた範囲）の最後までです。JavaやRubyのようなガーベージコレクション(GC)を持つ言語では変数が破棄された後も、ガベージコレクタがメモリを回収するまでメモリが解放されません<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。また上記のコードの例ではメモリをリソースとしましたが、メモリ以外でもファイルのオープン、クローズ等の「利用」と「返却」に結びつけても構いません。実際にRustの標準ライブラリの中にはRAIIを利用したものが多くあります。</p>
 <ul>
 <li>Rust By Example<ul>
 <li><a href="https://doc.rust-jp.rs/rust-by-example-ja/scope/raii.html" target="_blank" rel="noopener">RAII</a></li>
@@ -643,9 +666,9 @@
 </ul>
 </li>
 </ul>
-<p>Rustは一見すると多くの先進的な機能が詰まっているように見えますが、その多くは<strong>研究成果や実績のある言語を下敷きにしている</strong>ことが分かります。そしてRustの特徴としてよく話題になる所有権システムや借用チェッカーもC++,ML Kit,Cyclone等の言語から影響が見て取れます。</p>
+<p>Rustは一見すると多くの先進的な機能が詰まっているように見えますが、その多くは<strong>研究成果や実績のある言語を下敷きにしている</strong>ことが分かります。そしてRustの特徴としてよく話題になる所有権システムや借用チェッカーもC++,ML Kit,Cyclone等の言語から影響が見て取れます。そして<strong>ML KitやCycloneで成し遂げられなかった完全なGCとの決別をRustで実現できた</strong>という流れも見えました。</p>
 <p>自分も調べてみるまで、ここまで多くの機能が他の言語由来だとは思っていませんでした。影響を受けた言語の年代やパラダイムもバラエティに富んでおりRustを学ぶことは<strong>言語の進化の歴史を学んでいる</strong>ような印象を受けました。従ってRustを<strong>様々な言語の叡智を結集した言語</strong>だと思えば非常に学びがいがある言語だと言えるのではないでしょうか？</p>
-<p>本記事がRustに興味がある方の一助になれば幸いです。</p>
+<p>本記事がRustに興味がある方々の一助になれば幸いです。</p>
 <h2 id="参考文献"><a href="#参考文献" class="header-anchor"></a>6. <a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://doc.rust-lang.org/reference/influences.html" target="_blank" rel="noopener">Influences - The Rust Reference</a></li>
 <li><a href="https://learning-rust.github.io/docs/a1.why_rust.html#Influences" target="_blank" rel="noopener">Why Rust? - #Influences | Learning Rust</a></li>
@@ -664,10 +687,10 @@
 <li><a href="https://en.wikipedia.org/wiki/Cyclone_(programming_language)" target="_blank" rel="noopener">Cyclone (programming language) - Wikipedia</a></li>
 <li><a href="https://ja.wikipedia.org/wiki/Swift_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)" target="_blank" rel="noopener">Swift (プログラミング言語) - Wikipedia</a></li>
 <li><a href="https://ja.wikipedia.org/wiki/Rust_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)" target="_blank" rel="noopener">Rust (プログラミング言語) - Wikipedia</a></li>
-<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.38.2530&rep=rep1&type=pdf" target="_blank" rel="noopener">Programming with Regions in the ML Kit</a>の発表年を基準にしています。</li>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.38.2530&rep=rep1&type=pdf" target="_blank" rel="noopener">Programming with Regions in the ML Kit</a></li>
 <li><a href="https://qnighy.hatenablog.com/entry/2017/06/05/070000" target="_blank" rel="noopener">Rustの型推論の概略 - 簡潔なQ</a></li>
 <li><a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%83%87%E3%83%AB_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)" target="_blank" rel="noopener">メモリモデル (プログラミング) - Wikipedia</a></li>
-<li><a href="https://qiita.com/qnighy/items/b3b728adf5e4a3f1a841" target="_blank" rel="noopener">Rustの <code>Arc</code> を読む(4): アトミック変数とメモリ順序 - Qiita</a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">ML KITに関しては情報が少ないので外しました。またUnicode Annexは言語ではないので除外しました。NIL, Hermesはすでに廃止された機能への影響だったので、これも除外しました。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.38.2530&rep=rep1&type=pdf" target="_blank" rel="noopener">Programming with Regions in the ML Kit</a>の発表年を基準にしています。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">オプションでGCを利用できるので△にしています。具体的にはヒープリージョンにガベージコレクションを利用できます。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">SwiftではARC（Automatic Reference Counting / 自動参照カウント）が使われています。ARCをGCに分類するかは議論の余地がありますが、この記事ではとりあえず「GC」として分類しています。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">戻り値がユニット<code>()</code>との場合、関数のシグネチャから戻り値を省略できます。つまり<code>fn test2 -> () {...}</code>は<code>fn test2() {...}</code>と同義です。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">Javaでもプリミティブ型などはローカル変数として宣言された場合にはスタックに確保されておりRAIIの要件を満たしていますが、その他のオブジェクトはほとんどヒープに確保されてガーベージコレクションの対象になります。</span><a href="#fnref:6" rev="footnote"> ↩</a></li></ol></div></div></li>
+<li><a href="https://qiita.com/qnighy/items/b3b728adf5e4a3f1a841" target="_blank" rel="noopener">Rustの <code>Arc</code> を読む(4): アトミック変数とメモリ順序 - Qiita</a><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Unicode Annexは言語ではないので除外しました。NIL, Hermesはすでに廃止された機能への影響だったので、これも除外しました。C言語は<a href="https://learning-rust.github.io/docs/a1.why_rust.html#Influences" target="_blank" rel="noopener">Why Rust? - #Influences | Learning Rust</a>に記載があったので追加しました。F#も入れるかどうか悩みましたが「Functional Programing」だけだと具体的に与えた機能が分かりづらいので入れませんでした。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.38.2530&rep=rep1&type=pdf" target="_blank" rel="noopener">Programming with Regions in the ML Kit</a>の発表年を基準にしています。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">ML Kitの実装にはリージョンベースのメモリ管理にGCを付けたものもあるので△にしています。(<a href="http://mlton.org/Regions" target="_blank" rel="noopener">参考文献</a>)</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">GCの利用はオプションなので△にしています。具体的にはヒープリージョンにガベージコレクションを利用できます。</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">SwiftではARC（Automatic Reference Counting / 自動参照カウント）が使われています。ARCをGCに分類するかは議論の余地がありますが、この記事ではARCの実行時オーバーヘッドの存在を考慮して「GC」として分類しています。</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">戻り値がユニット<code>()</code>との場合、関数のシグネチャから戻り値を省略できます。つまり<code>fn test2 -> () {...}</code>は<code>fn test2() {...}</code>と同義です。</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">Javaでもプリミティブ型などはローカル変数として宣言された場合にはスタックに確保されておりRAIIの要件を満たしていますが、その他のオブジェクトはほとんどヒープに確保されてガーベージコレクションの対象になります。</span><a href="#fnref:7" rev="footnote"> ↩</a></li></ol></div></div></li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -2343,7 +2366,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="#">
+<a id="back-to-top" title="Kembali ke atas" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>

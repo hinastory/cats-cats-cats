@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-06-13T12:21:23.022Z</updated>
+  <updated>2020-06-13T19:27:46.628Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/</id>
     <published>2020-06-12T22:28:45.000Z</published>
-    <updated>2020-06-13T12:21:23.022Z</updated>
+    <updated>2020-06-13T19:27:46.628Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Rustを使っていると時々「あれ？この機能、他の言語に似てない？」と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな「似ている」を少しだけ深堀りしてみたいと思い、Rustに影響を与えたものを調べて見ました。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Rustを使っていると時々&lt;strong&gt;「あれ？この機能、他の言語に似てない？」&lt;/strong&gt;と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな&lt;strong&gt;「似ている」&lt;/strong&gt;を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
