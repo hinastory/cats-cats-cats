@@ -26,7 +26,7 @@ Rustを使っていると時々**「あれ？この機能、他の言語に似�
     - 影響を受けた機能の簡単な紹介
     - 影響の可視化（マインドマップ風）
 
-## 影響を受けた言語
+## Rustが影響を受けた言語
 
 「[Influences](https://doc.rust-lang.org/reference/influences.html)」に記載されている言語[^1]を年代順に並べて、言語の特徴をマトリックスにしてみました。特徴の選択はGCを除いてRustが力を入れているパラダイムを選択しています。また比較のためにRust自身も加えてあります。
 
@@ -73,13 +73,13 @@ Rustを使っていると時々**「あれ？この機能、他の言語に似�
 - GC(ガベージコレクション)
     - 言語の最も主要な処理系がガベージコレクションをサポートしているかを示しています
 
-[^1]: Unicode Annexは言語ではないので除外しました。NIL, Hermesはすでに廃止された機能への影響だったので、これも除外しました。C言語は[Why Rust? - #Influences | Learning Rust](https://learning-rust.github.io/docs/a1.why_rust.html#Influences)に記載があったので追加しました。F#も入れるかどうか悩みましたが「Functional Programing」だけだと具体的に与えた機能が分かりづらいので入れませんでした。
+[^1]: Unicode Annexは言語ではないので除外しました。NIL, Hermesはすでに廃止された機能への影響だったので、これも除外しました。C言語は[Why Rust? - #Influences | Learning Rust](https://learning-rust.github.io/docs/a1.why_rust.html#Influences)に記載があったので追加しました。F#も入れるかどうか悩みましたが「Functional Programing」だけだと具体的に影響を与えた機能が分かりづらいので入れませんでした。
 [^2]: [Programming with Regions in the ML Kit](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.38.2530&rep=rep1&type=pdf)の発表年を基準にしています。
 [^3]: ML Kitの実装にはリージョンベースのメモリ管理にGCを付けたものもあるので△にしています。([参考文献](http://mlton.org/Regions))
 [^4]: GCの利用はオプションなので△にしています。具体的にはヒープリージョンにガベージコレクションを利用できます。
 [^5]: SwiftではARC（Automatic Reference Counting / 自動参照カウント）が使われています。ARCをGCに分類するかは議論の余地がありますが、この記事ではARCの実行時オーバーヘッドの存在を考慮して「GC」として分類しています。
 
-## 影響を受けた機能
+## Rustが影響を受けた機能
 
 ここからは影響を受けた機能をそれぞれ見ていきたいと思います。
 
