@@ -312,7 +312,7 @@ impl Greeting for i32 { // 組み込み型にもトレイトを実装できる!
 
 fn main() {
     let person_a = Japanese {name: "Taro".to_string(),};
-    let person_a = American {name: "Alex".to_string(), age: 20,};
+    let person_b = American {name: "Alex".to_string(), age: 20,};
 
     // printGreet関数はGreetingを実装した異なる型に対して呼び出し可能(アドホック多相)
     printGreet(person_a);
