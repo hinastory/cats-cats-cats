@@ -191,7 +191,7 @@ RAIIは直訳では「リソースの確保は(変数の)初期化である」�
 
 {% code lang:rust rust %}
 {
-    let x = 10;　// ここで変数xが初期化され、メモリも確保される。
+    let x = 10; // ここで変数xが初期化され、メモリも確保される。
     {
         let y = "hoge".to_string(); // ここで変数yが初期化され、メモリも確保される。
 
@@ -295,7 +295,7 @@ fn print_greet<T: Greeting>(person: T) { // トレイト境界を用いた関数
     println!("{}!", person.greet());
 }
 
-struct Japanese { name: String, }        // `struct`用いたを型の定義
+struct Japanese { name: String, }        // `struct`を用いた型の定義
 struct American { name: String, age: u32,}
 
 impl Greeting for Japanese { // トレイトの実装
