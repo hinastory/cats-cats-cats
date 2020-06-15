@@ -52,7 +52,7 @@ Rustを使っていると時々**「あれ？この機能、他の言語に似�
 各カラムの意味は次のとおりです。言語の特徴は主にWikipediaを参考にしていますが、正確な分類は困難なため多少の独断と偏見が含まれていることをご了承ください。
 
 - 登場年代
-    - プログラミングが登場した年代です。前後3年の誤差は見逃してください
+    - プログラミング言語が登場した年代です。前後3年の誤差は見逃してください
 - FP(関数型プログラミング)
     - 言語がFPを強くサポートしているかを示しています
     - 程々にサポートしている場合は△を示しています
@@ -314,10 +314,10 @@ fn main() {
     let person_a = Japanese {name: "Taro".to_string(),};
     let person_b = American {name: "Alex".to_string(), age: 20,};
 
-    // printGreet関数はGreetingを実装した異なる型に対して呼び出し可能(アドホック多相)
-    printGreet(person_a);
-    printGreet(person_b);
-    printGreet(123);
+    // print_greet関数はGreetingを実装した異なる型に対して呼び出し可能(アドホック多相)
+    print_greet(person_a);
+    print_greet(person_b);
+    print_greet(123);
 }
 {% endcode %}
 
