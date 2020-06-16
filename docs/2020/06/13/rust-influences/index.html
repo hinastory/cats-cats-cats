@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/rust-influences.png">
 <meta property="article:published_time" content="2020-06-12T22:28:45.000Z">
-<meta property="article:modified_time" content="2020-06-15T18:02:33.255Z">
+<meta property="article:modified_time" content="2020-06-16T21:36:23.852Z">
 <meta property="article:author" content="hinastory">
 <meta property="article:tag" content="Rust">
 <meta name="twitter:card" content="summary">
@@ -457,7 +457,7 @@
 </li>
 </ul>
 <h3 id="セミコロンの文区切りsemicolon-statement-separation"><a href="#セミコロンの文区切りsemicolon-statement-separation" class="header-anchor"></a>3.4. <a href="#セミコロンの文区切り-semicolon-statement-separation" class="headerlink" title="セミコロンの文区切り(semicolon statement separation)"></a>セミコロンの文区切り(semicolon statement separation)</h3><p>Rustの関数は主に「文」で構成され、一番最後は「文」か「式」で終わります。Rustの文と文の区切りはセミコロン「;」です。従って最後にセミコロンが付くか否かで文か式かを区別できます。</p>
-<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test</span>１</span>() -> <span class="hljs-built_in">i32</span> {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>          <span class="hljs-comment">// 式（戻り値は11）</span><br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test2</span></span>() -> () {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>;         <span class="hljs-comment">// 文（戻り値はユニット`()`）</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight rust hljs"><figcaption><span>rust</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test1</span></span>() -> <span class="hljs-built_in">i32</span> {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>          <span class="hljs-comment">// 式（戻り値は11）</span><br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test2</span></span>() -> () {<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// 文</span><br>    x =  x * <span class="hljs-number">3</span> ;   <span class="hljs-comment">// 文</span><br>    x + <span class="hljs-number">5</span>;         <span class="hljs-comment">// 文（戻り値はユニット`()`）</span><br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>Rustの面白いところは、全ての「式」の後にセミコロン「;」を付けるだけで「文」に変換できてしまうところです。そして文になると関数の最後に置かれた場合の戻り値はユニット<code>()</code>になります。上記のコードで説明すると一番最後の行にセミコロン(<code>;</code>)があるかないかで戻り値が変わります<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。つまりRustにおいては「文」も「値」を返す「式」の一種と考えることができます。また、<code>if</code>や<code>match</code>や<code>while</code>のような制御構造も値を返すのでRustは<strong>式指向の言語</strong>とも言われています。</p>
 <p>影響を受けた言語であるOCamlでも同様にプログラムの構成要素の基本に「式」を置いて、セミコロンで区切るやり方になっています。</p>
@@ -2371,7 +2371,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="#">
+<a id="back-to-top" title="Kembali ke atas" href="#">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/cats-cats-cats/js/back-to-top.js" defer></script>
