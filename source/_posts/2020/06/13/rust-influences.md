@@ -502,6 +502,9 @@ ia.iter().for_each(|e| println!("{}", e)); // Rustのクロージャ(`for_each`�
 
 Rustに影響を与えた言語を可視化してみました。言語は年代順に時計回りでざっくり並べています。色はFP,OOP,並行計算,その他でざっくり分類しています。
 
+この図を見ると、様々なパラダイムの言語からバランス良く影響を受けている様子が見て取れます。
+
+
 {% img /gallery/daily/others/rust-influences.png  %}
 
 ## まとめ
