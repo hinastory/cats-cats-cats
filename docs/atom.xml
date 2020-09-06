@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-06-25T20:26:39.353Z</updated>
+  <updated>2020-09-06T03:10:30.704Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RubyKaigi Takeout 2020</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</id>
+    <published>2020-09-05T22:28:45.000Z</published>
+    <updated>2020-09-06T03:10:30.704Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title target&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずの RubyKaigi が中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
+
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+  </entry>
   
   <entry>
     <title>Rustに影響を与えた言語たち</title>
@@ -44,7 +71,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/</id>
     <published>2020-03-31T22:28:45.000Z</published>
-    <updated>2020-04-06T19:45:18.325Z</updated>
+    <updated>2020-07-23T07:39:35.971Z</updated>
     
     <summary type="html">
     
@@ -79,7 +106,7 @@
     
       &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
 &lt;p&gt;技術書典 応援祭は3月7日から4月5日までの期間限定開催です。技術書典には600を超えるサークルから技術本が出品されているので検索すればきっと気になる技術書が見つかると思います。本記事では自分が買って面白かった本を中心にご紹介したいと思います。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf08/images/cheering-ogp.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;新しい技術に出会えるお祭りです&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf09/images/market/gs_online_logo_SP.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;9月12日から9月22日までの期間限定マーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -89,9 +116,9 @@
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
-      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
-    
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
     
   </entry>
   
@@ -115,9 +142,9 @@
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
-      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
-    
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
     
   </entry>
   
@@ -197,9 +224,9 @@
       <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Book/"/>
     
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
   </entry>
   
@@ -317,9 +344,9 @@
     
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
     
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
   </entry>
   
@@ -534,30 +561,6 @@
       <category term="pulumi" scheme="https://hinastory.github.io/cats-cats-cats/tags/pulumi/"/>
     
       <category term="IaC" scheme="https://hinastory.github.io/cats-cats-cats/tags/IaC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/</id>
-    <published>2019-08-19T22:28:45.000Z</published>
-    <updated>2020-01-18T10:18:08.714Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコンピューティングサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;です。そのAWSの認定の中でも屈指の人気を誇る「AWS認定ソリューションアーキテクト - アソシエイト」を5日間の勉強で合格することができました。本当に月曜日に思い立って試験の申込みをして勉強を開始し、その週の土曜日の朝一の試験で合格しました。本記事はその合格に至るまでの体験談になります。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fcertification%2Fcertified-solutions-architect-associate%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;AWS 認定ソリューションアーキテクト – アソシエイト | AWS&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;「AWS 認定ソリューションアーキテクト – アソシエイト」試験は、ソリューションアーキテクトの方を対象としており、AWS 上でセキュアかつ堅牢なアプリケーションを設計および展開する方法についての理解度を評価するものです。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
-    
-    
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   

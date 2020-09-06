@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</loc>
+        <lastmod>2020-09-06T03:10:30.704Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/</loc>
+        <lastmod>2020-07-23T07:39:35.971Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/</loc>
         <lastmod>2020-06-25T20:26:39.353Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,14 +42,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</loc>
         <lastmod>2020-05-04T01:21:17.473Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/</loc>
-        <lastmod>2020-04-06T19:45:18.325Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
