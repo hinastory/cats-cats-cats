@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-09-07T02:10:40.232Z</updated>
+  <updated>2020-10-07T23:54:10.436Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>リモートワークを快適にする家電製品の紹介</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/</id>
+    <published>2020-10-07T22:28:45.000Z</published>
+    <updated>2020-10-07T23:54:10.436Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;新型コロナウィルス感染症(COVID-19)の流行に伴い、在宅勤務(WFH)が長期化しそうです。もともとは週一くらいでテレワークをしていましたが、4月以降は完全にリモートワークに切り替わり出勤したのは数えるほどしかありません。&lt;br&gt;そのような環境のなかで如何にリモートワークを快適にするかは重要なテーマです。そこで今回は&lt;strong&gt;自分が実際に利用していて便利だと感じる家電製品&lt;/strong&gt;をご紹介したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="WFH" scheme="https://hinastory.github.io/cats-cats-cats/tags/WFH/"/>
+    
+  </entry>
   
   <entry>
     <title>RubyKaigi Takeout 2020</title>
@@ -224,9 +247,9 @@
       <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Book/"/>
     
     
-      <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
     
   </entry>
   
@@ -280,9 +303,9 @@
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -299,7 +322,7 @@
     
       &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
 &lt;p&gt;・・・というのは前置きで、自分は&lt;strong&gt;Googleが好き&lt;/strong&gt;🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.gdgjapan.org%2Fdevfest2019&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;tokyo.gdgjapan.org&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://storage.googleapis.com/gdgtokyo_img/devfest19/misc/topimg.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo | DevFest Tokyo 2019&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。東京では、Android、Google Cloud Platform（GCP）、Web、Firebase、Machine Learni…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.gdgjapan.org%2Fdevfest2019&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;tokyo.gdgjapan.org&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.gdgjapan.org/img/devfest2020/topimg.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。日本では、9つのGDGチャプターとWTMが共催という形で、Android、Google Cloud Platform（GCP）、Web…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -342,11 +365,11 @@
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
   </entry>
   
@@ -396,9 +419,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="Serverless" scheme="https://hinastory.github.io/cats-cats-cats/tags/Serverless/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
       <category term="Azure" scheme="https://hinastory.github.io/cats-cats-cats/tags/Azure/"/>
     
@@ -534,33 +557,6 @@
     
     
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pulumiでプログラマのための「Infrastructure as Code」を実践する</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</id>
-    <published>2019-08-25T22:28:45.000Z</published>
-    <updated>2020-01-18T10:17:32.083Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば&lt;strong&gt;インフラをコード化する&lt;/strong&gt;という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは&lt;strong&gt;「コレジャナイ」&lt;/strong&gt;と。そして長い、長い旅路の末にようやく巡り会うことができました。&lt;a href=&quot;https://www.pulumi.com/&quot; title target&gt;Pulumi&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という希望の星に。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
-    
-    
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
-      <category term="pulumi" scheme="https://hinastory.github.io/cats-cats-cats/tags/pulumi/"/>
-    
-      <category term="IaC" scheme="https://hinastory.github.io/cats-cats-cats/tags/IaC/"/>
     
   </entry>
   
