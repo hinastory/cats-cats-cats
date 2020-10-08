@@ -64,7 +64,7 @@ date: 2020-10-08 07:28:45
 
 ## 全自動コーヒーメーカー
 
-「豆から挽くコーヒーはうまい」、とこの事実はコーヒー好きは誰もそう思いますが、手間を考えるとなかなか豆からコーヒーを入れる気にならなかったのがこのマシンを買う前の自分でした。しかしこの全自動コーヒーメーカーを買ってから毎日コーヒーを飲むのが楽しみになりました。ミルの自動洗浄がついているのも大きいです。コーヒー豆を挽く音が少し大きいのが玉に瑕ですが、コーヒー好きは買って損のない一品だと思います。
+「豆から挽くコーヒーはうまい」、この事実はコーヒー好きは大抵そう思いますが、手間を考えるとなかなか豆からコーヒーを入れる気にならなかったのがこのマシンを買う前の自分でした。しかしこの全自動コーヒーメーカーを買ってから毎日コーヒーを飲むのが楽しみになりました。ミルの自動洗浄がついているのも大きいです。コーヒー豆を挽く音が少し大きいのが玉に瑕ですが、コーヒー好きは買って損のない一品だと思います。
 
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"パナソニック 全自動コーヒーメーカー ミル付き 沸騰浄水機能 デカフェ豆コース搭載 ブラック NC-A57-K","b":"パナソニック(Panasonic)","t":"NC-A57-K","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/41LcXJXlaAL.jpg","\/6169fpfaowL.jpg","\/51olCPpSvPL.jpg","\/61n8GsdwvrL.jpg","\/51HLX9nPvfL.jpg","\/51nu3AWWm3L.jpg","\/51kCfdErgiL.jpg","\/4123ln9r6BL.jpg","\/51equr5LteL.jpg","\/417gQkkCJBL.jpg","\/41G3zGy-3dL.jpg","\/41TjDJ5awaL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/B07DTDHP7Q","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"gwORk","s":"s"});</script><div id="msmaflink-gwORk">リンク</div><!-- MoshimoAffiliateEasyLink END -->
 
@@ -76,7 +76,7 @@ date: 2020-10-08 07:28:45
 
 ## スマートスピーカー
 
-スマートスピーカーでおすすめはディスプレイ付きのAmazon Echo Show5です。やはりスピーカーと言っても音だけだと聞き逃すこともあるのでディスプレイにも表示されることで格段に利便性が上がります。特に「ニュースを流して」というとNHKのニュースがストリーミングで流れたり、音楽も歌詞付きで表示される場合もあります。以下はよく使う命令です。
+スマートスピーカーでおすすめはディスプレイ付きのAmazon Echo Show5です。やはりスピーカーと言っても音だけだと聞き逃すこともあるのでディスプレイにも表示されることで格段に利便性が上がります。特に「ニュースを流して」というとテレビで流れているNHKのニュースがディスプレイに表示され、音楽も歌詞付きで表示される場合もあります。以下はよく使う命令です。
 
 - アレクサ、ニュース流して
 - アレクサ、今日の天気は？(最近は外出しないので使わなくなった・・・)
