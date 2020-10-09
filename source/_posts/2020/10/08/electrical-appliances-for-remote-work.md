@@ -41,7 +41,7 @@ date: 2020-10-08 07:28:45
 
 ## ワイヤレスヘッドホン
 
-音声・テレビ会議が増えてくると、ワイヤレスイヤホン一つだと充電もしないといけないので心もとなく感じることがあります。そういうときのサブとしておすすめしたいのがワイヤレスヘッドホンのBeats Studio3 Wirelessです。カナル型とはまた違った装着感で気分転換にもなり、カナル型を使いすぎて耳が痛くなったときにも役立ちます。
+音声・テレビ会議が増えてくると、ワイヤレスイヤホン一つだと充電もしないといけないので心もとなく感じることがあります。そういうときのサブとしておすすめしたいのがワイヤレスヘッドホンのBeats Studio3 Wirelessです。カナル型とはまた違った装着感で気分転換にもなり、カナル型を使いすぎて耳が痛くなったときにも役立ちます。もちろん遮音性も高く音質もよいので、音にこだわりのある人にもオススメできる一品です。
 
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js","msmaflink");msmaflink({"n":"Beats Studio3 Wireless ワイヤレスノイズキャンセリングヘッドホン -Apple W1ヘッドフォンチップ、Class 1 Bluetooth、アクティブノイズキャンセリング機能、最長22時間の再生時間 The Beats Skyline Collection - ミッドナイトブラック","b":"beats by dr.dre","t":"MXJA2PA\/A","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/41M47YFpVDL.jpg","\/41VY5dj7L-L.jpg","\/31dPYlhheBL.jpg","\/413O09MuZ9L.jpg","\/41VxoEE+DCL.jpg","\/31a3dgteLvL.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/B085658YB9","t":"amazon","r_v":""},"aid":{"amazon":"1448335","rakuten":"1448332"},"eid":"xs9Az","s":"s"});</script><div id="msmaflink-xs9Az">リンク</div><!-- MoshimoAffiliateEasyLink END -->
 
@@ -108,7 +108,7 @@ date: 2020-10-08 07:28:45
 
 他にもちょっと気分が晴れないときにぼーっと風景を眺めたり、はやる気持ちを落ち着かせるために風景を眺めたりと用途はいろいろあります。たまにお気に入りの風景を見つけると現地に行く手段を調べたり旅行したりする妄想をしていますが、Atmoph Window2には風景の説明や地図を表示する機能もあるので気に入っています。結果として部屋に立ち込めていた閉塞感が和らぎ気分をリフレッシュしやすくなりました。
 
-画像は**1000枚以上**あり、単品購入もできます自分は月額980円のサブスクに入っています。定番の世界遺産の風景やイルミネーション、**花火**、**飛行機の窓からみた雲海**、駅のプラットフォーム、宇宙等、本当に飽きない程様々な光景が用意されているので、月額980円の価値はあると思います。
+画像は**1000枚以上**あり、単品購入もできます。自分は月額980円のサブスクに入っています。定番の世界遺産の風景やイルミネーション、**花火**、**飛行機の窓からみた雲海**、駅のプラットフォーム、宇宙等、本当に飽きない程様々な光景が用意されているので、月額980円の価値はあると思います。
 
 また、オートにしておけば時間によって画像を切替えてくれたり、時間設定で電源のオン・オフもできます。まだ開発中とのことですがライブストリーミング機能やアップロード機能もアップデートで提供される予定です。**本当にいい買い物をしました**。オプションのカメラやLEDライトも面白そうなので購入するかもしれません。
 
