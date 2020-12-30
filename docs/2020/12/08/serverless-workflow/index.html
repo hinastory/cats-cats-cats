@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html  lang="ja">
+<head>
+    <meta charset="utf-8">
+<title>サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜 - cats cats cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta name="description" content="この記事はAWS Advent Calendar 2020 - Qiitaの8日目の記事です。(Qiitaの記事と同一です。) ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う Lambda関数のワークフロー型の実行順">
+<meta property="og:type" content="article">
+<meta property="og:title" content="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜">
+<meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/index.html">
+<meta property="og:site_name" content="cats cats cats">
+<meta property="og:description" content="この記事はAWS Advent Calendar 2020 - Qiitaの8日目の記事です。(Qiitaの記事と同一です。) ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う Lambda関数のワークフロー型の実行順">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/ts-sfn-cdk.png">
+<meta property="article:published_time" content="2020-12-07T22:28:45.000Z">
+<meta property="article:modified_time" content="2020-12-30T10:44:54.499Z">
+<meta property="article:author" content="hinastory">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="CDK">
+<meta property="article:tag" content="StepFunctions">
+<meta property="article:tag" content="TypeScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/ts-sfn-cdk.png">
+
+
+
+<link rel="alternative" href="/cats-cats-cats/atom.xml" title="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜" type="application/atom+xml">
+
+
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/cats-cats-cats/favicon.ico">
+<link rel="icon" href="/cats-cats-cats/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/cats-cats-cats/gallery/profile/cats-cats-cats.logo-32.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css">
+
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/cats-cats-cats/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132406459-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/cats-cats-cats/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/cats-cats-cats/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/cats-cats-cats/">
+            
+                <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/"><i class="fa fa-home"></i> Home</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw"></i> Archives</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw"></i> Categories</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw"></i> Tags</a>
+                
+                <a class="navbar-item"
+                href="/cats-cats-cats/about"><i class=""></i> About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    <h1 class="title is-size-2 is-size-4-mobile has-text-weight-normal">
+        
+            サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜
+        
+    </h1>
+
+    
+    <div class="article-meta-data">
+
+        <div class="article-date">
+            <i class="fas fa-calendar-alt"></i>
+            <a href="/cats-cats-cats/2020/12/08/serverless-workflow/" class="media-left">
+                <time datetime="2020-12-07T22:28:45.000Z">2020-12-08</time>
+            </a>
+        </div>
+
+        <div class="article-categories">
+            
+                <i class="fas fa-cat"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a>
+            
+        </div>
+
+        <div class="article-tags">
+            
+                <i class="fas fa-tags"></i>
+                <a class="has-link-grey -link" href="/cats-cats-cats/tags/AWS/" rel="tag">AWS</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/CDK/" rel="tag">CDK</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/StepFunctions/" rel="tag">StepFunctions</a>, <a class="has-link-grey -link" href="/cats-cats-cats/tags/TypeScript/" rel="tag">TypeScript</a>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ts-sfn-cdk.png" alt="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <div class="content">
+            <html><head></head><body><p>この記事は<a href="https://qiita.com/advent-calendar/2020/aws" target="_blank" rel="noopener">AWS Advent Calendar 2020 - Qiita</a>の8日目の記事です。<br>(Qiitaの記事と同一です。)</p>
+<p>ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う <strong>Lambda関数のワークフロー型の実行順序制御</strong> を実現する方法、特に <strong>インフラ構築、ワークフロー作成、関数作成と呼び出しを全てTypeScriptで完結させる方法</strong> について、その実現方法と利点を記載したいと思います。</p>
+<a id="more"></a>
+
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><div class="toc"><ul><li><a href="#イベント駆動とワークフロー" class="contents-header">1. イベント駆動とワークフロー</a></li><li><a href="#サーバーレスワークフローとは" class="contents-header">2. サーバーレスワークフローとは</a></li><li><a href="#step-functionsの弱点" class="contents-header">3. Step Functionsの弱点</a></li><li><a href="#サーバーレスワークフローをtypescriptで作成しよう" class="contents-header">4. サーバーレスワークフローをTypeScriptで作成しよう</a><ul><li><a href="#セットアップ" class="contents-header">4.1. セットアップ</a></li><li><a href="#初めてのワークフローの作成から実行まで" class="contents-header">4.2. 初めてのワークフローの作成から実行まで</a></li><li><a href="#step1をlambda関数に変更してみる" class="contents-header">4.3. Step1をLambda関数に変更してみる</a></li><li><a href="#応用編" class="contents-header">4.4. 応用編</a></li></ul></li><li><a href="#インフラ構築cdkとワークフロー作成stepfunctinsと関数作成lmabdaをアイソモーフィックにする利点" class="contents-header">5. インフラ構築(CDK)とワークフロー作成(StepFunctins)と関数作成(Lmabda)をアイソモーフィックにする利点</a></li><li><a href="#まとめ" class="contents-header">6. まとめ</a></li><li><a href="#おまけ" class="contents-header">7. おまけ</a></li></ul></div>
+
+<h1 id="イベント駆動とワークフロー"><a href="#イベント駆動とワークフロー" class="header-anchor"></a>1. <a href="#イベント駆動とワークフロー" class="headerlink" title="イベント駆動とワークフロー"></a>イベント駆動とワークフロー</h1><p>最初にイベント駆動型とワークフロー型のアーキテクチャについて簡単に説明します。すでにご存じの方は飛ばしていただいても構いません。</p>
+<p>イベント駆動型のシンプルな構成は以下のとおりです。プロデューサがイベントを生成し、ブローカーがイベントを受け取り、コンシューマにイベントを渡します。</p>
+<img src="/cats-cats-cats/gallery/daily/others/event-driven.png" class>
+
+<p>ここで重要なのはブローカはイベントを貯めてもいいし、フィルタして減らしてもいいし、逆に増やしても構いません。またイベントの宛先であるコンシューマを変えたり、複数のコンシューマにイベントを複製して配っても問題ありません。また、ブローカを多段に構成することもできます。要はプロデューサとコンシューマの間にイベントを自由に扱えるブローカをいくつも挟んで良い（挟まなくてももちろんOK）というのがこのアーキテクチャの肝であり、柔軟性やスケーラビリティの根源になっています。</p>
+<p>対してワークフロー型は以下のように処理の順番が明白に決まっており処理順序は分かりやすいですが、イベント駆動型ほどの柔軟性はありません。</p>
+<img src="/cats-cats-cats/gallery/daily/others/workflow.png" class>
+
+<p>一般的には処理順序の分かりやすさやデバッグのしやすさを優先するならワークフロー型が適しており、柔軟性やスケーラビリティが必要であればイベント駆動型が適しておりお互いに補完関係にあるアーキテクチャだと言うことができます<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p>
+<p>AWSはアーキテクチャとしてスケーラブルな非同期分散処理に力を入れてきたのでイベント駆動型のアーキテクチャを支えるサービス（SQS, SNS, EventBridge, Kinesis, MQ, MSK等）が充実しています。しかし近年はStep Functionsの登場によりワークフロー型のアーキテクチャも広く使われるようになってきました<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p>
+<h1 id="サーバーレスワークフローとは"><a href="#サーバーレスワークフローとは" class="header-anchor"></a>2. <a href="#サーバーレスワークフローとは" class="headerlink" title="サーバーレスワークフローとは"></a>サーバーレスワークフローとは</h1><p>サーバーレスは <strong>EC2のような仮想サーバを使わずにアプリケーションを開発するアーキテクチャ</strong> のことを指しますが、慣習的にはSaaSをLambda(FaaS)で連携させたり補完したりしてアプリケーションを構築するアーキテクチャを指します。サーバーレスワークフローは <strong>そのサーバーレスにワークフロー制御のSaaSであるStep Functionsを加えてワークフロー制御を実現したアーキテクチャ</strong> になります。</p>
+<h1 id="step-functionsの弱点"><a href="#step-functionsの弱点" class="header-anchor"></a>3. <a href="#Step-Functionsの弱点" class="headerlink" title="Step Functionsの弱点"></a>Step Functionsの弱点</h1><p>Step Functionsの弱点は端的に言うとワークフローのビジュアルエディターが公式にはリリースされていないことです<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。ワークフローを作成・編集するには<a href="https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-amazon-states-language.html" target="_blank" rel="noopener">Amazon ステートメント言語</a>(ASL)というJSONベースの言語で記述する必要があります。だたJSONで記述したワークフローの可視化は行えます。以下はAWS公式のサンプルのHelloWorldのステートマシンをStep Functionsのグラフインスペクターで可視化したものです。</p>
+<img src="/cats-cats-cats/gallery/daily/others/hello-world-stepfunctions.png" class>
+
+<p>上記のワークフローをASLで記述したものが以下になります。さすがにこれを記述するのは厳しいと感じる方が多でしょう。</p>
+<figure class="highlight json hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs json">{<br>  <span class="hljs-attr">"Comment"</span>: <span class="hljs-string">"A Hello World example demonstrating various state types of the Amazon States Language"</span>,<br>  <span class="hljs-attr">"StartAt"</span>: <span class="hljs-string">"Pass"</span>,<br>  <span class="hljs-attr">"States"</span>: {<br>    <span class="hljs-attr">"Pass"</span>: {<br>      <span class="hljs-attr">"Comment"</span>: <span class="hljs-string">"A Pass state passes its input to its output, without performing work. Pass states are useful when constructing and debugging state machines."</span>,<br>      <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Pass"</span>,<br>      <span class="hljs-attr">"Next"</span>: <span class="hljs-string">"Hello World example?"</span><br>    },<br>    <span class="hljs-attr">"Hello World example?"</span>: {<br>      <span class="hljs-attr">"Comment"</span>: <span class="hljs-string">"A Choice state adds branching logic to a state machine. Choice rules can implement 16 different comparison operators, and can be combined using And, Or, and Not"</span>,<br>      <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Choice"</span>,<br>      <span class="hljs-attr">"Choices"</span>: [<br>        {<br>          <span class="hljs-attr">"Variable"</span>: <span class="hljs-string">"$.IsHelloWorldExample"</span>,<br>          <span class="hljs-attr">"BooleanEquals"</span>: <span class="hljs-literal">true</span>,<br>          <span class="hljs-attr">"Next"</span>: <span class="hljs-string">"Yes"</span><br>        },<br>        {<br>          <span class="hljs-attr">"Variable"</span>: <span class="hljs-string">"$.IsHelloWorldExample"</span>,<br>          <span class="hljs-attr">"BooleanEquals"</span>: <span class="hljs-literal">false</span>,<br>          <span class="hljs-attr">"Next"</span>: <span class="hljs-string">"No"</span><br>        }<br>      ],<br>      <span class="hljs-attr">"Default"</span>: <span class="hljs-string">"Yes"</span><br>    },<br>    <span class="hljs-attr">"Yes"</span>: {<br>      <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Pass"</span>,<br>      <span class="hljs-attr">"Next"</span>: <span class="hljs-string">"Wait 3 sec"</span><br>    },<br>    <span class="hljs-attr">"No"</span>: {<br>      <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Fail"</span>,<br>      <span class="hljs-attr">"Cause"</span>: <span class="hljs-string">"Not Hello World"</span><br>    },<br>    <span class="hljs-attr">"Wait 3 sec"</span>: {<br>      <span class="hljs-attr">"Comment"</span>: <span class="hljs-string">"A Wait state delays the state machine from continuing for a specified time."</span>,<br>      <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Wait"</span>,<br>      <span class="hljs-attr">"Seconds"</span>: <span class="hljs-number">3</span>,<br>      <span class="hljs-attr">"Next"</span>: <span class="hljs-string">"Parallel State"</span><br>    },<br>    <span class="hljs-attr">"Parallel State"</span>: {<br>      <span class="hljs-attr">"Comment"</span>: <span class="hljs-string">"A Parallel state can be used to create parallel branches of execution in your state machine."</span>,<br>      <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Parallel"</span>,<br>      <span class="hljs-attr">"Next"</span>: <span class="hljs-string">"Hello World"</span>,<br>      <span class="hljs-attr">"Branches"</span>: [<br>        {<br>          <span class="hljs-attr">"StartAt"</span>: <span class="hljs-string">"Hello"</span>,<br>          <span class="hljs-attr">"States"</span>: {<br>            <span class="hljs-attr">"Hello"</span>: {<br>              <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Pass"</span>,<br>              <span class="hljs-attr">"End"</span>: <span class="hljs-literal">true</span><br>            }<br>          }<br>        },<br>        {<br>          <span class="hljs-attr">"StartAt"</span>: <span class="hljs-string">"World"</span>,<br>          <span class="hljs-attr">"States"</span>: {<br>            <span class="hljs-attr">"World"</span>: {<br>              <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Pass"</span>,<br>              <span class="hljs-attr">"End"</span>: <span class="hljs-literal">true</span><br>            }<br>          }<br>        }<br>      ]<br>    },<br>    <span class="hljs-attr">"Hello World"</span>: {<br>      <span class="hljs-attr">"Type"</span>: <span class="hljs-string">"Pass"</span>,<br>      <span class="hljs-attr">"End"</span>: <span class="hljs-literal">true</span><br>    }<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>従ってASL使わずに楽にワークフローを構築したいのですが、その選択肢の一つが本記事で紹介したいAWS CDKを利用したTypeScriptによるワークフローの構築になります。TypeScriptで記述することにより型の補完が使えたり、CDKがワークフローを抽象化してくれていたりするので生のJSONよりも大分書きやすくなっています。</p>
+<p>AWS CDKについて簡単に補足すると、AWS CDKは、使い慣れたプログラミング言語を使用してクラウドアプリケーションリソースを定義するためのソフトウェア開発フレームワークです。CDKはいくつかのプログラミング言語をサポートしていますが、本記事ではTypeScriptを用います。</p>
+<h1 id="サーバーレスワークフローをtypescriptで作成しよう"><a href="#サーバーレスワークフローをtypescriptで作成しよう" class="header-anchor"></a>4. <a href="#サーバーレスワークフローをTypeScriptで作成しよう" class="headerlink" title="サーバーレスワークフローをTypeScriptで作成しよう"></a>サーバーレスワークフローをTypeScriptで作成しよう</h1><h2 id="セットアップ"><a href="#セットアップ" class="header-anchor"></a>4.1. <a href="#セットアップ" class="headerlink" title="セットアップ"></a>セットアップ</h2><p>前提条件としてAWS CLIのセットアップとNode.jsのインストールは済んでいるものとします。</p>
+<p>まず、CDKをインストールします。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install -g aws-cdk<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次にTypeScriptをインストールします。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install -g typescript<br></code></pre></td></tr></tbody></table></figure>
+
+<p>アプリケーションのディレクトリを作成します。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdir cdk-sfn<br>$ <span class="hljs-built_in">cd</span> cdk-sfn<br></code></pre></td></tr></tbody></table></figure>
+
+<p>TypeScriptで初期アプリを作成します。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ cdk init app --language typescript<br></code></pre></td></tr></tbody></table></figure>
+
+<p>これでセットアップは完了です。</p>
+<h2 id="初めてのワークフローの作成から実行まで"><a href="#初めてのワークフローの作成から実行まで" class="header-anchor"></a>4.2. <a href="#初めてのワークフローの作成から実行まで" class="headerlink" title="初めてのワークフローの作成から実行まで"></a>初めてのワークフローの作成から実行まで</h2><p>ワークフローはcdk-sfn-stack.tsに書いていきます。コード編集にはVisualStudio Code等を用います。<br>以下が初期のファイルで、とりあずはコンストラクタにガシガシ書いていきます。</p>
+<figure class="highlight typescript hljs"><figcaption><span>lib/cdk-sfn-stack.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> cdk <span class="hljs-keyword">from</span> <span class="hljs-string">'@aws-cdk/core'</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> CdkSfnStack <span class="hljs-keyword">extends</span> cdk.Stack {<br>  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">scope: cdk.Construct, id: <span class="hljs-built_in">string</span>, props?: cdk.StackProps</span>) {<br>    <span class="hljs-keyword">super</span>(scope, id, props);<br><br>    <span class="hljs-comment">// The code that defines your stack goes here</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>コードを書き始める前に依存関係のあるライブラリをインストールしておきます。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install @aws-cdk/aws-stepfunctions<br></code></pre></td></tr></tbody></table></figure>
+
+<p>次のコードは空の処理を３つ逐次実行するワークフローです。空の処理は<code>sfn.Pass</code>で作成し、<code>next</code>メソッドで繋いでいきます。</p>
+<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> cdk <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/core"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> sfn <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-stepfunctions"</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> CdkSfnStack <span class="hljs-keyword">extends</span> cdk.Stack {<br>  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">scope: cdk.Construct, id: <span class="hljs-built_in">string</span>, props?: cdk.StackProps</span>) {<br>    <span class="hljs-keyword">super</span>(scope, id, props);<br><br>    <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> sfn.Pass(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Start"</span>, {});<br>    <span class="hljs-keyword">const</span> step1 = <span class="hljs-keyword">new</span> sfn.Pass(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Step 1"</span>, {});<br>    <span class="hljs-keyword">const</span> end = <span class="hljs-keyword">new</span> sfn.Pass(<span class="hljs-keyword">this</span>, <span class="hljs-string">"End"</span>, {});<br><br>    <span class="hljs-keyword">const</span> definition = start.next(step1).next(end);  <span class="hljs-comment">// 処理を順番に繋ぐ</span><br><br>    <span class="hljs-keyword">const</span> stateMachine = <span class="hljs-keyword">new</span> sfn.StateMachine(<span class="hljs-keyword">this</span>, <span class="hljs-string">"cdk-sfn-state-machine"</span>, {<br>      stateMachineName: <span class="hljs-string">"cdk-sfn-state-machine"</span>,<br>      definition,<br>    });<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>deploy</code>コマンドでAWS上にStep Functionsをデプロイします。以下ターミナルから実行するとしばらくしてデプロイが完了します。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ cdk deploy<br></code></pre></td></tr></tbody></table></figure>
+
+<p>AWSマネジメントコンソールから<strong>「cdk-sfn-state-machiene」</strong>ステートマシーンが作成されていることを確認します。</p>
+<img src="/cats-cats-cats/gallery/daily/others/sfn-ex-1.png" class>
+
+<p>対象をクリックしてステートマシンを開いた後に以下の赤枠で囲った「実行の開始」ボタンを押して実行します。</p>
+<img src="/cats-cats-cats/gallery/daily/others/sfn-ex-2.png" class>
+
+<p>以下の実行開始ダイアログが出るので<code>「実行の開始」</code>を押して実行開始します。</p>
+<img src="/cats-cats-cats/gallery/daily/others/sfn-ex-3.png" class>
+
+<p>実行が完了したら以下の画面が表示されます。「Start」 →　「Step 1」 →　「End」というワークフローが実行されていることがわかると思います。</p>
+<img src="/cats-cats-cats/gallery/daily/others/sfn-ex-4.png" class>
+
+<h2 id="step1をlambda関数に変更してみる"><a href="#step1をlambda関数に変更してみる" class="header-anchor"></a>4.3. <a href="#Step1をLambda関数に変更してみる" class="headerlink" title="Step1をLambda関数に変更してみる"></a>Step1をLambda関数に変更してみる</h2><p>次にStep1をLambda関数にしてみたいと思います。Lambda関数は受け取ったJSONに格納された名前に対して挨拶するものとします。</p>
+<p>まずは関連モジュールをインストールします。インストールする「aws-lambda-nodejs」はTypeScriptをビルドしてLambda関数を作成してくれる便利なものですが、注意点が２つあってまだ実験的なモジュールであることと、利用にはDockerが必要になることです。</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install @aws-cdk/aws-stepfunctions-tasks @aws-cdk/aws-lambda-nodejs @types/aws-lambda<br></code></pre></td></tr></tbody></table></figure>
+
+<p>Lambda関数は<code>labmbda/hello</code>というディレクトリを作成し、その下に<code>index.ts</code>という名前で以下のLambda関数を作成します。</p>
+<figure class="highlight typescript hljs"><figcaption><span>lambda/hello/index.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> lambda <span class="hljs-keyword">from</span> <span class="hljs-string">"aws-lambda"</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handler</span>(<span class="hljs-params"><br>  event: Event,<br>  context: lambda.Context,<br>  callback: lambda.Callback<br></span>) </span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`hello <span class="hljs-subst">${event.name}</span>`</span>;<br>}<br><br><span class="hljs-keyword">type</span> Event = {<br>  name: <span class="hljs-built_in">string</span>;<br>};<br></code></pre></td></tr></tbody></table></figure>
+
+<p>そして、ワークフローの中身を以下のように書き換えます。変化している箇所はLambda関数をソースの場所を指定して作成していることと、そのLambda関数を呼び出すStep Functionsのタスクを作成しているところです。注目すべきは<code>Start</code>の出力結果としてJSONオブジェクトを生成しているところです。Step Functionsでは前の処理の出力結果を次の処理の入力として利用することができます。</p>
+<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> cdk <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/core"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> sfn <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-stepfunctions"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> tasks <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-stepfunctions-tasks"</span>;<br><span class="hljs-keyword">import</span> { NodejsFunction } <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-lambda-nodejs"</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> CdkSfnStack <span class="hljs-keyword">extends</span> cdk.Stack {<br>  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">scope: cdk.Construct, id: <span class="hljs-built_in">string</span>, props?: cdk.StackProps</span>) {<br>    <span class="hljs-keyword">super</span>(scope, id, props);<br><br>    <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> sfn.Pass(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Start"</span>, {<br>      result: sfn.Result.fromObject({ <span class="hljs-comment">// 次のタスクのインプットとしてにJsonオブジェクト(`{"name": "hinastory"}`)を渡す</span><br>        name: <span class="hljs-string">"hinastory"</span>,<br>      }),<br>    });<br><br>    <span class="hljs-keyword">const</span> helloFunc = <span class="hljs-keyword">new</span> NodejsFunction(<span class="hljs-keyword">this</span>, <span class="hljs-string">"hello"</span>, { <span class="hljs-comment">// Lambda関数の作成</span><br>      entry: <span class="hljs-string">"lambda/hello/index.ts"</span>,<br>      handler: <span class="hljs-string">"handler"</span>,<br>    });<br><br>    <span class="hljs-keyword">const</span> helloTask = <span class="hljs-keyword">new</span> tasks.LambdaInvoke(<span class="hljs-keyword">this</span>, <span class="hljs-string">"helloTask"</span>, { <span class="hljs-comment">// Lambda関数を呼び出すタスクの作成</span><br>      lambdaFunction: helloFunc,<br>      payloadResponseOnly: <span class="hljs-literal">true</span>,<br>    });<br><br>    <span class="hljs-keyword">const</span> end = <span class="hljs-keyword">new</span> sfn.Pass(<span class="hljs-keyword">this</span>, <span class="hljs-string">"End"</span>, {});<br><br>    <span class="hljs-keyword">const</span> definition = start.next(helloTask).next(end);<br><br>    <span class="hljs-keyword">const</span> stateMachine = <span class="hljs-keyword">new</span> sfn.StateMachine(<span class="hljs-keyword">this</span>, <span class="hljs-string">"cdk-sfn-state-machine"</span>, {<br>      stateMachineName: <span class="hljs-string">"cdk-sfn-state-machine"</span>,<br>      definition,<br>    });<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>ここまで定義は完成です。このあとは前回と同じように<code>cdk deplory</code>をしてステートマシンを実行してみてください。<br>以下のようにグラフインスペクターのビジュアルの「helloTask」をクリックして、「ステップ出力」のタブで「”hello hinastory”」が出力されていたら成功です。</p>
+<img src="/cats-cats-cats/gallery/daily/others/sfn-hello-task.png" class>
+
+<p>ここまでがStep Functionsの基本となります。あとはStep Functions分岐や繰り返し、並列処理等さまざま部品が用意されているのでそれらを用いて様々なワークフローが定義できます。</p>
+<h2 id="応用編"><a href="#応用編" class="header-anchor"></a>4.4. <a href="#応用編" class="headerlink" title="応用編"></a>応用編</h2><p>次はちょとした応用編です。S3にテスト用のzipファイルをアップロードして、lambda関数でs3内のディレクトリを探し、さらにそのディレクトリの中にあるzipファイルを並列に処理するサンプルです。ちょっと何言っているかわからないかもしれませんが、ワークフローは以下のようになります。</p>
+<img src="/cats-cats-cats/gallery/daily/others/sfn-advanced-state-machine.png" class>
+
+<p>s3のバケット内に含まれるオブジェクトまたはディレクトリをリストするLambda関数は以下のとおりです。</p>
+<figure class="highlight typescript hljs"><figcaption><span>lambda/list-s3/index.ts</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> lambda <span class="hljs-keyword">from</span> <span class="hljs-string">"aws-lambda"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> aws <span class="hljs-keyword">from</span> <span class="hljs-string">"aws-sdk"</span>;<br><span class="hljs-keyword">import</span> { delimiter } <span class="hljs-keyword">from</span> <span class="hljs-string">"path"</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handler</span>(<span class="hljs-params"><br>  event: Event,<br>  context: lambda.Context,<br>  callback: lambda.Callback<br></span>) </span>{<br>  <span class="hljs-built_in">console</span>.log(event);<br>  <span class="hljs-keyword">const</span> s3 = <span class="hljs-keyword">new</span> aws.S3();<br>  <span class="hljs-keyword">const</span> params: aws.S3.ListObjectsV2Request = event.location;<br>  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> s3.listObjectsV2(params).promise();<br>  <span class="hljs-built_in">console</span>.log(res);<br>  <span class="hljs-keyword">return</span> res;<br>}<br><br><span class="hljs-keyword">type</span> Event = {<br>  location: {<br>    Bucket: <span class="hljs-built_in">string</span>;<br>    Prefix: <span class="hljs-built_in">string</span>;<br>  };<br>};<br></code></pre></td></tr></tbody></table></figure>
+
+<p>そしてテストデータをアップロードして実際のワークフローを構築するコードが以下です。ポイントはS3内のオブジェクトをラムダ関数で一覧化し、そのデータでMapを用いて動的な並列処理を実行しているところです。</p>
+<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> cdk <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/core"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> sfn <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-stepfunctions"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> tasks <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-stepfunctions-tasks"</span>;<br><span class="hljs-keyword">import</span> { NodejsFunction } <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-lambda-nodejs"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> s3 <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-s3"</span>;<br><span class="hljs-keyword">import</span> { BlockPublicAccess } <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-s3"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> s3deploy <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-s3-deployment"</span>;<br><span class="hljs-keyword">import</span> { RemovalPolicy } <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/core"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> lambda <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-lambda"</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> iam <span class="hljs-keyword">from</span> <span class="hljs-string">"@aws-cdk/aws-iam"</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> CdkSfnStack <span class="hljs-keyword">extends</span> cdk.Stack {<br>  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">scope: cdk.Construct, id: <span class="hljs-built_in">string</span>, props?: cdk.StackProps</span>) {<br>    <span class="hljs-keyword">super</span>(scope, id, props);<br><br>    <span class="hljs-keyword">this</span>.createWorkLoad(<span class="hljs-string">"sfn-s3-test"</span>);<br>  }<br><br>  <span class="hljs-comment">// S3にテスト用のZIPファイルをアップロードする。ローカルのassets/test/配下にはテスト用のZIPファイルをいくつか置いておく</span><br>  <span class="hljs-comment">// ファイルは指定したバケットのdestinationKeyPrefix配下にアップロードされる</span><br>  <span class="hljs-comment">// この機能は"@aws-cdk/aws-s3-deployment"を使っているがまだExperimentalなので留意すること</span><br>  <span class="hljs-keyword">private</span> createTestData(bucketName: <span class="hljs-built_in">string</span>) {<br>    <span class="hljs-keyword">const</span> bucket = <span class="hljs-keyword">new</span> s3.Bucket(<span class="hljs-keyword">this</span>, bucketName, {<br>      bucketName: bucketName,<br>      removalPolicy: RemovalPolicy.DESTROY,<br>      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,<br>    });<br><br>    <span class="hljs-keyword">new</span> s3deploy.BucketDeployment(<span class="hljs-keyword">this</span>, <span class="hljs-string">"deploy1"</span>, {<br>      sources: [s3deploy.Source.asset(<span class="hljs-string">"assets/test"</span>)],<br>      destinationBucket: bucket,<br>      retainOnDelete: <span class="hljs-literal">false</span>,<br>      destinationKeyPrefix: <span class="hljs-string">"private/aaa/001"</span>,<br>    });<br><br>    <span class="hljs-keyword">new</span> s3deploy.BucketDeployment(<span class="hljs-keyword">this</span>, <span class="hljs-string">"deploy2"</span>, {<br>      sources: [s3deploy.Source.asset(<span class="hljs-string">"assets/test"</span>)],<br>      destinationBucket: bucket,<br>      retainOnDelete: <span class="hljs-literal">false</span>,<br>      destinationKeyPrefix: <span class="hljs-string">"private/aaa/002"</span>,<br>    });<br><br>    <span class="hljs-keyword">new</span> s3deploy.BucketDeployment(<span class="hljs-keyword">this</span>, <span class="hljs-string">"deploy3"</span>, {<br>      sources: [s3deploy.Source.asset(<span class="hljs-string">"assets/test"</span>)],<br>      destinationBucket: bucket,<br>      retainOnDelete: <span class="hljs-literal">false</span>,<br>      destinationKeyPrefix: <span class="hljs-string">"private/bbb/023"</span>,<br>    });<br>  }<br><br>  <span class="hljs-keyword">private</span> createWorkLoad(stackPrefix: <span class="hljs-built_in">string</span>) {<br>    <span class="hljs-keyword">const</span> bucketName = <span class="hljs-string">`<span class="hljs-subst">${stackPrefix}</span>-sfn-test`</span>;<br>    <span class="hljs-keyword">const</span> first = <span class="hljs-keyword">new</span> sfn.Pass(<span class="hljs-keyword">this</span>, <span class="hljs-string">"First"</span>, {<br>      result: sfn.Result.fromObject({<br>        Bucket: bucketName,<br>        Prefix: <span class="hljs-string">"private/"</span>,<br>        Delimiter: <span class="hljs-string">"/"</span>,<br>      }),<br>      resultPath: <span class="hljs-string">"$.location"</span>,<br>    });<br><br>    <span class="hljs-keyword">this</span>.createTestData(bucketName);<br><br>    <span class="hljs-keyword">const</span> listObjects = <span class="hljs-keyword">new</span> NodejsFunction(<span class="hljs-keyword">this</span>, <span class="hljs-string">"list-s3"</span>, {<br>      entry: <span class="hljs-string">"lambda/list-s3/index.ts"</span>,<br>      handler: <span class="hljs-string">"handler"</span>,<br>    });<br><br>    listObjects.addToRolePolicy(<br>      <span class="hljs-keyword">new</span> iam.PolicyStatement({<br>        resources: [<span class="hljs-string">"*"</span>],<br>        actions: [<span class="hljs-string">"s3:*"</span>],<br>      })<br>    );<br><br>    <span class="hljs-keyword">const</span> listFirstDirTask = <span class="hljs-keyword">new</span> tasks.LambdaInvoke(<span class="hljs-keyword">this</span>, <span class="hljs-string">"listFirstDirTask"</span>, {<br>      lambdaFunction: listObjects,<br>      payloadResponseOnly: <span class="hljs-literal">true</span>,<br>    });<br><br>    <span class="hljs-keyword">const</span> firstDirMap = <span class="hljs-keyword">new</span> sfn.Map(<span class="hljs-keyword">this</span>, <span class="hljs-string">"firstDirMap"</span>, { <span class="hljs-comment">// 動的な並列処理</span><br>      maxConcurrency: <span class="hljs-number">3</span>,<br>      itemsPath: sfn.JsonPath.stringAt(<span class="hljs-string">"$.CommonPrefixes"</span>),<br>    });<br><br>    <span class="hljs-keyword">const</span> testLambda = lambda.Function.fromFunctionArn(<br>      <span class="hljs-keyword">this</span>,<br>      <span class="hljs-string">"test-func"</span>,<br>      <span class="hljs-string">"arn:aws:lambda:ap-northeast-1:071000381825:function:cats-cats-cats"</span> <span class="hljs-comment">// 定義済みのLambda関数の呼び出し</span><br>    );<br><br>    <span class="hljs-keyword">const</span> listPayload = sfn.TaskInput.fromObject({<br>      location: {<br>        Bucket: bucketName,<br>        Prefix: sfn.JsonPath.stringAt(<span class="hljs-string">"$.Prefix"</span>),<br>        Delimiter: <span class="hljs-string">"/"</span>,<br>      },<br>    });<br><br>    <span class="hljs-keyword">const</span> testTask = <span class="hljs-keyword">new</span> tasks.LambdaInvoke(<span class="hljs-keyword">this</span>, <span class="hljs-string">"testLambda"</span>, {<br>      lambdaFunction: testLambda,<br>      payloadResponseOnly: <span class="hljs-literal">true</span>,<br>    });<br><br>    <span class="hljs-keyword">const</span> listSecondDirTask = <span class="hljs-keyword">new</span> tasks.LambdaInvoke(<br>      <span class="hljs-keyword">this</span>,<br>      <span class="hljs-string">"listSecondDirTask"</span>,<br>      {<br>        lambdaFunction: listObjects,<br>        payload: listPayload,<br>        payloadResponseOnly: <span class="hljs-literal">true</span>,<br>      }<br>    );<br><br>    <span class="hljs-keyword">const</span> secondDirMap = <span class="hljs-keyword">new</span> sfn.Map(<span class="hljs-keyword">this</span>, <span class="hljs-string">"secondDirMap"</span>, { <span class="hljs-comment">// 動的な並列処理</span><br>      maxConcurrency: <span class="hljs-number">3</span>,<br>      itemsPath: sfn.JsonPath.stringAt(<span class="hljs-string">"$.CommonPrefixes"</span>),<br>    });<br><br>    <span class="hljs-keyword">const</span> done = <span class="hljs-keyword">new</span> sfn.Pass(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Done"</span>, {});<br><br>    <span class="hljs-keyword">const</span> definition = first<br>      .next(listFirstDirTask)<br>      .next(firstDirMap)<br>      .next(done);<br><br>    firstDirMap.iterator(<br>      listSecondDirTask.next(secondDirMap.iterator(testTask))<br>    );<br><br>    <span class="hljs-keyword">const</span> stateMachine = <span class="hljs-keyword">new</span> sfn.StateMachine(<br>      <span class="hljs-keyword">this</span>,<br>      <span class="hljs-string">`<span class="hljs-subst">${stackPrefix}</span>-state-machine`</span>,<br>      {<br>        stateMachineName: <span class="hljs-string">`<span class="hljs-subst">${stackPrefix}</span>-state-machine`</span>,<br>        definition,<br>      }<br>    );<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h1 id="インフラ構築cdkとワークフロー作成stepfunctinsと関数作成lmabdaをアイソモーフィックにする利点"><a href="#インフラ構築cdkとワークフロー作成stepfunctinsと関数作成lmabdaをアイソモーフィックにする利点" class="header-anchor"></a>5. <a href="#インフラ構築-CDK-とワークフロー作成-StepFunctins-と関数作成-Lmabda-をアイソモーフィックにする利点" class="headerlink" title="インフラ構築(CDK)とワークフロー作成(StepFunctins)と関数作成(Lmabda)をアイソモーフィックにする利点"></a>インフラ構築(CDK)とワークフロー作成(StepFunctins)と関数作成(Lmabda)をアイソモーフィックにする利点</h1><p>アイソモーフィックとは「同型」という意味です。この記事ではインフラ構築(CDK)とワークフロー作成(StepFunctins)と関数作成(Lmabda)を同じ言語で作成することを指しています。例えば、インフラ構築をCloudFormation(YAML)で行い、StepFunctionsのフローをASL(JSON)で記述し、Lambda関数をPythonで記述するとします。この場合３つの異なる言語の習得が必要となり、仮に習得できたとしても実作業においてコンテキストスイッチのオーバーヘッドが高く、作業効率が格段に落ちます。</p>
+<p>このような場合に本記事のようにTypeScriptでアイソモーフィックにすることで、ストレスなく開発ができ開発体験がかなり向上します。またTypeScript以外でもCDKとLambdaがサポートしている言語であれば同じ言語にしやすいと思うのでぜひ試してみてください。</p>
+<h1 id="まとめ"><a href="#まとめ" class="header-anchor"></a>6. <a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h1><p>サーバレスワークフローの紹介とCDKとTypeScriptを用いたワークフローの構築方法を紹介しました。StepFunctionsとLambdaはとても相性が良く、サーバレスアプリケーションを簡単に実行制御できる便利な道具なので、色々な場で活躍できると思い紹介しました。本記事で紹介したコードもGitHubに公開したのでご利用ください。</p>
+<p><a href="https://github.com/hinastory/cdk-step-functions-sample" target="_blank" rel="noopener"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/hinastory/cdk-step-functions-sample.png" width="460px"></a></p>
+<p>本記事がサーバレスワークフローに興味がある方の一助になれば幸いです。</p>
+<h1 id="おまけ"><a href="#おまけ" class="header-anchor"></a>7. <a href="#おまけ" class="headerlink" title="おまけ"></a>おまけ</h1><p><a href="https://qiita.com/advent-calendar/2020/rust2" target="_blank" rel="noopener">Rust 2 Advent Calendar 2020 - Qiita</a>の6日目で、<a href="https://zenn.dev/hinastory/articles/b603b76bf01ccc" target="_blank" rel="noopener">RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</a>という記事も書いています。興味があれば御覧ください。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">この観点はあくまで利用者側の視点です。実装的にはワークフロー型の方が複雑になりやすく、ワークフローの可視化も望まれるので色々と難しい面が多いです。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">ワークフロー型を実現したサービスとしてAmazon SWFもありますが、新規の利用には推奨されていないので本記事では割愛します。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">一応、公式外では次のようなdraw.ioを用いたワークフローのエディタもあるみたいです。　<a href="https://github.com/sakazuki/step-functions-draw.io" target="_blank" rel="noopener">sakazuki/step-functions-draw.io</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+        </div>
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_hatena"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/">
+                <span class="level-item">RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+  <div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" title="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/rust_heart_lambda.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-12-06</div><a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" title="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜" rel="bookmark">RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" title="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/aws-cert-pro.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-11-19</div><a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" title="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)" rel="bookmark">「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" title="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-08-20</div><a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" title="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話" rel="bookmark">暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" title="Pulumiでプログラマのための「Infrastructure as Code」を実践する" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/pulumi.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-08-26</div><a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" title="Pulumiでプログラマのための「Infrastructure as Code」を実践する" rel="bookmark">Pulumiでプログラマのための「Infrastructure as Code」を実践する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" title="Serverless Days Tokyo 2019 に参加してきました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-10-27</div><a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" title="Serverless Days Tokyo 2019 に参加してきました" rel="bookmark">Serverless Days Tokyo 2019 に参加してきました</a></h3></div></li></ul></div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        hinastory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        The more you reason the less you create
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Kanagawa, Japan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        投稿
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        50
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        カテゴリ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        タグ
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        51
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hinastory/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/hinastory999">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/cats-cats-cats/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Qiita" href="https://qiita.com/hinastory">
+                
+                <i class="fas fa-search"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                カテゴリ
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/">
+            <span class="level-start">
+                <span class="level-item">DIY</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/DIY/Keyboard/">
+            <span class="level-start">
+                <span class="level-item">Keyboard</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">46</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Book/">
+            <span class="level-start">
+                <span class="level-item">Book</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/CloudNative/">
+            <span class="level-start">
+                <span class="level-item">CloudNative</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/ComputerScience/">
+            <span class="level-start">
+                <span class="level-item">ComputerScience</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Event/">
+            <span class="level-start">
+                <span class="level-item">Event</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Language/">
+            <span class="level-start">
+                <span class="level-item">Language</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/MachineLearning/">
+            <span class="level-start">
+                <span class="level-item">MachineLearning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Miscellaneous/">
+            <span class="level-start">
+                <span class="level-item">Miscellaneous</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/cats-cats-cats/categories/Tech/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/12/08/serverless-workflow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ts-sfn-cdk.png" alt="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-12-07T22:28:45.000Z">2020-12-08</time></div>
+                    <a href="/cats-cats-cats/2020/12/08/serverless-workflow/" class="has-link-black-ter is-size-6 has-text-weight-normal">サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/rust_heart_lambda.png" alt="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-12-05T22:28:45.000Z">2020-12-06</time></div>
+                    <a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" class="has-link-black-ter is-size-6 has-text-weight-normal">RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/aws-cert-pro.png" alt="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-18T22:28:45.000Z">2020-11-19</time></div>
+                    <a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" class="has-link-black-ter is-size-6 has-text-weight-normal">「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/shigoto_zaitaku_cat_man.png" alt="リモートワークを快適にする家電製品の紹介">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-10-07T22:28:45.000Z">2020-10-08</time></div>
+                    <a href="/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/" class="has-link-black-ter is-size-6 has-text-weight-normal">リモートワークを快適にする家電製品の紹介</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/rubykaigi-takeout2020.png" alt="RubyKaigi Takeout 2020">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-09-05T22:28:45.000Z">2020-09-06</time></div>
+                    <a href="/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/" class="has-link-black-ter is-size-6 has-text-weight-normal">RubyKaigi Takeout 2020</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 18.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 16.67px;">Book</a> <a href="/cats-cats-cats/tags/CDK/" style="font-size: 10px;">CDK</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 11.67px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Certification/" style="font-size: 10px;">Certification</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/FizzBuzz/" style="font-size: 10px;">FizzBuzz</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18.33px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/OGP/" style="font-size: 10px;">OGP</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 18.33px;">Ruby</a> <a href="/cats-cats-cats/tags/Rust/" style="font-size: 13.33px;">Rust</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18.33px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/StepFunctions/" style="font-size: 10px;">StepFunctions</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/cats-cats-cats/tags/WFH/" style="font-size: 10px;">WFH</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/12/">
+                <span class="level-start">
+                    <span class="level-item">2020/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/11/">
+                <span class="level-start">
+                    <span class="level-item">2020/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/10/">
+                <span class="level-start">
+                    <span class="level-item">2020/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/09/">
+                <span class="level-start">
+                    <span class="level-item">2020/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">2020/06</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">2020/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">2020/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2020/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">2020/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">2019/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">2019/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">2019/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019/08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019/07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019/05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CDK/">
+                        <span class="tag">CDK</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Certification/">
+                        <span class="tag">Certification</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/FizzBuzz/">
+                        <span class="tag">FizzBuzz</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/">
+                        <span class="tag">Flourish</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/OGP/">
+                        <span class="tag">OGP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/StepFunctions/">
+                        <span class="tag">StepFunctions</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TypeScript/">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/WFH/">
+                        <span class="tag">WFH</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最近の記事
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/12/08/serverless-workflow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/ts-sfn-cdk.png" alt="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-12-07T22:28:45.000Z">2020-12-08</time></div>
+                    <a href="/cats-cats-cats/2020/12/08/serverless-workflow/" class="has-link-black-ter is-size-6 has-text-weight-normal">サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/rust_heart_lambda.png" alt="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-12-05T22:28:45.000Z">2020-12-06</time></div>
+                    <a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" class="has-link-black-ter is-size-6 has-text-weight-normal">RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/aws-cert-pro.png" alt="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-18T22:28:45.000Z">2020-11-19</time></div>
+                    <a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" class="has-link-black-ter is-size-6 has-text-weight-normal">「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/shigoto_zaitaku_cat_man.png" alt="リモートワークを快適にする家電製品の紹介">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-10-07T22:28:45.000Z">2020-10-08</time></div>
+                    <a href="/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/" class="has-link-black-ter is-size-6 has-text-weight-normal">リモートワークを快適にする家電製品の紹介</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/cats-cats-cats/gallery/thumbnails/rubykaigi-takeout2020.png" alt="RubyKaigi Takeout 2020">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-09-05T22:28:45.000Z">2020-09-06</time></div>
+                    <a href="/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/" class="has-link-black-ter is-size-6 has-text-weight-normal">RubyKaigi Takeout 2020</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/cats-cats-cats/categories/Tech/Language/">Language</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget tag-cloud">
+    <div class="card-content">
+        <h3 class="menu-label">
+            タグクラウド
+        </h3>
+        <a href="/cats-cats-cats/tags/AWS/" style="font-size: 18.33px;">AWS</a> <a href="/cats-cats-cats/tags/AdventCalendar/" style="font-size: 15px;">AdventCalendar</a> <a href="/cats-cats-cats/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/cats-cats-cats/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/cats-cats-cats/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/cats-cats-cats/tags/Book/" style="font-size: 16.67px;">Book</a> <a href="/cats-cats-cats/tags/CDK/" style="font-size: 10px;">CDK</a> <a href="/cats-cats-cats/tags/CategoryTheory/" style="font-size: 11.67px;">CategoryTheory</a> <a href="/cats-cats-cats/tags/Cats/" style="font-size: 10px;">Cats</a> <a href="/cats-cats-cats/tags/Certification/" style="font-size: 10px;">Certification</a> <a href="/cats-cats-cats/tags/Compiler/" style="font-size: 10px;">Compiler</a> <a href="/cats-cats-cats/tags/Container/" style="font-size: 13.33px;">Container</a> <a href="/cats-cats-cats/tags/Dotty/" style="font-size: 11.67px;">Dotty</a> <a href="/cats-cats-cats/tags/ErgoDash/" style="font-size: 11.67px;">ErgoDash</a> <a href="/cats-cats-cats/tags/Event/" style="font-size: 20px;">Event</a> <a href="/cats-cats-cats/tags/Exam/" style="font-size: 10px;">Exam</a> <a href="/cats-cats-cats/tags/FizzBuzz/" style="font-size: 10px;">FizzBuzz</a> <a href="/cats-cats-cats/tags/Flourish/" style="font-size: 11.67px;">Flourish</a> <a href="/cats-cats-cats/tags/GCP/" style="font-size: 13.33px;">GCP</a> <a href="/cats-cats-cats/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/cats-cats-cats/tags/Go/" style="font-size: 13.33px;">Go</a> <a href="/cats-cats-cats/tags/Hexo/" style="font-size: 18.33px;">Hexo</a> <a href="/cats-cats-cats/tags/IaC/" style="font-size: 10px;">IaC</a> <a href="/cats-cats-cats/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/cats-cats-cats/tags/Jupyter/" style="font-size: 13.33px;">Jupyter</a> <a href="/cats-cats-cats/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/cats-cats-cats/tags/Keyboard/" style="font-size: 18.33px;">Keyboard</a> <a href="/cats-cats-cats/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/cats-cats-cats/tags/MLOps/" style="font-size: 10px;">MLOps</a> <a href="/cats-cats-cats/tags/MachineLearning/" style="font-size: 15px;">MachineLearning</a> <a href="/cats-cats-cats/tags/MakerFaire/" style="font-size: 10px;">MakerFaire</a> <a href="/cats-cats-cats/tags/Mind/" style="font-size: 10px;">Mind</a> <a href="/cats-cats-cats/tags/Minikube/" style="font-size: 10px;">Minikube</a> <a href="/cats-cats-cats/tags/OGP/" style="font-size: 10px;">OGP</a> <a href="/cats-cats-cats/tags/Qiita/" style="font-size: 10px;">Qiita</a> <a href="/cats-cats-cats/tags/ReView/" style="font-size: 10px;">ReView</a> <a href="/cats-cats-cats/tags/Ruby/" style="font-size: 18.33px;">Ruby</a> <a href="/cats-cats-cats/tags/Rust/" style="font-size: 13.33px;">Rust</a> <a href="/cats-cats-cats/tags/Scala/" style="font-size: 18.33px;">Scala</a> <a href="/cats-cats-cats/tags/Serverless/" style="font-size: 10px;">Serverless</a> <a href="/cats-cats-cats/tags/StepFunctions/" style="font-size: 10px;">StepFunctions</a> <a href="/cats-cats-cats/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/cats-cats-cats/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/cats-cats-cats/tags/WFH/" style="font-size: 10px;">WFH</a> <a href="/cats-cats-cats/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/cats-cats-cats/tags/gRPC/" style="font-size: 10px;">gRPC</a> <a href="/cats-cats-cats/tags/html5/" style="font-size: 10px;">html5</a> <a href="/cats-cats-cats/tags/k8s/" style="font-size: 13.33px;">k8s</a> <a href="/cats-cats-cats/tags/npm/" style="font-size: 15px;">npm</a> <a href="/cats-cats-cats/tags/oEmbed/" style="font-size: 11.67px;">oEmbed</a> <a href="/cats-cats-cats/tags/pulumi/" style="font-size: 10px;">pulumi</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            アーカイブ
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/12/">
+                <span class="level-start">
+                    <span class="level-item">2020/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/11/">
+                <span class="level-start">
+                    <span class="level-item">2020/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/10/">
+                <span class="level-start">
+                    <span class="level-item">2020/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/09/">
+                <span class="level-start">
+                    <span class="level-item">2020/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">2020/06</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">2020/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">2020/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2020/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">2020/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">2019/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">2019/11</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">2019/10</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">2019/09</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">2019/08</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">2019/07</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">2019/05</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">2019/04</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">2019/03</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">2019/02</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">2019/01</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/cats-cats-cats/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">2018/12</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                タグ
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/">
+                        <span class="tag">AdventCalendar</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Azure/">
+                        <span class="tag">Azure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Book/">
+                        <span class="tag">Book</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CDK/">
+                        <span class="tag">CDK</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/">
+                        <span class="tag">CategoryTheory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Cats/">
+                        <span class="tag">Cats</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Certification/">
+                        <span class="tag">Certification</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/">
+                        <span class="tag">Compiler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Container/">
+                        <span class="tag">Container</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/">
+                        <span class="tag">Dotty</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/">
+                        <span class="tag">ErgoDash</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Event/">
+                        <span class="tag">Event</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Exam/">
+                        <span class="tag">Exam</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/FizzBuzz/">
+                        <span class="tag">FizzBuzz</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/">
+                        <span class="tag">Flourish</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/GCP/">
+                        <span class="tag">GCP</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Go/">
+                        <span class="tag">Go</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/IaC/">
+                        <span class="tag">IaC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/">
+                        <span class="tag">Interpreter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keras/">
+                        <span class="tag">Keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/">
+                        <span class="tag">Keyboard</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/">
+                        <span class="tag">Keymap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/">
+                        <span class="tag">MLOps</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/">
+                        <span class="tag">MachineLearning</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/">
+                        <span class="tag">MakerFaire</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Mind/">
+                        <span class="tag">Mind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/">
+                        <span class="tag">Minikube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/OGP/">
+                        <span class="tag">OGP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/">
+                        <span class="tag">Qiita</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/ReView/">
+                        <span class="tag">ReView</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/">
+                        <span class="tag">Ruby</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/">
+                        <span class="tag">Serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/StepFunctions/">
+                        <span class="tag">StepFunctions</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/">
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/TypeScript/">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/WFH/">
+                        <span class="tag">WFH</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/">
+                        <span class="tag">gRPC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/k8s/">
+                        <span class="tag">k8s</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/">
+                        <span class="tag">oEmbed</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/">
+                        <span class="tag">pulumi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level-center has-text-centered">
+            <span class="copyright">
+                <a class="footer-logo" href="/cats-cats-cats/">
+                
+                 <img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜" height="28">
+                
+                </a>
+                <span class="copyright-text">&copy;2020 hinastory</span>
+            </span>
+            <p class="is-size-7">
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                    href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+            </p>
+        </div>
+        <div class="level-end">
+        
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ja");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/cats-cats-cats/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="#">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/cats-cats-cats/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/cats-cats-cats/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '投稿',
+                PAGES: 'Pages',
+                CATEGORIES: 'カテゴリ',
+                TAGS: 'タグ',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/cats-cats-cats/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/cats-cats-cats/js/insight.js" defer></script>
+<link rel="stylesheet" href="/cats-cats-cats/css/search.css">
+<link rel="stylesheet" href="/cats-cats-cats/css/insight.css">
+    
+</body>
+</html>

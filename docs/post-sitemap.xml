@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/</loc>
+        <lastmod>2020-12-30T10:44:54.499Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/</loc>
+        <lastmod>2020-12-30T10:02:55.575Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/</loc>
         <lastmod>2020-11-23T07:38:42.395Z</lastmod>
         <changefreq>weekly</changefreq>

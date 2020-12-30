@@ -129,3 +129,6 @@ oembed:
     twitter:
       match: twitter
       url: https://publish.twitter.com/oembed
+    youtube:
+      match: youtube
+      url: https://www.youtube.com/oembed

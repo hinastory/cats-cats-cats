@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-11-23T07:38:42.395Z</updated>
+  <updated>2020-12-30T10:44:54.499Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/</id>
+    <published>2020-12-07T22:28:45.000Z</published>
+    <updated>2020-12-30T10:44:54.499Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/aws&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Advent Calendar 2020 - Qiita&lt;/a&gt;の8日目の記事です。&lt;br&gt;(Qiitaの記事と同一です。)&lt;/p&gt;
+&lt;p&gt;ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う &lt;strong&gt;Lambda関数のワークフロー型の実行順序制御&lt;/strong&gt; を実現する方法、特に &lt;strong&gt;インフラ構築、ワークフロー作成、関数作成と呼び出しを全てTypeScriptで完結させる方法&lt;/strong&gt; について、その実現方法と利点を記載したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="CDK" scheme="https://hinastory.github.io/cats-cats-cats/tags/CDK/"/>
+    
+      <category term="StepFunctions" scheme="https://hinastory.github.io/cats-cats-cats/tags/StepFunctions/"/>
+    
+      <category term="TypeScript" scheme="https://hinastory.github.io/cats-cats-cats/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/</id>
+    <published>2020-12-05T22:28:45.000Z</published>
+    <updated>2020-12-30T10:02:55.575Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/rust2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Rust 2 Advent Calendar 2020 - Qiita&lt;/a&gt;の6日目の記事です。&lt;br&gt;(Zennの記事と同一です。)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS re:Invent 2020&lt;/a&gt;、初のオンライン開催ですが盛り上がってますねー&lt;br&gt;毎日ありえなくらいのアップデートが発表されて興奮の日々を送っています。&lt;br&gt;しかし、さすがクラウドのシェアNo.1のAWS、王者の貫禄というか凄みを感じます。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;AWS re:Invent 今回はオンラインで無料開催！｜AWS&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;今年で 9 回目を迎えるグローバルカンファレンス「AWS re:Invent」は、11/30 (月) ～ 12/18 (金) , 1/12 (火) ～ 1/14 (木) にて完全オンライン、無料で開催されます。基調講演、新サービス発表、様々なセッションに加え、日本語によるセッショ…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　&lt;br&gt;さて今回はその盛り上がりの勢いを借りて私の大好きなRustを盛り上げたいと思い筆を執りました。RustとLambdaは相性抜群という話を書いてみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
   
   <entry>
     <title>「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</title>
@@ -154,7 +212,7 @@
     
       &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
 &lt;p&gt;技術書典 応援祭は3月7日から4月5日までの期間限定開催です。技術書典には600を超えるサークルから技術本が出品されているので検索すればきっと気になる技術書が見つかると思います。本記事では自分が買って面白かった本を中心にご紹介したいと思います。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf09/images/market/gs_online_logo_SP.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;9月12日から9月22日までの期間限定マーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf09/images/market/gs_online_logo_SP.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;技術書典のオンラインマーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
     
     </summary>
     
@@ -246,9 +304,9 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
-      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
-    
       <category term="OGP" scheme="https://hinastory.github.io/cats-cats-cats/tags/OGP/"/>
+    
+      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
   </entry>
   
@@ -272,9 +330,9 @@
       <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Book/"/>
     
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
   </entry>
   
@@ -328,9 +386,9 @@
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -507,58 +565,6 @@
     
     
       <category term="Blog" scheme="https://hinastory.github.io/cats-cats-cats/tags/Blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ベン図を使って、インタプリタとコンパイラの違いを説明してみる</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/09/23/interpreter-compiler/</id>
-    <published>2019-09-22T22:28:45.000Z</published>
-    <updated>2020-01-18T10:35:29.416Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;長年インタプリタとコンパイラの違いの説明に苦慮してきました。その原因には言語と処理系を混同してしまったために起こる誤解や、処理系の内部と外部から見た差異に起因するものや、歴史的な背景によるものなど様々なものが含まれています。そのためインタプリタとコンパイラの定義を簡単に述べることは難しく、誤解が誤解を生む構造が出来上がっているものと考えられます。そこで本記事ではその状況を少しでも改善すべく、ベン図を使ってインタプリタとコンパイラの違いを説明してみたいと思います。&lt;/p&gt;
-&lt;p&gt;(本記事は「&lt;a href=&quot;https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658&quot; title target&gt;数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;」に触発されて書かれたものです。)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="ComputerScience" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/ComputerScience/"/>
-    
-    
-      <category term="Compiler" scheme="https://hinastory.github.io/cats-cats-cats/tags/Compiler/"/>
-    
-      <category term="Interpreter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Interpreter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/09/15/scala-indentation/</id>
-    <published>2019-09-14T22:28:45.000Z</published>
-    <updated>2019-11-16T07:03:40.205Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ここ数年でインデントベースの記述は広くプログラマ界隈で受け入れられるようになってきました。プログラミング言語ではPythonの成功が大きく、ドキュメントではmarkdownとyamlが広く普及しています。そしてScala 3でもとうとうその波に乗ろうという動きが見えてきました・・・&lt;/p&gt;
-&lt;p&gt;(2019年9月28日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B49%E6%9C%8828%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;br&gt;(2019年11月16日追記・更新: 追記内容は&lt;a href=&quot;/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B411%E6%9C%8816%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9&quot;&gt;ここ&lt;/a&gt;を見てください)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
-    
-    
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
-      <category term="Dotty" scheme="https://hinastory.github.io/cats-cats-cats/tags/Dotty/"/>
     
   </entry>
   
