@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-12-30T10:44:54.499Z</updated>
+  <updated>2020-12-31T11:50:55.615Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020年の技術的な振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/</id>
+    <published>2020-12-30T22:28:45.000Z</published>
+    <updated>2020-12-31T11:50:55.615Z</updated>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;今年はCOVID-19に振り回された一年でした。様々なオフラインイベントは中止か延期になり、ZoomやTeams、Chime、Clusterを使ったオンラインイベントに切り替わっていきました。また個人的には仕事も完全なテレワークになり、ライフスタイルに大きな変更を迫られた一年でもあります。そんな激動の一年もあと僅かということで、今年取り組んだ技術を振り返ってみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+  </entry>
   
   <entry>
     <title>サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜</title>
@@ -68,9 +93,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -304,9 +329,9 @@
       <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
     
     
-      <category term="OGP" scheme="https://hinastory.github.io/cats-cats-cats/tags/OGP/"/>
-    
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
+    
+      <category term="OGP" scheme="https://hinastory.github.io/cats-cats-cats/tags/OGP/"/>
     
   </entry>
   
@@ -330,9 +355,9 @@
       <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Book/"/>
     
     
-      <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
     
   </entry>
   
@@ -386,9 +411,9 @@
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -448,11 +473,11 @@
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
     
     
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
   </entry>
   
@@ -540,31 +565,6 @@
       <category term="Keras" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keras/"/>
     
       <category term="MLOps" scheme="https://hinastory.github.io/cats-cats-cats/tags/MLOps/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>★記事30本突破★ なぜ自分は技術ブログを書き続けるのか？</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/10/07/why_write_technical_blogs/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/10/07/why_write_technical_blogs/</id>
-    <published>2019-10-06T22:28:45.000Z</published>
-    <updated>2019-10-08T22:17:40.347Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ようやく本ブログの記事数も30本突破しました。お読み頂きありごとうございます。&lt;/p&gt;
-&lt;p&gt;記事30本は目標にしていた数字ですが、2018年12月に書き始めて達成したのが2019年9月なので10ヶ月かかりました。&lt;/p&gt;
-&lt;p&gt;普段は技術以外のことは全く書かない本ブログですが、今回は30本突破記念として特別に「なぜ自分は技術ブログを書き続けるのか」というテーマで書いてみたいと思います。あと、本ブログのPV数や人気記事も紹介したいと思いますので目次を見て気になるところから読み進めてください。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
-    
-    
-      <category term="Blog" scheme="https://hinastory.github.io/cats-cats-cats/tags/Blog/"/>
     
   </entry>
   
