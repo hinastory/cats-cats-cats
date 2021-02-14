@@ -1,6 +1,7 @@
 ---
 title: Developers Summit 2019に参加した感想など
 thumbnail: /gallery/thumbnails/devsumi-logo.png
+toc: true
 categories:
   - Tech
   - Event
@@ -18,9 +19,6 @@ Developers Summit 2019({% elink #devsumi https://twitter.com/hashtag/devsumi %})
 {% blogCard https://event.shoeisha.jp/devsumi/20190214 %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## 1日目 参加セッション
 

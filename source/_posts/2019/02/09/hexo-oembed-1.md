@@ -1,6 +1,7 @@
 ---
 title: HexoのoEmbedプラグインをnpmに公開した話(前編)
 thumbnail: /gallery/thumbnails/hexo-logo-2.png
+toc: true
 categories:
   - [Tech, Web]
 tags:
@@ -19,9 +20,6 @@ HexoにYouTubeなどのサイトを記事に埋め込むためのプラグイン
 [^1]: {% elink npm https://www.npmjs.com/  %}はNode.jsのパッケージ管理システムです。Node Package Managerが由来ですがnpmのページの左上を見るとクリックするごとに色々は`NPM`に出会えます(笑)。現在ではJavaScriptのパッケージ管理システムのデファクトスタンダートとなっています。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## 前提
 

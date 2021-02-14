@@ -1,6 +1,7 @@
 ---
 title: 技術書典 応援祭を応援してみる
 thumbnail: /gallery/thumbnails/tech-book-fest.png
+toc: true
 categories:
     - Tech
     - Event
@@ -18,10 +19,6 @@ date: 2020-03-15 07:28:45
 [^1]: 詳細は{% elink こちら https://blog.techbookfest.org/2020/02/16/tbf08-covid-19/ %}をご覧ください。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## おすすめの薄い本
 
 ページ数は少なめでも熱い情熱のこもった良著をご紹介します！ おすすめ本は応援祭の期間中に増殖するかもしれません😄

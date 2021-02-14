@@ -1,6 +1,7 @@
 ---
 title: 夢と希望とアイディアに満ち溢れたモノ作りの祭典、Maker Faire Tokyo 2019に行ってきました
 thumbnail: /gallery/thumbnails/Tokyo-MF_logo.gif
+toc: true
 categories:
   - Tech
   - Event
@@ -15,10 +16,6 @@ date: 2019-08-04 07:28:45
 {% blogCard https://makezine.jp/event/mft2019/ %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## 日時・場所
 
 日時と場所は以下のとおりです。自分は初日に当日券を買って入場しました。開場は12:00からだったので20分ほど余裕を持ってビッグサイトに到着したのですが、すでに50m近くの長い行列ができていました。

@@ -2,6 +2,7 @@
 title: ようこそキーマップ沼へ
 date: 2019-01-12 07:37:02
 thumbnail: /gallery/daily/keyboards/QWERTY.png
+toc: true
 categories:
     - [DIY, Keyboard]
 tags:
@@ -15,10 +16,6 @@ tags:
 - {% post_link ergodash-mini-2 %}
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
 
 ## そうだ、キーマップをいじろう！
 

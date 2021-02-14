@@ -1,6 +1,7 @@
 ---
 title: hexo-oembedを公開しました
 thumbnail: /gallery/thumbnails/hexo-logo.png
+toc: true
 categories:
   - [Tech, Web]
 tags:
@@ -20,9 +21,6 @@ HexoにYouTubeなどのサイトを記事に埋め込むためのプラグイン
 - {% post_link hexo-oembed-2 %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## hexo-oembedについて
 

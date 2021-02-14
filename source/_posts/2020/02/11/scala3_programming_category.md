@@ -1,6 +1,7 @@
 ---
 title: Scala3と圏論とプログラミング
 thumbnail: /gallery/thumbnails/scala3_cats.png
+toc: true
 categories:
   - Tech
   - Language
@@ -22,10 +23,6 @@ Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeat
 [^1]: 詳細は{% elink ここ https://dotty.epfl.ch/blog/2019/12/20/21th-dotty-milestone-release.html %}を参照してください。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## TL;DR
 - {% elink 圏論とプログラミング https://speakerdeck.com/inamiy/category-theory-and-programming %}に記載されているHaskellの記述をScala3に書き換えてみた
   - Scala3(Dotty)は0.22.0-RC1を利用

@@ -1,6 +1,7 @@
 ---
 title: Kubernetes Meetup Tokyo　#15 - KubeCon 2018 Recap に初参加
 thumbnail: /gallery/thumbnails/k8s-tokyo-logo.png
+toc: true
 categories:
   - Tech
   - CloudNative
@@ -16,9 +17,6 @@ Kubernetes Meetup Tokyoに初参加しました。会場は六本木ヒルズの
 {% blogCard https://k8sjp.connpass.com/event/112661/?utm_campaign=&utm_source=notifications&utm_medium=email&utm_content=title_link %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## Kubernetes Meetup Tokyo #15 - KubeCon 2018 Recapとは？
 

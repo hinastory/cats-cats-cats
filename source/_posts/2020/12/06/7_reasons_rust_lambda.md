@@ -1,6 +1,7 @@
 ---
 title: RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜
 thumbnail: /gallery/thumbnails/rust_heart_lambda.png
+toc: true
 categories:
   - Tech
   - CloudNative
@@ -21,11 +22,6 @@ date: 2020-12-06 07:28:45
 さて今回はその盛り上がりの勢いを借りて私の大好きなRustを盛り上げたいと思い筆を執りました。RustとLambdaは相性抜群という話を書いてみたいと思います。
 
 <!-- more -->
-
-# 目次
-
-<!-- toc -->
-
 # はじめに
 
 まずはRustとLambdaの簡単な紹介です。

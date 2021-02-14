@@ -1,6 +1,7 @@
 ---
 title: Scala3に入るかもしれないContextual Abstractionsを味見してみた(更新・追記あり)
 thumbnail: /gallery/thumbnails/dotty-logo.png
+toc: true
 categories:
   - [Tech,Language]
 tags:
@@ -14,9 +15,6 @@ Scala3のリサーチコンパイラである{% elink Dotty http://dotty.epfl.ch
 （記事の本文は2020年2月8日時点のDotty最新版と整合するように更新されています。更新の詳細は[ここ](/cats-cats-cats/2019/02/24/scala-dotty-contextual-abstractions/#追記更新内容)を見てくださいを見てください。)
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## TL;DR
 

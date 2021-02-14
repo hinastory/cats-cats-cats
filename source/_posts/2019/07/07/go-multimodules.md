@@ -1,6 +1,7 @@
 ---
 title: Go Modulesとマルチモジュール構成でGo Homeする方法
 thumbnail: /gallery/thumbnails/Go-Logo_LightBlue2.png
+toc: true
 categories:
   - Tech
   - Language
@@ -17,10 +18,6 @@ Go Modulesでマルチモジュールにする方法がわからなくて調べ�
 - Go Modulesは便利なので使っていこう
 - Go Modulesでマルチモジュール構成にする場合はgo.modファイルで`replace`ディレクティブを使おう
 - マルチモジュール構成の採用には慎重になろう
-
-## 目次
-<!-- toc -->
-
 ## Go Modulesとは
 
 とりあえず、`Go Modules is 何？`という方の為に簡単に説明します。ご存知の方はこの節を飛ばしてください。

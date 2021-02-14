@@ -1,6 +1,7 @@
 ---
 title: Scalaプログラマが圏論を学ぶためのオススメ文献 - 3選
 thumbnail: /gallery/profile/cats-cats-cats-logo.png
+toc: true
 categories:
   - Tech
   - ComputerScience
@@ -15,9 +16,6 @@ date: 2019-07-20 07:28:45
 [^1]: ときどき証明をつけずに`「簡単(自明)なので証明は読者に委ねる」`というパワーワードが記載されています。もちろんプログラマにとって「簡単」ではありません・・・
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## はじめに
 

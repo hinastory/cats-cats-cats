@@ -2,6 +2,7 @@
 title: サイレントでホットスワップなErgoDash miniを制作(後編)
 date: 2019-01-10 23:37:02
 thumbnail: /gallery/thumbnails/ergodash-mini2.jpg
+toc: true
 categories:
     - [DIY, Keyboard]
 tags:
@@ -14,10 +15,6 @@ tags:
 {% post_link ergodash-mini-1 %}
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
 
 ## 制作工程
 

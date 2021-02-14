@@ -12,4 +12,7 @@ module.exports = hexo => {
     require('hexo-component-inferno/lib/hexo/helper/cdn')(hexo);
     require('hexo-component-inferno/lib/hexo/helper/page')(hexo);
     require('hexo-component-inferno/lib/core/view').init(hexo);
+    require('./tags/elink')(hexo);
+    require('./tags/gh-card')(hexo);
+    require('./tags/alerts')(hexo);
 };

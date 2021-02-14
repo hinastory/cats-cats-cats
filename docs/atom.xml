@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2020-12-31T21:44:54.405Z</updated>
+  <updated>2021-02-14T11:39:14.248Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,15 +17,17 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2020年の技術的な振り返り</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/</id>
-    <published>2020-12-30T22:28:45.000Z</published>
-    <updated>2020-12-31T21:44:54.405Z</updated>
+    <title>絶対にRosetta 2を入れてはいけないM1 Mac開発環境構築 2021-2-1版</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/</id>
+    <published>2021-01-31T22:28:45.000Z</published>
+    <updated>2021-02-14T11:39:14.248Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;今年はCOVID-19に振り回された一年でした。様々なオフラインイベントは中止か延期になり、ZoomやTeams、Chime、Clusterを使ったオンラインイベントに切り替わっていきました。また個人的には仕事も完全なテレワークになり、ライフスタイルに大きな変更を迫られた一年でもあります。そんな激動の一年もあと僅かということで、今年取り組んだ技術を振り返ってみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;遅ればせながらM1 Macbook Airを購入したので開発環境を構築してみました。Rosetta 2が優秀だということは各所から聞こえてくるので今回は &lt;strong&gt;Rosetta 2を入れずに&lt;/strong&gt; どこまでできるか検証してみました。検証したのは以下のアプリです。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plain&quot;&gt;Chrome, Slack, Zoom, VSCode, iTerm2, prezto, Rust, exa, bat, procs, hexyl,&lt;br&gt;fd, procs, ripgrep, tokei, Homebrew, Emacs, tmux, Java 11, anyenv, Ruby,&lt;br&gt; Go, Node, Python, Jupyter Notebook, TensorFlow, RunCat, Docker&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;実際に上記でRosetta 2なしで動かなかったのは &lt;strong&gt;たったひとつだけ&lt;/strong&gt; でした。以下、順番に検証結果を書いていきますが、何が動かなかったのかを予想しながら読むのも面白いかもしれません。結論から知りたい方は最後のまとめを読んでください。&lt;/p&gt;
     
     </summary>
     
@@ -35,9 +37,36 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+      <category term="Mac" scheme="https://hinastory.github.io/cats-cats-cats/tags/Mac/"/>
+    
+      <category term="Environment" scheme="https://hinastory.github.io/cats-cats-cats/tags/Environment/"/>
+    
+      <category term="M1" scheme="https://hinastory.github.io/cats-cats-cats/tags/M1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年の技術的な振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/</id>
+    <published>2020-12-30T22:28:45.000Z</published>
+    <updated>2021-02-13T01:58:12.704Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年はCOVID-19に振り回された一年でした。様々なオフラインイベントは中止か延期になり、ZoomやTeams、Chime、Clusterを使ったオンラインイベントに切り替わっていきました。また個人的には仕事も完全なテレワークになり、ライフスタイルに大きな変更を迫られた一年でもあります。そんな激動の一年もあと僅かということで、今年取り組んだ技術を振り返ってみたいと思います。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -46,12 +75,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/</id>
     <published>2020-12-07T22:28:45.000Z</published>
-    <updated>2020-12-30T10:44:54.499Z</updated>
+    <updated>2021-02-13T01:59:06.512Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/aws&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Advent Calendar 2020 - Qiita&lt;/a&gt;の8日目の記事です。&lt;br&gt;(Qiitaの記事と同一です。)&lt;/p&gt;
-&lt;p&gt;ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う &lt;strong&gt;Lambda関数のワークフロー型の実行順序制御&lt;/strong&gt; を実現する方法、特に &lt;strong&gt;インフラ構築、ワークフロー作成、関数作成と呼び出しを全てTypeScriptで完結させる方法&lt;/strong&gt; について、その実現方法と利点を記載したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/aws&quot;&gt;AWS Advent Calendar 2020 - Qiita&lt;/a&gt;の8日目の記事です。&lt;br&gt;(Qiitaの記事と同一です。)&lt;/p&gt;
+&lt;p&gt;ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う &lt;strong&gt;Lambda関数のワークフロー型の実行順序制御&lt;/strong&gt; を実現する方法、特に &lt;strong&gt;インフラ構築、ワークフロー作成、関数作成と呼び出しを全てTypeScriptで完結させる方法&lt;/strong&gt; について、その実現方法と利点を記載したいと思います。&lt;/p&gt;
     
     </summary>
     
@@ -76,14 +105,14 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/</id>
     <published>2020-12-05T22:28:45.000Z</published>
-    <updated>2020-12-30T10:02:55.575Z</updated>
+    <updated>2021-02-13T01:29:06.525Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/rust2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Rust 2 Advent Calendar 2020 - Qiita&lt;/a&gt;の6日目の記事です。&lt;br&gt;(Zennの記事と同一です。)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS re:Invent 2020&lt;/a&gt;、初のオンライン開催ですが盛り上がってますねー&lt;br&gt;毎日ありえなくらいのアップデートが発表されて興奮の日々を送っています。&lt;br&gt;しかし、さすがクラウドのシェアNo.1のAWS、王者の貫禄というか凄みを感じます。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;AWS re:Invent 今回はオンラインで無料開催！｜AWS&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;今年で 9 回目を迎えるグローバルカンファレンス「AWS re:Invent」は、11/30 (月) ～ 12/18 (金) , 1/12 (火) ～ 1/14 (木) にて完全オンライン、無料で開催されます。基調講演、新サービス発表、様々なセッションに加え、日本語によるセッショ…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;　&lt;br&gt;さて今回はその盛り上がりの勢いを借りて私の大好きなRustを盛り上げたいと思い筆を執りました。RustとLambdaは相性抜群という話を書いてみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/rust2&quot;&gt;Rust 2 Advent Calendar 2020 - Qiita&lt;/a&gt;の6日目の記事です。&lt;br&gt;(Zennの記事と同一です。)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;AWS re:Invent 2020&lt;/a&gt;、初のオンライン開催ですが盛り上がってますねー&lt;br&gt;毎日ありえなくらいのアップデートが発表されて興奮の日々を送っています。&lt;br&gt;しかし、さすがクラウドのシェアNo.1のAWS、王者の貫禄というか凄みを感じます。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;re:Invent 2020 で発表された製品・機能一覧 | AWS&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　&lt;br&gt;さて今回はその盛り上がりの勢いを借りて私の大好きなRustを盛り上げたいと思い筆を執りました。RustとLambdaは相性抜群という話を書いてみたいと思います。&lt;/p&gt;
     
     </summary>
     
@@ -93,9 +122,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -104,11 +133,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/</id>
     <published>2020-11-18T22:28:45.000Z</published>
-    <updated>2020-11-23T07:38:42.395Z</updated>
+    <updated>2021-02-13T01:28:52.640Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;AWS(Amazon Web Service)は言わずと知れた知れたシェアNo.1のクラウドコンピューティングサービスです。そのAWSの認定資格の中でも最難関と言われている「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格することができました(2020年11月)。AWSの実力者でも対策なしでは一発合格は難しいと言われており、対策を十分にしたとしても合格は至難の業と言われています。本記事はなぜこの資格がそこまで難しいかと、なぜ自分は一発合格できたのかを振り返りながらその要因について考察したものになります。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;AWS(Amazon Web Service)は言わずと知れた知れたシェアNo.1のクラウドコンピューティングサービスです。そのAWSの認定資格の中でも最難関と言われている「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格することができました(2020年11月)。AWSの実力者でも対策なしでは一発合格は難しいと言われており、対策を十分にしたとしても合格は至難の業と言われています。本記事はなぜこの資格がそこまで難しいかと、なぜ自分は一発合格できたのかを振り返りながらその要因について考察したものになります。&lt;/p&gt;
     
     </summary>
     
@@ -129,11 +158,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/</id>
     <published>2020-10-07T22:28:45.000Z</published>
-    <updated>2020-11-17T21:45:06.076Z</updated>
+    <updated>2021-02-13T01:28:39.755Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;新型コロナウィルス感染症(COVID-19)の流行に伴い、在宅勤務(WFH)が長期化しそうです。もともとは週一くらいでテレワークをしていましたが、4月以降は完全にリモートワークに切り替わり出勤したのは数えるほどしかありません。&lt;br&gt;そのような環境のなかで如何にリモートワークを快適にするかは重要なテーマです。そこで今回は&lt;strong&gt;自分が実際に利用していて便利だと感じる家電製品&lt;/strong&gt;をご紹介したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;新型コロナウィルス感染症(COVID-19)の流行に伴い、在宅勤務(WFH)が長期化しそうです。もともとは週一くらいでテレワークをしていましたが、4月以降は完全にリモートワークに切り替わり出勤したのは数えるほどしかありません。&lt;br&gt;そのような環境のなかで如何にリモートワークを快適にするかは重要なテーマです。そこで今回は&lt;strong&gt;自分が実際に利用していて便利だと感じる家電製品&lt;/strong&gt;をご紹介したいと思います。&lt;/p&gt;
     
     </summary>
     
@@ -152,13 +181,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</id>
     <published>2020-09-05T22:28:45.000Z</published>
-    <updated>2020-09-07T02:10:40.232Z</updated>
+    <updated>2021-02-13T01:28:26.349Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title target&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
+      &lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title=&quot;&quot; target=&quot;&quot;&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
 
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -179,11 +208,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/</id>
     <published>2020-06-12T22:28:45.000Z</published>
-    <updated>2020-06-25T20:26:39.353Z</updated>
+    <updated>2021-02-13T01:28:12.936Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Rustを使っていると時々&lt;strong&gt;「あれ？この機能、他の言語に似てない？」&lt;/strong&gt;と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな&lt;strong&gt;「似ている」&lt;/strong&gt;を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;Rustを使っていると時々&lt;strong&gt;「あれ？この機能、他の言語に似てない？」&lt;/strong&gt;と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな&lt;strong&gt;「似ている」&lt;/strong&gt;を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。&lt;/p&gt;
     
     </summary>
     
@@ -202,15 +231,15 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/</id>
     <published>2020-03-31T22:28:45.000Z</published>
-    <updated>2020-07-23T07:39:35.971Z</updated>
+    <updated>2021-02-13T01:27:59.467Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;新しいプログラミング言語に入門するためには、やはり手を動かすことが大事です。本を読んで体系的に学ぶのももちろん重要ですが、それは言語の魅力を知ってからでも遅くはありません。&lt;/p&gt;
+      &lt;p&gt;新しいプログラミング言語に入門するためには、やはり手を動かすことが大事です。本を読んで体系的に学ぶのももちろん重要ですが、それは言語の魅力を知ってからでも遅くはありません。&lt;/p&gt;
 &lt;p&gt;しかし「Hello World」レベルだと簡単すぎて言語の違いを味わえず、ネットワークプログラミングのような高度なプログラミングはフレームワークの力が大きすぎて&lt;strong&gt;言語とフレームワークの狭間で立ち往生&lt;/strong&gt;することになります。&lt;/p&gt;
 &lt;p&gt;そこで登場するのが&lt;strong&gt;「FizzBuzz」&lt;/strong&gt;です。「FizzBuzz」は単純なプログラムでありながら、プログラムの真髄である&lt;strong&gt;「順次」&lt;/strong&gt;、&lt;strong&gt;「分岐」&lt;/strong&gt;、&lt;strong&gt;「繰り返し」&lt;/strong&gt;があり、数値計算も学べる興味深い題材です。&lt;/p&gt;
 &lt;p&gt;その「FizzBuzz」を利用して&lt;strong&gt;「Rust」&lt;/strong&gt;という言語を学んでみようのが本記事の趣旨です。「FizzBuzz」というシンプルなプログラムで「Rust」のような&lt;strong&gt;表現力が豊かな言語&lt;/strong&gt;の機能をどこまで使い尽くせるのかは興味が尽きないところですが、本記事では入門という観点で初歩的なFIzzBuzzから順を追って体を慣らしながらRustのある生活を体験できるようにしたいと思います。&lt;/p&gt;
-&lt;p&gt;さぁ、FizzBuzzからRust生活を始めましょう。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;p&gt;さぁ、FizzBuzzからRust生活を始めましょう。&lt;/p&gt;
     
     </summary>
     
@@ -231,13 +260,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/</id>
     <published>2020-03-14T22:28:45.000Z</published>
-    <updated>2020-03-16T00:38:25.273Z</updated>
+    <updated>2021-02-13T01:27:45.058Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
+      &lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
 &lt;p&gt;技術書典 応援祭は3月7日から4月5日までの期間限定開催です。技術書典には600を超えるサークルから技術本が出品されているので検索すればきっと気になる技術書が見つかると思います。本記事では自分が買って面白かった本を中心にご紹介したいと思います。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf09/images/market/gs_online_logo_SP.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;技術書典のオンラインマーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf09/images/market/gs_online_logo_SP.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;技術書典のオンラインマーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -258,12 +287,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/</id>
     <published>2020-02-19T22:28:45.000Z</published>
-    <updated>2020-03-09T17:24:47.543Z</updated>
+    <updated>2021-02-13T01:27:31.549Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/&quot;&gt;去年&lt;/a&gt;に引き続き、毎年恒例のDevelopers Summit 2020(#devsumi)に参加してきました。今年は新型コロナウイルス感染（COVID-19)の流行により開催が危ぶまれていましたが、ぎりぎり開催ができたようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://event.shoeisha.jp/devsumi/20200213&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fevent.shoeisha.jp%2Fdevsumi%2F20200213&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Shoeisha Event&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;http://event.shoeisha.jp/static/images/event/1066/1200-02.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;Developers Summit 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://event.shoeisha.jp/devsumi/20200213&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;ITエンジニアの祭典「Developers Summit 2020」（デブサミ2020）は、2020年2月13日・14日に開催！事前登録受付中！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;&lt;a href=&quot;https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/&quot;&gt;去年&lt;/a&gt;に引き続き、毎年恒例のDevelopers Summit 2020(#devsumi)に参加してきました。今年は新型コロナウイルス感染（COVID-19)の流行により開催が危ぶまれていましたが、ぎりぎり開催ができたようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://event.shoeisha.jp/devsumi/20200213&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fevent.shoeisha.jp%2Fdevsumi%2F20200213&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Shoeisha Event&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;http://event.shoeisha.jp/static/images/event/1066/1200-02.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;Developers Summit 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://event.shoeisha.jp/devsumi/20200213&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;ITエンジニアの祭典「Developers Summit 2020」（デブサミ2020）は、2020年2月13日・14日に開催！事前登録受付中！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -284,15 +313,15 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</id>
     <published>2020-02-10T22:28:45.000Z</published>
-    <updated>2020-05-04T01:21:17.473Z</updated>
+    <updated>2021-02-13T01:27:15.787Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;最近、&lt;a href=&quot;https://speakerdeck.com/inamiy/category-theory-and-programming&quot; title target&gt;圏論とプログラミング&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・&lt;/p&gt;
+      &lt;p&gt;最近、&lt;a href=&quot;https://speakerdeck.com/inamiy/category-theory-and-programming&quot; title=&quot;&quot; target=&quot;&quot;&gt;圏論とプログラミング&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・&lt;/p&gt;
 &lt;p&gt;ただ、自分にとって残念だったのは、資料で説明用に選択されたプログラミング言語が&lt;strong&gt;「Haskell」&lt;/strong&gt;だったことです。もちろんHaskellは素晴らしい言語です。ただ、自分にとってHaskellは外国語なのでちょっと理解が難しいのです。そしてこの資料が&lt;strong&gt;「Scala」&lt;/strong&gt;で書かれていたらと夢想せずにはいられなかったのです。&lt;/p&gt;
 &lt;p&gt;Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeature Completeを宣言しました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。この宣言で新機能の追加は終了して、あとは2020年末のリリースに向けてひたすら品質を上げていく段階に突入しました。つまり、ようやく次世代のScalaが全貌を現したということです。&lt;/p&gt;
 &lt;p&gt;ここである考えが脳裏を過りました。もしかしたら「圏論とプログラミング」に出てくるHaskellの記述を&lt;strong&gt;「素のScala3」&lt;/strong&gt;で置き換えられるのではないかと。&lt;/p&gt;
-&lt;p&gt;本記事ではその疑問を検証してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;p&gt;本記事ではその疑問を検証してみたいと思います。&lt;/p&gt;
     
     </summary>
     
@@ -313,13 +342,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/01/23/blog_card/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/01/23/blog_card/</id>
     <published>2020-01-22T22:28:45.000Z</published>
-    <updated>2020-01-24T18:51:42.621Z</updated>
+    <updated>2021-02-13T01:26:38.946Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;ブログカードとは以下のようにリンクをちょっとリッチに表示してくれる機能のことです。以前はこれってどうやって実現しているんだろうと不思議に思っていました。&lt;/p&gt;
-&lt;img src=&quot;/cats-cats-cats/gallery/daily/others/blogCard.png&quot; class&gt;
-&lt;p&gt;　&lt;br&gt;上記のようなブログカードは「はてなブログ」や「WordPress」等のブログサービスでよく見かけますが、基本的にこれらのブログカードは&lt;strong&gt;リンク先のURLを指定するだけ&lt;/strong&gt;で自動的に生成されています。本記事では上記のようなブログカードを支える技術について解説します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;ブログカードとは以下のようにリンクをちょっとリッチに表示してくれる機能のことです。以前はこれってどうやって実現しているんだろうと不思議に思っていました。&lt;/p&gt;
+&lt;img src=&quot;/cats-cats-cats/gallery/daily/others/blogCard.png&quot; class=&quot;&quot;&gt;
+&lt;p&gt;　&lt;br&gt;上記のようなブログカードは「はてなブログ」や「WordPress」等のブログサービスでよく見かけますが、基本的にこれらのブログカードは&lt;strong&gt;リンク先のURLを指定するだけ&lt;/strong&gt;で自動的に生成されています。本記事では上記のようなブログカードを支える技術について解説します。&lt;/p&gt;
     
     </summary>
     
@@ -340,12 +369,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/01/05/blog_to_book/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/01/05/blog_to_book/</id>
     <published>2020-01-04T22:28:45.000Z</published>
-    <updated>2020-01-18T10:15:20.659Z</updated>
+    <updated>2021-02-13T01:26:26.057Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;新年あけましておめでとうございます。お正月といえば&lt;strong&gt;書き初め&lt;/strong&gt;ですが自分は字が下手なのでブログを書くことにしました。&lt;/p&gt;
-&lt;p&gt;本記事のテーマは&lt;strong&gt;「ブログを本にする」&lt;/strong&gt;です。去年の約1年間で38本もの記事を書きましたが、それらを本にしたらどういうことになるかを解説してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;新年あけましておめでとうございます。お正月といえば&lt;strong&gt;書き初め&lt;/strong&gt;ですが自分は字が下手なのでブログを書くことにしました。&lt;/p&gt;
+&lt;p&gt;本記事のテーマは&lt;strong&gt;「ブログを本にする」&lt;/strong&gt;です。去年の約1年間で38本もの記事を書きましたが、それらを本にしたらどういうことになるかを解説してみたいと思います。&lt;/p&gt;
     
     </summary>
     
@@ -366,11 +395,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/</id>
     <published>2019-12-28T22:28:45.000Z</published>
-    <updated>2019-12-31T02:37:49.428Z</updated>
+    <updated>2021-02-13T01:26:14.097Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title target&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の19日目の記事です。&lt;br&gt;(19日目が投稿されなかったので代理投稿します。)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title=&quot;&quot; target=&quot;&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の19日目の記事です。&lt;br&gt;(19日目が投稿されなかったので代理投稿します。)&lt;/p&gt;
     
     </summary>
     
@@ -393,13 +422,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</id>
     <published>2019-12-24T22:28:45.000Z</published>
-    <updated>2019-12-29T09:33:00.538Z</updated>
+    <updated>2021-02-13T01:25:59.829Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title target&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の25日目の記事です。&lt;/p&gt;
-&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/ruby-2-7-0-rc2-released/&quot; title target&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;🎉🎉 そして無事に本日リリースされました!! おめでとうございます!!! 🎉🎉&lt;br&gt;&lt;del&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;そこでRuby2.7のリリースのお祝いとコミッターのみなさんのハードワークに感謝の気持ちを込めて、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title=&quot;&quot; target=&quot;&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の25日目の記事です。&lt;/p&gt;
+&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/ruby-2-7-0-rc2-released/&quot; title=&quot;&quot; target=&quot;&quot;&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;🎉🎉 そして無事に本日リリースされました!! おめでとうございます!!! 🎉🎉&lt;br&gt;&lt;del&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;そこでRuby2.7のリリースのお祝いとコミッターのみなさんのハードワークに感謝の気持ちを込めて、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;
     
     </summary>
     
@@ -411,9 +440,9 @@
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -424,13 +453,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</id>
     <published>2019-12-19T22:28:45.000Z</published>
-    <updated>2020-06-02T17:45:53.557Z</updated>
+    <updated>2021-02-13T01:25:44.121Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
+      &lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
 &lt;p&gt;・・・というのは前置きで、自分は&lt;strong&gt;Googleが好き&lt;/strong&gt;🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.gdgjapan.org%2Fdevfest2019&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;tokyo.gdgjapan.org&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.gdgjapan.org/img/devfest2020/topimg.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。日本では、9つのGDGチャプターとWTMが共催という形で、Android、Google Cloud Platform（GCP）、Web…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.gdgjapan.org%2Fdevfest2019&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;tokyo.gdgjapan.org&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.gdgjapan.org/img/devfest2020/topimg.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。日本では、9つのGDGチャプターとWTMが共催という形で、Android、Google Cloud Platform（GCP）、Web…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -453,17 +482,17 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/</id>
     <published>2019-12-01T22:28:45.000Z</published>
-    <updated>2020-01-18T10:28:05.382Z</updated>
+    <updated>2021-02-13T01:25:31.722Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;この記事は &lt;a href=&quot;https://adventar.org/calendars/4332&quot; title target&gt;キーボード #2 Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の２日目の記事です。天下一キーボードわいわい会 Vol.3に参加してきたのでその熱が冷めやらぬ内にレポートしようと思います。というかほぼフォトギャラリーです。写真を見て楽しんで頂ければと思います。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://adventar.org/calendars/4332&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fadventar.org%2Fcalendars%2F4332&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Adventar&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://adventar.org/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;キーボード #2 Advent Calendar 2019 - Adventar&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://adventar.org/calendars/4332&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;キーボード Advent Calendar 2019 の2枚目です。
+      &lt;p&gt;この記事は &lt;a href=&quot;https://adventar.org/calendars/4332&quot; title=&quot;&quot; target=&quot;&quot;&gt;キーボード #2 Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の２日目の記事です。天下一キーボードわいわい会 Vol.3に参加してきたのでその熱が冷めやらぬ内にレポートしようと思います。というかほぼフォトギャラリーです。写真を見て楽しんで頂ければと思います。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://adventar.org/calendars/4332&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fadventar.org%2Fcalendars%2F4332&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Adventar&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://adventar.org/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;キーボード #2 Advent Calendar 2019 - Adventar&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://adventar.org/calendars/4332&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;キーボード Advent Calendar 2019 の2枚目です。
 1枚目は[こちら](https://adventar.org/calendars/4117)
 
 こんにちは
 
-2019年、遊舎工房のリアル店舗のオープンに始まり、キーボード・キーキャップ・スイッチのGBが頻繁に…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+2019年、遊舎工房のリアル店舗のオープンに始まり、キーボード・キーキャップ・スイッチのGBが頻繁に…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -486,12 +515,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/11/21/deep-learning-for-general/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/11/21/deep-learning-for-general/</id>
     <published>2019-11-20T22:28:45.000Z</published>
-    <updated>2019-12-01T01:54:51.467Z</updated>
+    <updated>2021-02-13T01:25:17.897Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;G検定はAI・機械学習をビジネスに応用したい人向けの資格で近年注目を集めています。AI・機械学習は&lt;strong&gt;「何ができるか」&lt;/strong&gt;を誤解しているひとが非常に多く、魔法のように何でもできると思いこんでいる人や、以前のAIや機械学習のイメージを払拭できずにまだまだ&lt;strong&gt;「おもちゃ」&lt;/strong&gt;だと思いこんでいる人まで様々です。&lt;/p&gt;
-&lt;p&gt;G検定はこれらの誤解を乗り越えて、現実的にAI・機械学習をビジネスに応用するための&lt;strong&gt;「視座」&lt;/strong&gt;を身につけるためのうってつけの資格です。本記事では実際にG検定(JDLA Deep Learning for GENERAL 2019 #3)を受験した体験と得られた知見を紹介したいと思います。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;G検定はAI・機械学習をビジネスに応用したい人向けの資格で近年注目を集めています。AI・機械学習は&lt;strong&gt;「何ができるか」&lt;/strong&gt;を誤解しているひとが非常に多く、魔法のように何でもできると思いこんでいる人や、以前のAIや機械学習のイメージを払拭できずにまだまだ&lt;strong&gt;「おもちゃ」&lt;/strong&gt;だと思いこんでいる人まで様々です。&lt;/p&gt;
+&lt;p&gt;G検定はこれらの誤解を乗り越えて、現実的にAI・機械学習をビジネスに応用するための&lt;strong&gt;「視座」&lt;/strong&gt;を身につけるためのうってつけの資格です。本記事では実際にG検定(JDLA Deep Learning for GENERAL 2019 #3)を受験した体験と得られた知見を紹介したいと思います。&lt;/p&gt;
     
     </summary>
     
@@ -512,12 +541,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/</id>
     <published>2019-10-26T22:28:45.000Z</published>
-    <updated>2020-01-18T10:16:44.412Z</updated>
+    <updated>2021-02-13T01:24:51.083Z</updated>
     
     <summary type="html">
     
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Serverless Days Tokyo 2019に初参加してきました。サーバーレスの息吹を感じられる素晴らしいカンファレンスでした。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.serverlessdays.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.serverlessdays.io%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;ServerlessDays Tokyo&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.serverlessdays.io/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+      &lt;p&gt;Serverless Days Tokyo 2019に初参加してきました。サーバーレスの息吹を感じられる素晴らしいカンファレンスでした。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.serverlessdays.io/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.serverlessdays.io%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;ServerlessDays Tokyo&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.serverlessdays.io/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -532,39 +561,6 @@
       <category term="Serverless" scheme="https://hinastory.github.io/cats-cats-cats/tags/Serverless/"/>
     
       <category term="Azure" scheme="https://hinastory.github.io/cats-cats-cats/tags/Azure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MinikubeとTensorFlow 2.0でGPUを使ってCIFAR-10</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/10/20/minikube_tensorflow_mnist/</id>
-    <published>2019-10-19T22:28:45.000Z</published>
-    <updated>2019-10-20T22:50:27.020Z</updated>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;LinuxでGPU環境を構築して暫く経ちました。今回いろいろ古くなった環境を再構築する機会があったので、Linuxにおける機械学習の環境構築とCIFAR-10でディープラーニングに至る道程について簡単に記録に残しておくことにしました。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
-    
-    
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
-    
-      <category term="Minikube" scheme="https://hinastory.github.io/cats-cats-cats/tags/Minikube/"/>
-    
-      <category term="TensorFlow" scheme="https://hinastory.github.io/cats-cats-cats/tags/TensorFlow/"/>
-    
-      <category term="Keras" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keras/"/>
-    
-      <category term="MLOps" scheme="https://hinastory.github.io/cats-cats-cats/tags/MLOps/"/>
     
   </entry>
   

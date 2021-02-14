@@ -1,6 +1,7 @@
 ---
 title: about
 thumbnail: /gallery/profile/cats-cats-cats-logo.png
+toc: true
 no_share: true
 no_meta: true
 sitemap: false
@@ -9,19 +10,17 @@ sitemap: false
 ## 当サイトについて
 
 hinastoryのブログです。興味のある技術を中心に記録していきます。
-
-<!-- toc -->
-
 ## hinastoryについて
 
 10の質問風に答えてみます。
 
-{% details 好きな言語ベスト5 %}
-1. Scala(バランスがいい)
-2. Ruby(書いていてきもちいー)
-3. JavaScript(ES2015以降はわりとまともになったので好き)
-4. C(システムプログラミングの雄)
-5. Haskell(いろいろな発想を学べる)
+{% details 好きな言語ベスト6 %}
+1. Rust(書きやすく、速い。エコシステムが素晴らしい)
+2. Scala(バランスがいい)
+3. Ruby(書いていてきもちいー)
+4. JavaScript(ES2015以降はわりとまともになったので好き)
+5. C(システムプログラミングの雄)
+6. Haskell(いろいろな発想を学べる)
 {% enddetails %}
 
 {% details 嫌いな言語ベスト5 %}
@@ -33,7 +32,7 @@ hinastoryのブログです。興味のある技術を中心に記録してい�
 {% enddetails %}
 
 {% details 5KL以上のソフトウェアを書いたことがある言語 %}
-- C, Ruby, Scala, JavaScript, C++, C#, BASIC(N88 BASIC, Visual Basic, VBA), (HTML/CSS[^1])
+- C, Ruby, Scala, JavaScript, C++, C#, Rust, BASIC(N88 BASIC, Visual Basic, VBA), (HTML/CSS[^1])
 {% enddetails %}
 
 {% details 1KL以上のソフトウェアを書いたことのある言語 %}

@@ -2,6 +2,7 @@
 title: Hexoでブログに再入門
 date: 2018-12-02 23:02:58
 thumbnail: /gallery/thumbnails/hexo-logo.png
+toc: true
 categories:
     - [Tech, Web]
 tags:
@@ -16,9 +17,6 @@ Advent Calendar用に久々にブログを立てて見ました。
 まぁ、過去のことは置いておいてせっかく立てたので、何か役立ちそうなことをメモしていきたいと思います。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## Hexoとは
 

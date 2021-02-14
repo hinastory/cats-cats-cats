@@ -1,6 +1,7 @@
 ---
 title: Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる
 thumbnail: /gallery/daily/others/hinastory_cover.jpeg
+toc: true
 categories:
   - Tech
   - Book
@@ -14,9 +15,6 @@ date: 2020-01-05 07:28:45
 本記事のテーマは**「ブログを本にする」**です。去年の約1年間で38本もの記事を書きましたが、それらを本にしたらどういうことになるかを解説してみたいと思います。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## はじめに
 

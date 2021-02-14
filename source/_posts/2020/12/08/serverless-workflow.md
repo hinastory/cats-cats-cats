@@ -1,6 +1,7 @@
 ---
 title: サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜
 thumbnail: /gallery/thumbnails/ts-sfn-cdk.png
+toc: true
 categories:
   - Tech
   - CloudNative
@@ -17,12 +18,7 @@ date: 2020-12-08 07:28:45
 ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う **Lambda関数のワークフロー型の実行順序制御** を実現する方法、特に **インフラ構築、ワークフロー作成、関数作成と呼び出しを全てTypeScriptで完結させる方法** について、その実現方法と利点を記載したいと思います。
 
 <!-- more -->
-
-# 目次
-
-<!-- toc -->
-
-# イベント駆動とワークフロー
+## イベント駆動とワークフロー
 
 最初にイベント駆動型とワークフロー型のアーキテクチャについて簡単に説明します。すでにご存じの方は飛ばしていただいても構いません。
 
@@ -44,11 +40,11 @@ AWSはアーキテクチャとしてスケーラブルな非同期分散処理�
 [^1]: この観点はあくまで利用者側の視点です。実装的にはワークフロー型の方が複雑になりやすく、ワークフローの可視化も望まれるので色々と難しい面が多いです。
 [^2]: ワークフロー型を実現したサービスとしてAmazon SWFもありますが、新規の利用には推奨されていないので本記事では割愛します。
 
-# サーバーレスワークフローとは
+## サーバーレスワークフローとは
 
 サーバーレスは **EC2のような仮想サーバを使わずにアプリケーションを開発するアーキテクチャ** のことを指しますが、慣習的にはSaaSをLambda(FaaS)で連携させたり補完したりしてアプリケーションを構築するアーキテクチャを指します。サーバーレスワークフローは **そのサーバーレスにワークフロー制御のSaaSであるStep Functionsを加えてワークフロー制御を実現したアーキテクチャ** になります。
 
-# Step Functionsの弱点
+## Step Functionsの弱点
 
 Step Functionsの弱点は端的に言うとワークフローのビジュアルエディターが公式にはリリースされていないことです[^3]。ワークフローを作成・編集するには[Amazon ステートメント言語](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-amazon-states-language.html)(ASL)というJSONベースの言語で記述する必要があります。だたJSONで記述したワークフローの可視化は行えます。以下はAWS公式のサンプルのHelloWorldのステートマシンをStep Functionsのグラフインスペクターで可視化したものです。
 
@@ -136,9 +132,9 @@ AWS CDKについて簡単に補足すると、AWS CDKは、使い慣れたプロ
 
 [^3]: 一応、公式外では次のようなdraw.ioを用いたワークフローのエディタもあるみたいです。　[sakazuki/step-functions-draw.io](https://github.com/sakazuki/step-functions-draw.io)
 
-# サーバーレスワークフローをTypeScriptで作成しよう
+## サーバーレスワークフローをTypeScriptで作成しよう
 
-## セットアップ
+### セットアップ
 
 前提条件としてAWS CLIのセットアップとNode.jsのインストールは済んでいるものとします。
 
@@ -169,7 +165,7 @@ $ cdk init app --language typescript
 
 これでセットアップは完了です。
 
-## 初めてのワークフローの作成から実行まで
+### 初めてのワークフローの作成から実行まで
 
 ワークフローはcdk-sfn-stack.tsに書いていきます。コード編集にはVisualStudio Code等を用います。
 以下が初期のファイルで、とりあずはコンストラクタにガシガシ書いていきます。
@@ -238,7 +234,7 @@ AWSマネジメントコンソールから**「cdk-sfn-state-machiene」**ステ
 
 {% img /gallery/daily/others/sfn-ex-4.png  %}
 
-## Step1をLambda関数に変更してみる
+### Step1をLambda関数に変更してみる
 
 次にStep1をLambda関数にしてみたいと思います。Lambda関数は受け取ったJSONに格納された名前に対して挨拶するものとします。
 
@@ -313,7 +309,7 @@ export class CdkSfnStack extends cdk.Stack {
 
 ここまでがStep Functionsの基本となります。あとはStep Functions分岐や繰り返し、並列処理等さまざま部品が用意されているのでそれらを用いて様々なワークフローが定義できます。
 
-## 応用編
+### 応用編
 
 次はちょとした応用編です。S3にテスト用のzipファイルをアップロードして、lambda関数でs3内のディレクトリを探し、さらにそのディレクトリの中にあるzipファイルを並列に処理するサンプルです。ちょっと何言っているかわからないかもしれませんが、ワークフローは以下のようになります。
 
@@ -492,13 +488,13 @@ export class CdkSfnStack extends cdk.Stack {
 }
 {% endcode %}
 
-# インフラ構築(CDK)とワークフロー作成(StepFunctins)と関数作成(Lmabda)をアイソモーフィックにする利点
+## インフラ構築(CDK)とワークフロー作成(StepFunctins)と関数作成(Lmabda)をアイソモーフィックにする利点
 
 アイソモーフィックとは「同型」という意味です。この記事ではインフラ構築(CDK)とワークフロー作成(StepFunctins)と関数作成(Lmabda)を同じ言語で作成することを指しています。例えば、インフラ構築をCloudFormation(YAML)で行い、StepFunctionsのフローをASL(JSON)で記述し、Lambda関数をPythonで記述するとします。この場合３つの異なる言語の習得が必要となり、仮に習得できたとしても実作業においてコンテキストスイッチのオーバーヘッドが高く、作業効率が格段に落ちます。
 
 このような場合に本記事のようにTypeScriptでアイソモーフィックにすることで、ストレスなく開発ができ開発体験がかなり向上します。またTypeScript以外でもCDKとLambdaがサポートしている言語であれば同じ言語にしやすいと思うのでぜひ試してみてください。
 
-# まとめ
+## まとめ
 
 サーバレスワークフローの紹介とCDKとTypeScriptを用いたワークフローの構築方法を紹介しました。StepFunctionsとLambdaはとても相性が良く、サーバレスアプリケーションを簡単に実行制御できる便利な道具なので、色々な場で活躍できると思い紹介しました。本記事で紹介したコードもGitHubに公開したのでご利用ください。
 
@@ -506,7 +502,7 @@ export class CdkSfnStack extends cdk.Stack {
 
 本記事がサーバレスワークフローに興味がある方の一助になれば幸いです。
 
-# おまけ
+## おまけ
 
 [Rust 2 Advent Calendar 2020 - Qiita](https://qiita.com/advent-calendar/2020/rust2)の6日目で、[RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜](https://zenn.dev/hinastory/articles/b603b76bf01ccc)という記事も書いています。興味があれば御覧ください。
 

@@ -1,6 +1,7 @@
 ---
 title: Serverless Days Tokyo 2019 に参加してきました
 thumbnail: /gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png
+toc: true
 categories:
   - Tech
   - CloudNative
@@ -15,10 +16,6 @@ Serverless Days Tokyo 2019に初参加してきました。サーバーレスの
 {% blogCard https://tokyo.serverlessdays.io/ %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## ServerlessDays Tokyoとは
 
 ServerlessDays Tokyoは、サーバーレス[^1]に関する技術を扱う技術者のためのカンファレンスです。2016年が第一回で今年で4回目ですが、ServerlessDays Tokyoになったのは今年からで去年まではserverlessconf Tokyoという名称で行われていました[^2]。カンファレンスの規模は400名弱であり、1トラック形式です。コーヒーとドーナツがデプロイされており、スポンサーブースを全て回って缶バッジを集めるとイベントTシャツが貰えるなど色々と工夫されたカンファレンスだと感じました。

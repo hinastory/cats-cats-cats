@@ -2,6 +2,7 @@
 title: JapanContainerDays v18.12 に初参加
 date: 2018-12-06 23:22:18
 thumbnail: /gallery/thumbnails/container-days-logo.png
+toc: true
 categories:
     - Tech
     - Event
@@ -18,10 +19,6 @@ tags:
 [^1]: JapanContainerDaysは2回目にして、今回で最終回だそうです。次回からはCloudNative Daysに変わるそうですが{% elink  Cloud Native Days Tokyo http://cloudnativedays.net/outline/ %}との関係性はよくわかりません・・・
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## 会場の様子
 
 会場は御茶ノ水の{%elink ソラシティカンファレンスセンター https://solacity.jp/cc/access/  %}でした。ここには以前に{%elink デブサミ夏 https://event.shoeisha.jp/devsumi/20180727 %}や{%elink 大江戸Ruby会議06 http://regional.rubykaigi.org/oedo06/ %}に参加した時に来たことがあったので特に迷うことなく到着しました[^2]。

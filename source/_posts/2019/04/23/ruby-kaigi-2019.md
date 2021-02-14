@@ -1,6 +1,7 @@
 ---
 title: RubyKaigi 2019 in 福岡に参加してきた話
 thumbnail: /gallery/thumbnails/ruby-kaigi-2019-logo.png
+toc: true
 categories:
   - Tech
   - Event
@@ -14,10 +15,6 @@ date: 2019-04-23 08:17:46
 {% blogCard https://rubykaigi.org/2019 %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## 会場について
 
 日時と場所は以下のとおりです。初日は羽田から飛行機で飛んで、8時半頃に福岡空港に着きました。時間があり天気も良かったので、地下鉄で中洲川端まで出てそこからは徒歩で会場に向かいました。

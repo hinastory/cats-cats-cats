@@ -1,6 +1,7 @@
 ---
 title: factfullness
 thumbnail: /gallery/thumbnails/xxx.jpg
+toc: true
 categories:
   - - XXX
 tags:
@@ -11,9 +12,6 @@ date: 2019-05-12 06:03:57
 
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## マインドフルネスとは
 

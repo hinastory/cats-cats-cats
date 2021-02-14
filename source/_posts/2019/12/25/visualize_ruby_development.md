@@ -1,6 +1,7 @@
 ---
 title: 🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた
 thumbnail: /gallery/thumbnails/header-ruby-logo@2x.png
+toc: true
 categories:
   - Tech
   - Language
@@ -21,10 +22,6 @@ date: 2019-12-25 07:28:45
 そこでRuby2.7のリリースのお祝いとコミッターのみなさんのハードワークに感謝の気持ちを込めて、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。
 
 <!-- more -->
-
-
-## 目次
-<!-- toc -->
 
 ## はじめに
 

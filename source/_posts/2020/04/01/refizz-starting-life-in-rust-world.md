@@ -1,6 +1,7 @@
 ---
 title: Re：FizzBuzzから始めるRust生活
 thumbnail: /gallery/thumbnails/rust.png
+toc: true
 categories:
     - Tech
     - Language
@@ -20,11 +21,6 @@ date: 2020-04-01 07:28:45
 さぁ、FizzBuzzからRust生活を始めましょう。
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
-
 ## はじめに
 
 本記事は、すでに何らかのプログラミング言語の経験を持っているRust初心者を対象としています。特になんとなく**「Rust怖い」**感じている方に対して、Rustの普段使いの魅力をFizzBuzzのようなシンプルな題材を通してお伝えできればと思います。

@@ -1,6 +1,7 @@
 ---
 title: Rustをカジュアルに使うためのTIPS
 thumbnail: /gallery/daily/others/rust-influences.png
+toc: true
 categories:
     - Tech
     - Language
@@ -15,10 +16,6 @@ date: 2020-07-17 07:28:45
 「型のついたRuby」くらいの感覚で
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
 
 ## はじめに
 

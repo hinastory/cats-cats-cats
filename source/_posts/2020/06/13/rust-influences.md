@@ -1,6 +1,7 @@
 ---
 title: Rustに影響を与えた言語たち
 thumbnail: /gallery/daily/others/rust-influences.png
+toc: true
 categories:
     - Tech
     - Language
@@ -11,11 +12,6 @@ date: 2020-6-13 07:28:45
 Rustを使っていると時々**「あれ？この機能、他の言語に似てない？」**と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな**「似ている」**を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
-
 ## TL;DR
 
 - Rustに影響を与えた言語に関してはすでにまとまったページがありました

@@ -1,6 +1,7 @@
 ---
 title: hexo-tag-detailsを公開しました
 thumbnail: /gallery/thumbnails/hexo-logo.png
+toc: true
 categories:
   - [Tech, Web]
 tags:
@@ -17,9 +18,6 @@ HexoにHTML5の {% elink detailsタグ https://developer.mozilla.org/ja/docs/Web
 [^1]: 流石に今どきHTML5のタグをサポートしていないブラウザなんてないと思っていましたが、IEとEdgeはだめなようです・・・もちろん表示されないわけではなく、タグが無視されて表示されるので見れないわけではないです。誰もIEやEdgeなんて使っていないですよね？少なくともこのブログのアクセス解析の結果、賢明な読者様の中にはそういう方はいらっしゃらなかったようなので遠慮なく`details`タグを使えました。まぁ、IEはすでに非推奨ですしEdgeもChromeベースになるらしいので将来的には`details`タグの互換性を気にする必要はなくなるはずです。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## hexo-tag-detailsについて
 

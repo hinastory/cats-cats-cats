@@ -1,6 +1,7 @@
 ---
 title: ScalaMatsuri 2019に参加してきました
 thumbnail: /gallery/thumbnails/scala-matsuri-logo.png
+toc: true
 categories:
   - Tech
   - Event
@@ -14,10 +15,6 @@ ScalaMatsuri 2019に参加してきました。毎年何気に楽しみにして
 {% blogCard https://2019.scalamatsuri.org/ %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## ScalaMatsuriとは
 
 プログラミング言語Scalaをテーマにした日本最大級のカンファレンスです。今年は「Scala Conference in Japan 2013」から数えて６回目の開催になります。ScalaMatsuriの特色としてはセッションの決定がチケット購入者の投票によって決まること、海外スピーカの招待に力を入れておりセッションに日英同時通訳が入っていること、アンカンファレンスがあることなどが挙げられます。また、その名の通り「お祭り」の雰囲気を出すための工夫が随所に見られ、非常に親しみやすいカンファレンスとなっています。

@@ -1,6 +1,7 @@
 ---
 title: 貧者の圏論
 thumbnail: /gallery/thumbnails/grpc-horizontal-color.png
+toc: true
 categories:
   - Tech
   - Language
@@ -11,10 +12,6 @@ date: 2019-08-03 07:28:45
 ---
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 
 
 ## はじめに

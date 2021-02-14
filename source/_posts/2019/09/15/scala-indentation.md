@@ -1,6 +1,7 @@
 ---
 title: Scala 3、Pythonのようにインデントベースの構文で書けるようになるってよ！
 thumbnail: /gallery/thumbnails/dotty-logo.png
+toc: true
 categories:
   - Tech
   - Language
@@ -15,10 +16,6 @@ date: 2019-09-15 07:28:45
 (2019年11月16日追記・更新: 追記内容は[ここ](/cats-cats-cats/2019/09/15/scala-indentation/#2019%E5%B9%B411%E6%9C%8816%E6%97%A5%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)を見てください)
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## TL;DR
 
 - Scala 3のリサーチコンパイラである{% elink Dotty 0.18.1-RC1 https://github.com/lampepfl/dotty/releases/tag/0.18.1-RC1 %}にインデントベースの構文が実装されました

@@ -1,6 +1,7 @@
 ---
 title: Pulumiでプログラマのための「Infrastructure as Code」を実践する
 thumbnail: /gallery/thumbnails/pulumi.png
+toc: true
 categories:
   - Tech
   - CloudNative
@@ -13,10 +14,6 @@ date: 2019-08-26 07:28:45
 「Infrastructure as Code (IaC)」という言葉が生まれてからしばらく経ちました。IaCは簡単に言えば**インフラをコード化する**という概念です。この言葉に触れた当時はインフラをプログラミングできる時代がやってくるのだと思い、プログラマとして非常に心が躍りました。しかし残念ながらその気持ちは長くは続きませんでした。Ansible, Chef, Puppet, CloudFormation, AWS SDK, Terraform・・・ これらの技術はどれも素晴らしいものだと思います。Docker Composeやkubectl applyには感動した記憶もあります。しかしプログラマとしての自分が告げるのです。何かが足りない・・・本当に欲しいのは**「コレジャナイ」**と。そして長い、長い旅路の末にようやく巡り会うことができました。{% elink Pulumi https://www.pulumi.com/ %}という希望の星に。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## はじめに
 
 本記事ではPulumi[^1]で「Infrastructure as Code」を実践します。具体的にはAWS上に以下の2層構造のWebアプリケーション[^2]のインフラを100行未満のTypeScriptで記述します。

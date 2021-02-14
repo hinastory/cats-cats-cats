@@ -1,6 +1,7 @@
 ---
 title: HexoのoEmbedプラグインをnpmに公開した話(後編)
 thumbnail: /gallery/thumbnails/npm-logo.png
+toc: true
 categories:
   - [Tech, Web]
 tags:
@@ -16,9 +17,6 @@ HexoにYouTubeなどのサイトを記事に埋め込むためのプラグイン
 {% post_link hexo-oembed-1 %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## Hexoタグの制作
 

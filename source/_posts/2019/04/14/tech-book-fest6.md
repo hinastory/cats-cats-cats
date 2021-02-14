@@ -1,6 +1,7 @@
 ---
 title: 技術書典6に一般参加した話
 thumbnail: /gallery/thumbnails/tech-book-fest6-logo.jpg
+toc: true
 categories:
   - Tech
   - Event
@@ -14,11 +15,6 @@ date: 2019-04-14 22:50:47
 {% blogCard https://techbookfest.org/event/tbf06 %}
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
-
 ## 日時と場所
 
 日時と場所は以下のとおりです。池袋駅から徒歩で10分ほどで到着しました。

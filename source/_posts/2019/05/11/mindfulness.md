@@ -1,6 +1,7 @@
 ---
 title: 「エンジニアの心を整える技術」が予想以上に「技術書」だった件
 thumbnail: /gallery/thumbnails/mindfulness.png
+toc: true
 categories:
   - Tech
   - Book
@@ -16,10 +17,6 @@ date: 2019-05-11 09:48:16
 {% blogCard https://note.mu/karamage/n/n39f4cc266ba9 %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## 過去の閉ざされし封印
 
 技術書展6は自分も参加していてレポートは[ここ](https://hinastory.github.io/cats-cats-cats/2019/04/14/tech-book-fest6/)に書いたとおりですが、ちょうどこの本の販売ブースの前を通ったときに「エンジニアの心を整える技術」というタイトルで目を惹かれました。しかも、サブタイトルが「誰でも実践できる心のリファクタリング術」だったので、大いに反応しました。エンジニアならみんな大好き「リファリクタリング」です[^1]。検証しないわけにはいきません(笑)。

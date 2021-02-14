@@ -1,6 +1,7 @@
 ---
 title: 天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)
 thumbnail: /gallery/thumbnails/tenkaichi-keyboard-3.png
+toc: true
 categories:
   - Tech
   - Event
@@ -16,10 +17,6 @@ date: 2019-12-02 07:28:45
 {% blogCard https://adventar.org/calendars/4332 %}
 
 <!-- more -->
-
-
-## 目次
-<!-- toc -->
 
 ## 日時・場所
 

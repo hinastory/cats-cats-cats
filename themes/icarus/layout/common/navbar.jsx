@@ -38,7 +38,7 @@ class Navbar extends Component {
         } else {
             navbarLogo = siteTitle;
         }
-
+        const icons = {Home: "fa fa-home", Archives: "fas fa-archive fa-fw", Categories: "fas fa-cat fa-fw", Tags: "fas fa-tags fa-fw"};
         return <nav class="navbar navbar-main">
             <div class="container">
                 <div class="navbar-brand justify-content-center">
@@ -50,7 +50,8 @@ class Navbar extends Component {
                     {Object.keys(menu).length ? <div class="navbar-start">
                         {Object.keys(menu).map(name => {
                             const item = menu[name];
-                            return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}>{name}</a>;
+                            const icon = icons[name];
+                            return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}><i class={`${icon} mr-1`}></i> {name}</a>;
                         })}
                     </div> : null}
                     <div class="navbar-end">

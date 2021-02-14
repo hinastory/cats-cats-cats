@@ -3,6 +3,7 @@ const { Component, Fragment } = require('inferno');
 const Share = require('./share');
 const Donates = require('./donates');
 const Comment = require('./comment');
+const RelatedPopularPosts = require('../related_popular_posts');
 const ArticleLicensing = require('hexo-component-inferno/lib/view/misc/article_licensing');
 
 /**
@@ -25,35 +26,26 @@ module.exports = class extends Component {
 
         const indexLaunguage = config.language || 'en';
         const language = page.lang || page.language || config.language || 'en';
-        const cover = page.cover ? url_for(page.cover) : null;
+        const cover = page.thumbnail? url_for(page.thumbnail) : null;
 
         return <Fragment>
             {/* Main content */}
             <div class="card">
-                {/* Thumbnail */}
-                {cover ? <div class="card-image">
-                    {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
-                        <img class="fill" src={cover} alt={page.title || cover} />
-                    </a> : <span class="image is-7by3">
-                        <img class="fill" src={cover} alt={page.title || cover} />
-                    </span>}
-                </div> : null}
-                {/* Metadata */}
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
-                    {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
+                    {/* Title */}
+                    <h1 class="title is-3 is-size-4-mobile">
+                      {index ? <a class="link-muted" href={url_for(page.link || page.path)}>{page.title}</a> : page.title}
+                    </h1>
+                    {page.layout !== 'page' ? <div class="article-meta is-size-7 level is-mobile">
                         <div class="level-left">
                             {/* Creation Date */}
                             {page.date && <span class="level-item" dangerouslySetInnerHTML={{
-                                __html: _p('article.created_at', `<time dateTime="${date_xml(page.date)}" title="${new Date(page.date).toLocaleString()}">${date(page.date)}</time>`)
-                            }}></span>}
-                            {/* Last Update Date */}
-                            {page.updated && <span class="level-item" dangerouslySetInnerHTML={{
-                                __html: _p('article.updated_at', `<time dateTime="${date_xml(page.updated)}" title="${new Date(page.updated).toLocaleString()}">${date(page.updated)}</time>`)
+                                __html: `<i class="mr-1 fas fa-calendar-alt"></i><span>${moment(page.date).format("YYYY-MM-DD")}</span>`
                             }}></span>}
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
                             {/* Categories */}
-                            {page.categories && page.categories.length ? <span class="level-item">
+                            {page.categories && page.categories.length ? <span class="level-item"><i class="mr-1 fas fa-cat"></i>
                                 {(() => {
                                     const categories = [];
                                     page.categories.forEach((category, i) => {
@@ -77,24 +69,27 @@ module.exports = class extends Component {
                             {!index && plugins && plugins.busuanzi === true ? <span class="level-item" id="busuanzi_container_page_pv" dangerouslySetInnerHTML={{
                                 __html: _p('plugin.visit_count', '<span id="busuanzi_value_page_pv">0</span>')
                             }}></span> : null}
+                            {/* Tags */}
+                            {!index && page.tags && page.tags.length ? <span class="level-item">
+                              <i class="fas fa-tags"></i><span>
+                              {page.tags.map(tag => {
+                              return <a class="link-muted ml-1" rel="tag" href={url_for(tag.path)}>{tag.name}</a>;
+                              }).reduce((prev, curr) => [ prev, ', ', curr ])}
+                              </span>
+                              </span> : null}
                         </div>
-                    </div> : null}
-                    {/* Title */}
-                    <h1 class="title is-3 is-size-4-mobile">
-                        {index ? <a class="link-muted" href={url_for(page.link || page.path)}>{page.title}</a> : page.title}
-                    </h1>
+                      </div> : null}
+                    {/* Thumbnail */}
+                    {cover ? <div class="card-image">
+                        <span class="image is-7by3">
+                        <img class="cover-image" src={cover} />
+                        </span>
+                      </div> : null}
                     {/* Content/Excerpt */}
                     <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
                     {/* Licensing block */}
                     {!index && article && article.licenses && Object.keys(article.licenses)
                         ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
-                    {/* Tags */}
-                    {!index && page.tags && page.tags.length ? <div class="article-tags is-size-7 mb-4">
-                        <span class="mr-2">#</span>
-                        {page.tags.map(tag => {
-                            return <a class="link-muted mr-2" rel="tag" href={url_for(tag.path)}>{tag.name}</a>;
-                        })}
-                    </div> : null}
                     {/* "Read more" button */}
                     {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}>{__('article.more')}</a> : null}
                     {/* Share button */}
@@ -120,6 +115,8 @@ module.exports = class extends Component {
             </nav> : null}
             {/* Comment */}
             {!index ? <Comment config={config} page={page} helper={helper} /> : null}
+            {/* Related Posts */}
+            {!index ? <RelatedPopularPosts config={config} post={page} helper={helper} /> : null}
         </Fragment>;
     }
 };

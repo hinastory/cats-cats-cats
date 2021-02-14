@@ -1,6 +1,7 @@
 ---
 title: 【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)
 thumbnail: /gallery/events/advent-calendar-2019/ruby-viz-file.png
+toc: true
 categories:
   - Tech
   - Language
@@ -14,10 +15,6 @@ date: 2019-12-29 07:28:45
 (19日目が投稿されなかったので代理投稿します。)
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## はじめに
 
 本記事は19日目の代理投稿ですが、25日を過ぎて書かれています。そして{% elink 25日目 https://qiita.com/hinastory/items/6fb5da7fe424d1948783 %}の続きです。25日目では作者単位で可視化を行いましたが今回はファイル単位で行ってみたいと思います。

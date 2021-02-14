@@ -1,6 +1,7 @@
 ---
 title: gRPC UIを使ってみんなが触れるgRPCの遊び場を作りました
 thumbnail: /gallery/thumbnails/grpc-horizontal-color.png
+toc: true
 categories:
   - Tech
   - Miscellaneous
@@ -22,10 +23,6 @@ gRPC UI playgroundの運用に利用していたArukasが2020年1月31日で終�
 [^1]: RPC(Remote Procedure Call)は、簡単に言えばプログラムの中から内部の関数を呼ぶのと似たような感覚で、外部のネットワーク上の関数や手続きを呼べるようにする技術のことです。他のRPCにはSOAPやJSON-RPCなどがあります。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## TL;DR
 
 - gRPC UIで作成した遊び場はこちらです :point_right: {% elink  gRPC UI playground http://grpcui.hinastory.com %}

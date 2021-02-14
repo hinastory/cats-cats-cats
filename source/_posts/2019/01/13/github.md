@@ -1,6 +1,7 @@
 ---
 title: GitHubのプライベートリポジトリに移行した話
 thumbnail: /gallery/thumbnails/github-logo.png
+toc: true
 categories:
   - Tech
   - Miscellaneous
@@ -15,10 +16,6 @@ GitHubがプライベートリポジトリをタダで使わせてくれるっ�
 {% blogCard http://www.itmedia.co.jp/news/articles/1901/08/news051.html %}
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## これまで
 
 これまではパブリックなリポジトリはGitHubにおいて、プライベートなリポジトリは自宅のKubernetes上にGitBucketを立てて、そこに置いていました。

@@ -1,0 +1,100 @@
+version: 4.0.0
+variant: default
+logo: /gallery/profile/cats-cats-cats-logo.png
+head:
+    favicon: /favicon.ico
+    favicon_32: /gallery/profile/cats-cats-cats.logo-32.png
+    meta: 
+    rss: /cats-cats-cats/atom.xml
+    title: cats cats cats
+    open_graph:
+        fb_app_id: 
+        fb_admins: 
+        twitter_id: 
+        twitter_site: 
+        google_plus: 
+navbar:
+    menu:
+        Home: /
+        Archives: /archives
+        Categories: /categories
+        Tags: /tags
+        About: /about
+footer: 
+article:
+    highlight:
+        theme: vs2015
+        clipboard: true
+        fold: unfolded
+    readtime: false
+search:
+    type: insight
+comment:
+    type: 
+share:
+    type: addtoany
+sidebar:
+    left:
+        sticky: false
+    right:
+        sticky: true
+widgets:
+    -
+        type: profile
+        position: right
+        author: hinastory
+        author_title: The more you reason the less you create
+        location: 'Kanagawa, Japan'
+        avatar: 
+        gravatar: hinastory@gmail.com
+        avatar_rounded: true
+        follow_link: 
+        social_links:
+            Github:
+                icon: fab fa-github
+                url: 'https://github.com/hinastory/'
+            Twitter:
+                icon: fab fa-twitter
+                url: 'https://twitter.com/hinastory999'
+            RSS:
+                icon: fas fa-rss
+                url: /atom.xml
+    -
+        type: recent_posts
+        position: left
+    -
+        type: toc
+        index: true
+        position: right
+    -
+        position: left
+        type: links
+        links:
+            Zenn: 'https://zenn.dev/hinastory'
+            Qiita: 'https://qiita.com/hinastory'
+    -
+        type: categories
+        position: left
+    -
+        type: archives
+        position: left
+    -
+        type: tags
+        position: left
+plugins:
+    gallery: true
+    outdated_browser: true
+    mathjax: true
+    back_to_top: true
+    google_analytics:
+        tracking_id: UA-132406459-1
+    baidu_analytics:
+        tracking_id: 
+    hotjar:
+        site_id: 
+    progressbar: true
+    busuanzi: false
+providers:
+    cdn: jsdelivr
+    fontcdn: google
+    iconcdn: fontawesome

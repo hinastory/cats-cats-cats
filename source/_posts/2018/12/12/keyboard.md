@@ -2,6 +2,7 @@
 title: 気が付いたら本棚がキーボード棚に変わっていた話
 date: 2018-12-12 07:32:37
 thumbnail: /gallery/thumbnails/keyboard_shelf.jpg
+toc: true
 categories:
     - [DIY, Keyboard]
 tags:
@@ -16,10 +17,6 @@ tags:
 
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## 自作キーボード以前
 
 キーボードにこだわりを持ち始めたのはコンパクトなキーボードを探し始めてからでした。もう15年以上昔の話ですが、その時出会ったのがぷらっとホームが販売していた以下の`FKB8579`です。

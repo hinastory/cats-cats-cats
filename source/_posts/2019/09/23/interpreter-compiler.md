@@ -1,6 +1,7 @@
 ---
 title: ベン図を使って、インタプリタとコンパイラの違いを説明してみる
 thumbnail: /gallery/thumbnails/venn.png
+toc: true
 categories:
   - Tech
   - ComputerScience
@@ -14,9 +15,6 @@ date: 2019-09-23 07:28:45
 (本記事は「{% elink 数式言語を使って、インタプリタとコンパイラの違いを説明してみる - Qiita https://qiita.com/kmizu/items/e8ff0d75c358cc7a6658 %}」に触発されて書かれたものです。)
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
 
 ## 前提知識
 

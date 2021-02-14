@@ -1,6 +1,7 @@
 ---
 title: RubyKaigi Takeout 2020
 thumbnail: /gallery/thumbnails/rubykaigi-takeout2020.png
+toc: true
 categories:
   - Tech
   - Language
@@ -15,11 +16,6 @@ date: 2020-09-06 07:28:45
 {% blogCard https://rubykaigi.org/2020-takeout %}
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
-
 ## Day2 の感想
 
 スケジュールは以下のように２つのトラックが並列で走っていました。自分は基本的に`#rubykaigiA`に貼り付いていました。

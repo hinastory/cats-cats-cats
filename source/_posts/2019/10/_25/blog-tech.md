@@ -1,6 +1,7 @@
 ---
 title: ブログを支える技術 〜 静的サイトジェネレータ編 〜
 thumbnail: /gallery/thumbnails/blog.png
+toc: true
 categories:
   - Tech
   - Miscellaneous
@@ -12,10 +13,6 @@ date: 2019-10-25 07:28:45
 
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## 静的サイトジェネレータとは
 
 ## サーチエンジン最適化

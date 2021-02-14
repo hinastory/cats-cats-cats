@@ -1,6 +1,7 @@
 ---
 title: Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました
 thumbnail: /gallery/thumbnails/devfest2019.png
+toc: true
 categories:
   - Tech
   - Event
@@ -17,10 +18,6 @@ date: 2019-12-20 07:28:45
 {% blogCard https://tokyo.gdgjapan.org/devfest2019 %}
 
 <!-- more -->
-
-
-## 目次
-<!-- toc -->
 
 ## 日時・場所
 

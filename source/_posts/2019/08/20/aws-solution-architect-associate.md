@@ -1,6 +1,7 @@
 ---
 title: 暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話
 thumbnail: /gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png
+toc: true
 categories:
   - Tech
   - CloudNative
@@ -15,10 +16,6 @@ AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコ�
 [^1]: AWSは主にIaaS(Infrastructure as a Service)を提供しています。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## はじめに
 
 最初にお断りしておきますが、{% elink AWS認定プログラムアグリーメント https://aws.amazon.com/jp/certification/certification-agreement/ %}の規約により、認定試験を含む試験関連資料の内容については他言してはいけないことになっているので、その辺はAWSが公開している情報に準拠します。そして試験やAWS自体も今後変わっていくと思われるので、実際に受ける際には最新の情報を確認するようお願いします。

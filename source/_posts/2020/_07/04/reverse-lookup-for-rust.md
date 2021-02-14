@@ -1,6 +1,7 @@
 ---
 title: Rust逆引きサンプル(Rubyコード付き)
 thumbnail: /gallery/daily/others/rust-influences.png
+toc: true
 categories:
     - Tech
     - Language
@@ -12,11 +13,6 @@ date: 2020-07-04 07:28:45
 探せば必ずRubyと似た表現がある。それがRustです。
 
 <!-- more -->
-
-## 目次
-
-<!-- toc -->
-
 ## オプションの操作
 
 ### 整数と「値なし」を同時に表現して、分岐したい (`if let`)

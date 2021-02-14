@@ -1,6 +1,7 @@
 ---
 title: AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました
 thumbnail: /gallery/thumbnails/general20193_regular-768x329.png
+toc: true
 categories:
   - Tech
   - MachineLearning
@@ -14,10 +15,6 @@ G検定はAI・機械学習をビジネスに応用したい人向けの資格�
 G検定はこれらの誤解を乗り越えて、現実的にAI・機械学習をビジネスに応用するための**「視座」**を身につけるためのうってつけの資格です。本記事では実際にG検定(JDLA Deep Learning for GENERAL 2019 #3)を受験した体験と得られた知見を紹介したいと思います。
 
 <!-- more -->
-
-## 目次
-<!-- toc -->
-
 ## はじめに
 
 本記事は2019年11月9日に行われたG検定(JDLA Deep Learning for GENERAL 2019 #3)の受験体験談です。G検定はAI・機械学習をビジネスに応用したい向けの資格ですが、この分野の進化は非常に速いので資格の名称自体に取得した時期が入っています。この体験談は2019年の３回目のG検定の体験談なので実際に受ける際には最新の情報を参照するようにお願いいたします。
