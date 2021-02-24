@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2021-02-14T11:39:14.248Z</updated>
+  <updated>2021-02-24T01:04:58.666Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>猫の日なので「cats cats cats」のGoogleアナリティクスとGoogleサーチコンソールの結果を晒してみる</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/</id>
+    <published>2021-02-21T22:28:45.000Z</published>
+    <updated>2021-02-24T01:04:58.666Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本日「2/22」は猫の日らしいです（日本限定）。本サイトは&lt;strong&gt;「cats cats cats」&lt;/strong&gt; なので何かネタを用意しようと考えていたのですが、手頃なものがなかったのでGoogleアナリティクスを用いた当ブログのアクセス解析をしてみます。さらに検索パフォーマンスが気になる方もいると思うので、SEO解析ツールのGoogleサーチコンソールの結果も公開します。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="WebAnalytics" scheme="https://hinastory.github.io/cats-cats-cats/tags/WebAnalytics/"/>
+    
+      <category term="SEO" scheme="https://hinastory.github.io/cats-cats-cats/tags/SEO/"/>
+    
+  </entry>
   
   <entry>
     <title>絶対にRosetta 2を入れてはいけないM1 Mac開発環境構築 2021-2-1版</title>
@@ -533,34 +558,6 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
       <category term="Exam" scheme="https://hinastory.github.io/cats-cats-cats/tags/Exam/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Serverless Days Tokyo 2019 に参加してきました</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/</id>
-    <published>2019-10-26T22:28:45.000Z</published>
-    <updated>2021-02-13T01:24:51.083Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Serverless Days Tokyo 2019に初参加してきました。サーバーレスの息吹を感じられる素晴らしいカンファレンスでした。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.serverlessdays.io/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.serverlessdays.io%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;ServerlessDays Tokyo&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.serverlessdays.io/assets/images/tokyo-thumbnail-min.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;ServerlessDays Tokyo 2019&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.serverlessdays.io/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;A community based conference focusing on Serverless based platforms and technologies. Tokyo, October, 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
-    
-    
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
-      <category term="Serverless" scheme="https://hinastory.github.io/cats-cats-cats/tags/Serverless/"/>
-    
-      <category term="Azure" scheme="https://hinastory.github.io/cats-cats-cats/tags/Azure/"/>
     
   </entry>
   
