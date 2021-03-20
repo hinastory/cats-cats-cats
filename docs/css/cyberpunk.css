@@ -10866,6 +10866,9 @@ article.article .content code {
   background: transparent;
   overflow-wrap: break-word;
 }
+article.article .content img {
+  padding-bottom: 0.5rem;
+}
 article.article .content blockquote.pullquote {
   float: right;
   max-width: 50%;

@@ -88,21 +88,6 @@ flickr:
 
 {% oembed https://www.flickr.com/photos/blueocean64/23831182193/in/photolist-CiT3cB-8Xbpns-quxdK6-cxB7vf-81BAtk-qC3LMs-bsndSq-81BAtt-wMHSBN-968ZuJ-7QdcHk-db2PFA-nZej15-7eQU7R-81BAti-egYg7p-dXL2hM-eUzjBM-81BAsx-2aVgqBo-4v2775-8DZJiq-aNfwDM-6M32zM-8HfqGw-mW86ZG-8DLjGC-4Yuujs-8Xbpa3-7FwpTe-52Vouq-5FT3Xr-cfXkk7-4YnhUK-9uhCgE-pTVRrq-aNJhs4-rYiKwt-7CjqHW-4jj4cZ-85EEX3-cr4wTW-ns4uE2-WjeQmQ-bJQyaM-fPTxwt-7TH4Dc-cr4wpG-oWgvSG-8X8oux %}
 
-### Instagram
-
-{% code Hexo tag %}
-{% raw %}{% oembed https://www.instagram.com/p/BCOEogDOmpO/ %}{% endraw %}
-{% endcode %}
-
-{% code lang:yaml endpoint configuration %}
-instagram:
-      match: instagram
-      url: http://api.instagram.com/oembed/
-{% endcode %}
-
-{% oembed https://www.instagram.com/p/BCOEogDOmpO/ 600 600 %}
-
-
 ### Gyazo
 
 {% code Hexo tag %}

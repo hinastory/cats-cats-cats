@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2021-03-03T22:04:21.557Z</updated>
+  <updated>2021-03-20T00:53:18.674Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Contextual Abstractionsで様々なコンテキストをうまく抽象化する</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/</id>
+    <published>2021-03-15T22:28:45.000Z</published>
+    <updated>2021-03-20T00:53:18.674Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;プログラミングでは様々な「&lt;code&gt;コンテキスト&lt;/code&gt;」を扱う必要が出てきます。コンテキストをうまく扱えないと冗長な記述が必要になったり、コンテキストが複雑になりすぎて混乱を招いたりします。特に&lt;code&gt;コンテキストの引き回し&lt;/code&gt;は様々なプログラミング言語やフレームワークで出てくるパターンですが、安易に使うと複雑性、冗長性の増大や密結合等さまざまな問題を引き起こすことが知られています。しかしScala 3の目玉機能である&lt;strong&gt;Contextual Abstractions(コンテキスト抽象化)&lt;/strong&gt; を使えばこの問題を鮮やかに解決できます。&lt;/p&gt;
+&lt;p&gt;本記事では&lt;code&gt;Contextual Abstractions&lt;/code&gt;がなぜコンテキストをうまく扱うことができるのかを説明したいと思います。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="Dotty" scheme="https://hinastory.github.io/cats-cats-cats/tags/Dotty/"/>
+    
+  </entry>
   
   <entry>
     <title>猫の日なので「cats cats cats」のGoogleアナリティクスとGoogleサーチコンソールの結果を晒してみる</title>
@@ -212,7 +238,7 @@
     
       &lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title=&quot;&quot; target=&quot;&quot;&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
 
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020-takeout/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -434,9 +460,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -463,9 +489,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
@@ -529,35 +555,9 @@
     
       <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
-  </entry>
-  
-  <entry>
-    <title>AI・機械学習をビジネスに応用したい人向けの資格「G検定(JDLA Deep Learning for GENERAL 2019 ＃3)」を取得しました</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/11/21/deep-learning-for-general/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/11/21/deep-learning-for-general/</id>
-    <published>2019-11-20T22:28:45.000Z</published>
-    <updated>2021-02-13T01:25:17.897Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;G検定はAI・機械学習をビジネスに応用したい人向けの資格で近年注目を集めています。AI・機械学習は&lt;strong&gt;「何ができるか」&lt;/strong&gt;を誤解しているひとが非常に多く、魔法のように何でもできると思いこんでいる人や、以前のAIや機械学習のイメージを払拭できずにまだまだ&lt;strong&gt;「おもちゃ」&lt;/strong&gt;だと思いこんでいる人まで様々です。&lt;/p&gt;
-&lt;p&gt;G検定はこれらの誤解を乗り越えて、現実的にAI・機械学習をビジネスに応用するための&lt;strong&gt;「視座」&lt;/strong&gt;を身につけるためのうってつけの資格です。本記事では実際にG検定(JDLA Deep Learning for GENERAL 2019 #3)を受験した体験と得られた知見を紹介したいと思います。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
-    
-    
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
-      <category term="Exam" scheme="https://hinastory.github.io/cats-cats-cats/tags/Exam/"/>
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
   </entry>
   

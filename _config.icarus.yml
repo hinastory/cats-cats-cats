@@ -70,8 +70,8 @@ widgets:
         position: left
         type: links
         links:
-            Zenn: 'https://zenn.dev/hinastory'
-            Qiita: 'https://qiita.com/hinastory'
+            "Zenn - hinastory": 'https://zenn.dev/hinastory'
+            "Qiita - hinastory": 'https://qiita.com/hinastory'
     -
         type: categories
         position: left

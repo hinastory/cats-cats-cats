@@ -119,7 +119,7 @@ oembed:
   endpoints:
     instagram:
       match: instagram
-      url: http://api.instagram.com/oembed/
+      url: https://api.instagram.com/oembed/
     gyazo:
       match: gyazo
       url: https://api.gyazo.com/api/oembed/

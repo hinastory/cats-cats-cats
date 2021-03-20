@@ -61,7 +61,7 @@ CNCFの歩みや今後の展望が語られていました。気になったの�
 
 {% img https://raw.githubusercontent.com/cncf/trailmap/master/CNCF_TrailMap_latest.png %}
 
-{% blogCard https://landscape.cncf.io/format=landscape %}
+{% blogCard https://landscape.cncf.io %}
 
 Trail MapはともかくLandscapeは圧巻ですね・・・
 
