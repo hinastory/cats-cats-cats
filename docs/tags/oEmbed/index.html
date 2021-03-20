@@ -3,7 +3,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
-        gtag('config', 'UA-132406459-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0">
+        gtag('config', 'UA-132406459-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/cats-cats-cats/"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="cats cats cats" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home mr-1"></i> Home</a><a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw mr-1"></i> Archives</a><a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw mr-1"></i> Categories</a><a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw mr-1"></i> Tags</a><a class="navbar-item" href="/cats-cats-cats/about"><i class="undefined mr-1"></i> About</a></div><div class="navbar-end"><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/cats-cats-cats/tags">タグ</a></li><li class="is-active"><a href="#" aria-current="page">oEmbed</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/cats-cats-cats/2019/02/11/hexo-oembed-2/">HexoのoEmbedプラグインをnpmに公開した話(後編)</a></h1><div class="article-meta is-size-7 level is-mobile"><div class="level-left"><span class="level-item"><i class="mr-1 fas fa-calendar-alt"></i><span>2019-02-11</span></span><span class="level-item"><i class="mr-1 fas fa-cat"></i><a class="link-muted" href="/cats-cats-cats/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/cats-cats-cats/categories/Tech/Web/">Web</a></span></div></div><div class="card-image"><span class="image is-7by3"><img class="cover-image" src="/cats-cats-cats/gallery/thumbnails/npm-logo.png"></span></div><div class="content"><p>HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はその後編にあたります。前編は以下になります。</p>
 <a href="/cats-cats-cats/2019/02/09/hexo-oembed-1/" title="HexoのoEmbedプラグインをnpmに公開した話(前編)">HexoのoEmbedプラグインをnpmに公開した話(前編)</a></div><a class="article-more button is-small is-size-7" href="/cats-cats-cats/2019/02/11/hexo-oembed-2/#more">続きを読む</a></article></div><div class="card"><article class="card-content article" role="article"><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/cats-cats-cats/2019/02/07/hexo-oembed/">hexo-oembedを公開しました</a></h1><div class="article-meta is-size-7 level is-mobile"><div class="level-left"><span class="level-item"><i class="mr-1 fas fa-calendar-alt"></i><span>2019-02-07</span></span><span class="level-item"><i class="mr-1 fas fa-cat"></i><a class="link-muted" href="/cats-cats-cats/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/cats-cats-cats/categories/Tech/Web/">Web</a></span></div></div><div class="card-image"><span class="image is-7by3"><img class="cover-image" src="/cats-cats-cats/gallery/thumbnails/hexo-logo.png"></span></div><div class="content"><p>HexoにYouTubeなどのサイトを記事に埋め込むためのプラグインを作成して、npmに公開しました。この記事はそのプラグインの紹介記事です。</p>
@@ -54,6 +54,31 @@
                     ['\\(','\\)']
                 ]
             }
-        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/cats-cats-cats/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="/cats-cats-cats/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/cats-cats-cats/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/cats-cats-cats/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://hinastory.github.io/cats-cats-cats/about/#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="/cats-cats-cats/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/cats-cats-cats/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
             loadInsight({"contentUrl":"/cats-cats-cats/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
         });</script></body></html>
