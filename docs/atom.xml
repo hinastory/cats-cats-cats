@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2021-03-20T00:53:18.674Z</updated>
+  <updated>2021-07-25T07:53:41.274Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/</id>
+    <published>2021-07-23T22:28:45.000Z</published>
+    <updated>2021-07-25T07:53:41.274Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ITエンジニアである自分はデスクワーク中心で元々太りやすい環境にあるのですが、このコロナ禍の昨今はテレワークが定着して通勤もなくなり&lt;strong&gt;運動量が激減&lt;/strong&gt;してしまいました。&lt;/p&gt;
+&lt;p&gt;そのため身に纏う脂肪が限界突破し、自分史上最高体重を記録したところでダイエットを決断しました。&lt;/p&gt;
+&lt;p&gt;本記事はそんなITエンジニアが試行錯誤しながら、&lt;strong&gt;3ヶ月で9kgの減量に成功した方法論を書き記した&lt;/strong&gt;ものです。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="Diet" scheme="https://hinastory.github.io/cats-cats-cats/tags/Diet/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Contextual Abstractionsで様々なコンテキストをうまく抽象化する</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/</id>
     <published>2021-03-15T22:28:45.000Z</published>
-    <updated>2021-03-20T00:53:18.674Z</updated>
+    <updated>2021-07-24T03:28:11.004Z</updated>
     
     <summary type="html">
     
@@ -525,39 +550,6 @@
       <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
     
       <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>天下一キーボードわいわい会 Vol.3 に参加してきました。(フォトギャラリーもあるよ)</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/12/02/tenkaichi-keybord/</id>
-    <published>2019-12-01T22:28:45.000Z</published>
-    <updated>2021-02-13T01:25:31.722Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;この記事は &lt;a href=&quot;https://adventar.org/calendars/4332&quot; title=&quot;&quot; target=&quot;&quot;&gt;キーボード #2 Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の２日目の記事です。天下一キーボードわいわい会 Vol.3に参加してきたのでその熱が冷めやらぬ内にレポートしようと思います。というかほぼフォトギャラリーです。写真を見て楽しんで頂ければと思います。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://adventar.org/calendars/4332&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fadventar.org%2Fcalendars%2F4332&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Adventar&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://adventar.org/og_image.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;キーボード #2 Advent Calendar 2019 - Adventar&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://adventar.org/calendars/4332&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;キーボード Advent Calendar 2019 の2枚目です。
-1枚目は[こちら](https://adventar.org/calendars/4117)
-
-こんにちは
-
-2019年、遊舎工房のリアル店舗のオープンに始まり、キーボード・キーキャップ・スイッチのGBが頻繁に…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
-    
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
-      <category term="Keyboard" scheme="https://hinastory.github.io/cats-cats-cats/tags/Keyboard/"/>
-    
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
   </entry>
   
