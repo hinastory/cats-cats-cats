@@ -164,6 +164,8 @@ Fitbit Charge4のスマホアプリの画面は以下のような感じです。
 　
 工夫はそれだけではありません。トランポリンの前に長い蛇腹のiPadのアームを設置してiPadを固定できるようにしたので、**ウォーキングをしながらiPadで動画を楽しむ** ことができるようになりました。YouTube PremiumやAmazon Prime Video等に入っているので、好きな動画やドラマやドキュメンタリーを見ているとあっという間に時間が過ぎました。
 
+<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20210203","msmaflink");msmaflink({"n":"デジタルランド DDL タブレット アームスタンド クリップ式 ブラック (軽量 ベッド 寝ながら OK 全長最大65cm、スマートフォン対応 汎用設計)","b":"デジタルランド (Digital Land)","t":"-","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/41sO0R4FiIL._SL500_.jpg","\/31SbpRc+9VL._SL500_.jpg","\/41VNClw387L._SL500_.jpg","\/519OSA4-BSL._SL500_.jpg","\/5153H1qeWOL._SL500_.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/B0819ZY4ZQ","t":"amazon","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"Amazonで見る","u_bc":"#f79256","u_url":"https:\/\/www.amazon.co.jp\/dp\/B0819ZY4ZQ","a_id":1448335,"p_id":170,"pl_id":27060,"pc_id":185,"s_n":"amazon","u_so":1},{"id":2,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/search.rakuten.co.jp\/search\/mall\/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%B3%E3%83%89%20DDL%20%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%20%E3%82%A2%E3%83%BC%E3%83%A0%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%20%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E5%BC%8F%20%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%20(%E8%BB%BD%E9%87%8F%20%E3%83%99%E3%83%83%E3%83%89%20%E5%AF%9D%E3%81%AA%E3%81%8C%E3%82%89%20OK%20%E5%85%A8%E9%95%B7%E6%9C%80%E5%A4%A765cm%E3%80%81%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E5%AF%BE%E5%BF%9C%20%E6%B1%8E%E7%94%A8%E8%A8%AD%E8%A8%88)\/","a_id":1448332,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"DMO37","s":"s"});</script><div id="msmaflink-DMO37">リンク</div><!-- MoshimoAffiliateEasyLink END -->
+ 
 このおかげで朝と夕方合わせて1時間の運動を行い、8000歩、6km程度を目標にしました。脂肪100gを落とすには720kcal必要とされており、今回運動で20g落とせばよいのでその1/5で144kcalになります。8000歩だと240kcalの消費になるので十分な運動量と言えます。
 
 このトランポリンを利用したウォーキングは実際に外でウォーキングをするよりダイエットに関してはかなり優秀でした。主な利点は以下のとおりです。
@@ -205,7 +207,7 @@ ITエンジニアのダイエット術を紹介しました。**3ヶ月で9kgの
 
 「再現性のあるダイエット」は **「頑張りすぎないダイエット」であり、体調や環境が悪くても続けられる「根性論」に頼らないダイエット** でもあります。実際に食生活は毎日楽しんで営めていましたし、運動も無理なく楽しんで続けられました。今後アラフォーを超えて年を重ねてくると**基礎代謝や筋力が衰えてダイエットは今以上に困難になる**ことが分かりきっているので、緩いダイエットは今後も継続していく予定です。だからこそ今回確立できた「再現性のあるダイエット」は非常に意味あるものになりました。
 
-「再現性のあるダイエット」は単に考え方や原則だけで実行できるものではなく、個人の環境や性格に根ざした細かい実行方法とセットで確立できるものなので今回書いた内容が万人に通用するものとは思っていませんが、ある程度同じ環境に置かれたITエンジニアにはうまくハマるかもしれないので興味がある方は試してみて下さい。
+正直、本記事はテックブログである***「CATS CATS CATS」*** に相応しいものかどうか悩みましたが、内容を考えると**健康や体重をうまくエンジニアリングした実例になっている**のではないかと思い、記事を起こすことにしました。
 
 本記事がダイエットの取り組もうとしている方の一助になれば幸いです。
 
