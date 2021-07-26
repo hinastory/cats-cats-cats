@@ -59,7 +59,7 @@ BMI 25のときの体重は79.21kgなので3.79kgの減量になります。こ�
 体重計は私は以下を使っていました。
 
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20210203","msmaflink");msmaflink({"n":"オムロン 体重・体組成計 カラダスキャン ホワイト HBF-214-W","b":"オムロン(OMRON)","t":"HBF-214-W","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/41livRwCFSL._SL500_.jpg","\/41tvJ7vdYUL._SL500_.jpg","\/51IJEIvH-VL._SL500_.jpg","\/41TI+7HJOSL._SL500_.jpg","\/41nTB7XiinL._SL500_.jpg","\/41rH4FJvNvL._SL500_.jpg","\/51vEARqHoML._SL500_.jpg","\/21YcvcS7d1L._SL500_.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/B005JVBDG0","t":"amazon","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"Amazonで見る","u_bc":"#f79256","u_url":"https:\/\/www.amazon.co.jp\/dp\/B005JVBDG0","a_id":1448335,"p_id":170,"pl_id":27060,"pc_id":185,"s_n":"amazon","u_so":1},{"id":2,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/search.rakuten.co.jp\/search\/mall\/%E3%82%AA%E3%83%A0%E3%83%AD%E3%83%B3%20%E4%BD%93%E9%87%8D%E3%83%BB%E4%BD%93%E7%B5%84%E6%88%90%E8%A8%88%20%E3%82%AB%E3%83%A9%E3%83%80%E3%82%B9%E3%82%AD%E3%83%A3%E3%83%B3%20%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%20HBF-214-W\/","a_id":1448332,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"ugMdw","s":"s"});</script><div id="msmaflink-ugMdw">リンク</div><!-- MoshimoAffiliateEasyLink END -->
-
+ 
 体重計はダイエットのために必須といっても過言ではないですが、個人的にもう一つおすすめしたいアイテムがあります。それは**フィットネストラッカー**です。
 
 フィットネストラッカーは、万歩計のパワーアップ版みたいなもので歩数だけでなく、心拍数や体温、睡眠時間、上下階移動などを計測して、距離やカロリー等を可視化しくてれます。そしてスマホと連動しているので管理がしやすく、手間がかからないのも魅力です。
@@ -93,7 +93,7 @@ Fitbit Charge4のスマホアプリの画面は以下のような感じです。
 - 調味料
     - 醤油、ポン酢、昆布つゆ、塩麹、みそ、カレー粉、マヨネーズ、マスタード、わさび、からし、生姜、柚子胡椒、すりごま、食べるラー油、胡椒、マジックソルト・・・
 
-結局、**ドレッシング和風と洋風の区別さえ付けば大抵の組み合わせはいける** ことがわかりました。ドレッシングさえ変えれば飽きることなく食べ続けられるのでおすすめです。ちなみに上記の「MCTオイル」は中鎖脂肪酸オイルで体内に脂肪として蓄積しづらいと言われており、植物油の代わりに使っています。
+結局、**ドレッシングは和風と洋風の区別さえ付けば大抵の組み合わせはいける** ことがわかりました。ドレッシングさえ変えれば飽きることなく食べ続けられるのでおすすめです。ちなみに上記の「MCTオイル」は中鎖脂肪酸オイルで体内に脂肪として蓄積しづらいと言われており、植物油の代わりに使っています。
 
 また、サラダに使うゆで卵や蒸し鶏は頻繁に使うので常備しておきたいですが、その調理に便利なのが以下の**「大同電鍋」**です。
 
@@ -116,7 +116,7 @@ Fitbit Charge4のスマホアプリの画面は以下のような感じです。
 お湯を手軽に作るには「電気ケトル」が便利です。電気ポットよりも電気代がかからず持ち運びも便利なので重宝します。
 
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20210203","msmaflink");msmaflink({"n":"象印 電気ケトル 0.8L 沸騰後1時間90℃保温 メタリックブラウン CK-AW08-TM","b":"象印マホービン(ZOJIRUSHI)","t":"CK-AW08-TM","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/51oQCnIPa5L._SL500_.jpg","\/51ch3X9ztlL._SL500_.jpg","\/51Ty-q9KMWL._SL500_.jpg","\/51QCH1ZTEwL._SL500_.jpg","\/51ic1e7D1aL._SL500_.jpg","\/51IdZLBpaQL._SL500_.jpg","\/51D2d-EVlDL._SL500_.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/B00M3W97Y8","t":"amazon","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"Amazonで見る","u_bc":"#f79256","u_url":"https:\/\/www.amazon.co.jp\/dp\/B00M3W97Y8","a_id":1448335,"p_id":170,"pl_id":27060,"pc_id":185,"s_n":"amazon","u_so":1},{"id":2,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/search.rakuten.co.jp\/search\/mall\/%E8%B1%A1%E5%8D%B0%20%E9%9B%BB%E6%B0%97%E3%82%B1%E3%83%88%E3%83%AB%200.8L%20%E6%B2%B8%E9%A8%B0%E5%BE%8C1%E6%99%82%E9%96%9390%E2%84%83%E4%BF%9D%E6%B8%A9%20%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%96%E3%83%A9%E3%82%A6%E3%83%B3%20CK-AW08-TM\/","a_id":1448332,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"IoHbC","s":"s"});</script><div id="msmaflink-IoHbC">リンク</div><!-- MoshimoAffiliateEasyLink END -->
-
+ 
 さて、主菜、副菜、汁物と揃った訳ですが、肝心の「主食」がなくて満足できるのでしょうか？
 
 最初は長期間の主食抜きは厳しいと考えていましたが、結果的には **「お酒」** の力で乗り切ることができました。「お酒」とダイエットは相性が悪そうに見えますが、以外とそうではありません。ダイエットと相性が良いのは **蒸留酒**です。蒸留酒は糖質0なので糖質制限に引っかかりません。さらに炭酸水やレモン炭酸水で割って飲むと満腹感が出るので主食がなくても満足感が高まります。よく飲んでいたお酒は以下のとおりです。
@@ -171,7 +171,7 @@ Fitbit Charge4のスマホアプリの画面は以下のような感じです。
 工夫はそれだけではありません。トランポリンの前に長い蛇腹のiPadのアームを設置してiPadを固定できるようにしたので、**ウォーキングをしながらiPadで動画を楽しむ** ことができるようになりました。YouTube PremiumやAmazon Prime Video等に入っているので、好きな動画やドラマやドキュメンタリーを見ているとあっという間に時間が過ぎました。
 
 <!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20210203","msmaflink");msmaflink({"n":"デジタルランド DDL タブレット アームスタンド クリップ式 ブラック (軽量 ベッド 寝ながら OK 全長最大65cm、スマートフォン対応 汎用設計)","b":"デジタルランド (Digital Land)","t":"-","d":"https:\/\/m.media-amazon.com","c_p":"\/images\/I","p":["\/41sO0R4FiIL._SL500_.jpg","\/31SbpRc+9VL._SL500_.jpg","\/41VNClw387L._SL500_.jpg","\/519OSA4-BSL._SL500_.jpg","\/5153H1qeWOL._SL500_.jpg"],"u":{"u":"https:\/\/www.amazon.co.jp\/dp\/B0819ZY4ZQ","t":"amazon","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"Amazonで見る","u_bc":"#f79256","u_url":"https:\/\/www.amazon.co.jp\/dp\/B0819ZY4ZQ","a_id":1448335,"p_id":170,"pl_id":27060,"pc_id":185,"s_n":"amazon","u_so":1},{"id":2,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/search.rakuten.co.jp\/search\/mall\/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%B3%E3%83%89%20DDL%20%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%20%E3%82%A2%E3%83%BC%E3%83%A0%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%20%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E5%BC%8F%20%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%20(%E8%BB%BD%E9%87%8F%20%E3%83%99%E3%83%83%E3%83%89%20%E5%AF%9D%E3%81%AA%E3%81%8C%E3%82%89%20OK%20%E5%85%A8%E9%95%B7%E6%9C%80%E5%A4%A765cm%E3%80%81%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E5%AF%BE%E5%BF%9C%20%E6%B1%8E%E7%94%A8%E8%A8%AD%E8%A8%88)\/","a_id":1448332,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":2}],"eid":"DMO37","s":"s"});</script><div id="msmaflink-DMO37">リンク</div><!-- MoshimoAffiliateEasyLink END -->
- 
+　
 このおかげで朝と夕方合わせて1時間の運動を行い、8000歩、6km程度を目標にしました。脂肪100gを落とすには720kcal必要とされており、今回運動で20g落とせばよいのでその1/5で144kcalになります。8000歩だと240kcalの消費になるので十分な運動量と言えます。
 
 このトランポリンを利用したウォーキングは実際に外でウォーキングをするよりダイエットに関してはかなり優秀でした。主な利点は以下のとおりです。
@@ -190,7 +190,7 @@ Fitbit Charge4のスマホアプリの画面は以下のような感じです。
 
 6、7は短期間の運動だと気づかないですが、長期間の運動でアラフォーを超えるとほぼ気になってくる問題です。軽めのウォーキングでも毎日7キロを3ヶ月も外で歩けば、足や膝に痛みを抱えるようになってもおかしくはありません。しかし**トランポリンは足や膝に本当に優しく素足で載るので靴ずれもおこしません**。トランポリンは**体に非常に優しい運動器具**なのです。
 
-結局この**「室内トランポリン」**という発想に出会えたことは僥倖でした。快適に運動を続けやすく、体にやさしく、脂肪燃焼に有効な心拍数を保ったまま長時間の運動を可能にしたのも**「ジャンピングステッパー」**のおかげとしか言いようがありません。
+結局この**「室内トランポリン」**という発想に出会えたことは僥倖でした。快適に運動を続けやすく、体にやさしく、脂肪燃焼に有効な心拍数を保ったまま長時間の運動を可能にしたのも**「ジャンピングステッパー」**のおかげとしか言いようがありません。またトランポリンは普通に歩くよりもバランスを取るのが難しいので、体幹も鍛えられてより全身運動に繋がりやすいのもカロリー消費に一役買っていると思っています。
 
 ## ダイエットの結果
 
