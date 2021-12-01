@@ -10,6 +10,7 @@ tags:
   - AWS
   - StepFunctions
   - TypeScript
+  - AdventCalendar
 date: 2020-12-08 07:28:45
 ---
 この記事は[AWS Advent Calendar 2020 - Qiita](https://qiita.com/advent-calendar/2020/aws)の8日目の記事です。

@@ -8,6 +8,7 @@ categories:
 tags:
   - Rust
   - AWS
+  - AdventCalendar
 date: 2020-12-06 07:28:45
 ---
 この記事は[Rust 2 Advent Calendar 2020 - Qiita](https://qiita.com/advent-calendar/2020/rust2)の6日目の記事です。
