@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</loc>
+        <lastmod>2021-12-01T13:11:25.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/</loc>
         <lastmod>2021-08-03T18:29:22.384Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -83,14 +91,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/</loc>
         <lastmod>2021-02-13T01:28:39.755Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</loc>
-        <lastmod>2021-02-13T01:28:26.349Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

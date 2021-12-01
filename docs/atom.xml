@@ -257,7 +257,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</id>
     <published>2020-09-05T22:28:45.000Z</published>
-    <updated>2021-02-13T01:28:26.349Z</updated>
+    <updated>2021-12-01T13:11:25.592Z</updated>
     
     <summary type="html">
     
@@ -485,9 +485,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -514,9 +514,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
@@ -535,7 +535,7 @@
     
       &lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
 &lt;p&gt;・・・というのは前置きで、自分は&lt;strong&gt;Googleが好き&lt;/strong&gt;🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.gdgjapan.org%2Fdevfest2019&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;tokyo.gdgjapan.org&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.gdgjapan.org/img/devfest2020/topimg.jpg&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。日本では、9つのGDGチャプターとWTMが共催という形で、Android、Google Cloud Platform（GCP）、Web…&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.gdgjapan.org%2Fdevfest2019&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;tokyo.gdgjapan.org&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.gdgjapan.org/img/devfest2019/gdgtokyo.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;GDG Tokyoは主にGoogleのテクノロジーに興味のある人たちで情報を共有しあう集いです。平日夜や週末にオンラインでで勉強会等を行っています。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
