@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2021-12-29T17:22:13.965Z</updated>
+  <updated>2021-12-29T21:54:30.239Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021年の技術的な振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/</id>
+    <published>2021-12-29T22:28:45.000Z</published>
+    <updated>2021-12-29T21:54:30.239Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年もCOVID-19に振り回された一年でした。さすがにテレワークは板に付いてきましたが、やはりオフラインのコミュニケーションが希薄になるのは寂しいものです。そんな中でも立ち止まるわけにいかないのでダイエットしてみたりAWS認定11冠を狙ったりと、大きな目標を立てて計画的に達成するという試みをしてきました。そんなチャレンジの結果を振り返ってみたいと思います。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>無料でRustのJupyterLab機械学習環境を作る in AWS</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/</id>
     <published>2021-12-22T22:28:45.000Z</published>
-    <updated>2021-12-29T17:22:13.965Z</updated>
+    <updated>2021-12-29T20:51:49.479Z</updated>
     
     <summary type="html">
     
@@ -36,13 +61,13 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -77,7 +102,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/</id>
     <published>2021-09-12T22:28:45.000Z</published>
-    <updated>2021-12-29T11:00:55.847Z</updated>
+    <updated>2021-12-29T20:53:06.582Z</updated>
     
     <summary type="html">
     
@@ -223,9 +248,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -249,9 +274,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="CDK" scheme="https://hinastory.github.io/cats-cats-cats/tags/CDK/"/>
     
@@ -283,11 +308,11 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -524,32 +549,6 @@
       <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
     
       <category term="OGP" scheme="https://hinastory.github.io/cats-cats-cats/tags/OGP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdownで書かれたブログ記事をRe:VIEWを使って「本」にしてみる</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2020/01/05/blog_to_book/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2020/01/05/blog_to_book/</id>
-    <published>2020-01-04T22:28:45.000Z</published>
-    <updated>2021-02-13T01:26:26.057Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;新年あけましておめでとうございます。お正月といえば&lt;strong&gt;書き初め&lt;/strong&gt;ですが自分は字が下手なのでブログを書くことにしました。&lt;/p&gt;
-&lt;p&gt;本記事のテーマは&lt;strong&gt;「ブログを本にする」&lt;/strong&gt;です。去年の約1年間で38本もの記事を書きましたが、それらを本にしたらどういうことになるかを解説してみたいと思います。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Book/"/>
-    
-    
-      <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
-    
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
   </entry>
   

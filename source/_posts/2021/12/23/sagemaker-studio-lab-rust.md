@@ -19,7 +19,7 @@ Rustで機械学習をやってみたいという方は少数派かもしれま�
 
 <!-- more -->
 
-# はじめに
+## はじめに
 
 本記事では**Amazon SageMaker Studio Lab**を利用して、Rustの機械学習環境を構築する試みを紹介します。無料のJupyterLab環境をRustで利用しようという狙いです。
 
@@ -73,7 +73,7 @@ Rustで機械学習をやってみたいという方は少数派かもしれま�
 
 {% blogCard https://studiolab.sagemaker.aws/faq %}
 
-# Amazon SageMaker Studio Labの利用方法
+## Amazon SageMaker Studio Labの利用方法
 
 まずはAmazon SageMaker Studio Labのアカウントを取得します。以下のページの`Request free account`ボタンを押してください。
 
@@ -92,13 +92,13 @@ s
 
 ![](https://storage.googleapis.com/zenn-user-upload/64ee04fc7019-20211222.png)
 
-# JupyterLabでRustを利用可能にする
+## JupyterLabでRustを利用可能にする
 
 ここからがこの記事の本番です。赤枠で囲った`+`ボタンをクリックするとLancherタブが開きますが、デフォルトでは`default:Python`と書かれたPython環境だけが利用可能なことが分かります。目的はここにRust環境を表示させることです。
 
 ![](https://storage.googleapis.com/zenn-user-upload/74b28056e84f-20211222.png)
 
-## Rustのインストール
+### Rustのインストール
 
 まずはLancherから`Terminal`ボタンをクリックし、ターミナルを立ち上げます。
 
@@ -115,7 +115,7 @@ $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 $ source $HOME/.cargo/env
 ```
 
-## evcxr_jupyterのインストール
+### evcxr_jupyterのインストール
 
 RustをJupyterLabから利用可能にするためには`evcxr_jupyter`のインストールが必要です。
 
@@ -134,7 +134,7 @@ $ evcxr_jupyter --install
 
 さて、ここまですればJupyterLabのランチャーにRustのボタンが現れてくれるはずでしたが、残念ながら**表示はされませんでした。**
 
-## RustカーネルがJupyterLabで利用できない原因を色々調べる
+### RustカーネルがJupyterLabで利用できない原因を色々調べる
 
 とりあえず`jupyter kernelspec list`で表示してみるとRustカーネルは認識されているみたいですが、なぜかJupyterLabからは表示されないし、カーネルも選択できない状態でした。
 
@@ -149,7 +149,7 @@ Available kernels:
 
 よくよく調べてみると`conda`で環境を作成して`ipykernel`を`conda`でインストールすればJupyterLabに認識させられるとのことだったので、とりあえずそこに突破口がありそうでした。
 
-## 最終的にうまくいった方法
+### 最終的にうまくいった方法
 
 大分苦戦しましたが以下がうまく行った方法です。
 
@@ -168,11 +168,11 @@ $ ln -s ~/.cargo/bin ~/.conda/envs/<my-rust-env>/bin
 
 もっとスマートなやり方があるとは思っていますが、とりあえず今回はこれでRustの機械学習環境の構築を完了とします。
 
-# Rustで使える機械学習関連のクレート紹介
+## Rustで使える機械学習関連のクレート紹介
 
 ここからはRustで利用可能な機械学習関連のクレートをノートブックの実行結果で紹介していきたいと思います。
 
-## ベクトル、行列を扱う - ndarray
+### ベクトル、行列を扱う - ndarray
 
 まずは[ndarray](https://github.com/rust-ndarray/ndarray)クレートを使ってベクトル、行列を表示してみます。`ndarray`はPythonでいう`numpy`相当です。以下がノートブックの実行結果です。見て頂くと大体どんな雰囲気で利用できるかご理解頂けるとおもいます。
 
@@ -182,7 +182,7 @@ $ ln -s ~/.cargo/bin ~/.conda/envs/<my-rust-env>/bin
 
 あと`showata`というクレートも利用していますがこれは`ndarray`の出力をJupyterLabできれいに出力するためのものです。
 
-## データフレームを扱う - polars
+### データフレームを扱う - polars
 
 次は[polars](https://github.com/pola-rs/polars)クレートを用いてデータフレームを利用してみたいと思います。`polars`はPythonの`pandas`相当です。`pandas`を利用したことがある方であれば以下の実行結果はなんとなくわかるのではないかと思います。
 
@@ -192,7 +192,7 @@ $ ln -s ~/.cargo/bin ~/.conda/envs/<my-rust-env>/bin
 
 表がアスキーアートなのがイケていませんがevcxr_jupyterでは[カスタム出力](https://github.com/google/evcxr/blob/main/evcxr_jupyter/README.md#custom-output)ができるので、簡単にHTMLで表示するようにできそうです。
 
-## グラフを扱う - plotters
+### グラフを扱う - plotters
 
 データフレームの次は定番のグラフ描画に行きたいと思います。Rustではグラフ描画のクレートはいくつかあるのですがここでは[plotters](https://github.com/38/plotters)クレートを利用します。`plotters`はPythonのMatplotlib相当です。以下はplottersのサンプルを実行したものです。
 
@@ -204,11 +204,11 @@ $ ln -s ~/.cargo/bin ~/.conda/envs/<my-rust-env>/bin
 
 ここまででRustの機械学習関連のクレートの紹介はおしまいです。本当はもっと色々試すつもりだったのですが今回は時間がなかったのでまた次の機会に記事にしてみたいと思います。
 
-# おまけ
+## おまけ
 
 Rustで機械学習の記事としては中途半端になってしまったお詫びにRustをJupyterLabで利用するにあたって超絶に便利な機能を3つほどご紹介します。
 
-## :dep
+### :dep
 
 最初はすでにご紹介した`:dep`です。ノートブックの途中で好きなクレートを読み込むことができます。この機能は非常に便利ですが、裏ではライブラリのダウンロードとビルドが走るので激重です。Jupyterカーネルを再起動するとダウンロードとビルドがまた走るのでキャッシュみたいなことはしていないようです。
 
@@ -217,7 +217,7 @@ Rustで機械学習の記事としては中途半端になってしまったお�
 :dep ndarray = "0.14"
 ```
 
-## :vars
+### :vars
 
 `:vars`は現在利用している変数を表示してくれます。型も表示してくれるので非常に重宝します。
 
@@ -225,13 +225,13 @@ Rustで機械学習の記事としては中途半端になってしまったお�
 
 ちなみにJupyterLab 3.0から標準搭載された**ビジュアルデバッガ**は非常に便利で変数表示はもちろん**ブレークポイント**や**コールスタック**表示もできるのですが、Rustでは現状**ビジュアルデバッガは使えません**。Pythonを使うときにはぜひお試しください。
 
-## :timing
+### :timing
 
 `:timing`はセルの実行時間を実行結果とともに表示してくれます。ちょっと時間を計測したいときには便利に使えます。トグル式なので一回実行するとその後のセルも実行時間が表示されます。もう一度`:timing`を実行するとオフにできます。
 
 ![](https://storage.googleapis.com/zenn-user-upload/b89c71bc6ba5-20211223.png)
 
-# まとめ
+## まとめ
 
 本記事ではAWS re:Invent 2021で発表された**Amazon SageMaker Studio Lab**を利用して無料でRustの機械学習環境を手に入れる方法を紹介しました。またRustの機械学習関連のクレートである**ndarray**(numpy相当)、**polars**(pandas相当)、**plotters**(matplotlib相当)を紹介し、ノートブックの実行結果をお見せしました。おまけとしてはJupyterLabでRustを利用するときに死ぬほど便利な`:dep`、`:vars`、`:timing`もご紹介しました。この記事で紹介したノートブックはGitHubに上げたので興味がある方はご覧ください。
 
