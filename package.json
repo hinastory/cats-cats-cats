@@ -28,7 +28,7 @@
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0",
-    "hexo-tag-blog-card": "git+https://github.com/hinastory/hexo-tag-blog-card.git",
+    "hexo-tag-blog-card": "git+https://github.com/hinastory/hexo-tag-blog-card",
     "hexo-tag-details": "^0.1.7",
     "hexo-util": "^2.4.0",
     "inferno": "^7.3.3",

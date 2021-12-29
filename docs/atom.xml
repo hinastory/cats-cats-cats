@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2021-12-29T11:00:55.847Z</updated>
+  <updated>2021-12-29T17:22:13.965Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>無料でRustのJupyterLab機械学習環境を作る in AWS</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/</id>
+    <published>2021-12-22T22:28:45.000Z</published>
+    <updated>2021-12-29T17:22:13.965Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2021/rust&quot;&gt;Rust Advent Calendar 2021&lt;/a&gt;の23日目の記事です。&lt;/p&gt;
+&lt;p&gt;Rustで機械学習をやってみたいという方は少数派かもしれません。PythonやRの環境が圧倒的過ぎて他の追随を許さないからです。しかしそれが&lt;strong&gt;タダで手に入る&lt;/strong&gt;となったらいかがでしょうか？　ブラウザだけでどこでも利用できるRustの機械学習環境を&lt;strong&gt;クラウド上に&lt;/strong&gt;持てるのであれば試す価値があるかもしれません。本記事では&lt;strong&gt;Amazon SageMaker Studio Lab&lt;/strong&gt;を利用して、無料でRustの機械学習環境を作る方法にチャレンジします。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+  </entry>
   
   <entry>
     <title>AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</title>
@@ -193,9 +223,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
       <category term="CDK" scheme="https://hinastory.github.io/cats-cats-cats/tags/CDK/"/>
     
@@ -227,9 +257,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
@@ -491,9 +521,9 @@
       <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Book/"/>
     
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
+    
+      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
   </entry>
   
@@ -516,40 +546,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
-      <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>🎉🎉祝Ruby2.7リリース🎉🎉 クリスマスなのでRubyの22年に渡るコミットの歴史を可視化してみた</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</id>
-    <published>2019-12-24T22:28:45.000Z</published>
-    <updated>2021-02-13T01:25:59.829Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title=&quot;&quot; target=&quot;&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の25日目の記事です。&lt;/p&gt;
-&lt;p&gt;本日はクリスマスということで、例年ならRubyの新バージョンがリリースされる日になります。&lt;br&gt;新バージョンのRuby 2.7は&lt;a href=&quot;https://www.ruby-lang.org/ja/news/2019/12/21/ruby-2-7-0-rc2-released/&quot; title=&quot;&quot; target=&quot;&quot;&gt;RC2&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;までやってきたので、リリースに向けて着実に進んでいるようです。&lt;br&gt;🎉🎉 そして無事に本日リリースされました!! おめでとうございます!!! 🎉🎉&lt;br&gt;&lt;del&gt;(本記事投稿時点ではまだリリースはされていません。)&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;そこでRuby2.7のリリースのお祝いとコミッターのみなさんのハードワークに感謝の気持ちを込めて、Rubyの22年に渡るコミットの歴史を可視化してみたいと思います。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
-    
-    
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
