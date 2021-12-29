@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2021-08-03T18:29:22.384Z</updated>
+  <updated>2021-12-29T11:00:55.847Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/</id>
+    <published>2021-09-12T22:28:45.000Z</published>
+    <updated>2021-12-29T11:00:55.847Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AWS認定は少しずつ移り変わってきました。小さいものでは試験内容の改訂から大きなものでは認定の追加や削除まで色々ありました。しかしここにきてAWS認定は&lt;strong&gt;別次元の進化&lt;/strong&gt;を遂げようとしています。なんと試験問題に&lt;strong&gt;AWSの実技試験を織り交ぜてきた&lt;/strong&gt;のです。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;「試験ラボ」&lt;/strong&gt; と呼ばれるこの試みはAWS認定の&lt;strong&gt;試験対策に根本的な変更&lt;/strong&gt;を求めるものであり、また&lt;strong&gt;認定の意義の見直しを迫る&lt;/strong&gt;ものでもあります。本記事では2021/7/27に新しく試験ラボが導入されたAWS認定「SysOpsアドミニストレーター - アソシエイト(SOA-C02)」の体験談になります。試験ラボの試し方から試験対策まで書ける範囲で書いていきます。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Certification" scheme="https://hinastory.github.io/cats-cats-cats/tags/Certification/"/>
+    
+  </entry>
   
   <entry>
     <title>コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜</title>
@@ -167,9 +193,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="CDK" scheme="https://hinastory.github.io/cats-cats-cats/tags/CDK/"/>
     
@@ -201,9 +227,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
@@ -490,9 +516,9 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
@@ -519,42 +545,13 @@
       <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
     
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google好きの開発者が集結！GDG DevFest Tokyo 2019に参加してきました</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</id>
-    <published>2019-12-19T22:28:45.000Z</published>
-    <updated>2021-12-29T09:47:30.272Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;検索エンジン、Google Map、Android、Go言語、Kubernetes、GCP・・・ 派生技術やプロダクトを含めるとおびただしい量のGoogleの技術が私達の生活に入り込んでいます。こうなるともう&lt;strong&gt;Googleの技術が好きかどうかに関わらず&lt;/strong&gt;エンジニアとしてはGoogleとうまく付き合っていくしかないというお気持ちです。&lt;/p&gt;
-&lt;p&gt;・・・というのは前置きで、自分は&lt;strong&gt;Googleが好き&lt;/strong&gt;🥰なので、Google好きな開発者たちが集まる祭典、GDG GevFest Tokyoに参加してきました。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://tokyo.gdgjapan.org/devfest2019&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftokyo.gdgjapan.org%2Fdevfest2019&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;tokyo.gdgjapan.org&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://tokyo.gdgjapan.org/img/devfest2019/gdgtokyo.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;GDG Tokyo&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://tokyo.gdgjapan.org/devfest2019&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;GDG Tokyoは主にGoogleのテクノロジーに興味のある人たちで情報を共有しあう集いです。平日夜や週末にオンラインでで勉強会等を行っています。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
-    
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
-      <category term="GCP" scheme="https://hinastory.github.io/cats-cats-cats/tags/GCP/"/>
-    
-      <category term="Go" scheme="https://hinastory.github.io/cats-cats-cats/tags/Go/"/>
     
   </entry>
   

@@ -11859,6 +11859,33 @@ figure.highlight .section {
 }
 summary {
   cursor: pointer;
+  outline: 0;
+  padding: 0.7em 0.7em 0.7em 0.9em;
+  border: 1px solid rgba(92,147,187,0.188);
+  color: var(--c-contrast);
+  font-size: 0.9em;
+  border-radius: 9px;
+  box-shadow: 0 2px 4px -2px rgba(0,0,0,0.149);
+}
+details[open] {
+  border: 1px solid rgba(92,147,187,0.2);
+  border-radius: 5px;
+  padding-bottom: 1em;
+}
+details[open] > summary:first-of-type {
+  list-style-type: disclosure-open;
+}
+details[open] summary {
+  margin-bottom: 0.5em;
+  border-radius: 5px 5px 0 0;
+  box-shadow: none;
+  background: #f1f5f9;
+  border: none;
+}
+details > summary:first-of-type {
+  display: list-item;
+  counter-increment: list-item 0;
+  list-style: inside disclosure-closed;
 }
 body {
   counter-reset: card;

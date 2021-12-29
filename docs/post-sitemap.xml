@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/</loc>
+        <lastmod>2021-12-29T11:05:01.931Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/</loc>
+        <lastmod>2021-12-29T11:00:55.847Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</loc>
         <lastmod>2021-12-29T09:47:30.272Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -243,14 +259,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/</loc>
         <lastmod>2021-02-13T01:23:09.500Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/</loc>
-        <lastmod>2021-02-13T01:22:57.172Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

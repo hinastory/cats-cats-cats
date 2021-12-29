@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02) - cats cats cats</title><link rel="manifest" href="/cats-cats-cats/manifest.json"><meta name="application-name" content="cats cats cats"><meta name="msapplication-TileImage" content="/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="cats cats cats"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS認定は少しずつ移り変わってきました。小さいものでは試験内容の改訂から大きなものでは認定の追加や削除まで色々ありました。しかしここにきてAWS認定は別次元の進化を遂げようとしています。なんと試験問題にAWSの実技試験を織り交ぜてきたのです。 「試験ラボ」 と呼ばれるこの試みはAWS認定の試験対策に根本的な変更を求めるものであり、また認定の意義の見直しを迫るものでもあります。本記事では2021&amp;#x2F;"><meta property="og:type" content="article"><meta property="og:title" content="AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)"><meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"><meta property="og:site_name" content="cats cats cats"><meta property="og:description" content="AWS認定は少しずつ移り変わってきました。小さいものでは試験内容の改訂から大きなものでは認定の追加や削除まで色々ありました。しかしここにきてAWS認定は別次元の進化を遂げようとしています。なんと試験問題にAWSの実技試験を織り交ぜてきたのです。 「試験ラボ」 と呼ばれるこの試みはAWS認定の試験対策に根本的な変更を求めるものであり、また認定の意義の見直しを迫るものでもあります。本記事では2021&amp;#x2F;"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/aws-soa.png"><meta property="article:published_time" content="2021-09-12T22:28:45.000Z"><meta property="article:modified_time" content="2021-12-29T11:00:55.847Z"><meta property="article:author" content="hinastory"><meta property="article:tag" content="AWS"><meta property="article:tag" content="Certification"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/cats-cats-cats/gallery/daily/others/aws-soa.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"},"headline":"cats cats cats","image":["https://hinastory.github.io/cats-cats-cats/gallery/daily/others/aws-soa.png"],"datePublished":"2021-09-12T22:28:45.000Z","dateModified":"2021-12-29T11:00:55.847Z","author":{"@type":"Person","name":"hinastory"},"description":"AWS認定は少しずつ移り変わってきました。小さいものでは試験内容の改訂から大きなものでは認定の追加や削除まで色々ありました。しかしここにきてAWS認定は別次元の進化を遂げようとしています。なんと試験問題にAWSの実技試験を織り交ぜてきたのです。 「試験ラボ」 と呼ばれるこの試みはAWS認定の試験対策に根本的な変更を求めるものであり、また認定の意義の見直しを迫るものでもあります。本記事では2021&#x2F;"}</script><link rel="canonical" href="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"><link rel="alternate" href="/cats-cats-cats/cats-cats-cats/atom.xml" title="cats cats cats" type="application/atom+xml"><link rel="icon" href="/cats-cats-cats/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/cats-cats-cats/css/default.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><!--!--><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-132406459-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/cats-cats-cats/"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="cats cats cats" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home mr-1"></i> Home</a><a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw mr-1"></i> Archives</a><a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw mr-1"></i> Categories</a><a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw mr-1"></i> Tags</a><a class="navbar-item" href="/cats-cats-cats/about"><i class="undefined mr-1"></i> About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><h1 class="title is-3 is-size-4-mobile">AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</h1><div class="article-meta is-size-7 level is-mobile"><div class="level-left"><span class="level-item"><i class="mr-1 fas fa-calendar-alt"></i><span>2021-09-13</span></span><span class="level-item"><i class="mr-1 fas fa-cat"></i><a class="link-muted" href="/cats-cats-cats/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a></span><span class="level-item"><i class="fas fa-tags"></i><span><a class="link-muted ml-1" rel="tag" href="/cats-cats-cats/tags/AWS/">AWS</a>, <a class="link-muted ml-1" rel="tag" href="/cats-cats-cats/tags/Certification/">Certification</a></span></span></div></div><div class="card-image"><span class="image is-7by3"><img class="cover-image" src="/cats-cats-cats/gallery/daily/others/aws-soa.png"></span></div><div class="content"><p>AWS認定は少しずつ移り変わってきました。小さいものでは試験内容の改訂から大きなものでは認定の追加や削除まで色々ありました。しかしここにきてAWS認定は<strong>別次元の進化</strong>を遂げようとしています。なんと試験問題に<strong>AWSの実技試験を織り交ぜてきた</strong>のです。</p>
+<p><strong>「試験ラボ」</strong> と呼ばれるこの試みはAWS認定の<strong>試験対策に根本的な変更</strong>を求めるものであり、また<strong>認定の意義の見直しを迫る</strong>ものでもあります。本記事では2021/7/27に新しく試験ラボが導入されたAWS認定「SysOpsアドミニストレーター - アソシエイト(SOA-C02)」の体験談になります。試験ラボの試し方から試験対策まで書ける範囲で書いていきます。</p>
+<span id="more"></span>
+
+<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><p>最初にお断りしておきますが、<a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/certification/certification-agreement/">AWS認定プログラムアグリーメント</a>の規約により、認定試験を含む試験関連資料の内容については他言してはいけないことになっているので、その辺はAWSが公開している情報に準拠します。そして試験やAWS自体も今後変わっていくと思われるので、実際に受ける際には最新の情報を確認するようお願いします。</p>
+<h1 id="SysOpsアドミニストレーター-アソシエイト-SOA-試験とは"><a href="#SysOpsアドミニストレーター-アソシエイト-SOA-試験とは" class="headerlink" title="SysOpsアドミニストレーター - アソシエイト(SOA)試験とは"></a>SysOpsアドミニストレーター - アソシエイト(SOA)試験とは</h1><p>SysOpsアドミニストレーター - アソシエイト(以降SOAと表記)は11個あるAWS認定資格の中でもアソシエイトレベル(中級)の試験です。アソシエイトレベルの試験は3つありますが、かつては比較的与し易い試験と言われてきました・・・　</p>
+<p><img src="https://storage.googleapis.com/zenn-user-upload/5f0e4ab05f84e91dbfadd9fc.png"><br><em><a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/certification/?nc2=sb_ce_co">AWS認定</a>(赤枠は当方で記載)</em></p>
+<p>SOAは運用の話なので開発やアーキテクトよりは具体的で近づきやすい親しみやすさがあったのかもしれません。しかし、今回の試験改定でその立ち位置が大きく変わってきました。運用とは、とどのつまり<strong>口先だけではなく実務としてAWSを正確に操作できる経験がものを言う世界</strong>であり、今回の試験ラボの導入で正しくその実力が問われるようになったのです。</p>
+<h1 id="SysOpsアドミニストレーター-アソシエイト-SOA-試験の概要"><a href="#SysOpsアドミニストレーター-アソシエイト-SOA-試験の概要" class="headerlink" title="SysOpsアドミニストレーター - アソシエイト(SOA)試験の概要"></a>SysOpsアドミニストレーター - アソシエイト(SOA)試験の概要</h1><p>SOA試験の概要は以下の通りです。変更があった点は<strong>強調</strong>しています。</p>
+<ul>
+<li>試験時間<ul>
+<li>130分間 -&gt; <strong>180分間</strong></li>
+</ul>
+</li>
+<li>問題数<ul>
+<li>65問 -&gt; <strong>55問　+ 試験ラボ(複数の可能性あり)</strong></li>
+</ul>
+</li>
+<li>合格ライン<ul>
+<li>100～1000点の範囲のスコアでレポート</li>
+<li>最低合格スコアは720</li>
+</ul>
+</li>
+<li>受験料金<ul>
+<li>15,000 円（税別）/ 模擬試験 2,000円（税別）</li>
+</ul>
+</li>
+<li>認定期間<ul>
+<li>3年</li>
+<li>再認定時は同じ試験を50%割引で受けられる</li>
+</ul>
+</li>
+<li>合否結果<ul>
+<li>すぐに表示 -&gt; <strong>5営業日以内に通知</strong></li>
+</ul>
+</li>
+</ul>
+<p>気になる変更点はやはり試験ラボの追加による試験時間の増加だと思います。180分は<strong>プロフェッショナル試験と同じ時間</strong>であり、それだけ体力と集中力が要求されることになります。</p>
+<p>あと合否結果がすぐには分からないのも、これまでとは違う所です。今までは試験終了時に画面に合否が表示されていましたが、SOAでは5営業日以内に通知となります。とは言っても<strong>受験後3時間後</strong>には認定バッジが発行された通知が来て、認定アカウントからは試験結果がダウンロードできました。もちろん個人差はあると思いますが、実際にはそこまで遅くなる心配は不要かもしれません。</p>
+<h1 id="「試験ラボ」とは何なのか？"><a href="#「試験ラボ」とは何なのか？" class="headerlink" title="「試験ラボ」とは何なのか？"></a>「試験ラボ」とは何なのか？</h1><p>さて、ここからが本題に深く踏み込んだ内容になります。試験ラボについては<a target="_blank" rel="noopener" href="https://d1.awsstatic.com/ja_JP/training-and-certification/docs-sysops-associate/AWS-Certified-SysOps-Administrator-Associate_Exam-Guide.pdf">試験ガイド</a>の内容に沿って紹介していきます。</p>
+<blockquote>
+<p>試験ラボ：提供された AWS アカウントの AWS マネジメントコンソールまたは AWS CLI で、特定のシナリオに必要なタスクを完了します。</p>
+</blockquote>
+<p>試験ラボはブラウザからWindowsの環境にアクセスして(ブラウザ内からリモートデスクトップで繋いでいる感じ<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>)、その中でさらにブラウザを立ち上げてマネジメントコンソールにアクセスする仕組みでした。ブラウザ依存を取り除いたり、ブラウザのアドオンの影響を避けるうまいやり方だなと思いました。</p>
+<blockquote>
+<p>試験が開始すると、多肢選択問題および複数回答問題の設問数と試験ラボセクションの試験ラボ数に関する通知が届きます。また、試験ラボの作業内容により採点されるスコアのパーセンテージも確認できます。各試験ラボの完了に与えられる時間は 20 分と想定してください。</p>
+</blockquote>
+<p>自分の試験では試験ラボ数は2でした。従って40分より多く作業時間を見積もるよう試験の最初の方で画面で指示されました。　試験ラボは選択式の試験が終わった後にあり後戻りはできないので、試験ラボの時間を十分に残しておく必要があります。</p>
+<blockquote>
+<p>次の試験ラボに移動する前に、試験ラボのすべての作業を完了する必要があります。前の試験ラボに戻ることはできません。試験ラボでの作業中は、仮想マシンのメモ帳または AWS CLI を使用できます。</p>
+</blockquote>
+<p>どうやら仮想マシン上でAWS CLIも使えるみたいです。自分はたまたま必要なかったので利用はしませんでした。</p>
+<blockquote>
+<p>試験ラボの作業を行う方法は、複数ある可能性があります。このような場合、シナリオの正しい終了状態を達成すると、その作業内容に対して最高点が付与されます。試験ラボの一部を完了した場合は、部分点が付与されます。ただし、試験内容およびそれに伴う得点は機密情報です。試験ラボで付与される部分点以外の情報は公開されません。</p>
+</blockquote>
+<p>この採点方法が一番謎が多い所です。試験ラボのサンプルをやってみましたが、部分点をどうやってつけているのか謎な点がありました。多分AWSの秘蔵のタレが仕込んであるのでしょう。</p>
+<h1 id="試験問題のサンプルより「試験ラボ」を確認してみる"><a href="#試験問題のサンプルより「試験ラボ」を確認してみる" class="headerlink" title="試験問題のサンプルより「試験ラボ」を確認してみる"></a>試験問題のサンプルより「試験ラボ」を確認してみる</h1><p>もう少し踏み込んだ試験ラボのイメージを持つには公開されている<a target="_blank" rel="noopener" href="https://d1.awsstatic.com/ja_JP/training-and-certification/docs-sysops-associate/AWS-Certified-SysOps-Administrator-Associate_Sample-Questions_C02.pdf">試験問題のサンプル</a>を見てもらった方が早いでしょう。以下はサンプルとして公開されている試験ラボの画面になります。</p>
+<p><img src="https://storage.googleapis.com/zenn-user-upload/3ec4edb7ba9c8de4adcf9fc2.png"><br><em><a target="_blank" rel="noopener" href="https://d1.awsstatic.com/ja_JP/training-and-certification/docs-sysops-associate/AWS-Certified-SysOps-Administrator-Associate_Sample-Questions_C02.pdf">SOA-C02 試験問題サンプル</a>のP7より抜粋</em></p>
+<p>画面を見てもらうとわかるように右側に指示が書いてあり、左側がマネジメントコンソールになっています。試験ラボに起動には数分かかりますが、起動後にはこの状態になっていました。</p>
+<p>試験ラボでは右側の指示通りにリソースを作ったり、パラメータを設定したりします。たまに右側に値を書き込む設問もあります。</p>
+<p>試験ラボの難易度は画面を見てもらうとわかる通り<strong>完全な初見殺し</strong>です。AWSマネジメントコンソールに触ったことがない人が簡単に解けるような問題ではありません。普段よく触る人でも実際に操作したことがないような指示があります。</p>
+<p>このサンプル問題を見ただけでも試験ラボを甘く見るのが如何に危険かご理解頂けるでしょう。</p>
+<h1 id="「試験ラボ」のサンプルを試してみる"><a href="#「試験ラボ」のサンプルを試してみる" class="headerlink" title="「試験ラボ」のサンプルを試してみる"></a>「試験ラボ」のサンプルを試してみる</h1><p>試験ラボは<strong>2021年12月31日までに試験予約を行うと試験ラボのサンプルを無料で試すことができます。</strong> 試験ラボは試験を予約するとメールでアクセス方法が送られてきます。以下が実際にアクセスした画面です。</p>
+<p><img src="https://storage.googleapis.com/zenn-user-upload/1a5b3b9203b92c4021bbd640.png"></p>
+<p>一番下の「起動」ボタンを押すと新しいブラウザのウィンドウが開いて試験ラボが開始します。試験ラボには最初のアクセスから90日間にわたって、3回試行することができます。3回とも同じ試験ラボで内容が変わることはありません。試験ラボのサンプルで実際にその場で採点もされて部分点も表示されます。</p>
+<p>試験ラボの環境は模擬試験でも提供されておらず、この試験ラボのサンプルのみなので受験予定の方は2021/12/31までに予約を行ったほうが良さそうです。</p>
+<h1 id="「試験ラボ」の対策"><a href="#「試験ラボ」の対策" class="headerlink" title="「試験ラボ」の対策"></a>「試験ラボ」の対策</h1><p>試験ラボの対策はやはり<strong>実際にAWSマネジメントコンソールに触って試験範囲の各種サービスの基本操作を試してみる</strong>ことです。主に以下の3つが挙げられます。</p>
+<ul>
+<li>AWSの無料利用枠を活用する</li>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/training/self-paced-labs/">セルフペースラボ</a>を利用する</li>
+<li>「試験ラボ」のサンプルを試してみる</li>
+</ul>
+<p>一番のオススメは「AWSの無料利用枠」を活用してマネジメントコンソールを触りまくることです。無料利用枠には「1年間限定」のものもあれば、特定の利用量の範囲であれば常に無料のものもあります。実際にAWSに触ってみるとAWSのコストを「肌感覚」で知ることができるのでオススメです。もちろん請求ダッシュボードの確認や請求アラームを活用することは忘れないでください。</p>
+<div class="blog-card"><div class="hbc-link-wrap"><a class="hbc-link" target="_blank" rel="noopener" href="https://aws.amazon.com/jp/free/"><div class="hbc-card"><div class="hbc-info"><img class="hbc-favicon" src="http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Ffree%2F"><div class="hbc-site-name">Amazon Web Services, Inc.</div></div><div class="hbc-contents"><div class="hbc-thumbnail"><img src="https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png"></div><div class="hbc-text"><div class="hbc-title">AWS クラウド無料利用枠 | AWS </div><div class="hbc-url">https://aws.amazon.com/jp/free/</div><div class="hbc-description">AWS 無料利用枠を使用すると、AWS のプラットフォーム、製品、およびサービスを無料でお試しいただけます。各製品ごとの無料利用枠の詳細やご利用開始方法についてご紹介します。 </div></div></div></div></a></div></div>
+
+<p>二番目は<a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/training/self-paced-labs/">セルフペースラボ</a>の活用です。セルフペースラボでは<a target="_blank" rel="noopener" href="https://www.qwiklabs.com/">Qwiklabs</a>のハンズオンラボの仕組みを利用してAWSマネジメントコンソールを利用することができます。一部機能に制限はついていますが試験対策として必要なサービスを試してみることはできるのでうまく活用すればお金をかけずに試験ラボ対策ができます。</p>
+<div class="blog-card"><div class="hbc-link-wrap"><a class="hbc-link" target="_blank" rel="noopener" href="https://aws.amazon.com/jp/training/self-paced-labs/"><div class="hbc-card"><div class="hbc-info"><img class="hbc-favicon" src="http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Ftraining%2Fself-paced-labs%2F"><div class="hbc-site-name">Amazon Web Services, Inc.</div></div><div class="hbc-contents"><div class="hbc-thumbnail"><img src="https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png"></div><div class="hbc-text"><div class="hbc-title">AWS トレーニングと認定 – インストラクター主導形式の AWS クラウドトレーニングクラス | AWS</div><div class="hbc-url">https://aws.amazon.com/jp/training/self-paced-labs/</div><div class="hbc-description">AWS トレーニングと認定を活用して、AWS クラウドスキルを磨いてください。AWS をオンラインで学ぶには、無料のデジタルトレーニング、トレーナーによるクラスルームトレーニング、仮想クラスルームトレーニング、プライベートのオンサイトおよび仮想トレーニングがあります。詳細はこちら…</div></div></div></div></a></div></div>
+
+<p>三番目は先程紹介した「試験ラボ」のサンプルです。これはすでに紹介したので説明は割愛します。</p>
+<p>具体的にどんなサービスに触った方がよいかというと、試験ガイドで出てくるサービスは一通り触ったほうがよいます。ただ、さすが量が多いので　AWSで良く使われている印象のサービスに星印（★)を付けてみました。あくまで個人的な印象なので参考程度に見て頂けると幸いです。</p>
+<details><summary>試験ガイドに記載されている試験対象のサービス一覧</summary><ul>
+<li>アナリティクス<ul>
+<li>Amazon Elasticsearch Service (Amazon ES)</li>
+</ul>
+</li>
+<li>アプリケーション統合:<ul>
+<li>Amazon EventBridge (Amazon CloudWatch Events) ★</li>
+<li>Amazon Simple Notification Service (Amazon SNS) ★★★</li>
+<li>Amazon Simple Queue Service (Amazon SQS) ★★★</li>
+</ul>
+</li>
+<li>AWS コスト管理:<ul>
+<li>AWS Cost and Usage Report ★★</li>
+<li>AWS Cost Explorer</li>
+<li>Savings Plans</li>
+</ul>
+</li>
+<li>コンピューティング:<ul>
+<li>AWS Application Auto Scaling</li>
+<li>Amazon EC2 ★★★</li>
+<li>Amazon EC2 Auto Scaling ★★</li>
+<li>Amazon EC2 Image Builder</li>
+<li>AWS Lambda ★★★</li>
+</ul>
+</li>
+<li>データベース:<ul>
+<li>Amazon Aurora ★★★</li>
+<li>Amazon ElastiCache ★</li>
+<li>Amazon RDS ★</li>
+</ul>
+</li>
+<li>管理、モニタリング、ガバナンス: <ul>
+<li>AWS CloudFormation ★★ </li>
+<li>AWS CloudTrail ★★</li>
+<li>Amazon CloudWatch ★★★★ </li>
+<li>AWS Command Line Interface (AWS CLI) ★★ </li>
+<li>AWS Compute Optimizer </li>
+<li>AWS Config ★</li>
+<li>AWS Control Tower </li>
+<li>AWS License Manager </li>
+<li>AWS マネジメントコンソール ★★★★★</li>
+<li>AWS OpsWorks </li>
+<li>AWS Organizations </li>
+<li>AWS Personal Health Dashboard </li>
+<li>AWS Secrets Manager </li>
+<li>AWS Service Catalog </li>
+<li>AWS Systems Manager </li>
+<li>AWS Systems Manager Parameter Store *</li>
+<li>AWS のツールと SDK *</li>
+<li>AWS Trusted Advisor</li>
+</ul>
+</li>
+<li>移行と転送: <ul>
+<li>AWS DataSync </li>
+<li>AWS Transfer Family</li>
+</ul>
+</li>
+<li>ネットワークとコンテンツ配信: <ul>
+<li>AWS Client VPN </li>
+<li>Amazon CloudFront ★★</li>
+<li>Elastic Load Balancing ★★★</li>
+<li>AWS Firewall Manager </li>
+<li>AWS Global Accelerator </li>
+<li>Amazon Route 53 ★★★</li>
+<li>Amazon Route 53 Resolver </li>
+<li>AWS Transit Gateway </li>
+<li>Amazon VPC ★★★★</li>
+<li>Amazon VPC トラフィックミラーリング</li>
+</ul>
+</li>
+<li>セキュリティ、アイデンティティ、コンプライアンス: <ul>
+<li>AWS Certificate Manager (ACM) </li>
+<li>Amazon Detective </li>
+<li>AWS Directory Service </li>
+<li>Amazon GuardDuty </li>
+<li>AWS IAM Access Analyzer </li>
+<li>AWS Identity and Access Management (IAM) ★★★★</li>
+<li>Amazon Inspector</li>
+<li>AWS Key Management Service (AWS KMS) ★</li>
+<li>AWS License Manager</li>
+<li>AWS Secrets Manager ★</li>
+<li>AWS Security Hub</li>
+<li>AWS Shield</li>
+<li>AWS WAF</li>
+</ul>
+</li>
+<li>ストレージ:<ul>
+<li>Amazon Elastic Block Store (Amazon EBS) ★★★</li>
+<li>Amazon Elastic File System (Amazon EFS) ★★</li>
+<li>Amazon FSx</li>
+<li>Amazon S3 ★★★★</li>
+<li>Amazon S3 Glacier ★★</li>
+<li>AWS Backup</li>
+<li>AWS Storage Gateway </li>
+</ul>
+</li>
+</ul>
+</details>
+
+<h1 id="試験-SOA-C02-を受けた感想"><a href="#試験-SOA-C02-を受けた感想" class="headerlink" title="試験(SOA-C02)を受けた感想"></a>試験(SOA-C02)を受けた感想</h1><p>正直難しかったです。試験改定後は大抵難しくなるものですが予想を超えていました。アソシエイトレベルの試験ではSAA<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>もDVA<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>も持っていてどちらも900点超えでしたが、SOA-C02は754しかとれず想像以上にギリギリの合格でした。プロフェッショナル(SAP<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>)も持っていてその点数よりも低かったので正直甘く見すぎていました。</p>
+<blockquote>
+<p>DVA &gt; SAA &gt;&gt; SAP &gt; SOA (点数順)</p>
+</blockquote>
+<p>もちろん今回は試験対策は1週間しかしなかったことが低得点の主な要因ですが、それにしても普段そこそこAWSマネジメントコンソールに触っていると思っていても、なかなか対策なしでは厳しいものがあると感じました。</p>
+<h1 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h1><p>AWS認定SysOpsアドミニストレーター - アソシエイトの試験が2021/7/27に改定され、<strong>「試験ラボ」</strong> が導入されました。「試験ラボ」はいわゆる <strong>「実技試験」</strong> にあたり、今回から選択式の試験と実技試験の二本立てになりました。今後はこの形がAWS認定試験のスタンダードになるかもしれません。</p>
+<p>これまでAWS認定は単純なペーパーテストの域を出なかったため、AWSマネジメントコンソールに触ったことがない人でも合格したという話がそこそこ出ており、<strong>その実用性や価値に懐疑的な意見が少なからずありました</strong>。</p>
+<p>しかし試験ラボの登場でAWSマネジメントコンソールにまったく触ったことがないというレベルの人はほぼ排除されることになるでしょう。それは<strong>AWS認定が単なるファッションではなくAWSを実用的に使える証明</strong>に一歩近づいた証でもあります。</p>
+<p>もちろん、それは試験の難易度が顕著に上がった印でもあり試験ラボの対策はAWSの実環境で十分に成されるべきです。今後はqwiklabs等を用いたハンズオンラボの試験対策も充実してくると思われるので、気軽にAWSの実技を磨く機会が増えるのではないかと推察しております。</p>
+<p>そして試験ラボの有用性が証明されれば、<strong>AWSを超えてIT資格のスタンダートになる潜在的な力</strong>を秘めています。もちろんそれはまだ先の話かもしれませんが直近ではAWS認定デベロッパー - Associate(DVA)なんかで、Cloud9でコーディングしてCodeCommitにコミットしてAIでコードが採点されたり、実行結果をラムダやコンテナで自動チェックする試験が追加されると面白いのではないかと想像したりしていて、個人的には <strong>「試験ラボ」</strong> のこれからに非常に期待しています。</p>
+<p>本記事が、「試験ラボ」や「AWS認定SysOpsアドミニストレーター - アソシエイト(SOA-C02)」に興味を持っている方の一助になれば幸いです。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/certification/certified-sysops-admin-associate/">AWS Certified SysOps Administrator - Associate 認定</a></li>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/blogs/news/tips-for-an-aws-certification-exam-with-exam-labs/">ラボを含む新しい AWS 認定 SysOps アドミニストレーターアソシエイト試験の受験 Tips | Amazon Web Services ブログ</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.classmethod.jp/articles/aws-certification-soa-c02/">SOA新試験（SOA-C02）受験レポート | DevelopersIO</a></li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Apache Guacamoleのような仕組み。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">SAAは「AWS認定ソリューションアーキテクト - アソシエイト」のことです。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">DVAは「AWS認定デベロッパー - アソシエイト」のことです。</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">SAPは「AWS認定ソリューションアーキテクト - プロフェッショナル」のことです。</span><a href="#fnref:4" rev="footnote"> ↩</a></li></ol></div></div></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_hatena"></a><a class="a2a_button_reddit"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/cats-cats-cats/2021/07/24/it-engineer-diet/"><span class="level-item">コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div><div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" title="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-08-20</div><a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" title="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話" rel="bookmark">暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" title="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/aws-cert-pro.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-11-19</div><a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" title="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)" rel="bookmark">「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" title="Pulumiでプログラマのための「Infrastructure as Code」を実践する" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/pulumi.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-08-26</div><a href="/cats-cats-cats/2019/08/26/infrastructure-as-code-in-pulumi/" title="Pulumiでプログラマのための「Infrastructure as Code」を実践する" rel="bookmark">Pulumiでプログラマのための「Infrastructure as Code」を実践する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" title="Serverless Days Tokyo 2019 に参加してきました" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/serverless-days-tokyo-thumbnail-min.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-10-27</div><a href="/cats-cats-cats/2019/10/27/serverless-days-tokyo-2019/" title="Serverless Days Tokyo 2019 に参加してきました" rel="bookmark">Serverless Days Tokyo 2019 に参加してきました</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" title="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/rust_heart_lambda.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-12-06</div><a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" title="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜" rel="bookmark">RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/12/31/2020-last/" title="2020年の技術的な振り返り" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/pose_furikaeru_man.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-12-31</div><a href="/cats-cats-cats/2020/12/31/2020-last/" title="2020年の技術的な振り返り" rel="bookmark">2020年の技術的な振り返り</a></h3></div></li></ul></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/09/13/aws-soa-c02/"><img src="/cats-cats-cats/gallery/daily/others/aws-soa.png" alt="AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-12T22:28:45.000Z">2021-09-13</time></p><p class="title"><a href="/cats-cats-cats/2021/09/13/aws-soa-c02/">AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/07/24/it-engineer-diet/"><img src="/cats-cats-cats/gallery/thumbnails/diet_after_man.png" alt="コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-23T22:28:45.000Z">2021-07-24</time></p><p class="title"><a href="/cats-cats-cats/2021/07/24/it-engineer-diet/">コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/03/16/contextual-abstructions/"><img src="/cats-cats-cats/gallery/thumbnails/eiga_film.png" alt="Contextual Abstractionsで様々なコンテキストをうまく抽象化する"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-15T22:28:45.000Z">2021-03-16</time></p><p class="title"><a href="/cats-cats-cats/2021/03/16/contextual-abstructions/">Contextual Abstractionsで様々なコンテキストをうまく抽象化する</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/Language/">Language</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/02/22/access-analytics/"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="猫の日なので「cats cats cats」のGoogleアナリティクスとGoogleサーチコンソールの結果を晒してみる"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-02-21T22:28:45.000Z">2021-02-22</time></p><p class="title"><a href="/cats-cats-cats/2021/02/22/access-analytics/">猫の日なので「cats cats cats」のGoogleアナリティクスとGoogleサーチコンソールの結果を晒してみる</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/02/01/m1-mac-dev-env/"><img src="/cats-cats-cats/gallery/thumbnails/pose_necchuu_computer_man.png" alt="絶対にRosetta 2を入れてはいけないM1 Mac開発環境構築 2021-2-1版"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-31T22:28:45.000Z">2021-02-01</time></p><p class="title"><a href="/cats-cats-cats/2021/02/01/m1-mac-dev-env/">絶対にRosetta 2を入れてはいけないM1 Mac開発環境構築 2021-2-1版</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a></p></div></article></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">リンク</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://zenn.dev/hinastory" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Zenn - hinastory</span></span><span class="level-right"><span class="level-item tag">zenn.dev</span></span></a></li><li><a class="level is-mobile" href="https://qiita.com/hinastory" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Qiita - hinastory</span></span><span class="level-right"><span class="level-item tag">qiita.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/cats-cats-cats/categories/DIY/"><span class="level-start"><span class="level-item">DIY</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/cats-cats-cats/categories/DIY/Keyboard/"><span class="level-start"><span class="level-item">Keyboard</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">52</span></span></a><ul><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Book/"><span class="level-start"><span class="level-item">Book</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/CloudNative/"><span class="level-start"><span class="level-item">CloudNative</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/ComputerScience/"><span class="level-start"><span class="level-item">ComputerScience</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Event/"><span class="level-start"><span class="level-item">Event</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/MachineLearning/"><span class="level-start"><span class="level-item">MachineLearning</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Miscellaneous/"><span class="level-start"><span class="level-item">Miscellaneous</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Web/"><span class="level-start"><span class="level-item">Web</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/09/"><span class="level-start"><span class="level-item">2021-09</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/07/"><span class="level-start"><span class="level-item">2021-07</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/03/"><span class="level-start"><span class="level-item">2021-03</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/02/"><span class="level-start"><span class="level-item">2021-02</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2019/"><span class="level-start"><span class="level-item">2019</span></span><span class="level-end"><span class="level-item tag">35</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2018/"><span class="level-start"><span class="level-item">2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/AWS/"><span class="tag">AWS</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/"><span class="tag">AdventCalendar</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/"><span class="tag">Algorithm</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Azure/"><span class="tag">Azure</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Blog/"><span class="tag">Blog</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Book/"><span class="tag">Book</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/CDK/"><span class="tag">CDK</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/"><span class="tag">CategoryTheory</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Cats/"><span class="tag">Cats</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Certification/"><span class="tag">Certification</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/"><span class="tag">Compiler</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Container/"><span class="tag">Container</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Diet/"><span class="tag">Diet</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/"><span class="tag">Dotty</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Environment/"><span class="tag">Environment</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/"><span class="tag">ErgoDash</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Event/"><span class="tag">Event</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Exam/"><span class="tag">Exam</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/FizzBuzz/"><span class="tag">FizzBuzz</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/"><span class="tag">Flourish</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/GCP/"><span class="tag">GCP</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Git/"><span class="tag">Git</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Go/"><span class="tag">Go</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/IaC/"><span class="tag">IaC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/"><span class="tag">Interpreter</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/"><span class="tag">Jupyter</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Keras/"><span class="tag">Keras</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/"><span class="tag">Keyboard</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/"><span class="tag">Keymap</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/M1/"><span class="tag">M1</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/"><span class="tag">MLOps</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Mac/"><span class="tag">Mac</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/"><span class="tag">MachineLearning</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/"><span class="tag">MakerFaire</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Mind/"><span class="tag">Mind</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/"><span class="tag">Minikube</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/OGP/"><span class="tag">OGP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/"><span class="tag">Qiita</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/ReView/"><span class="tag">ReView</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/"><span class="tag">Ruby</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Rust/"><span class="tag">Rust</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/SEO/"><span class="tag">SEO</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Scala/"><span class="tag">Scala</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/"><span class="tag">Serverless</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/StepFunctions/"><span class="tag">StepFunctions</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/"><span class="tag">TensorFlow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/TypeScript/"><span class="tag">TypeScript</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/WFH/"><span class="tag">WFH</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Web/"><span class="tag">Web</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/WebAnalytics/"><span class="tag">WebAnalytics</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/"><span class="tag">gRPC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/html5/"><span class="tag">html5</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/k8s/"><span class="tag">k8s</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/npm/"><span class="tag">npm</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/"><span class="tag">oEmbed</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/"><span class="tag">pulumi</span><span class="tag">1</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div class="level"><figure class="level-item image is-64x64 mx-auto"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory"></figure><div class="level-item"><div><p class="title is-size-4 is-block ml-1" style="line-height:inherit;display:block;">hinastory</p><p class="is-size-6 is-flex justify-content-center ml-3"><i class="fas fa-map-marker-alt mr-1"></i><span>Kanagawa, Japan</span></p></div></div></div></div></nav><nav class="level is-mobile"><p class="is-size-6 is-block">The more you reason the less you create</p></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">投稿</p><a href="/cats-cats-cats/archives"><p class="title">56</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/cats-cats-cats/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/cats-cats-cats/tags"><p class="title">57</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/hinastory/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/hinastory999"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/cats-cats-cats/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#はじめに"><span class="level-left"><span class="level-item">1</span><span class="level-item">はじめに</span></span></a></li><li><a class="level is-mobile" href="#SysOpsアドミニストレーター-アソシエイト-SOA-試験とは"><span class="level-left"><span class="level-item">2</span><span class="level-item">SysOpsアドミニストレーター - アソシエイト(SOA)試験とは</span></span></a></li><li><a class="level is-mobile" href="#SysOpsアドミニストレーター-アソシエイト-SOA-試験の概要"><span class="level-left"><span class="level-item">3</span><span class="level-item">SysOpsアドミニストレーター - アソシエイト(SOA)試験の概要</span></span></a></li><li><a class="level is-mobile" href="#「試験ラボ」とは何なのか？"><span class="level-left"><span class="level-item">4</span><span class="level-item">「試験ラボ」とは何なのか？</span></span></a></li><li><a class="level is-mobile" href="#試験問題のサンプルより「試験ラボ」を確認してみる"><span class="level-left"><span class="level-item">5</span><span class="level-item">試験問題のサンプルより「試験ラボ」を確認してみる</span></span></a></li><li><a class="level is-mobile" href="#「試験ラボ」のサンプルを試してみる"><span class="level-left"><span class="level-item">6</span><span class="level-item">「試験ラボ」のサンプルを試してみる</span></span></a></li><li><a class="level is-mobile" href="#「試験ラボ」の対策"><span class="level-left"><span class="level-item">7</span><span class="level-item">「試験ラボ」の対策</span></span></a></li><li><a class="level is-mobile" href="#試験-SOA-C02-を受けた感想"><span class="level-left"><span class="level-item">8</span><span class="level-item">試験(SOA-C02)を受けた感想</span></span></a></li><li><a class="level is-mobile" href="#まとめ"><span class="level-left"><span class="level-item">9</span><span class="level-item">まとめ</span></span></a></li><li><a class="level is-mobile" href="#参考文献"><span class="level-left"><span class="level-item">10</span><span class="level-item">参考文献</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/cats-cats-cats/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/cats-cats-cats/"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="cats cats cats" height="28"></a><p class="is-size-7"><span>&copy; 2021 hinastory</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ja");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/cats-cats-cats/js/column.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/cats-cats-cats/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://hinastory.github.io/cats-cats-cats/about/#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="/cats-cats-cats/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/cats-cats-cats/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/cats-cats-cats/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>
