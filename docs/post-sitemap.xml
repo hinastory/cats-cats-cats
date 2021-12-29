@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</loc>
+        <lastmod>2021-12-29T09:47:30.272Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/</loc>
         <lastmod>2021-12-01T14:24:54.051Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -163,14 +171,6 @@
     <url>
         <loc>https://hinastory.github.io/cats-cats-cats/2019/12/25/visualize_ruby_development/</loc>
         <lastmod>2021-02-13T01:25:59.829Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</loc>
-        <lastmod>2021-02-13T01:25:44.121Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

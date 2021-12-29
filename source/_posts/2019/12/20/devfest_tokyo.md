@@ -122,7 +122,7 @@ Go言語の進化の歴史を丁寧にまとめたセッションでした。や
 
 またGo言語は最近教育や普及にも力を入れて以下のようなサイトが公開されています。
 
-{% blogCard https://go.dev %}
+{% elink The Go Programming Language https://go.dev/ %}
 
 ### 令和元年Google機械学習技術総決算 @ 足立 昌彦(カブク)
 

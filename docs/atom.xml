@@ -103,6 +103,7 @@
     
       &lt;p&gt;遅ればせながらM1 Macbook Airを購入したので開発環境を構築してみました。Rosetta 2が優秀だということは各所から聞こえてくるので今回は &lt;strong&gt;Rosetta 2を入れずに&lt;/strong&gt; どこまでできるか検証してみました。検証したのは以下のアプリです。&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plain&quot;&gt;Chrome, Slack, Zoom, VSCode, iTerm2, prezto, Rust, exa, bat, procs, hexyl,&lt;br&gt;fd, procs, ripgrep, tokei, Homebrew, Emacs, tmux, Java 11, anyenv, Ruby,&lt;br&gt; Go, Node, Python, Jupyter Notebook, TensorFlow, RunCat, Docker&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;実際に上記でRosetta 2なしで動かなかったのは &lt;strong&gt;たったひとつだけ&lt;/strong&gt; でした。以下、順番に検証結果を書いていきますが、何が動かなかったのかを予想しながら読むのも面白いかもしれません。結論から知りたい方は最後のまとめを読んでください。&lt;/p&gt;
     
     </summary>
@@ -140,9 +141,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -202,9 +203,9 @@
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -533,7 +534,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2019/12/20/devfest_tokyo/</id>
     <published>2019-12-19T22:28:45.000Z</published>
-    <updated>2021-02-13T01:25:44.121Z</updated>
+    <updated>2021-12-29T09:47:30.272Z</updated>
     
     <summary type="html">
     
