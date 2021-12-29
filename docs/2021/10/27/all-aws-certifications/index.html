@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS認定を制覇したのでFAQ形式の振り返り - cats cats cats</title><link rel="manifest" href="/cats-cats-cats/manifest.json"><meta name="application-name" content="cats cats cats"><meta name="msapplication-TileImage" content="/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="cats cats cats"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS認定を制覇して11冠になったのでFAQ形式で振り返ってみたいと思います。全部読むとかなり長いので興味がある部分だけでも拾い読みして頂ければ幸いです。 (本記事は勤務先のローカルブログに書いたものとほぼ同じです。当然差し障りのある部分は除いています。)"><meta property="og:type" content="article"><meta property="og:title" content="AWS認定を制覇したのでFAQ形式の振り返り"><meta property="og:url" content="https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/"><meta property="og:site_name" content="cats cats cats"><meta property="og:description" content="AWS認定を制覇して11冠になったのでFAQ形式で振り返ってみたいと思います。全部読むとかなり長いので興味がある部分だけでも拾い読みして頂ければ幸いです。 (本記事は勤務先のローカルブログに書いたものとほぼ同じです。当然差し障りのある部分は除いています。)"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/aws-all-cert.png"><meta property="article:published_time" content="2021-10-26T22:28:45.000Z"><meta property="article:modified_time" content="2021-12-29T19:59:00.452Z"><meta property="article:author" content="hinastory"><meta property="article:tag" content="AWS"><meta property="article:tag" content="Certification"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/cats-cats-cats/gallery/thumbnails/aws-all-cert.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/"},"headline":"cats cats cats","image":["https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/aws-all-cert.png"],"datePublished":"2021-10-26T22:28:45.000Z","dateModified":"2021-12-29T19:59:00.452Z","author":{"@type":"Person","name":"hinastory"},"description":"AWS認定を制覇して11冠になったのでFAQ形式で振り返ってみたいと思います。全部読むとかなり長いので興味がある部分だけでも拾い読みして頂ければ幸いです。 (本記事は勤務先のローカルブログに書いたものとほぼ同じです。当然差し障りのある部分は除いています。)"}</script><link rel="canonical" href="https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/"><link rel="alternate" href="/cats-cats-cats/cats-cats-cats/atom.xml" title="cats cats cats" type="application/atom+xml"><link rel="icon" href="/cats-cats-cats/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/vs2015.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/cats-cats-cats/css/default.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><!--!--><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=UA-132406459-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-132406459-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/cats-cats-cats/"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="cats cats cats" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/cats-cats-cats/"><i class="fa fa-home mr-1"></i> Home</a><a class="navbar-item" href="/cats-cats-cats/archives"><i class="fas fa-archive fa-fw mr-1"></i> Archives</a><a class="navbar-item" href="/cats-cats-cats/categories"><i class="fas fa-cat fa-fw mr-1"></i> Categories</a><a class="navbar-item" href="/cats-cats-cats/tags"><i class="fas fa-tags fa-fw mr-1"></i> Tags</a><a class="navbar-item" href="/cats-cats-cats/about"><i class="undefined mr-1"></i> About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><h1 class="title is-3 is-size-4-mobile">AWS認定を制覇したのでFAQ形式の振り返り</h1><div class="article-meta is-size-7 level is-mobile"><div class="level-left"><span class="level-item"><i class="mr-1 fas fa-calendar-alt"></i><span>2021-10-27</span></span><span class="level-item"><i class="mr-1 fas fa-cat"></i><a class="link-muted" href="/cats-cats-cats/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a></span><span class="level-item"><i class="fas fa-tags"></i><span><a class="link-muted ml-1" rel="tag" href="/cats-cats-cats/tags/AWS/">AWS</a>, <a class="link-muted ml-1" rel="tag" href="/cats-cats-cats/tags/Certification/">Certification</a></span></span></div></div><div class="card-image"><span class="image is-7by3"><img class="cover-image" src="/cats-cats-cats/gallery/thumbnails/aws-all-cert.png"></span></div><div class="content"><p>　<br>AWS認定を制覇して<strong>11冠</strong>になったので<strong>FAQ形式</strong>で振り返ってみたいと思います。全部読むとかなり長いので興味がある部分だけでも拾い読みして頂ければ幸いです。</p>
+<p>(本記事は勤務先のローカルブログに書いたものとほぼ同じです。当然差し障りのある部分は除いています。)</p>
+<span id="more"></span>
+
+<h2 id="想定読者"><a href="#想定読者" class="headerlink" title="想定読者"></a>想定読者</h2><p>本記事の想定読者は以下のとおりです。私が<strong>AWS認定を受ける前</strong>や<strong>11冠を目指す前に知っておきたかったこと</strong>をFAQ形式でなるべく簡潔に書いていきたいと思っています。</p>
+<ul>
+<li>AWS認定に興味を持っている方</li>
+<li>AWS認定を受ける予定の方</li>
+<li>AWS認定11冠を狙っている方</li>
+</ul>
+<h2 id="AWS認定について"><a href="#AWS認定について" class="headerlink" title="AWS認定について"></a>AWS認定について</h2><h3 id="AWSとは何ですか？"><a href="#AWSとは何ですか？" class="headerlink" title="AWSとは何ですか？"></a>AWSとは何ですか？</h3><p>ECサイトを運営する米Amazonが手掛ける<strong>クラウドサービス</strong>です。</p>
+<h3 id="AWS認定とは何ですか？"><a href="#AWS認定とは何ですか？" class="headerlink" title="AWS認定とは何ですか？"></a>AWS認定とは何ですか？</h3><p><strong>AWSのAWSによるAWSのための</strong>認定資格です。もちろんAWSクラウドを利用する人々のための認定資格でもあります。</p>
+<ul>
+<li>参考: <a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/certification/">AWS 認定 – AWS クラウドコンピューティング認定プログラム | AWS</a></li>
+</ul>
+<h3 id="なぜAWS認定の取得が流行っているのですか？"><a href="#なぜAWS認定の取得が流行っているのですか？" class="headerlink" title="なぜAWS認定の取得が流行っているのですか？"></a>なぜAWS認定の取得が流行っているのですか？</h3><p>AWSが<strong>グローバルで一番よく使われているクラウドサービス</strong>だからという理由が一番大きいと思います。</p>
+<ul>
+<li>参考:&nbsp; <a target="_blank" rel="noopener" href="https://canalys.com/newsroom/global-cloud-market-Q121">Canalys Newsroom- Global cloud services market Q1 2021</a></li>
+</ul>
+<p>AWS認定にはどんな種類がありますか？<br>基礎コースが1種類、アソシエイト(初級レベル)が3種類、プロフェッショナル(中・上級レベル)が2種類あります。それに加えて専門知識と呼ばれる分野限定の認定が5種類で合計11種類になります。取得した認定の数によりXX冠という言い方がよくされます。</p>
+<img src="/cats-cats-cats/gallery/daily/others/aws-cert-map.png" class="">
+<p><em><strong><a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/certification/">AWS認定</a>より引用</strong></em></p>
+<h3 id="AWS認定のメリットを教えて下さい"><a href="#AWS認定のメリットを教えて下さい" class="headerlink" title="AWS認定のメリットを教えて下さい"></a>AWS認定のメリットを教えて下さい</h3><p>認定を取得するための学習過程で<strong>AWSのベストプラクティスを効率的に学べる</strong>ことだと思います。それ以外は些末だとは思いますが、詳細は以下の参考情報をご確認ください。</p>
+<ul>
+<li>参考: <a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/certification/benefits/">AWS認定の利点</a></li>
+</ul>
+<h3 id="認定試験にどんな問題が出たか教えてください"><a href="#認定試験にどんな問題が出たか教えてください" class="headerlink" title="認定試験にどんな問題が出たか教えてください"></a>認定試験にどんな問題が出たか教えてください</h3><p>守秘義務があるので答えられません。</p>
+<ul>
+<li>参考: <a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/certification/certification-agreement/">AWS 認定プログラムアグリーメント</a>(<a target="_blank" rel="noopener" href="https://d1.awsstatic.com/legal/AWS-Certification-Agreement/AWS_Certification_Program_Agreement-Japanese_2020-12-22.pdf">日本語</a>)</li>
+</ul>
+<h3 id="認定試験を受けるのにどのくらいお金がかかりますか？"><a href="#認定試験を受けるのにどのくらいお金がかかりますか？" class="headerlink" title="認定試験を受けるのにどのくらいお金がかかりますか？"></a>認定試験を受けるのにどのくらいお金がかかりますか？</h3><p>認定によって異なりますが<strong>1万1000円〜3万円</strong>(税別)です。</p>
+<p>ただし認定に合格すると次回以降に利用可能な半額バウチャーが貰えます。<br>趣味でAWSを使う場合でも無料利用枠がかなりあるので、とりあえずアカウントを作っていても損はないと思います。</p>
+<ul>
+<li>参考:&nbsp;<a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/free/">AWS 無料利用枠</a></li>
+</ul>
+<h3 id="試験時間はどのくらいですか？"><a href="#試験時間はどのくらいですか？" class="headerlink" title="試験時間はどのくらいですか？"></a>試験時間はどのくらいですか？</h3><p>認定によって変わりますが、<strong>90分〜180分</strong>です。</p>
+<h3 id="試験はどこで受けられますか？"><a href="#試験はどこで受けられますか？" class="headerlink" title="試験はどこで受けられますか？"></a>試験はどこで受けられますか？</h3><p><strong>自宅</strong>と<strong>テストセンター</strong>で可能です。</p>
+<h3 id="具体的にどこで受けましたか？"><a href="#具体的にどこで受けましたか？" class="headerlink" title="具体的にどこで受けましたか？"></a>具体的にどこで受けましたか？</h3><p>武蔵小杉テストセンター、横浜テストセンター、田町テストセンターで受けました。どこも似たような感じですが、<strong>横浜テストセンター</strong>が一番大きく整っている気がしました。また自宅受験は試験以外の懸念事項が多すぎるので諦めました。</p>
+<h3 id="SAAとかSAPとよく聞きますが何のことですか？"><a href="#SAAとかSAPとよく聞きますが何のことですか？" class="headerlink" title="SAAとかSAPとよく聞きますが何のことですか？"></a>SAAとかSAPとよく聞きますが何のことですか？</h3><p><strong>AWS認定の略称(コード？)</strong> のことです。詳細は以下のとおりです。CLFだけは何の略かイマイチよくわかりませんが・・・</p>
+<table>
+<thead>
+<tr>
+<th align="left">認定</th>
+<th align="left">略称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AWS 認定クラウドプラクティショナー</td>
+<td align="left">CLF</td>
+</tr>
+<tr>
+<td align="left">AWS 認定ソリューションアーキテクト – アソシエイト</td>
+<td align="left">SAA</td>
+</tr>
+<tr>
+<td align="left">AWS 認定デベロッパー – アソシエイト</td>
+<td align="left">DVA</td>
+</tr>
+<tr>
+<td align="left">AWS 認定 SysOps アドミニストレーター – アソシエイト</td>
+<td align="left">SOA</td>
+</tr>
+<tr>
+<td align="left">AWS 認定ソリューションアーキテクト – プロフェッショナル</td>
+<td align="left">SAP</td>
+</tr>
+<tr>
+<td align="left">AWS 認定 DevOps エンジニア – プロフェッショナル</td>
+<td align="left">DOP</td>
+</tr>
+<tr>
+<td align="left">AWS 認定セキュリティ – 専門知識</td>
+<td align="left">SCS</td>
+</tr>
+<tr>
+<td align="left">AWS 認定データアナリティクス - 専門知識</td>
+<td align="left">DAS</td>
+</tr>
+<tr>
+<td align="left">AWS 認定 機械学習 – 専門知識</td>
+<td align="left">MLS</td>
+</tr>
+<tr>
+<td align="left">AWS 認定データベース- 専門知識</td>
+<td align="left">DBS</td>
+</tr>
+<tr>
+<td align="left">AWS 認定高度なネットワーキング – 専門知識</td>
+<td align="left">ANS</td>
+</tr>
+</tbody></table>
+<h3 id="AWS認定は実務で役に立ちますか？"><a href="#AWS認定は実務で役に立ちますか？" class="headerlink" title="AWS認定は実務で役に立ちますか？"></a>AWS認定は実務で役に立ちますか？</h3><p>はい、役に立ちます。少なくとも情報処理技術者よりは遥かに実践的な設問なので、<strong>SAPとDOPあたりまではAWSを扱う人は実務能力向上目的で取っても損はないです。</strong>専門知識は余裕があればという感じですが、セキュリティ専門知識は重要なのでぜひ押さえておくことをオススメします。</p>
+<h3 id="試験問題は誤訳が多いと聞いたのですが本当ですか？"><a href="#試験問題は誤訳が多いと聞いたのですが本当ですか？" class="headerlink" title="試験問題は誤訳が多いと聞いたのですが本当ですか？"></a>試験問題は誤訳が多いと聞いたのですが本当ですか？</h3><p>本当です。その代わり試験では<strong>英語表記でも確認できる</strong>ので意味がとれなかったら英文を確認してください。</p>
+<h3 id="どんな誤訳がでましたか？"><a href="#どんな誤訳がでましたか？" class="headerlink" title="どんな誤訳がでましたか？"></a>どんな誤訳がでましたか？</h3><p>「3つ選択してください」とあって、選択しようとしたら2つしか選択できなくて英文を確認したら <strong>「Select TWO」</strong>と書いてあり、思わず机を叩いてしまいました。あのとき受験をしていた方々、驚かせてすいません。</p>
+<h2 id="学習法"><a href="#学習法" class="headerlink" title="学習法"></a>学習法</h2><h3 id="SAAの学習方法を教えて下さい"><a href="#SAAの学習方法を教えて下さい" class="headerlink" title="SAAの学習方法を教えて下さい"></a>SAAの学習方法を教えて下さい</h3><p>まだAWSを触ったことがない方はまずはAWSを触るところから初めてください。<strong>後の学習効率に差が付く</strong>と思います。</p>
+<p>AWSは最初の利用から12ヶ月の無料利用期間があるのでその期間はほぼ料金がかかりません(※)。AWSアカウントを作成したら <strong>「AWS 初心者向けハンズオン」</strong>を利用して、実際に触りながら体験してみることをオススメします。</p>
+<ul>
+<li>参考:  <a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/aws-jp-introduction/aws-jp-webinar-hands-on/">AWS 初心者向けハンズオン</a></li>
+</ul>
+<p><strong>※「<a target="_blank" rel="noopener" href="https://aws.amazon.com/jp/free/">AWS 無料利用枠</a>」の条件をよく確認してください。12ヶ月以内でも無料利用枠に当てはまらないサービスや使い方があります。</strong></p>
+<p>SAAの詳細は記事に書いたので興味がある方はご覧ください。</p>
+<div class="blog-card"><div class="hbc-link-wrap"><a class="hbc-link" href="https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/"><div class="hbc-card"><div class="hbc-info"><img class="hbc-favicon" src="http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fhinastory.github.io%2Fcats-cats-cats%2F2019%2F08%2F20%2Faws-solution-architect-associate%2F"><div class="hbc-site-name">cats cats cats</div></div><div class="hbc-contents"><div class="hbc-thumbnail"><img src="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png"></div><div class="hbc-text"><div class="hbc-title">暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</div><div class="hbc-url">https://hinastory.github.io/cats-cats-cats/2019/08/20/aws-solution-architect-associate/</div><div class="hbc-description">AWS(Amazon Web Service)は言わずと知れたシェアNo.1のクラウドコンピューティングサービス1です。そのAWSの認定の中でも屈指の人気を誇る「AWS認定ソリューションアーキテクト - アソシエイト」を5日間の勉強で合格することができました。本当に月曜日に思い立…</div></div></div></div></a></div></div>
+
+<h3 id="SAPの学習方法を教えて下さい"><a href="#SAPの学習方法を教えて下さい" class="headerlink" title="SAPの学習方法を教えて下さい"></a>SAPの学習方法を教えて下さい</h3><p>基本的には多くの方が書かれているように以下のステップで勉強すると良いと思います。一番辛いのは <strong>「模擬問題を周回する」</strong>なので1から4までは時間をかけすぎないようにさらっと流して、問題を解きながら理解が浅いと感じたら立ち戻るようにした方が効率が良いように思います。</p>
+<ul>
+<li>試験ガイドで試験範囲の確認</li>
+<li>Well-Architectedについて理解を深める</li>
+<li>BlackBeltで関連サービスを見る</li>
+<li>YouTubeの1.5倍速がおすすめ</li>
+<li>対策本が出ているなら一読する</li>
+<li>模擬問題を周回する</li>
+<li>試験の問題数(65 or 75問)を3セット、2周以上が理想</li>
+</ul>
+<p>模擬問題のありかは試験サンプル、公式の模擬試験、Exam Readiness、Udemy、対策本(市販されている本のことです)、「AWS WEB問題集で学習しよう」等です。その他にも検索すればいろいろ出てくるのでぜひ探してみてください。</p>
+<p>SAPの詳細は記事に書いたので興味がある方はご覧ください。</p>
+<div class="blog-card"><div class="hbc-link-wrap"><a class="hbc-link" href="https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/"><div class="hbc-card"><div class="hbc-info"><img class="hbc-favicon" src="http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fhinastory.github.io%2Fcats-cats-cats%2F2020%2F11%2F19%2Faws-certified-solutions-architect-professional%2F"><div class="hbc-site-name">cats cats cats</div></div><div class="hbc-contents"><div class="hbc-thumbnail"><img src="https://hinastory.github.io/cats-cats-cats/gallery/thumbnails/aws-cert-pro.png"></div><div class="hbc-text"><div class="hbc-title">「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</div><div class="hbc-url">https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/</div><div class="hbc-description">AWS(Amazon Web Service)は言わずと知れた知れたシェアNo.1のクラウドコンピューティングサービスです。そのAWSの認定資格の中でも最難関と言われている「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格することができました(2020年…</div></div></div></div></a></div></div>
+
+<p>また私が11冠を取ったすぐ後に模擬試験は無料になったようです。もう少し早く欲しかったです・・・</p>
+<div class="blog-card"><div class="hbc-link-wrap"><a class="hbc-link" target="_blank" rel="noopener" href="https://dev.classmethod.jp/articles/new-aws-official-practice-questions/"><div class="hbc-card"><div class="hbc-info"><img class="hbc-favicon" src="http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fdev.classmethod.jp%2Farticles%2Fnew-aws-official-practice-questions%2F"><div class="hbc-site-name">クラスメソッド発「やってみた」系技術メディア | DevelopersIO</div></div><div class="hbc-contents"><div class="hbc-thumbnail"><img src="https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2018/11/eyecatch_aws-services_1200x630.jpeg"></div><div class="hbc-text"><div class="hbc-title">ななななんと！AWS認定の模擬試験が無料になりました！！ | DevelopersIO</div><div class="hbc-url">https://dev.classmethod.jp/articles/new-aws-official-practice-questions/</div><div class="hbc-description">これまで数千円かかっていたAWS認定の模擬試験が無料になりました。新しいサイトでの提供となりますので、登録の流れをまとめてご紹介します！</div></div></div></div></a></div></div>
+
+<h3 id="DASの学習方法を教えて下さい"><a href="#DASの学習方法を教えて下さい" class="headerlink" title="DASの学習方法を教えて下さい"></a>DASの学習方法を教えて下さい</h3><p>前提として<strong>ビッグデータ</strong>の知識が必要です。もともとこの認定は「ビッグデータ専門知識」でした。データ分析の中でも特にデータの前処理や効率的なデータの保管形式などビッグデータならではの知識が要求されます。以下の関連するキーワードが具体的にイメージ出来ていなければ基礎力が不足しているのでAWS固有の話の前に学習しておいたほうが良いです。あとはSAPの学習方法と同じです。</p>
+<p><strong>&lt;関連するキーワード&gt;</strong>: データウェアハウス, ETL, Hadoop,Parquet, Elasticsearch, kibana, Pig, Hive, Presto, Hue, Jupyter Notebook, Spark,HDFS,Avro</p>
+<p><strong>&lt;関連するサービス&gt;</strong>: Redshift, EMR, Kinesis, Athena, Data Pipeline, Glue,Opensearch Service, Snowファミリー</p>
+<p><strong>※ 関連するキーワードと関連するサービスは独断と偏見で選んでいます。過不足はあるので参考程度に留めていおいてください。以降に登場するものも同様となります。</strong></p>
+<h3 id="MLSの学習方法を教えて下さい"><a href="#MLSの学習方法を教えて下さい" class="headerlink" title="MLSの学習方法を教えて下さい"></a>MLSの学習方法を教えて下さい</h3><p>前提として<strong>統計</strong>と<strong>機械学習</strong>の知識が必要です。統計に関しては<a target="_blank" rel="noopener" href="https://bellcurve.jp/statistics/course/">統計WEB</a>をざっと1周すれば、基礎は身につくと思います。機械学習の範囲は<strong>G検定</strong>のビジネス関連を除いた部分が範囲が概ね重なるので、G検定の教科書を流用できます。あとはSAPの学習方法と同じです。</p>
+<p><strong>&lt;関連するキーワード&gt;:</strong> 正規分布, ポアソン分布, 分散, 標準偏差, 四分位数, 帰無仮説, 対立仮説, P値, 混同行列, 適合率, 再現率, 線形回帰, ロジスティック回帰 因数分解機械, XGBoost, K-Means, SVM, k-NN, 主成分分析, 決定木, アンサンブル学習, 強化学習,TF-IDF, L2正則化, CNN, AUC/ROC, 次元削減, RMSE, RNN, LDA</p>
+<p><strong>&lt;関連するサービス&gt;:</strong> SageMaker, Lex, Polly, Kinesis, Mechanical Turk, Comprehend, Transcribe, Translate, Connect, Rekognition</p>
+<h3 id="ANSの学習方法を教えて下さい"><a href="#ANSの学習方法を教えて下さい" class="headerlink" title="ANSの学習方法を教えて下さい"></a>ANSの学習方法を教えて下さい</h3><p>前提としては<strong>インターネットの基本的な理解</strong>は必須です。<strong>Direct Connect</strong>は普段あまり触れることのできないサービスなので集中的に学習することをオススメします。あとはSAPの学習方法と同じです。ただしANSは公式の模擬試験が用意されていないのでその分は他の手法で学習量を補う必要があります。</p>
+<p><strong>&lt;関連するキーワード&gt;:</strong> IPv4, IPv6, DHCP, DNS, TCP, UDP, BGP, HTTP, ARP, IPSec, TLS/SSL,&nbsp; MPLS, タグVLAN, NAT, CIDR, VPN, IDS, DDoS, プロミスキャスモード,Wireshark,スニッフィング</p>
+<p><strong>&lt;関連するサービス&gt;:</strong> VPC, Direct Connect, Route 53, EC2, ELB,ASG,CloudFront,WAF</p>
+<h3 id="SCSの学習方法を教えて下さい"><a href="#SCSの学習方法を教えて下さい" class="headerlink" title="SCSの学習方法を教えて下さい"></a>SCSの学習方法を教えて下さい</h3><p>前提として<strong>セキュリティの知識</strong>が必要です。<strong>対策本</strong>が発売されていて巻末の演習問題は周回しました。あとはSAPの学習方法と同じです。</p>
+<p><strong>&lt;関連するキーワード&gt;:</strong> PKI, 公開鍵暗号, 証明書, AES, SSL, IPSec, アクセス制御, 暗号化技術, 脆弱性対策</p>
+<p><strong>&lt;関連するサービス&gt;:</strong>&nbsp; IAM, Directory Service, Cognito, Organization, WAF, Shield, Firewall Manager, Route53, CloudFront, ELB, API Gateway, VPC, Artifact, KMS, CloudWatch, Config, CloudTrail, Trusted Advisor, Macie GuardDuty, Security Hub, Detective</p>
+<h3 id="DBSの学習方法を教えて下さい"><a href="#DBSの学習方法を教えて下さい" class="headerlink" title="DBSの学習方法を教えて下さい"></a>DBSの学習方法を教えて下さい</h3><p>前提として<strong>データベースの知識(特にRDMS、NoSQL)<strong>が必要です。</strong>対策本</strong>が発売されていて巻末の演習問題は周回しました。あとはSAPの学習方法と同じです。</p>
+<p><strong>&lt;関連するキーワード&gt;:</strong> ACID, トランザクション, コミット, ロールバック, 楽観的ロック, 結果整合性, RDBMS, SQL, DDL, DML, DCL, NoSQL, 列志向DB, グラフDB, ドキュメントDB, 時系列DB, インメモリキャッシュ, イミュータブル台帳</p>
+<p><strong>&lt;関連するサービス&gt;:</strong>&nbsp;&nbsp; RDS,&nbsp; Aurora, DynamoDB, ElastiCache, DocumentDB, Neptune, QLDB, Timestream</p>
+<h3 id="SOAの試験ラボについて教えて下さい"><a href="#SOAの試験ラボについて教えて下さい" class="headerlink" title="SOAの試験ラボについて教えて下さい"></a>SOAの試験ラボについて教えて下さい</h3><p><strong>初見殺し</strong>なので必ず<strong>手を動かす対策</strong>を実施してください。思った以上に難しかったです。ある程度対策すれば部分点はとれると思いますが、<strong>満点は普段AWSを触っている人でも困難</strong>かもしれません。少なくとも以下の関連するサービスはAWSの重要なサービスなので対策をしておいたほうが絶対に良いです。特にEC2やVPCは鉄板のサービスですがUIやメニューが良く変わるので今でも混乱しています・・・</p>
+<p><strong>&lt;関連するサービス&gt;:</strong> S3, VPC, EC2, EBS, ELB, ASG, SNS, SQS, CloudWatch, RDS, DynamoDB,IAM</p>
+<p>SOAの詳細は記事に書いたので興味がある方はご覧ください。</p>
+<div class="blog-card"><div class="hbc-link-wrap"><a class="hbc-link" href="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"><div class="hbc-card"><div class="hbc-info"><img class="hbc-favicon" src="http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fhinastory.github.io%2Fcats-cats-cats%2F2021%2F09%2F13%2Faws-soa-c02%2F"><div class="hbc-site-name">cats cats cats</div></div><div class="hbc-contents"><div class="hbc-thumbnail"><img src="https://hinastory.github.io/cats-cats-cats/gallery/daily/others/aws-soa.png"></div><div class="hbc-text"><div class="hbc-title">AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</div><div class="hbc-url">https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/</div><div class="hbc-description">AWS認定は少しずつ移り変わってきました。小さいものでは試験内容の改訂から大きなものでは認定の追加や削除まで色々ありました。しかしここにきてAWS認定は別次元の進化を遂げようとしています。なんと試験問題にAWSの実技試験を織り交ぜてきたのです。 「試験ラボ」 と呼ばれるこの試みは…</div></div></div></div></a></div></div>
+
+<h2 id="試験結果"><a href="#試験結果" class="headerlink" title="試験結果"></a>試験結果</h2><h3 id="合否はいつ発表されますか？"><a href="#合否はいつ発表されますか？" class="headerlink" title="合否はいつ発表されますか？"></a>合否はいつ発表されますか？</h3><p>合否は<strong>試験終了後にすぐにディスプレイに表示</strong>されます。(ただし<strong>試験ラボがあるSOAは除く</strong>)<br>得点も含めた正式な発表は5営業日以内とされていますが、<strong>当日か翌日</strong>には発表されることが多いです。</p>
+<h3 id="合格特典について教えて下さい"><a href="#合格特典について教えて下さい" class="headerlink" title="合格特典について教えて下さい"></a>合格特典について教えて下さい</h3><p><strong>模擬試験の1回分の無料バウチャー</strong>と<strong>本試験の1回分の半額バウチャー</strong>が貰えます。あとは<strong>デジタルバッジ</strong>が貰えてAWS認定の取得の証となります。他にもいくつかあります。</p>
+<h3 id="試験のスコアを教えて下さい"><a href="#試験のスコアを教えて下さい" class="headerlink" title="試験のスコアを教えて下さい"></a>試験のスコアを教えて下さい</h3><p>詳細は以下のとおりです。CLFを一番最後に受けたのに予想外に低くて唸りました。合格すると思って対策せずに行ったのが原因ですが、高得点(900点以上)を取りたいと思うのなら対策は必要そうです。</p>
+<table>
+<thead>
+<tr>
+<th align="left">認定</th>
+<th align="left">略称</th>
+<th align="left">合格点</th>
+<th align="left">得点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AWS 認定クラウドプラクティショナー</td>
+<td align="left">CLF</td>
+<td align="left">700</td>
+<td align="left">821</td>
+</tr>
+<tr>
+<td align="left">AWS 認定ソリューションアーキテクト – アソシエイト</td>
+<td align="left">SAA</td>
+<td align="left">720</td>
+<td align="left">924</td>
+</tr>
+<tr>
+<td align="left">AWS 認定デベロッパー – アソシエイト</td>
+<td align="left">DVA</td>
+<td align="left">720</td>
+<td align="left">916</td>
+</tr>
+<tr>
+<td align="left">AWS 認定 SysOps アドミニストレーター – アソシエイト</td>
+<td align="left">SOA</td>
+<td align="left">720</td>
+<td align="left">754</td>
+</tr>
+<tr>
+<td align="left">AWS 認定ソリューションアーキテクト – プロフェッショナル</td>
+<td align="left">SAP</td>
+<td align="left">750</td>
+<td align="left">770</td>
+</tr>
+<tr>
+<td align="left">AWS 認定 DevOps エンジニア – プロフェッショナル</td>
+<td align="left">DOP</td>
+<td align="left">750</td>
+<td align="left">918</td>
+</tr>
+<tr>
+<td align="left">AWS 認定セキュリティ – 専門知識</td>
+<td align="left">SCS</td>
+<td align="left">750</td>
+<td align="left">875</td>
+</tr>
+<tr>
+<td align="left">AWS 認定データアナリティクス - 専門知識</td>
+<td align="left">DAS</td>
+<td align="left">750</td>
+<td align="left">768</td>
+</tr>
+<tr>
+<td align="left">AWS 認定 機械学習 – 専門知識</td>
+<td align="left">MLS</td>
+<td align="left">750</td>
+<td align="left">894</td>
+</tr>
+<tr>
+<td align="left">AWS 認定データベース- 専門知識</td>
+<td align="left">DBS</td>
+<td align="left">750</td>
+<td align="left">804</td>
+</tr>
+<tr>
+<td align="left">AWS 認定高度なネットワーキング – 専門知識</td>
+<td align="left">ANS</td>
+<td align="left">750</td>
+<td align="left">821</td>
+</tr>
+</tbody></table>
+<p>DOPには1回落ちています。720点だったのであと一歩足りなかったです。その他は一発合格です。</p>
+<h3 id="資格取得期間を教えて下さい"><a href="#資格取得期間を教えて下さい" class="headerlink" title="資格取得期間を教えて下さい"></a>資格取得期間を教えて下さい</h3><p>詳細は以下のとおりです。2019年から2021年にかけて2年3ヶ月をかけて取得しました。</p>
+<table>
+<thead>
+<tr>
+<th align="left">取得月</th>
+<th align="left">取得した認定</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2019/08</td>
+<td align="left">SAA</td>
+</tr>
+<tr>
+<td align="left">2020/10</td>
+<td align="left">SAP</td>
+</tr>
+<tr>
+<td align="left">2021/01</td>
+<td align="left">SCS</td>
+</tr>
+<tr>
+<td align="left">2021/09</td>
+<td align="left">DVA,SOA,DAS,MLS</td>
+</tr>
+<tr>
+<td align="left">2021/10</td>
+<td align="left">ANS,DBS,DOP,CLF</td>
+</tr>
+</tbody></table>
+<p>9月と10月が詰まって見えますが、コロナで引きこもってた時期にも学習時間は確保しています。</p>
+<h2 id="11冠になって分かったこと"><a href="#11冠になって分かったこと" class="headerlink" title="11冠になって分かったこと"></a>11冠になって分かったこと</h2><h3 id="11冠になって良かった点があれば教えて下さい"><a href="#11冠になって良かった点があれば教えて下さい" class="headerlink" title="11冠になって良かった点があれば教えて下さい"></a>11冠になって良かった点があれば教えて下さい</h3><p>SAPで曖昧だった知識が一段深堀りできた感はあります。知識の繋がりも強化され全体像が見えてきました。</p>
+<h3 id="反省点があれば教えて下さい"><a href="#反省点があれば教えて下さい" class="headerlink" title="反省点があれば教えて下さい"></a>反省点があれば教えて下さい</h3><p>SAPの勢いでDOPも合格できるだろうと勢いで乗り込んだらあえなく撃沈して激しく後悔しました。<strong>プロフェッショナルや専門知識は対策なし(or 一夜漬けレベル)で合格するような試験ではありませんでした。</strong>慢心は良くなかったです。</p>
+<h3 id="11冠になるにはどのくらいの学習時間が必要ですか？"><a href="#11冠になるにはどのくらいの学習時間が必要ですか？" class="headerlink" title="11冠になるにはどのくらいの学習時間が必要ですか？"></a>11冠になるにはどのくらいの学習時間が必要ですか？</h3><p><strong>400時</strong>間程度は必要かと思われます。AWS未経験で基礎的なITの素養(基本情報処理技術者相当)がある前提です。</p>
+<h3 id="400時間の内訳を教えて下さい"><a href="#400時間の内訳を教えて下さい" class="headerlink" title="400時間の内訳を教えて下さい"></a>400時間の内訳を教えて下さい</h3><p>ざっくりですが以下のような感じです。上から順番に認定を取得した場合の想定です。下位資格がある場合はそれを取った上でさらに追加で必要な学習時間を書いています。</p>
+<table>
+<thead>
+<tr>
+<th align="left">認定</th>
+<th align="left">学習時間(h)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CLF</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="left">SAA</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="left">SOA</td>
+<td align="left">20</td>
+</tr>
+<tr>
+<td align="left">DVA</td>
+<td align="left">20</td>
+</tr>
+<tr>
+<td align="left">SAP</td>
+<td align="left">80</td>
+</tr>
+<tr>
+<td align="left">DOP</td>
+<td align="left">60</td>
+</tr>
+<tr>
+<td align="left">SCS</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="left">DBS</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="left">DAS</td>
+<td align="left">40</td>
+</tr>
+<tr>
+<td align="left">MLS</td>
+<td align="left">40</td>
+</tr>
+<tr>
+<td align="left">ANS</td>
+<td align="left">40</td>
+</tr>
+<tr>
+<td align="left">合計</td>
+<td align="left">400</td>
+</tr>
+</tbody></table>
+<h3 id="認定の取得と実務能力との関係はありますか"><a href="#認定の取得と実務能力との関係はありますか" class="headerlink" title="認定の取得と実務能力との関係はありますか"></a>認定の取得と実務能力との関係はありますか</h3><p>直接リンクしているとは言い難いですが、ある程度の相関はあると思います。車の運転に例えると<strong>認定の有無が運転免許のある/なし</strong>に対応し、実務能力が<strong>オフロードの運転の上手さ</strong>に対応している感じです。スポーツで例えるなら<strong>認定の有無が体力測定の結果</strong>にあたり、<strong>実務能力がサッカーの上手さ</strong>に当たるぐらいのイメージです。</p>
+<h3 id="具体的に資格保持者はどのくらいのレベルですか？"><a href="#具体的に資格保持者はどのくらいのレベルですか？" class="headerlink" title="具体的に資格保持者はどのくらいのレベルですか？"></a>具体的に資格保持者はどのくらいのレベルですか？</h3><p>以下がAWS認定が公表している目安です。</p>
+<table>
+<thead>
+<tr>
+<th align="left">認定レベル</th>
+<th align="left">業務経験</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">プラクティショナー</td>
+<td align="left">実務半年以上</td>
+</tr>
+<tr>
+<td align="left">アソシエイト</td>
+<td align="left">実務1年以上</td>
+</tr>
+<tr>
+<td align="left">プロフェッショナル</td>
+<td align="left">実務2年以上</td>
+</tr>
+<tr>
+<td align="left">専門知識</td>
+<td align="left">実務1年〜2年</td>
+</tr>
+</tbody></table>
+<h3 id="もう少しわかりやすくレベルを教えて下さい"><a href="#もう少しわかりやすくレベルを教えて下さい" class="headerlink" title="もう少しわかりやすくレベルを教えて下さい"></a>もう少しわかりやすくレベルを教えて下さい</h3><p>とりあえずAWSが公表している数値から算出してみました。感覚的にはそれほど外れていないとは思います。&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th align="left">認定</th>
+<th align="left">経歴</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">プラクティショナー</td>
+<td align="left">入社半年の研修社員</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">アソシエイトを1つ</td>
+<td align="left">入社2年目の新米社員</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">アソシエイトを3つ</td>
+<td align="left">入社4年目の若手社員</td>
+<td align="left">1年*3</td>
+</tr>
+<tr>
+<td align="left">プロフェッショナルを2つ</td>
+<td align="left">入社5年目の中堅社員(リーダー職)</td>
+<td align="left">2年*2</td>
+</tr>
+<tr>
+<td align="left">11冠</td>
+<td align="left">入社13年目のベテラン社員（リードテックorマネジメント職）</td>
+<td align="left">専門知識は1.5年換算</td>
+</tr>
+</tbody></table>
+<h3 id="業務で使えるレベルを教えて下さい"><a href="#業務で使えるレベルを教えて下さい" class="headerlink" title="業務で使えるレベルを教えて下さい"></a>業務で使えるレベルを教えて下さい</h3><p><strong>完全な独断と偏見</strong>ですが以下のとおりです。あくまで<strong>認定以外の情報がない</strong>という前提です。</p>
+<table>
+<thead>
+<tr>
+<th align="left">認定</th>
+<th align="left">業務レベル</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SAA保持者</td>
+<td align="left">IAMユーザを作ってあげてもいいかも</td>
+</tr>
+<tr>
+<td align="left">DVA保持者</td>
+<td align="left">開発チームに混ぜてあげてもいいかも</td>
+</tr>
+<tr>
+<td align="left">SOA保持者</td>
+<td align="left">運用の一部をまかせてもいいかも</td>
+</tr>
+<tr>
+<td align="left">SAP保持者</td>
+<td align="left">アドミン権限あげてもいいかも</td>
+</tr>
+<tr>
+<td align="left">SAPとDOPの保持者</td>
+<td align="left">開発のリーダーをまかせてもいいかも</td>
+</tr>
+<tr>
+<td align="left">11冠</td>
+<td align="left">アーキテクトをやらせる価値があるかも</td>
+</tr>
+</tbody></table>
+<h3 id="どの試験が難しかったですか？"><a href="#どの試験が難しかったですか？" class="headerlink" title="どの試験が難しかったですか？"></a>どの試験が難しかったですか？</h3><p>やはりSAPが一番です。DOPも1回落ちてしまったので難しかったです。</p>
+<h3 id="11冠はどういう人におすすめですか？"><a href="#11冠はどういう人におすすめですか？" class="headerlink" title="11冠はどういう人におすすめですか？"></a>11冠はどういう人におすすめですか？</h3><p>以下のような人にはオススメだと思います。</p>
+<ul>
+<li>SAP、DOPでは物足りなかった人</li>
+<li>実務経験が豊富でAWSで一人でサービスが作れるようになったフルスタックエンジニア</li>
+<li>資格蒐集が趣味の資格コレクター</li>
+</ul>
+<h3 id="11冠はどういう人に向いていないですか？"><a href="#11冠はどういう人に向いていないですか？" class="headerlink" title="11冠はどういう人に向いていないですか？"></a>11冠はどういう人に向いていないですか？</h3><p>向いているかどうかはチャレンジしてみないことには分からないのでチャレンジ精神ある内に動き出したほうがよいです。チャレンジした結果うまく行かなくても学びは多いと思います。<strong>今日が今後の人生で一番若い日です。</strong></p>
+<h3 id="11冠を目指す価値があると思いますか？"><a href="#11冠を目指す価値があると思いますか？" class="headerlink" title="11冠を目指す価値があると思いますか？"></a>11冠を目指す価値があると思いますか？</h3><p>価値観次第だと思います。資格コレクターの方にはもちろん目指す価値があるのだと思います。<strong>実用的なサービスを作りたい方は11冠制覇よりも手を動かすことを優先</strong>した方がよいと思います。</p>
+<h3 id="11冠になって何か変わりましたか"><a href="#11冠になって何か変わりましたか" class="headerlink" title="11冠になって何か変わりましたか?"></a>11冠になって何か変わりましたか?</h3><p>SAPを取った頃から特に大きくは変わっていません。AWSちょっと詳しい人からAWSちょっとワカル人にはなれたかなと思います。<strong>富士登山でいうと5合目あたりです。</strong>ようやく山頂にまで続く道が薄っすら見えてきた感じです。</p>
+<h3 id="これから11冠を目指す人に一言お願いします"><a href="#これから11冠を目指す人に一言お願いします" class="headerlink" title="これから11冠を目指す人に一言お願いします"></a>これから11冠を目指す人に一言お願いします</h3><p>とりあえず<strong>目的は見失わない方が良い</strong>と思います。11冠を取ることが目的でそのことが強いモチベーションになっているのならそのまま突き進んでください。</p>
+<p>AWSを使って良いサービスを作りたいとか、エンジニアとして早く成長したいというのであれば、11冠には拘らずSAP、DOPあたりの教養レベルで止めておいて、<strong>モノづくりにチャレンジ</strong>したほうが良いと思います。</p>
+<p>良いサービスを作りたいのであれば、<strong>実務では尖ったスキルも重宝されます。</strong>例えばCDKを使って誰よりも早くIaC(Infrastructure as Code)を実現できますとか、SageMakerやGlueを使ってMLOpsを素早く作り込めますとか、AWSのAI SaaSを使って付加価値を実装できますとかです。最先端のサービスをスマートに使いこなしてDXを実現できる人材の価値は非常に高く、これからは重宝されるので狙うならこちらかなと思いました。</p>
+<p>エンジニアとしての成長性を重視するなら、とりあえず<strong>AWSでフルスタックエンジニアになる</strong>ことを目指して自分で使ってみたいと思えるサービスを作れるようになるまでAWSを使い込んだほうが得られるものが大きいのではないかと思います。クラウドは<strong>触ってナンボ</strong>のところがあるので、手を動かしただけ成長できます。逆にあまりAWSに触れずに書籍やWebの情報のみで資格を取っただけのペーパードライバーだと現場ではあまり役に立ちません。理想と現実の差はあまりにも大きく<strong>ベストプラクティスを知ったレベルで対応できる業務はほんの僅かしかありません。</strong></p>
+<h2 id="バックグラウンド"><a href="#バックグラウンド" class="headerlink" title="バックグラウンド"></a>バックグラウンド</h2><h3 id="11冠を目指した動機を教えて下さい"><a href="#11冠を目指した動機を教えて下さい" class="headerlink" title="11冠を目指した動機を教えて下さい"></a>11冠を目指した動機を教えて下さい</h3><p><strong>知的好奇心</strong>が大きいです。SAPを取ってAWSに少し詳しくなった気がしましたが、理解した気には全然なれなかったのでとりあえず11冠になってみようと思いました。</p>
+<h3 id="11冠へのチャレンジは無謀だと思いませんでしたか？"><a href="#11冠へのチャレンジは無謀だと思いませんでしたか？" class="headerlink" title="11冠へのチャレンジは無謀だと思いませんでしたか？"></a>11冠へのチャレンジは無謀だと思いませんでしたか？</h3><p>検索するとAWS認定制覇の記事が結構出てくるので、やれないことはなさそうだと思いました。あと<strong>コロナ禍で比較的タイムマネジメントやモチベーションマネジメントがやりやすくなったから</strong>挑戦したというのもあります。外乱が少なくなったため計画や環境をうまく整えられれば学習時間の確保は以前より容易になりました。</p>
+<h3 id="バックグラウンドを教えて下さい"><a href="#バックグラウンドを教えて下さい" class="headerlink" title="バックグラウンドを教えて下さい"></a>バックグラウンドを教えて下さい</h3><p>昔UnixやWindowsでミドルウェア開発をしていました。今はAWSを利用したサービスを作っています。</p>
+<h3 id="業務でAWSを利用していますか？"><a href="#業務でAWSを利用していますか？" class="headerlink" title="業務でAWSを利用していますか？"></a>業務でAWSを利用していますか？</h3><p>はい、AWSを活用しています。</p>
+<h3 id="プライベートでAWSを利用していますか？"><a href="#プライベートでAWSを利用していますか？" class="headerlink" title="プライベートでAWSを利用していますか？"></a>プライベートでAWSを利用していますか？</h3><p>はい、時々は遊んでいます。</p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>AWS認定制覇の記念に振り返りをブログで残したいと思いましたが、より多くの方々のAWS認定に対する疑問にお答えするために<strong>FAQ形式</strong>で書いてみました。私自身がAWS認定を知る前や11冠を目指す前に知っておきたかったことを思い出しながら書き起こしました。</p>
+<p>本記事がAWS認定や11冠に興味がある方の一助になれば幸いです。</p>
+</div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_hatena"></a><a class="a2a_button_reddit"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">無料でRustのJupyterLab機械学習環境を作る in AWS</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/cats-cats-cats/2021/09/13/aws-soa-c02/"><span class="level-item">AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div><div class="popular-posts-box"><div class="popular-posts-box-title">関連する記事</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" title="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/aws-cert-pro.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-11-19</div><a href="/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/" title="「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)" rel="bookmark">「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2021/09/13/aws-soa-c02/" title="AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)" rel="bookmark"><img src="/cats-cats-cats/gallery/daily/others/aws-soa.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2021-09-13</div><a href="/cats-cats-cats/2021/09/13/aws-soa-c02/" title="AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)" rel="bookmark">AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" title="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/512px-Amazon_Web_Services_Logo.svg.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2019-08-20</div><a href="/cats-cats-cats/2019/08/20/aws-solution-architect-associate/" title="暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話" rel="bookmark">暗記が苦手な人間が「AWS認定ソリューションアーキテクト - アソシエイト」に5日間で合格した話</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/12/08/serverless-workflow/" title="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/ts-sfn-cdk.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-12-08</div><a href="/cats-cats-cats/2020/12/08/serverless-workflow/" title="サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜" rel="bookmark">サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" title="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/rust_heart_lambda.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-12-06</div><a href="/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/" title="RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜" rel="bookmark">RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><a href="/cats-cats-cats/2020/12/31/2020-last/" title="2020年の技術的な振り返り" rel="bookmark"><img src="/cats-cats-cats/gallery/thumbnails/pose_furikaeru_man.png" /></a></div><div class="popular-posts-title"><h3><div class="popular-posts-date">2020-12-31</div><a href="/cats-cats-cats/2020/12/31/2020-last/" title="2020年の技術的な振り返り" rel="bookmark">2020年の技術的な振り返り</a></h3></div></li></ul></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/"><img src="/cats-cats-cats/gallery/thumbnails/rust-sagemaker-studio-lab.png" alt="無料でRustのJupyterLab機械学習環境を作る in AWS"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-12-22T22:28:45.000Z">2021-12-23</time></p><p class="title"><a href="/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/">無料でRustのJupyterLab機械学習環境を作る in AWS</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/MachineLearning/">MachineLearning</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/10/27/all-aws-certifications/"><img src="/cats-cats-cats/gallery/thumbnails/aws-all-cert.png" alt="AWS認定を制覇したのでFAQ形式の振り返り"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-10-26T22:28:45.000Z">2021-10-27</time></p><p class="title"><a href="/cats-cats-cats/2021/10/27/all-aws-certifications/">AWS認定を制覇したのでFAQ形式の振り返り</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/09/13/aws-soa-c02/"><img src="/cats-cats-cats/gallery/daily/others/aws-soa.png" alt="AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-12T22:28:45.000Z">2021-09-13</time></p><p class="title"><a href="/cats-cats-cats/2021/09/13/aws-soa-c02/">AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/CloudNative/">CloudNative</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/07/24/it-engineer-diet/"><img src="/cats-cats-cats/gallery/thumbnails/diet_after_man.png" alt="コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-23T22:28:45.000Z">2021-07-24</time></p><p class="title"><a href="/cats-cats-cats/2021/07/24/it-engineer-diet/">コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/Miscellaneous/">Miscellaneous</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/cats-cats-cats/2021/03/16/contextual-abstructions/"><img src="/cats-cats-cats/gallery/thumbnails/eiga_film.png" alt="Contextual Abstractionsで様々なコンテキストをうまく抽象化する"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-15T22:28:45.000Z">2021-03-16</time></p><p class="title"><a href="/cats-cats-cats/2021/03/16/contextual-abstructions/">Contextual Abstractionsで様々なコンテキストをうまく抽象化する</a></p><p class="categories"><a href="/cats-cats-cats/categories/Tech/">Tech</a> / <a href="/cats-cats-cats/categories/Tech/Language/">Language</a></p></div></article></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">リンク</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://zenn.dev/hinastory" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Zenn - hinastory</span></span><span class="level-right"><span class="level-item tag">zenn.dev</span></span></a></li><li><a class="level is-mobile" href="https://qiita.com/hinastory" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Qiita - hinastory</span></span><span class="level-right"><span class="level-item tag">qiita.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/cats-cats-cats/categories/DIY/"><span class="level-start"><span class="level-item">DIY</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/cats-cats-cats/categories/DIY/Keyboard/"><span class="level-start"><span class="level-item">Keyboard</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">54</span></span></a><ul><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Book/"><span class="level-start"><span class="level-item">Book</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/CloudNative/"><span class="level-start"><span class="level-item">CloudNative</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/ComputerScience/"><span class="level-start"><span class="level-item">ComputerScience</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Event/"><span class="level-start"><span class="level-item">Event</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/MachineLearning/"><span class="level-start"><span class="level-item">MachineLearning</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Miscellaneous/"><span class="level-start"><span class="level-item">Miscellaneous</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/categories/Tech/Web/"><span class="level-start"><span class="level-item">Web</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/12/"><span class="level-start"><span class="level-item">2021-12</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/10/"><span class="level-start"><span class="level-item">2021-10</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/09/"><span class="level-start"><span class="level-item">2021-09</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/07/"><span class="level-start"><span class="level-item">2021-07</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/03/"><span class="level-start"><span class="level-item">2021-03</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2021/02/"><span class="level-start"><span class="level-item">2021-02</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2019/"><span class="level-start"><span class="level-item">2019</span></span><span class="level-end"><span class="level-item tag">35</span></span></a></li><li><a class="level is-mobile" href="/cats-cats-cats/archives/2018/"><span class="level-start"><span class="level-item">2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/AWS/"><span class="tag">AWS</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/AdventCalendar/"><span class="tag">AdventCalendar</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Algorithm/"><span class="tag">Algorithm</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Azure/"><span class="tag">Azure</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Blog/"><span class="tag">Blog</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Book/"><span class="tag">Book</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/CDK/"><span class="tag">CDK</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/CategoryTheory/"><span class="tag">CategoryTheory</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Cats/"><span class="tag">Cats</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Certification/"><span class="tag">Certification</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Compiler/"><span class="tag">Compiler</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Container/"><span class="tag">Container</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Diet/"><span class="tag">Diet</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Dotty/"><span class="tag">Dotty</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Environment/"><span class="tag">Environment</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/ErgoDash/"><span class="tag">ErgoDash</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Event/"><span class="tag">Event</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Exam/"><span class="tag">Exam</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/FizzBuzz/"><span class="tag">FizzBuzz</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Flourish/"><span class="tag">Flourish</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/GCP/"><span class="tag">GCP</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Git/"><span class="tag">Git</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Go/"><span class="tag">Go</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/IaC/"><span class="tag">IaC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Interpreter/"><span class="tag">Interpreter</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Jupyter/"><span class="tag">Jupyter</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Keras/"><span class="tag">Keras</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Keyboard/"><span class="tag">Keyboard</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Keymap/"><span class="tag">Keymap</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/M1/"><span class="tag">M1</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/MLOps/"><span class="tag">MLOps</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Mac/"><span class="tag">Mac</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/MachineLearning/"><span class="tag">MachineLearning</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/MakerFaire/"><span class="tag">MakerFaire</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Mind/"><span class="tag">Mind</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Minikube/"><span class="tag">Minikube</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/OGP/"><span class="tag">OGP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Qiita/"><span class="tag">Qiita</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/ReView/"><span class="tag">ReView</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Ruby/"><span class="tag">Ruby</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Rust/"><span class="tag">Rust</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/SEO/"><span class="tag">SEO</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Scala/"><span class="tag">Scala</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Serverless/"><span class="tag">Serverless</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/StepFunctions/"><span class="tag">StepFunctions</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/TensorFlow/"><span class="tag">TensorFlow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/TypeScript/"><span class="tag">TypeScript</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/WFH/"><span class="tag">WFH</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/Web/"><span class="tag">Web</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/WebAnalytics/"><span class="tag">WebAnalytics</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/gRPC/"><span class="tag">gRPC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/html5/"><span class="tag">html5</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/k8s/"><span class="tag">k8s</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/npm/"><span class="tag">npm</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/oEmbed/"><span class="tag">oEmbed</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/cats-cats-cats/tags/pulumi/"><span class="tag">pulumi</span><span class="tag">1</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div class="level"><figure class="level-item image is-64x64 mx-auto"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/1d029a154310d0edb970e8caaf5dc5ec?s=128" alt="hinastory"></figure><div class="level-item"><div><p class="title is-size-4 is-block ml-1" style="line-height:inherit;display:block;">hinastory</p><p class="is-size-6 is-flex justify-content-center ml-3"><i class="fas fa-map-marker-alt mr-1"></i><span>Kanagawa, Japan</span></p></div></div></div></div></nav><nav class="level is-mobile"><p class="is-size-6 is-block">The more you reason the less you create</p></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">投稿</p><a href="/cats-cats-cats/archives"><p class="title">58</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/cats-cats-cats/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/cats-cats-cats/tags"><p class="title">57</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/hinastory/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/hinastory999"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/cats-cats-cats/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#想定読者"><span class="level-left"><span class="level-item">1</span><span class="level-item">想定読者</span></span></a></li><li><a class="level is-mobile" href="#AWS認定について"><span class="level-left"><span class="level-item">2</span><span class="level-item">AWS認定について</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#AWSとは何ですか？"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">AWSとは何ですか？</span></span></a></li><li><a class="level is-mobile" href="#AWS認定とは何ですか？"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">AWS認定とは何ですか？</span></span></a></li><li><a class="level is-mobile" href="#なぜAWS認定の取得が流行っているのですか？"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">なぜAWS認定の取得が流行っているのですか？</span></span></a></li><li><a class="level is-mobile" href="#AWS認定のメリットを教えて下さい"><span class="level-left"><span class="level-item">2.4</span><span class="level-item">AWS認定のメリットを教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#認定試験にどんな問題が出たか教えてください"><span class="level-left"><span class="level-item">2.5</span><span class="level-item">認定試験にどんな問題が出たか教えてください</span></span></a></li><li><a class="level is-mobile" href="#認定試験を受けるのにどのくらいお金がかかりますか？"><span class="level-left"><span class="level-item">2.6</span><span class="level-item">認定試験を受けるのにどのくらいお金がかかりますか？</span></span></a></li><li><a class="level is-mobile" href="#試験時間はどのくらいですか？"><span class="level-left"><span class="level-item">2.7</span><span class="level-item">試験時間はどのくらいですか？</span></span></a></li><li><a class="level is-mobile" href="#試験はどこで受けられますか？"><span class="level-left"><span class="level-item">2.8</span><span class="level-item">試験はどこで受けられますか？</span></span></a></li><li><a class="level is-mobile" href="#具体的にどこで受けましたか？"><span class="level-left"><span class="level-item">2.9</span><span class="level-item">具体的にどこで受けましたか？</span></span></a></li><li><a class="level is-mobile" href="#SAAとかSAPとよく聞きますが何のことですか？"><span class="level-left"><span class="level-item">2.10</span><span class="level-item">SAAとかSAPとよく聞きますが何のことですか？</span></span></a></li><li><a class="level is-mobile" href="#AWS認定は実務で役に立ちますか？"><span class="level-left"><span class="level-item">2.11</span><span class="level-item">AWS認定は実務で役に立ちますか？</span></span></a></li><li><a class="level is-mobile" href="#試験問題は誤訳が多いと聞いたのですが本当ですか？"><span class="level-left"><span class="level-item">2.12</span><span class="level-item">試験問題は誤訳が多いと聞いたのですが本当ですか？</span></span></a></li><li><a class="level is-mobile" href="#どんな誤訳がでましたか？"><span class="level-left"><span class="level-item">2.13</span><span class="level-item">どんな誤訳がでましたか？</span></span></a></li></ul></li><li><a class="level is-mobile" href="#学習法"><span class="level-left"><span class="level-item">3</span><span class="level-item">学習法</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#SAAの学習方法を教えて下さい"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">SAAの学習方法を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#SAPの学習方法を教えて下さい"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">SAPの学習方法を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#DASの学習方法を教えて下さい"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">DASの学習方法を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#MLSの学習方法を教えて下さい"><span class="level-left"><span class="level-item">3.4</span><span class="level-item">MLSの学習方法を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#ANSの学習方法を教えて下さい"><span class="level-left"><span class="level-item">3.5</span><span class="level-item">ANSの学習方法を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#SCSの学習方法を教えて下さい"><span class="level-left"><span class="level-item">3.6</span><span class="level-item">SCSの学習方法を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#DBSの学習方法を教えて下さい"><span class="level-left"><span class="level-item">3.7</span><span class="level-item">DBSの学習方法を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#SOAの試験ラボについて教えて下さい"><span class="level-left"><span class="level-item">3.8</span><span class="level-item">SOAの試験ラボについて教えて下さい</span></span></a></li></ul></li><li><a class="level is-mobile" href="#試験結果"><span class="level-left"><span class="level-item">4</span><span class="level-item">試験結果</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#合否はいつ発表されますか？"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">合否はいつ発表されますか？</span></span></a></li><li><a class="level is-mobile" href="#合格特典について教えて下さい"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">合格特典について教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#試験のスコアを教えて下さい"><span class="level-left"><span class="level-item">4.3</span><span class="level-item">試験のスコアを教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#資格取得期間を教えて下さい"><span class="level-left"><span class="level-item">4.4</span><span class="level-item">資格取得期間を教えて下さい</span></span></a></li></ul></li><li><a class="level is-mobile" href="#11冠になって分かったこと"><span class="level-left"><span class="level-item">5</span><span class="level-item">11冠になって分かったこと</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#11冠になって良かった点があれば教えて下さい"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">11冠になって良かった点があれば教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#反省点があれば教えて下さい"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">反省点があれば教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#11冠になるにはどのくらいの学習時間が必要ですか？"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">11冠になるにはどのくらいの学習時間が必要ですか？</span></span></a></li><li><a class="level is-mobile" href="#400時間の内訳を教えて下さい"><span class="level-left"><span class="level-item">5.4</span><span class="level-item">400時間の内訳を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#認定の取得と実務能力との関係はありますか"><span class="level-left"><span class="level-item">5.5</span><span class="level-item">認定の取得と実務能力との関係はありますか</span></span></a></li><li><a class="level is-mobile" href="#具体的に資格保持者はどのくらいのレベルですか？"><span class="level-left"><span class="level-item">5.6</span><span class="level-item">具体的に資格保持者はどのくらいのレベルですか？</span></span></a></li><li><a class="level is-mobile" href="#もう少しわかりやすくレベルを教えて下さい"><span class="level-left"><span class="level-item">5.7</span><span class="level-item">もう少しわかりやすくレベルを教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#業務で使えるレベルを教えて下さい"><span class="level-left"><span class="level-item">5.8</span><span class="level-item">業務で使えるレベルを教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#どの試験が難しかったですか？"><span class="level-left"><span class="level-item">5.9</span><span class="level-item">どの試験が難しかったですか？</span></span></a></li><li><a class="level is-mobile" href="#11冠はどういう人におすすめですか？"><span class="level-left"><span class="level-item">5.10</span><span class="level-item">11冠はどういう人におすすめですか？</span></span></a></li><li><a class="level is-mobile" href="#11冠はどういう人に向いていないですか？"><span class="level-left"><span class="level-item">5.11</span><span class="level-item">11冠はどういう人に向いていないですか？</span></span></a></li><li><a class="level is-mobile" href="#11冠を目指す価値があると思いますか？"><span class="level-left"><span class="level-item">5.12</span><span class="level-item">11冠を目指す価値があると思いますか？</span></span></a></li><li><a class="level is-mobile" href="#11冠になって何か変わりましたか"><span class="level-left"><span class="level-item">5.13</span><span class="level-item">11冠になって何か変わりましたか?</span></span></a></li><li><a class="level is-mobile" href="#これから11冠を目指す人に一言お願いします"><span class="level-left"><span class="level-item">5.14</span><span class="level-item">これから11冠を目指す人に一言お願いします</span></span></a></li></ul></li><li><a class="level is-mobile" href="#バックグラウンド"><span class="level-left"><span class="level-item">6</span><span class="level-item">バックグラウンド</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#11冠を目指した動機を教えて下さい"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">11冠を目指した動機を教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#11冠へのチャレンジは無謀だと思いませんでしたか？"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">11冠へのチャレンジは無謀だと思いませんでしたか？</span></span></a></li><li><a class="level is-mobile" href="#バックグラウンドを教えて下さい"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">バックグラウンドを教えて下さい</span></span></a></li><li><a class="level is-mobile" href="#業務でAWSを利用していますか？"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">業務でAWSを利用していますか？</span></span></a></li><li><a class="level is-mobile" href="#プライベートでAWSを利用していますか？"><span class="level-left"><span class="level-item">6.5</span><span class="level-item">プライベートでAWSを利用していますか？</span></span></a></li></ul></li><li><a class="level is-mobile" href="#まとめ"><span class="level-left"><span class="level-item">7</span><span class="level-item">まとめ</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/cats-cats-cats/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/cats-cats-cats/"><img src="/cats-cats-cats/gallery/profile/cats-cats-cats-logo.png" alt="cats cats cats" height="28"></a><p class="is-size-7"><span>&copy; 2021 hinastory</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ja");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/cats-cats-cats/js/column.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/cats-cats-cats/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://hinastory.github.io/cats-cats-cats/about/#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="/cats-cats-cats/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/cats-cats-cats/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/cats-cats-cats/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>

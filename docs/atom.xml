@@ -36,13 +36,39 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AWS認定を制覇したのでFAQ形式の振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/</id>
+    <published>2021-10-26T22:28:45.000Z</published>
+    <updated>2021-12-29T19:59:00.452Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　&lt;br&gt;AWS認定を制覇して&lt;strong&gt;11冠&lt;/strong&gt;になったので&lt;strong&gt;FAQ形式&lt;/strong&gt;で振り返ってみたいと思います。全部読むとかなり長いので興味がある部分だけでも拾い読みして頂ければ幸いです。&lt;/p&gt;
+&lt;p&gt;(本記事は勤務先のローカルブログに書いたものとほぼ同じです。当然差し障りのある部分は除いています。)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Certification" scheme="https://hinastory.github.io/cats-cats-cats/tags/Certification/"/>
     
   </entry>
   
@@ -197,9 +223,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -259,9 +285,9 @@
     
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -524,33 +550,6 @@
       <category term="ReView" scheme="https://hinastory.github.io/cats-cats-cats/tags/ReView/"/>
     
       <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【続】Rubyの22年に渡るコミットの歴史を可視化してみた(ファイル編)</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2019/12/29/visualize_ruby_development_by_file/</id>
-    <published>2019-12-28T22:28:45.000Z</published>
-    <updated>2021-02-13T01:26:14.097Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2019/ruby&quot; title=&quot;&quot; target=&quot;&quot;&gt;Ruby Advent Calendar 2019&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;の19日目の記事です。&lt;br&gt;(19日目が投稿されなかったので代理投稿します。)&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
-    
-    
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
-      <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
-    
-      <category term="Flourish" scheme="https://hinastory.github.io/cats-cats-cats/tags/Flourish/"/>
     
   </entry>
   
