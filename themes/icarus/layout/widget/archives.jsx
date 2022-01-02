@@ -102,7 +102,7 @@ Archives.Cacheable = cacheComponent(Archives, 'widget.archives', (props) => {
 
   const data = [];
   let length = 0;
-  const past_year = ['2018', '2019', '2020'];
+  const past_year = ['2018', '2019', '2020', '2021'];
 
   posts.forEach((post) => {
     // Clone the date object to avoid pollution
