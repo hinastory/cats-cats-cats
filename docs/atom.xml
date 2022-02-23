@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2021-12-29T21:54:30.239Z</updated>
+  <updated>2022-02-23T11:02:19.023Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>スーパー猫の日なのでUI/UXのLT登壇したり、発信力を計ったりしてみた</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/</id>
+    <published>2022-02-21T22:28:45.000Z</published>
+    <updated>2022-02-23T11:02:19.023Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年も2月22日がやって来ました。本ブログ「cats cats cats」のお祭りの日です。しかも今年は2022/2/22と「2」が6つも現れる&lt;strong&gt;「スーパー猫の日」&lt;/strong&gt;なので、何か特別な企画をと思い、「UI/UXデザイナーLT会 - vol.6」で&lt;strong&gt;LT登壇&lt;/strong&gt; とFindyの&lt;strong&gt;発信力測定&lt;/strong&gt;を行ってみました。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="UI/UX" scheme="https://hinastory.github.io/cats-cats-cats/tags/UI-UX/"/>
+    
+  </entry>
   
   <entry>
     <title>2021年の技術的な振り返り</title>
@@ -61,11 +84,11 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
-    
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
@@ -522,33 +545,6 @@
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
     
       <category term="CategoryTheory" scheme="https://hinastory.github.io/cats-cats-cats/tags/CategoryTheory/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ブログカードを支える技術</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2020/01/23/blog_card/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2020/01/23/blog_card/</id>
-    <published>2020-01-22T22:28:45.000Z</published>
-    <updated>2021-02-13T01:26:38.946Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ブログカードとは以下のようにリンクをちょっとリッチに表示してくれる機能のことです。以前はこれってどうやって実現しているんだろうと不思議に思っていました。&lt;/p&gt;
-&lt;img src=&quot;/cats-cats-cats/gallery/daily/others/blogCard.png&quot; class=&quot;&quot;&gt;
-&lt;p&gt;　&lt;br&gt;上記のようなブログカードは「はてなブログ」や「WordPress」等のブログサービスでよく見かけますが、基本的にこれらのブログカードは&lt;strong&gt;リンク先のURLを指定するだけ&lt;/strong&gt;で自動的に生成されています。本記事では上記のようなブログカードを支える技術について解説します。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Web" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Web/"/>
-    
-    
-      <category term="Hexo" scheme="https://hinastory.github.io/cats-cats-cats/tags/Hexo/"/>
-    
-      <category term="OGP" scheme="https://hinastory.github.io/cats-cats-cats/tags/OGP/"/>
     
   </entry>
   

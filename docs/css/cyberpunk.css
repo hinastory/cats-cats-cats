@@ -10819,7 +10819,8 @@ article.article .article-meta {
 }
 article.article .content {
   word-wrap: break-word;
-  font-size: 1.1rem;
+  font-size: 1.1125rem;
+  line-height: 1.8rem;
 }
 article.article .content h1 {
   font-size: 1.75em;
@@ -11045,6 +11046,17 @@ a.article-nav-next span {
 }
 .navbar-logo img {
   max-height: 5rem;
+}
+footer.footer .container .level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer.footer .level-start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 @media screen and (max-width: 768px) {
   footer.footer .level-start {
