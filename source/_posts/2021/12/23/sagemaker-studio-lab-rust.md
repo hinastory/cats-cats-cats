@@ -71,13 +71,13 @@ Rustで機械学習をやってみたいという方は少数派かもしれま�
 
 さらに詳しく知りたい方は以下のFAQもご確認ください。
 
-{% blogCard https://studiolab.sagemaker.aws/faq %}
+{% elink SageMaker Studio Lab https://studiolab.sagemaker.aws/faq %}
 
 ## Amazon SageMaker Studio Labの利用方法
 
 まずはAmazon SageMaker Studio Labのアカウントを取得します。以下のページの`Request free account`ボタンを押してください。
 
-{% blogCard https://studiolab.sagemaker.aws %}
+{% elink SageMaker Studio Lab https://studiolab.sagemaker.aws %}
 
 以下のような入力フォームが出ますが、必須はEメールアドレスだけです。入力完了したら`Submit request`ボタンを押してアカウントの要求を行います。
 

@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2022-02-23T23:36:13.901Z</updated>
+  <updated>2023-01-21T01:36:54.772Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Rustの実用性が理解できる図を作成してみた 〜C/C++/Java/JS/Python/Go/TS/Elixirとの比較〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/</id>
+    <published>2022-12-11T22:28:45.000Z</published>
+    <updated>2023-01-21T01:36:54.772Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+  </entry>
+  
+  <entry>
     <title>スーパー猫の日なのでUI/UXのLT登壇したり、発信力を計ったりしてみた</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/</id>
     <published>2022-02-21T22:28:45.000Z</published>
-    <updated>2022-02-23T23:36:13.901Z</updated>
+    <updated>2022-02-25T18:14:29.075Z</updated>
     
     <summary type="html">
     
@@ -46,7 +72,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/</id>
     <published>2021-12-29T22:28:45.000Z</published>
-    <updated>2021-12-29T21:54:30.239Z</updated>
+    <updated>2022-02-22T23:32:05.759Z</updated>
     
     <summary type="html">
     
@@ -60,9 +86,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
     
   </entry>
   
@@ -71,7 +97,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/</id>
     <published>2021-12-22T22:28:45.000Z</published>
-    <updated>2021-12-29T20:51:49.479Z</updated>
+    <updated>2023-01-21T01:51:21.770Z</updated>
     
     <summary type="html">
     
@@ -86,13 +112,13 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
-      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
-    
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+      <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
+    
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
   </entry>
   
@@ -101,7 +127,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/</id>
     <published>2021-10-26T22:28:45.000Z</published>
-    <updated>2021-12-29T19:59:00.452Z</updated>
+    <updated>2022-02-22T23:32:05.758Z</updated>
     
     <summary type="html">
     
@@ -127,7 +153,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/</id>
     <published>2021-09-12T22:28:45.000Z</published>
-    <updated>2021-12-29T20:53:06.582Z</updated>
+    <updated>2022-02-22T23:32:05.758Z</updated>
     
     <summary type="html">
     
@@ -153,7 +179,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/</id>
     <published>2021-07-23T22:28:45.000Z</published>
-    <updated>2021-08-03T18:29:22.384Z</updated>
+    <updated>2022-02-22T23:32:05.758Z</updated>
     
     <summary type="html">
     
@@ -178,7 +204,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/</id>
     <published>2021-03-15T22:28:45.000Z</published>
-    <updated>2021-07-24T03:28:11.004Z</updated>
+    <updated>2022-02-22T23:32:05.757Z</updated>
     
     <summary type="html">
     
@@ -204,7 +230,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/</id>
     <published>2021-02-21T22:28:45.000Z</published>
-    <updated>2021-03-03T22:04:21.557Z</updated>
+    <updated>2021-03-06T03:38:41.763Z</updated>
     
     <summary type="html">
     
@@ -229,13 +255,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/</id>
     <published>2021-01-31T22:28:45.000Z</published>
-    <updated>2021-02-14T11:39:14.248Z</updated>
+    <updated>2021-02-20T00:05:34.701Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;遅ればせながらM1 Macbook Airを購入したので開発環境を構築してみました。Rosetta 2が優秀だということは各所から聞こえてくるので今回は &lt;strong&gt;Rosetta 2を入れずに&lt;/strong&gt; どこまでできるか検証してみました。検証したのは以下のアプリです。&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plain&quot;&gt;Chrome, Slack, Zoom, VSCode, iTerm2, prezto, Rust, exa, bat, procs, hexyl,&lt;br&gt;fd, procs, ripgrep, tokei, Homebrew, Emacs, tmux, Java 11, anyenv, Ruby,&lt;br&gt; Go, Node, Python, Jupyter Notebook, TensorFlow, RunCat, Docker&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
-
 &lt;p&gt;実際に上記でRosetta 2なしで動かなかったのは &lt;strong&gt;たったひとつだけ&lt;/strong&gt; でした。以下、順番に検証結果を書いていきますが、何が動かなかったのかを予想しながら読むのも面白いかもしれません。結論から知りたい方は最後のまとめを読んでください。&lt;/p&gt;
     
     </summary>
@@ -259,7 +284,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/</id>
     <published>2020-12-30T22:28:45.000Z</published>
-    <updated>2021-02-13T01:58:12.704Z</updated>
+    <updated>2021-02-20T00:05:34.700Z</updated>
     
     <summary type="html">
     
@@ -273,9 +298,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -284,7 +309,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/</id>
     <published>2020-12-07T22:28:45.000Z</published>
-    <updated>2021-12-01T14:24:49.748Z</updated>
+    <updated>2022-02-22T23:32:05.757Z</updated>
     
     <summary type="html">
     
@@ -299,9 +324,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="CDK" scheme="https://hinastory.github.io/cats-cats-cats/tags/CDK/"/>
     
@@ -316,7 +341,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/</id>
     <published>2020-12-05T22:28:45.000Z</published>
-    <updated>2021-12-01T14:24:54.051Z</updated>
+    <updated>2022-02-22T23:32:05.757Z</updated>
     
     <summary type="html">
     
@@ -333,11 +358,11 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+      <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
   </entry>
   
@@ -346,7 +371,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/</id>
     <published>2020-11-18T22:28:45.000Z</published>
-    <updated>2021-02-13T01:28:52.640Z</updated>
+    <updated>2021-02-20T00:05:34.700Z</updated>
     
     <summary type="html">
     
@@ -371,7 +396,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/</id>
     <published>2020-10-07T22:28:45.000Z</published>
-    <updated>2021-02-13T01:28:39.755Z</updated>
+    <updated>2021-02-20T00:05:34.700Z</updated>
     
     <summary type="html">
     
@@ -394,7 +419,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</id>
     <published>2020-09-05T22:28:45.000Z</published>
-    <updated>2021-12-01T13:11:25.592Z</updated>
+    <updated>2022-02-22T23:32:05.757Z</updated>
     
     <summary type="html">
     
@@ -421,7 +446,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/</id>
     <published>2020-06-12T22:28:45.000Z</published>
-    <updated>2021-02-13T01:28:12.936Z</updated>
+    <updated>2021-02-20T00:05:34.699Z</updated>
     
     <summary type="html">
     
@@ -444,7 +469,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/</id>
     <published>2020-03-31T22:28:45.000Z</published>
-    <updated>2021-02-13T01:27:59.467Z</updated>
+    <updated>2021-02-20T00:05:34.699Z</updated>
     
     <summary type="html">
     
@@ -473,13 +498,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/</id>
     <published>2020-03-14T22:28:45.000Z</published>
-    <updated>2021-02-13T01:27:45.058Z</updated>
+    <updated>2021-02-20T00:05:34.699Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
 &lt;p&gt;技術書典 応援祭は3月7日から4月5日までの期間限定開催です。技術書典には600を超えるサークルから技術本が出品されているので検索すればきっと気になる技術書が見つかると思います。本記事では自分が買って面白かった本を中心にご紹介したいと思います。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf09/images/market/gs_online_logo_SP.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;技術書典のオンラインマーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf13/images/market/online_sp_gs13.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;技術書典のオンラインマーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -500,12 +525,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/</id>
     <published>2020-02-19T22:28:45.000Z</published>
-    <updated>2021-02-13T01:27:31.549Z</updated>
+    <updated>2021-02-20T00:05:34.699Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;a href=&quot;https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/&quot;&gt;去年&lt;/a&gt;に引き続き、毎年恒例のDevelopers Summit 2020(#devsumi)に参加してきました。今年は新型コロナウイルス感染（COVID-19)の流行により開催が危ぶまれていましたが、ぎりぎり開催ができたようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://event.shoeisha.jp/devsumi/20200213&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fevent.shoeisha.jp%2Fdevsumi%2F20200213&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Shoeisha Event&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;http://event.shoeisha.jp/static/images/event/1066/1200-02.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;Developers Summit 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://event.shoeisha.jp/devsumi/20200213&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;ITエンジニアの祭典「Developers Summit 2020」（デブサミ2020）は、2020年2月13日・14日に開催！事前登録受付中！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://event.shoeisha.jp/devsumi/20200213&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fevent.shoeisha.jp%2Fdevsumi%2F20200213&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Shoeisha Event&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://event.shoeisha.jp/static/images/event/1066/1200-02.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;Developers Summit 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://event.shoeisha.jp/devsumi/20200213&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;ITエンジニアの祭典「Developers Summit 2020」（デブサミ2020）は、2020年2月13日・14日に開催！事前登録受付中！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
@@ -518,35 +543,6 @@
       <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
     
       <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scala3と圏論とプログラミング</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2020/02/11/scala3_programming_category/</id>
-    <published>2020-02-10T22:28:45.000Z</published>
-    <updated>2021-02-13T01:27:15.787Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近、&lt;a href=&quot;https://speakerdeck.com/inamiy/category-theory-and-programming&quot; title=&quot;&quot; target=&quot;&quot;&gt;圏論とプログラミング&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;という素晴らしい資料を拝読しました。圏論とプログラミング愛に溢れる資料で読んでいて目頭が熱くなりました。そうだよな・・・プログラマにも圏論いるよな・・・&lt;/p&gt;
-&lt;p&gt;ただ、自分にとって残念だったのは、資料で説明用に選択されたプログラミング言語が&lt;strong&gt;「Haskell」&lt;/strong&gt;だったことです。もちろんHaskellは素晴らしい言語です。ただ、自分にとってHaskellは外国語なのでちょっと理解が難しいのです。そしてこの資料が&lt;strong&gt;「Scala」&lt;/strong&gt;で書かれていたらと夢想せずにはいられなかったのです。&lt;/p&gt;
-&lt;p&gt;Scalaと言えば昨年末にScala3のリサーチコンパイラのDottyがFeature Completeを宣言しました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。この宣言で新機能の追加は終了して、あとは2020年末のリリースに向けてひたすら品質を上げていく段階に突入しました。つまり、ようやく次世代のScalaが全貌を現したということです。&lt;/p&gt;
-&lt;p&gt;ここである考えが脳裏を過りました。もしかしたら「圏論とプログラミング」に出てくるHaskellの記述を&lt;strong&gt;「素のScala3」&lt;/strong&gt;で置き換えられるのではないかと。&lt;/p&gt;
-&lt;p&gt;本記事ではその疑問を検証してみたいと思います。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
-    
-    
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
-      <category term="CategoryTheory" scheme="https://hinastory.github.io/cats-cats-cats/tags/CategoryTheory/"/>
     
   </entry>
   

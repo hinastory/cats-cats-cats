@@ -10262,6 +10262,12 @@ body {
 body > .section {
   flex-grow: 1;
 }
+.container.is-fluid {
+  max-width: none;
+  padding-left: 28px;
+  padding-right: 28px;
+  width: 100%;
+}
 @media screen and (min-width: 1088px) {
   ::-webkit-scrollbar {
     width: 8px;
