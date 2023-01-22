@@ -1,6 +1,6 @@
 ---
 title: Rustの実用性が理解できる図を作成してみた 〜C/C++/Java/JS/Python/Go/TS/Elixirとの比較〜
-thumbnail: /gallery/daily/illustrated-rust/rust-jittoku.png
+thumbnail: /gallery/daily/illustrated-rust/illustrated-rust.png
 toc: true
 categories:
   - Tech
@@ -12,10 +12,9 @@ date: 2022-12-12 07:28:45
 この記事は[Rust Advent Calendar 2022 - Qiita](https://qiita.com/advent-calendar/2022/rust)の11日目の記事です。
  ([Zennに投稿した記事](https://zenn.dev/hinastory/articles/7857427ea390c5)と同じものです。)
 
-{% img /gallery/daily/illustrated-rust/illustrated-rust.png %}
-
 Rustはプログラマに愛されている言語だと言われています。でも、その愛されている理由をRustを知らない人に説明しようとしたとき苦労した経験はないでしょうか？たくさんの愛を語れば語るほど **「難しそう」** という一言に心を砕かれるのです。
 
+<!-- more -->
 私はRustが多くのプログラマに愛される理由は**Rustが多くの場面で実用的だから**だと思っています。しかしプログラミング言語における「実用性」を定義するのも説明するのも非常に困難を極めるため、Rust布教の大きな壁になっていると感じています。
 
 そこで本記事では**Rustの実用性の図解**にチャレンジしてみようと思います。

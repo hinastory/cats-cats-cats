@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2023-01-21T01:36:54.772Z</updated>
+  <updated>2023-01-22T01:03:51.883Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -17,18 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2022年の技術的な振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2023/01/22/2022-last/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2023/01/22/2022-last/</id>
+    <published>2023-01-21T22:28:45.000Z</published>
+    <updated>2023-01-22T01:03:51.883Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1月も終わりに近づいて来たので去年の振り返りをしておきます。去年も色々やりたいこともあったのですが、前半で燃え尽きてしまった感が否めません。それでも &lt;strong&gt;「CSS Maximum Reversi」&lt;/strong&gt; は作りきったし、&lt;strong&gt;Snowflake&lt;/strong&gt;にも出会えたので色々と成長できた一年でした。そして相変わらすRustは可愛いです。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+      <category term="Snowflake" scheme="https://hinastory.github.io/cats-cats-cats/tags/Snowflake/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Rustの実用性が理解できる図を作成してみた 〜C/C++/Java/JS/Python/Go/TS/Elixirとの比較〜</title>
     <link href="https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/</id>
     <published>2022-12-11T22:28:45.000Z</published>
-    <updated>2023-01-21T01:36:54.772Z</updated>
+    <updated>2023-01-21T22:45:20.165Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2022/rust&quot;&gt;Rust Advent Calendar 2022 - Qiita&lt;/a&gt;の11日目の記事です。&lt;br&gt; (&lt;a href=&quot;https://zenn.dev/hinastory/articles/7857427ea390c5&quot;&gt;Zennに投稿した記事&lt;/a&gt;と同じものです。)&lt;/p&gt;
+&lt;p&gt;Rustはプログラマに愛されている言語だと言われています。でも、その愛されている理由をRustを知らない人に説明しようとしたとき苦労した経験はないでしょうか？たくさんの愛を語れば語るほど &lt;strong&gt;「難しそう」&lt;/strong&gt; という一言に心を砕かれるのです。&lt;/p&gt;
     
     </summary>
     
@@ -86,9 +107,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -114,11 +135,11 @@
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -324,9 +345,9 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
       <category term="CDK" scheme="https://hinastory.github.io/cats-cats-cats/tags/CDK/"/>
     
@@ -360,9 +381,9 @@
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -505,32 +526,6 @@
       &lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
 &lt;p&gt;技術書典 応援祭は3月7日から4月5日までの期間限定開催です。技術書典には600を超えるサークルから技術本が出品されているので検索すればきっと気になる技術書が見つかると思います。本記事では自分が買って面白かった本を中心にご紹介したいと思います。&lt;/p&gt;
 &lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf13/images/market/online_sp_gs13.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;技術書典のオンラインマーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
-    
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
-      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ギリギリセーフ】Developers Summit 2020に参加してきました</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2020/02/20/devsumi2020_winter/</id>
-    <published>2020-02-19T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.699Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://hinastory.github.io/cats-cats-cats/2019/02/15/devsumi-2019-winter/&quot;&gt;去年&lt;/a&gt;に引き続き、毎年恒例のDevelopers Summit 2020(#devsumi)に参加してきました。今年は新型コロナウイルス感染（COVID-19)の流行により開催が危ぶまれていましたが、ぎりぎり開催ができたようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://event.shoeisha.jp/devsumi/20200213&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Fevent.shoeisha.jp%2Fdevsumi%2F20200213&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Shoeisha Event&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://event.shoeisha.jp/static/images/event/1066/1200-02.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;Developers Summit 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://event.shoeisha.jp/devsumi/20200213&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;ITエンジニアの祭典「Developers Summit 2020」（デブサミ2020）は、2020年2月13日・14日に開催！事前登録受付中！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
     
