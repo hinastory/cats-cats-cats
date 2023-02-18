@@ -55,6 +55,7 @@ SAPは、ドイツに本社を置く世界最大のERPソフトウェア企業�
 
 ## AWS認定　SAP on AWS - 専門知識とは
 
+{% img /gallery/daily/cloud/aws/aws-cert-new.png %}
 
 
 
