@@ -117,9 +117,7 @@ folds(畳み込み) ≈ 再帰スキーム ≈ Final Tagless ≈ Free
 
 この話も毎年恒例になってきたEff(Extensible Effects)のお話です。Effを簡単に説明するとモナドの合成と評価を柔軟に行うためのテクニックです。
 
-{% oembed https://speakerdeck.com/ma2k8/the-advantage-of-using-eff-in-scala-project %}
-
-上記スライドでEffと対比されていた型は以下です。
+スライドでEffと対比されていた型は以下です。
 
 1. `Future[A]`
 2. `Future[Try[A]]`

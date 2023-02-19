@@ -15,7 +15,7 @@ const rUrl = /((([fphts]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www
 function elinkTag(args, content) {
   let url = '';
   const text = [];
-  let external = false;
+  let external = true;
   let title = '';
   let item = '';
   let i = 0;
@@ -54,7 +54,7 @@ function elinkTag(args, content) {
     title,
     target: external ? '_blank' : ''
   };
-  var icon = htmlTag('i', {class: 'fas fa-external-link-alt fa-fw'}, '', false); // add icon
+  var icon = htmlTag('i', { class: 'fas fa-external-link-alt fa-fw' }, '', false); // add icon
   return htmlTag('a', attrs, text.join(' ') + icon, false);
 }
 

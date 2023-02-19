@@ -1,10 +1,10 @@
 ---
-title: 新しいAWS認定「SAP on AWS - 専門知識」は曲者だが役に立つという話 〜合格体験談と試験後の余談〜
+title: 新しいAWS認定「SAP on AWS - 専門知識」は曲者だが役に立つという話 〜合格体験談〜
 thumbnail: /gallery/thumbnails/hofukuzenshin.png
 toc: true
 categories:
   - Tech
-  - CloudNtive
+  - CloudNative
 tags:
   - AWS
 date: 2023-02-07 07:28:45
@@ -40,7 +40,6 @@ SAPは、ドイツに本社を置く世界最大のERPソフトウェア企業�
 
 「SAP on AWS」はAWS上で動作するSAP製品のことです。新規でAWS上に構築する場合もありますが、現在は既存のオンプレミスで動作するSAP製品をAWS上に移行(マイグレーション)がビジネス上の課題になることが多いです。クラウドへ移行には{% elink 6つの戦略  https://aws.amazon.com/jp/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/ %}がよく知られており、SAP on AWSでも重要な考え方です。
 
-
 |"R" 移行戦略|方法論|
 |---|---|
 |リホスト|アプリケーションをそのまま移行|
@@ -51,17 +50,45 @@ SAPは、ドイツに本社を置く世界最大のERPソフトウェア企業�
 
 「SAP on AWS」ではこの移行の課題を中心にSAPパッケージ製品をAWSに扱う上での様々な課題があります。そこでそれらの課題の解決のための一連のソリューションが必要になり、AWS認定に新しく登場した「SAP on AWS - 専門知識」ではそこが問われることになります。
 
-もちろんこれらのソリューションはアドホックに組み立てられる訳ではなく、AWSのベストプラクティスである{% elink 「AWS Well-Architected」 https://aws.amazon.com/jp/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&wa-lens-whitepapers.sort-order=desc&wa-guidance-whitepapers.sort-by=item.additionalFields.sortDate&wa-guidance-whitepapers.sort-order=desc %}に沿った自然な選択が重要視されることはいうまでもありません。従って「SAP on AWS」とはSAPという歴史あるアーキテクチャをいかにAWSというクラウドにベストな方法で適用するかという「実践的な課題」と捉え直すことができます。この「実践的」という部分が他のAWS認定と異なる際立った特徴であり、新たに認定に仲間入りした真の理由だと個人的に推察しています。
+もちろんこれらのソリューションはアドホックに組み立てられる訳ではなく、AWSのベストプラクティスである{% elink 「AWS Well-Architected」 https://aws.amazon.com/jp/architecture/well-architected/ %}に沿った自然な選択が重要視されることはいうまでもありません。以下のアーキテクチャ図はSAPシステムの一般的な構成ですが、AWSでよく見るWeb3層アーキテクチャになっているのが分かると思います。
+
+{% img /gallery/daily/cloud/aws/sap-overview-all-on-aws.png %}
+***[General SAPガイドより](https://docs.aws.amazon.com/sap/latest/general/overview-sap-planning.html)***
+
+従って「SAP on AWS」とはSAPという歴史あるアーキテクチャをいかにAWSというクラウドにベストな方法で適用するかという **「実践的な課題」** と捉え直すことができます。この「実践的」という部分が他のAWS認定と異なる際立った特徴であり、新たに認定に仲間入りした理由の一つだと個人的に推察しています。
 
 ## AWS認定　SAP on AWS - 専門知識とは
 
+2022年4月に新しく登場した{% elink AWS認定 SAP on AWS - 専門知識 https://aws.amazon.com/jp/certification/certified-sap-on-aws-specialty/ %}は、AWS認定の中でも際立った特徴を持っています。それは「SAP」というAWSから見てサードパーティのソフトウェアを対象とした認定だからです。
+
+この認定は現在12個あるAWS認定試験の内の専門知識に当たる試験です。以下の図では赤枠で強調しました。SAP on AWSだけが「異質」であることがこの図からも見て取れると思います。
+
 {% img /gallery/daily/cloud/aws/aws-cert-new.png %}
+***[AWS 認定より](https://aws.amazon.com/jp/certification/)***
 
 
+
+この試験は「5 年以上の SAP 経験」と「1 年以上の SAP on AWS での作業経験」を満たすことが推奨されていますが、無くても問題なく受験可能です[^2]。とはいえ **「専門知識」** の資格なのでAWSの知識無しでは歯が立たないと思っておいた方が良いです。少なくともソリューションアーキテクト - アソシエイトぐらいは取得して望むべきでしょう。
+
+SAP on AWSの試験の概要は以下のとおりです。
+
+|項目|内容|
+|---|---|
+|試験時間|170分|
+|料金|300USD|
+|問題数|65問|
+|回答形式|多肢選択方式(単一回答or複数回答)|
+|受験場所|テストセンターor自宅|
+
+170分という長丁場の試験で300USDというなかなかなお値段の試験です。難易度的には専門知識の中ではトップクラスでAWS認定全体でも5本の指に入るほど厳し目の設定になっています(個人の感想です)。
+
+受験場所は自宅も可能ですが、カメラで監視付きが条件でトラブルも多いのでテストセンターに赴いて受験するのが現在のところオススメです。私は休日も空いている西新宿テストセンターで受験しました。
+
+[^2]: そもそもSAPシステムに触れるエンジニア自体が限られているので、この条件を満たすエンジニアは他の資格と比べても圧倒的に少ないでしょう。
 
 ## 試験結果
 
-ここからどういう学習をして合格したのかを語っていこうと思いますが、何はともあれ試験結果をお見せしないと説得力に欠けますので、**エア受験**でないこと証拠を始めに提示いたします。
+ここからどういう学習をして合格したのかを語っていこうと思いますが、何はともあれ試験結果をお見せしないと説得力に欠けますので、**エア受験**でないことの証拠を始めに提示いたします。
 
 {% img /gallery/daily/cloud/aws/sap-on-aws-result1.png %}
 {% img /gallery/daily/cloud/aws/sap-on-aws-result2.png %}
@@ -95,7 +122,7 @@ SAP on AWSの試験対策は以下の順で行うのが良いと感じました�
     * {% elink SAP on AWS - Immersion Day https://catalog.us-east-1.prod.workshops.aws/workshops/754ba343-2704-404a-8abe-be7b21c4d9d5/ja-JP %}
         * 実際のSAP on AWSの構築手順を学ぶことができます。本当に構築するにはSAPのインストールメディアが必要ですが、手順だけでも見ておくとSAP on AWSの構成が頭に入るようになるのでおすすめです
 5. 模擬試験を受けてみる
-    * {% elink AWS Certified: SAP on AWS - Specialty Official Practice Question Set (PAS-C01 - Japanese) aws-certified-sap-on-aws-specialty-official-practice-question-set-pas-c01-japanesehttps://explore.skillbuilder.aws/learn/course/12875/ %}
+    * {% elink AWS Certified: SAP on AWS - Specialty Official Practice Question Set (PAS-C01 - Japanese) https://explore.skillbuilder.aws/learn/course/12875/ %}
         * 基礎をやったらまず模擬試験を受けてみることがおすすめです。それは模擬試験を受けてみないと何が足りないかが感覚的に分からないからです
 6. SAP on AWSの公式ドキュメント、ブログを読む
     * {% elink SAP on AWS 技術文書 https://aws.amazon.com/jp/sap/docs/ %}
@@ -117,27 +144,23 @@ SAP on AWSの試験対策は以下の順で行うのが良いと感じました�
 
 以下は試験のキーワードです。一つでも分からない用語やサービスがあれば危険信号なので深堀りしておくことをオススメします。
 
+{% blockquote %}
 Snowball、backint、Oracle XTTS DataGuard、IAMロール、最小インスタンス数、ハイメモリインスタンスタイプ、Config、VPC、SAP Router、DMS/SMS/Endure/MGN、CloudFront、Global Accelerator、SWPM(DMO)、Control Tower、ストレージ(EBS/EFS/Fsx/S3)、IMDS、パッシブDR、パイロットライト、ウォームスタンバイDR、プレイスメントグループ、ピークメモリ、S3 File gateway、anyDBからHANAの移行、オーバーレイIP(Transit Gateway、NLB)、データ階層化、SAPラインセンス(ハードウェアキー)、Launch Wizard for SAP、専有ホスト、Data Provider for SAP、SAP Fiori、SAP HANA、logreplay、delta_datashipping、SAP EarlyWatchAlert、HANA Studio、FSxファイルゲートウェイ
+{% endblockquote %}
 
-上記の学習で一番重要なのは「6. SAP on AWSの公式ドキュメント、ブログを読む」になります。合格ラインを超えるにはここのドキュメントの理解度が一番効いてくるのでしっかりと読み込みましょう。
+学習方法のポイントは **「6. SAP on AWSの公式ドキュメント、ブログを読む」** になります。合格ラインを超えるにはここのドキュメントの理解度が一番効いてくるのでしっかりと読み込みましょう。
 
 ## まとめ
 
-SAPという
+2022年4月に新しく登場したAWS認定 SAP on AWS - 専門知識は、AWS認定の中でも際立った特徴を持っています。それは「SAP」というAWSから見てサードパーティのソフトウェアを対象とした認定だからであり、普段SAPを扱うことのない自分が認定を取得するべきかどうか葛藤しました。
 
+しかし結論としては**取得して正解**でした。なぜそう思ったのかというとこのSAP on AWSがAWS認定の唯一の **「実践的な応用編」** と位置づけることができると感じたからです。なぜそう感じたかというと、本試験を受けて見て{% elink 「AWS Well-Architected」 https://aws.amazon.com/jp/architecture/well-architected/ %}を理解して実践する力がないと難しいと思ったからです。そういう意味ではカテゴリ的には「専門知識」ではなくプロフェッショナルレベルを取得した次の段階で受けるのがちょうど良いと感じました。このため仮にSAPと縁がなくても、AWSの実践的な力を測るための腕試しとして**挑戦する価値のある試験**になっていると感じました。
 
-基本的にはSAP on AWSの学習は近道がなく、正攻法の学習方法を書いているので面白みはありませんが、ポイントを押さえて流れを意識して試験対策を書きました。SAP on AWSは応用度の高い試験なので正直どこから学習を始めたらいいか分からない方がほとんどだと思います。だからこそ、
+本記事は、そういった腕試しをしてみたい人にとって有益になるように「SAP」や「SAP on AWS」の説明も加えてストーリーとして読めるように心がけました。他の記事ではいきなり試験対策に入っているものが多いので、本記事では試験の全容が掴めるようになるべく前提知識がなくても読めるように工夫しています。
 
+「SAP」を知らない、「触る機会がない」といってこの試験を敬遠するのは**もったいない**です。これまでAWS認定を受けて **「雲を掴むようだな」** という感想を抱いていた人はぜひ挑戦してみてください。SAPソフトウェアの長い歴史とAWSの最新テクノロジーが融合した歴史を試験を通して実感することができ、**実務に通じる感覚を養うことができる良い試験**だと思いました。
 
-
-SAP on AWSは正統派の応用編
-実力　腕試し
-
-AWSのリテラシーがダイレクトに試されている感じがしました。
-少ない情報から効率よく学習する方法　細切れの情報源を繋ぎ合わせて自分でストーリーをつくる能力
-武者修行
-
-## 余談　〜テストセンターの様子と初詣〜
+本記事がSAPやAWS認定に興味がある方の一助になれば幸いです。
 
 
 

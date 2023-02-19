@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2023-01-22T01:03:51.883Z</updated>
+  <updated>2023-02-19T04:22:43.165Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新しいAWS認定「SAP on AWS - 専門知識」は曲者だが役に立つという話 〜合格体験談〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/</id>
+    <published>2023-02-06T22:28:45.000Z</published>
+    <updated>2023-02-19T04:22:43.165Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2022年の4月に新しいAWS認定「SAP on AWS - 専門知識」が登場しました。これまではリタイアした認定を除けば11種類のAWS認定が受験可能だったわけですが、大抵のヒトには謎の資格が加わった訳です。&lt;/p&gt;
+&lt;p&gt;AWS認定のSAPといえば、Solutions Architect - Professional試験、通称「SAP」のことですが、「SAP on AWS」の「SAP」はSAP社が提供するビジネス向けソフトウェアで企業のことで、基幹システムに導入される代表的なパッケージ製品です。&lt;/p&gt;
+&lt;p&gt;本記事ではこの「SAP」の謎に迫りつつ、合格体験談を語りたいと思います。AWS認定を持っていない人やSAPを触ったことがない人にも読んで頂けるように配慮したので少しでも興味が湧いた方はぜひお読み下さい。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+      <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
   
   <entry>
     <title>2022年の技術的な振り返り</title>
@@ -107,9 +132,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
     
   </entry>
   
@@ -135,11 +160,11 @@
     
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
-      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+      <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
     
   </entry>
   
@@ -282,6 +307,7 @@
     
       &lt;p&gt;遅ればせながらM1 Macbook Airを購入したので開発環境を構築してみました。Rosetta 2が優秀だということは各所から聞こえてくるので今回は &lt;strong&gt;Rosetta 2を入れずに&lt;/strong&gt; どこまでできるか検証してみました。検証したのは以下のアプリです。&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plain&quot;&gt;Chrome, Slack, Zoom, VSCode, iTerm2, prezto, Rust, exa, bat, procs, hexyl,&lt;br&gt;fd, procs, ripgrep, tokei, Homebrew, Emacs, tmux, Java 11, anyenv, Ruby,&lt;br&gt; Go, Node, Python, Jupyter Notebook, TensorFlow, RunCat, Docker&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;実際に上記でRosetta 2なしで動かなかったのは &lt;strong&gt;たったひとつだけ&lt;/strong&gt; でした。以下、順番に検証結果を書いていきますが、何が動かなかったのかを予想しながら読むのも面白いかもしれません。結論から知りたい方は最後のまとめを読んでください。&lt;/p&gt;
     
     </summary>
@@ -368,7 +394,7 @@
     
       &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/rust2&quot;&gt;Rust 2 Advent Calendar 2020 - Qiita&lt;/a&gt;の6日目の記事です。&lt;br&gt;(Zennの記事と同一です。)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;AWS re:Invent 2020&lt;/a&gt;、初のオンライン開催ですが盛り上がってますねー&lt;br&gt;毎日ありえなくらいのアップデートが発表されて興奮の日々を送っています。&lt;br&gt;しかし、さすがクラウドのシェアNo.1のAWS、王者の貫禄というか凄みを感じます。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;re:Invent 2020 で発表された製品・機能一覧 | AWS&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;What’s New at AWS – Cloud Innovation &amp;amp; News&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;The AWS Cloud platform expands daily. Learn about announcements, launches, news, innovation and more from Amazon Web Services.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;　&lt;br&gt;さて今回はその盛り上がりの勢いを借りて私の大好きなRustを盛り上げたいと思い筆を執りました。RustとLambdaは相性抜群という話を書いてみたいと思います。&lt;/p&gt;
     
     </summary>
@@ -444,7 +470,7 @@
     
     <summary type="html">
     
-      &lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title=&quot;&quot; target=&quot;&quot;&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
+      &lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title=&quot;&quot; target=&quot;_blank&quot;&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
 
 &lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020-takeout/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
@@ -511,33 +537,6 @@
       <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
       <category term="FizzBuzz" scheme="https://hinastory.github.io/cats-cats-cats/tags/FizzBuzz/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技術書典 応援祭を応援してみる</title>
-    <link href="https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/"/>
-    <id>https://hinastory.github.io/cats-cats-cats/2020/03/15/gijyutushoten_oensai/</id>
-    <published>2020-03-14T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.699Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2020/2/29から二日間開催予定だった技術書典8が新型コロナウイルスの感染拡大により中止に追い込まれました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。開催に尽力した主催者や出展者の方々の胸中察するに余りあります。もちろん自分も非常に落ち込みましたが、「技術書典 応援祭」という形で急遽オンライン開催されたのはまさに僥倖でした。関係者各位の並々ならぬ情熱で&lt;strong&gt;たった一週間の準備期間で&lt;/strong&gt;実現足らしめたこの応援祭を自分も応援すべく筆をとりました。&lt;/p&gt;
-&lt;p&gt;技術書典 応援祭は3月7日から4月5日までの期間限定開催です。技術書典には600を超えるサークルから技術本が出品されているので検索すればきっと気になる技術書が見つかると思います。本記事では自分が買って面白かった本を中心にご紹介したいと思います。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://techbookfest.org/market&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Ftechbookfest.org%2Fmarket&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;技術書典：技術書オンリーイベント&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://techbookfest.org/assets/tbf13/images/market/online_sp_gs13.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;技術書典 ：技術書のオンラインマーケット開催中&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://techbookfest.org/market&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;技術書典のオンラインマーケットです！推しの技術書を買って応援しよう！&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Event/"/>
-    
-    
-      <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
-    
-      <category term="Book" scheme="https://hinastory.github.io/cats-cats-cats/tags/Book/"/>
     
   </entry>
   
