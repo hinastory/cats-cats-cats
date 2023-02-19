@@ -1,5 +1,5 @@
 ---
-title: 新しいAWS認定「SAP on AWS - 専門知識」は曲者だが役に立つという話 〜合格体験談〜
+title: 新しいAWS認定「SAP on AWS - 専門知識」は異質だが役に立つという話 〜合格体験談〜
 thumbnail: /gallery/daily/cloud/aws/sap-on-aws.png
 toc: true
 categories:
