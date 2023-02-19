@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2023-02-19T04:22:43.165Z</updated>
+  <updated>2023-02-19T08:23:20.752Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/</id>
     <published>2023-02-06T22:28:45.000Z</published>
-    <updated>2023-02-19T04:22:43.165Z</updated>
+    <updated>2023-02-19T08:23:20.752Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;2022年の4月に新しいAWS認定「SAP on AWS - 専門知識」が登場しました。これまではリタイアした認定を除けば11種類のAWS認定が受験可能だったわけですが、大抵のヒトには謎の資格が加わった訳です。&lt;/p&gt;
+      &lt;p&gt;2022年の4月に新しいAWS認定「SAP on AWS - 専門知識」が登場しました。これまではリタイアした認定を除けば11種類のAWS認定が受験可能でしたが、それに加えてぱっと見良く分からない謎の資格&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;が12個目として加わった訳です。&lt;/p&gt;
 &lt;p&gt;AWS認定のSAPといえば、Solutions Architect - Professional試験、通称「SAP」のことですが、「SAP on AWS」の「SAP」はSAP社が提供するビジネス向けソフトウェアで企業のことで、基幹システムに導入される代表的なパッケージ製品です。&lt;/p&gt;
 &lt;p&gt;本記事ではこの「SAP」の謎に迫りつつ、合格体験談を語りたいと思います。AWS認定を持っていない人やSAPを触ったことがない人にも読んで頂けるように配慮したので少しでも興味が湧いた方はぜひお読み下さい。&lt;/p&gt;
     
@@ -46,7 +46,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2023/01/22/2022-last/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2023/01/22/2022-last/</id>
     <published>2023-01-21T22:28:45.000Z</published>
-    <updated>2023-01-22T01:03:51.883Z</updated>
+    <updated>2023-02-07T16:12:00.538Z</updated>
     
     <summary type="html">
     
@@ -69,7 +69,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/</id>
     <published>2022-12-11T22:28:45.000Z</published>
-    <updated>2023-01-21T22:45:20.165Z</updated>
+    <updated>2023-02-07T16:12:00.537Z</updated>
     
     <summary type="html">
     
@@ -93,7 +93,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/</id>
     <published>2022-02-21T22:28:45.000Z</published>
-    <updated>2022-02-25T18:14:29.075Z</updated>
+    <updated>2022-02-23T23:36:13.901Z</updated>
     
     <summary type="html">
     
@@ -118,7 +118,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/</id>
     <published>2021-12-29T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.759Z</updated>
+    <updated>2021-12-29T21:54:30.239Z</updated>
     
     <summary type="html">
     
@@ -132,9 +132,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
     
   </entry>
   
@@ -143,7 +143,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/</id>
     <published>2021-12-22T22:28:45.000Z</published>
-    <updated>2023-01-21T01:51:21.770Z</updated>
+    <updated>2023-02-07T16:12:00.537Z</updated>
     
     <summary type="html">
     
@@ -158,13 +158,13 @@
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
     
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
-      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
-    
       <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
     
       <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+      <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -173,7 +173,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/</id>
     <published>2021-10-26T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.758Z</updated>
+    <updated>2021-12-29T19:59:00.452Z</updated>
     
     <summary type="html">
     
@@ -199,7 +199,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/</id>
     <published>2021-09-12T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.758Z</updated>
+    <updated>2021-12-29T20:53:06.582Z</updated>
     
     <summary type="html">
     
@@ -225,7 +225,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/</id>
     <published>2021-07-23T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.758Z</updated>
+    <updated>2021-08-03T18:29:22.384Z</updated>
     
     <summary type="html">
     
@@ -250,7 +250,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/</id>
     <published>2021-03-15T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.757Z</updated>
+    <updated>2021-07-24T03:28:11.004Z</updated>
     
     <summary type="html">
     
@@ -276,7 +276,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/</id>
     <published>2021-02-21T22:28:45.000Z</published>
-    <updated>2021-03-06T03:38:41.763Z</updated>
+    <updated>2021-03-03T22:04:21.557Z</updated>
     
     <summary type="html">
     
@@ -301,7 +301,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/</id>
     <published>2021-01-31T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.701Z</updated>
+    <updated>2021-02-14T11:39:14.248Z</updated>
     
     <summary type="html">
     
@@ -331,7 +331,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/</id>
     <published>2020-12-30T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.700Z</updated>
+    <updated>2021-02-13T01:58:12.704Z</updated>
     
     <summary type="html">
     
@@ -345,9 +345,9 @@
       <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
     
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -356,7 +356,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/</id>
     <published>2020-12-07T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.757Z</updated>
+    <updated>2021-12-01T14:24:49.748Z</updated>
     
     <summary type="html">
     
@@ -388,13 +388,13 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/</id>
     <published>2020-12-05T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.757Z</updated>
+    <updated>2021-12-01T14:24:54.051Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/rust2&quot;&gt;Rust 2 Advent Calendar 2020 - Qiita&lt;/a&gt;の6日目の記事です。&lt;br&gt;(Zennの記事と同一です。)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;AWS re:Invent 2020&lt;/a&gt;、初のオンライン開催ですが盛り上がってますねー&lt;br&gt;毎日ありえなくらいのアップデートが発表されて興奮の日々を送っています。&lt;br&gt;しかし、さすがクラウドのシェアNo.1のAWS、王者の貫禄というか凄みを感じます。&lt;/p&gt;
-&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;What’s New at AWS – Cloud Innovation &amp;amp; News&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;The AWS Cloud platform expands daily. Learn about announcements, launches, news, innovation and more from Amazon Web Services.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;re:Invent 2020 で発表された製品・機能一覧 | AWS&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;　&lt;br&gt;さて今回はその盛り上がりの勢いを借りて私の大好きなRustを盛り上げたいと思い筆を執りました。RustとLambdaは相性抜群という話を書いてみたいと思います。&lt;/p&gt;
     
     </summary>
@@ -405,11 +405,11 @@
       <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
     
     
-      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
-    
       <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
     
       <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+      <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
     
   </entry>
   
@@ -418,7 +418,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/</id>
     <published>2020-11-18T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.700Z</updated>
+    <updated>2021-02-13T01:28:52.640Z</updated>
     
     <summary type="html">
     
@@ -443,7 +443,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/</id>
     <published>2020-10-07T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.700Z</updated>
+    <updated>2021-02-13T01:28:39.755Z</updated>
     
     <summary type="html">
     
@@ -466,11 +466,11 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</id>
     <published>2020-09-05T22:28:45.000Z</published>
-    <updated>2022-02-22T23:32:05.757Z</updated>
+    <updated>2021-12-01T13:11:25.592Z</updated>
     
     <summary type="html">
     
-      &lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title=&quot;&quot; target=&quot;_blank&quot;&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
+      &lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title=&quot;&quot; target=&quot;&quot;&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
 
 &lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020-takeout/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
     
@@ -493,7 +493,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/</id>
     <published>2020-06-12T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.699Z</updated>
+    <updated>2021-02-13T01:28:12.936Z</updated>
     
     <summary type="html">
     
@@ -516,7 +516,7 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/</id>
     <published>2020-03-31T22:28:45.000Z</published>
-    <updated>2021-02-20T00:05:34.699Z</updated>
+    <updated>2021-02-13T01:27:59.467Z</updated>
     
     <summary type="html">
     
