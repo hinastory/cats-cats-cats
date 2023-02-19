@@ -120,7 +120,7 @@ SAP on AWSの試験対策は以下の順で行うのが良いと感じました�
 2. サンプル問題で問題に慣れる
     * {% elink  AWS Certified: SAP on AWS - Specialty
 (PAS-C01) 試験問題サンプル https://d1.awsstatic.com/ja_JP/training-and-certification/docs-sap-on-aws-specialty/SAP-on-AWS-Specialty_Sample-Questions.pdf %}
-    * ブログや動画の解説を出している方がいるので合わせてみると効果的です
+    * ブログでサンプル問題の解説を出している方がいるので合わせてみると効果的です
         * {% elink AWS Certified: SAP on AWS – Specialty のサンプル問題を解いてみた(1/4) – TechHarmony https://blog.usize-tech.com/aws-certified-sap-on-aws-specialty-01/ %}
 3. Skill BuilderでSAP on AWSの基礎学習
     * {% elink SAP on AWS (Technical) (Japanese) (日本語字幕版) https://explore.skillbuilder.aws/learn/course/12528/ %}
@@ -163,13 +163,10 @@ Snowball、backint、Oracle XTTS DataGuard、IAMロール、最小インスタ�
 
 2022年4月に新しく登場したAWS認定 SAP on AWS - 専門知識は、AWS認定の中でも際立った特徴を持っています。それは「SAP」というAWSから見てサードパーティのソフトウェアを対象とした認定だからであり、普段SAPを扱うことのない自分が認定を取得するべきかどうか葛藤しました。
 
-しかし結論としては**取得して正解**でした。なぜそう思ったのかというと、このSAP on AWSがAWS認定の唯一の **「実践的な応用編」** と位置づけることができると感じたからです。実際に本試験を受けて見て、{% elink 「AWS Well-Architected」 https://aws.amazon.com/jp/architecture/well-architected/ %}を理解して実践する力がないと合格が難しいと思ったのはAWSの全認定の中でこの認定だけです。そういう意味ではカテゴリ的には「専門知識」ではなくプロフェッショナルレベルを取得した次の段階で受けるのがちょうど良いと感じました。そのため仮にSAPと縁がなくてもAWSの実践的な力を測るための腕試しとして挑戦してみるのもアリだと思います。
+しかし結論としては**取得して正解**でした。なぜそう思ったのかというと、このSAP on AWSがAWS認定の唯一の **「実践的な応用編」** と位置づけることができると感じたからです。実際に本試験を受けて見て、{% elink 「AWS Well-Architected」 https://aws.amazon.com/jp/architecture/well-architected/ %}を理解して実践する力がないと合格が難しいと思ったのは、AWSの全認定の中でこの認定だけです。そういう意味ではカテゴリ的には「専門知識」ではなくプロフェッショナルレベルを取得した次の段階で受けるのがちょうど良いと感じました。そのため仮にSAPと縁がなくてもAWSの実践的な力を測るための腕試しとして挑戦してみるのもアリだと思います。
 
 本記事は、そういった腕試しをしてみたい人にとって有益になるように「SAP」や「SAP on AWS」の説明も加えてストーリーとして読めるように心がけました。他の記事ではいきなり試験対策に入っているものが多いので、本記事では試験の全容が掴めるようになるべく前提知識がなくても読めるように工夫しています。
 
 「SAP」を知らない、「触る機会がない」といってこの試験を敬遠するのは**もったいない**です。これまでAWS認定を受けて **「雲を掴むようだな」** という感想を抱いていた人はぜひ挑戦してみてください。SAPソフトウェアの長い歴史とAWSの最新テクノロジーが融合する過程を試験を通して実感することができ、**実務に通じる感覚を養うことができる良い試験**だと思いました。
 
 本記事がSAPやAWS認定に興味がある方の一助になれば幸いです。
-
-
-
