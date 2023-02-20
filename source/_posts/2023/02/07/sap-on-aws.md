@@ -175,10 +175,10 @@ SAP on AWSの試験対策は以下の順で行うのが良いと感じました�
     * {% elink AWS Certified: SAP on AWS - Specialty 試験に合格しました！ - サーバーワークスエンジニアブログ https://blog.serverworks.co.jp/sap-on-aws-specialty-passed-2 %}
     * [「sap on aws」の検索結果 - Qiita](https://qiita.com/search?q=sap+on+aws)
 
-以下は試験のキーワードです。一つでも分からない用語やサービスがあれば危険信号なので深堀りしておくことをオススメします。
+以下は試験のキーワードです(順不同)。一つでも分からない用語やサービスがあれば危険信号なので確認しておくことをオススメします。
 
 {% blockquote %}
-Snowball、backint、Oracle XTTS DataGuard、IAMロール、最小インスタンス数、ハイメモリインスタンスタイプ、Config、VPC、SAP Router、DMS/SMS/Endure/MGN、CloudFront、Global Accelerator、SWPM(DMO)、Control Tower、ストレージ(EBS/EFS/Fsx/S3)、IMDS、パッシブDR、パイロットライト、ウォームスタンバイDR、プレイスメントグループ、ピークメモリ、S3 File gateway、anyDBからHANAの移行、オーバーレイIP(Transit Gateway、NLB)、データ階層化、SAPラインセンス(ハードウェアキー)、Launch Wizard for SAP、専有ホスト、Data Provider for SAP、SAP Fiori、SAP HANA、logreplay、delta_datashipping、SAP EarlyWatchAlert、HANA Studio、FSxファイルゲートウェイ
+Snowball、backint、Oracle XTTS DataGuard、IAMロール、最小インスタンス数、ハイメモリインスタンスタイプ、Config、VPC、SAP Router、DMS/SMS/Endure/MGN、CloudFront、Global Accelerator、SWPM(DMO)、Control Tower、ストレージ(EBS/EFS/FSx/S3)、IMDS、パッシブDR、パイロットライト、ウォームスタンバイDR、プレイスメントグループ、ピークメモリ、Storage Gateway(S3 File Gateway, FSx File Gateway, Volume Gateway)、anyDBからHANAの移行、オーバーレイIP(Transit Gateway、NLB)、データ階層化、SAPラインセンス(ハードウェアキー)、Launch Wizard for SAP、専有ホスト、Data Provider for SAP、SAP Fiori、SAP HANA、logreplay、delta_datashipping、SAP EarlyWatchAlert、HANA Studio, SAP Web Dispatcher, SAP NetWeaver, Secure Network Communications(SNC), PAS/AAS/ASCS/ERS, SAP Solution Manager, BOBI
 {% endblockquote %}
 
 学習方法のポイントは **「6. SAP on AWSの公式ドキュメント、ブログを読む」** になります。合格ラインを超えるにはここのドキュメントの理解度が一番効いてくるのでしっかりと読み込みましょう。
