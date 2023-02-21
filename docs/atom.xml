@@ -6,7 +6,7 @@
   <link href="/cats-cats-cats/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://hinastory.github.io/cats-cats-cats/"/>
-  <updated>2023-02-20T06:56:46.641Z</updated>
+  <updated>2023-02-21T08:51:44.531Z</updated>
   <id>https://hinastory.github.io/cats-cats-cats/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/"/>
     <id>https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/</id>
     <published>2023-02-06T22:28:45.000Z</published>
-    <updated>2023-02-20T06:56:46.641Z</updated>
+    <updated>2023-02-21T08:51:44.531Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;2022年の4月に新しいAWS認定「SAP on AWS - 専門知識」が登場しました。これまではリタイアした認定を除けば11種類のAWS認定が受験可能でしたが、それに加えてぱっと見良く分からない謎の資格&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;が12個目として加わった訳です。&lt;/p&gt;
-&lt;p&gt;AWS認定のSAPといえば、Solutions Architect - Professional試験、通称「SAP」のことですが、「SAP on AWS」の「SAP」はSAP社が提供するビジネス向けソフトウェアで企業のことで、基幹システムに導入される代表的なパッケージ製品です。&lt;/p&gt;
+&lt;p&gt;AWS認定のSAPといえば、Solutions Architect - Professional試験、通称「SAP」のことですが、「SAP on AWS」の「SAP」はSAP社が提供するビジネス向けソフトウェアのことで、基幹システムに導入される代表的なパッケージ製品です。&lt;/p&gt;
 &lt;p&gt;本記事ではこの「SAP」の謎に迫りつつ、合格体験談を語りたいと思います。AWS認定を持っていない人やSAPを触ったことがない人にも読んで頂けるように配慮したので少しでも興味が湧いた方はぜひお読み下さい。&lt;/p&gt;
     
     </summary>
