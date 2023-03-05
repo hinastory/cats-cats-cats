@@ -38,9 +38,9 @@ class Navbar extends Component {
         } else {
             navbarLogo = siteTitle;
         }
-        const icons = {Home: "fa fa-home", Archives: "fas fa-archive fa-fw", Categories: "fas fa-cat fa-fw", Tags: "fas fa-tags fa-fw"};
+        const icons = { Home: "fa fa-home", Archives: "fas fa-archive fa-fw", Categories: "fas fa-cat fa-fw", Tags: "fas fa-tags fa-fw" };
         return <nav class="navbar navbar-main">
-            <div class="container">
+            <div class="container navbar-container">
                 <div class="navbar-brand justify-content-center">
                     <a class="navbar-item navbar-logo" href={siteUrl}>
                         {navbarLogo}

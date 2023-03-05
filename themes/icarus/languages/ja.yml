@@ -20,17 +20,17 @@ widget:
     follow: 'フォローする'
     recents: '最近の記事'
     links: 'リンク'
-    catalogue: '目次'
+    catalogue: 'カタログ'
     subscribe_email: '更新を購読する'
     subscribe: '購読する'
     adsense: '広告'
+    followit: 'follow.it'
 article:
     created_at: '%sに投稿'
     updated_at: '%sに更新'
     more: '続きを読む'
     comments: 'コメント'
     read_time: '%sで読む'
-    related_posts: 関連する記事
     word_count:
         one: '約%d語'
         other: '約%d語'

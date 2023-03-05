@@ -412,7 +412,7 @@ button,
 input,
 select,
 textarea {
-  font-family: Ubuntu, Roboto, 'Open Sans', sans-serif;
+  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif;
 }
 code,
 pre {
@@ -1063,13 +1063,13 @@ a.has-text-grey-lightest:focus {
   font-weight: 700 !important;
 }
 .is-family-primary {
-  font-family: Ubuntu, Roboto, 'Open Sans', sans-serif !important;
+  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
 }
 .is-family-secondary {
-  font-family: Ubuntu, Roboto, 'Open Sans', sans-serif !important;
+  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
 }
 .is-family-sans-serif {
-  font-family: Ubuntu, Roboto, 'Open Sans', sans-serif !important;
+  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
 }
 .is-family-monospace {
   font-family: monospace !important;
@@ -11007,6 +11007,9 @@ a.article-nav-next span {
 .navbar-main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
+.navbar-main .navbar-container {
+  overflow-x: auto;
+}
 .navbar-main .navbar-menu,
 .navbar-main .navbar-start,
 .navbar-main .navbar-end {
@@ -11031,7 +11034,7 @@ a.article-nav-next span {
 .navbar-main .navbar-item {
   display: flex;
   align-items: center;
-  padding: 0.4rem 0.75rem;
+  padding: 1.25rem 0.75rem;
   margin: 0 0;
 }
 .navbar-main .navbar-item.is-active {
@@ -11051,6 +11054,12 @@ a.article-nav-next span {
 }
 .navbar-logo img {
   max-height: 5rem;
+}
+@media screen and (min-width: 1088px) {
+  .navbar > .container .navbar-menu,
+  .container > .navbar .navbar-menu {
+    margin-right: 0rem;
+  }
 }
 footer.footer .container .level {
   display: flex;
@@ -11409,6 +11418,9 @@ figure.highlight .section {
   min-width: inherit;
   border-radius: inherit;
 }
+figure.highlight.foldable div.level-left {
+  cursor: pointer;
+}
 .gist table tr:hover {
   background: transparent;
 }
@@ -11447,6 +11459,39 @@ figure.highlight .section {
 }
 .level.is-multiline {
   flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .widget.card#toc {
+    display: none;
+    position: fixed;
+    margin: 1rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+  }
+  .widget.card#toc .card-content {
+    padding: 0;
+  }
+  .widget.card#toc .menu {
+    padding: 1.5rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+  #toc-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.7);
+  }
+  .widget.card#toc.is-active,
+  #toc-mask.is-active {
+    display: block;
+  }
 }
 .donate {
   position: relative;
@@ -11579,33 +11624,6 @@ figure.highlight .section {
 .gallery-item .caption {
   color: #7a7a7a;
 }
-@media screen and (max-width: 768px) {
-  #toc {
-    display: none;
-    position: fixed;
-    margin: 1rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    max-height: calc(100vh - 2rem);
-    overflow-y: auto;
-  }
-  #toc-mask {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99;
-    background: rgba(0,0,0,0.7);
-  }
-  #toc.is-active,
-  #toc-mask.is-active {
-    display: block;
-  }
-}
 .pace {
   user-select: none;
   pointer-events: none;
@@ -11630,6 +11648,9 @@ figure.highlight .section {
   line-height: inherit;
 }
 .MathJax,
+.MathJax_Display,
+.MJXc-display,
+.MathJax_SVG_Display,
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
@@ -11660,7 +11681,7 @@ figure.highlight .section {
 .cc-window,
 .cc-revoke {
   font-size: 1.1rem !important;
-  font-family: Ubuntu, Roboto, 'Open Sans', sans-serif !important;
+  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
 }
 .cc-window {
   color: #4a4a4a !important;
