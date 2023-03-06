@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cats cats cats</title>
+  <icon>https://hinastory.github.io/cats-cats-cats/favicon.ico</icon>
+  <subtitle>射は圏よりも強し</subtitle>
+  <link href="https://hinastory.github.io/cats-cats-cats/atom.xml" rel="self"/>
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+  <link href="https://hinastory.github.io/cats-cats-cats/"/>
+  <updated>2023-02-21T09:08:56.344Z</updated>
+  <id>https://hinastory.github.io/cats-cats-cats/</id>
+  
+  <author>
+    <name>hinastory</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新しいAWS認定「SAP on AWS - 専門知識」は異質だが役に立つという話 〜合格体験談〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2023/02/07/sap-on-aws/</id>
+    <published>2023-02-06T22:28:45.000Z</published>
+    <updated>2023-02-21T09:08:56.344Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2022年の4月に新しいAWS認定「SAP on AWS - 専門知識」が登場しました。これまではリタイアした認定を除けば11種類のAWS認定が受験可能でしたが、それに加えてぱっと見良く分からない謎の資格[^1]が12個目として加わった訳です。&lt;/p&gt;
+&lt;p&gt;AWS認定のSAPといえば、Solutions Architect - Professional試験、通称「SAP」のことですが、「SAP on AWS」の「SAP」はSAP社が提供するビジネス向けソフトウェアのことで、基幹システムに導入される代表的なパッケージ製品です。&lt;/p&gt;
+&lt;p&gt;本記事ではこの「SAP」の謎に迫りつつ、合格体験談を語りたいと思います。AWS認定を持っていない人やSAPを触ったことがない人にも読んで頂けるように配慮したので少しでも興味が湧いた方はぜひお読み下さい。&lt;/p&gt;
+&lt;p&gt;[^1]: SAPの認知度がそこまで高くないということを揶揄しただけです。SAP Loveの方の気分を害してしまったら申し訳ございません。認知度は別としてSAPが社会を支えている&lt;strong&gt;偉大なソフトウェア&lt;/strong&gt;であることに疑問の余地はありません。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2022年の技術的な振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2023/01/22/2022-last/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2023/01/22/2022-last/</id>
+    <published>2023-01-21T22:28:45.000Z</published>
+    <updated>2023-02-07T16:12:00.538Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;1月も終わりに近づいて来たので去年の振り返りをしておきます。去年も色々やりたいこともあったのですが、前半で燃え尽きてしまった感が否めません。それでも &lt;strong&gt;「CSS Maximum Reversi」&lt;/strong&gt; は作りきったし、&lt;strong&gt;Snowflake&lt;/strong&gt;にも出会えたので色々と成長できた一年でした。そして相変わらすRustは可愛いです。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="Snowflake" scheme="https://hinastory.github.io/cats-cats-cats/tags/Snowflake/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rustの実用性が理解できる図を作成してみた 〜C/C++/Java/JS/Python/Go/TS/Elixirとの比較〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2022/12/12/2022-12-rust-practicality/</id>
+    <published>2022-12-11T22:28:45.000Z</published>
+    <updated>2023-02-07T16:12:00.537Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2022/rust&quot;&gt;Rust Advent Calendar 2022 - Qiita&lt;/a&gt;の11日目の記事です。&lt;br&gt; (&lt;a href=&quot;https://zenn.dev/hinastory/articles/7857427ea390c5&quot;&gt;Zennに投稿した記事&lt;/a&gt;と同じものです。)&lt;/p&gt;
+&lt;p&gt;Rustはプログラマに愛されている言語だと言われています。でも、その愛されている理由をRustを知らない人に説明しようとしたとき苦労した経験はないでしょうか？たくさんの愛を語れば語るほど &lt;strong&gt;「難しそう」&lt;/strong&gt; という一言に心を砕かれるのです。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+    <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>スーパー猫の日なのでUI/UXのLT登壇したり、発信力を計ったりしてみた</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2022/02/22/cats-cats-cats/</id>
+    <published>2022-02-21T22:28:45.000Z</published>
+    <updated>2022-02-23T23:36:13.901Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今年も2月22日がやって来ました。本ブログ「cats cats cats」のお祭りの日です。しかも今年は2022/2/22と「2」が6つも現れる&lt;strong&gt;「スーパー猫の日」&lt;/strong&gt;なので、何か特別な企画をと思い、「UI/UXデザイナーLT会 - vol.6」で&lt;strong&gt;LT登壇&lt;/strong&gt; とFindyの&lt;strong&gt;発信力測定&lt;/strong&gt;を行ってみました。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="UI/UX" scheme="https://hinastory.github.io/cats-cats-cats/tags/UI-UX/"/>
+    
+    <category term="Game" scheme="https://hinastory.github.io/cats-cats-cats/tags/Game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021年の技術的な振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/12/30/2021-last/</id>
+    <published>2021-12-29T22:28:45.000Z</published>
+    <updated>2021-12-29T21:54:30.239Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今年もCOVID-19に振り回された一年でした。さすがにテレワークは板に付いてきましたが、やはりオフラインのコミュニケーションが希薄になるのは寂しいものです。そんな中でも立ち止まるわけにいかないのでダイエットしてみたりAWS認定11冠を狙ったりと、大きな目標を立てて計画的に達成するという試みをしてきました。そんなチャレンジの結果を振り返ってみたいと思います。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>無料でRustのJupyterLab機械学習環境を作る in AWS</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/12/23/sagemaker-studio-lab-rust/</id>
+    <published>2021-12-22T22:28:45.000Z</published>
+    <updated>2023-02-07T16:12:00.537Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2021/rust&quot;&gt;Rust Advent Calendar 2021&lt;/a&gt;の23日目の記事です。&lt;/p&gt;
+&lt;p&gt;Rustで機械学習をやってみたいという方は少数派かもしれません。PythonやRの環境が圧倒的過ぎて他の追随を許さないからです。しかしそれが&lt;strong&gt;タダで手に入る&lt;/strong&gt;となったらいかがでしょうか？　ブラウザだけでどこでも利用できるRustの機械学習環境を&lt;strong&gt;クラウド上に&lt;/strong&gt;持てるのであれば試す価値があるかもしれません。本記事では&lt;strong&gt;Amazon SageMaker Studio Lab&lt;/strong&gt;を利用して、無料でRustの機械学習環境を作る方法にチャレンジします。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/MachineLearning/"/>
+    
+    
+    <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+    <category term="MachineLearning" scheme="https://hinastory.github.io/cats-cats-cats/tags/MachineLearning/"/>
+    
+    <category term="Jupyter" scheme="https://hinastory.github.io/cats-cats-cats/tags/Jupyter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AWS認定を制覇したのでFAQ形式の振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/10/27/all-aws-certifications/</id>
+    <published>2021-10-26T22:28:45.000Z</published>
+    <updated>2021-12-29T19:59:00.452Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;　&lt;br&gt;AWS認定を制覇して&lt;strong&gt;11冠&lt;/strong&gt;になったので&lt;strong&gt;FAQ形式&lt;/strong&gt;で振り返ってみたいと思います。全部読むとかなり長いので興味がある部分だけでも拾い読みして頂ければ幸いです。&lt;/p&gt;
+&lt;p&gt;(本記事は勤務先のローカルブログに書いたものとほぼ同じです。当然差し障りのある部分は除いています。)&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+    <category term="Certification" scheme="https://hinastory.github.io/cats-cats-cats/tags/Certification/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AWS認定に追加された実技試験「試験ラボ」をくぐり抜けて合格した話(SOA-C02)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/09/13/aws-soa-c02/</id>
+    <published>2021-09-12T22:28:45.000Z</published>
+    <updated>2021-12-29T20:53:06.582Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;AWS認定は少しずつ移り変わってきました。小さいものでは試験内容の改訂から大きなものでは認定の追加や削除まで色々ありました。しかしここにきてAWS認定は&lt;strong&gt;別次元の進化&lt;/strong&gt;を遂げようとしています。なんと試験問題に&lt;strong&gt;AWSの実技試験を織り交ぜてきた&lt;/strong&gt;のです。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;「試験ラボ」&lt;/strong&gt; と呼ばれるこの試みはAWS認定の&lt;strong&gt;試験対策に根本的な変更&lt;/strong&gt;を求めるものであり、また&lt;strong&gt;認定の意義の見直しを迫る&lt;/strong&gt;ものでもあります。本記事では2021/7/27に新しく試験ラボが導入されたAWS認定「SysOpsアドミニストレーター - アソシエイト(SOA-C02)」の体験談になります。試験ラボの試し方から試験対策まで書ける範囲で書いていきます。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+    <category term="Certification" scheme="https://hinastory.github.io/cats-cats-cats/tags/Certification/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>コロナ禍のITエンジニアがダイエットしてみた　〜 3ヶ月で9kgの減量 〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/07/24/it-engineer-diet/</id>
+    <published>2021-07-23T22:28:45.000Z</published>
+    <updated>2021-08-03T18:29:22.384Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ITエンジニアである自分はデスクワーク中心で元々太りやすい環境にあるのですが、このコロナ禍の昨今はテレワークが定着して通勤もなくなり&lt;strong&gt;運動量が激減&lt;/strong&gt;してしまいました。&lt;/p&gt;
+&lt;p&gt;そのため身に纏う脂肪が限界突破し、自分史上最高体重を記録したところでダイエットを決断しました。&lt;/p&gt;
+&lt;p&gt;本記事はそんなITエンジニアが試行錯誤しながら、&lt;strong&gt;3ヶ月で9kgの減量に成功した方法論を書き記した&lt;/strong&gt;ものです。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="Diet" scheme="https://hinastory.github.io/cats-cats-cats/tags/Diet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Contextual Abstractionsで様々なコンテキストをうまく抽象化する</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/03/16/contextual-abstructions/</id>
+    <published>2021-03-15T22:28:45.000Z</published>
+    <updated>2021-07-24T03:28:11.004Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;プログラミングでは様々な「&lt;code&gt;コンテキスト&lt;/code&gt;」を扱う必要が出てきます。コンテキストをうまく扱えないと冗長な記述が必要になったり、コンテキストが複雑になりすぎて混乱を招いたりします。特に&lt;code&gt;コンテキストの引き回し&lt;/code&gt;は様々なプログラミング言語やフレームワークで出てくるパターンですが、安易に使うと複雑性、冗長性の増大や密結合等さまざまな問題を引き起こすことが知られています。しかしScala 3の目玉機能である&lt;strong&gt;Contextual Abstractions(コンテキスト抽象化)&lt;/strong&gt; を使えばこの問題を鮮やかに解決できます。&lt;/p&gt;
+&lt;p&gt;本記事では&lt;code&gt;Contextual Abstractions&lt;/code&gt;がなぜコンテキストをうまく扱うことができるのかを説明したいと思います。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+    <category term="Scala" scheme="https://hinastory.github.io/cats-cats-cats/tags/Scala/"/>
+    
+    <category term="Dotty" scheme="https://hinastory.github.io/cats-cats-cats/tags/Dotty/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>猫の日なので「cats cats cats」のGoogleアナリティクスとGoogleサーチコンソールの結果を晒してみる</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/02/22/access-analytics/</id>
+    <published>2021-02-21T22:28:45.000Z</published>
+    <updated>2021-03-03T22:04:21.557Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本日「2/22」は猫の日らしいです（日本限定）。本サイトは&lt;strong&gt;「cats cats cats」&lt;/strong&gt; なので何かネタを用意しようと考えていたのですが、手頃なものがなかったのでGoogleアナリティクスを用いた当ブログのアクセス解析をしてみます。さらに検索パフォーマンスが気になる方もいると思うので、SEO解析ツールのGoogleサーチコンソールの結果も公開します。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="WebAnalytics" scheme="https://hinastory.github.io/cats-cats-cats/tags/WebAnalytics/"/>
+    
+    <category term="SEO" scheme="https://hinastory.github.io/cats-cats-cats/tags/SEO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>絶対にRosetta 2を入れてはいけないM1 Mac開発環境構築 2021-2-1版</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2021/02/01/m1-mac-dev-env/</id>
+    <published>2021-01-31T22:28:45.000Z</published>
+    <updated>2021-02-14T11:39:14.248Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;遅ればせながらM1 Macbook Airを購入したので開発環境を構築してみました。Rosetta 2が優秀だということは各所から聞こえてくるので今回は &lt;strong&gt;Rosetta 2を入れずに&lt;/strong&gt; どこまでできるか検証してみました。検証したのは以下のアプリです。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plaintext&quot;&gt;Chrome, Slack, Zoom, VSCode, iTerm2, prezto, Rust, exa, bat, procs, hexyl,&lt;br&gt;fd, procs, ripgrep, tokei, Homebrew, Emacs, tmux, Java 11, anyenv, Ruby,&lt;br&gt; Go, Node, Python, Jupyter Notebook, TensorFlow, RunCat, Docker&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;実際に上記でRosetta 2なしで動かなかったのは &lt;strong&gt;たったひとつだけ&lt;/strong&gt; でした。以下、順番に検証結果を書いていきますが、何が動かなかったのかを予想しながら読むのも面白いかもしれません。結論から知りたい方は最後のまとめを読んでください。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="Mac" scheme="https://hinastory.github.io/cats-cats-cats/tags/Mac/"/>
+    
+    <category term="Environment" scheme="https://hinastory.github.io/cats-cats-cats/tags/Environment/"/>
+    
+    <category term="M1" scheme="https://hinastory.github.io/cats-cats-cats/tags/M1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年の技術的な振り返り</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/12/31/2020-last/</id>
+    <published>2020-12-30T22:28:45.000Z</published>
+    <updated>2021-02-13T01:58:12.704Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今年はCOVID-19に振り回された一年でした。様々なオフラインイベントは中止か延期になり、ZoomやTeams、Chime、Clusterを使ったオンラインイベントに切り替わっていきました。また個人的には仕事も完全なテレワークになり、ライフスタイルに大きな変更を迫られた一年でもあります。そんな激動の一年もあと僅かということで、今年取り組んだ技術を振り返ってみたいと思います。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>サーバーレスワークフローをTypeScriptで作成しよう 〜Step FunctionsとCDKによるLambdaの実行順序制御入門〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/12/08/serverless-workflow/</id>
+    <published>2020-12-07T22:28:45.000Z</published>
+    <updated>2021-12-01T14:24:49.748Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/aws&quot;&gt;AWS Advent Calendar 2020 - Qiita&lt;/a&gt;の8日目の記事です。&lt;br&gt;(Qiitaの記事と同一です。)&lt;/p&gt;
+&lt;p&gt;ワークフロー型のアーキテクチャはAWSでよく見られるイベント駆動型のアーキテクチャと補完関係にあるアーキテクチャです。その考え方はシンプルで明示的に実行順序を記述することで処理の流れを表現します。本記事ではサーバーレスの中核を担う &lt;strong&gt;Lambda関数のワークフロー型の実行順序制御&lt;/strong&gt; を実現する方法、特に &lt;strong&gt;インフラ構築、ワークフロー作成、関数作成と呼び出しを全てTypeScriptで完結させる方法&lt;/strong&gt; について、その実現方法と利点を記載したいと思います。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+    <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+    <category term="CDK" scheme="https://hinastory.github.io/cats-cats-cats/tags/CDK/"/>
+    
+    <category term="StepFunctions" scheme="https://hinastory.github.io/cats-cats-cats/tags/StepFunctions/"/>
+    
+    <category term="TypeScript" scheme="https://hinastory.github.io/cats-cats-cats/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RustとLambdaの相性が良い7つの理由 〜RustでLambdaをやっていく〜</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/12/06/7_reasons_rust_lambda/</id>
+    <published>2020-12-05T22:28:45.000Z</published>
+    <updated>2021-12-01T14:24:54.051Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;この記事は&lt;a href=&quot;https://qiita.com/advent-calendar/2020/rust2&quot;&gt;Rust 2 Advent Calendar 2020 - Qiita&lt;/a&gt;の6日目の記事です。&lt;br&gt;(Zennの記事と同一です。)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;AWS re:Invent 2020&lt;/a&gt;、初のオンライン開催ですが盛り上がってますねー&lt;br&gt;毎日ありえなくらいのアップデートが発表されて興奮の日々を送っています。&lt;br&gt;しかし、さすがクラウドのシェアNo.1のAWS、王者の貫禄というか凄みを感じます。&lt;/p&gt;
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Faws.amazon.com%2Fjp%2Fabout-aws%2Fevents%2F2020%2Freinvent%2F&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;Amazon Web Services, Inc.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;What’s New at AWS – Cloud Innovation &amp;amp; News&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://aws.amazon.com/jp/about-aws/events/2020/reinvent/&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;The AWS Cloud platform expands daily. Learn about announcements, launches, news, innovation and more from Amazon Web Services.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　&lt;br&gt;さて今回はその盛り上がりの勢いを借りて私の大好きなRustを盛り上げたいと思い筆を執りました。RustとLambdaは相性抜群という話を書いてみたいと思います。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+    <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+    <category term="AdventCalendar" scheme="https://hinastory.github.io/cats-cats-cats/tags/AdventCalendar/"/>
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格する技術(2020/11版)</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/11/19/aws-certified-solutions-architect-professional/</id>
+    <published>2020-11-18T22:28:45.000Z</published>
+    <updated>2021-02-13T01:28:52.640Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;AWS(Amazon Web Service)は言わずと知れた知れたシェアNo.1のクラウドコンピューティングサービスです。そのAWSの認定資格の中でも最難関と言われている「AWS認定ソリューションアーキテクト - プロフェッショナル」に一発で合格することができました(2020年11月)。AWSの実力者でも対策なしでは一発合格は難しいと言われており、対策を十分にしたとしても合格は至難の業と言われています。本記事はなぜこの資格がそこまで難しいかと、なぜ自分は一発合格できたのかを振り返りながらその要因について考察したものになります。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="CloudNative" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/CloudNative/"/>
+    
+    
+    <category term="AWS" scheme="https://hinastory.github.io/cats-cats-cats/tags/AWS/"/>
+    
+    <category term="Certification" scheme="https://hinastory.github.io/cats-cats-cats/tags/Certification/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>リモートワークを快適にする家電製品の紹介</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/10/08/electrical-appliances-for-remote-work/</id>
+    <published>2020-10-07T22:28:45.000Z</published>
+    <updated>2021-02-13T01:28:39.755Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;新型コロナウィルス感染症(COVID-19)の流行に伴い、在宅勤務(WFH)が長期化しそうです。もともとは週一くらいでテレワークをしていましたが、4月以降は完全にリモートワークに切り替わり出勤したのは数えるほどしかありません。&lt;br&gt;そのような環境のなかで如何にリモートワークを快適にするかは重要なテーマです。そこで今回は&lt;strong&gt;自分が実際に利用していて便利だと感じる家電製品&lt;/strong&gt;をご紹介したいと思います。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Miscellaneous" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Miscellaneous/"/>
+    
+    
+    <category term="WFH" scheme="https://hinastory.github.io/cats-cats-cats/tags/WFH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RubyKaigi Takeout 2020</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/09/06/rubykaigi-takeout-2020/</id>
+    <published>2020-09-05T22:28:45.000Z</published>
+    <updated>2021-12-01T13:11:25.592Z</updated>
+    
+    
+    <summary type="html">&lt;a href=&quot;https://rubykaigi.org/2020-takeout&quot; title=&quot;&quot; target=&quot;_blank&quot;&gt;RubyKaigi Takeout 2020&lt;i class=&quot;fas fa-external-link-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;を視聴しました。残念ながら仕事の関係でライブ参加は Day2 のみです（Day1 は後から視聴しました）。今年は松本で行われるはずのRubyKaigiが中止になって悲嘆に暮れていたところでしたが、オンラインイベントでも開催して頂けて本当に嬉しかったです。
+
+&lt;div class=&quot;blog-card&quot;&gt;&lt;div class=&quot;hbc-link-wrap&quot;&gt;&lt;a class=&quot;hbc-link&quot; href=&quot;https://rubykaigi.org/2020-takeout&quot;&gt;&lt;div class=&quot;hbc-card&quot;&gt;&lt;div class=&quot;hbc-info&quot;&gt;&lt;img class=&quot;hbc-favicon&quot; src=&quot;http://favicon.hatena.ne.jp/?url=https%3A%2F%2Frubykaigi.org%2F2020-takeout&quot;&gt;&lt;div class=&quot;hbc-site-name&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;hbc-contents&quot;&gt;&lt;div class=&quot;hbc-thumbnail&quot;&gt;&lt;img src=&quot;https://rubykaigi.org/2020-takeout/images/takeout/og_image_takeout.png&quot;&gt;&lt;/div&gt;&lt;div class=&quot;hbc-text&quot;&gt;&lt;div class=&quot;hbc-title&quot;&gt;RubyKaigi Takeout 2020&lt;/div&gt;&lt;div class=&quot;hbc-url&quot;&gt;https://rubykaigi.org/2020-takeout&lt;/div&gt;&lt;div class=&quot;hbc-description&quot;&gt;RubyKaigi Takeout 2020, #rubykaigi&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+    <category term="Event" scheme="https://hinastory.github.io/cats-cats-cats/tags/Event/"/>
+    
+    <category term="Ruby" scheme="https://hinastory.github.io/cats-cats-cats/tags/Ruby/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rustに影響を与えた言語たち</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/06/13/rust-influences/</id>
+    <published>2020-06-12T22:28:45.000Z</published>
+    <updated>2021-02-13T01:28:12.936Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Rustを使っていると時々&lt;strong&gt;「あれ？この機能、他の言語に似てない？」&lt;/strong&gt;と思うことがあります。最初に思ったのはトレイトで、これはHaskellの型クラスやScalaのImplicitsを使った型クラスパターンと同等な機能と理解しました。クロージャのシンタックスはRubyのブロック記法に似ているなと感じました。そんな&lt;strong&gt;「似ている」&lt;/strong&gt;を少しだけ深堀りしてみたいと思い、Rustに影響を与えた言語を調べて見ました。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+    <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Re：FizzBuzzから始めるRust生活</title>
+    <link href="https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/"/>
+    <id>https://hinastory.github.io/cats-cats-cats/2020/04/01/refizz-starting-life-in-rust-world/</id>
+    <published>2020-03-31T22:28:45.000Z</published>
+    <updated>2021-02-13T01:27:59.467Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;新しいプログラミング言語に入門するためには、やはり手を動かすことが大事です。本を読んで体系的に学ぶのももちろん重要ですが、それは言語の魅力を知ってからでも遅くはありません。&lt;/p&gt;
+&lt;p&gt;しかし「Hello World」レベルだと簡単すぎて言語の違いを味わえず、ネットワークプログラミングのような高度なプログラミングはフレームワークの力が大きすぎて&lt;strong&gt;言語とフレームワークの狭間で立ち往生&lt;/strong&gt;することになります。&lt;/p&gt;
+&lt;p&gt;そこで登場するのが&lt;strong&gt;「FizzBuzz」&lt;/strong&gt;です。「FizzBuzz」は単純なプログラムでありながら、プログラムの真髄である&lt;strong&gt;「順次」&lt;/strong&gt;、&lt;strong&gt;「分岐」&lt;/strong&gt;、&lt;strong&gt;「繰り返し」&lt;/strong&gt;があり、数値計算も学べる興味深い題材です。&lt;/p&gt;
+&lt;p&gt;その「FizzBuzz」を利用して&lt;strong&gt;「Rust」&lt;/strong&gt;という言語を学んでみようのが本記事の趣旨です。「FizzBuzz」というシンプルなプログラムで「Rust」のような&lt;strong&gt;表現力が豊かな言語&lt;/strong&gt;の機能をどこまで使い尽くせるのかは興味が尽きないところですが、本記事では入門という観点で初歩的なFIzzBuzzから順を追って体を慣らしながらRustのある生活を体験できるようにしたいと思います。&lt;/p&gt;
+&lt;p&gt;さぁ、FizzBuzzからRust生活を始めましょう。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tech" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/"/>
+    
+    <category term="Language" scheme="https://hinastory.github.io/cats-cats-cats/categories/Tech/Language/"/>
+    
+    
+    <category term="Rust" scheme="https://hinastory.github.io/cats-cats-cats/tags/Rust/"/>
+    
+    <category term="FizzBuzz" scheme="https://hinastory.github.io/cats-cats-cats/tags/FizzBuzz/"/>
+    
+  </entry>
+  
+</feed>
