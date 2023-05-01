@@ -1,6 +1,6 @@
 ---
-title: AWS Summit Tokyoに参加してきました
-thumbnail: /gallery/events/ten-key-4/tenkey-vol4.png
+title: AWS Summit Tokyo 2023に参加してきました
+thumbnail: /gallery/events/aws-summit-tokyo-2023/aws-summit-00.jpeg
 toc: true
 categories:
   - Tech
@@ -21,6 +21,8 @@ date: 2023-04-29 07:28:45
 ## 日時・場所
 
 
+{% img /gallery/events/aws-summit-tokyo-2023/aws-summit-01.jpeg %}
+
 - 日時
   - 2023年4月20日(木)〜21(金) 10:30～18:00(9:00開場)
 - 場所
@@ -30,6 +32,8 @@ date: 2023-04-29 07:28:45
 - 参加人数
   - 延べ35,000人
   150 以上のセッションや 180 以上の EXPO コンテンツ
+
+
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12968.784885449999!2d140.01634698715816!3d35.647536900000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022821fd52ebfdf%3A0xcec0c09c4bed45e0!2z5bmV5by144Oh44OD44K7!5e0!3m2!1sja!2sjp!4v1682901452471!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -71,3 +75,4 @@ https://aws.amazon.com/jp/blogs/news/aws-summit-tokyo-event-introduction/
 
 ## 感想とか
 
+{% img /gallery/events/aws-summit-tokyo-2023/aws-summit-20.jpeg %}
