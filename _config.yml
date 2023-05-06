@@ -90,4 +90,7 @@ oembed:
     youtube:
       match: youtube
       url: https://www.youtube.com/oembed
+    slideshare:
+      match: slideshare
+      url: http://www.slideshare.net/api/oembed/2/
 theme: icarus

@@ -144,7 +144,7 @@ kmizuさん[^9]によるScala3の理論基盤であるDOT計算のお話です�
 
 論理プログラミング言語としてはPrologが有名ですが、その一部の機能をScalaで実現しようというものでした。自分は論理プログラミングはあまり知らなかったのですが、論理的に可能な組み合わせが全て解として求めることができるというのは面白いと思いました。
 
-{% oembed https://www.slideshare.net/mobile/SanshiroYoshida/making-logic-monad %}
+{% oembed https://www.slideshare.net/SanshiroYoshida/making-logic-monad %}
 
 具体的なモナドの構成はスライドを見たほうがいいと思いますが、印象に残った`パワーワード`は以下の２つです。
 
